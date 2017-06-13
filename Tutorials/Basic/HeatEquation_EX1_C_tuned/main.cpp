@@ -4,10 +4,12 @@
 #include <AMReX_Geometry.H>
 #include <AMReX_MultiFab.H>
 #include <AMReX_Print.H>
+#include <AMReX_BLProfiler.H>
 
 #include <array>
 
 #include "myfunc_F.H"
+#include <AMReX_Device.H>
 
 using namespace amrex;
 
@@ -50,6 +52,8 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
         const Box& bx = mfi.validbox();
 	const int idx = mfi.tileIndex();
 
+        {
+        BL_PROFILE("compute_flux_cpu_side")
         compute_flux(bx.loVect(), bx.hiVect(),
                      BL_TO_FORTRAN_ANYD(old_phi[mfi]),
                      BL_TO_FORTRAN_ANYD(flux[0][mfi]),
@@ -58,6 +62,7 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
                      BL_TO_FORTRAN_ANYD(flux[2][mfi]),
 #endif
                      dx, &idx);
+        }
     }
 
 #ifdef CUDA
@@ -70,6 +75,8 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
         const Box& bx = mfi.validbox();
 	const int idx = mfi.tileIndex();
         
+        {
+        BL_PROFILE("update_phi_cpu_side")
         update_phi(bx.loVect(), bx.hiVect(),
                    BL_TO_FORTRAN_ANYD(old_phi[mfi]),
                    BL_TO_FORTRAN_ANYD(new_phi[mfi]),
@@ -79,6 +86,7 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
                    BL_TO_FORTRAN_ANYD(flux[2][mfi]),
 #endif
                    dx, &dt, &idx);
+        }
     }
 
 #ifdef CUDA
@@ -223,4 +231,16 @@ void main_main ()
 
     // Tell the I/O Processor to write out the "run time"
     amrex::Print() << "Run time = " << stop_time << std::endl;
+
+    // Time device subroutines
+    Real cuda_time;
+    int timer_id = 1;
+    int ncalls;
+    get_cuda_time(&timer_id, &cuda_time);
+    get_cuda_num_calls(&timer_id, &ncalls);
+    amrex::Print() << "Time for memory copy from host to device: " << std::endl;
+    amrex::Print() << cuda_time << std::endl;
+    amrex::Print() << "Number of calls of the timer: " << std::endl;
+    amrex::Print() << ncalls << std::endl;
+
 }

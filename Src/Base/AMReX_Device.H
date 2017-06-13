@@ -3,6 +3,7 @@
 #define BL_DEVICE_H
 
 #include <cstdlib>
+#include "AMReX_REAL.H"
 
 #ifdef CUDA
 extern "C" {
@@ -16,6 +17,8 @@ extern "C" {
     void gpu_htod_memprefetch_async(void* p, const std::size_t* sz, const int* idx);
     void gpu_dtoh_memprefetch_async(void* p, const std::size_t* sz, const int* idx);
     void mem_advise_set_preferred(void* p, const std::size_t* sz, const int* device);
+    void get_cuda_time(int* id, amrex::Real* time);
+    void get_cuda_num_calls(int* id, int* ncalls);
 }
 #endif
 

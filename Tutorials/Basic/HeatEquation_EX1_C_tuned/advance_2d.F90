@@ -52,31 +52,28 @@ contains
     cuda_result = cudaMemcpyAsync(dx_d, dx, 2, cudaMemcpyHostToDevice, stream)
 
     blo = [lo(1),   lo(2)]
+
+    ! x-direction
+    idir = 1
     bhi = [hi(1)+1, hi(2)]
 
     cuda_result = cudaMemcpyAsync(blo_d, blo, 2, cudaMemcpyHostToDevice, stream)
     cuda_result = cudaMemcpyAsync(bhi_d, bhi, 2, cudaMemcpyHostToDevice, stream)
-
-    idir = 1
     cuda_result = cudaMemcpyAsync(idir_d, idir, 1, cudaMemcpyHostToDevice, stream)
 
     call threads_and_blocks(blo, bhi, numBlocks, numThreads)
-
     call compute_flux_doit<<<numBlocks, numThreads, 0, stream>>>(blo_d, bhi_d, phi, philo_d, phihi_d, &
                                                                  fluxx, fxlo_d, fxhi_d, dx_d, idir_d)
 
-    bhi = [hi(1), hi(2)+1]
-
-    cuda_result = cudaMemcpyAsync(bhi_d, bhi, 2, cudaMemcpyHostToDevice, stream)
-
+    ! y-direction                                                         
     idir = 2
+    bhi = [hi(1), hi(2)+1]
+    cuda_result = cudaMemcpyAsync(bhi_d, bhi, 2, cudaMemcpyHostToDevice, stream)
     cuda_result = cudaMemcpyAsync(idir_d, idir, 1, cudaMemcpyHostToDevice, stream)
 
     call threads_and_blocks(blo, bhi, numBlocks, numThreads)
-
     call compute_flux_doit<<<numBlocks, numThreads, 0, stream>>>(blo_d, bhi_d, phi, philo_d, phihi_d, &
                                                                  fluxy, fylo_d, fyhi_d, dx_d, idir_d)
-
 #else
 
     blo = [lo(1),   lo(2)]
@@ -104,8 +101,12 @@ contains
     use amrex_fort_module, only: rt => amrex_real
 #ifdef CUDA
     use cuda_module, only: cuda_streams, stream_from_index, threads_and_blocks
-    use cudafor, only: cudaMemcpyAsync, cudaMemcpyHostToDevice, cudaStreamSynchronize, &
-                       cuda_stream_kind, dim3
+    use cudafor, only: cudaMemcpyAsync, cudaEventCreate, cudaEventRecord, &
+                       cudaEventDestroy, cudaEventSynchronize, cudaEventElapsedTime, &
+                       cuda_stream_kind, dim3, cudaMemcpyHostToDevice, cudaEvent
+    ! for timing
+    use cuda_module, only: timer_take, timer_start, timer_stop
+                
 #endif
 
     implicit none
@@ -131,9 +132,16 @@ contains
     integer, device :: fxlo_d(2), fxhi_d(2)
     integer, device :: fylo_d(2), fyhi_d(2)
     real(rt), device :: dx_d(2), dt_d
+    integer :: timer_id
+    character(len=10), parameter :: timer_name = "update_phi"
 
     stream = cuda_streams(stream_from_index(idx)+1)
 
+    timer_id = 1
+    call timer_take(timer_name, timer_id)
+    call timer_start(timer_id)
+
+    ! all memory copy stuff
     cuda_result = cudaMemcpyAsync(lo_d, lo, 2, cudaMemcpyHostToDevice, stream)
     cuda_result = cudaMemcpyAsync(hi_d, hi, 2, cudaMemcpyHostToDevice, stream)
 
@@ -152,6 +160,8 @@ contains
     cuda_result = cudaMemcpyAsync(dx_d, dx, 2, cudaMemcpyHostToDevice, stream)
 
     cuda_result = cudaMemcpyAsync(dt_d, dt, 1, cudaMemcpyHostToDevice, stream)
+
+    call timer_stop(timer_id)
 
     call threads_and_blocks(lo, hi, numBlocks, numThreads)
 

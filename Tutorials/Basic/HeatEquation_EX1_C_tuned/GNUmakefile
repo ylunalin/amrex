@@ -4,13 +4,17 @@ AMREX_HOME ?= ../../../
 
 TINY_PROFILE	= TRUE
 DEBUG     	= TRUE
+# DEBUG     	= FALSE
+#
 USE_MPI   	= FALSE
 USE_OMP   	= FALSE
 
-# USE_CUDA  	= TRUE
-USE_CUDA  	= FALSE
-COMP    	  = gnu
-# COMP      	= pgi
+USE_CUDA  	= TRUE
+COMP      	= pgi
+
+# USE_CUDA  	= FALSE
+# COMP    	  = gnu
+#
 DIM       	= 2
 
 include $(AMREX_HOME)/Tools/GNUMake/Make.defs

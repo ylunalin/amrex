@@ -1,13 +1,25 @@
 module cuda_module
 
-  use cudafor, only: cuda_stream_kind
+    use cudafor, only: cuda_stream_kind, cudaEvent
+    use amrex_fort_module, only: amrex_real
 
-  implicit none
+    implicit none
 
-  integer, parameter :: max_cuda_streams = 100
-  integer(kind=cuda_stream_kind) :: cuda_streams(max_cuda_streams)
+    integer, parameter :: max_cuda_streams = 100
+    integer(kind=cuda_stream_kind) :: cuda_streams(max_cuda_streams)
 
-  integer, save :: cuda_device_id
+    integer, save :: cuda_device_id
+
+    ! For timing
+    ! use 0-index array
+    integer, parameter :: max_cuda_timer =  100
+    real(amrex_real) :: elapsed_time(max_cuda_timer)
+    character(len=10) :: timer_name(max_cuda_timer)
+    logical :: timer_initialized(max_cuda_timer)
+    integer :: n_calls(max_cuda_timer)
+    type(cudaEvent) :: event_start(max_cuda_timer)
+    type(cudaEvent) :: event_stop(max_cuda_timer)
+    integer :: n_timer
 
 contains
 
@@ -24,6 +36,7 @@ contains
     enddo
 
     cuda_device_id = 0
+    n_timer = 0
 
   end subroutine initialize_cuda
 
@@ -278,5 +291,61 @@ contains
     cudaResult = cudaMemAdvise(p, sz, cudaMemAdviseSetPreferredLocation, device)
 
   end subroutine mem_advise_set_preferred
+
+    ! put a timer with name t_name and ID id
+    ! id should be in the range 1:max_cuda_timer
+    subroutine timer_take(t_name, id)
+        implicit none
+        integer, intent(in) :: id
+        character(len=10), intent(in) :: t_name
+        if (timer_initialized(id) .eq. .false.) then
+            timer_name(id) = t_name
+            elapsed_time(id) = 0.0
+            n_calls(id) = 0
+            timer_initialized(id) = .true.
+        endif
+    end subroutine timer_take
+
+    subroutine timer_start(id)
+        use cudafor, only: cudaEventCreate, cudaEventRecord
+        implicit none
+        integer :: id, cuda_result
+        cuda_result = cudaEventCreate(event_start(id))
+        cuda_result = cudaEventCreate(event_stop(id))
+        cuda_result = cudaEventRecord(event_start(id), 0)
+        n_calls(id) = n_calls(id) + 1
+    end subroutine timer_start
+
+    subroutine timer_stop(id)
+        use cudafor, only: cudaEventRecord, cudaEventDestroy, & 
+            cudaEventSynchronize, cudaEventElapsedTime
+        use amrex_fort_module, only: amrex_real
+        implicit none
+        integer :: id, cuda_result
+        real :: local_time
+        cuda_result = cudaEventRecord(event_stop(id), 0)
+        cuda_result = cudaEventSynchronize(event_stop(id))
+        cuda_result = cudaEventElapsedTime(local_time, event_start(id), event_stop(id))
+        cuda_result = cudaEventDestroy(event_start(id))
+        cuda_result = cudaEventDestroy(event_stop(id))
+        elapsed_time(id) = elapsed_time(id) + local_time/1000
+    end subroutine timer_stop
+
+    ! returned time is in second
+    subroutine get_cuda_time(id, time) bind(c, name='get_cuda_time')
+        use amrex_fort_module, only: amrex_real
+        implicit none
+        integer, intent(in) :: id
+        real(amrex_real), intent(out) :: time
+        time = elapsed_time(id)
+    end subroutine get_cuda_time
+
+    subroutine get_cuda_num_calls(id, n) bind(c, name='get_cuda_num_calls')
+        use amrex_fort_module, only: amrex_real
+        implicit none
+        integer, intent(in) :: id
+        integer, intent(out) :: n
+        n= n_calls(id)
+    end subroutine get_cuda_num_calls
 
 end module cuda_module
