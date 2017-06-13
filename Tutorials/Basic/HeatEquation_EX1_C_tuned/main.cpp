@@ -233,14 +233,42 @@ void main_main ()
     amrex::Print() << "Run time = " << stop_time << std::endl;
 
     // Time device subroutines
-    Real cuda_time;
-    int timer_id = 1;
-    int ncalls;
-    get_cuda_time(&timer_id, &cuda_time);
-    get_cuda_num_calls(&timer_id, &ncalls);
-    amrex::Print() << "Time for memory copy from host to device: " << std::endl;
-    amrex::Print() << cuda_time << std::endl;
-    amrex::Print() << "Number of calls of the timer: " << std::endl;
-    amrex::Print() << ncalls << std::endl;
+    {
+        Real cuda_time;
+        int ncalls;
+        int timer_id;
+
+        timer_id = 1;
+        get_cuda_time(&timer_id, &cuda_time);
+        get_cuda_num_calls(&timer_id, &ncalls);
+        amrex::Print() << "Time for memory copy from host to device in compute_flux(): " << std::endl;
+        amrex::Print() << cuda_time << std::endl;
+        amrex::Print() << "Number of calls of the timer: " << std::endl;
+        amrex::Print() << ncalls << std::endl;
+
+        timer_id = 2;
+        get_cuda_time(&timer_id, &cuda_time);
+        get_cuda_num_calls(&timer_id, &ncalls);
+        amrex::Print() << "Time for kernel in compute_flux(): " << std::endl;
+        amrex::Print() << cuda_time << std::endl;
+        amrex::Print() << "Number of calls of the timer: " << std::endl;
+        amrex::Print() << ncalls << std::endl;
+
+        timer_id = 3;
+        get_cuda_time(&timer_id, &cuda_time);
+        get_cuda_num_calls(&timer_id, &ncalls);
+        amrex::Print() << "Time for memory copy from host to device in update_phi(): " << std::endl;
+        amrex::Print() << cuda_time << std::endl;
+        amrex::Print() << "Number of calls of the timer: " << std::endl;
+        amrex::Print() << ncalls << std::endl;
+
+        timer_id = 4;
+        get_cuda_time(&timer_id, &cuda_time);
+        get_cuda_num_calls(&timer_id, &ncalls);
+        amrex::Print() << "Time for kernel in update_phi(): " << std::endl;
+        amrex::Print() << cuda_time << std::endl;
+        amrex::Print() << "Number of calls of the timer: " << std::endl;
+        amrex::Print() << ncalls << std::endl;
+    }
 
 }

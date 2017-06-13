@@ -12,6 +12,8 @@ contains
     use cuda_module, only: cuda_streams, stream_from_index, threads_and_blocks
     use cudafor, only: cudaMemcpyAsync, cudaMemcpyHostToDevice, cudaStreamSynchronize, &
                        cuda_stream_kind, dim3
+    ! for timing
+    use cuda_module, only: timer_take, timer_start, timer_stop
 #endif
 
     implicit none
@@ -37,8 +39,18 @@ contains
     integer, device :: fylo_d(2), fyhi_d(2)
     real(rt), device :: dx_d(2)
     integer, device :: idir_d
+    integer :: timer_id, timer_id2
+    character(len=20), parameter :: timer_name = "copy in compute_flux"
+    character(len=20), parameter :: timer_name2 = "kernel in compute_flux"
+    timer_id = 1
+    timer_id2 = 2
+    ! initialize timer
+    call timer_take(timer_name, timer_id)
+    call timer_take(timer_name2, timer_id2)
 
     stream = cuda_streams(stream_from_index(idx)+1)
+
+    call timer_start(timer_id)
 
     cuda_result = cudaMemcpyAsync(philo_d, philo, 2, cudaMemcpyHostToDevice, stream)
     cuda_result = cudaMemcpyAsync(phihi_d, phihi, 2, cudaMemcpyHostToDevice, stream)
@@ -61,19 +73,30 @@ contains
     cuda_result = cudaMemcpyAsync(bhi_d, bhi, 2, cudaMemcpyHostToDevice, stream)
     cuda_result = cudaMemcpyAsync(idir_d, idir, 1, cudaMemcpyHostToDevice, stream)
 
+    call timer_stop(timer_id)
+
     call threads_and_blocks(blo, bhi, numBlocks, numThreads)
+
+    call timer_start(timer_id2)
     call compute_flux_doit<<<numBlocks, numThreads, 0, stream>>>(blo_d, bhi_d, phi, philo_d, phihi_d, &
                                                                  fluxx, fxlo_d, fxhi_d, dx_d, idir_d)
+    call timer_stop(timer_id2)
 
     ! y-direction                                                         
     idir = 2
     bhi = [hi(1), hi(2)+1]
+
+    call timer_start(timer_id)
     cuda_result = cudaMemcpyAsync(bhi_d, bhi, 2, cudaMemcpyHostToDevice, stream)
     cuda_result = cudaMemcpyAsync(idir_d, idir, 1, cudaMemcpyHostToDevice, stream)
+    call timer_stop(timer_id)
 
     call threads_and_blocks(blo, bhi, numBlocks, numThreads)
+
+    call timer_start(timer_id2)
     call compute_flux_doit<<<numBlocks, numThreads, 0, stream>>>(blo_d, bhi_d, phi, philo_d, phihi_d, &
                                                                  fluxy, fylo_d, fyhi_d, dx_d, idir_d)
+    call timer_stop(timer_id2)
 #else
 
     blo = [lo(1),   lo(2)]
@@ -132,13 +155,17 @@ contains
     integer, device :: fxlo_d(2), fxhi_d(2)
     integer, device :: fylo_d(2), fyhi_d(2)
     real(rt), device :: dx_d(2), dt_d
-    integer :: timer_id
-    character(len=10), parameter :: timer_name = "update_phi"
+    integer :: timer_id, timer_id2
+    character(len=20), parameter :: timer_name = "copy_in_update_phi"
+    character(len=20), parameter :: timer_name2 = "kernel_in_update_phi"
+    timer_id = 3
+    timer_id2 = 4
+    ! initialize timer
+    call timer_take(timer_name, timer_id)
+    call timer_take(timer_name2, timer_id2)
 
     stream = cuda_streams(stream_from_index(idx)+1)
 
-    timer_id = 1
-    call timer_take(timer_name, timer_id)
     call timer_start(timer_id)
 
     ! all memory copy stuff
@@ -165,9 +192,11 @@ contains
 
     call threads_and_blocks(lo, hi, numBlocks, numThreads)
 
+    call timer_start(timer_id2)
     call update_phi_doit<<<numBlocks, numThreads, 0, stream>>>(lo_d, hi_d, phiold, polo_d, pohi_d, &
                                                                phinew, pnlo_d, pnhi_d, fluxx, fxlo_d, fxhi_d, &
                                                                fluxy, fylo_d, fyhi_d, dx_d, dt_d)
+    call timer_stop(timer_id2)
 
 #else
 

@@ -14,7 +14,7 @@ module cuda_module
     ! use 0-index array
     integer, parameter :: max_cuda_timer =  100
     real(amrex_real) :: elapsed_time(max_cuda_timer)
-    character(len=10) :: timer_name(max_cuda_timer)
+    character(len=20) :: timer_name(max_cuda_timer)
     logical :: timer_initialized(max_cuda_timer)
     integer :: n_calls(max_cuda_timer)
     type(cudaEvent) :: event_start(max_cuda_timer)
