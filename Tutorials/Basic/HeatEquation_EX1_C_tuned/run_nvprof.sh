@@ -2,12 +2,12 @@
 
 if [ $# == 0 ]
   then
-    echo "Usage: ./run_nvprof.sh output_dir application_name"
+    echo "Usage: ./run_nvprof.sh application_name output_dir"
     exit
 fi
 
-OUTPUTDIR=$1
-APPLICATION=$2
+APPLICATION=$1
+OUTPUTDIR=$2
 INPUT=inputs_2d
 OUTPUT=main.nvprof
 
@@ -18,7 +18,7 @@ wait
 OPTIONS=\ --profile-from-start\ on\ --export-profile\ $OUTPUT 
 # OPTIONS=\ --analysis-metrics
 
-nvprof $OPTIONS $APPLICATION $INPUT
+nvprof $OPTIONS $APPLICATION $INPUT &>run.log
 # echo $OPTIONS 
 # echo $APPLICATION 
 # echo $INPUT
