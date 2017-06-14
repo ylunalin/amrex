@@ -3,6 +3,7 @@
 if [ $# == 0 ]
   then
     echo "Usage: ./run_benchmark.sh output_dir"
+    exit
 fi
 
 # EXEC=./main2d.pgi.TPROF.CUDA.ex
