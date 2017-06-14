@@ -35,9 +35,9 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
 	      Real dt, const Geometry& geom)
 {
     BL_PROFILE("main::advance")
-#ifdef CUDA
-    cudaProfilerStart();
-#endif
+// #ifdef CUDA
+//     cudaProfilerStart();
+// #endif
     // Fill the ghost cells of each grid from the other grids
     // includes periodic domain boundaries
     old_phi.FillBoundary(geom.periodicity());
@@ -72,9 +72,9 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
                      dx, &idx);
         }
 
-#ifdef CUDA
-    cudaProfilerStop();
-#endif
+// #ifdef CUDA
+//     cudaProfilerStop();
+// #endif
     }
 
 #ifdef CUDA
@@ -180,8 +180,8 @@ void main_main ()
     std::shared_ptr<MultiFab> phi_old(new MultiFab(ba, dm, Ncomp, Nghost));
     std::shared_ptr<MultiFab> phi_new(new MultiFab(ba, dm, Ncomp, Nghost));
 
-    phi_old->setVal(0.0);
-    phi_new->setVal(0.0);
+    // phi_old->setVal(0.0);
+    // phi_new->setVal(0.0);
 
     // Initialize phi_new by calling a Fortran routine.
     // MFIter = MultiFab Iterator
