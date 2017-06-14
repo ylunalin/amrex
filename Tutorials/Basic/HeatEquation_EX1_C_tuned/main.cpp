@@ -7,9 +7,14 @@
 #include <AMReX_BLProfiler.H>
 
 #include <array>
+#include <memory>
 
 #include "myfunc_F.H"
 #include <AMReX_Device.H>
+
+#ifdef CUDA
+#include "cuda_profiler_api.h"
+#endif
 
 using namespace amrex;
 
@@ -30,6 +35,9 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
 	      Real dt, const Geometry& geom)
 {
     BL_PROFILE("main::advance")
+#ifdef CUDA
+    cudaProfilerStart();
+#endif
     // Fill the ghost cells of each grid from the other grids
     // includes periodic domain boundaries
     old_phi.FillBoundary(geom.periodicity());
@@ -63,6 +71,10 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
 #endif
                      dx, &idx);
         }
+
+#ifdef CUDA
+    cudaProfilerStop();
+#endif
     }
 
 #ifdef CUDA
@@ -165,20 +177,20 @@ void main_main ()
     DistributionMapping dm(ba);
 
     // we allocate two phi multifabs; one will store the old state, the other the new.
-    MultiFab phi_old(ba, dm, Ncomp, Nghost);
-    MultiFab phi_new(ba, dm, Ncomp, Nghost);
+    std::shared_ptr<MultiFab> phi_old(new MultiFab(ba, dm, Ncomp, Nghost));
+    std::shared_ptr<MultiFab> phi_new(new MultiFab(ba, dm, Ncomp, Nghost));
 
-    phi_old.setVal(0.0);
-    phi_new.setVal(0.0);
+    phi_old->setVal(0.0);
+    phi_new->setVal(0.0);
 
     // Initialize phi_new by calling a Fortran routine.
     // MFIter = MultiFab Iterator
-    for ( MFIter mfi(phi_new); mfi.isValid(); ++mfi )
+    for ( MFIter mfi(*phi_new); mfi.isValid(); ++mfi )
     {
         const Box& bx = mfi.validbox();
 
         init_phi(bx.loVect(), bx.hiVect(),
-                 BL_TO_FORTRAN_ANYD(phi_new[mfi]),
+                 BL_TO_FORTRAN_ANYD((*phi_new)[mfi]),
                  geom.CellSize(), geom.ProbLo(), geom.ProbHi());
     }
 
@@ -191,7 +203,7 @@ void main_main ()
     {
         int n = 0;
         const std::string& pltfile = amrex::Concatenate("plt",n,5);
-        WriteSingleLevelPlotfile(pltfile, phi_new, {"phi"}, geom, time, 0);
+        WriteSingleLevelPlotfile(pltfile, *phi_new, {"phi"}, geom, time, 0);
     }
 
     // build the flux multifabs
@@ -204,12 +216,13 @@ void main_main ()
         flux[dir].define(edge_ba, dm, 1, 0);
     }
 
+
+    MultiFab::Copy(*phi_old, *phi_new, 0, 0, 1, 0);
     for (int n = 1; n <= nsteps; ++n)
     {
-        MultiFab::Copy(phi_old, phi_new, 0, 0, 1, 0);
 
         // new_phi = old_phi + dt * (something)
-        advance(phi_old, phi_new, flux, dt, geom); 
+        advance(*phi_old, *phi_new, flux, dt, geom); 
         time = time + dt;
         
         // Tell the I/O Processor to write out which step we're doing
@@ -219,8 +232,10 @@ void main_main ()
         if (plot_int > 0 && n%plot_int == 0)
         {
             const std::string& pltfile = amrex::Concatenate("plt",n,5);
-            WriteSingleLevelPlotfile(pltfile, phi_new, {"phi"}, geom, time, n);
+            WriteSingleLevelPlotfile(pltfile, *phi_new, {"phi"}, geom, time, n);
         }
+        // switch new and old
+        phi_new.swap(phi_old);
     }
 
     // Call the timer again and compute the maximum difference between the start time and stop time
@@ -232,6 +247,7 @@ void main_main ()
     // Tell the I/O Processor to write out the "run time"
     amrex::Print() << "Run time = " << stop_time << std::endl;
 
+#ifdef CUDA
     // Time device subroutines
     {
         Real cuda_time;
@@ -270,5 +286,6 @@ void main_main ()
         amrex::Print() << "Number of calls of the timer: " << std::endl;
         amrex::Print() << ncalls << std::endl;
     }
+#endif
 
 }
