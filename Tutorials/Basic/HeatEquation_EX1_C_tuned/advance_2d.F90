@@ -39,6 +39,7 @@ contains
     integer, device :: fylo_d(2), fyhi_d(2)
     real(rt), device :: dx_d(2)
     integer, device :: idir_d
+#ifdef BL_TINY_PROFILING
     integer :: timer_id, timer_id2
     character(len=20), parameter :: timer_name = "copy in compute_flux"
     character(len=20), parameter :: timer_name2 = "kernel in compute_flux"
@@ -47,10 +48,13 @@ contains
     ! initialize timer
     call timer_take(timer_name, timer_id)
     call timer_take(timer_name2, timer_id2)
+#endif
 
     stream = cuda_streams(stream_from_index(idx)+1)
 
+#ifdef BL_TINY_PROFILING
     call timer_start(timer_id)
+#endif
 
     cuda_result = cudaMemcpyAsync(philo_d, philo, 2, cudaMemcpyHostToDevice, stream)
     cuda_result = cudaMemcpyAsync(phihi_d, phihi, 2, cudaMemcpyHostToDevice, stream)
@@ -73,30 +77,47 @@ contains
     cuda_result = cudaMemcpyAsync(bhi_d, bhi, 2, cudaMemcpyHostToDevice, stream)
     cuda_result = cudaMemcpyAsync(idir_d, idir, 1, cudaMemcpyHostToDevice, stream)
 
+#ifdef BL_TINY_PROFILING
     call timer_stop(timer_id)
+#endif
 
     call threads_and_blocks(blo, bhi, numBlocks, numThreads)
 
+#ifdef BL_TINY_PROFILING
     call timer_start(timer_id2)
+#endif
     call compute_flux_doit<<<numBlocks, numThreads, 0, stream>>>(blo_d, bhi_d, phi, philo_d, phihi_d, &
                                                                  fluxx, fxlo_d, fxhi_d, dx_d, idir_d)
+#ifdef BL_TINY_PROFILING
     call timer_stop(timer_id2)
+#endif
 
     ! y-direction                                                         
     idir = 2
     bhi = [hi(1), hi(2)+1]
 
+#ifdef BL_TINY_PROFILING
     call timer_start(timer_id)
+#endif
+
     cuda_result = cudaMemcpyAsync(bhi_d, bhi, 2, cudaMemcpyHostToDevice, stream)
     cuda_result = cudaMemcpyAsync(idir_d, idir, 1, cudaMemcpyHostToDevice, stream)
+
+#ifdef BL_TINY_PROFILING
     call timer_stop(timer_id)
+#endif
 
     call threads_and_blocks(blo, bhi, numBlocks, numThreads)
 
+#ifdef BL_TINY_PROFILING
     call timer_start(timer_id2)
+#endif
     call compute_flux_doit<<<numBlocks, numThreads, 0, stream>>>(blo_d, bhi_d, phi, philo_d, phihi_d, &
                                                                  fluxy, fylo_d, fyhi_d, dx_d, idir_d)
+#ifdef BL_TINY_PROFILING
     call timer_stop(timer_id2)
+#endif
+
 #else
 
     blo = [lo(1),   lo(2)]
@@ -155,6 +176,7 @@ contains
     integer, device :: fxlo_d(2), fxhi_d(2)
     integer, device :: fylo_d(2), fyhi_d(2)
     real(rt), device :: dx_d(2), dt_d
+#ifdef BL_TINY_PROFILING
     integer :: timer_id, timer_id2
     character(len=20), parameter :: timer_name = "copy_in_update_phi"
     character(len=20), parameter :: timer_name2 = "kernel_in_update_phi"
@@ -163,10 +185,13 @@ contains
     ! initialize timer
     call timer_take(timer_name, timer_id)
     call timer_take(timer_name2, timer_id2)
+#endif
 
     stream = cuda_streams(stream_from_index(idx)+1)
 
+#ifdef BL_TINY_PROFILING
     call timer_start(timer_id)
+#endif
 
     ! all memory copy stuff
     cuda_result = cudaMemcpyAsync(lo_d, lo, 2, cudaMemcpyHostToDevice, stream)
@@ -188,15 +213,21 @@ contains
 
     cuda_result = cudaMemcpyAsync(dt_d, dt, 1, cudaMemcpyHostToDevice, stream)
 
+#ifdef BL_TINY_PROFILING
     call timer_stop(timer_id)
+#endif
 
     call threads_and_blocks(lo, hi, numBlocks, numThreads)
 
+#ifdef BL_TINY_PROFILING
     call timer_start(timer_id2)
+#endif
     call update_phi_doit<<<numBlocks, numThreads, 0, stream>>>(lo_d, hi_d, phiold, polo_d, pohi_d, &
                                                                phinew, pnlo_d, pnhi_d, fluxx, fxlo_d, fxhi_d, &
                                                                fluxy, fylo_d, fyhi_d, dx_d, dt_d)
+#ifdef BL_TINY_PROFILING
     call timer_stop(timer_id2)
+#endif
 
 #else
 

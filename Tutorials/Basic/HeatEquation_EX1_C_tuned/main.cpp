@@ -248,6 +248,7 @@ void main_main ()
     amrex::Print() << "Run time = " << stop_time << std::endl;
 
 #ifdef CUDA
+#ifdef BL_TINY_PROFILING
     // Time device subroutines
     {
         Real cuda_time;
@@ -286,6 +287,7 @@ void main_main ()
         amrex::Print() << "Number of calls of the timer: " << std::endl;
         amrex::Print() << ncalls << std::endl;
     }
+#endif
 #endif
 
 }
