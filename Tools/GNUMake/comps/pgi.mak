@@ -62,8 +62,8 @@ endif
 ifeq ($(USE_CUDA),TRUE)
   CXXFLAGS += -Mcuda=cuda8.0
   CFLAGS   += -Mcuda=cuda8.0
-  FFLAGS   += -Mcuda=cuda8.0 -Mnomain
-  F90FLAGS += -Mcuda=cuda8.0 -Mnomain
+  FFLAGS   += -Mcuda=cuda8.0 -Mnomain -Mcuda=lineinfo
+  F90FLAGS += -Mcuda=cuda8.0 -Mnomain -Mcuda=lineinfo
 
   override XTRALIBS += -lstdc++
 endif

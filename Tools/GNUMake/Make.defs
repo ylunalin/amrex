@@ -108,7 +108,7 @@ ifndef USE_CUDA
 endif
 
 ifndef USE_CUDA_UM
-  USE_CUDA_UM = TRUE
+  USE_CUDA_UM = FALSE
 endif
 
 ifdef DIMENSION_AGNOSTIC
