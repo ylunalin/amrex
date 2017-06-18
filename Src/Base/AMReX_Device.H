@@ -8,9 +8,12 @@
 #ifdef CUDA
 extern "C" {
     void initialize_cuda();
+    void finalize_cuda();
     void gpu_malloc(void** p, const std::size_t* sz);
     void gpu_malloc_managed(void** p, const std::size_t* sz);
     void gpu_free(void* p);
+    void cpu_malloc_pinned(void** p, const std::size_t* sz);
+    void cpu_free_pinned(void* p);
     void gpu_synchronize();
     void gpu_htod_memcpy_async(void* p_d, void* p_h, const std::size_t* sz, const int* idx);
     void gpu_dtoh_memcpy_async(void* p_h, void* p_d, const std::size_t* sz, const int* idx);

@@ -40,6 +40,22 @@ contains
 
   end subroutine initialize_cuda
 
+  ! put all finalization code for CUDA here
+  subroutine finalize_cuda() bind(c, name='finalize_cuda')
+
+    use cudafor, only: cudaDeviceReset
+    implicit none
+    integer :: cudaResult
+
+    ! cudaDeviceReset causes the driver to clean up all state. While
+    ! not mandatory in normal operation, it is good practice.  It is also
+    ! needed to ensure correct operation when the application is being
+    ! profiled. Calling cudaDeviceReset causes all profile data to be
+    ! flushed before the application exits
+    cudaResult = cudaDeviceReset()
+
+  end subroutine finalize_cuda
+
 
 
   subroutine get_cuda_device_id(id) bind(c, name='get_cuda_device_id')
@@ -171,6 +187,20 @@ contains
 
   end subroutine gpu_free
 
+  subroutine cpu_free_pinned(x) bind(c, name='cpu_free_pinned')
+
+    use cudafor, only: cudaFreeHost, c_ptr
+
+    implicit none
+
+    type(c_ptr), value :: x
+
+    integer :: cudaResult
+
+    cudaResult = cudaFreeHost(x)
+
+  end subroutine cpu_free_pinned
+
 
 
   subroutine gpu_htod_memcpy_async(p_d, p_h, sz, idx) bind(c, name='gpu_htod_memcpy_async')
@@ -291,6 +321,26 @@ contains
     cudaResult = cudaMemAdvise(p, sz, cudaMemAdviseSetPreferredLocation, device)
 
   end subroutine mem_advise_set_preferred
+
+  subroutine cpu_malloc_pinned(x, sz) bind(c, name='cpu_malloc_pinned')
+
+    use cudafor, only: cudaHostAlloc, c_ptr, cudaHostAllocDefault
+    use iso_c_binding, only: c_size_t
+
+    implicit none
+
+    type(c_ptr) :: x
+    ! TODO: cudaHostAlloc can only take sz as integer(kind=4) 
+    ! not integer(kind=c_size_t) 
+    ! but sz passed to cpu_malloc_pinned is of type size_t
+    ! integer(c_size_t) :: sz
+    integer(kind=4) :: sz
+
+    integer :: cudaResult
+
+    cudaResult = cudaHostAlloc(x, sz, cudaHostAllocDefault)
+
+  end subroutine cpu_malloc_pinned
 
     ! put a timer with name t_name and ID id
     ! id should be in the range 1:max_cuda_timer

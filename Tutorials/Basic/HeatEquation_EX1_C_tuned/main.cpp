@@ -185,7 +185,8 @@ void main_main ()
 
     // Initialize phi_new by calling a Fortran routine.
     // MFIter = MultiFab Iterator
-    for ( MFIter mfi(*phi_new); mfi.isValid(); ++mfi )
+    // for ( MFIter mfi(*phi_new); mfi.isValid(); ++mfi )
+    for ( MFIter mfi(*phi_old); mfi.isValid(); ++mfi )
     {
         const Box& bx = mfi.validbox();
 
@@ -217,7 +218,7 @@ void main_main ()
     }
 
 
-    MultiFab::Copy(*phi_old, *phi_new, 0, 0, 1, 0);
+    // MultiFab::Copy(*phi_old, *phi_new, 0, 0, 1, 0);
     for (int n = 1; n <= nsteps; ++n)
     {
 
