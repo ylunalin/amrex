@@ -103,7 +103,13 @@ namespace amrex {
 //
 struct MFInfo {
     bool    alloc = true;
+#ifdef CUDA_UM
     bool    device = false;
+#else
+    // not using unified memory
+    // need to explicitly allocate memory on device
+    bool    device = true;
+#endif
     MFInfo& SetAlloc(bool a) { alloc = a; return *this; }
     MFInfo& SetDevice(bool d) { device = d; return *this; }
 };

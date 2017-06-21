@@ -10,6 +10,7 @@
 namespace amrex {
 
 template<class T> class FabArray;
+class MFIterRegister;
 
 class MFIter
 {
@@ -55,6 +56,12 @@ public:
 	    const IntVect& tilesize, unsigned char flags_=0);
 
     MFIter (MFIter&& rhs) = default;
+
+#ifdef CUDA
+    explicit MFIter (const FabArrayBase& fabarray,
+                     const MFIterRegister& mfi_reg,
+		     unsigned char       flags_=0);
+#endif
 
     // dtor
     ~MFIter ();
@@ -170,6 +177,60 @@ private:
     void Initialize ();
     FabArrayBase::TileArray lta;
 };
+
+class MFIterRegister
+{
+public:
+    MFIterRegister(): 
+        buffer(NULL), dx(0.0), dy(0.0), dz(0.0), dt(0.0), iter_id(3)
+    {};
+
+    void registerMultiFab(MultiFab* mf) {
+        m_mf_v.push_back(mf);
+    }
+
+    void registerCellSize(const amrex::Real& dx_, 
+                          const amrex::Real& dy_,
+                          const amrex::Real& dz_
+                          ) {
+        dx = dx_; 
+        dy = dy_; 
+        dz = dz_; 
+    }
+
+    void registerTimeStep(const amrex::Real& dt_) {
+        dt = dt_;
+    }
+
+    // send buffer from host to device
+    void closeRegister();
+
+    void* get_device_ptr() {
+        return data_d;
+    }
+
+    // This is mostly for debugging
+    // It also shows how to unpack info from the buffer
+    void printInfo();
+
+
+    // destructor
+    ~MFIterRegister() {
+        // TODO:
+        // free ptrs
+    }
+private:
+    // TODO: how do we avoid accidentally change the fabarrays
+    // that these pointers point to
+    std::vector<MultiFab*> m_mf_v;
+    amrex::Real dx, dy, dz;
+    amrex::Real dt;
+    void* buffer;
+    void* data_d;
+    int iter_id;
+
+};
+
 
 }
 

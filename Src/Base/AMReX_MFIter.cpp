@@ -3,6 +3,7 @@
 #include <AMReX_FabArray.H>
 #include <AMReX_FArrayBox.H>
 #include <AMReX_Device.H>
+#include <AMReX_MultiFab.H>
 
 namespace amrex {
 
@@ -99,6 +100,28 @@ MFIter::MFIter (const BoxArray& ba, const DistributionMapping& dm,
     Initialize();
 }
 
+// #ifdef CUDA
+// MFIter::MFIter (const FabArrayBase& fabarray_, 
+//                 const MFIterRegister& mfi_reg,
+// 		unsigned char       flags_)
+//     :
+//     fabArray(fabarray_),
+//     tile_size((flags_ & Tiling) ? FabArrayBase::mfiter_tile_size : IntVect::TheZeroVector()),
+//     flags(flags_),
+//     index_map(nullptr),
+//     local_index_map(nullptr),
+//     tile_array(nullptr),
+//     local_tile_index_map(nullptr),
+//     num_local_tiles(nullptr)
+// {
+//     Initialize();
+//     // pack all data to a buffer
+//     // kick off data transfer from host to device immediately
+//     for (std::vector<FabArrayBase*>::iterator it = m_mf_v.begin(); it != m_mf_v.end(); ++it) {
+//     }
+// }
+// #endif
+
 
 MFIter::~MFIter ()
 {
@@ -106,7 +129,7 @@ MFIter::~MFIter ()
     if ( ! (flags & NoTeamBarrier) )
 	ParallelDescriptor::MyTeam().MemoryBarrier();
 #endif
-    releaseDeviceData();
+    // releaseDeviceData();
 }
 
 void 
@@ -305,7 +328,7 @@ MFIter::operator++ () {
 
     ++currentIndex;
 
-    releaseDeviceData();
+    // releaseDeviceData();
 
 }
 
@@ -399,6 +422,115 @@ MFGhostIter::Initialize ()
     index_map       = &(lta.indexMap);
     local_index_map = &(lta.localIndexMap);
     tile_array      = &(lta.tileArray);
+}
+
+/*
+ * member functions for MFIterRegister
+ */
+void MFIterRegister::closeRegister() {
+    int nBox = m_mf_v[0]->local_size();
+    int nFabArray = m_mf_v.size();
+    BL_ASSERT(nFabArray != 0);
+    /*
+     * In each Box, we might have multiple FArrayBox.data();
+     * What's stored in the buffer (in order):
+     * dt, dx, dy, dz: (4 * sizeof(amrex::Real) bytes)
+     * nBox, nFabArray (2 * sizeof(int) bytes + 2 * sizeof(int) bytes for memory alingment)
+     * Box1.loVect, Box1.hiVect, Box2.loVect, Box2.hiVect, ... (6 * nBox * sizeof(int) bytes)
+     * For box1 (corresponding to fab1), we need:
+     *      pt to MultiFab1.fab1.data(), pt to MultiFab2.fab1.data() ... (nFabArray * sizeof(void*) bytes)
+     * For box2 (corresponding to fab2), we need:
+     *      pt to MultiFab1.fab2.data(), pt to MultiFab2.fab2.data() ... (nFabArray * sizeof(void*) bytes)
+     * For box3 ...
+     * ...
+     *
+     * So the total nubmer of bytes should be
+     * 16 + 16 + 6 * nBox + nBox * nFabArray * 8 
+     */ 
+    // std::size_t sz = 16 + 16 + 6 * nBox + nBox * nFabArray * 8;
+    std::size_t sz = 4 * sizeof(amrex::Real) + (4 + 6 * nBox) * sizeof(int) + nBox * nFabArray * sizeof(void*);
+    cpu_malloc_pinned(&buffer, &sz);
+    // write data to the buffer
+    amrex::Real* real_num = static_cast<amrex::Real*>(buffer);
+    real_num[0] = dt;
+    real_num[1] = dx;
+    real_num[2] = dy;
+    real_num[3] = dz;
+    void* pos_int = static_cast<char*>(buffer) + 4 * sizeof(amrex::Real);
+    int* int_ptr = static_cast<int*>( pos_int );
+    void* pos_data = static_cast<char*>(buffer) + 4 * sizeof(amrex::Real) + (4 + 6 * nBox) * sizeof(int);
+    amrex::Real** device_data_ptrs = static_cast<amrex::Real**>(pos_data);
+    int_ptr[0] = nBox;
+    int_ptr[1] = nFabArray;
+    // not used
+    // int_num[2] = ;
+    // int_num[3] = ;
+    
+    int_ptr = int_ptr + 4;
+    // TODO: don't need to construct iterator?
+    {
+    int i = 0;
+    for (MFIter mfi(*m_mf_v[0]); mfi.isValid(); ++ mfi) {
+        const Box& bx = mfi.validbox();
+        int pos = i * 6;  
+        int_ptr[pos+0] = bx.loVect()[0];
+        int_ptr[pos+1] = bx.loVect()[1];
+#if (BL_SPACEDIM == 3)
+        int_ptr[pos+2] = bx.loVect()[2];
+#endif
+        int_ptr[pos+3] = bx.hiVect()[0];
+        int_ptr[pos+4] = bx.hiVect()[1];
+#if (BL_SPACEDIM == 3)
+        int_ptr[pos+5] = bx.hiVect()[2];
+#endif
+        for (int jmultifabs = 0; jmultifabs < nFabArray; ++jmultifabs) {
+            device_data_ptrs[i * nFabArray + jmultifabs] = (*m_mf_v[jmultifabs])[mfi].devicePtr(); 
+        }
+        ++i;
+    }
+    }
+
+    // gpu_malloc(data_d, sz);
+
+    // send buffer to device
+    // TODO: how to create different iter_id here for different MFIter
+    // gpu_htod_memcpy_async(data_d, buffer, sz, iter_id);
+}
+
+void MFIterRegister::printInfo() {
+    amrex::Print() << "Print information in MFIter::buffer ..." << std::endl;
+    amrex::Real* real_ptr = static_cast<amrex::Real*>(buffer);
+    amrex::Print() << "dt: " << real_ptr[0] << std::endl;
+    amrex::Print() << "dx: " << real_ptr[1] << std::endl;
+    amrex::Print() << "dy: " << real_ptr[2] << std::endl;
+    amrex::Print() << "dz: " << real_ptr[3] << std::endl;
+    void* pos_int = static_cast<char*>(buffer) + 4 * sizeof(amrex::Real);
+    int* int_ptr = static_cast<int*>( pos_int );
+    int nb = int_ptr[0];
+    int nmfab = int_ptr[1];
+    amrex::Print() << "num of Boxes: " << nb  << std::endl;
+    amrex::Print() << "num of MultiFab: " << nmfab  << std::endl;
+    amrex::Print() << std::endl;
+
+    int_ptr = int_ptr + 4;
+    for (int i = 0; i < nb; ++i) {
+        int pos = i * 6;
+        amrex::Print() << "Box: " << i << std::endl;
+        amrex::Print() << "lo: " << "(" << int_ptr[pos + 0] << "," << int_ptr[pos + 1] << "," << int_ptr[pos + 2] << ")" << std::endl;
+        amrex::Print() << "hi: " << "(" << int_ptr[pos + 3] << "," << int_ptr[pos + 4] << "," << int_ptr[pos + 5] << ")" << std::endl;
+        amrex::Print() << std::endl;
+    }
+
+    void* pos_data = static_cast<char*>(buffer) + 4 * sizeof(amrex::Real) + (4 + 6 * 4) * sizeof(int);
+    amrex::Real** device_data_ptrs = static_cast<amrex::Real**>(pos_data);
+
+    for (int i = 0; i < nb; ++i) {
+        amrex::Print() << "Box: " << i << std::endl;
+        for (int j = 0; j < nmfab; ++j) {
+            amrex::Print() << "GPU memory address of data array " << j << ":" << device_data_ptrs[i*nmfab+j] << std::endl;;
+        }
+        amrex::Print() << std::endl;
+    }
 }
 
 }
