@@ -178,7 +178,7 @@ public:
     //! Returns the number of components
     int nComp () const { return nvar; }
 
-    //! for calls to fortran.  
+    int* nCompPtr() {return &nvar;}
     const int* nCompPtr() const {return &nvar;}
 
     //! Returns the number of points 
@@ -249,22 +249,10 @@ public:
     * order, with the component index coming last.   In other words,
     * dataPtr returns a pointer to all the Nth components.
     */
-    T* dataPtr (int n = 0) {
-	if (Device::inDeviceLaunchRegion() && device_copy) {
-	    BL_ASSERT(!(dptr_d == 0)); return &dptr_d[n*numpts];
-	} else {
-	    BL_ASSERT(!(dptr == 0)); return &dptr[n*numpts];
-	}
-    }
+    T* dataPtr (int n = 0) { BL_ASSERT(!(dptr == 0)); return &dptr[n*numpts]; }
 
     //! Same as above except works on const FABs.
-    const T* dataPtr (int n = 0) const {
-	if (Device::inDeviceLaunchRegion() && device_copy) {
-	    BL_ASSERT(!(dptr_d == 0)); return &dptr_d[n*numpts];
-	} else {
-	    BL_ASSERT(!(dptr == 0)); return &dptr[n*numpts];
-	}
-    }
+    const T* dataPtr (int n = 0) const { BL_ASSERT(!(dptr == 0)); return &dptr[n*numpts]; }
 
     //! Returns the pointer to the device copy.
     T* devicePtr (int n = 0) { BL_ASSERT(!(dptr_d == 0)); return &dptr_d[n*numpts]; }
@@ -318,8 +306,7 @@ public:
     void setVal (T          x,
                  const Box& bx,
                  int        nstart,
-                 int        ncomp,
-	         int        index=0);
+                 int        ncomp);
     //! Same as above, except the number of modified components is one. N is the component to be modified.
     void setVal (T          x,
                  const Box& bx,
@@ -362,8 +349,7 @@ public:
                       int               srccomp,
                       const Box&        destbox,
                       int               destcomp,
-                      int               numcomp,
-	              int               index=0);
+                      int               numcomp);
 
   //for debugging
   BaseFab<T>&
@@ -630,16 +616,14 @@ public:
                       const Box&        destbox,
                       int               srccomp,
                       int               destcomp,
-                      int               numcomp=1,
-	              int               index=0);
+                      int               numcomp=1);
     //! FAB SAXPY (y[i] <- y[i] + a * x[i]), in place.
     BaseFab<T>& saxpy (T a, const BaseFab<T>& x,
                        const Box&        srcbox,
                        const Box&        destbox,
                        int               srccomp,
                        int               destcomp,
-                       int               numcomp=1,
-	               int               index=0);
+                       int               numcomp=1);
     //! FAB SAXPY (y[i] <- y[i] + a * x[i]), in place.  All components.
     BaseFab<T>& saxpy (T a, const BaseFab<T>& x);
 
@@ -699,8 +683,7 @@ public:
                        const Box&        destbox,
                        int               srccomp,
                        int               destcomp,
-                       int               numcomp=1,
-	               int               index=0);
+                       int               numcomp=1);
     //! Scalar multiplication (a[i] <- a[i] * r), in place.
     BaseFab<T>& operator*= (T r);
 
@@ -755,8 +738,7 @@ public:
                       const Box&        destbox,
                       int               srccomp,
                       int               destcomp,
-                      int               numcomp=1,
-	              int               index=0);
+                      int               numcomp=1);
     //! Scalar division (a[i] <- a[i] / r), in place.
     BaseFab<T>& operator/= (T r);
 
@@ -809,8 +791,7 @@ public:
                         const Box&        destbox,
                         int               srccomp,
                         int               destcomp,
-                        int               numcomp=1,
-	                int               index=0);
+                        int               numcomp=1);
     /**
     * \brief Divide wherever "src" is "true" or "non-zero".
     */
@@ -926,15 +907,13 @@ protected:
                       int               srccomp,
                       const Box&        destbox,
                       int               destcomp,
-                      int               numcomp,
-	              int               index=0);
+                      int               numcomp);
 
     //! This function is called by the BaseFab setVal operations.
     void performSetVal (T          x,
                         const Box& bx,
                         int        nstart,
-                        int        numcomp,
-	                int        index=0);
+                        int        numcomp);
 protected:
 
     Box     domain;   // My index space.
@@ -2853,13 +2832,15 @@ BaseFab<T>::toDevice(int idx)
 {
     size_t sz = nBytes();
 #ifdef CUDA
-    if (device_copy && dptr_d && dptr) {
-	gpu_htod_memcpy_async(dptr_d, dptr, &sz, &idx);
-    } else {
+
 #ifdef CUDA_UM
 	gpu_htod_memprefetch_async(dptr, &sz, &idx);
+#else
+    if (device_copy && dptr_d && dptr) {
+	gpu_htod_memcpy_async(dptr_d, dptr, &sz, &idx);
+    } 
 #endif
-    }
+
 #endif
     
 }
@@ -2870,13 +2851,13 @@ BaseFab<T>::toHost(int idx)
 {
     size_t sz = nBytes();
 #ifdef CUDA
-    if (device_copy && dptr_d && dptr) {
-	gpu_dtoh_memcpy_async(dptr, dptr_d, &sz, &idx);
-    } else {
 #ifdef CUDA_UM
 	gpu_dtoh_memprefetch_async(dptr, &sz, &idx);
-#endif
+#else
+    if (device_copy && dptr_d && dptr) {
+	gpu_dtoh_memcpy_async(dptr, dptr_d, &sz, &idx);
     }
+#endif
 #endif
 }
 
