@@ -182,7 +182,7 @@ class MFIterRegister
 {
 public:
     MFIterRegister(): 
-        buffer(NULL), dx(0.0), dy(0.0), dz(0.0), dt(0.0), iter_id(3)
+        buffer(NULL), buffer_d(NULL), dx(0.0), dy(0.0), dz(0.0), dt(0.0), mfIter_id(3)
     {};
 
     void registerMultiFab(MultiFab* mf) {
@@ -206,7 +206,8 @@ public:
     void closeRegister();
 
     void* get_device_ptr() {
-        return data_d;
+        BL_ASSERT( buffer_d != NULL ); 
+        if (buffer_d != NULL) return buffer_d;
     }
 
     // This is mostly for debugging
@@ -217,7 +218,8 @@ public:
     // destructor
     ~MFIterRegister() {
         // TODO:
-        // free ptrs
+        // synchronize this w.r.t. stream
+        // before free the memory
     }
 private:
     // TODO: how do we avoid accidentally change the fabarrays
@@ -226,8 +228,8 @@ private:
     amrex::Real dx, dy, dz;
     amrex::Real dt;
     void* buffer;
-    void* data_d;
-    int iter_id;
+    void* buffer_d;
+    int mfIter_id;
 
 };
 

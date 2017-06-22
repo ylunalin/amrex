@@ -458,15 +458,15 @@ void MFIterRegister::closeRegister() {
     real_num[3] = dz;
     void* pos_int = static_cast<char*>(buffer) + 4 * sizeof(amrex::Real);
     int* int_ptr = static_cast<int*>( pos_int );
-    void* pos_data = static_cast<char*>(buffer) + 4 * sizeof(amrex::Real) + (4 + 6 * nBox) * sizeof(int);
-    amrex::Real** device_data_ptrs = static_cast<amrex::Real**>(pos_data);
     int_ptr[0] = nBox;
     int_ptr[1] = nFabArray;
     // not used
-    // int_num[2] = ;
-    // int_num[3] = ;
+    // int_ptr[2] = ;
+    // int_ptr[3] = ;
     
     int_ptr = int_ptr + 4;
+    void* pos_data = static_cast<char*>(buffer) + 4 * sizeof(amrex::Real) + (4 + 6 * nBox) * sizeof(int);
+    amrex::Real** device_data_ptrs = static_cast<amrex::Real**>(pos_data);
     // TODO: don't need to construct iterator?
     {
     int i = 0;
@@ -490,11 +490,11 @@ void MFIterRegister::closeRegister() {
     }
     }
 
-    // gpu_malloc(data_d, sz);
+    // gpu_malloc(&buffer_d, &sz);
 
     // send buffer to device
     // TODO: how to create different iter_id here for different MFIter
-    // gpu_htod_memcpy_async(data_d, buffer, sz, iter_id);
+    // gpu_htod_memcpy_async(buffer_d, buffer, &sz, &mfIter_id);
 }
 
 void MFIterRegister::printInfo() {
@@ -503,7 +503,9 @@ void MFIterRegister::printInfo() {
     amrex::Print() << "dt: " << real_ptr[0] << std::endl;
     amrex::Print() << "dx: " << real_ptr[1] << std::endl;
     amrex::Print() << "dy: " << real_ptr[2] << std::endl;
+#if (BL_SPACEDIM == 3)
     amrex::Print() << "dz: " << real_ptr[3] << std::endl;
+#endif
     void* pos_int = static_cast<char*>(buffer) + 4 * sizeof(amrex::Real);
     int* int_ptr = static_cast<int*>( pos_int );
     int nb = int_ptr[0];

@@ -21,10 +21,10 @@ amrex::BArena::alloc (std::size_t _sz)
     // data transfer between host and device
     cpu_malloc_pinned(&pt, &sz);
 
-    // pt = static_cast<void*>(
-    //         static_cast<char*>(pt) + HEADER_SIZE
-    //      );
     // pt returned points to where the dataPtr of this fab is
+    pt = static_cast<void*>(
+            static_cast<char*>(pt) + HEADER_SIZE
+         );
 
 #endif // CUDA_UM
 #else
@@ -41,14 +41,14 @@ amrex::BArena::free (void* pt)
 #ifdef CUDA_UM
     gpu_free(pt);
 #else
-    cpu_free_pinned(pt);
+    // cpu_free_pinned(pt);
 
-    // // header is at pt - HEADER_SIZE
-    // cpu_free_pinned(
-    //     static_cast<void*>(
-    //         static_cast<char*>(pt) - HEADER_SIZE
-    //     )
-    // );
+    // header is at pt - HEADER_SIZE
+    cpu_free_pinned(
+        static_cast<void*>(
+            static_cast<char*>(pt) - HEADER_SIZE
+        )
+    );
 #endif // CUDA_UM
 #else
     operator delete(pt);

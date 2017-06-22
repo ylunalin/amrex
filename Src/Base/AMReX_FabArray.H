@@ -769,11 +769,11 @@ FabArray<FAB>::operator[] (const MFIter& mfi) const
 {
     BL_ASSERT(mfi.LocalIndex() < indexArray.size());
     FAB& fab = *m_fabs_v[mfi.LocalIndex()];
-    if (Device::inDeviceLaunchRegion()) {
-	int idx = mfi.tileIndex();
-	if (mfi.registerFab(fab, idx))
-	    fab.toDevice(idx);
-    }
+    // if (Device::inDeviceLaunchRegion()) {
+    //     int idx = mfi.tileIndex();
+    //     if (mfi.registerFab(fab, idx))
+    //         fab.toDevice(idx);
+    // }
     return fab;
 }
 
@@ -783,11 +783,11 @@ FabArray<FAB>::operator[] (const MFIter& mfi)
 {
     BL_ASSERT(mfi.LocalIndex() < indexArray.size());
     FAB& fab = *m_fabs_v[mfi.LocalIndex()];
-    if (Device::inDeviceLaunchRegion()) {
-	int idx = mfi.tileIndex();
-	if (mfi.registerFab(fab, idx))
-	    fab.toDevice(idx);
-    }
+    // if (Device::inDeviceLaunchRegion()) {
+    //     int idx = mfi.tileIndex();
+    //     if (mfi.registerFab(fab, idx))
+    //         fab.toDevice(idx);
+    // }
     return fab;
 }
 
@@ -2340,8 +2340,9 @@ FabArray<FAB>::setVal (value_type val)
     for (MFIter fai(*this,true); fai.isValid(); ++fai)
     {
 	const Box& bx = fai.growntilebox();
-	const int idx = fai.tileIndex();
-        get(fai).setVal(val, bx, 0, n_comp, idx);
+        get(fai).setVal(val, bx, 0, n_comp);
+	// const int idx = fai.tileIndex();
+        // get(fai).setVal(val, bx, 0, n_comp, idx);
     }
 }
 

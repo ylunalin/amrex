@@ -76,10 +76,13 @@ contains
 
     integer :: idx
 
-    if (idx < 0) then
-       stream_from_index = 0
+    ! reserve the stream 0 to 9 for special purposes
+    if (idx <= 0 .and. idx > -10) then
+        stream_from_index = -idx
     else
-       stream_from_index = MOD(idx, max_cuda_streams) + 1
+        ! stream_from_index = MOD(idx, max_cuda_streams) + 1
+        ! reserve the stream 0 to 9 for other purposes
+        stream_from_index = MOD(idx, max_cuda_streams-10) + 10
     endif
 
   end function stream_from_index
@@ -301,9 +304,24 @@ contains
 
     integer :: cudaResult
 
-    cudaResult = cudaDeviceSynchronize();
+    cudaResult = cudaDeviceSynchronize()
 
   end subroutine gpu_synchronize
+
+  subroutine gpu_synchronize_stream(idx) bind(c, name='gpu_synchronize_stream')
+
+    use cudafor, only: cudaStreamSynchronize
+
+    implicit none
+
+    integer :: cudaResult
+    integer :: s, idx
+
+    s = stream_from_index(idx)
+
+    cudaResult = cudaStreamSynchronize(cuda_streams(s))
+
+  end subroutine gpu_synchronize_stream
 
 
 

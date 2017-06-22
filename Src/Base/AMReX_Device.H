@@ -15,6 +15,7 @@ extern "C" {
     void cpu_malloc_pinned(void** p, const std::size_t* sz);
     void cpu_free_pinned(void* p);
     void gpu_synchronize();
+    void gpu_synchronize_stream(const int* idx);
     void gpu_htod_memcpy_async(void* p_d, void* p_h, const std::size_t* sz, const int* idx);
     void gpu_dtoh_memcpy_async(void* p_h, void* p_d, const std::size_t* sz, const int* idx);
     void gpu_htod_memprefetch_async(void* p, const std::size_t* sz, const int* idx);
