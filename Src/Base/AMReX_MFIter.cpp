@@ -100,27 +100,25 @@ MFIter::MFIter (const BoxArray& ba, const DistributionMapping& dm,
     Initialize();
 }
 
-// #ifdef CUDA
-// MFIter::MFIter (const FabArrayBase& fabarray_, 
-//                 const MFIterRegister& mfi_reg,
-// 		unsigned char       flags_)
-//     :
-//     fabArray(fabarray_),
-//     tile_size((flags_ & Tiling) ? FabArrayBase::mfiter_tile_size : IntVect::TheZeroVector()),
-//     flags(flags_),
-//     index_map(nullptr),
-//     local_index_map(nullptr),
-//     tile_array(nullptr),
-//     local_tile_index_map(nullptr),
-//     num_local_tiles(nullptr)
-// {
-//     Initialize();
-//     // pack all data to a buffer
-//     // kick off data transfer from host to device immediately
-//     for (std::vector<FabArrayBase*>::iterator it = m_mf_v.begin(); it != m_mf_v.end(); ++it) {
-//     }
-// }
-// #endif
+#ifdef CUDA
+MFIter::MFIter (const FabArrayBase& fabarray_, 
+                const MFIterRegister& mfi_reg,
+		unsigned char       flags_)
+    :
+    fabArray(fabarray_),
+    tile_size((flags_ & Tiling) ? FabArrayBase::mfiter_tile_size : IntVect::TheZeroVector()),
+    flags(flags_),
+    index_map(nullptr),
+    local_index_map(nullptr),
+    tile_array(nullptr),
+    local_tile_index_map(nullptr),
+    num_local_tiles(nullptr)
+{
+    Initialize();
+    // send all fab data registered in MFIterRegister to device
+    mfi_reg.allFabToDevice();
+}
+#endif
 
 
 MFIter::~MFIter ()
@@ -490,11 +488,11 @@ void MFIterRegister::closeRegister() {
     }
     }
 
-    // gpu_malloc(&buffer_d, &sz);
+    gpu_malloc(&buffer_d, &sz);
 
     // send buffer to device
     // TODO: how to create different iter_id here for different MFIter
-    // gpu_htod_memcpy_async(buffer_d, buffer, &sz, &mfIter_id);
+    gpu_htod_memcpy_async(buffer_d, buffer, &sz, &mfIter_id);
 }
 
 void MFIterRegister::printInfo() {
@@ -532,6 +530,18 @@ void MFIterRegister::printInfo() {
             amrex::Print() << "GPU memory address of data array " << j << ":" << device_data_ptrs[i*nmfab+j] << std::endl;;
         }
         amrex::Print() << std::endl;
+    }
+}
+
+void MFIterRegister::allFabToDevice() const {
+    for (std::vector<MultiFab*>::const_iterator it = m_mf_v.begin(); it != m_mf_v.end(); ++it) {
+        MultiFab& mf = **it;
+	for ( MFIter mfi(mf); mfi.isValid(); ++mfi ) {
+	    // const Box& bx = mfi.validbox();
+	    const int idx = mfi.LocalIndex();
+            // amrex::Print() << idx << std::endl;
+            mf[mfi].toDevice(idx);
+	}
     }
 }
 

@@ -182,7 +182,9 @@ class MFIterRegister
 {
 public:
     MFIterRegister(): 
-        buffer(NULL), buffer_d(NULL), dx(0.0), dy(0.0), dz(0.0), dt(0.0), mfIter_id(3)
+        buffer(NULL), buffer_d(NULL), 
+        dx(0.0), dy(0.0), dz(0.0), dt(0.0), 
+        mfIter_id(-1) // put transfer of the buffer from htod in CUDA stream 1
     {};
 
     void registerMultiFab(MultiFab* mf) {
@@ -209,10 +211,14 @@ public:
         BL_ASSERT( buffer_d != NULL ); 
         if (buffer_d != NULL) return buffer_d;
     }
+    
+    void allFabToDevice() const;
 
     // This is mostly for debugging
     // It also shows how to unpack info from the buffer
     void printInfo();
+
+    void* get_device_buffer() { return buffer_d; }
 
 
     // destructor
