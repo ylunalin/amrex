@@ -1,4 +1,8 @@
 
+#include <cstring>
+#include <stdlib.h>
+
+
 #include <AMReX_MFIter.H>
 #include <AMReX_FabArray.H>
 #include <AMReX_FArrayBox.H>
@@ -442,10 +446,8 @@ void MFIterRegister::closeRegister() {
      * For box3 ...
      * ...
      *
-     * So the total nubmer of bytes should be
-     * 16 + 16 + 6 * nBox + nBox * nFabArray * 8 
+     * So the total nubmer of bytes is as below
      */ 
-    // std::size_t sz = 16 + 16 + 6 * nBox + nBox * nFabArray * 8;
     std::size_t sz = 4 * sizeof(amrex::Real) + (4 + 6 * nBox) * sizeof(int) + nBox * nFabArray * sizeof(void*);
     cpu_malloc_pinned(&buffer, &sz);
     // write data to the buffer
@@ -482,7 +484,8 @@ void MFIterRegister::closeRegister() {
         int_ptr[pos+5] = bx.hiVect()[2];
 #endif
         for (int jmultifabs = 0; jmultifabs < nFabArray; ++jmultifabs) {
-            device_data_ptrs[i * nFabArray + jmultifabs] = (*m_mf_v[jmultifabs])[mfi].devicePtr(); 
+            // device_data_ptrs[i * nFabArray + jmultifabs] = (*m_mf_v[jmultifabs])[mfi].devicePtr(); 
+            device_data_ptrs[i * nFabArray + jmultifabs] = (*m_mf_v[jmultifabs])[mfi].dataPtr(); 
         }
         ++i;
     }
@@ -497,37 +500,69 @@ void MFIterRegister::closeRegister() {
 
 void MFIterRegister::printInfo() {
     amrex::Print() << "Print information in MFIter::buffer ..." << std::endl;
-    amrex::Real* real_ptr = static_cast<amrex::Real*>(buffer);
-    amrex::Print() << "dt: " << real_ptr[0] << std::endl;
-    amrex::Print() << "dx: " << real_ptr[1] << std::endl;
-    amrex::Print() << "dy: " << real_ptr[2] << std::endl;
+    char* data_real = static_cast<char*>(buffer);
+    amrex::Real dt, dx, dy;
+    std::memcpy(&dt, data_real                        , sizeof(amrex::Real));
+    std::memcpy(&dx, data_real +   sizeof(amrex::Real), sizeof(amrex::Real));
+    std::memcpy(&dy, data_real + 2*sizeof(amrex::Real), sizeof(amrex::Real));
 #if (BL_SPACEDIM == 3)
-    amrex::Print() << "dz: " << real_ptr[3] << std::endl;
+    amrex::Real dz;
+    std::memcpy(&dz, data_real + 3*sizeof(amrex::Real), sizeof(amrex::Real));
 #endif
-    void* pos_int = static_cast<char*>(buffer) + 4 * sizeof(amrex::Real);
-    int* int_ptr = static_cast<int*>( pos_int );
-    int nb = int_ptr[0];
-    int nmfab = int_ptr[1];
+    amrex::Print() << "dt: " << dt << std::endl;
+    amrex::Print() << "dx: " << dx << std::endl;
+    amrex::Print() << "dy: " << dy << std::endl;
+#if (BL_SPACEDIM == 3)
+    amrex::Print() << "dz: " << dz << std::endl;
+#endif
+    char* data_int = data_real + 4 * sizeof(amrex::Real);
+    int nb, nmfab;
+    std::memcpy(&nb,    data_int              , sizeof(int));
+    std::memcpy(&nmfab, data_int + sizeof(int), sizeof(int));
     amrex::Print() << "num of Boxes: " << nb  << std::endl;
     amrex::Print() << "num of MultiFab: " << nmfab  << std::endl;
     amrex::Print() << std::endl;
 
-    int_ptr = int_ptr + 4;
+    data_int = data_int + 4 * sizeof(int);
     for (int i = 0; i < nb; ++i) {
         int pos = i * 6;
+        int lox, loy;
+        int hix, hiy;
+        std::memcpy(&lox, data_int + (pos + 0) * sizeof(int), sizeof(int));
+        std::memcpy(&loy, data_int + (pos + 1) * sizeof(int), sizeof(int));
+        std::memcpy(&hix, data_int + (pos + 3) * sizeof(int), sizeof(int));
+        std::memcpy(&hiy, data_int + (pos + 4) * sizeof(int), sizeof(int));
+#if (BL_SPACEDIM == 3)
+        int loz, hiz;
+        std::memcpy(&loz, data_int + (pos + 2) * sizeof(int), sizeof(int));
+        std::memcpy(&hiz, data_int + (pos + 5) * sizeof(int), sizeof(int));
+#endif
         amrex::Print() << "Box: " << i << std::endl;
-        amrex::Print() << "lo: " << "(" << int_ptr[pos + 0] << "," << int_ptr[pos + 1] << "," << int_ptr[pos + 2] << ")" << std::endl;
-        amrex::Print() << "hi: " << "(" << int_ptr[pos + 3] << "," << int_ptr[pos + 4] << "," << int_ptr[pos + 5] << ")" << std::endl;
+        amrex::Print() << "lo: " << "(" << lox << "," << loy 
+#if (BL_SPACEDIM == 3)
+            << "," << loz
+#endif
+            << ")" << std::endl;
+        amrex::Print() << "hi: " << "(" << hix << "," << hiy 
+#if (BL_SPACEDIM == 3)
+            << "," << hiz
+#endif
+            << ")" << std::endl;
         amrex::Print() << std::endl;
     }
 
-    void* pos_data = static_cast<char*>(buffer) + 4 * sizeof(amrex::Real) + (4 + 6 * 4) * sizeof(int);
-    amrex::Real** device_data_ptrs = static_cast<amrex::Real**>(pos_data);
+    char* data_pointer = data_real + 4 * sizeof(amrex::Real) + (4 + 6 * nb) * sizeof(int);
+    // void* pos_data = static_cast<char*>(buffer) + 4 * sizeof(amrex::Real) + (4 + 6 * 4) * sizeof(int);
+    // amrex::Real** device_data_ptrs = static_cast<amrex::Real**>(pos_data);
 
     for (int i = 0; i < nb; ++i) {
         amrex::Print() << "Box: " << i << std::endl;
         for (int j = 0; j < nmfab; ++j) {
-            amrex::Print() << "GPU memory address of data array " << j << ":" << device_data_ptrs[i*nmfab+j] << std::endl;;
+            char* address;
+            std::memcpy(&address, data_pointer + (i*nmfab+j)*sizeof(char*), sizeof(char*));
+            // size_t address;
+            // std::memcpy(&address, data_pointer + (i*nmfab+j)*sizeof(void*), sizeof(int));
+            amrex::Print() << "GPU memory address of data array " << j << ":" << (size_t) address << std::endl;;
         }
         amrex::Print() << std::endl;
     }
@@ -537,9 +572,7 @@ void MFIterRegister::allFabToDevice() const {
     for (std::vector<MultiFab*>::const_iterator it = m_mf_v.begin(); it != m_mf_v.end(); ++it) {
         MultiFab& mf = **it;
 	for ( MFIter mfi(mf); mfi.isValid(); ++mfi ) {
-	    // const Box& bx = mfi.validbox();
 	    const int idx = mfi.LocalIndex();
-            // amrex::Print() << idx << std::endl;
             mf[mfi].toDevice(idx);
 	}
     }

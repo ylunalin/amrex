@@ -14,6 +14,7 @@
 #include <AMReX_BLassert.H>
 #include <AMReX_Box.H>
 #include <AMReX_BoxList.H>
+#include <AMReX_BArena.H>
 #include <AMReX_CArena.H>
 #include <AMReX_Device.H>
 #include <AMReX_Looping.H>
@@ -21,6 +22,7 @@
 #include <AMReX_BLProfiler.H>
 #include <AMReX_BoxIterator.H>
 #include <AMReX_MakeType.H>
+// #include <AMReX_Print.H>
 
 namespace amrex
 {
@@ -1332,6 +1334,7 @@ BaseFab<T>::allocate_device() {
 
     device_copy = true;
     dptr_d = static_cast<T*>(amrex::The_Arena()->alloc_device(truesize*sizeof(T)));
+    // amrex::Print() << (size_t) dptr_d << std::endl;
 
 }
 
@@ -2819,10 +2822,28 @@ BaseFab<T>::toDevice(int idx)
 #ifdef CUDA
 
 #ifdef CUDA_UM
-	gpu_htod_memprefetch_async(dptr, &sz, &idx);
+    gpu_htod_memprefetch_async(dptr, &sz, &idx);
 #else
     if (device_copy && dptr_d && dptr) {
-	gpu_htod_memcpy_async(dptr_d, dptr, &sz, &idx);
+        // TODO: should move this to other places
+        // assume data are aligned in memory
+        // write dimension info about this fab to header
+        int* int_data = reinterpret_cast<int*>(reinterpret_cast<char*>(dptr)-HEADER_SIZE);
+        int_data[0] = smallEnd()[0];
+        int_data[1] = smallEnd()[1];
+#if (BL_SPACEDIM == 3)
+        int_data[2] = smallEnd()[2];
+#endif
+        int_data[3] = bigEnd()[0];
+        int_data[4] = bigEnd()[1];
+#if (BL_SPACEDIM == 3)
+        int_data[5] = bigEnd()[2];
+#endif
+
+        sz = sz + HEADER_SIZE;
+	gpu_htod_memcpy_async(reinterpret_cast<T*>(reinterpret_cast<char*>(dptr_d)-HEADER_SIZE), 
+                              reinterpret_cast<T*>(reinterpret_cast<char*>(dptr)-HEADER_SIZE), 
+                              &sz, &idx);
     } 
 #endif
 
@@ -2837,10 +2858,13 @@ BaseFab<T>::toHost(int idx)
     size_t sz = nBytes();
 #ifdef CUDA
 #ifdef CUDA_UM
-	gpu_dtoh_memprefetch_async(dptr, &sz, &idx);
+    gpu_dtoh_memprefetch_async(dptr, &sz, &idx);
 #else
     if (device_copy && dptr_d && dptr) {
-	gpu_dtoh_memcpy_async(dptr, dptr_d, &sz, &idx);
+        sz = sz + HEADER_SIZE;
+	gpu_dtoh_memcpy_async(reinterpret_cast<T*>(reinterpret_cast<char*>(dptr)-HEADER_SIZE), 
+                              reinterpret_cast<T*>(reinterpret_cast<char*>(dptr_d)-HEADER_SIZE), 
+                              &sz, &idx);
     }
 #endif
 #endif

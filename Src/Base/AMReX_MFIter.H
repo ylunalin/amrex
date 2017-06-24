@@ -187,8 +187,8 @@ public:
         mfIter_id(-1) // put transfer of the buffer from htod in CUDA stream 1
     {};
 
-    void registerMultiFab(MultiFab* mf) {
-        m_mf_v.push_back(mf);
+    void registerMultiFab(MultiFab& mf) {
+        m_mf_v.push_back(&mf);
     }
 
     void registerCellSize(const amrex::Real& dx_, 
@@ -207,9 +207,14 @@ public:
     // send buffer from host to device
     void closeRegister();
 
-    void* get_device_ptr() {
+    void* get_device_buffer() {
         BL_ASSERT( buffer_d != NULL ); 
         if (buffer_d != NULL) return buffer_d;
+    }
+
+    void* get_host_buffer() {
+        BL_ASSERT( buffer != NULL ); 
+        if (buffer != NULL) return buffer;
     }
     
     void allFabToDevice() const;
@@ -217,8 +222,6 @@ public:
     // This is mostly for debugging
     // It also shows how to unpack info from the buffer
     void printInfo();
-
-    void* get_device_buffer() { return buffer_d; }
 
 
     // destructor

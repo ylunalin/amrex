@@ -66,6 +66,9 @@ amrex::BArena::alloc_device (std::size_t _sz)
 #else
     std::size_t sz = _sz +  HEADER_SIZE;
     gpu_malloc(&pt, &sz);
+    pt = static_cast<void*>(
+            static_cast<char*>(pt) + HEADER_SIZE
+         );
 #endif
 #endif
 
@@ -76,6 +79,10 @@ void
 amrex::BArena::free_device (void* pt)
 {
 #ifdef CUDA
-    gpu_free(pt);
+    gpu_free(
+        static_cast<void*>(
+            static_cast<char*>(pt) - HEADER_SIZE
+        )
+    );
 #endif
 }
