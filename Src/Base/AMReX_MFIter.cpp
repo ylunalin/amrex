@@ -562,7 +562,7 @@ void MFIterRegister::printInfo() {
             std::memcpy(&address, data_pointer + (i*nmfab+j)*sizeof(char*), sizeof(char*));
             // size_t address;
             // std::memcpy(&address, data_pointer + (i*nmfab+j)*sizeof(void*), sizeof(int));
-            amrex::Print() << "GPU memory address of data array " << j << ":" << (size_t) address << std::endl;;
+            amrex::Print() << "GPU memory address of data array " << j << ":" << (void*) address << std::endl;;
         }
         amrex::Print() << std::endl;
     }

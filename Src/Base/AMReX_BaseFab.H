@@ -1334,7 +1334,7 @@ BaseFab<T>::allocate_device() {
 
     device_copy = true;
     dptr_d = static_cast<T*>(amrex::The_Arena()->alloc_device(truesize*sizeof(T)));
-    // amrex::Print() << (size_t) dptr_d << std::endl;
+    // amrex::Print() << (void*) dptr_d << std::endl;
 
 }
 

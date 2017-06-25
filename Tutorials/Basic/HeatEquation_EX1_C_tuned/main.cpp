@@ -7,15 +7,20 @@
 #include <AMReX_BLProfiler.H>
 #include <AMReX_MFIter.H>
 
+#include <AMReX_BArena.H> // for def of HEADER_SIZE
+
 #include <array>
 #include <memory>
 
 #include "myfunc_F.H"
+#include "advance_kernel.H"
 #include <AMReX_Device.H>
 
 #ifdef CUDA
 #include "cuda_profiler_api.h"
+#define BLOCKSIZE_2D 16
 #endif
+
 
 using namespace amrex;
 
@@ -35,10 +40,6 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
 	      std::array<MultiFab, BL_SPACEDIM>& flux,
 	      Real dt, const Geometry& geom)
 {
-    BL_PROFILE("main::advance")
-// #ifdef CUDA
-//     cudaProfilerStart();
-// #endif
     // Fill the ghost cells of each grid from the other grids
     // includes periodic domain boundaries
     old_phi.FillBoundary(geom.periodicity());
@@ -57,10 +58,10 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
 
 
     MFIterRegister mfir;
-    mfir.registerMultiFab(&old_phi);
-    mfir.registerMultiFab(&new_phi);
-    mfir.registerMultiFab(&(flux[0]));
-    mfir.registerMultiFab(&(flux[1]));
+    mfir.registerMultiFab(old_phi);
+    mfir.registerMultiFab(new_phi);
+    mfir.registerMultiFab(flux[0]);
+    mfir.registerMultiFab(flux[1]);
 #if (BL_SPACEDIM == 3)   
     mfir.registerMultiFab(&(flux[2]));
 #endif
@@ -74,33 +75,42 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
     mfir.registerTimeStep(dt);
     mfir.closeRegister();
     // mfir.printInfo();
-    // exit(0);
+    
     // Compute fluxes one grid at a time
     // When construct a MFIter with MFIterRegister, kick off
-    // transfer of arraydata registered in the MFIterRegister
-    // from htod
+    // transfer of arraydata registered in the MFIterRegister from htod
     for ( MFIter mfi(old_phi, mfir); mfi.isValid(); ++mfi )
     {
-        // const Box& bx = mfi.validbox();
-	// const int idx = mfi.tileIndex();
+        int idx = mfi.LocalIndex();
+        /*
+        const Box& bx = mfi.validbox();
+#if (BL_SPACEDIM == 2)
+        // idir = 1
+        {
+            dim3 blockSize(BLOCKSIZE_2D,BLOCKSIZE_2D,1);
+            dim3 gridSize( (bx.size()[0] + blockSize.x    ) / blockSize.x, 
+                           (bx.size()[1] + blockSize.y - 1) / blockSize.y, 
+                            1 
+                         );
+            compute_fluxx_on_box<<<gridSize, blockSize, 0, stream_from_id(id)>>>(idx, mfir.get_device_buffer());
+        }
+        // idir = 2
+        {
+            dim3 blockSize(BLOCKSIZE_2D,BLOCKSIZE_2D,1);
+            dim3 gridSize( (bx.size()[0] + blockSize.x - 1) / blockSize.x, 
+                           (bx.size()[1] + blockSize.y    ) / blockSize.y, 
+                            1 
+                         );
+            compute_fluxy_on_box<<<gridSize, blockSize, 0, stream_from_id(id)>>>(idx, mfir.get_device_buffer());
+        }
+#elif (BL_SPACEDIM == 3)
+        // TODO
+#else 
+        exit(0);
+#endif
+        */
+        compute_flux_on_box(idx, mfir.get_host_buffer());
 
-//         {
-//         BL_PROFILE("compute_flux_cpu_side")
-//         compute_flux(bx.loVect(), bx.hiVect(),
-//                      BL_TO_FORTRAN_ANYD(old_phi[mfi]),
-//                      BL_TO_FORTRAN_ANYD(flux[0][mfi]),
-//                      BL_TO_FORTRAN_ANYD(flux[1][mfi]),
-// #if (BL_SPACEDIM == 3)   
-//                      BL_TO_FORTRAN_ANYD(flux[2][mfi]),
-// #endif
-//                      dx, &idx);
-//         }
-        const int idx = mfi.LocalIndex();
-        work_on_box<<<>>>(idx, mfi.get_device_buffer());
-
-// #ifdef CUDA
-//     cudaProfilerStop();
-// #endif
     }
 
 #ifdef CUDA
@@ -110,21 +120,23 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
     // Advance the solution one grid at a time
     for ( MFIter mfi(old_phi); mfi.isValid(); ++mfi )
     {
+        const int idx = mfi.LocalIndex();
+        update_phi_on_box(idx, mfir.get_host_buffer());
+        /*
         const Box& bx = mfi.validbox();
-	const int idx = mfi.tileIndex();
-        
-        {
-        BL_PROFILE("update_phi_cpu_side")
-        update_phi(bx.loVect(), bx.hiVect(),
-                   BL_TO_FORTRAN_ANYD(old_phi[mfi]),
-                   BL_TO_FORTRAN_ANYD(new_phi[mfi]),
-                   BL_TO_FORTRAN_ANYD(flux[0][mfi]),
-                   BL_TO_FORTRAN_ANYD(flux[1][mfi]),
-#if (BL_SPACEDIM == 3)   
-                   BL_TO_FORTRAN_ANYD(flux[2][mfi]),
+#if (BL_SPACEDIM == 2)
+        dim3 blockSize(BLOCKSIZE_2D,BLOCKSIZE_2D,1);
+        dim3 gridSize( (bx.size()[0] + blockSize.x - 1) / blockSize.x, 
+                       (bx.size()[1] + blockSize.y - 1) / blockSize.y, 
+                        1 
+                     );
+        update_phi_on_box<<<gridSize, blockSize, 0, stream_from_id(id)>>>(idx, mfir.get_device_buffer());
+#elif (BL_SPACEDIM == 3)
+        // TODO
+#else 
+        exit(0);
 #endif
-                   dx, &dt, &idx);
-        }
+        */
     }
 
 #ifdef CUDA
@@ -207,42 +219,6 @@ void main_main ()
     std::unique_ptr<MultiFab> phi_new(new MultiFab(ba, dm, Ncomp, Nghost));
 
 
-    // // debug MFIterRegister
-    // {
-    // MFIterRegister mfir;
-    // mfir.registerMultiFab(phi_old.get());
-    // mfir.registerMultiFab(phi_new.get());
-    // mfir.registerCellSize(0.1, 0.2, 0.3);
-    // mfir.registerTimeStep(0.01);
-    // mfir.closeRegister();
-    // for ( MFIter mfi(*phi_old); mfi.isValid(); ++mfi ) {
-    //     const Box& bx = mfi.validbox();
-
-    //     amrex::Print() << "Box:" << mfi.index() << std::endl;
-    //     // amrex::Print() << "local index: " << mfi.LocalIndex() << std::endl;
-    //     // amrex::Print() << "index: " << mfi.index() << std::endl;
-    //     // amrex::Print() << bx.loVect()[0] << std::endl;
-    //     // amrex::Print() << bx.loVect()[1] << std::endl;
-    //     // amrex::Print() << bx.hiVect()[0] << std::endl;
-    //     // amrex::Print() << bx.hiVect()[1] << std::endl;
-    //     amrex::Print() << "lo and hi:" << std::endl;
-    //     amrex::Print() << bx.smallEnd() << std::endl;
-    //     amrex::Print() << bx.bigEnd() << std::endl;
-    //     amrex::Print() << "phi_old lo and hi:" << std::endl;
-    //     amrex::Print() << (*phi_old)[mfi].smallEnd() << std::endl;
-    //     amrex::Print() << (*phi_old)[mfi].bigEnd() << std::endl;
-    //     amrex::Print() << "phi_old device pointer:" << (*phi_old)[mfi].devicePtr() << std::endl;
-    //     amrex::Print() << "phi_new lo and hi:" << std::endl;
-    //     amrex::Print() << (*phi_new)[mfi].smallEnd() << std::endl;
-    //     amrex::Print() << (*phi_new)[mfi].bigEnd() << std::endl;
-    //     amrex::Print() << "phi_new device pointer:" << (*phi_new)[mfi].devicePtr() << std::endl;
-
-    //     amrex::Print() << std::endl;
-    // }
-    // mfir.printInfo();
-    // return;
-    // }
-
     phi_old->setVal(0.0);
     phi_new->setVal(0.0);
 
@@ -281,7 +257,7 @@ void main_main ()
     }
 
 
-    // MultiFab::Copy(*phi_old, *phi_new, 0, 0, 1, 0);
+    MultiFab::Copy(*phi_old, *phi_new, 0, 0, 1, 0);
     for (int n = 1; n <= nsteps; ++n)
     {
 
@@ -356,66 +332,8 @@ void main_main ()
 
 }
 
-__global__
-void work_on_fab(const int& id, const void* buffer){
-    // decode
-    // amrex::Print() << "Print information in MFIter::buffer ..." << std::endl;
-    amrex::Real* real_ptr = static_cast<amrex::Real*>(buffer);
-    // amrex::Print() << "dt: " << real_ptr[0] << std::endl;
-    // amrex::Print() << "dx: " << real_ptr[1] << std::endl;
-    // amrex::Print() << "dy: " << real_ptr[2] << std::endl;
-    amrex::Real dt = real_ptr[0];
-    amrex::Real dx = real_ptr[1];
-    amrex::Real dy = real_ptr[2];
-#if (BL_SPACEDIM == 3)
-    amrex::Real dz = real_ptr[3];
-#endif
-    void* pos_int = static_cast<char*>(buffer) + 4 * sizeof(amrex::Real);
-    int* int_ptr = static_cast<int*>( pos_int );
-    int nbox = int_ptr[0]; // number of boxes
-    int nmfab = int_ptr[1]; // number of multifabs
-    // amrex::Print() << "num of Boxes: " << nb  << std::endl;
-    // amrex::Print() << "num of MultiFab: " << nmfab  << std::endl;
-    // amrex::Print() << std::endl;
-
-    int_ptr = int_ptr + 4;
-    // get id_th box lo and hi
-    int pos = 6 * id_th;
-    lox = int_ptr[pos+0];
-    loy = int_ptr[pos+1];
-    hix = int_ptr[pos+3];
-    hiy = int_ptr[pos+4];
-#if (BL_SPACEDIM == 3)
-    loz = int_ptr[pos+2];
-    hiz = int_ptr[pos+5];
-#endif
-    // for (int i = 0; i < nb; ++i) {
-    //     int pos = i * 6;
-    //     amrex::Print() << "Box: " << i << std::endl;
-    //     amrex::Print() << "lo: " << "(" << int_ptr[pos + 0] << "," << int_ptr[pos + 1] << "," << int_ptr[pos + 2] << ")" << std::endl;
-    //     amrex::Print() << "hi: " << "(" << int_ptr[pos + 3] << "," << int_ptr[pos + 4] << "," << int_ptr[pos + 5] << ")" << std::endl;
-    //     amrex::Print() << std::endl;
-    // }
-
-    void* pos_data = static_cast<char*>(buffer) + 4 * sizeof(amrex::Real) + (4 + 6 * 4) * sizeof(int);
-    amrex::Real** device_data_ptrs = static_cast<amrex::Real**>(pos_data);
-    void* phi_old_void = device_data_ptrs[id*nmfab+0];
-    void* phi_new_void = device_data_ptrs[id*nmfab+1];
-    void* fluxx_void = device_data_ptrs[id*nmfab+2];
-    void* fluxy_void = device_data_ptrs[id*nmfab+3];
-#if (BL_SPACEDIM == 3)
-    void* fluxz_void = device_data_ptrs[id*nmfab+4];
-#endif
 
 
-    // for (int i = 0; i < nb; ++i) {
-    //     amrex::Print() << "Box: " << i << std::endl;
-    //     for (int j = 0; j < nmfab; ++j) {
-    //         amrex::Print() << "GPU memory address of data array " << j << ":" << device_data_ptrs[i*nmfab+j] << std::endl;;
-    //     }
-    //     amrex::Print() << std::endl;
-    // }
 
-}
 
 
