@@ -85,24 +85,12 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
         /*
         const Box& bx = mfi.validbox();
 #if (BL_SPACEDIM == 2)
-        // idir = 1
-        {
-            dim3 blockSize(BLOCKSIZE_2D,BLOCKSIZE_2D,1);
-            dim3 gridSize( (bx.size()[0] + blockSize.x    ) / blockSize.x, 
-                           (bx.size()[1] + blockSize.y - 1) / blockSize.y, 
-                            1 
-                         );
-            compute_fluxx_on_box<<<gridSize, blockSize, 0, stream_from_id(id)>>>(idx, mfir.get_device_buffer());
-        }
-        // idir = 2
-        {
-            dim3 blockSize(BLOCKSIZE_2D,BLOCKSIZE_2D,1);
-            dim3 gridSize( (bx.size()[0] + blockSize.x - 1) / blockSize.x, 
-                           (bx.size()[1] + blockSize.y    ) / blockSize.y, 
-                            1 
-                         );
-            compute_fluxy_on_box<<<gridSize, blockSize, 0, stream_from_id(id)>>>(idx, mfir.get_device_buffer());
-        }
+        dim3 blockSize(BLOCKSIZE_2D,BLOCKSIZE_2D,1);
+        dim3 gridSize( (bx.size()[0] + blockSize.x    ) / blockSize.x, 
+                       (bx.size()[1] + blockSize.y - 1) / blockSize.y, 
+                        1 
+                     );
+        compute_flux_on_box<<<gridSize, blockSize, 0, stream_from_id(id)>>>(idx, mfir.get_device_buffer());
 #elif (BL_SPACEDIM == 3)
         // TODO
 #else 

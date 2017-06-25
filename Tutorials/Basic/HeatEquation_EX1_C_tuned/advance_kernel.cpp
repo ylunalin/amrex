@@ -12,7 +12,8 @@
 // {
 //     return stream[id % max_cuda_stream];
 // }
-
+//
+//
 void get_fab_dimension(int& lox, int& loy,
 #if (BL_SPACEDIM == 3)
                   int& loz,
@@ -130,166 +131,48 @@ void update_phi_doit_cpu(
 }
 
 void compute_flux_on_box(const int& id, void* buffer){
-    // TODO: replace this with a call to unpack()
-    char* data_real = static_cast<char*>(buffer);
     amrex::Real dt, dx, dy;
-    std::memcpy(&dt, data_real                        , sizeof(amrex::Real));
-    std::memcpy(&dx, data_real +   sizeof(amrex::Real), sizeof(amrex::Real));
-    std::memcpy(&dy, data_real + 2*sizeof(amrex::Real), sizeof(amrex::Real));
 #if (BL_SPACEDIM == 3)
     amrex::Real dz;
-    std::memcpy(&dz, data_real + 3*sizeof(amrex::Real), sizeof(amrex::Real));
 #endif
-    char* data_int = data_real + 4 * sizeof(amrex::Real);
-    int nb, nmfab;
-    std::memcpy(&nb,    data_int              , sizeof(int));
-    std::memcpy(&nmfab, data_int + sizeof(int), sizeof(int));
 
-    data_int = data_int + 4 * sizeof(int);
-    int pos = id * 6;
-    int lox, loy;
-    int hix, hiy;
-    std::memcpy(&lox, data_int + (pos + 0) * sizeof(int), sizeof(int));
-    std::memcpy(&loy, data_int + (pos + 1) * sizeof(int), sizeof(int));
-    std::memcpy(&hix, data_int + (pos + 3) * sizeof(int), sizeof(int));
-    std::memcpy(&hiy, data_int + (pos + 4) * sizeof(int), sizeof(int));
+    int lox, loy, hix, hiy;
 #if (BL_SPACEDIM == 3)
     int loz, hiz;
-    std::memcpy(&loz, data_int + (pos + 2) * sizeof(int), sizeof(int));
-    std::memcpy(&hiz, data_int + (pos + 5) * sizeof(int), sizeof(int));
 #endif
 
-    char* data_pointer = data_real + 4 * sizeof(amrex::Real) + (4 + 6 * nb) * sizeof(int);
-    char* phi_old_data;
-    char* phi_new_data;
-    char* fluxx_data;
-    char* fluxy_data;
+    int phi_old_lox, phi_old_loy, phi_old_hix, phi_old_hiy;
 #if (BL_SPACEDIM == 3)
-    char* fluxz_data;
-#endif
-    std::memcpy(&phi_old_data, data_pointer + (id*nmfab+0)*sizeof(char*), sizeof(char*));
-    std::memcpy(&phi_new_data, data_pointer + (id*nmfab+1)*sizeof(char*), sizeof(char*));
-    std::memcpy(&fluxx_data, data_pointer + (id*nmfab+2)*sizeof(char*), sizeof(char*));
-    std::memcpy(&fluxy_data, data_pointer + (id*nmfab+3)*sizeof(char*), sizeof(char*));
-#if (BL_SPACEDIM == 3)
-    std::memcpy(&fluxz_data, data_pointer + (id*nmfab+4)*sizeof(char*), sizeof(char*));
+    int phi_old_loz, phi_old_hiz;
 #endif
 
-
-    // get fab sizes
-    int phi_old_lox;
-    int phi_old_loy;
-    int phi_old_hix;
-    int phi_old_hiy;
+    int phi_new_lox, phi_new_loy, phi_new_hix, phi_new_hiy;
 #if (BL_SPACEDIM == 3)
-    int phi_old_loz;
-    int phi_old_hiz;
+    int phi_new_loz, phi_new_hiz;
 #endif
 
-    int phi_new_lox;
-    int phi_new_loy;
-    int phi_new_hix;
-    int phi_new_hiy;
+    int fluxx_lox, fluxx_loy, fluxx_hix, fluxx_hiy;
 #if (BL_SPACEDIM == 3)
-    int phi_new_loz;
-    int phi_new_hiz;
+    int fluxx_loz, fluxx_hiz;
 #endif
 
-    int fluxx_lox;
-    int fluxx_loy;
-    int fluxx_hix;
-    int fluxx_hiy;
+    int fluxy_lox, fluxy_loy, fluxy_hix, fluxy_hiy;
 #if (BL_SPACEDIM == 3)
-    int fluxx_loz;
-    int fluxx_hiz;
+    int fluxy_loz, fluxy_hiz;
 #endif
 
-    int fluxy_lox;
-    int fluxy_loy;
-    int fluxy_hix;
-    int fluxy_hiy;
-#if (BL_SPACEDIM == 3)
-    int fluxy_loz;
-    int fluxy_hiz;
-#endif
+    amrex::Real* phi_old = 0; 
+    amrex::Real* phi_new = 0;
+    amrex::Real* fluxx   = 0; 
+    amrex::Real* fluxy   = 0;
 
-
-    get_fab_dimension(phi_old_lox, 
-                      phi_old_loy,
-#if (BL_SPACEDIM == 3)
-                      phi_old_loz,
-#endif
-                      phi_old_hix, 
-                      phi_old_hiy,
-#if (BL_SPACEDIM == 3)
-                      phi_old_hiz,
-#endif
-                      phi_old_data);
-
-    get_fab_dimension(phi_new_lox, 
-                      phi_new_loy,
-#if (BL_SPACEDIM == 3)
-                      phi_new_loz,
-#endif
-                      phi_new_hix, 
-                      phi_new_hiy,
-#if (BL_SPACEDIM == 3)
-                      phi_new_hiz,
-#endif
-                      phi_new_data);
-
-    get_fab_dimension(fluxx_lox, 
-                      fluxx_loy,
-#if (BL_SPACEDIM == 3)
-                      fluxx_loz,
-#endif
-                      fluxx_hix, 
-                      fluxx_hiy,
-#if (BL_SPACEDIM == 3)
-                      fluxx_hiz,
-#endif
-                      fluxx_data);
-
-    get_fab_dimension(fluxy_lox, 
-                      fluxy_loy,
-#if (BL_SPACEDIM == 3)
-                      fluxy_loz,
-#endif
-                      fluxy_hix, 
-                      fluxy_hiy,
-#if (BL_SPACEDIM == 3)
-                      fluxy_hiz,
-#endif
-                      fluxy_data);
-
-#if (BL_SPACEDIM == 3)
-    get_fab_dimension(fluxz_lox, 
-                      fluxz_loy,
-                      fluxz_loz,
-                      fluxz_hix, 
-                      fluxz_hiy,
-                      fluxy_hiz,
-                      fluxy_data);
-#endif
-
-    // assume it's aligned so we can cast
-    amrex::Real* phi_old = reinterpret_cast<amrex::Real*>(phi_old_data);
-    amrex::Real* phi_new = reinterpret_cast<amrex::Real*>(phi_new_data);
-    amrex::Real* fluxx = reinterpret_cast<amrex::Real*>(fluxx_data);
-    amrex::Real* fluxy = reinterpret_cast<amrex::Real*>(fluxy_data);
-#if (BL_SPACEDIM == 3)
-    amrex::Real* fluxz = reinterpret_cast<amrex::Real*>(fluxz_data);
-#endif
-
-    // for (int i = 0; i < (phi_old_hix - phi_old_lox + 1) * (phi_old_hiy - phi_old_loy + 1); ++i) {
-    //     amrex::Print() << phi_old[i] << "\t";
-    // }
-    // amrex::Print() << std::endl;
-    // for (int i = 0; i < (fluxx_hix - fluxx_lox + 1) * (fluxx_hiy - fluxx_loy + 1); ++i) {
-    //     amrex::Print() << fluxx[i] << "\t";
-    // }
-    // amrex::Print() << std::endl;
-    // // exit(0);
+    unpack(id, buffer,
+           dt, dx, dy,
+           lox, loy, hix, hiy,
+           &phi_old, phi_old_lox, phi_old_loy, phi_old_hix, phi_old_hiy,
+           &phi_new, phi_new_lox, phi_new_loy, phi_new_hix, phi_new_hiy,
+           &fluxx, fluxx_lox, fluxx_loy, fluxx_hix, fluxx_hiy,
+           &fluxy, fluxy_lox, fluxy_loy, fluxy_hix, fluxy_hiy);
 
 
 #if (BL_SPACEDIM == 2)
@@ -310,157 +193,49 @@ void compute_flux_on_box(const int& id, void* buffer){
 }
 
 void update_phi_on_box(const int& id, void* buffer){
-    // TODO: replace this with a call to unpack()
-    char* data_real = static_cast<char*>(buffer);
     amrex::Real dt, dx, dy;
-    std::memcpy(&dt, data_real                        , sizeof(amrex::Real));
-    std::memcpy(&dx, data_real +   sizeof(amrex::Real), sizeof(amrex::Real));
-    std::memcpy(&dy, data_real + 2*sizeof(amrex::Real), sizeof(amrex::Real));
 #if (BL_SPACEDIM == 3)
     amrex::Real dz;
-    std::memcpy(&dz, data_real + 3*sizeof(amrex::Real), sizeof(amrex::Real));
 #endif
-    char* data_int = data_real + 4 * sizeof(amrex::Real);
-    int nb, nmfab;
-    std::memcpy(&nb,    data_int              , sizeof(int));
-    std::memcpy(&nmfab, data_int + sizeof(int), sizeof(int));
 
-    data_int = data_int + 4 * sizeof(int);
-    int pos = id * 6;
-    int lox, loy;
-    int hix, hiy;
-    std::memcpy(&lox, data_int + (pos + 0) * sizeof(int), sizeof(int));
-    std::memcpy(&loy, data_int + (pos + 1) * sizeof(int), sizeof(int));
-    std::memcpy(&hix, data_int + (pos + 3) * sizeof(int), sizeof(int));
-    std::memcpy(&hiy, data_int + (pos + 4) * sizeof(int), sizeof(int));
+    int lox, loy, hix, hiy;
 #if (BL_SPACEDIM == 3)
     int loz, hiz;
-    std::memcpy(&loz, data_int + (pos + 2) * sizeof(int), sizeof(int));
-    std::memcpy(&hiz, data_int + (pos + 5) * sizeof(int), sizeof(int));
 #endif
 
-    char* data_pointer = data_real + 4 * sizeof(amrex::Real) + (4 + 6 * nb) * sizeof(int);
-    char* phi_old_data;
-    char* phi_new_data;
-    char* fluxx_data;
-    char* fluxy_data;
+    int phi_old_lox, phi_old_loy, phi_old_hix, phi_old_hiy;
 #if (BL_SPACEDIM == 3)
-    char* fluxz_data;
-#endif
-    std::memcpy(&phi_old_data, data_pointer + (id*nmfab+0)*sizeof(char*), sizeof(char*));
-    std::memcpy(&phi_new_data, data_pointer + (id*nmfab+1)*sizeof(char*), sizeof(char*));
-    std::memcpy(&fluxx_data, data_pointer + (id*nmfab+2)*sizeof(char*), sizeof(char*));
-    std::memcpy(&fluxy_data, data_pointer + (id*nmfab+3)*sizeof(char*), sizeof(char*));
-#if (BL_SPACEDIM == 3)
-    std::memcpy(&fluxz_data, data_pointer + (id*nmfab+4)*sizeof(char*), sizeof(char*));
+    int phi_old_loz, phi_old_hiz;
 #endif
 
-
-    // get fab sizes
-    int phi_old_lox;
-    int phi_old_loy;
-    int phi_old_hix;
-    int phi_old_hiy;
+    int phi_new_lox, phi_new_loy, phi_new_hix, phi_new_hiy;
 #if (BL_SPACEDIM == 3)
-    int phi_old_loz;
-    int phi_old_hiz;
+    int phi_new_loz, phi_new_hiz;
 #endif
 
-    int phi_new_lox;
-    int phi_new_loy;
-    int phi_new_hix;
-    int phi_new_hiy;
+    int fluxx_lox, fluxx_loy, fluxx_hix, fluxx_hiy;
 #if (BL_SPACEDIM == 3)
-    int phi_new_loz;
-    int phi_new_hiz;
+    int fluxx_loz, fluxx_hiz;
 #endif
 
-    int fluxx_lox;
-    int fluxx_loy;
-    int fluxx_hix;
-    int fluxx_hiy;
+    int fluxy_lox, fluxy_loy, fluxy_hix, fluxy_hiy;
 #if (BL_SPACEDIM == 3)
-    int fluxx_loz;
-    int fluxx_hiz;
-#endif
-
-    int fluxy_lox;
-    int fluxy_loy;
-    int fluxy_hix;
-    int fluxy_hiy;
-#if (BL_SPACEDIM == 3)
-    int fluxy_loz;
-    int fluxy_hiz;
+    int fluxy_loz, fluxy_hiz;
 #endif
 
 
-    get_fab_dimension(phi_old_lox, 
-                      phi_old_loy,
-#if (BL_SPACEDIM == 3)
-                      phi_old_loz,
-#endif
-                      phi_old_hix, 
-                      phi_old_hiy,
-#if (BL_SPACEDIM == 3)
-                      phi_old_hiz,
-#endif
-                      phi_old_data);
+    amrex::Real* phi_old =   0; 
+    amrex::Real* phi_new =   0;
+    amrex::Real* fluxx   =   0; 
+    amrex::Real* fluxy   =   0;
 
-    get_fab_dimension(phi_new_lox, 
-                      phi_new_loy,
-#if (BL_SPACEDIM == 3)
-                      phi_new_loz,
-#endif
-                      phi_new_hix, 
-                      phi_new_hiy,
-#if (BL_SPACEDIM == 3)
-                      phi_new_hiz,
-#endif
-                      phi_new_data);
-
-    get_fab_dimension(fluxx_lox, 
-                      fluxx_loy,
-#if (BL_SPACEDIM == 3)
-                      fluxx_loz,
-#endif
-                      fluxx_hix, 
-                      fluxx_hiy,
-#if (BL_SPACEDIM == 3)
-                      fluxx_hiz,
-#endif
-                      fluxx_data);
-
-    get_fab_dimension(fluxy_lox, 
-                      fluxy_loy,
-#if (BL_SPACEDIM == 3)
-                      fluxy_loz,
-#endif
-                      fluxy_hix, 
-                      fluxy_hiy,
-#if (BL_SPACEDIM == 3)
-                      fluxy_hiz,
-#endif
-                      fluxy_data);
-
-#if (BL_SPACEDIM == 3)
-    get_fab_dimension(fluxz_lox, 
-                      fluxz_loy,
-                      fluxz_loz,
-                      fluxz_hix, 
-                      fluxz_hiy,
-                      fluxy_hiz,
-                      fluxy_data);
-#endif
-
-    // assume it's aligned so we can cast
-    amrex::Real* phi_old = reinterpret_cast<amrex::Real*>(phi_old_data);
-    amrex::Real* phi_new = reinterpret_cast<amrex::Real*>(phi_new_data);
-    amrex::Real* fluxx = reinterpret_cast<amrex::Real*>(fluxx_data);
-    amrex::Real* fluxy = reinterpret_cast<amrex::Real*>(fluxy_data);
-#if (BL_SPACEDIM == 3)
-    amrex::Real* fluxz = reinterpret_cast<amrex::Real*>(fluxz_data);
-#endif
-
+    unpack(id, buffer,
+           dt, dx, dy,
+           lox, loy, hix, hiy,
+           &phi_old, phi_old_lox, phi_old_loy, phi_old_hix, phi_old_hiy,
+           &phi_new, phi_new_lox, phi_new_loy, phi_new_hix, phi_new_hiy,
+           &fluxx, fluxx_lox, fluxx_loy, fluxx_hix, fluxx_hiy,
+           &fluxy, fluxy_lox, fluxy_loy, fluxy_hix, fluxy_hiy);
 
 #if (BL_SPACEDIM == 2)
     update_phi_doit_cpu(
@@ -476,7 +251,7 @@ void update_phi_on_box(const int& id, void* buffer){
 
 }
 
-void unpack(int& id, void* buffer,
+void unpack(const int& id, void* buffer,
         amrex::Real& dt, amrex::Real& dx, amrex::Real& dy,
         int& lox, int& loy,int& hix,int& hiy,
         amrex::Real** phi_old, int& phi_old_lox, int& phi_old_loy, int& phi_old_hix, int& phi_old_hiy,
@@ -484,7 +259,6 @@ void unpack(int& id, void* buffer,
         amrex::Real** fluxx, int& fluxx_lox, int& fluxx_loy, int& fluxx_hix, int& fluxx_hiy,
         amrex::Real** fluxy, int& fluxy_lox, int& fluxy_loy, int& fluxy_hix, int& fluxy_hiy) 
 {
-    // TODO: test this
     char* data_real = static_cast<char*>(buffer);
     std::memcpy(&dt, data_real                        , sizeof(amrex::Real));
     std::memcpy(&dx, data_real +   sizeof(amrex::Real), sizeof(amrex::Real));
@@ -527,3 +301,4 @@ void unpack(int& id, void* buffer,
     *fluxx = reinterpret_cast<amrex::Real*>(fluxx_data);
     *fluxy = reinterpret_cast<amrex::Real*>(fluxy_data);
 }
+

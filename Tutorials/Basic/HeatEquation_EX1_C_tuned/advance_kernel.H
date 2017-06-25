@@ -37,8 +37,9 @@ void compute_flux_on_box(const int& id, void* buffer);
 
 void update_phi_on_box(const int& id, void* buffer);
 
-void unpack(int& id, void* buffer,
+void unpack(const int& id, void* buffer,
         amrex::Real& dt, amrex::Real& dx, amrex::Real& dy,
+        int& lox, int& loy,int& hix,int& hiy,
         amrex::Real** phi_old, int& phi_old_lox, int& phi_old_loy, int& phi_old_hix, int& phi_old_hiy,
         amrex::Real** phi_new, int& phi_new_lox, int& phi_new_loy, int& phi_new_hix, int& phi_new_hiy,
         amrex::Real** fx, int& fx_lox, int& fx_loy, int& fx_hix, int& fx_hiy,
