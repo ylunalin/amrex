@@ -27,8 +27,8 @@ ifeq ($(DEBUG),TRUE)
 
   # 2016-12-02: pgi 16.10 doesn't appear to like -traceback together with c++11
 
-  CXXFLAGS += -Xcompiler='-g -O0 -fno-inline -ggdb -Wall -Wno-sign-compare -ftrapv'
-  CFLAGS   += -Xcompiler='-g -O0 -fno-inline -ggdb -Wall -Wno-sign-compare -ftrapv'
+  CXXFLAGS += -G -Xcompiler='-g -O0 -fno-inline -ggdb -Wall -Wno-sign-compare -ftrapv'
+  CFLAGS   += -G -Xcompiler='-g -O0 -fno-inline -ggdb -Wall -Wno-sign-compare -ftrapv'
   FFLAGS   += -g -O0 -Mbounds -Ktrap=divz,inv -Mchkptr
   F90FLAGS += -g -O0 -Mbounds -Ktrap=divz,inv -Mchkptr
 

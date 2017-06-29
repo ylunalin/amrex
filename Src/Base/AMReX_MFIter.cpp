@@ -484,8 +484,8 @@ void MFIterRegister::closeRegister() {
         int_ptr[pos+5] = bx.hiVect()[2];
 #endif
         for (int jmultifabs = 0; jmultifabs < nFabArray; ++jmultifabs) {
-            // device_data_ptrs[i * nFabArray + jmultifabs] = (*m_mf_v[jmultifabs])[mfi].devicePtr(); 
-            device_data_ptrs[i * nFabArray + jmultifabs] = (*m_mf_v[jmultifabs])[mfi].dataPtr(); 
+            device_data_ptrs[i * nFabArray + jmultifabs] = (*m_mf_v[jmultifabs])[mfi].devicePtr(); 
+            // device_data_ptrs[i * nFabArray + jmultifabs] = (*m_mf_v[jmultifabs])[mfi].dataPtr(); 
         }
         ++i;
     }
@@ -574,6 +574,16 @@ void MFIterRegister::allFabToDevice() const {
 	for ( MFIter mfi(mf); mfi.isValid(); ++mfi ) {
 	    const int idx = mfi.LocalIndex();
             mf[mfi].toDevice(idx);
+	}
+    }
+}
+
+void MFIterRegister::allFabToHost() const {
+    for (std::vector<MultiFab*>::const_iterator it = m_mf_v.begin(); it != m_mf_v.end(); ++it) {
+        MultiFab& mf = **it;
+	for ( MFIter mfi(mf); mfi.isValid(); ++mfi ) {
+	    const int idx = mfi.LocalIndex();
+            mf[mfi].toHost(idx);
 	}
     }
 }

@@ -1,4 +1,3 @@
-
 #include <AMReX_PlotFileUtil.H>
 #include <AMReX_ParmParse.H>
 #include <AMReX_Geometry.H>
@@ -16,10 +15,6 @@
 #include "advance_kernel.H"
 #include <AMReX_Device.H>
 
-#ifdef CUDA
-#include "cuda_profiler_api.h"
-#define BLOCKSIZE_2D 16
-#endif
 
 
 using namespace amrex;
@@ -82,22 +77,14 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
     for ( MFIter mfi(old_phi, mfir); mfi.isValid(); ++mfi )
     {
         int idx = mfi.LocalIndex();
-        /*
         const Box& bx = mfi.validbox();
 #if (BL_SPACEDIM == 2)
-        dim3 blockSize(BLOCKSIZE_2D,BLOCKSIZE_2D,1);
-        dim3 gridSize( (bx.size()[0] + blockSize.x    ) / blockSize.x, 
-                       (bx.size()[1] + blockSize.y - 1) / blockSize.y, 
-                        1 
-                     );
-        compute_flux_on_box<<<gridSize, blockSize, 0, stream_from_id(id)>>>(idx, mfir.get_device_buffer());
+        compute_flux_on_box(bx, idx, mfir.get_device_buffer());
 #elif (BL_SPACEDIM == 3)
         // TODO
 #else 
         exit(0);
 #endif
-        */
-        compute_flux_on_box(idx, mfir.get_host_buffer());
 
     }
 
@@ -109,27 +96,50 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
     for ( MFIter mfi(old_phi); mfi.isValid(); ++mfi )
     {
         const int idx = mfi.LocalIndex();
-        update_phi_on_box(idx, mfir.get_host_buffer());
-        /*
         const Box& bx = mfi.validbox();
-#if (BL_SPACEDIM == 2)
-        dim3 blockSize(BLOCKSIZE_2D,BLOCKSIZE_2D,1);
-        dim3 gridSize( (bx.size()[0] + blockSize.x - 1) / blockSize.x, 
-                       (bx.size()[1] + blockSize.y - 1) / blockSize.y, 
-                        1 
-                     );
-        update_phi_on_box<<<gridSize, blockSize, 0, stream_from_id(id)>>>(idx, mfir.get_device_buffer());
-#elif (BL_SPACEDIM == 3)
-        // TODO
-#else 
-        exit(0);
-#endif
-        */
+        update_phi_on_box(bx, idx, mfir.get_device_buffer());
+        
     }
 
 #ifdef CUDA
     gpu_synchronize();
 #endif
+    for ( MFIter mfi(old_phi); mfi.isValid(); ++mfi )
+    {
+        amrex::Real* dataPtr1 = new_phi[mfi].dataPtr();
+        amrex::Real* dataPtr2 = old_phi[mfi].dataPtr();
+        amrex::Real* dataPtr3 = flux[0][mfi].dataPtr();
+        amrex::Real* dataPtr4 = flux[1][mfi].dataPtr();
+        amrex::Real* dataPtr5 = flux[0][mfi].dataPtr();
+        
+        amrex::Real* dataPtr1_d = new_phi[mfi].devicePtr();
+        amrex::Real* dataPtr2_d = old_phi[mfi].devicePtr();
+        amrex::Real* dataPtr3_d = flux[0][mfi].devicePtr();
+        amrex::Real* dataPtr4_d = flux[1][mfi].devicePtr();
+        amrex::Real* dataPtr5_d = flux[0][mfi].devicePtr();
+    }
+
+    // copy data from d2h
+    mfir.allFabToHost();
+#ifdef CUDA
+    gpu_synchronize();
+#endif
+    // DEBUG
+    for ( MFIter mfi(old_phi); mfi.isValid(); ++mfi )
+    {
+        amrex::Real* dataPtr1 = new_phi[mfi].dataPtr();
+        amrex::Real* dataPtr2 = old_phi[mfi].dataPtr();
+        amrex::Real* dataPtr3 = flux[0][mfi].dataPtr();
+        amrex::Real* dataPtr4 = flux[1][mfi].dataPtr();
+        amrex::Real* dataPtr5 = flux[0][mfi].dataPtr();
+        
+        amrex::Real* dataPtr1_d = new_phi[mfi].devicePtr();
+        amrex::Real* dataPtr2_d = old_phi[mfi].devicePtr();
+        amrex::Real* dataPtr3_d = flux[0][mfi].devicePtr();
+        amrex::Real* dataPtr4_d = flux[1][mfi].devicePtr();
+        amrex::Real* dataPtr5_d = flux[0][mfi].devicePtr();
+    }
+
 
 }
 

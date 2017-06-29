@@ -2,7 +2,8 @@
 # If you set AMREX_HOME as an environment variable, this line will be ignored
 AMREX_HOME ?= ../../../
 
-TINY_PROFILE	= TRUE
+# TINY_PROFILE	= TRUE
+TINY_PROFILE	= FALSE
 DEBUG     	= TRUE
 # DEBUG     	= FALSE
 
@@ -13,7 +14,7 @@ USE_OMP   	= FALSE
 
 USE_CUDA_UM	= FALSE
 USE_CUDA  	= TRUE
-COMP      	= pgi
+COMP      	= CUDA
 # USE_CUDA  	= FALSE
 # COMP    	  = gnu
 

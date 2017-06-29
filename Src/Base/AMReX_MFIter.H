@@ -209,15 +209,16 @@ public:
 
     void* get_device_buffer() {
         BL_ASSERT( buffer_d != NULL ); 
-        if (buffer_d != NULL) return buffer_d;
+        return buffer_d;
     }
 
     void* get_host_buffer() {
         BL_ASSERT( buffer != NULL ); 
-        if (buffer != NULL) return buffer;
+        return buffer;
     }
     
     void allFabToDevice() const;
+    void allFabToHost() const;
 
     // This is mostly for debugging
     // It also shows how to unpack info from the buffer
