@@ -22,7 +22,6 @@
 #include <AMReX_BLProfiler.H>
 #include <AMReX_BoxIterator.H>
 #include <AMReX_MakeType.H>
-// #include <AMReX_Print.H>
 
 namespace amrex
 {
@@ -2825,7 +2824,7 @@ BaseFab<T>::toDevice(int idx)
     gpu_htod_memprefetch_async(dptr, &sz, &idx);
 #else
     if (device_copy && dptr_d && dptr) {
-        // TODO: should move this to other places
+        // TODO: should move this to other places, perhaps constructor
         // assume data are aligned in memory
         // write dimension info about this fab to header
         int* int_data = reinterpret_cast<int*>(reinterpret_cast<char*>(dptr)-HEADER_SIZE);

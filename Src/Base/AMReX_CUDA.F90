@@ -76,13 +76,13 @@ contains
 
     integer :: idx
 
-    ! reserve the stream 0 to 9 for special purposes
-    if (idx <= 0 .and. idx > -10) then
+    ! note that available streams are indexed from 1 to 100
+    ! reserve the stream 1 to 10 for special purposes
+    if (idx < 0 .and. idx >= -10) then
         stream_from_index = -idx
     else
-        ! stream_from_index = MOD(idx, max_cuda_streams) + 1
-        ! reserve the stream 0 to 9 for other purposes
-        stream_from_index = MOD(idx, max_cuda_streams-10) + 10
+        ! stream_from_index below ranges from 11 to 100
+        stream_from_index = MOD(idx, max_cuda_streams-10) + 11
     endif
 
   end function stream_from_index
@@ -415,5 +415,15 @@ contains
         integer, intent(out) :: n
         n= n_calls(id)
     end subroutine get_cuda_num_calls
+
+    subroutine get_stream(id, pStream) bind(c, name='get_stream')
+        implicit none
+        integer, intent(in) :: id
+        integer(kind=cuda_stream_kind),intent(out) :: pStream
+        integer :: s
+
+        s = stream_from_index(id)
+        pStream = cuda_streams(s)
+    end subroutine get_stream
 
 end module cuda_module

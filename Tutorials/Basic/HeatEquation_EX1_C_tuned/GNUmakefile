@@ -4,8 +4,8 @@ AMREX_HOME ?= ../../../
 
 # TINY_PROFILE	= TRUE
 TINY_PROFILE	= FALSE
-DEBUG     	= TRUE
-# DEBUG     	= FALSE
+# DEBUG     	= TRUE
+DEBUG     	= FALSE
 
 
 USE_MPI   	= FALSE

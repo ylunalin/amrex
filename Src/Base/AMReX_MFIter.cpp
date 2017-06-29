@@ -485,7 +485,6 @@ void MFIterRegister::closeRegister() {
 #endif
         for (int jmultifabs = 0; jmultifabs < nFabArray; ++jmultifabs) {
             device_data_ptrs[i * nFabArray + jmultifabs] = (*m_mf_v[jmultifabs])[mfi].devicePtr(); 
-            // device_data_ptrs[i * nFabArray + jmultifabs] = (*m_mf_v[jmultifabs])[mfi].dataPtr(); 
         }
         ++i;
     }
@@ -569,23 +568,32 @@ void MFIterRegister::printInfo() {
 }
 
 void MFIterRegister::allFabToDevice() const {
-    for (std::vector<MultiFab*>::const_iterator it = m_mf_v.begin(); it != m_mf_v.end(); ++it) {
-        MultiFab& mf = **it;
-	for ( MFIter mfi(mf); mfi.isValid(); ++mfi ) {
-	    const int idx = mfi.LocalIndex();
+    BL_ASSERT(m_mf_v.size() > 0);
+    for ( MFIter mfi(*(m_mf_v[0])); mfi.isValid(); ++mfi ) {
+        const int idx = mfi.LocalIndex();
+        for (std::vector<MultiFab*>::const_iterator it = m_mf_v.begin(); it != m_mf_v.end(); ++it) {
+            MultiFab& mf = **it;
             mf[mfi].toDevice(idx);
-	}
+        }
     }
 }
 
 void MFIterRegister::allFabToHost() const {
-    for (std::vector<MultiFab*>::const_iterator it = m_mf_v.begin(); it != m_mf_v.end(); ++it) {
-        MultiFab& mf = **it;
-	for ( MFIter mfi(mf); mfi.isValid(); ++mfi ) {
-	    const int idx = mfi.LocalIndex();
+    BL_ASSERT(m_mf_v.size() > 0);
+    for ( MFIter mfi(*(m_mf_v[0])); mfi.isValid(); ++mfi ) {
+        const int idx = mfi.LocalIndex();
+        for (std::vector<MultiFab*>::const_iterator it = m_mf_v.begin(); it != m_mf_v.end(); ++it) {
+            MultiFab& mf = **it;
             mf[mfi].toHost(idx);
-	}
+        }
     }
+    // for (std::vector<MultiFab*>::const_iterator it = m_mf_v.begin(); it != m_mf_v.end(); ++it) {
+    //     MultiFab& mf = **it;
+    //     for ( MFIter mfi(mf); mfi.isValid(); ++mfi ) {
+    //         const int idx = mfi.LocalIndex();
+    //         mf[mfi].toHost(idx);
+    //     }
+    // }
 }
 
 }

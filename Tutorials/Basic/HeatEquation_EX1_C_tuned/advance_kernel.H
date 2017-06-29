@@ -16,8 +16,8 @@ void update_phi_doit_gpu(int id, void* buffer);
 
 
 
-void compute_flux_on_box(const amrex::Box& bx, const int idx, void* buffer);
-void update_phi_on_box(const amrex::Box& bx, const int& id, void* buffer);
+void compute_flux_on_box(const amrex::Box& bx, int idx, void* buffer);
+void update_phi_on_box(const amrex::Box& bx, int idx, void* buffer);
 
 
 __device__

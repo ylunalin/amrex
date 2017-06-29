@@ -7,6 +7,7 @@
 #ifdef CUDA
 #include <cuda_runtime.h>
 #include <cuda_runtime_api.h>
+#include <AMReX_Device.H>
 
 #define BLOCKSIZE_2D 8
 
@@ -166,30 +167,32 @@ void update_phi_doit_cpu(
     }
 }
 
-void compute_flux_on_box(const amrex::Box& bx, const int idx, void* buffer){
+void compute_flux_on_box(const amrex::Box& bx, int idx, void* buffer){
 #if (BL_SPACEDIM == 2)
     dim3 blockSize(BLOCKSIZE_2D,BLOCKSIZE_2D,1);
     dim3 gridSize( (bx.size()[0] + blockSize.x) / blockSize.x, 
                    (bx.size()[1] + blockSize.y) / blockSize.y, 
                     1 
                  );
-    // TODO: use nondefault stream
-    compute_flux_doit_gpu<<<gridSize, blockSize>>>(idx, buffer);
+    cudaStream_t pStream;
+    get_stream(&idx, &pStream);
+    compute_flux_doit_gpu<<<gridSize, blockSize, 0, pStream>>>(idx, buffer);
 #elif (BL_SPACEDIM == 3)
     // TODO
 #endif
 
 }
 
-void update_phi_on_box(const amrex::Box& bx, const int& idx, void* buffer){
+void update_phi_on_box(const amrex::Box& bx, int idx, void* buffer){
 #if (BL_SPACEDIM == 2)
     dim3 blockSize(BLOCKSIZE_2D,BLOCKSIZE_2D,1);
     dim3 gridSize( (bx.size()[0] + blockSize.x - 1) / blockSize.x, 
                    (bx.size()[1] + blockSize.y - 1) / blockSize.y, 
                     1 
                  );
-    // TODO: use nondefault stream
-    update_phi_doit_gpu<<<gridSize, blockSize>>>(idx, buffer);
+    cudaStream_t pStream;
+    get_stream(&idx, &pStream);
+    update_phi_doit_gpu<<<gridSize, blockSize, 0, pStream>>>(idx, buffer);
 #elif (BL_SPACEDIM == 3)
     // TODO
 #endif

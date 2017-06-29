@@ -88,10 +88,6 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
 
     }
 
-#ifdef CUDA
-    gpu_synchronize();
-#endif
-
     // Advance the solution one grid at a time
     for ( MFIter mfi(old_phi); mfi.isValid(); ++mfi )
     {
@@ -101,45 +97,11 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
         
     }
 
-#ifdef CUDA
-    gpu_synchronize();
-#endif
-    for ( MFIter mfi(old_phi); mfi.isValid(); ++mfi )
-    {
-        amrex::Real* dataPtr1 = new_phi[mfi].dataPtr();
-        amrex::Real* dataPtr2 = old_phi[mfi].dataPtr();
-        amrex::Real* dataPtr3 = flux[0][mfi].dataPtr();
-        amrex::Real* dataPtr4 = flux[1][mfi].dataPtr();
-        amrex::Real* dataPtr5 = flux[0][mfi].dataPtr();
-        
-        amrex::Real* dataPtr1_d = new_phi[mfi].devicePtr();
-        amrex::Real* dataPtr2_d = old_phi[mfi].devicePtr();
-        amrex::Real* dataPtr3_d = flux[0][mfi].devicePtr();
-        amrex::Real* dataPtr4_d = flux[1][mfi].devicePtr();
-        amrex::Real* dataPtr5_d = flux[0][mfi].devicePtr();
-    }
-
     // copy data from d2h
     mfir.allFabToHost();
 #ifdef CUDA
     gpu_synchronize();
 #endif
-    // DEBUG
-    for ( MFIter mfi(old_phi); mfi.isValid(); ++mfi )
-    {
-        amrex::Real* dataPtr1 = new_phi[mfi].dataPtr();
-        amrex::Real* dataPtr2 = old_phi[mfi].dataPtr();
-        amrex::Real* dataPtr3 = flux[0][mfi].dataPtr();
-        amrex::Real* dataPtr4 = flux[1][mfi].dataPtr();
-        amrex::Real* dataPtr5 = flux[0][mfi].dataPtr();
-        
-        amrex::Real* dataPtr1_d = new_phi[mfi].devicePtr();
-        amrex::Real* dataPtr2_d = old_phi[mfi].devicePtr();
-        amrex::Real* dataPtr3_d = flux[0][mfi].devicePtr();
-        amrex::Real* dataPtr4_d = flux[1][mfi].devicePtr();
-        amrex::Real* dataPtr5_d = flux[0][mfi].devicePtr();
-    }
-
 
 }
 
