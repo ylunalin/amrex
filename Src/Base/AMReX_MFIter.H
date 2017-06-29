@@ -230,6 +230,10 @@ public:
         // TODO:
         // synchronize this w.r.t. stream
         // before free the memory
+        cpu_free_pinned(buffer);
+        gpu_free(buffer_d);
+
+        
     }
 private:
     // TODO: how do we avoid accidentally change the fabarrays

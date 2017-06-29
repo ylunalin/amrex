@@ -1,29 +1,18 @@
 #include "advance_kernel.H"
 #include <cstring>
 #include <AMReX_BLFort.H>
-#include <AMReX_BArena.H> // for def of HEADER_SIZE
+#include <AMReX_BArena.H> 
 #include <AMReX_Box.H>
 
 #ifdef CUDA
 #include <cuda_runtime.h>
 #include <cuda_runtime_api.h>
 #include <AMReX_Device.H>
-
-#define BLOCKSIZE_2D 8
-
+#define BLOCKSIZE_2D 16
 #endif
 
-// C format
-// #define ARRAY_2D(PHI, LO_X, LO_Y, HI_X, HI_Y, I, J) PHI[(I-LO_X)*(HI_Y-LO_Y+1)+J-LO_Y]
-// Fortran format
 #define ARRAY_2D(PHI, LO_X, LO_Y, HI_X, HI_Y, I, J) PHI[(J-LO_Y)*(HI_X-LO_X+1)+I-LO_X]
 
-// cudaStream_t stream_from_id(int id) 
-// {
-//     return stream[id % max_cuda_stream];
-// }
-//
-//
 __device__
 void get_fab_dimension(int& lox, int& loy,
 #if (BL_SPACEDIM == 3)
@@ -85,7 +74,6 @@ void compute_flux_doit_gpu(int id, void* buffer)
         ARRAY_2D(fluxy,fluxy_lox,fluxy_loy,fluxy_hix,fluxy_hiy,i,j) = 
             ( ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i,j) - ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i,j-1) ) / dy;
     }
-    int c =  i + j;
 }
 
 void compute_flux_doit_cpu(
@@ -146,7 +134,6 @@ void update_phi_doit_gpu(int id, void* buffer)
         ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i,j) +
         dt/dx * ( ARRAY_2D(fx,fx_lox,fx_loy,fx_hix,fx_hiy,i+1,j) - ARRAY_2D(fx,fx_lox,fx_loy,fx_hix,fx_hiy,i,j) ) +
         dt/dy * ( ARRAY_2D(fy,fy_lox,fy_loy,fy_hix,fy_hiy,i,j+1) - ARRAY_2D(fy,fy_lox,fy_loy,fy_hix,fy_hiy,i,j) ); 
-    int c = i + j;
 }
 
 void update_phi_doit_cpu(
@@ -228,7 +215,6 @@ void unpack(const int& id, void* buffer,
     char* phi_new_data;
     char* fluxx_data;
     char* fluxy_data;
-    // TODO: can replace copy here with pointer movement 
     // since char is only one byte and we assume we know data alignment issue here
     std::memcpy(&phi_old_data, data_pointer + (id*nmfab+0)*sizeof(char*), sizeof(char*));
     std::memcpy(&phi_new_data, data_pointer + (id*nmfab+1)*sizeof(char*), sizeof(char*));

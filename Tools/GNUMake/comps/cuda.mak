@@ -10,8 +10,8 @@ CC  = nvcc
 FC  = pgfortran
 F90 = pgfortran
 
-CXXFLAGS = -Wno-deprecated-gpu-targets -x cu --std=c++11 -ccbin=g++
-CFLAGS   = -Wno-deprecated-gpu-targets -x c -ccbin=gcc -c99
+CXXFLAGS = -Wno-deprecated-gpu-targets -x cu --std=c++11 -ccbin=g++ -O3
+CFLAGS   = -Wno-deprecated-gpu-targets -x c -ccbin=gcc -c99 -O3
 FFLAGS   =
 F90FLAGS =
 

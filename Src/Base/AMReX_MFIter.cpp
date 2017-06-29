@@ -460,7 +460,7 @@ void MFIterRegister::closeRegister() {
     int* int_ptr = static_cast<int*>( pos_int );
     int_ptr[0] = nBox;
     int_ptr[1] = nFabArray;
-    // not used
+    // not used buffer
     // int_ptr[2] = ;
     // int_ptr[3] = ;
     
@@ -493,7 +493,7 @@ void MFIterRegister::closeRegister() {
     gpu_malloc(&buffer_d, &sz);
 
     // send buffer to device
-    // TODO: how to create different iter_id here for different MFIter
+    // TODO: create different iter_id here for different MFIter
     gpu_htod_memcpy_async(buffer_d, buffer, &sz, &mfIter_id);
 }
 
@@ -559,8 +559,6 @@ void MFIterRegister::printInfo() {
         for (int j = 0; j < nmfab; ++j) {
             char* address;
             std::memcpy(&address, data_pointer + (i*nmfab+j)*sizeof(char*), sizeof(char*));
-            // size_t address;
-            // std::memcpy(&address, data_pointer + (i*nmfab+j)*sizeof(void*), sizeof(int));
             amrex::Print() << "GPU memory address of data array " << j << ":" << (void*) address << std::endl;;
         }
         amrex::Print() << std::endl;
@@ -587,13 +585,6 @@ void MFIterRegister::allFabToHost() const {
             mf[mfi].toHost(idx);
         }
     }
-    // for (std::vector<MultiFab*>::const_iterator it = m_mf_v.begin(); it != m_mf_v.end(); ++it) {
-    //     MultiFab& mf = **it;
-    //     for ( MFIter mfi(mf); mfi.isValid(); ++mfi ) {
-    //         const int idx = mfi.LocalIndex();
-    //         mf[mfi].toHost(idx);
-    //     }
-    // }
 }
 
 }
