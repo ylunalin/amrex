@@ -89,7 +89,7 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
                 flux[0][mfi].dataPtr(), 
                 flux[0][mfi].loVect()[0], flux[0][mfi].loVect()[1],
                 flux[0][mfi].hiVect()[0], flux[0][mfi].hiVect()[1],
-                dx[0], dx[1], 0);
+                dx[0], dx[1], 1);
         compute_flux_doit_cpu(lo[0],lo[1],hi[0],hi[1],
                 old_phi[mfi].dataPtr(), 
                 old_phi[mfi].loVect()[0], old_phi[mfi].loVect()[1],
@@ -97,7 +97,7 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
                 flux[1][mfi].dataPtr(), 
                 flux[1][mfi].loVect()[0], flux[1][mfi].loVect()[1],
                 flux[1][mfi].hiVect()[0], flux[1][mfi].hiVect()[1],
-                dx[0], dx[1], 1);
+                dx[0], dx[1], 2);
 #elif (BL_SPACEDIM == 3)
         // TODO
 #else 
