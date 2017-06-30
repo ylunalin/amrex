@@ -426,6 +426,7 @@ MFGhostIter::Initialize ()
     tile_array      = &(lta.tileArray);
 }
 
+#ifdef CUDA
 /*
  * member functions for MFIterRegister
  */
@@ -586,5 +587,6 @@ void MFIterRegister::allFabToHost() const {
         }
     }
 }
+#endif //CUDA
 
 }

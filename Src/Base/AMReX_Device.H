@@ -4,7 +4,9 @@
 
 #include <cstdlib>
 #include "AMReX_REAL.H"
+#ifdef CUDA
 #include <cuda_runtime.h>
+#endif
 
 #ifdef CUDA
 extern "C" {

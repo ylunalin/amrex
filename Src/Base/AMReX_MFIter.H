@@ -10,7 +10,9 @@
 namespace amrex {
 
 template<class T> class FabArray;
+#ifdef CUDA
 class MFIterRegister;
+#endif
 
 class MFIter
 {
@@ -178,6 +180,7 @@ private:
     FabArrayBase::TileArray lta;
 };
 
+#ifdef CUDA
 class MFIterRegister
 {
 public:
@@ -246,6 +249,7 @@ private:
     int mfIter_id;
 
 };
+#endif // CUDA
 
 
 }

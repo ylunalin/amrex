@@ -50,6 +50,7 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
     // 
 
 
+    /*
     MFIterRegister mfir;
     mfir.registerMultiFab(old_phi);
     mfir.registerMultiFab(new_phi);
@@ -58,7 +59,7 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
 #if (BL_SPACEDIM == 3)   
     mfir.registerMultiFab(&(flux[2]));
 #endif
-    mfir.registerCellSize(dx[1], dx[1]
+    mfir.registerCellSize(dx[0], dx[1]
 #if (BL_SPACEDIM == 3)   
             , dx[2]
 #else
@@ -67,16 +68,36 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
     );
     mfir.registerTimeStep(dt);
     mfir.closeRegister();
+    */
     
     // Compute fluxes one grid at a time
     // When construct a MFIter with MFIterRegister, kick off
     // transfer of arraydata registered in the MFIterRegister from htod
-    for ( MFIter mfi(old_phi, mfir); mfi.isValid(); ++mfi )
+    // for ( MFIter mfi(old_phi, mfir); mfi.isValid(); ++mfi )
+    for ( MFIter mfi(old_phi); mfi.isValid(); ++mfi )
     {
         int idx = mfi.LocalIndex();
         const Box& bx = mfi.validbox();
 #if (BL_SPACEDIM == 2)
-        compute_flux_on_box(bx, idx, mfir.get_device_buffer());
+        const int* lo = bx.loVect();
+        const int* hi = bx.hiVect();
+        // compute_flux_on_box(bx, idx, mfir.get_device_buffer());
+        compute_flux_doit_cpu(lo[0],lo[1],hi[0],hi[1],
+                old_phi[mfi].dataPtr(), 
+                old_phi[mfi].loVect()[0], old_phi[mfi].loVect()[1],
+                old_phi[mfi].hiVect()[0], old_phi[mfi].hiVect()[1],
+                flux[0][mfi].dataPtr(), 
+                flux[0][mfi].loVect()[0], flux[0][mfi].loVect()[1],
+                flux[0][mfi].hiVect()[0], flux[0][mfi].hiVect()[1],
+                dx[0], dx[1], 0);
+        compute_flux_doit_cpu(lo[0],lo[1],hi[0],hi[1],
+                old_phi[mfi].dataPtr(), 
+                old_phi[mfi].loVect()[0], old_phi[mfi].loVect()[1],
+                old_phi[mfi].hiVect()[0], old_phi[mfi].hiVect()[1],
+                flux[1][mfi].dataPtr(), 
+                flux[1][mfi].loVect()[0], flux[1][mfi].loVect()[1],
+                flux[1][mfi].hiVect()[0], flux[1][mfi].hiVect()[1],
+                dx[0], dx[1], 1);
 #elif (BL_SPACEDIM == 3)
         // TODO
 #else 
@@ -90,12 +111,28 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
     {
         const int idx = mfi.LocalIndex();
         const Box& bx = mfi.validbox();
-        update_phi_on_box(bx, idx, mfir.get_device_buffer());
+        // update_phi_on_box(bx, idx, mfir.get_device_buffer());
+        const int* lo = bx.loVect();
+        const int* hi = bx.hiVect();
+        update_phi_doit_cpu(lo[0],lo[1],hi[0],hi[1],
+                old_phi[mfi].dataPtr(), 
+                old_phi[mfi].loVect()[0], old_phi[mfi].loVect()[1],
+                old_phi[mfi].hiVect()[0], old_phi[mfi].hiVect()[1],
+                new_phi[mfi].dataPtr(), 
+                new_phi[mfi].loVect()[0], new_phi[mfi].loVect()[1],
+                new_phi[mfi].hiVect()[0], new_phi[mfi].hiVect()[1],
+                flux[0][mfi].dataPtr(), 
+                flux[0][mfi].loVect()[0], flux[0][mfi].loVect()[1],
+                flux[0][mfi].hiVect()[0], flux[0][mfi].hiVect()[1],
+                flux[1][mfi].dataPtr(), 
+                flux[1][mfi].loVect()[0], flux[1][mfi].loVect()[1],
+                flux[1][mfi].hiVect()[0], flux[1][mfi].hiVect()[1],
+                dx[0], dx[1], dt);
         
     }
 
     // copy all data d2h
-    mfir.allFabToHost();
+    // mfir.allFabToHost();
 #ifdef CUDA
     gpu_synchronize();
 #endif
