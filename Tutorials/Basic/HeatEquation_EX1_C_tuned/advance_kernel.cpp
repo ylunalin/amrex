@@ -82,8 +82,8 @@ void compute_flux_doit_gpu(int id, void* buffer)
 
 void compute_flux_doit_cpu(
             const int& lox, const int& loy, const int& hix, const int& hiy,
-            amrex::Real* phi, const int& phi_lox, const int& phi_loy, const int& phi_hix, const int& phi_hiy,
-            amrex::Real* flux, const int& flux_lox, const int& flux_loy, const int& flux_hix, const int& flux_hiy,
+            const amrex::Real* __restrict__ phi, const int& phi_lox, const int& phi_loy, const int& phi_hix, const int& phi_hiy,
+            amrex::Real* __restrict__ flux, const int& flux_lox, const int& flux_loy, const int& flux_hix, const int& flux_hiy,
             amrex::Real dx, amrex::Real dy, const int& idir)
 {
     if (idir == 1) {// flux in x direction
@@ -144,10 +144,10 @@ void update_phi_doit_gpu(int id, void* buffer)
 
 void update_phi_doit_cpu(
             const int& lox, const int& loy, const int& hix, const int& hiy,
-            amrex::Real* phi_old, const int& phi_old_lox, const int& phi_old_loy, const int& phi_old_hix, const int& phi_old_hiy,
-            amrex::Real* phi_new, const int& phi_new_lox, const int& phi_new_loy, const int& phi_new_hix, const int& phi_new_hiy,
-            amrex::Real* fx, const int& fx_lox, const int& fx_loy, const int& fx_hix, const int& fx_hiy,
-            amrex::Real* fy, const int& fy_lox, const int& fy_loy, const int& fy_hix, const int& fy_hiy,
+            const amrex::Real* __restrict__ phi_old, const int& phi_old_lox, const int& phi_old_loy, const int& phi_old_hix, const int& phi_old_hiy,
+            amrex::Real* __restrict__ phi_new, const int& phi_new_lox, const int& phi_new_loy, const int& phi_new_hix, const int& phi_new_hiy,
+            const amrex::Real* __restrict__ fx, const int& fx_lox, const int& fx_loy, const int& fx_hix, const int& fx_hiy,
+            const amrex::Real* __restrict__ fy, const int& fy_lox, const int& fy_loy, const int& fy_hix, const int& fy_hiy,
             amrex::Real dx, amrex::Real dy, amrex::Real dt)
 {
     for (int i = lox; i <= hix; ++i ) {
