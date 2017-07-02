@@ -50,7 +50,7 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
     // 
 
 
-    /*
+#ifdef CUDA
     MFIterRegister mfir;
     mfir.registerMultiFab(old_phi);
     mfir.registerMultiFab(new_phi);
@@ -68,20 +68,25 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
     );
     mfir.registerTimeStep(dt);
     mfir.closeRegister();
-    */
+#endif // CUDA
     
     // Compute fluxes one grid at a time
     // When construct a MFIter with MFIterRegister, kick off
     // transfer of arraydata registered in the MFIterRegister from htod
-    // for ( MFIter mfi(old_phi, mfir); mfi.isValid(); ++mfi )
+#ifdef CUDA
+    for ( MFIter mfi(old_phi, mfir); mfi.isValid(); ++mfi )
+#else
     for ( MFIter mfi(old_phi); mfi.isValid(); ++mfi )
+#endif
     {
         int idx = mfi.LocalIndex();
         const Box& bx = mfi.validbox();
 #if (BL_SPACEDIM == 2)
+#ifdef CUDA
+        compute_flux_on_box(bx, idx, mfir.get_device_buffer());
+#else
         const int* lo = bx.loVect();
         const int* hi = bx.hiVect();
-        // compute_flux_on_box(bx, idx, mfir.get_device_buffer());
         compute_flux_doit_cpu(lo[0],lo[1],hi[0],hi[1],
                 old_phi[mfi].dataPtr(), 
                 old_phi[mfi].loVect()[0], old_phi[mfi].loVect()[1],
@@ -98,6 +103,7 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
                 flux[1][mfi].loVect()[0], flux[1][mfi].loVect()[1],
                 flux[1][mfi].hiVect()[0], flux[1][mfi].hiVect()[1],
                 dx[0], dx[1], 2);
+#endif //CUDA
 #elif (BL_SPACEDIM == 3)
         // TODO
 #else 
@@ -111,7 +117,9 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
     {
         const int idx = mfi.LocalIndex();
         const Box& bx = mfi.validbox();
-        // update_phi_on_box(bx, idx, mfir.get_device_buffer());
+#ifdef CUDA
+        update_phi_on_box(bx, idx, mfir.get_device_buffer());
+#else
         const int* lo = bx.loVect();
         const int* hi = bx.hiVect();
         update_phi_doit_cpu(lo[0],lo[1],hi[0],hi[1],
@@ -128,12 +136,13 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
                 flux[1][mfi].loVect()[0], flux[1][mfi].loVect()[1],
                 flux[1][mfi].hiVect()[0], flux[1][mfi].hiVect()[1],
                 dx[0], dx[1], dt);
+#endif //CUDA
         
     }
 
-    // copy all data d2h
-    // mfir.allFabToHost();
 #ifdef CUDA
+    // copy all data d2h
+    mfir.allFabToHost();
     gpu_synchronize();
 #endif
 

@@ -84,21 +84,23 @@ void compute_flux_doit_cpu(
             const int& lox, const int& loy, const int& hix, const int& hiy,
             const amrex::Real* __restrict__ phi, const int& phi_lox, const int& phi_loy, const int& phi_hix, const int& phi_hiy,
             amrex::Real* __restrict__ flux, const int& flux_lox, const int& flux_loy, const int& flux_hix, const int& flux_hiy,
-            amrex::Real dx, amrex::Real dy, const int& idir)
+            const amrex::Real& dx, const amrex::Real& dy, const int& idir)
 {
     if (idir == 1) {// flux in x direction
-        for (int i = lox; i <= hix+1; ++i ) {
-            for (int j = loy; j <= hiy; ++j ) {
+        // double dxflip = 1 / dx;
+        for (int j = loy; j <= hiy; ++j ) {
+            for (int i = lox; i <= hix+1; ++i ) {
                 ARRAY_2D(flux,flux_lox,flux_loy,flux_hix,flux_hiy,i,j) = 
                     ( ARRAY_2D(phi,phi_lox,phi_loy,phi_hix,phi_hiy,i,j) - ARRAY_2D(phi,phi_lox,phi_loy,phi_hix,phi_hiy,i-1,j) ) / dx;
             }
         }
     }
     else if (idir == 2) {// flux in y direction
-        for (int i = lox; i <= hix; ++i ) {
-            for (int j = loy; j <= hiy+1; ++j ) {
+        // double dyflip = 1 / dy;
+        for (int j = loy; j <= hiy+1; ++j ) {
+            for (int i = lox; i <= hix; ++i ) {
                 ARRAY_2D(flux,flux_lox,flux_loy,flux_hix,flux_hiy,i,j) = 
-                    ( ARRAY_2D(phi,phi_lox,phi_loy,phi_hix,phi_hiy,i,j) - ARRAY_2D(phi,phi_lox,phi_loy,phi_hix,phi_hiy,i,j-1) ) / dy;
+                    ( ARRAY_2D(phi,phi_lox,phi_loy,phi_hix,phi_hiy,i,j) - ARRAY_2D(phi,phi_lox,phi_loy,phi_hix,phi_hiy,i,j-1) ) / dy ;
             }
         }
     }
@@ -148,10 +150,10 @@ void update_phi_doit_cpu(
             amrex::Real* __restrict__ phi_new, const int& phi_new_lox, const int& phi_new_loy, const int& phi_new_hix, const int& phi_new_hiy,
             const amrex::Real* __restrict__ fx, const int& fx_lox, const int& fx_loy, const int& fx_hix, const int& fx_hiy,
             const amrex::Real* __restrict__ fy, const int& fy_lox, const int& fy_loy, const int& fy_hix, const int& fy_hiy,
-            amrex::Real dx, amrex::Real dy, amrex::Real dt)
+            const amrex::Real& dx, const amrex::Real& dy, const amrex::Real& dt)
 {
-    for (int i = lox; i <= hix; ++i ) {
-        for (int j = loy; j <= hiy; ++j ) {
+    for (int j = loy; j <= hiy; ++j ) {
+        for (int i = lox; i <= hix; ++i ) {
             ARRAY_2D(phi_new,phi_new_lox,phi_new_loy,phi_new_hix,phi_new_hiy,i,j) =
                 ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i,j) +
                 dt/dx * ( ARRAY_2D(fx,fx_lox,fx_loy,fx_hix,fx_hiy,i+1,j) - ARRAY_2D(fx,fx_lox,fx_loy,fx_hix,fx_hiy,i,j) ) +
