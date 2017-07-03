@@ -4,6 +4,8 @@
 
 #include <AMReX_CArena.H>
 
+#include <AMReX_Device.H>
+
 namespace amrex {
 
 CArena::CArena (size_t hunk_size)
@@ -169,6 +171,20 @@ CArena::free (void* vp)
         node->size((*free_it).size() + (*hi_it).size());
         m_freelist.erase(hi_it);
     }
+}
+
+// Device allocators are not currently implemented in CArena.
+
+void*
+CArena::alloc_device (size_t nbytes)
+{
+    void* pt = 0;
+    return pt;
+}
+
+void
+CArena::free_device (void* pt)
+{
 }
 
 size_t
