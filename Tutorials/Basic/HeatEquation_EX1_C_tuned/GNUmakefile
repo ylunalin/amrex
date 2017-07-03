@@ -13,10 +13,10 @@ USE_OMP   	= FALSE
 
 
 USE_CUDA_UM	= FALSE
-# USE_CUDA  	= TRUE
-# COMP      	= CUDA
-USE_CUDA  	= FALSE
-COMP    	  = gnu
+USE_CUDA  	= TRUE
+COMP      	= CUDA
+# USE_CUDA  	= FALSE
+# COMP    	  = gnu
 
 
 DIM       	= 2

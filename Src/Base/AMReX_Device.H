@@ -26,7 +26,7 @@ extern "C" {
     void mem_advise_set_preferred(void* p, const std::size_t* sz, const int* device);
     void get_cuda_time(int* id, amrex::Real* time);
     void get_cuda_num_calls(int* id, int* ncalls);
-    void get_stream(int* id, cudaStream_t* pStream); 
+    void get_stream(const int* id, cudaStream_t* pStream); 
 }
 #endif
 

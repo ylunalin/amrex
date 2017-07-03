@@ -50,29 +50,7 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
     // 
 
 
-#ifdef CUDA
-    MFIterRegister mfir;
-    mfir.registerMultiFab(old_phi);
-    mfir.registerMultiFab(new_phi);
-    mfir.registerMultiFab(flux[0]);
-    mfir.registerMultiFab(flux[1]);
-#if (BL_SPACEDIM == 3)   
-    mfir.registerMultiFab(&(flux[2]));
-#endif
-    mfir.registerCellSize(dx[0], dx[1]
-#if (BL_SPACEDIM == 3)   
-            , dx[2]
-#else
-            , 0.0
-#endif
-    );
-    mfir.registerTimeStep(dt);
-    mfir.closeRegister();
-#endif // CUDA
-    
     // Compute fluxes one grid at a time
-    // When construct a MFIter with MFIterRegister, kick off
-    // transfer of arraydata registered in the MFIterRegister from htod
     for ( MFIter mfi(old_phi); mfi.isValid(); ++mfi )
     {
         int idx = mfi.LocalIndex();
@@ -81,8 +59,33 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
 #ifdef CUDA
         // copy old solution from host to device
         old_phi[mfi].toDevice(idx);
-        compute_flux_on_box(bx, idx, mfir.get_device_buffer());
-        update_phi_on_box(bx, idx, mfir.get_device_buffer());
+        const int* lo = bx.loVect();
+        const int* hi = bx.hiVect();
+        compute_flux_c(lo[0],lo[1],hi[0],hi[1],
+                old_phi[mfi].devicePtr(), 
+                old_phi[mfi].loVect()[0], old_phi[mfi].loVect()[1],
+                old_phi[mfi].hiVect()[0], old_phi[mfi].hiVect()[1],
+                flux[0][mfi].devicePtr(), 
+                flux[0][mfi].loVect()[0], flux[0][mfi].loVect()[1],
+                flux[0][mfi].hiVect()[0], flux[0][mfi].hiVect()[1],
+                flux[1][mfi].devicePtr(), 
+                flux[1][mfi].loVect()[0], flux[1][mfi].loVect()[1],
+                flux[1][mfi].hiVect()[0], flux[1][mfi].hiVect()[1],
+                dx[0], dx[1], idx);
+        update_phi_c(lo[0],lo[1],hi[0],hi[1],
+                old_phi[mfi].devicePtr(), 
+                old_phi[mfi].loVect()[0], old_phi[mfi].loVect()[1],
+                old_phi[mfi].hiVect()[0], old_phi[mfi].hiVect()[1],
+                new_phi[mfi].devicePtr(), 
+                new_phi[mfi].loVect()[0], new_phi[mfi].loVect()[1],
+                new_phi[mfi].hiVect()[0], new_phi[mfi].hiVect()[1],
+                flux[0][mfi].devicePtr(), 
+                flux[0][mfi].loVect()[0], flux[0][mfi].loVect()[1],
+                flux[0][mfi].hiVect()[0], flux[0][mfi].hiVect()[1],
+                flux[1][mfi].devicePtr(), 
+                flux[1][mfi].loVect()[0], flux[1][mfi].loVect()[1],
+                flux[1][mfi].hiVect()[0], flux[1][mfi].hiVect()[1],
+                dx[0], dx[1], dt, idx);
         // copy updated solution from device to host
         new_phi[mfi].toHost(idx);
 #else

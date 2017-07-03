@@ -88,6 +88,36 @@ void compute_flux_doit_gpu(int id, void* buffer)
             ( ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i,j) - ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i,j-1) ) / dy;
     }
 }
+
+__global__
+void compute_flux_doit_gpu2(
+        const int lox, const int loy, const int hix, const int hiy,
+        amrex::Real* phi,
+        const int phi_lox, const int phi_loy, const int phi_hix, const int phi_hiy,
+        amrex::Real* fluxx,
+        const int fluxx_lox, const int fluxx_loy, const int fluxx_hix, const int fluxx_hiy,
+        amrex::Real* fluxy,
+        const int fluxy_lox, const int fluxy_loy, const int fluxy_hix, const int fluxy_hiy,
+        const amrex::Real dx, const amrex::Real dy) 
+{
+    // map cuda thread (cudai, cudaj) to cell edge (i,j) it works on 
+    int cudai = threadIdx.x + blockDim.x * blockIdx.x;
+    int cudaj = threadIdx.y + blockDim.y * blockIdx.y;
+    int i = cudai + lox;
+    int j = cudaj + loy;
+
+    // compute flux
+    // flux in x direction
+    if ( i <= (hix+1) && j <= hiy ) {
+        ARRAY_2D(fluxx,fluxx_lox,fluxx_loy,fluxx_hix,fluxx_hiy,i,j) = 
+            ( ARRAY_2D(phi,phi_lox,phi_loy,phi_hix,phi_hiy,i,j) - ARRAY_2D(phi,phi_lox,phi_loy,phi_hix,phi_hiy,i-1,j) ) / dx;
+    }
+    // flux in y direction
+    if ( i <= hix && j <= (hiy+1) ) {
+        ARRAY_2D(fluxy,fluxy_lox,fluxy_loy,fluxy_hix,fluxy_hiy,i,j) = 
+            ( ARRAY_2D(phi,phi_lox,phi_loy,phi_hix,phi_hiy,i,j) - ARRAY_2D(phi,phi_lox,phi_loy,phi_hix,phi_hiy,i,j-1) ) / dy;
+    }
+}
 #endif
 
 void compute_flux_doit_cpu(
@@ -152,6 +182,31 @@ void update_phi_doit_gpu(int id, void* buffer)
         dt/dx * ( ARRAY_2D(fx,fx_lox,fx_loy,fx_hix,fx_hiy,i+1,j) - ARRAY_2D(fx,fx_lox,fx_loy,fx_hix,fx_hiy,i,j) ) +
         dt/dy * ( ARRAY_2D(fy,fy_lox,fy_loy,fy_hix,fy_hiy,i,j+1) - ARRAY_2D(fy,fy_lox,fy_loy,fy_hix,fy_hiy,i,j) ); 
 }
+
+__global__
+void update_phi_doit_gpu2(
+        const int lox, const int loy, const int hix, const int hiy,
+        amrex::Real* phi_old,
+        const int phi_old_lox, const int phi_old_loy, const int phi_old_hix, const int phi_old_hiy,
+        amrex::Real* phi_new,
+        const int phi_new_lox, const int phi_new_loy, const int phi_new_hix, const int phi_new_hiy,
+        amrex::Real* fx,
+        const int fx_lox, const int fx_loy, const int fx_hix, const int fx_hiy,
+        amrex::Real* fy,
+        const int fy_lox, const int fy_loy, const int fy_hix, const int fy_hiy,
+        const amrex::Real dx, const amrex::Real dy, const amrex::Real dt) 
+{
+    // map cuda thread (cudai, cudaj) to cell edge (i,j) it works on 
+    int cudai = threadIdx.x + blockDim.x * blockIdx.x;
+    int cudaj = threadIdx.y + blockDim.y * blockIdx.y;
+    int i = cudai + lox;
+    int j = cudaj + loy;
+    if ( i > hix || j > hiy ) return;
+    ARRAY_2D(phi_new,phi_new_lox,phi_new_loy,phi_new_hix,phi_new_hiy,i,j) =
+        ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i,j) +
+        dt/dx * ( ARRAY_2D(fx,fx_lox,fx_loy,fx_hix,fx_hiy,i+1,j) - ARRAY_2D(fx,fx_lox,fx_loy,fx_hix,fx_hiy,i,j) ) +
+        dt/dy * ( ARRAY_2D(fy,fy_lox,fy_loy,fy_hix,fy_hiy,i,j+1) - ARRAY_2D(fy,fy_lox,fy_loy,fy_hix,fy_hiy,i,j) ); 
+}
 #endif
 
 void update_phi_doit_cpu(
@@ -189,6 +244,38 @@ void compute_flux_on_box(const amrex::Box& bx, int idx, void* buffer){
 #endif
 
 }
+
+void compute_flux_c(const int& lox, const int& loy, const int& hix, const int& hiy,
+                  amrex::Real* phi,
+                  const int& phi_lox, const int& phi_loy, const int& phi_hix, const int& phi_hiy,
+                  amrex::Real* fluxx,
+                  const int& fx_lox, const int& fx_loy, const int& fx_hix, const int& fx_hiy,
+                  amrex::Real* fluxy,
+                  const int& fy_lox, const int& fy_loy, const int& fy_hix, const int& fy_hiy,
+                  const amrex::Real& dx, const amrex::Real& dy, const int& idx) 
+{
+#if (BL_SPACEDIM == 2)
+    dim3 blockSize(BLOCKSIZE_2D,BLOCKSIZE_2D,1);
+    dim3 gridSize( (hix-lox+1 + blockSize.x) / blockSize.x, 
+                   (hiy-loy+1 + blockSize.y) / blockSize.y, 
+                    1 
+                 );
+    cudaStream_t pStream;
+    get_stream(&idx, &pStream);
+    compute_flux_doit_gpu2<<<gridSize, blockSize, 0, pStream>>>(
+            lox, loy, hix, hiy,
+            phi,
+            phi_lox, phi_loy, phi_hix, phi_hiy,
+            fluxx,
+            fx_lox, fx_loy, fx_hix, fx_hiy,
+            fluxy,
+            fy_lox, fy_loy, fy_hix, fy_hiy,
+            dx, dy);
+#elif (BL_SPACEDIM == 3)
+    // TODO
+#endif
+
+}
 #endif
 
 #ifdef CUDA
@@ -206,7 +293,42 @@ void update_phi_on_box(const amrex::Box& bx, int idx, void* buffer){
     // TODO
 #endif
 }
+
+void update_phi_c(const int& lox, const int& loy, const int& hix, const int& hiy,
+                amrex::Real* phi_old,
+                const int& phi_old_lox, const int& phi_old_loy, const int& phi_old_hix, const int& phi_old_hiy,
+                amrex::Real* phi_new,
+                const int& phi_new_lox, const int& phi_new_loy, const int& phi_new_hix, const int& phi_new_hiy,
+                amrex::Real* fluxx,
+                const int& fx_lox, const int& fx_loy, const int& fx_hix, const int& fx_hiy,
+                amrex::Real* fluxy,
+                const int& fy_lox, const int& fy_loy, const int& fy_hix, const int& fy_hiy,
+                const amrex::Real& dx, const amrex::Real& dy, const amrex::Real& dt, const int& idx) 
+{
+#if (BL_SPACEDIM == 2)
+    dim3 blockSize(BLOCKSIZE_2D,BLOCKSIZE_2D,1);
+    dim3 gridSize( (hix-lox+1 + blockSize.x) / blockSize.x, 
+                   (hiy-loy+1 + blockSize.y) / blockSize.y, 
+                    1 
+                 );
+    cudaStream_t pStream;
+    get_stream(&idx, &pStream);
+    update_phi_doit_gpu2<<<gridSize, blockSize, 0, pStream>>>(
+            lox, loy, hix, hiy,
+            phi_old,
+            phi_old_lox, phi_old_loy, phi_old_hix, phi_old_hiy,
+            phi_new,
+            phi_new_lox, phi_new_loy, phi_new_hix, phi_new_hiy,
+            fluxx,
+            fx_lox, fx_loy, fx_hix, fx_hiy,
+            fluxy,
+            fy_lox, fy_loy, fy_hix, fy_hiy,
+            dx, dy, dt);
+#elif (BL_SPACEDIM == 3)
+    // TODO
 #endif
+}
+#endif //CUDA
 
 #ifdef CUDA
 __device__
