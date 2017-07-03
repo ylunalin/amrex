@@ -73,17 +73,18 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
     // Compute fluxes one grid at a time
     // When construct a MFIter with MFIterRegister, kick off
     // transfer of arraydata registered in the MFIterRegister from htod
-#ifdef CUDA
-    for ( MFIter mfi(old_phi, mfir); mfi.isValid(); ++mfi )
-#else
     for ( MFIter mfi(old_phi); mfi.isValid(); ++mfi )
-#endif
     {
         int idx = mfi.LocalIndex();
         const Box& bx = mfi.validbox();
 #if (BL_SPACEDIM == 2)
 #ifdef CUDA
+        // copy old solution from host to device
+        old_phi[mfi].toDevice(idx);
         compute_flux_on_box(bx, idx, mfir.get_device_buffer());
+        update_phi_on_box(bx, idx, mfir.get_device_buffer());
+        // copy updated solution from device to host
+        new_phi[mfi].toHost(idx);
 #else
         const int* lo = bx.loVect();
         const int* hi = bx.hiVect();
@@ -112,37 +113,38 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
 
     }
 
-    // Advance the solution one grid at a time
-    for ( MFIter mfi(old_phi); mfi.isValid(); ++mfi )
-    {
-        const int idx = mfi.LocalIndex();
-        const Box& bx = mfi.validbox();
-#ifdef CUDA
-        update_phi_on_box(bx, idx, mfir.get_device_buffer());
-#else
-        const int* lo = bx.loVect();
-        const int* hi = bx.hiVect();
-        update_phi_doit_cpu(lo[0],lo[1],hi[0],hi[1],
-                old_phi[mfi].dataPtr(), 
-                old_phi[mfi].loVect()[0], old_phi[mfi].loVect()[1],
-                old_phi[mfi].hiVect()[0], old_phi[mfi].hiVect()[1],
-                new_phi[mfi].dataPtr(), 
-                new_phi[mfi].loVect()[0], new_phi[mfi].loVect()[1],
-                new_phi[mfi].hiVect()[0], new_phi[mfi].hiVect()[1],
-                flux[0][mfi].dataPtr(), 
-                flux[0][mfi].loVect()[0], flux[0][mfi].loVect()[1],
-                flux[0][mfi].hiVect()[0], flux[0][mfi].hiVect()[1],
-                flux[1][mfi].dataPtr(), 
-                flux[1][mfi].loVect()[0], flux[1][mfi].loVect()[1],
-                flux[1][mfi].hiVect()[0], flux[1][mfi].hiVect()[1],
-                dx[0], dx[1], dt);
-#endif //CUDA
-        
-    }
+//     // Advance the solution one grid at a time
+//     for ( MFIter mfi(old_phi); mfi.isValid(); ++mfi )
+//     {
+//         const int idx = mfi.LocalIndex();
+//         const Box& bx = mfi.validbox();
+// #ifdef CUDA
+//         update_phi_on_box(bx, idx, mfir.get_device_buffer());
+//         new_phi[mfi].toHost(idx);
+// #else
+//         const int* lo = bx.loVect();
+//         const int* hi = bx.hiVect();
+//         update_phi_doit_cpu(lo[0],lo[1],hi[0],hi[1],
+//                 old_phi[mfi].dataPtr(), 
+//                 old_phi[mfi].loVect()[0], old_phi[mfi].loVect()[1],
+//                 old_phi[mfi].hiVect()[0], old_phi[mfi].hiVect()[1],
+//                 new_phi[mfi].dataPtr(), 
+//                 new_phi[mfi].loVect()[0], new_phi[mfi].loVect()[1],
+//                 new_phi[mfi].hiVect()[0], new_phi[mfi].hiVect()[1],
+//                 flux[0][mfi].dataPtr(), 
+//                 flux[0][mfi].loVect()[0], flux[0][mfi].loVect()[1],
+//                 flux[0][mfi].hiVect()[0], flux[0][mfi].hiVect()[1],
+//                 flux[1][mfi].dataPtr(), 
+//                 flux[1][mfi].loVect()[0], flux[1][mfi].loVect()[1],
+//                 flux[1][mfi].hiVect()[0], flux[1][mfi].hiVect()[1],
+//                 dx[0], dx[1], dt);
+// #endif //CUDA
+//         
+//     }
 
 #ifdef CUDA
     // copy all data d2h
-    mfir.allFabToHost();
+    // mfir.allFabToHost();
     gpu_synchronize();
 #endif
 
@@ -261,6 +263,23 @@ void main_main ()
 
 
     MultiFab::Copy(*phi_old, *phi_new, 0, 0, 1, 0);
+
+// This acts as initialization of device memory
+// Otherwise memcheck will report accessing to uninitialized global memory
+// TODO: move this to somewhere else or wrap it in a member function
+// of Basefab
+#ifdef CUDA
+    for ( MFIter mfi(*phi_old); mfi.isValid(); ++mfi )
+    {
+        const Box& bx = mfi.validbox();
+        int idx = mfi.LocalIndex();
+        (*phi_old)[mfi].toDevice(idx);
+        (*phi_new)[mfi].toDevice(idx);
+        flux[0][mfi].toDevice(idx);
+        flux[1][mfi].toDevice(idx);
+    }
+#endif
+
     for (int n = 1; n <= nsteps; ++n)
     {
 

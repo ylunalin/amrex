@@ -22,6 +22,9 @@
 #include <AMReX_BLProfiler.H>
 #include <AMReX_BoxIterator.H>
 #include <AMReX_MakeType.H>
+#ifdef CUDA
+#include <cuda_runtime_api.h>
+#endif
 
 namespace amrex
 {
@@ -402,6 +405,9 @@ public:
 
     //! Allocates memory for the device copy.
     void allocate_device ();
+
+    //! Initialize allocated memory on device
+    void initialize_device();
 
     //! Transfer data from the host to the device on the stream corresponding to MFIter index idx.
     void toDevice(int idx = -1);
@@ -1333,7 +1339,6 @@ BaseFab<T>::allocate_device() {
 
     device_copy = true;
     dptr_d = static_cast<T*>(amrex::The_Arena()->alloc_device(truesize*sizeof(T)));
-    // amrex::Print() << (void*) dptr_d << std::endl;
 
 }
 
@@ -2813,6 +2818,7 @@ BaseFab<T>::linComb (const BaseFab<T>&  f1,
     return *this;
 }
 
+
 template<class T>
 void
 BaseFab<T>::toDevice(int idx)
@@ -2868,6 +2874,30 @@ BaseFab<T>::toHost(int idx)
 #endif
 #endif
 }
+
+#ifdef CUDA
+template<class T>
+void
+BaseFab<T>::initialize_device()
+{
+    if (device_copy && dptr_d && dptr) {
+        // assume data are aligned in memory
+        // write dimension info about this fab to header
+        int* int_data = reinterpret_cast<int*>(reinterpret_cast<char*>(dptr)-HEADER_SIZE);
+        int_data[0] = smallEnd()[0];
+        int_data[1] = smallEnd()[1];
+#if (BL_SPACEDIM == 3)
+        int_data[2] = smallEnd()[2];
+#endif
+        int_data[3] = bigEnd()[0];
+        int_data[4] = bigEnd()[1];
+#if (BL_SPACEDIM == 3)
+        int_data[5] = bigEnd()[2];
+#endif
+        cudaMemset(reinterpret_cast<T*>(reinterpret_cast<char*>(dptr_d)-HEADER_SIZE), 0, nBytes()+HEADER_SIZE);
+    }
+}
+#endif
 
     // \cond CODEGEN
     class BF_init

@@ -12,6 +12,7 @@
 #endif
 
 #define ARRAY_2D(PHI, LO_X, LO_Y, HI_X, HI_Y, I, J) PHI[(J-LO_Y)*(HI_X-LO_X+1)+I-LO_X]
+#define CUDA_CHECK(x) std::cerr << (x) << std::endl
 
 #ifdef CUDA
 __device__
@@ -65,6 +66,15 @@ void compute_flux_doit_gpu(int id, void* buffer)
     int cudaj = threadIdx.y + blockDim.y * blockIdx.y;
     int i = cudai + lox;
     int j = cudaj + loy;
+
+    // TODO
+    //debug
+    // if (cudai == 0 && cudaj == 0) {
+    //     printf("phi_old at: %x \n", phi_old);
+    //     printf("phi_new at: %x \n", phi_new);
+    //     printf("fluxx at: %x \n", fluxx);
+    //     printf("fluxy at: %x \n", fluxy);
+    // }
 
     // compute flux
     // flux in x direction
@@ -212,7 +222,7 @@ void unpack(const int& id, void* buffer,
     std::memcpy(&dt, data_real                        , sizeof(amrex::Real));
     std::memcpy(&dx, data_real +   sizeof(amrex::Real), sizeof(amrex::Real));
     std::memcpy(&dy, data_real + 2*sizeof(amrex::Real), sizeof(amrex::Real));
-    char* data_int = data_real + 4 * sizeof(amrex::Real);
+    char* data_int = data_real + 4*sizeof(amrex::Real);
     int nb, nmfab;
     std::memcpy(&nb,    data_int              , sizeof(int));
     std::memcpy(&nmfab, data_int + sizeof(int), sizeof(int));
