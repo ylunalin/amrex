@@ -5,14 +5,8 @@
 #include <AMReX_Box.H>
 
 #ifdef CUDA
-__device__
-void get_fab_dimension(int& lox, int& loy, int& hix, int& hiy, void* data_); 
-
 __global__
-void compute_flux_doit_gpu(int id, void* buffer);
-
-__global__
-void compute_flux_doit_gpu2(
+void compute_flux_doit_gpu(
         const int lox, const int loy, const int hix, const int hiy,
         amrex::Real* phi,
         const int phi_lox, const int phi_loy, const int phi_hix, const int phi_hiy,
@@ -22,11 +16,9 @@ void compute_flux_doit_gpu2(
         const int fluxy_lox, const int fluxy_loy, const int fluxy_hix, const int fluxy_hiy,
         const amrex::Real dx, const amrex::Real dy);
 
-__global__
-void update_phi_doit_gpu(int id, void* buffer);
 
 __global__
-void update_phi_doit_gpu2(
+void update_phi_doit_gpu(
         const int lox, const int loy, const int hix, const int hiy,
         amrex::Real* phi_old,
         const int phi_old_lox, const int phi_old_loy, const int phi_old_hix, const int phi_old_hiy,
@@ -37,18 +29,6 @@ void update_phi_doit_gpu2(
         amrex::Real* fy,
         const int fy_lox, const int fy_loy, const int fy_hix, const int fy_hiy,
         const amrex::Real dx, const amrex::Real dy, const amrex::Real dt); 
-
-__device__
-void unpack(const int& id, void* buffer,
-        amrex::Real& dt, amrex::Real& dx, amrex::Real& dy,
-        int& lox, int& loy,int& hix,int& hiy,
-        amrex::Real** phi_old, int& phi_old_lox, int& phi_old_loy, int& phi_old_hix, int& phi_old_hiy,
-        amrex::Real** phi_new, int& phi_new_lox, int& phi_new_loy, int& phi_new_hix, int& phi_new_hiy,
-        amrex::Real** fx, int& fx_lox, int& fx_loy, int& fx_hix, int& fx_hiy,
-        amrex::Real** fy, int& fy_lox, int& fy_loy, int& fy_hix, int& fy_hiy);
-
-void compute_flux_on_box(const amrex::Box& bx, int idx, void* buffer);
-void update_phi_on_box(const amrex::Box& bx, int idx, void* buffer);
 
 void compute_flux_c(const int& lox, const int& loy, const int& hix, const int& hiy,
                   amrex::Real* phi,

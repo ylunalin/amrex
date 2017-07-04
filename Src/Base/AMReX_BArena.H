@@ -4,7 +4,6 @@
 
 #include <AMReX_Arena.H>
 
-#define HEADER_SIZE 8*sizeof(int)
 
 namespace amrex {
 /**

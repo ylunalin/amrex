@@ -14,7 +14,6 @@
 #include <AMReX_BLassert.H>
 #include <AMReX_Box.H>
 #include <AMReX_BoxList.H>
-#include <AMReX_BArena.H>
 #include <AMReX_CArena.H>
 #include <AMReX_Device.H>
 #include <AMReX_Looping.H>
@@ -2830,25 +2829,7 @@ BaseFab<T>::toDevice(int idx)
     gpu_htod_memprefetch_async(dptr, &sz, &idx);
 #else
     if (device_copy && dptr_d && dptr) {
-        // TODO: should move this to other places, perhaps constructor
-        // assume data are aligned in memory
-        // write dimension info about this fab to header
-        int* int_data = reinterpret_cast<int*>(reinterpret_cast<char*>(dptr)-HEADER_SIZE);
-        int_data[0] = smallEnd()[0];
-        int_data[1] = smallEnd()[1];
-#if (BL_SPACEDIM == 3)
-        int_data[2] = smallEnd()[2];
-#endif
-        int_data[3] = bigEnd()[0];
-        int_data[4] = bigEnd()[1];
-#if (BL_SPACEDIM == 3)
-        int_data[5] = bigEnd()[2];
-#endif
-
-        sz = sz + HEADER_SIZE;
-	gpu_htod_memcpy_async(reinterpret_cast<T*>(reinterpret_cast<char*>(dptr_d)-HEADER_SIZE), 
-                              reinterpret_cast<T*>(reinterpret_cast<char*>(dptr)-HEADER_SIZE), 
-                              &sz, &idx);
+	gpu_htod_memcpy_async(dptr_d, dptr, &sz, &idx);
     } 
 #endif
 
@@ -2866,10 +2847,7 @@ BaseFab<T>::toHost(int idx)
     gpu_dtoh_memprefetch_async(dptr, &sz, &idx);
 #else
     if (device_copy && dptr_d && dptr) {
-        sz = sz + HEADER_SIZE;
-	gpu_dtoh_memcpy_async(reinterpret_cast<T*>(reinterpret_cast<char*>(dptr)-HEADER_SIZE), 
-                              reinterpret_cast<T*>(reinterpret_cast<char*>(dptr_d)-HEADER_SIZE), 
-                              &sz, &idx);
+	gpu_dtoh_memcpy_async(dptr, dptr_d, &sz, &idx);
     }
 #endif
 #endif
@@ -2881,20 +2859,7 @@ void
 BaseFab<T>::initialize_device()
 {
     if (device_copy && dptr_d && dptr) {
-        // assume data are aligned in memory
-        // write dimension info about this fab to header
-        int* int_data = reinterpret_cast<int*>(reinterpret_cast<char*>(dptr)-HEADER_SIZE);
-        int_data[0] = smallEnd()[0];
-        int_data[1] = smallEnd()[1];
-#if (BL_SPACEDIM == 3)
-        int_data[2] = smallEnd()[2];
-#endif
-        int_data[3] = bigEnd()[0];
-        int_data[4] = bigEnd()[1];
-#if (BL_SPACEDIM == 3)
-        int_data[5] = bigEnd()[2];
-#endif
-        cudaMemset(reinterpret_cast<T*>(reinterpret_cast<char*>(dptr_d)-HEADER_SIZE), 0, nBytes()+HEADER_SIZE);
+        cudaMemset(dptr_d, 0, nBytes());
     }
 }
 #endif

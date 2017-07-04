@@ -267,7 +267,7 @@ void main_main ()
 
     MultiFab::Copy(*phi_old, *phi_new, 0, 0, 1, 0);
 
-// This acts as initialization of device memory
+// This initialize device memory
 // Otherwise memcheck will report accessing to uninitialized global memory
 // TODO: move this to somewhere else or wrap it in a member function
 // of Basefab
@@ -275,11 +275,10 @@ void main_main ()
     for ( MFIter mfi(*phi_old); mfi.isValid(); ++mfi )
     {
         const Box& bx = mfi.validbox();
-        int idx = mfi.LocalIndex();
-        (*phi_old)[mfi].toDevice(idx);
-        (*phi_new)[mfi].toDevice(idx);
-        flux[0][mfi].toDevice(idx);
-        flux[1][mfi].toDevice(idx);
+        (*phi_old)[mfi].initialize_device();
+        (*phi_new)[mfi].initialize_device();
+        flux[0][mfi].initialize_device();
+        flux[1][mfi].initialize_device();
     }
 #endif
 

@@ -10,9 +10,6 @@
 namespace amrex {
 
 template<class T> class FabArray;
-#ifdef CUDA
-class MFIterRegister;
-#endif
 
 class MFIter
 {
@@ -58,12 +55,6 @@ public:
 	    const IntVect& tilesize, unsigned char flags_=0);
 
     MFIter (MFIter&& rhs) = default;
-
-#ifdef CUDA
-    explicit MFIter (const FabArrayBase& fabarray,
-                     const MFIterRegister& mfi_reg,
-		     unsigned char       flags_=0);
-#endif
 
     // dtor
     ~MFIter ();
@@ -179,78 +170,6 @@ private:
     void Initialize ();
     FabArrayBase::TileArray lta;
 };
-
-#ifdef CUDA
-class MFIterRegister
-{
-public:
-    MFIterRegister(): 
-        buffer(NULL), buffer_d(NULL), 
-        dx(0.0), dy(0.0), dz(0.0), dt(0.0), 
-        mfIter_id(-1) // put transfer of the buffer from htod in CUDA stream 1
-    {};
-
-    void registerMultiFab(MultiFab& mf) {
-        m_mf_v.push_back(&mf);
-    }
-
-    void registerCellSize(const amrex::Real& dx_, 
-                          const amrex::Real& dy_,
-                          const amrex::Real& dz_
-                          ) {
-        dx = dx_; 
-        dy = dy_; 
-        dz = dz_; 
-    }
-
-    void registerTimeStep(const amrex::Real& dt_) {
-        dt = dt_;
-    }
-
-    // send buffer from host to device
-    void closeRegister();
-
-    void* get_device_buffer() {
-        BL_ASSERT( buffer_d != NULL ); 
-        return buffer_d;
-    }
-
-    void* get_host_buffer() {
-        BL_ASSERT( buffer != NULL ); 
-        return buffer;
-    }
-    
-    void allFabToDevice() const;
-    void allFabToHost() const;
-
-    // This is mostly for debugging
-    // It also shows how to unpack info from the buffer
-    void printInfo();
-
-
-    // destructor
-    ~MFIterRegister() {
-        // TODO:
-        // synchronize this w.r.t. stream
-        // before free the memory
-        cpu_free_pinned(buffer);
-        gpu_free(buffer_d);
-
-        
-    }
-private:
-    // TODO: how do we avoid accidentally change the fabarrays
-    // that these pointers point to
-    std::vector<MultiFab*> m_mf_v;
-    amrex::Real dx, dy, dz;
-    amrex::Real dt;
-    void* buffer;
-    void* buffer_d;
-    int mfIter_id;
-
-};
-#endif // CUDA
-
 
 }
 
