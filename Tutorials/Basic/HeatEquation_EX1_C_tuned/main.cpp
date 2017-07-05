@@ -33,6 +33,7 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
 	      std::array<MultiFab, BL_SPACEDIM>& flux,
 	      Real dt, const Geometry& geom)
 {
+    BL_PROFILE("advance");
     // Fill the ghost cells of each grid from the other grids
     // includes periodic domain boundaries
     old_phi.FillBoundary(geom.periodicity());
@@ -116,38 +117,8 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
 
     }
 
-//     // Advance the solution one grid at a time
-//     for ( MFIter mfi(old_phi); mfi.isValid(); ++mfi )
-//     {
-//         const int idx = mfi.LocalIndex();
-//         const Box& bx = mfi.validbox();
-// #ifdef CUDA
-//         update_phi_on_box(bx, idx, mfir.get_device_buffer());
-//         new_phi[mfi].toHost(idx);
-// #else
-//         const int* lo = bx.loVect();
-//         const int* hi = bx.hiVect();
-//         update_phi_doit_cpu(lo[0],lo[1],hi[0],hi[1],
-//                 old_phi[mfi].dataPtr(), 
-//                 old_phi[mfi].loVect()[0], old_phi[mfi].loVect()[1],
-//                 old_phi[mfi].hiVect()[0], old_phi[mfi].hiVect()[1],
-//                 new_phi[mfi].dataPtr(), 
-//                 new_phi[mfi].loVect()[0], new_phi[mfi].loVect()[1],
-//                 new_phi[mfi].hiVect()[0], new_phi[mfi].hiVect()[1],
-//                 flux[0][mfi].dataPtr(), 
-//                 flux[0][mfi].loVect()[0], flux[0][mfi].loVect()[1],
-//                 flux[0][mfi].hiVect()[0], flux[0][mfi].hiVect()[1],
-//                 flux[1][mfi].dataPtr(), 
-//                 flux[1][mfi].loVect()[0], flux[1][mfi].loVect()[1],
-//                 flux[1][mfi].hiVect()[0], flux[1][mfi].hiVect()[1],
-//                 dx[0], dx[1], dt);
-// #endif //CUDA
-//         
-//     }
 
 #ifdef CUDA
-    // copy all data d2h
-    // mfir.allFabToHost();
     gpu_synchronize();
 #endif
 
