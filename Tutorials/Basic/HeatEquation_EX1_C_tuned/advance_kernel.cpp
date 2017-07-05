@@ -72,6 +72,34 @@ void update_phi_doit_gpu(
         dt/dy * ( ARRAY_2D(fy,fy_lox,fy_loy,fy_hix,fy_hiy,i,j+1) - ARRAY_2D(fy,fy_lox,fy_loy,fy_hix,fy_hiy,i,j) ); 
 }
 
+__global__
+void advance_doit_gpu(
+        const int lox, const int loy, const int hix, const int hiy,
+        const __restrict__ amrex::Real* phi_old,
+        const int phi_old_lox, const int phi_old_loy, const int phi_old_hix, const int phi_old_hiy,
+        __restrict__ amrex::Real* phi_new,
+        const int phi_new_lox, const int phi_new_loy, const int phi_new_hix, const int phi_new_hiy,
+        const amrex::Real dx, const amrex::Real dy, const amrex::Real dt) 
+{
+    // map cuda thread (cudai, cudaj) to cell edge (i,j) it works on 
+    int cudai = threadIdx.x + blockDim.x * blockIdx.x;
+    int cudaj = threadIdx.y + blockDim.y * blockIdx.y;
+    int i = cudai + lox;
+    int j = cudaj + loy;
+
+    if ( i > hix || j > hiy ) return;
+    ARRAY_2D(phi_new,phi_new_lox,phi_new_loy,phi_new_hix,phi_new_hiy,i,j) =
+        ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i,j) +
+        dt/(dx*dx) * (ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i+1,j) - 
+                      2*ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i,j) + 
+                      ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i-1,j)
+                     ) +
+        dt/(dy*dy) * (ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i,j+1) - 
+                      2*ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i,j) + 
+                      ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i,j-1)
+                     );
+}
+
 
 
 void compute_flux_c(const int& lox, const int& loy, const int& hix, const int& hiy,
@@ -120,6 +148,7 @@ void update_phi_c(const int& lox, const int& loy, const int& hix, const int& hiy
 {
 #if (BL_SPACEDIM == 2)
     dim3 blockSize(BLOCKSIZE_2D,BLOCKSIZE_2D,1);
+    // TODO: the grid size might be wrong here
     dim3 gridSize( (hix-lox+1 + blockSize.x) / blockSize.x, 
                    (hiy-loy+1 + blockSize.y) / blockSize.y, 
                     1 
@@ -136,6 +165,33 @@ void update_phi_c(const int& lox, const int& loy, const int& hix, const int& hiy
             fx_lox, fx_loy, fx_hix, fx_hiy,
             fluxy,
             fy_lox, fy_loy, fy_hix, fy_hiy,
+            dx, dy, dt);
+#elif (BL_SPACEDIM == 3)
+    // TODO
+#endif
+}
+
+void advance_c(const int& lox, const int& loy, const int& hix, const int& hiy,
+                const amrex::Real* phi_old,
+                const int& phi_old_lox, const int& phi_old_loy, const int& phi_old_hix, const int& phi_old_hiy,
+                amrex::Real* phi_new,
+                const int& phi_new_lox, const int& phi_new_loy, const int& phi_new_hix, const int& phi_new_hiy,
+                const amrex::Real& dx, const amrex::Real& dy, const amrex::Real& dt, const int& idx)
+{
+#if (BL_SPACEDIM == 2)
+    dim3 blockSize(BLOCKSIZE_2D,BLOCKSIZE_2D,1);
+    dim3 gridSize( (hix-lox+1 + blockSize.x) / blockSize.x, 
+                   (hiy-loy+1 + blockSize.y) / blockSize.y, 
+                    1 
+                 );
+    cudaStream_t pStream;
+    get_stream(&idx, &pStream);
+    advance_doit_gpu<<<gridSize, blockSize, 0, pStream>>>(
+            lox, loy, hix, hiy,
+            phi_old,
+            phi_old_lox, phi_old_loy, phi_old_hix, phi_old_hiy,
+            phi_new,
+            phi_new_lox, phi_new_loy, phi_new_hix, phi_new_hiy,
             dx, dy, dt);
 #elif (BL_SPACEDIM == 3)
     // TODO
