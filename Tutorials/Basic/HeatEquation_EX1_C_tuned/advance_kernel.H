@@ -39,6 +39,24 @@ void advance_doit_gpu(
         const int phi_new_lox, const int phi_new_loy, const int phi_new_hix, const int phi_new_hiy,
         const amrex::Real dx, const amrex::Real dy, const amrex::Real dt); 
 
+__global__
+void advance_doit_gpu_shared(
+        const int lox, const int loy, const int hix, const int hiy,
+        const __restrict__ amrex::Real* phi_old,
+        const int phi_old_lox, const int phi_old_loy, const int phi_old_hix, const int phi_old_hiy,
+        __restrict__ amrex::Real* phi_new,
+        const int phi_new_lox, const int phi_new_loy, const int phi_new_hix, const int phi_new_hiy,
+        const amrex::Real dx, const amrex::Real dy, const amrex::Real dt); 
+
+__global__
+void advance_doit_gpu2x2(
+        const int lox, const int loy, const int hix, const int hiy,
+        const __restrict__ amrex::Real* phi_old,
+        const int phi_old_lox, const int phi_old_loy, const int phi_old_hix, const int phi_old_hiy,
+        __restrict__ amrex::Real* phi_new,
+        const int phi_new_lox, const int phi_new_loy, const int phi_new_hix, const int phi_new_hiy,
+        const amrex::Real dx, const amrex::Real dy, const amrex::Real dt); 
+
 void compute_flux_c(const int& lox, const int& loy, const int& hix, const int& hiy,
                   const amrex::Real* phi,
                   const int& phi_lox, const int& phi_loy, const int& phi_hix, const int& phi_hiy,
@@ -59,6 +77,13 @@ void update_phi_c(const int& lox, const int& loy, const int& hix, const int& hiy
                 const amrex::Real& dx, const amrex::Real& dy, const amrex::Real& dt, const int& idx);
 
 void advance_c(const int& lox, const int& loy, const int& hix, const int& hiy,
+                const amrex::Real* phi_old,
+                const int& phi_old_lox, const int& phi_old_loy, const int& phi_old_hix, const int& phi_old_hiy,
+                amrex::Real* phi_new,
+                const int& phi_new_lox, const int& phi_new_loy, const int& phi_new_hix, const int& phi_new_hiy,
+                const amrex::Real& dx, const amrex::Real& dy, const amrex::Real& dt, const int& idx);
+
+void advance_c_2x2(const int& lox, const int& loy, const int& hix, const int& hiy,
                 const amrex::Real* phi_old,
                 const int& phi_old_lox, const int& phi_old_loy, const int& phi_old_hix, const int& phi_old_hiy,
                 amrex::Real* phi_new,

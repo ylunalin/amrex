@@ -81,7 +81,7 @@ void advance_doit_gpu(
         const int phi_new_lox, const int phi_new_loy, const int phi_new_hix, const int phi_new_hiy,
         const amrex::Real dx, const amrex::Real dy, const amrex::Real dt) 
 {
-    // map cuda thread (cudai, cudaj) to cell edge (i,j) it works on 
+    // map cuda thread (cudai, cudaj) to cell (i,j) it works on 
     int cudai = threadIdx.x + blockDim.x * blockIdx.x;
     int cudaj = threadIdx.y + blockDim.y * blockIdx.y;
     int i = cudai + lox;
@@ -97,6 +97,124 @@ void advance_doit_gpu(
         dt/(dy*dy) * (ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i,j+1) - 
                       2*ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i,j) + 
                       ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i,j-1)
+                     );
+}
+
+__global__
+void advance_doit_gpu_shared(
+        const int lox, const int loy, const int hix, const int hiy,
+        const __restrict__ amrex::Real* phi_old,
+        const int phi_old_lox, const int phi_old_loy, const int phi_old_hix, const int phi_old_hiy,
+        __restrict__ amrex::Real* phi_new,
+        const int phi_new_lox, const int phi_new_loy, const int phi_new_hix, const int phi_new_hiy,
+        const amrex::Real dx, const amrex::Real dy, const amrex::Real dt) 
+{
+    // map cuda thread (cudai, cudaj) to cell (i,j) it works on 
+    int cudai = threadIdx.x + blockDim.x * blockIdx.x;
+    int cudaj = threadIdx.y + blockDim.y * blockIdx.y;
+    int i = cudai + lox;
+    int j = cudaj + loy;
+
+
+    if ( i > hix || j > hiy ) return;
+
+    // build shared memory
+    extern __shared__ double phi_s[]; // assume phi_old_s has size (BLOCKSIZE_2D+2) x (BLOCKSIZE_2D+2)
+    int phi_s_lox = -1;
+    int phi_s_hix = blockDim.x+1;
+    int phi_s_loy = -1;
+    int phi_s_hiy = blockDim.y+1;
+    ARRAY_2D(phi_s,phi_s_lox,phi_s_loy,phi_s_hix,phi_s_hiy,threadIdx.x,threadIdx.y) = ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i,j); 
+    if(threadIdx.x == 0)
+        ARRAY_2D(phi_s,phi_s_lox,phi_s_loy,phi_s_hix,phi_s_hiy,threadIdx.x-1,threadIdx.y) = ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i-1,j); 
+    if(threadIdx.x == (blockDim.x-1))
+        ARRAY_2D(phi_s,phi_s_lox,phi_s_loy,phi_s_hix,phi_s_hiy,threadIdx.x+1,threadIdx.y) = ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i+1,j); 
+    if(threadIdx.y == 0)
+        ARRAY_2D(phi_s,phi_s_lox,phi_s_loy,phi_s_hix,phi_s_hiy,threadIdx.x,threadIdx.y-1) = ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i,j-1); 
+    if(threadIdx.y == (blockDim.y-1))
+        ARRAY_2D(phi_s,phi_s_lox,phi_s_loy,phi_s_hix,phi_s_hiy,threadIdx.x,threadIdx.y+1) = ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i,j+1); 
+    __syncthreads();
+
+    
+    ARRAY_2D(phi_new,phi_new_lox,phi_new_loy,phi_new_hix,phi_new_hiy,i,j) =
+        ARRAY_2D(phi_s,phi_s_lox,phi_s_loy,phi_s_hix,phi_s_hiy,threadIdx.x,threadIdx.y) +
+        dt/(dx*dx) * (ARRAY_2D(phi_s,phi_s_lox,phi_s_loy,phi_s_hix,phi_s_hiy,threadIdx.x+1,threadIdx.y) - 
+                      2*ARRAY_2D(phi_s,phi_s_lox,phi_s_loy,phi_s_hix,phi_s_hiy,threadIdx.x,threadIdx.y) + 
+                      ARRAY_2D(phi_s,phi_s_lox,phi_s_loy,phi_s_hix,phi_s_hiy,threadIdx.x-1,threadIdx.y)
+                     ) +
+        dt/(dy*dy) * (ARRAY_2D(phi_s,phi_s_lox,phi_s_loy,phi_s_hix,phi_s_hiy,threadIdx.x,threadIdx.y+1) - 
+                      2*ARRAY_2D(phi_s,phi_s_lox,phi_s_loy,phi_s_hix,phi_s_hiy,threadIdx.x,threadIdx.y) + 
+                      ARRAY_2D(phi_s,phi_s_lox,phi_s_loy,phi_s_hix,phi_s_hiy,threadIdx.x,threadIdx.y-1)
+                     );
+
+
+}
+
+__global__
+void advance_doit_gpu_2x2(
+        const int lox, const int loy, const int hix, const int hiy,
+        const __restrict__ amrex::Real* phi_old,
+        const int phi_old_lox, const int phi_old_loy, const int phi_old_hix, const int phi_old_hiy,
+        __restrict__ amrex::Real* phi_new,
+        const int phi_new_lox, const int phi_new_loy, const int phi_new_hix, const int phi_new_hiy,
+        const amrex::Real dx, const amrex::Real dy, const amrex::Real dt) 
+{
+    // local data to shared memroy
+    // TODO: change double to amrex::Real
+
+    // map cuda thread (cudai, cudaj) to cells it works on 
+    // thread (cudai, cudaj) will work on a 2x2 cell tile, which includes
+    // cell (i,j), (i+1,j), (i,j+1), (i+1,j+1)
+    int cudai = threadIdx.x + blockDim.x * blockIdx.x;
+    int cudaj = threadIdx.y + blockDim.y * blockIdx.y;
+    int i = 2*cudai + lox;
+    int j = 2*cudaj + loy;
+
+    // TODO: for now we assume there won't be such a circumstance where part of a tile is 
+    // mapped to outside of a box
+    // so we can use the condition below
+    if ( i+1 > hix || j+1 > hiy ) return;
+    // TODO
+    // hoisting
+    ARRAY_2D(phi_new,phi_new_lox,phi_new_loy,phi_new_hix,phi_new_hiy,i,j) =
+        ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i,j) +
+        dt/(dx*dx) * (ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i+1,j) - 
+                      2*ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i,j) + 
+                      ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i-1,j)
+                     ) +
+        dt/(dy*dy) * (ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i,j+1) - 
+                      2*ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i,j) + 
+                      ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i,j-1)
+                     );
+    ARRAY_2D(phi_new,phi_new_lox,phi_new_loy,phi_new_hix,phi_new_hiy,i+1,j) =
+        ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i+1,j) +
+        dt/(dx*dx) * (ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i+2,j) - 
+                      2*ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i+1,j) + 
+                      ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i,j)
+                     ) +
+        dt/(dy*dy) * (ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i+1,j+1) - 
+                      2*ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i+1,j) + 
+                      ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i+1,j-1)
+                     );
+    ARRAY_2D(phi_new,phi_new_lox,phi_new_loy,phi_new_hix,phi_new_hiy,i,j+1) =
+        ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i,j+1) +
+        dt/(dx*dx) * (ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i+1,j+1) - 
+                      2*ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i,j+1) + 
+                      ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i-1,j+1)
+                     ) +
+        dt/(dy*dy) * (ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i,j+2) - 
+                      2*ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i,j+1) + 
+                      ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i,j)
+                     );
+    ARRAY_2D(phi_new,phi_new_lox,phi_new_loy,phi_new_hix,phi_new_hiy,i+1,j+1) =
+        ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i+1,j+1) +
+        dt/(dx*dx) * (ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i+2,j+1) - 
+                      2*ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i+1,j+1) + 
+                      ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i,j+1)
+                     ) +
+        dt/(dy*dy) * (ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,  i+1,j+2) - 
+                      2*ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,i+1,j+1) + 
+                      ARRAY_2D(phi_old,phi_old_lox,phi_old_loy,phi_old_hix,phi_old_hiy,  i+1,j  )
                      );
 }
 
@@ -180,13 +298,41 @@ void advance_c(const int& lox, const int& loy, const int& hix, const int& hiy,
 {
 #if (BL_SPACEDIM == 2)
     dim3 blockSize(BLOCKSIZE_2D,BLOCKSIZE_2D,1);
-    dim3 gridSize( (hix-lox+1 + blockSize.x) / blockSize.x, 
-                   (hiy-loy+1 + blockSize.y) / blockSize.y, 
+    dim3 gridSize( (hix-lox+1 + blockSize.x - 1) / blockSize.x, 
+                   (hiy-loy+1 + blockSize.y - 1) / blockSize.y, 
                     1 
                  );
     cudaStream_t pStream;
     get_stream(&idx, &pStream);
-    advance_doit_gpu<<<gridSize, blockSize, 0, pStream>>>(
+    // advance_doit_gpu<<<gridSize, blockSize, 0, pStream>>>(
+    advance_doit_gpu_shared<<<gridSize, blockSize, (BLOCKSIZE_2D+2)*(BLOCKSIZE_2D*2)*sizeof(amrex::Real), pStream>>>(
+            lox, loy, hix, hiy,
+            phi_old,
+            phi_old_lox, phi_old_loy, phi_old_hix, phi_old_hiy,
+            phi_new,
+            phi_new_lox, phi_new_loy, phi_new_hix, phi_new_hiy,
+            dx, dy, dt);
+#elif (BL_SPACEDIM == 3)
+    // TODO
+#endif
+}
+
+void advance_c_2x2(const int& lox, const int& loy, const int& hix, const int& hiy,
+                const amrex::Real* phi_old,
+                const int& phi_old_lox, const int& phi_old_loy, const int& phi_old_hix, const int& phi_old_hiy,
+                amrex::Real* phi_new,
+                const int& phi_new_lox, const int& phi_new_loy, const int& phi_new_hix, const int& phi_new_hiy,
+                const amrex::Real& dx, const amrex::Real& dy, const amrex::Real& dt, const int& idx)
+{
+#if (BL_SPACEDIM == 2)
+    dim3 blockSize(BLOCKSIZE_2D,BLOCKSIZE_2D,1);
+    dim3 gridSize( (hix-lox+1 + blockSize.x - 1) / blockSize.x / 2, 
+                   (hiy-loy+1 + blockSize.y - 1) / blockSize.y / 2, 
+                    1 
+                 );
+    cudaStream_t pStream;
+    get_stream(&idx, &pStream);
+    advance_doit_gpu_2x2<<<gridSize, blockSize, 0, pStream>>>(
             lox, loy, hix, hiy,
             phi_old,
             phi_old_lox, phi_old_loy, phi_old_hix, phi_old_hiy,
