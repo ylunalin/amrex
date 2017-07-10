@@ -12,6 +12,8 @@ F90 = pgfortran
 
 CXXFLAGS = -Wno-deprecated-gpu-targets -x cu --std=c++11 -ccbin=g++ -O3
 CFLAGS   = -Wno-deprecated-gpu-targets -x c -ccbin=gcc -c99 -O3
+# CXXFLAGS += -Xptxas -dlcm=ca
+# CFLAGS += -Xptxas -dlcm=ca
 FFLAGS   =
 F90FLAGS =
 
@@ -27,8 +29,8 @@ ifeq ($(DEBUG),TRUE)
 
   # 2016-12-02: pgi 16.10 doesn't appear to like -traceback together with c++11
 
-  CXXFLAGS += -G -Xcompiler='-g -O0 -fno-inline -ggdb -Wall -Wno-sign-compare -ftrapv'
-  CFLAGS   += -G -Xcompiler='-g -O0 -fno-inline -ggdb -Wall -Wno-sign-compare -ftrapv'
+  CXXFLAGS += -G -Xptxas=-v -Xcompiler='-g -O0 -fno-inline -ggdb -Wall -Wno-sign-compare -ftrapv'
+  CFLAGS   += -G -Xptxas=-v -Xcompiler='-g -O0 -fno-inline -ggdb -Wall -Wno-sign-compare -ftrapv'
   FFLAGS   += -g -O0 -Mbounds -Ktrap=divz,inv -Mchkptr
   F90FLAGS += -g -O0 -Mbounds -Ktrap=divz,inv -Mchkptr
 
