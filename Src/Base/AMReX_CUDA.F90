@@ -30,6 +30,8 @@ contains
     implicit none
 
     integer :: i, cudaResult
+    ! TODO: for now always assume double-precision floats are used
+    cudaResult = cudaDeviceSetSharedMemConfig(cudaSharedMemBankSizeEightByte)
 
     ! TODO: for now always assume double-precision floats are used
     cudaResult = cudaDeviceSetSharedMemConfig(cudaSharedMemBankSizeEightByte)
