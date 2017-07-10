@@ -63,9 +63,11 @@ else
   GENERIC_COMP_FLAGS += 
 endif
 
+# TODO:
+# actually invoking this Makefile already indicates that USE_CUDA=TRUE
 ifeq ($(USE_CUDA),TRUE)
-  CXXFLAGS += 
-  CFLAGS   += 
+  CXXFLAGS += -lineinfo
+  CFLAGS   += -lineinfo
   FFLAGS   += -Mcuda=cuda8.0 -Mnomain -Mcuda=lineinfo
   F90FLAGS += -Mcuda=cuda8.0 -Mnomain -Mcuda=lineinfo
 
