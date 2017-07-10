@@ -63,7 +63,9 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
         const int* lo = bx.loVect();
         const int* hi = bx.hiVect();
         advance_c(lo[0],lo[1],hi[0],hi[1],
+        // advance_c_shared(lo[0],lo[1],hi[0],hi[1],
         // advance_c_2x2(lo[0],lo[1],hi[0],hi[1],
+        // advance_c_shared_2x2(lo[0],lo[1],hi[0],hi[1],
                 old_phi[mfi].devicePtr(), 
                 old_phi[mfi].loVect()[0], old_phi[mfi].loVect()[1],
                 old_phi[mfi].hiVect()[0], old_phi[mfi].hiVect()[1],
