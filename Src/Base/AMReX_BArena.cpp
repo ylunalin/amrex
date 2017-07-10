@@ -50,6 +50,18 @@ amrex::BArena::alloc_device (std::size_t _sz)
     return pt;
 }
 
+void*
+amrex::BArena::alloc_device_2d (std::size_t& _pitch, std::size_t _isize, std::size_t _jsize)
+{
+    void* pt = 0;
+
+#ifdef CUDA
+    gpu_malloc_2d(&pt, &_pitch, &_isize, &_jsize);
+#endif
+
+    return pt;
+}
+
 void
 amrex::BArena::free_device (void* pt)
 {

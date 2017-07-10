@@ -25,11 +25,14 @@ contains
 
   subroutine initialize_cuda() bind(c, name='initialize_cuda')
 
-    use cudafor, only: cudaStreamCreate
+    use cudafor, only: cudaStreamCreate,cudaDeviceSetSharedMemConfig,cudaSharedMemBankSizeEightByte
     
     implicit none
 
     integer :: i, cudaResult
+
+    ! TODO: for now always assume double-precision floats are used
+    cudaResult = cudaDeviceSetSharedMemConfig(cudaSharedMemBankSizeEightByte)
 
     do i = 1, max_cuda_streams
        cudaResult = cudaStreamCreate(cuda_streams(i))
@@ -157,6 +160,21 @@ contains
   end subroutine gpu_malloc
 
 
+  subroutine gpu_malloc_2d(x, pitch, isize, jsize) bind(c, name='gpu_malloc_2d')
+
+    use cudafor, only: cudaMallocPitch, c_devptr
+    use iso_c_binding, only: c_size_t
+
+    implicit none
+
+    type(c_devptr) :: x
+    integer(c_size_t) :: pitch, isize, jsize
+
+    integer :: cudaResult
+
+    cudaResult = cudaMallocPitch(x, pitch, isize, jsize)
+
+  end subroutine gpu_malloc_2d
 
   subroutine gpu_malloc_managed(x, sz) bind(c, name='gpu_malloc_managed')
 
@@ -250,6 +268,47 @@ contains
 
   end subroutine gpu_dtoh_memcpy_async
 
+  subroutine gpu_htod_memcpy_2d_async(p_d, pitch_d, p_h, pitch_h, isize, jsize, idx) bind(c, name='gpu_htod_memcpy_2d_async')
+
+    use cudafor, only: cudaMemcpy2DAsync, cudaMemcpyHostToDevice, c_devptr, cuda_stream_kind
+    use iso_c_binding, only: c_ptr, c_size_t
+
+    implicit none
+
+    type(c_devptr), value :: p_d
+    type(c_ptr), value :: p_h
+    integer(c_size_t) :: pitch_d, pitch_h, isize, jsize
+    integer :: idx
+
+    integer :: s
+    integer :: cudaResult
+
+    s = stream_from_index(idx)
+
+    cudaResult = cudaMemcpy2DAsync(p_d, pitch_d, p_h, pitch_h, isize, jsize, cudaMemcpyHostToDevice, cuda_streams(s))
+
+  end subroutine gpu_htod_memcpy_2d_async
+
+  subroutine gpu_dtoh_memcpy_2d_async(p_h, pitch_h, p_d, pitch_d, isize, jsize, idx) bind(c, name='gpu_dtoh_memcpy_2d_async')
+
+    use cudafor, only: cudaMemcpy2DAsync, cudaMemcpyDeviceToHost, c_devptr, cuda_stream_kind
+    use iso_c_binding, only: c_ptr, c_size_t
+
+    implicit none
+
+    type(c_devptr), value :: p_d
+    type(c_ptr), value :: p_h
+    integer(c_size_t) :: pitch_d, pitch_h, isize, jsize
+    integer :: idx
+
+    integer :: s
+    integer :: cudaResult
+
+    s = stream_from_index(idx)
+
+    cudaResult = cudaMemcpy2DAsync(p_h, pitch_h, p_d, pitch_d, isize, jsize, cudaMemcpyDeviceToHost, cuda_streams(s))
+
+  end subroutine gpu_dtoh_memcpy_2d_async
 
 
   subroutine gpu_htod_memprefetch_async(p, sz, idx) bind(c, name='gpu_htod_memprefetch_async')

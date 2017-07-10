@@ -42,6 +42,10 @@ public:
     virtual void free (void* ap) override;
 
     virtual void* alloc_device (size_t nbytes) override;
+    /*
+     * do nothing for now
+     */ 
+    virtual void* alloc_device_2d (std::size_t& _pitch, std::size_t _isize, std::size_t _jsize) override { void* pt = 0; return pt;};
     virtual void free_device (void* ap) override;
 
     //! The current amount of heap space used by the CArena object.

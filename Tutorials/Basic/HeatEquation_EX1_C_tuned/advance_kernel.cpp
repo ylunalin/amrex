@@ -112,6 +112,35 @@ void advance_doit_gpu(
         dt/(dy*dy) * (phi_old[index_yhi] - 2*phi_old[index_x] + phi_old[index_ylo]); 
 }
 
+__global__
+void advance_doit_gpu_align(
+        const int lox, const int loy, const int hix, const int hiy,
+        const __restrict__ amrex::Real* phi_old,
+        const int phi_old_lox, const int phi_old_loy, const int phi_old_hix, const int phi_old_hiy,
+        __restrict__ amrex::Real* phi_new,
+        const int phi_new_lox, const int phi_new_loy, const int phi_new_hix, const int phi_new_hiy,
+        const amrex::Real dx, const amrex::Real dy, const amrex::Real dt, const int pitch) 
+{
+    // map cuda thread (cudai, cudaj) to cell (i,j) it works on 
+    int cudai = threadIdx.x + blockDim.x * blockIdx.x;
+    int cudaj = threadIdx.y + blockDim.y * blockIdx.y;
+    int i = cudai + lox;
+    int j = cudaj + loy;
+    if ( i > hix || j > hiy ) return;
+
+    // here we assume phi_old and phi_new have the same size
+    int phi_i = i - phi_old_lox;
+    int phi_j = j - phi_old_loy;
+    amrex::Real* pold_yc  = (amrex::Real*)((char*)phi_old + phi_j * pitch);
+    amrex::Real* pold_yhi = (amrex::Real*)((char*)phi_old + (phi_j+1) * pitch);
+    amrex::Real* pold_ylo = (amrex::Real*)((char*)phi_old + (phi_j-1) * pitch);
+    amrex::Real* pnew_yc  = (amrex::Real*)((char*)phi_new + phi_j * pitch);
+
+    pnew_yc[phi_i] = pold_yc[phi_i] +
+        dt/(dx*dx) * (pold_yc[phi_i+1] - 2*pold_yc[phi_i] + pold_yc[phi_i-1]) + 
+        dt/(dy*dy) * (pold_yhi[phi_i] - 2*pold_yc[phi_i] + pold_ylo[phi_i]); 
+}
+
 
 __global__
 void advance_doit_gpu_2x2(
@@ -382,6 +411,32 @@ void advance_c_shared(const int& lox, const int& loy, const int& hix, const int&
 #endif
 }
 
+void advance_c_align(const int& lox, const int& loy, const int& hix, const int& hiy,
+                const amrex::Real* phi_old,
+                const int& phi_old_lox, const int& phi_old_loy, const int& phi_old_hix, const int& phi_old_hiy,
+                amrex::Real* phi_new,
+                const int& phi_new_lox, const int& phi_new_loy, const int& phi_new_hix, const int& phi_new_hiy,
+                const amrex::Real& dx, const amrex::Real& dy, const amrex::Real& dt, const int& idx, const int& pitch)
+{
+#if (BL_SPACEDIM == 2)
+    dim3 blockSize(BLOCKSIZE_2D,BLOCKSIZE_2D,1);
+    dim3 gridSize( (hix-lox+1 + blockSize.x - 1) / blockSize.x, 
+                   (hiy-loy+1 + blockSize.y - 1) / blockSize.y, 
+                    1 
+                 );
+    cudaStream_t pStream;
+    get_stream(&idx, &pStream);
+    advance_doit_gpu_align<<<gridSize, blockSize, 0, pStream>>>(
+            lox, loy, hix, hiy,
+            phi_old,
+            phi_old_lox, phi_old_loy, phi_old_hix, phi_old_hiy,
+            phi_new,
+            phi_new_lox, phi_new_loy, phi_new_hix, phi_new_hiy,
+            dx, dy, dt, pitch);
+#elif (BL_SPACEDIM == 3)
+    // TODO
+#endif
+}
 
 #endif //CUDA
 

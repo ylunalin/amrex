@@ -262,6 +262,9 @@ public:
 
     //! Same as above exept works on const FABs.
     const T* devicePtr (int n = 0) const { BL_ASSERT(!(dptr_d == 0)); return &dptr_d[n*numpts]; }
+
+    //! get pitch of the CUDA 2D array
+    std::size_t getPitch() {return pitch;}
     
     void setPtr (T* p, long sz) { BL_ASSERT(dptr == 0 && truesize == 0); dptr = p; truesize = sz; }
 
@@ -929,6 +932,7 @@ protected:
     long    truesize; // nvar*numpts that was allocated on heap.
     T*      dptr;     // The data pointer.
     T*      dptr_d;   // The device copy of the data pointer.
+    std::size_t pitch; // pitch for CUDA 2d array
     bool    ptr_owner;// Owner of T*?
     bool    device_copy;    // Should we have a device copy of the data?
     bool    shared_memory;  // Is the memory allocated in shared memory?
@@ -1337,7 +1341,8 @@ void
 BaseFab<T>::allocate_device() {
 
     device_copy = true;
-    dptr_d = static_cast<T*>(amrex::The_Arena()->alloc_device(truesize*sizeof(T)));
+    // dptr_d = static_cast<T*>(amrex::The_Arena()->alloc_device(truesize*sizeof(T)));
+    dptr_d = static_cast<T*>(amrex::The_Arena()->alloc_device_2d(pitch, dlen[0]*sizeof(T), dlen[1]));
 
 }
 
@@ -2829,7 +2834,11 @@ BaseFab<T>::toDevice(int idx)
     gpu_htod_memprefetch_async(dptr, &sz, &idx);
 #else
     if (device_copy && dptr_d && dptr) {
-	gpu_htod_memcpy_async(dptr_d, dptr, &sz, &idx);
+	// gpu_htod_memcpy_async(dptr_d, dptr, &sz, &idx);
+        std::size_t pitch_d = pitch;
+        std::size_t isize = dlen[0]*sizeof(T);
+        std::size_t jsize = dlen[1];
+	gpu_htod_memcpy_2d_async(dptr_d, &pitch_d, dptr, &isize, &isize, &jsize, &idx);
     } 
 #endif
 
@@ -2847,7 +2856,11 @@ BaseFab<T>::toHost(int idx)
     gpu_dtoh_memprefetch_async(dptr, &sz, &idx);
 #else
     if (device_copy && dptr_d && dptr) {
-	gpu_dtoh_memcpy_async(dptr, dptr_d, &sz, &idx);
+	// gpu_dtoh_memcpy_async(dptr, dptr_d, &sz, &idx);
+        std::size_t pitch_d = pitch;
+        std::size_t isize = dlen[0]*sizeof(T);
+        std::size_t jsize = dlen[1];
+	gpu_dtoh_memcpy_2d_async(dptr, &isize, dptr_d, &pitch_d, &isize, &jsize, &idx);
     }
 #endif
 #endif
