@@ -33,9 +33,6 @@ contains
     ! TODO: for now always assume double-precision floats are used
     cudaResult = cudaDeviceSetSharedMemConfig(cudaSharedMemBankSizeEightByte)
 
-    ! TODO: for now always assume double-precision floats are used
-    cudaResult = cudaDeviceSetSharedMemConfig(cudaSharedMemBankSizeEightByte)
-
     do i = 1, max_cuda_streams
        cudaResult = cudaStreamCreate(cuda_streams(i))
     enddo
