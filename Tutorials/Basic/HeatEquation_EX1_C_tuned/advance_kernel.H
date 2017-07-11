@@ -132,4 +132,11 @@ void update_phi_doit_cpu(
             const amrex::Real* __restrict__ fy,      const int& fy_lox,      const int& fy_loy,      const int& fy_hix,      const int& fy_hiy,
             const amrex::Real& dx, const amrex::Real& dy, const amrex::Real& dt);
 
+void advance_cpu(const int& lox, const int& loy, const int& hix, const int& hiy,
+                const amrex::Real* phi_old,
+                const int& phi_old_lox, const int& phi_old_loy, const int& phi_old_hix, const int& phi_old_hiy,
+                amrex::Real* phi_new,
+                const int& phi_new_lox, const int& phi_new_loy, const int& phi_new_hix, const int& phi_new_hiy,
+                const amrex::Real& dx, const amrex::Real& dy, const amrex::Real& dt);
+
 #endif // ADVANCE_KERNEL_H__
