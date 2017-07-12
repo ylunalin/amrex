@@ -159,6 +159,7 @@ contains
   end subroutine gpu_malloc
 
 
+#ifdef CUDA_ARRAY
   subroutine gpu_malloc_2d(x, pitch, isize, jsize) bind(c, name='gpu_malloc_2d')
 
     use cudafor, only: cudaMallocPitch, c_devptr
@@ -174,6 +175,7 @@ contains
     cudaResult = cudaMallocPitch(x, pitch, isize, jsize)
 
   end subroutine gpu_malloc_2d
+#endif
 
   subroutine gpu_malloc_managed(x, sz) bind(c, name='gpu_malloc_managed')
 
@@ -266,7 +268,8 @@ contains
     cudaResult = cudaMemcpyAsync(p_h, p_d, sz, cudaMemcpyDeviceToHost, cuda_streams(s))
 
   end subroutine gpu_dtoh_memcpy_async
-
+ 
+#ifdef CUDA_ARRAY
   subroutine gpu_htod_memcpy_2d_async(p_d, pitch_d, p_h, pitch_h, isize, jsize, idx) bind(c, name='gpu_htod_memcpy_2d_async')
 
     use cudafor, only: cudaMemcpy2DAsync, cudaMemcpyHostToDevice, c_devptr, cuda_stream_kind
@@ -287,7 +290,9 @@ contains
     cudaResult = cudaMemcpy2DAsync(p_d, pitch_d, p_h, pitch_h, isize, jsize, cudaMemcpyHostToDevice, cuda_streams(s))
 
   end subroutine gpu_htod_memcpy_2d_async
+#endif
 
+#ifdef CUDA_ARRAY
   subroutine gpu_dtoh_memcpy_2d_async(p_h, pitch_h, p_d, pitch_d, isize, jsize, idx) bind(c, name='gpu_dtoh_memcpy_2d_async')
 
     use cudafor, only: cudaMemcpy2DAsync, cudaMemcpyDeviceToHost, c_devptr, cuda_stream_kind
@@ -308,6 +313,7 @@ contains
     cudaResult = cudaMemcpy2DAsync(p_h, pitch_h, p_d, pitch_d, isize, jsize, cudaMemcpyDeviceToHost, cuda_streams(s))
 
   end subroutine gpu_dtoh_memcpy_2d_async
+#endif
 
 
   subroutine gpu_htod_memprefetch_async(p, sz, idx) bind(c, name='gpu_htod_memprefetch_async')

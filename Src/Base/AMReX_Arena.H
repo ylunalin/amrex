@@ -37,8 +37,10 @@ public:
     * \return a pointer to the allocated memory
     */
     virtual void* alloc_device (std::size_t sz) = 0;
+#ifdef CUDA_ARRAY
     // for 2d array on GPU
     virtual void* alloc_device_2d (std::size_t& _pitch, std::size_t _isize, std::size_t _jsize) = 0;
+#endif
     /**
     * \brief A pure virtual function for deleting the device arena pointed to by pt
     */

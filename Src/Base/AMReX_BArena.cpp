@@ -50,6 +50,7 @@ amrex::BArena::alloc_device (std::size_t _sz)
     return pt;
 }
 
+#ifdef CUDA_ARRAY
 void*
 amrex::BArena::alloc_device_2d (std::size_t& _pitch, std::size_t _isize, std::size_t _jsize)
 {
@@ -61,6 +62,7 @@ amrex::BArena::alloc_device_2d (std::size_t& _pitch, std::size_t _isize, std::si
 
     return pt;
 }
+#endif
 
 void
 amrex::BArena::free_device (void* pt)

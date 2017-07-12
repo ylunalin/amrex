@@ -62,10 +62,8 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
         old_phi[mfi].toDevice(idx);
         const int* lo = bx.loVect();
         const int* hi = bx.hiVect();
-        // advance_c(lo[0],lo[1],hi[0],hi[1],
-        // advance_c_shared(lo[0],lo[1],hi[0],hi[1],
-        // advance_c_2x2(lo[0],lo[1],hi[0],hi[1],
-        // advance_c_shared_2x2(lo[0],lo[1],hi[0],hi[1],
+#ifdef CUDA_ARRAY
+        // use aligned GPU memory
         advance_c_align(lo[0],lo[1],hi[0],hi[1],
                 old_phi[mfi].devicePtr(), 
                 old_phi[mfi].loVect()[0], old_phi[mfi].loVect()[1],
@@ -73,8 +71,20 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
                 new_phi[mfi].devicePtr(), 
                 new_phi[mfi].loVect()[0], new_phi[mfi].loVect()[1],
                 new_phi[mfi].hiVect()[0], new_phi[mfi].hiVect()[1],
-                // dx[0], dx[1], dt, idx);
                 dx[0], dx[1], dt, idx, old_phi[mfi].getPitch());
+#else
+        advance_c(lo[0],lo[1],hi[0],hi[1],
+        // advance_c_shared(lo[0],lo[1],hi[0],hi[1],
+        // advance_c_2x2(lo[0],lo[1],hi[0],hi[1],
+        // advance_c_shared_2x2(lo[0],lo[1],hi[0],hi[1],
+                old_phi[mfi].devicePtr(), 
+                old_phi[mfi].loVect()[0], old_phi[mfi].loVect()[1],
+                old_phi[mfi].hiVect()[0], old_phi[mfi].hiVect()[1],
+                new_phi[mfi].devicePtr(), 
+                new_phi[mfi].loVect()[0], new_phi[mfi].loVect()[1],
+                new_phi[mfi].hiVect()[0], new_phi[mfi].hiVect()[1],
+                dx[0], dx[1], dt, idx);
+#endif // CUDA_ARRAY
         // copy updated solution from device to host
         new_phi[mfi].toHost(idx);
 #else

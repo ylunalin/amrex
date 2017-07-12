@@ -32,8 +32,10 @@ public:
     * Returns a pointer to this memory.
     */
     virtual void* alloc_device (std::size_t sz) override;
+#ifdef CUDA_ARRAY
     // for 2d array on GPU
     virtual void* alloc_device_2d (std::size_t& _pitch, std::size_t _isize, std::size_t _jsize);
+#endif
     /**
     * \brief Deletes the device arena pointed to by pt.
     */

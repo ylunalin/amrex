@@ -10,7 +10,6 @@
 #endif
 
 #define ARRAY_2D(PHI, LO_X, LO_Y, HI_X, HI_Y, I, J) PHI[(J-LO_Y)*(HI_X-LO_X+1)+I-LO_X]
-#define ARRAY_2D2(PHI, LO_X, LO_Y, XSIZE, I, J) PHI[(J-LO_Y)*XSIZE+I-LO_X]
 #define CUDA_CHECK(x) std::cerr << (x) << std::endl
 
 
@@ -112,6 +111,7 @@ void advance_doit_gpu(
         dt/(dy*dy) * (phi_old[index_yhi] - 2*phi_old[index_x] + phi_old[index_ylo]); 
 }
 
+#ifdef CUDA_ARRAY
 __global__
 void advance_doit_gpu_align(
         const int lox, const int loy, const int hix, const int hiy,
@@ -140,67 +140,9 @@ void advance_doit_gpu_align(
         dt/(dx*dx) * (pold_yc[phi_i+1] - 2*pold_yc[phi_i] + pold_yc[phi_i-1]) + 
         dt/(dy*dy) * (pold_yhi[phi_i] - 2*pold_yc[phi_i] + pold_ylo[phi_i]); 
 }
+#endif
 
-__global__
-void advance_doit_gpu_align_more_work(
-        const int lox, const int loy, const int hix, const int hiy,
-        const __restrict__ amrex::Real* phi_old,
-        const int phi_old_lox, const int phi_old_loy, const int phi_old_hix, const int phi_old_hiy,
-        __restrict__ amrex::Real* phi_new,
-        const int phi_new_lox, const int phi_new_loy, const int phi_new_hix, const int phi_new_hiy,
-        const amrex::Real dx, const amrex::Real dy, const amrex::Real dt, const int pitch) 
-{
-    // map cuda thread (cudai, cudaj) to cell (i,j) it works on 
-    int cudai = threadIdx.x + blockDim.x * blockIdx.x;
-    int cudaj = threadIdx.y + blockDim.y * blockIdx.y;
-    int i = cudai + lox;
-    int j = cudaj + loy;
-    if ( i > hix || j > hiy ) return;
 
-    // here we assume phi_old and phi_new have the same size
-    int phi_i = i - phi_old_lox;
-    int phi_j = j - phi_old_loy;
-    amrex::Real* pold_yc  = (amrex::Real*)((char*)phi_old + phi_j * pitch);
-    amrex::Real* pold_yhi = (amrex::Real*)((char*)phi_old + (phi_j+1) * pitch);
-    amrex::Real* pold_ylo = (amrex::Real*)((char*)phi_old + (phi_j-1) * pitch);
-    amrex::Real* pnew_yc  = (amrex::Real*)((char*)phi_new + phi_j * pitch);
-    amrex::Real results = 0.0;
-
-    // I make this up
-    // These works are 300 FLOPs per thread
-    results += pold_yc[phi_i] +
-        dt/(dx*dx) * (pold_yc[phi_i+1] - 2*pold_yc[phi_i] + pold_yc[phi_i-1]) + 
-        dt/(dy*dy) * (pold_yhi[phi_i] - 2*pold_yc[phi_i] + pold_ylo[phi_i]); 
-    results += pold_yc[phi_i] -
-        0.002/(dx*dx) * (2*pold_yc[phi_i+1] + pold_yc[phi_i] + pold_yc[phi_i-1]) + 
-        0.0014/(dy*dy) * (pold_yhi[phi_i] - 4*pold_yc[phi_i] - pold_ylo[phi_i]); 
-    results += pold_yc[phi_i] -
-        0.0012/(dx*dx) * (pold_yc[phi_i+1] + pold_yc[phi_i] + 12*pold_yc[phi_i-1]) + 
-        0.0002204/(dy*dy) * (pold_yhi[phi_i] + pold_yc[phi_i] + 3*pold_ylo[phi_i]); 
-    results += pold_yc[phi_i] -
-        0.00112/(dx*dx) * (pold_yc[phi_i+1] - pold_yc[phi_i] + 2*pold_yc[phi_i-1]) + 
-        0.002204/(dy*dy) * (pold_yhi[phi_i] - 2*pold_yc[phi_i] - pold_ylo[phi_i]); 
-    results -= pold_yc[phi_i] +
-        0.00152/(dx*dx) * (pold_yc[phi_i+1] - 3*pold_yc[phi_i] + pold_yc[phi_i-1]) + 
-        0.00304/(dy*dy) * (pold_yhi[phi_i] - 5*pold_yc[phi_i] - pold_ylo[phi_i]); 
-    results += pold_yc[phi_i] +
-        0.00252/(dx*dx) * (3*pold_yc[phi_i+1] + pold_yc[phi_i] + pold_yc[phi_i-1]) + 
-        0.00504/(dy*dy) * (3*pold_yhi[phi_i] - pold_yc[phi_i] - pold_ylo[phi_i]); 
-    results -= pold_yc[phi_i] +
-        0.01152/(dx*dx) * (6*pold_yc[phi_i+1] + pold_yc[phi_i] + pold_yc[phi_i-1]) + 
-        0.02304/(dy*dy) * (pold_yhi[phi_i] + pold_yc[phi_i] - 4*pold_ylo[phi_i]); 
-    results -= pold_yc[phi_i] +
-        0.00152/(dx*dx) * (pold_yc[phi_i+1] - 3*pold_yc[phi_i] + pold_yc[phi_i-1]) + 
-        0.00304/(dy*dy) * (pold_yhi[phi_i] - 5*pold_yc[phi_i] - pold_ylo[phi_i]); 
-    results += pold_yc[phi_i] +
-        0.01252/(dx*dx) * (3*pold_yc[phi_i+1] + pold_yc[phi_i] + pold_yc[phi_i-1]) + 
-        0.00704/(dy*dy) * (2*pold_yhi[phi_i] - pold_yc[phi_i] - pold_ylo[phi_i]); 
-    results -= pold_yc[phi_i] +
-        0.0752/(dx*dx) * (2*pold_yc[phi_i+1] + pold_yc[phi_i] + pold_yc[phi_i-1]) + 
-        0.01504/(dy*dy) * (pold_yhi[phi_i] - pold_yc[phi_i] - 1*pold_ylo[phi_i]); 
-
-    pnew_yc[phi_i] = results;
-}
 
 
 __global__
@@ -472,6 +414,8 @@ void advance_c_shared(const int& lox, const int& loy, const int& hix, const int&
 #endif
 }
 
+
+#ifdef CUDA_ARRAY
 void advance_c_align(const int& lox, const int& loy, const int& hix, const int& hiy,
                 const amrex::Real* phi_old,
                 const int& phi_old_lox, const int& phi_old_loy, const int& phi_old_hix, const int& phi_old_hiy,
@@ -488,7 +432,6 @@ void advance_c_align(const int& lox, const int& loy, const int& hix, const int& 
     cudaStream_t pStream;
     get_stream(&idx, &pStream);
     advance_doit_gpu_align<<<gridSize, blockSize, 0, pStream>>>(
-    // advance_doit_gpu_align_more_work<<<gridSize, blockSize, 0, pStream>>>(
             lox, loy, hix, hiy,
             phi_old,
             phi_old_lox, phi_old_loy, phi_old_hix, phi_old_hiy,
@@ -499,6 +442,7 @@ void advance_c_align(const int& lox, const int& loy, const int& hix, const int& 
     // TODO
 #endif
 }
+#endif // CUDA_ARRAY
 
 #endif //CUDA
 
