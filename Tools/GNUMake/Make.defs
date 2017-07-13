@@ -111,6 +111,10 @@ ifndef USE_CUDA_UM
   USE_CUDA_UM = FALSE
 endif
 
+ifndef USE_CUDA_ARRAY
+  USE_CUDA_ARRAY = FALSE
+endif
+
 ifdef DIMENSION_AGNOSTIC
   DIMENSION_AGNOSTIC := $(strip $(DIMENSION_AGNOSTIC))
 else
@@ -290,6 +294,9 @@ ifeq ($(USE_CUDA),TRUE)
     ifeq ($(USE_CUDA_UM),TRUE)
         DEFINES += -DCUDA_UM
 	DEFINES += -DBL_COALESCE_FABS
+    endif
+    ifeq ($(USE_CUDA_ARRAY),TRUE)
+        DEFINES += -DCUDA_ARRAY
     endif
     LIBRARIES += -lnvToolsExt
     LIBRARY_LOCATIONS += $(CUDA_PATH)/lib64 
