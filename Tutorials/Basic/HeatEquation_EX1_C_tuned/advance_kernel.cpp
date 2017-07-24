@@ -7,6 +7,8 @@
 #include <cuda_runtime_api.h>
 #include <AMReX_Device.H>
 #define BLOCKSIZE_2D 16
+#define KERNEL_MAX_THREADS 256
+#define KERNEL_MIN_BLOCKS 8
 #endif
 
 #define ARRAY_2D(PHI, LO_X, LO_Y, HI_X, HI_Y, I, J) PHI[(J-LO_Y)*(HI_X-LO_X+1)+I-LO_X]
@@ -73,6 +75,7 @@ void update_phi_doit_gpu(
 }
 
 __global__
+__launch_bounds__(KERNEL_MAX_THREADS, KERNEL_MIN_BLOCKS)
 void advance_doit_gpu(
         const int lox, const int loy, const int hix, const int hiy,
         const __restrict__ amrex::Real* phi_old,
@@ -340,6 +343,7 @@ void advance_c(const int& lox, const int& loy, const int& hix, const int& hiy,
                 const int& phi_new_lox, const int& phi_new_loy, const int& phi_new_hix, const int& phi_new_hiy,
                 const amrex::Real& dx, const amrex::Real& dy, const amrex::Real& dt, const int& idx)
 {
+
 #if (BL_SPACEDIM == 2)
     dim3 blockSize(BLOCKSIZE_2D,BLOCKSIZE_2D,1);
     dim3 gridSize( (hix-lox+1 + blockSize.x - 1) / blockSize.x, 

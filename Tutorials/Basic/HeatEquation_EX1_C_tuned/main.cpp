@@ -12,7 +12,6 @@
 #include "myfunc_F.H"
 #include "advance_kernel.H"
 #include <AMReX_Device.H>
-#include <AMReX_Print.H>
 
 
 
@@ -45,27 +44,22 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
 
     const Real* dx = geom.CellSize();
 
-    // TODO: we should launch kernels immediately after launching sent-one-fab
-    // , instead of waiting for all are launched
+    //
+    // Note that this simple example is not optimized.
+    // The following two MFIter loops could be merged
+    // and we do not have to use flux MultiFab.
+    // 
+
+
+    // Compute fluxes one grid at a time
     for ( MFIter mfi(old_phi); mfi.isValid(); ++mfi )
     {
         int idx = mfi.LocalIndex();
-        old_phi[mfi].toDevice(idx);
-    }
-
-    // Compute fluxes one grid at a time
-    for ( MFIter mfi(old_phi,IntVect(AMREX_D_DECL(64, 64, 64))); mfi.isValid(); ++mfi )
-    {
-        // int box_idx = mfi.LocalIndex();
-        // int tile_idx = mfi.LocalTileIndex();
-        // int local_tiles = mfi.numLocalTiles();
-        // int idx = box_idx*local_tiles+tile_idx;
-        int idx = mfi.LocalIndex();
-        const Box& bx = mfi.tilebox();
+        const Box& bx = mfi.validbox();
 #if (BL_SPACEDIM == 2)
 #ifdef CUDA
         // copy old solution from host to device
-        // old_phi[mfi].toDevice(idx);
+        old_phi[mfi].toDevice(idx);
         const int* lo = bx.loVect();
         const int* hi = bx.hiVect();
 #ifdef CUDA_ARRAY
@@ -91,9 +85,8 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
                 new_phi[mfi].hiVect()[0], new_phi[mfi].hiVect()[1],
                 dx[0], dx[1], dt, idx);
 #endif // CUDA_ARRAY
-
         // copy updated solution from device to host
-        // new_phi[mfi].toHost(idx);
+        new_phi[mfi].toHost(idx);
 #else
         const int* lo = bx.loVect();
         const int* hi = bx.hiVect();
@@ -112,11 +105,6 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
         exit(0);
 #endif
 
-    }
-    for ( MFIter mfi(old_phi); mfi.isValid(); ++mfi )
-    {
-        int idx = mfi.LocalIndex();
-        new_phi[mfi].toHost(idx);
     }
 
 
