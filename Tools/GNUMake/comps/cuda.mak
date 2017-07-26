@@ -10,8 +10,8 @@ CC  = nvcc
 FC  = pgfortran
 F90 = pgfortran
 
-CXXFLAGS = -Wno-deprecated-gpu-targets -x cu --std=c++11 -ccbin=g++ -O3
-CFLAGS   = -Wno-deprecated-gpu-targets -x c -ccbin=gcc -c99 -O3
+CXXFLAGS = -Wno-deprecated-gpu-targets -x cu --std=c++11 -ccbin=g++ -O3 -Xptxas=-v
+CFLAGS   = -Wno-deprecated-gpu-targets -x c -ccbin=gcc -c99 -O3 -Xptxas=-v
 # CXXFLAGS += -Xptxas -dlcm=ca
 # CFLAGS += -Xptxas -dlcm=ca
 FFLAGS   =
@@ -54,7 +54,13 @@ FFLAGS   += -module $(fmoddir) -I$(fmoddir) -Mextend
 GENERIC_COMP_FLAGS =
 
 ifeq ($(USE_OMP),TRUE)
-  GENERIC_COMP_FLAGS += -mp=nonuma -Minfo=mp
+  # for g++ and gcc
+  CXXFLAGS += -Xcompiler='-fopenmp'
+  CFLAGS += -Xcompiler='-fopenmp'
+  # for pgfortran
+  FFLAGS   += -Minfo=mp
+  F90FLAGS += -Minfo=mp
+  GENERIC_COMP_FLAGS +=
 endif
 
 ifeq ($(USE_ACC),TRUE)

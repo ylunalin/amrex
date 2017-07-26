@@ -302,6 +302,11 @@ ifeq ($(USE_CUDA),TRUE)
     LIBRARY_LOCATIONS += $(CUDA_PATH)/lib64 
     INCLUDE_LOCATIONS += $(CUDA_PATH)/include
     CUDASuffix := .CUDA
+    ifeq ($(USE_OMP),TRUE)
+        # because we generate *.o with gnu
+        # but link with pgfortran
+        LIBRARIES += -lgomp
+    endif
 else
     CUDASuffix :=
 endif
