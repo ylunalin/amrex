@@ -416,4 +416,76 @@ contains
     end do
   end function fort_fab_dot
 
+! CUDA versions
+#ifdef CUDA
+  ! dst = src
+  subroutine fort_fab_copy_gpu(lo, hi, dst, dlo, dhi, src, slo, shi, sblo, ncomp) &
+       bind(c,name='fort_fab_copy_gpu')
+    use amrex_fort_module, only: amrex_real
+    use cuda_module, only: threads_and_blocks, cuda_streams, stream_from_index
+    use cudafor, only: dim3
+
+    implicit none
+
+    integer, intent(in) :: lo(3), hi(3), dlo(3), dhi(3), slo(3), shi(3), sblo(3), ncomp
+    real(amrex_real), intent(in   ) :: src(slo(1):shi(1),slo(2):shi(2),slo(3):shi(3),ncomp)
+    real(amrex_real), intent(inout) :: dst(dlo(1):dhi(1),dlo(2):dhi(2),dlo(3):dhi(3),ncomp)
+    attributes(device) :: src, dst
+    type(dim3) :: numBlocks, numThreads
+    integer :: s
+
+    ! compute grid size and block size
+    ! TODO: assume this subroutine is only called for filling ghost cells for now
+    call threads_and_blocks(lo, hi, numBlocks, numThreads)
+    ! s = stream_from_index(idx)
+
+    ! TODO: for now, always use stream 1
+    call fort_fab_copy_doit &
+    <<<numBlocks, numThreads, 0, cuda_streams(0)>>> &
+    (lo(1), lo(2), lo(3), hi(1), hi(2), hi(3), &
+     dst, dlo(1), dlo(2), dlo(3), dhi(1), dhi(2), dhi(3), &
+     src, slo(1), slo(2), slo(3), shi(1), shi(2), shi(3), &
+     sblo(1), sblo(2), sblo(3), ncomp)
+
+  end subroutine fort_fab_copy_gpu
+
+  attributes(global) &
+  subroutine fort_fab_copy_doit(lox, loy, loz, hix, hiy, hiz, &
+      dst, dlox, dloy, dloz, dhix, dhiy, dhiz, &
+      src, slox, sloy, sloz, shix, shiy, shiz, &
+      sblox, sbloy, sbloz, ncomp)
+
+    implicit none
+
+    integer, intent(in), value :: lox, loy, loz, hix, hiy, hiz
+    integer, intent(in), value :: dlox, dloy, dloz, dhix, dhiy, dhiz
+    integer, intent(in), value :: slox, sloy, sloz, shix, shiy, shiz
+    integer, intent(in), value :: sblox, sbloy, sbloz, ncomp
+    real(amrex_real), intent(in   ) :: src(slox:shix,sloy:shiy,sloz:shiz,ncomp)
+    real(amrex_real), intent(inout) :: dst(dlox:dhix,dloy:dhiy,dloz:dhiz,ncomp)
+
+    integer :: i,j,k,n,offx,offy,offz
+    integer :: cudai, cudaj, cudak
+
+    ! TODO: always assume 2D and ncomp is 1 for now
+    n = ncomp
+
+    offx = sblox - lox
+    offy = sbloy - loy
+    offz = sbloz - loz
+
+    cudai = (threadIdx%x - 1) + blockDim%x * (blockIdx%x - 1)
+    cudaj = (threadIdx%y - 1) + blockDim%y * (blockIdx%y - 1)
+    cudak = (threadIdx%z - 1) + blockDim%z * (blockIdx%z - 1)
+    i = cudai + lox
+    j = cudaj + loy
+    k = cudak + loz
+
+    ! print * , slox, shix, sloy, shiy, sloz, shiz
+    if (i <= hix .and. j <= hiy .and. k<=hiz) then
+        dst(i,j,k,n) = src(i+offx,j+offy,k+offz,n)
+    end if
+  end subroutine fort_fab_copy_doit
+#endif
+
 end module basefab_nd_module

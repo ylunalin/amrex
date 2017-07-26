@@ -12,6 +12,12 @@ extern "C"
 			amrex_real* dst, const int* dlo, const int* dhi,
 			const amrex_real* src, const int* slo, const int* shi, const int* sblo,
 			const int* ncomp);
+#ifdef CUDA
+    void fort_fab_copy_gpu (const int* lo, const int* hi,
+			amrex_real* dst, const int* dlo, const int* dhi,
+			const amrex_real* src, const int* slo, const int* shi, const int* sblo,
+			const int* ncomp);
+#endif
 
     long fort_fab_copytomem (const int* lo, const int* hi,
                              amrex_real* dst,

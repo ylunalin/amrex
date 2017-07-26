@@ -50,8 +50,9 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
     // and we do not have to use flux MultiFab.
     // 
 
-
-    // Compute fluxes one grid at a time
+#ifdef _OPENMP
+#pragma omp parallel
+#endif
     for ( MFIter mfi(old_phi); mfi.isValid(); ++mfi )
     {
         int idx = mfi.LocalIndex();
@@ -59,9 +60,10 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
 #if (BL_SPACEDIM == 2)
 #ifdef CUDA
         // copy old solution from host to device
-        old_phi[mfi].toDevice(idx);
+        // old_phi[mfi].toDevice(idx);
         const int* lo = bx.loVect();
         const int* hi = bx.hiVect();
+
 #ifdef CUDA_ARRAY
         // use aligned GPU memory
         advance_c_align(lo[0],lo[1],hi[0],hi[1],
@@ -85,8 +87,9 @@ void advance (MultiFab& old_phi, MultiFab& new_phi,
                 new_phi[mfi].hiVect()[0], new_phi[mfi].hiVect()[1],
                 dx[0], dx[1], dt, idx);
 #endif // CUDA_ARRAY
+
         // copy updated solution from device to host
-        new_phi[mfi].toHost(idx);
+        // new_phi[mfi].toHost(idx);
 #else
         const int* lo = bx.loVect();
         const int* hi = bx.hiVect();
@@ -200,7 +203,7 @@ void main_main ()
 
         // modify host data
         init_phi(bx.loVect(), bx.hiVect(),
-                 BL_TO_FORTRAN_ANYD((*phi_new)[mfi]),
+                 BL_TO_FORTRAN_ANYD((*phi_old)[mfi]),
                  geom.CellSize(), geom.ProbLo(), geom.ProbHi());
     }
 
@@ -226,7 +229,7 @@ void main_main ()
     }
 
 
-    MultiFab::Copy(*phi_old, *phi_new, 0, 0, 1, 0);
+    // MultiFab::Copy(*phi_old, *phi_new, 0, 0, 1, 0);
 
 // This initialize device memory
 // Otherwise memcheck will report accessing to uninitialized global memory
@@ -240,7 +243,10 @@ void main_main ()
         (*phi_new)[mfi].initialize_device();
         flux[0][mfi].initialize_device();
         flux[1][mfi].initialize_device();
+        // copy to device the 1st time
+        (*phi_old)[mfi].toDevice();
     }
+    gpu_synchronize();
 #endif
 
     for (int n = 1; n <= nsteps; ++n)
@@ -256,6 +262,16 @@ void main_main ()
         // Write a plotfile of the current data (plot_int was defined in the inputs file)
         if (plot_int > 0 && n%plot_int == 0)
         {
+#ifdef CUDA
+            for ( MFIter mfi(*phi_new); mfi.isValid(); ++mfi )
+            {
+                const Box& bx = mfi.validbox();
+                // copy to host the 1st time
+                (*phi_new)[mfi].toHost();
+            }
+            gpu_synchronize();
+
+#endif
             const std::string& pltfile = amrex::Concatenate("plt",n,5);
             WriteSingleLevelPlotfile(pltfile, *phi_new, {"phi"}, geom, time, n);
         }

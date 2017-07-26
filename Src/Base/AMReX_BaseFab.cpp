@@ -186,6 +186,30 @@ BaseFab<Real>::performCopy (const BaseFab<Real>& src,
 		  &numcomp);
 }
 
+#ifdef CUDA
+template<>
+void
+BaseFab<Real>::performCopyd2d (const BaseFab<Real>& src,
+                               const Box&           srcbox,
+                               int                  srccomp,
+                               const Box&           destbox,
+                               int                  destcomp,
+                               int                  numcomp)
+{
+    BL_ASSERT(destbox.ok());
+    BL_ASSERT(src.box().contains(srcbox));
+    BL_ASSERT(box().contains(destbox));
+    BL_ASSERT(destbox.sameSize(srcbox));
+    BL_ASSERT(srccomp >= 0 && srccomp+numcomp <= src.nComp());
+    BL_ASSERT(destcomp >= 0 && destcomp+numcomp <= nComp());
+
+    fort_fab_copy_gpu(ARLIM_3D(destbox.loVect()), ARLIM_3D(destbox.hiVect()),
+                  BL_TO_FORTRAN_N_3D_DEVICE(*this,destcomp),
+		  BL_TO_FORTRAN_N_3D_DEVICE(src,srccomp), 
+                  ARLIM_3D(srcbox.loVect()), &numcomp);
+}
+#endif
+
 template <>
 std::size_t
 BaseFab<Real>::copyToMem (const Box& srcbox,

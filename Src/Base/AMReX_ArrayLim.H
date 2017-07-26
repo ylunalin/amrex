@@ -48,6 +48,11 @@
 #define BL_TO_FORTRAN_N_3D(x,n) (x).dataPtr(n), ARLIM_3D((x).loVect()), ARLIM_3D((x).hiVect())
 #define BL_TO_FORTRAN_N_ANYD(x,n) (x).dataPtr(n), ARLIM_ANYD((x).loVect()), ARLIM_ANYD((x).hiVect())
 
+/* For CUDA */
+#ifdef CUDA
+#define BL_TO_FORTRAN_N_3D_DEVICE(x,n) (x).devicePtr(n), ARLIM_3D((x).loVect()), ARLIM_3D((x).hiVect())
+#endif
+
 #else
 
 #if !defined(BL_LANG_FORT)

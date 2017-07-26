@@ -358,6 +358,18 @@ public:
                       const Box&        destbox,
                       int               destcomp,
                       int               numcomp);
+#ifdef CUDA
+    /*
+     * Similar to copy functions above. But copy 
+     * from device memory to device memory
+     */
+    BaseFab<T>& copyd2d (const BaseFab<T>& src,
+                         const Box&        srcbox,
+                         int               srccomp,
+                         const Box&        destbox,
+                         int               destcomp,
+                         int               numcomp);
+#endif
 
   //for debugging
   BaseFab<T>&
@@ -920,6 +932,15 @@ protected:
                       int               destcomp,
                       int               numcomp);
 
+#ifdef CUDA
+    void performCopyd2d (const BaseFab<T>& src,
+                      const Box&        srcbox,
+                      int               srccomp,
+                      const Box&        destbox,
+                      int               destcomp,
+                      int               numcomp);
+#endif
+
     //! This function is called by the BaseFab setVal operations.
     void performSetVal (T          x,
                         const Box& bx,
@@ -1101,6 +1122,25 @@ BaseFab<T>::copy (const BaseFab<T>& src,
     BL_ASSERT(srccomp >= 0 && srccomp+numcomp <= src.nComp());
     BL_ASSERT(destcomp >= 0 && destcomp+numcomp <= nvar);
     performCopy(src,srcbox,srccomp,destbox,destcomp,numcomp);
+    return *this;
+}
+
+template <class T>
+BaseFab<T>&
+BaseFab<T>::copyd2d (const BaseFab<T>& src,
+                  const Box&        srcbox,
+                  int               srccomp,
+                  const Box&        destbox,
+                  int               destcomp,
+                  int               numcomp)
+{
+    BL_ASSERT(destbox.ok());
+    BL_ASSERT(srcbox.sameSize(destbox));
+    BL_ASSERT(src.box().contains(srcbox));
+    BL_ASSERT(domain.contains(destbox));
+    BL_ASSERT(srccomp >= 0 && srccomp+numcomp <= src.nComp());
+    BL_ASSERT(destcomp >= 0 && destcomp+numcomp <= nvar);
+    performCopyd2d(src,srcbox,srccomp,destbox,destcomp,numcomp);
     return *this;
 }
 
