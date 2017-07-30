@@ -1125,6 +1125,7 @@ BaseFab<T>::copy (const BaseFab<T>& src,
     return *this;
 }
 
+#ifdef CUDA
 template <class T>
 BaseFab<T>&
 BaseFab<T>::copyd2d (const BaseFab<T>& src,
@@ -1143,6 +1144,7 @@ BaseFab<T>::copyd2d (const BaseFab<T>& src,
     performCopyd2d(src,srcbox,srccomp,destbox,destcomp,numcomp);
     return *this;
 }
+#endif
 
 template <class T>
 BaseFab<T>&
