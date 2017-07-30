@@ -25,13 +25,11 @@ contains
 
   subroutine initialize_cuda() bind(c, name='initialize_cuda')
 
-    use cudafor, only: cudaStreamCreate,cudaDeviceSetSharedMemConfig,cudaSharedMemBankSizeEightByte
+    use cudafor, only: cudaStreamCreate
     
     implicit none
 
     integer :: i, cudaResult
-    ! TODO: for now always assume double-precision floats are used
-    cudaResult = cudaDeviceSetSharedMemConfig(cudaSharedMemBankSizeEightByte)
 
     do i = 1, max_cuda_streams
        cudaResult = cudaStreamCreate(cuda_streams(i))
