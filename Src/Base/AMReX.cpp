@@ -40,6 +40,7 @@
 
 #ifdef CUDA
 #include <cuda_runtime_api.h>
+#include <cuda.h>
 #endif
 
 #include <AMReX_BLBackTrace.H>
@@ -327,8 +328,15 @@ amrex::Initialize (int& argc, char**& argv, bool build_parm_parse, MPI_Comm mpi_
 #endif
 
 #ifdef CUDA
-    // Initialize CUDA streams.
+    // Initialize CUDA streams in fortran subroutine.
     initialize_cuda();
+    // some other initialization with CUDA C
+    // set device
+    int device_id = 0;
+    cudaSetDevice(device_id);
+    amrex::Print() << "Set default device to: " << device_id << std::endl;
+    // TODO: for now always assume double-precision floats are used so we set bank size to 8
+    cudaDeviceSetSharedMemConfig(cudaSharedMemBankSizeEightByte);
     amrex::Print() << "CUDA initialized.\n";
 #endif
 
