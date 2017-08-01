@@ -234,7 +234,7 @@ void main_main ()
 // This initialize device memory
 // Otherwise memcheck will report accessing to uninitialized global memory
 // TODO: move this to somewhere else or wrap it in a member function
-// of Basefab
+// of Basefab, e.g. when allocate device memory
 #ifdef CUDA
     for ( MFIter mfi(*phi_old); mfi.isValid(); ++mfi )
     {
