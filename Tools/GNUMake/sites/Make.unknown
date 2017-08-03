@@ -6,8 +6,8 @@ os_type := $(shell uname)
 
 ifeq ($(USE_MPI),TRUE)
 
-  CXX := mpicxx
-  CC  := mpicc
+  CXX ?= mpicxx
+  CC  ?= mpicc
   FC  := mpif90
   F90 := mpif90
 
