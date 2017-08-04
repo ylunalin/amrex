@@ -40,23 +40,6 @@ contains
 
   end subroutine initialize_cuda
 
-  ! put all finalization code for CUDA here
-  subroutine finalize_cuda() bind(c, name='finalize_cuda')
-
-    use cudafor, only: cudaDeviceReset
-    implicit none
-    integer :: cudaResult
-
-    ! cudaDeviceReset causes the driver to clean up all state. While
-    ! not mandatory in normal operation, it is good practice.  It is also
-    ! needed to ensure correct operation when the application is being
-    ! profiled. Calling cudaDeviceReset causes all profile data to be
-    ! flushed before the application exits
-    cudaResult = cudaDeviceReset()
-
-  end subroutine finalize_cuda
-
-
 
   subroutine get_cuda_device_id(id) bind(c, name='get_cuda_device_id')
 

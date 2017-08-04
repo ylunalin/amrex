@@ -41,6 +41,7 @@
 #ifdef CUDA
 #include <cuda_runtime_api.h>
 #include <cuda.h>
+#include <AMReX_CUDA_helper.H>
 #endif
 
 #include <AMReX_BLBackTrace.H>
@@ -328,17 +329,34 @@ amrex::Initialize (int& argc, char**& argv, bool build_parm_parse, MPI_Comm mpi_
 #endif
 
 #ifdef CUDA
+    // set device
+    int device_count;  
+    checkCudaErrors(cudaGetDeviceCount(&device_count));
+    if (device_count == 0)
+    {
+        amrex::Error("no devices supporting CUDA.\n");
+    }
+    amrex::Print() << "Found " << device_count << " NVIDIA GPUs." << std::endl;
+#ifdef BL_USE_MPI
+    checkCudaErrors(cudaSetDevice(ParallelDescriptor::MyProc()%device_count));
+#else
+    // use device 0 by default
+    checkCudaErrors(cudaSetDevice(0));
+    amrex::Print() << "Set default device to 0" << std::endl;
+#endif
+
+#ifdef BL_USE_FLOAT
+    checkCudaErrors(cudaDeviceSetSharedMemConfig(cudaSharedMemBankSizeFourByte));
+#else
+    checkCudaErrors(cudaDeviceSetSharedMemConfig(cudaSharedMemBankSizeEightByte));
+#endif
+
     // Initialize CUDA streams in fortran subroutine.
     initialize_cuda();
-    // some other initialization with CUDA C
-    // set device
-    int device_id = 0;
-    cudaSetDevice(device_id);
-    amrex::Print() << "Set default device to: " << device_id << std::endl;
-    // TODO: for now always assume double-precision floats are used so we set bank size to 8
-    cudaDeviceSetSharedMemConfig(cudaSharedMemBankSizeEightByte);
+
+
     amrex::Print() << "CUDA initialized.\n";
-#endif
+#endif // CUDA
 
     signal(SIGSEGV, BLBackTrace::handler); // catch seg falult
     signal(SIGINT,  BLBackTrace::handler);
@@ -508,8 +526,14 @@ amrex::Finalize (bool finalize_parallel)
 #endif
     }
 
+// clean up CUDA staff
 #ifdef CUDA
-    finalize_cuda();
+    // cudaDeviceReset causes the driver to clean up all state. While
+    // not mandatory in normal operation, it is good practice.  It is also
+    // needed to ensure correct operation when the application is being
+    // profiled. Calling cudaDeviceReset causes all profile data to be
+    // flushed before the application exits
+    checkCudaErrors(cudaDeviceReset());
 #endif
 }
 
