@@ -42,10 +42,14 @@
 #include <cuda_runtime_api.h>
 #include <cuda.h>
 #include <AMReX_CUDA_helper.H>
+#include <nvToolsExt.h>
+#include <nvToolsExtCuda.h>
 #endif
 
 #include <AMReX_BLBackTrace.H>
 #include <AMReX_MemPool.H>
+
+#include <string>
 
 #if defined(BL_USE_FORTRAN_MPI)
 extern "C" {
@@ -338,7 +342,16 @@ amrex::Initialize (int& argc, char**& argv, bool build_parm_parse, MPI_Comm mpi_
     }
     amrex::Print() << "Found " << device_count << " NVIDIA GPUs." << std::endl;
 #ifdef BL_USE_MPI
-    checkCudaErrors(cudaSetDevice(ParallelDescriptor::MyProc()%device_count));
+    int device_rank = ParallelDescriptor::MyProc()%device_count;
+    std::string name = "MPI RANK " + std::to_string(ParallelDescriptor::MyProc());
+    checkCudaErrors(cudaSetDevice(device_rank));
+    // call cudaDeviceSynchronize to create CUDA primary context
+    // associate with this MPI rank
+    // and name the contexts for NVVP
+    cudaDeviceSynchronize();
+    CUcontext ctx;
+    cuCtxGetCurrent( &ctx );
+    nvtxNameCuContextA( ctx, name.c_str() );
 #else
     // use device 0 by default
     checkCudaErrors(cudaSetDevice(0));

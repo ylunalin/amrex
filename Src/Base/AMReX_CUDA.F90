@@ -5,7 +5,7 @@ module cuda_module
 
     implicit none
 
-    integer, parameter :: max_cuda_streams = 100
+    integer, parameter :: max_cuda_streams = 20
     integer(kind=cuda_stream_kind) :: cuda_streams(max_cuda_streams)
 
     integer, save :: cuda_device_id
@@ -64,7 +64,7 @@ contains
     if (idx < 0 .and. idx >= -10) then
         stream_from_index = -idx
     else
-        ! stream_from_index below ranges from 11 to 100
+        ! stream_from_index below ranges from 11 to max_cuda-streams
         stream_from_index = MOD(idx, max_cuda_streams-10) + 11
     endif
 
