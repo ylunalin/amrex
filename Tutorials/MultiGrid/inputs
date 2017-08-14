@@ -3,3 +3,5 @@ n_cell = 32
 max_grid_size = 16
 
 bc_type = Dirichlet  # Dirichlet, Neumann, or periodic
+
+mg.v = 2

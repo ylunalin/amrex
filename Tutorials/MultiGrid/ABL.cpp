@@ -83,7 +83,8 @@ ABL::ABL ()
 
     for (int idim = 0; idim < BL_SPACEDIM; ++idim) {
         BoxArray nba = ba[0];
-        beta[0][idim]->define(nba.surroundingNodes(idim), dmap[0], 1, 0);
+        nba.surroundingNodes(idim);
+        beta[0][idim].reset(new MultiFab(nba, dmap[0], 1, 0));
     }
     init_coeffs();
 
@@ -132,7 +133,8 @@ ABL::init_coeffs ()
                              dx, &sigma, &w);
        }
 
-       amrex::average_cellcenter_to_face({beta[lev][0], beta[lev][1], beta[lev][2]},
+       amrex::average_cellcenter_to_face(GetArrOfPtrs(beta[lev]),
+// {beta[lev][0], beta[lev][1], beta[lev][2]},
                                          betacc, geom[0]);
     }
 }
@@ -192,7 +194,7 @@ ABL::solve_with_Cpp ()
 
   ABecLaplacian abec_operator(bd[lev], dx);
   abec_operator.setScalars(a, b);
-  abec_operator.setCoefficients(alpha[lev], beta[lev]);
+  abec_operator.setCoefficients(alpha[lev], GetArrOfPtrs(beta[lev]));
 
   MultiGrid mg(abec_operator);
   mg.setVerbose(verbose);

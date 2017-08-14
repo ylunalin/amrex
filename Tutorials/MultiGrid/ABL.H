@@ -42,7 +42,7 @@ private:
     // data
     amrex::Array<amrex::MultiFab> rhs;
     amrex::Array<amrex::MultiFab> alpha;
-    amrex::Array<amrex::Array<amrex::MultiFab*>> beta;
+    amrex::Array<amrex::Array<std::unique_ptr<amrex::MultiFab>>> beta;
     amrex::Array<amrex::MultiFab> soln;
     amrex::Array<amrex::MultiFab> the_soln;
     amrex::Array<amrex::Geometry> geom;
