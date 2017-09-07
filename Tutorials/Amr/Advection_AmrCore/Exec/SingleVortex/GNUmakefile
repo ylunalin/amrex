@@ -6,13 +6,13 @@ PROFILE    = FALSE
 DEBUG      = TRUE
 DEBUG      = FALSE
 
-DIM        = 2
-#DIM       = 3
+# DIM        = 2
+DIM       = 3
 
-COMP	   = gnu
+COMP	   = pgi
 
-USE_MPI    = TRUE
-USE_OMP    = FALSE
+USE_MPI    = FALSE
+USE_OMP    = TRUE
 
 Bpack   := ./Make.package 
 Blocs   := . 

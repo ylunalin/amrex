@@ -1,8 +1,8 @@
 #
 # Generic setup for using PGI
 #
-CXX = pgc++
-CC  = pgcc
+CXX = g++
+CC  = gcc
 FC  = pgfortran
 F90 = pgfortran
 
@@ -30,8 +30,8 @@ ifeq ($(DEBUG),TRUE)
 
 else
 
-  CXXFLAGS += -gopt -fast
-  CFLAGS   += -gopt -fast
+  CXXFLAGS += -g -O3
+  CFLAGS   += -g -O3
   FFLAGS   += -gopt -fast
   F90FLAGS += -gopt -fast
 
@@ -39,18 +39,22 @@ endif
 
 ########################################################################
 
-CXXFLAGS += --c++11
-CFLAGS   += -c99
+CXXFLAGS += -std=c++11
+CFLAGS   += -std=gnu99
 
-F90FLAGS += -module $(fmoddir) -I$(fmoddir) -Mdclchk
-FFLAGS   += -module $(fmoddir) -I$(fmoddir) -Mextend
+F90FLAGS += -module $(fmoddir) -I$(fmoddir) -Mdclchk -Mnomain -noacc
+FFLAGS   += -module $(fmoddir) -I$(fmoddir) -Mextend -Mnomain -noacc
 
 ########################################################################
 
 GENERIC_COMP_FLAGS =
 
 ifeq ($(USE_OMP),TRUE)
-  GENERIC_COMP_FLAGS += -mp=nonuma -Minfo=mp
+  CXXFLAGS += -fopenmp
+  CFLAGS += -fopenmp
+  F90FLAGS += -mp=nonuma -Minfo=mp
+  FFLAGS += -mp=nonuma -Minfo=mp
+  override XTRALIBS += -lgomp
 endif
 
 ifeq ($(USE_ACC),TRUE)
@@ -59,10 +63,6 @@ else
   GENERIC_COMP_FLAGS += -noacc
 endif
 
-CXXFLAGS += $(GENERIC_COMP_FLAGS)
-CFLAGS   += $(GENERIC_COMP_FLAGS)
-FFLAGS   += $(GENERIC_COMP_FLAGS)
-F90FLAGS += $(GENERIC_COMP_FLAGS)
 
 ########################################################################
 
