@@ -968,6 +968,7 @@ FillPatchIterator::Initialize (int  boxGrow,
 void
 FillPatchIterator::FillFromLevel0 (Real time, int idx, int scomp, int dcomp, int ncomp)
 {
+  BL_PROFILE("FillPatchIterator::FillFromLevel0");
     BL_ASSERT(m_amrlevel.level == 0);
 
     StateData& statedata = m_amrlevel.state[idx];

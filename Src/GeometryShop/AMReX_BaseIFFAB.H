@@ -258,6 +258,7 @@ namespace amrex
 	auto low = std::lower_bound(m_faces.begin(), m_faces.end(), a_face);
 	if (low == m_faces.end() || a_face != *low) 
         {
+          amrex::AllPrint() << "BaseIFFAB:index not found" << endl;
           amrex::AllPrint() << "face = " << a_face << endl;
           amrex::Error("BaseIFFAB:index not found");
 	}

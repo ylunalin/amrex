@@ -1290,6 +1290,7 @@ FabArray<FAB>::ParallelCopy (const FabArray<FAB>& src,
         (boxarray == src.boxarray && distributionMap == src.distributionMap)
 	&& snghost ==0 && dnghost == 0 && !period.isAnyPeriodic())
     {
+      BL_PROFILE("simple_copy_loop");
         //
         // Short-circuit full intersection code if we're doing copy()s or if
         // we're doing plus()s on cell-centered data.  Don't do plus()s on
@@ -1319,6 +1320,7 @@ FabArray<FAB>::ParallelCopy (const FabArray<FAB>& src,
 
     if (ParallelDescriptor::NProcs() == 1)
     {
+      BL_PROFILE("single_proc_loop");
         //
         // There can only be local work to do.
         //
@@ -1361,6 +1363,7 @@ FabArray<FAB>::ParallelCopy (const FabArray<FAB>& src,
     //
     int SeqNum, preSeqNum;
     {
+      BL_PROFILE("parallel_descriptor_manipulation");
 	ParallelDescriptor::Color src_color = src.color();
 	ParallelDescriptor::Color dst_color = this->color();
 	if (src_color == ParallelDescriptor::DefaultColor() ||
@@ -1485,6 +1488,7 @@ FabArray<FAB>::ParallelCopy (const FabArray<FAB>& src,
 
         if (!FAB::preAllocatable())
         {
+          BL_PROFILE("async_send");
             pre_reqs.resize(N_snds,MPI_REQUEST_NULL);
             for (int j=0; j<N_snds; ++j)
             {
@@ -1508,6 +1512,7 @@ FabArray<FAB>::ParallelCopy (const FabArray<FAB>& src,
 
         int actual_n_rcvs = 0;
 	if (N_rcvs > 0) {
+          BL_PROFILE("post_rcvs");
 #ifdef BL_USE_UPCXX
 	    PostRcvs_PGAS(*thecpc.m_RcvVols, the_recv_data, recv_data,
                           recv_size, recv_from, 
@@ -1534,6 +1539,7 @@ FabArray<FAB>::ParallelCopy (const FabArray<FAB>& src,
 	// 
 	if (N_snds > 0)
 	{
+          BL_PROFILE("post_sends");
 #ifdef _OPENMP
 #pragma omp parallel for if (FAB::isCopyOMPSafe())
 #endif
@@ -1574,6 +1580,7 @@ FabArray<FAB>::ParallelCopy (const FabArray<FAB>& src,
 	    
 	    if (ParallelDescriptor::MPIOneSided())
 	    {
+              BL_PROFILE("mpi_one_sided");
 #if defined(BL_USE_MPI3)
 		Array<MPI_Aint> send_disp(N_snds,0);
                 send_reqs.clear();
@@ -1607,6 +1614,7 @@ FabArray<FAB>::ParallelCopy (const FabArray<FAB>& src,
 	    }
             else
             {
+              BL_PROFILE("mpi_two_sided");
                 int send_counter = 0;
                 while (send_counter < N_snds)
                 {
@@ -1654,6 +1662,7 @@ FabArray<FAB>::ParallelCopy (const FabArray<FAB>& src,
         //
 	if (ParallelDescriptor::TeamSize() > 1 && thecpc.m_threadsafe_loc)
 	{
+          BL_PROFILE("local_work_case_1");
 #ifdef BL_USE_TEAM
 #ifdef _OPENMP
 #pragma omp parallel if (FAB::isCopyOMPSafe())
@@ -1675,6 +1684,7 @@ FabArray<FAB>::ParallelCopy (const FabArray<FAB>& src,
 	}
 	else 
 	{
+          BL_PROFILE("local_work_case_2");
 #ifdef _OPENMP
 #pragma omp parallel for if (FAB::isCopyOMPSafe() && thecpc.m_threadsafe_loc)
 #endif
@@ -1700,11 +1710,13 @@ FabArray<FAB>::ParallelCopy (const FabArray<FAB>& src,
         if (actual_n_rcvs > 0) BLPgas::cp_recv_event.wait();
 #else
 	if (ParallelDescriptor::MPIOneSided()) {
+              BL_PROFILE("mpi_one_sided_2");
 #if defined(BL_USE_MPI3)
 	    if (N_snds > 0) MPI_Win_complete(ParallelDescriptor::cp_win);
 	    if (N_rcvs > 0) MPI_Win_wait    (ParallelDescriptor::cp_win);
 #endif
 	} else {
+          BL_PROFILE("mpi_two_sided_2");
 	    if (actual_n_rcvs > 0) {
 		Array<MPI_Status> stats(N_rcvs);
 		BL_MPI_REQUIRE( MPI_Waitall(N_rcvs, recv_reqs.dataPtr(), stats.dataPtr()) );
@@ -1718,6 +1730,7 @@ FabArray<FAB>::ParallelCopy (const FabArray<FAB>& src,
 
 	if (N_rcvs > 0)
 	{
+          BL_PROFILE("receives?");
 	    Array<const CopyComTagsContainer*> recv_cctc(N_rcvs,nullptr);
 
 	    for (int k = 0; k < N_rcvs; ++k)
@@ -1787,6 +1800,7 @@ FabArray<FAB>::ParallelCopy (const FabArray<FAB>& src,
 	}
 	
         if (N_snds > 0) {
+          BL_PROFILE("wait_for_sends");
 #ifdef  BL_USE_UPCXX
 	    FabArrayBase::WaitForAsyncSends_PGAS(N_snds,send_data,
 					         &BLPgas::cp_send_event,
@@ -1820,7 +1834,10 @@ FabArray<FAB>::ParallelCopy (const FabArray<FAB>& src,
 #endif
 
 #ifdef BL_USE_TEAM
+    {
+          BL_PROFILE("memorybarrier");
     ParallelDescriptor::MyTeam().MemoryBarrier();
+    }
 #endif
 
     return;
