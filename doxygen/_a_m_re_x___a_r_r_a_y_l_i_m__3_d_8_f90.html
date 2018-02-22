@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>AMReX: /home/travis/build/AMReX-Codes/amrex/Src/Amr/AMReX_ARRAYLIM_1D.F File Reference</title>
+<title>AMReX: /home/travis/build/AMReX-Codes/amrex/Src/Amr/AMReX_ARRAYLIM_3D.F90 File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -85,19 +85,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a>  </div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions/Subroutines</a>  </div>
   <div class="headertitle">
-<div class="title">AMReX_ARRAYLIM_1D.F File Reference</div>  </div>
+<div class="title">AMReX_ARRAYLIM_3D.F90 File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;<a class="el" href="_a_m_re_x___array_lim_8_h_source.html">AMReX_ArrayLim.H</a>&gt;</code><br/>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:ab91418f29b92ee3b2e8b4ffc0d3da419"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_m_re_x___a_r_r_a_y_l_i_m__1_d_8_f.html#ab91418f29b92ee3b2e8b4ffc0d3da419">BL_LANG_FORT</a></td></tr>
+<tr class="memitem:ab91418f29b92ee3b2e8b4ffc0d3da419"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_m_re_x___a_r_r_a_y_l_i_m__3_d_8_f90.html#ab91418f29b92ee3b2e8b4ffc0d3da419">BL_LANG_FORT</a></td></tr>
 <tr class="separator:ab91418f29b92ee3b2e8b4ffc0d3da419"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e0a6bf77df4cfb76fdb894573a13c0b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_m_re_x___a_r_r_a_y_l_i_m__1_d_8_f.html#a8e0a6bf77df4cfb76fdb894573a13c0b">SDIM</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memitem:a8e0a6bf77df4cfb76fdb894573a13c0b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_m_re_x___a_r_r_a_y_l_i_m__3_d_8_f90.html#a8e0a6bf77df4cfb76fdb894573a13c0b">SDIM</a>&#160;&#160;&#160;3</td></tr>
 <tr class="separator:a8e0a6bf77df4cfb76fdb894573a13c0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions/Subroutines</h2></td></tr>
+<tr class="memitem:a970c1cddbdd48e2b55d409c7547669e2"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_m_re_x___a_r_r_a_y_l_i_m__3_d_8_f90.html#a970c1cddbdd48e2b55d409c7547669e2">set_lohi</a> (holder)</td></tr>
+<tr class="separator:a970c1cddbdd48e2b55d409c7547669e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73b6227eedfc9dee49adf176831b5a02"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_m_re_x___a_r_r_a_y_l_i_m__3_d_8_f90.html#a73b6227eedfc9dee49adf176831b5a02">set_args</a> (holder)</td></tr>
+<tr class="separator:a73b6227eedfc9dee49adf176831b5a02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a class="anchor" id="ab91418f29b92ee3b2e8b4ffc0d3da419"></a>
@@ -117,7 +125,60 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define SDIM&#160;&#160;&#160;1</td>
+          <td class="memname">#define SDIM&#160;&#160;&#160;3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Function/Subroutine Documentation</h2>
+<a class="anchor" id="a73b6227eedfc9dee49adf176831b5a02"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine set_args </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>DIMS</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>holder</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a970c1cddbdd48e2b55d409c7547669e2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine set_lohi </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>DIMS</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>holder</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
