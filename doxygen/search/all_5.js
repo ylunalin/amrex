@@ -59,7 +59,7 @@ var searchData=
   ['eblevelgrid',['EBLevelGrid',['../classamrex_1_1_e_b_level_grid.html',1,'amrex']]],
   ['eblevelredist',['EBLevelRedist',['../classamrex_1_1_e_b_level_redist.html#ab2a21f1acc326fee3c18c0fd557a9ff7',1,'amrex::EBLevelRedist::EBLevelRedist()'],['../classamrex_1_1_e_b_level_redist.html#a9b7b1ebaf1c4dd0a8abcfbddf748b08a',1,'amrex::EBLevelRedist::EBLevelRedist(const EBLevelGrid &amp;a_eblg, const int &amp;a_ncomp, int a_redistRad=1)']]],
   ['eblevelredist',['EBLevelRedist',['../classamrex_1_1_e_b_level_redist.html',1,'amrex']]],
-  ['eblohicenalldirs',['EBLoHiCenAllDirs',['../namespaceamrex.html#a05f4a7330fe49f9b37a15bb9b59f96e5',1,'amrex']]],
+  ['eblohicenalldirs',['EBLoHiCenAllDirs',['../namespaceamrex.html#a6d6e8b84b6f08e16ffec90e92d02c1af',1,'amrex']]],
   ['eblohicenter',['eblohicenter',['../namespaceamrex.html#ad073ebdb53b51505290c2c5bac3e0b24',1,'amrex']]],
   ['eblohicenterface',['eblohicenterFace',['../namespaceamrex.html#a80ed3f2ed92a90f25ab51978c0e863eb',1,'amrex']]],
   ['ebnormalizebyvolumefraction',['EBNormalizeByVolumeFraction',['../classamrex_1_1_e_b_normalize_by_volume_fraction.html#a5af15acea32fd26ce539dee32fb12f82',1,'amrex::EBNormalizeByVolumeFraction::EBNormalizeByVolumeFraction(const EBLevelGrid &amp;a_eblg, const int &amp;a_nghost, const int a_radius=1)'],['../classamrex_1_1_e_b_normalize_by_volume_fraction.html#a865efa0f2342cc01a6b4e75f6580ada0',1,'amrex::EBNormalizeByVolumeFraction::EBNormalizeByVolumeFraction()'],['../classamrex_1_1_e_b_normalize_by_volume_fraction.html#a3a8fef8b09933cf4752a6603954512eb',1,'amrex::EBNormalizeByVolumeFraction::EBNormalizeByVolumeFraction(const EBNormalizeByVolumeFraction &amp;)']]],

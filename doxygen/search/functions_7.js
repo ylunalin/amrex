@@ -194,7 +194,7 @@ var searchData=
   ['getstencils',['getStencils',['../classamrex_1_1_gradient_op.html#a3d96b64654ff261abe3f6a1933508380',1,'amrex::GradientOp']]],
   ['getstlbox',['GetSTLBox',['../classamrex_1_1_s_t_l_explorer.html#a63cb3bf3e328446f73003d8e96aa435a',1,'amrex::STLExplorer']]],
   ['getstructofarrays',['GetStructOfArrays',['../structamrex_1_1_particle_tile.html#ab58f152b1c9b0ec6c7e7556ef3273868',1,'amrex::ParticleTile::GetStructOfArrays()'],['../structamrex_1_1_particle_tile.html#a02fe1dcb8e8389f64f916449409e63ef',1,'amrex::ParticleTile::GetStructOfArrays() const '],['../classamrex_1_1_par_iter_base.html#a64fb004c60cc02a3bd6c5b8c201e32e2',1,'amrex::ParIterBase::GetStructOfArrays()']]],
-  ['gettangentvectors',['getTangentVectors',['../classamrex_1_1_poly_geom.html#afe2e88fcd1d791a578a3d2fe86088c7b',1,'amrex::PolyGeom']]],
+  ['gettangentvectors',['getTangentVectors',['../classamrex_1_1_poly_geom.html#a47df79fde3f600319925e3f47cf5925d',1,'amrex::PolyGeom']]],
   ['gettilearray',['getTileArray',['../classamrex_1_1_fab_array_base.html#ab8548585b1a018f9d0a85cd43a719fe8',1,'amrex::FabArrayBase']]],
   ['gettolerance',['getTolerance',['../classamrex_1_1_poly_geom.html#ad0755c0911754da2d6ee34b3196fee7c',1,'amrex::PolyGeom']]],
   ['gettrimap',['GetTriMap',['../classamrex_1_1_s_t_l_explorer.html#a30b56e7d7bda1a7ab83f6bb36acbfdd8',1,'amrex::STLExplorer']]],

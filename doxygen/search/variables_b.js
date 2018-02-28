@@ -110,7 +110,7 @@ var searchData=
   ['m_5ffineoffsets',['m_fineOffsets',['../classamrex_1_1_agg_e_b_p_w_l_fill_patch.html#a5c1085a19166a73ef505cc567ed98e6d',1,'amrex::AggEBPWLFillPatch']]],
   ['m_5ffinernodes',['m_finerNodes',['../classamrex_1_1_graph_node_implem.html#ab1dfffde6ae1c158ee703019fe4f4a1f',1,'amrex::GraphNodeImplem']]],
   ['m_5ffirst_5fprocs_5fclr',['m_first_procs_clr',['../namespaceamrex_1_1_parallel_descriptor.html#a0cd6f6345c633aa22b67c28f35042c1d',1,'amrex::ParallelDescriptor']]],
-  ['m_5ffluxes',['m_fluxes',['../classamrex_1_1_e_b_flux_f_a_b.html#a2dff951fbf83ed26922c72b209fd7059',1,'amrex::EBFluxFAB']]],
+  ['m_5ffluxes',['m_fluxes',['../classamrex_1_1_e_b_flux_f_a_b.html#af4cdb7a775f3e03f3ef5dcb5892b9386',1,'amrex::EBFluxFAB']]],
   ['m_5ffod',['m_fod',['../structamrex_1_1_vis_m_f_1_1_header.html#ad91e0c829d8420c6f1d3b101d36a4016',1,'amrex::VisMF::Header']]],
   ['m_5fforcenoebcf',['m_forceNoEBCF',['../classamrex_1_1_agg_e_b_p_w_l_fill_patch.html#a9203febbbb8f19b9eb9057dcd030397b',1,'amrex::AggEBPWLFillPatch']]],
   ['m_5ffpinfo_5fstats',['m_FPinfo_stats',['../classamrex_1_1_fab_array_base.html#a5766cde9fd9e095f4d8f9f1731eb9047',1,'amrex::FabArrayBase']]],

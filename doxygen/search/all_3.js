@@ -143,7 +143,7 @@ var searchData=
   ['computecoveredfaces',['computeCoveredFaces',['../classamrex_1_1_e_b_arith.html#a6c20d3e6f51322ae335d143456474d86',1,'amrex::EBArith']]],
   ['computeinitialdt',['computeInitialDt',['../classamrex_1_1_amr_level.html#a252f7123d2f0a98351bc7b39c32b3152',1,'amrex::AmrLevel']]],
   ['computenewdt',['computeNewDt',['../classamrex_1_1_amr_level.html#a2ca2263f59a50956ec37ce72a4a02767',1,'amrex::AmrLevel']]],
-  ['computenormalandalpha',['computeNormalAndAlpha',['../classamrex_1_1_poly_geom.html#afa3cd3ea75c4fc9b66601cf1aa5bed25',1,'amrex::PolyGeom']]],
+  ['computenormalandalpha',['computeNormalAndAlpha',['../classamrex_1_1_poly_geom.html#a560a256556dbf64430d9a0fc9a95fa04',1,'amrex::PolyGeom']]],
   ['computenormalsandboundaryareas',['computeNormalsAndBoundaryAreas',['../classamrex_1_1_e_b_data_implem.html#a4c6e405719f34a22b7e2a17fd591162f',1,'amrex::EBDataImplem::computeNormalsAndBoundaryAreas()'],['../classamrex_1_1_e_b_data.html#a3ab1ab03605412cd1fd2ff31326a9ed8',1,'amrex::EBData::computeNormalsAndBoundaryAreas()']]],
   ['computeoptimalsubcycling',['computeOptimalSubcycling',['../classamrex_1_1_amr.html#a094322102029f30480f512416d64bc04',1,'amrex::Amr']]],
   ['computetandirs',['computeTanDirs',['../classamrex_1_1_poly_geom.html#a94a0a050ac24aa186d26a0c5fe8fcabf',1,'amrex::PolyGeom']]],
