@@ -11,7 +11,7 @@ var searchData=
   ['particle',['Particle',['../structamrex_1_1_particle.html',1,'amrex']]],
   ['particlecommdata',['ParticleCommData',['../structamrex_1_1_particle_comm_data.html',1,'amrex']]],
   ['particlecontainer',['ParticleContainer',['../classamrex_1_1_particle_container.html',1,'amrex']]],
-  ['particlecontainer_3c_20bl_5fspacedim_20_3e',['ParticleContainer&lt; BL_SPACEDIM &gt;',['../classamrex_1_1_particle_container.html',1,'amrex']]],
+  ['particlecontainer_3c_20amrex_5fspacedim_20_3e',['ParticleContainer&lt; AMREX_SPACEDIM &gt;',['../classamrex_1_1_particle_container.html',1,'amrex']]],
   ['particlecontainer_3c_20nstructreal_2c_20nstructint_2c_200_2c_200_20_3e',['ParticleContainer&lt; NStructReal, NStructInt, 0, 0 &gt;',['../classamrex_1_1_particle_container.html',1,'amrex']]],
   ['particleinittype',['ParticleInitType',['../structamrex_1_1_particle_init_type.html',1,'amrex']]],
   ['particlelocdata',['ParticleLocData',['../structamrex_1_1_particle_loc_data.html',1,'amrex']]],
