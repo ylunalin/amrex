@@ -136,6 +136,6 @@ var searchData=
   ['dumpvfaces',['dumpVFaces',['../namespaceamrex.html#a0a8aadd65a8d5e99fa87a0452d3848c0',1,'amrex']]],
   ['dumpvofsten',['dumpVoFSten',['../namespaceamrex.html#a5b888f962624f5014f1ee535b1f39676',1,'amrex']]],
   ['dumpvvofs',['dumpVVoFs',['../namespaceamrex.html#af10754df524fda733ddf78714a00a671',1,'amrex']]],
-  ['dx',['dx',['../classamrex_1_1_coord_sys.html#a25ef76ac981488c8e5916a8e1344ab70',1,'amrex::CoordSys::dx()'],['../_a_m_re_x___multi_fab_util___f_8_h.html#ad5fa46517dd383f09a279b8446fc397b',1,'dx():&#160;AMReX_MultiFabUtil_F.H']]],
+  ['dx',['dx',['../classamrex_1_1_coord_sys.html#a178c38de0cae8e587e4c34541db7f45b',1,'amrex::CoordSys::dx()'],['../_a_m_re_x___multi_fab_util___f_8_h.html#ad5fa46517dd383f09a279b8446fc397b',1,'dx():&#160;AMReX_MultiFabUtil_F.H']]],
   ['dynamic',['dynamic',['../structamrex_1_1_m_f_it_info.html#af8c9a28c98c151eb32f0352334376536',1,'amrex::MFItInfo::dynamic()'],['../classamrex_1_1_m_f_iter.html#a16fa2d144bcc71d665056de5938c4b32',1,'amrex::MFIter::dynamic()']]]
 ];

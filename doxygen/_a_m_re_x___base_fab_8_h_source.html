@@ -168,15 +168,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;      <a class="code" href="_a_m_re_x___b_lassert_8_h.html#aad6450907585a147153aef621fdc6007">AMREX_ASSERT</a>(<a class="code" href="classamrex_1_1_base_fab.html#a8e95d8cfaadfe53080ae0092b53202fb">domain</a>.<a class="code" href="classamrex_1_1_box.html#a6dd6ad5cd35b15525c078d47adba93b6">contains</a>(a_iv));</div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;</div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;      <a class="code" href="classamrex_1_1_int_vect.html">IntVect</a> ivDiff = a_iv - <a class="code" href="classamrex_1_1_base_fab.html#a8e95d8cfaadfe53080ae0092b53202fb">domain</a>.<a class="code" href="classamrex_1_1_box.html#ac579173dd3e6da5c5814174be20a54d8">smallEnd</a>();</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="preprocessor">#if BL_SPACEDIM &gt; 1</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="preprocessor">#if AMREX_SPACEDIM &gt; 1</span></div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="preprocessor"></span>      <a class="code" href="classamrex_1_1_int_vect.html">IntVect</a> ivSize = <a class="code" href="classamrex_1_1_base_fab.html#a8e95d8cfaadfe53080ae0092b53202fb">domain</a>.<a class="code" href="classamrex_1_1_box.html#a6016c5b7ccda3de5d956806c1dcd5a9a">size</a>();</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="preprocessor"></span>      <span class="keywordtype">long</span> retval = ivDiff[0];</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="preprocessor">#if BL_SPACEDIM &gt; 1</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="preprocessor">#if AMREX_SPACEDIM &gt; 1</span></div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="preprocessor"></span>      retval += ivDiff[1]*ivSize[0] ;</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#if BL_SPACEDIM &gt; 2</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#if AMREX_SPACEDIM &gt; 2</span></div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="preprocessor"></span>      retval += ivDiff[2]*ivSize[0]*ivSize[1];</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="preprocessor"></span>      retval += <a class="code" href="classamrex_1_1_base_fab.html#a61944781ac783ff9fba39a9e87ec8d6e">numpts</a> * a_ivar;</div>

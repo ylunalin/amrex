@@ -565,7 +565,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;                                                    <span class="keywordtype">int</span> numboxes,</div>
 <div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;                                                    <span class="keywordtype">int</span> isAsync)</div>
 <div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;{</div>
-<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> Nints = 4 + 3*<a class="code" href="_a_m_re_x___s_p_a_c_e_8_h.html#af66ac7d7c04dad9fd54778fe5a4e816f">BL_SPACEDIM</a>;  <span class="comment">// # of ints in a meta-data</span></div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> Nints = 4 + 3*AMREX_SPACEDIM;  <span class="comment">// # of ints in a meta-data</span></div>
 <div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;  <span class="keyword">typedef</span> <span class="keyword">typename</span> FAB::value_type value_type;</div>
 <div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;  <span class="keywordtype">int</span> *p = (<span class="keywordtype">int</span> *)payload;</div>
 <div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;</div>
@@ -586,8 +586,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;    scomp[i] = md[2];</div>
 <div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;    <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>[i] = md[3];</div>
 <div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;    bxs.push_back(<a class="code" href="classamrex_1_1_box.html">Box</a>(<a class="code" href="classamrex_1_1_int_vect.html">IntVect</a>(&amp;md[4]),</div>
-<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;                      <a class="code" href="classamrex_1_1_int_vect.html">IntVect</a>(&amp;md[4+<a class="code" href="_a_m_re_x___s_p_a_c_e_8_h.html#af66ac7d7c04dad9fd54778fe5a4e816f">BL_SPACEDIM</a>]),</div>
-<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;                      <a class="code" href="classamrex_1_1_int_vect.html">IntVect</a>(&amp;md[4+<a class="code" href="_a_m_re_x___s_p_a_c_e_8_h.html#af66ac7d7c04dad9fd54778fe5a4e816f">BL_SPACEDIM</a>*2])));</div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;                      <a class="code" href="classamrex_1_1_int_vect.html">IntVect</a>(&amp;md[4+AMREX_SPACEDIM]),</div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;                      <a class="code" href="classamrex_1_1_int_vect.html">IntVect</a>(&amp;md[4+AMREX_SPACEDIM*2])));</div>
 <div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;    npts[i] = bxs.back().numPts()*<a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>[i];</div>
 <div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;    N += npts[i];</div>
 <div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;  }</div>
@@ -695,7 +695,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;</div>
 <div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> N_rcvs = Rcvs.size();</div>
 <div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;</div>
-<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> Nints = 4 + 3*<a class="code" href="_a_m_re_x___s_p_a_c_e_8_h.html#af66ac7d7c04dad9fd54778fe5a4e816f">BL_SPACEDIM</a>;  <span class="comment">// # of ints in a meta-data</span></div>
+<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> Nints = 4 + 3*AMREX_SPACEDIM;  <span class="comment">// # of ints in a meta-data</span></div>
 <div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;</div>
 <div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;  <span class="comment">// for meta-data</span></div>
 <div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;  Vector&lt;int&gt; md_offset, md_icnts, md_bcnts;</div>
@@ -738,12 +738,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;        AMREX_D_EXPR(md[4] = lo[0],</div>
 <div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;               md[5] = lo[1],</div>
 <div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;               md[6] = lo[2]);</div>
-<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;        AMREX_D_EXPR(md[4+  <a class="code" href="_a_m_re_x___s_p_a_c_e_8_h.html#af66ac7d7c04dad9fd54778fe5a4e816f">BL_SPACEDIM</a>] = hi[0],</div>
-<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;               md[5+  <a class="code" href="_a_m_re_x___s_p_a_c_e_8_h.html#af66ac7d7c04dad9fd54778fe5a4e816f">BL_SPACEDIM</a>] = hi[1],</div>
-<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;               md[6+  <a class="code" href="_a_m_re_x___s_p_a_c_e_8_h.html#af66ac7d7c04dad9fd54778fe5a4e816f">BL_SPACEDIM</a>] = hi[2]);</div>
-<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;        AMREX_D_EXPR(md[4+2*<a class="code" href="_a_m_re_x___s_p_a_c_e_8_h.html#af66ac7d7c04dad9fd54778fe5a4e816f">BL_SPACEDIM</a>] = tp[0],</div>
-<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;               md[5+2*<a class="code" href="_a_m_re_x___s_p_a_c_e_8_h.html#af66ac7d7c04dad9fd54778fe5a4e816f">BL_SPACEDIM</a>] = tp[1],</div>
-<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;               md[6+2*<a class="code" href="_a_m_re_x___s_p_a_c_e_8_h.html#af66ac7d7c04dad9fd54778fe5a4e816f">BL_SPACEDIM</a>] = tp[2]);</div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;        AMREX_D_EXPR(md[4+  AMREX_SPACEDIM] = hi[0],</div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;               md[5+  AMREX_SPACEDIM] = hi[1],</div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;               md[6+  AMREX_SPACEDIM] = hi[2]);</div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;        AMREX_D_EXPR(md[4+2*AMREX_SPACEDIM] = tp[0],</div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;               md[5+2*AMREX_SPACEDIM] = tp[1],</div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;               md[6+2*AMREX_SPACEDIM] = tp[2]);</div>
 <div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;      }</div>
 <div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;</div>
 <div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;      data_sender.push_back(rank);</div>
@@ -943,7 +943,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00858"></a><span class="lineno">  858</span>&#160;</div>
 <div class="line"><a name="l00859"></a><span class="lineno">  859</span>&#160;    <span class="keywordflow">if</span> ( N_snds == 0 &amp;&amp; N_rcvs == 0 ) <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00860"></a><span class="lineno">  860</span>&#160;</div>
-<div class="line"><a name="l00861"></a><span class="lineno">  861</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> Nints = 4 + 3*<a class="code" href="_a_m_re_x___s_p_a_c_e_8_h.html#af66ac7d7c04dad9fd54778fe5a4e816f">BL_SPACEDIM</a>;  <span class="comment">// # of ints in a meta-data</span></div>
+<div class="line"><a name="l00861"></a><span class="lineno">  861</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> Nints = 4 + 3*AMREX_SPACEDIM;  <span class="comment">// # of ints in a meta-data</span></div>
 <div class="line"><a name="l00862"></a><span class="lineno">  862</span>&#160;</div>
 <div class="line"><a name="l00863"></a><span class="lineno">  863</span>&#160;    <span class="comment">// for meta-data</span></div>
 <div class="line"><a name="l00864"></a><span class="lineno">  864</span>&#160;    <a class="code" href="classamrex_1_1_vector.html">Vector&lt;int&gt;</a> md_sender, md_offset, md_icnts, md_bcnts;</div>
@@ -1011,12 +1011,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00926"></a><span class="lineno">  926</span>&#160;        AMREX_D_EXPR(md[4] = lo[0],</div>
 <div class="line"><a name="l00927"></a><span class="lineno">  927</span>&#160;               md[5] = lo[1],</div>
 <div class="line"><a name="l00928"></a><span class="lineno">  928</span>&#160;               md[6] = lo[2]);</div>
-<div class="line"><a name="l00929"></a><span class="lineno">  929</span>&#160;        AMREX_D_EXPR(md[4+  <a class="code" href="_a_m_re_x___s_p_a_c_e_8_h.html#af66ac7d7c04dad9fd54778fe5a4e816f">BL_SPACEDIM</a>] = hi[0],</div>
-<div class="line"><a name="l00930"></a><span class="lineno">  930</span>&#160;               md[5+  <a class="code" href="_a_m_re_x___s_p_a_c_e_8_h.html#af66ac7d7c04dad9fd54778fe5a4e816f">BL_SPACEDIM</a>] = hi[1],</div>
-<div class="line"><a name="l00931"></a><span class="lineno">  931</span>&#160;               md[6+  <a class="code" href="_a_m_re_x___s_p_a_c_e_8_h.html#af66ac7d7c04dad9fd54778fe5a4e816f">BL_SPACEDIM</a>] = hi[2]);</div>
-<div class="line"><a name="l00932"></a><span class="lineno">  932</span>&#160;        AMREX_D_EXPR(md[4+2*<a class="code" href="_a_m_re_x___s_p_a_c_e_8_h.html#af66ac7d7c04dad9fd54778fe5a4e816f">BL_SPACEDIM</a>] = tp[0],</div>
-<div class="line"><a name="l00933"></a><span class="lineno">  933</span>&#160;               md[5+2*<a class="code" href="_a_m_re_x___s_p_a_c_e_8_h.html#af66ac7d7c04dad9fd54778fe5a4e816f">BL_SPACEDIM</a>] = tp[1],</div>
-<div class="line"><a name="l00934"></a><span class="lineno">  934</span>&#160;               md[6+2*<a class="code" href="_a_m_re_x___s_p_a_c_e_8_h.html#af66ac7d7c04dad9fd54778fe5a4e816f">BL_SPACEDIM</a>] = tp[2]);</div>
+<div class="line"><a name="l00929"></a><span class="lineno">  929</span>&#160;        AMREX_D_EXPR(md[4+  AMREX_SPACEDIM] = hi[0],</div>
+<div class="line"><a name="l00930"></a><span class="lineno">  930</span>&#160;               md[5+  AMREX_SPACEDIM] = hi[1],</div>
+<div class="line"><a name="l00931"></a><span class="lineno">  931</span>&#160;               md[6+  AMREX_SPACEDIM] = hi[2]);</div>
+<div class="line"><a name="l00932"></a><span class="lineno">  932</span>&#160;        AMREX_D_EXPR(md[4+2*AMREX_SPACEDIM] = tp[0],</div>
+<div class="line"><a name="l00933"></a><span class="lineno">  933</span>&#160;               md[5+2*AMREX_SPACEDIM] = tp[1],</div>
+<div class="line"><a name="l00934"></a><span class="lineno">  934</span>&#160;               md[6+2*AMREX_SPACEDIM] = tp[2]);</div>
 <div class="line"><a name="l00935"></a><span class="lineno">  935</span>&#160;        }</div>
 <div class="line"><a name="l00936"></a><span class="lineno">  936</span>&#160;</div>
 <div class="line"><a name="l00937"></a><span class="lineno">  937</span>&#160;        md_send_reqs.push_back(<a class="code" href="namespaceamrex_1_1_parallel_descriptor.html#a0903eb5194f11fcf386f79e6ff3c02f7">ParallelDescriptor::Asend</a>(p,cnt,rank,SeqNum_md).req());</div>
@@ -1074,8 +1074,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00989"></a><span class="lineno">  989</span>&#160;        scomp[i] = md[2];</div>
 <div class="line"><a name="l00990"></a><span class="lineno">  990</span>&#160;        ncomp[i] = md[3];</div>
 <div class="line"><a name="l00991"></a><span class="lineno">  991</span>&#160;        bxs.push_back(<a class="code" href="classamrex_1_1_box.html">Box</a>(<a class="code" href="classamrex_1_1_int_vect.html">IntVect</a>(&amp;md[4]),</div>
-<div class="line"><a name="l00992"></a><span class="lineno">  992</span>&#160;                  <a class="code" href="classamrex_1_1_int_vect.html">IntVect</a>(&amp;md[4+<a class="code" href="_a_m_re_x___s_p_a_c_e_8_h.html#af66ac7d7c04dad9fd54778fe5a4e816f">BL_SPACEDIM</a>]), </div>
-<div class="line"><a name="l00993"></a><span class="lineno">  993</span>&#160;                  <a class="code" href="classamrex_1_1_int_vect.html">IntVect</a>(&amp;md[4+<a class="code" href="_a_m_re_x___s_p_a_c_e_8_h.html#af66ac7d7c04dad9fd54778fe5a4e816f">BL_SPACEDIM</a>*2]))); </div>
+<div class="line"><a name="l00992"></a><span class="lineno">  992</span>&#160;                  <a class="code" href="classamrex_1_1_int_vect.html">IntVect</a>(&amp;md[4+AMREX_SPACEDIM]), </div>
+<div class="line"><a name="l00993"></a><span class="lineno">  993</span>&#160;                  <a class="code" href="classamrex_1_1_int_vect.html">IntVect</a>(&amp;md[4+AMREX_SPACEDIM*2]))); </div>
 <div class="line"><a name="l00994"></a><span class="lineno">  994</span>&#160;        npts[i] = bxs.back().numPts()*ncomp[i];</div>
 <div class="line"><a name="l00995"></a><span class="lineno">  995</span>&#160;        N += npts[i];</div>
 <div class="line"><a name="l00996"></a><span class="lineno">  996</span>&#160;        }</div>
@@ -1279,7 +1279,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classamrex_1_1_box_html"><div class="ttname"><a href="classamrex_1_1_box.html">amrex::Box</a></div><div class="ttdoc">A Rectangular Domain on an Integer Lattice. </div><div class="ttdef"><b>Definition:</b> AMReX_Box.H:181</div></div>
 <div class="ttc" id="_a_m_re_x___multi_fab_util___f_8_h_html_a6569fdcb051e8fff2ef4c57db6f9c642"><div class="ttname"><a href="_a_m_re_x___multi_fab_util___f_8_h.html#a6569fdcb051e8fff2ef4c57db6f9c642">hi</a></div><div class="ttdeci">const int const int * hi</div><div class="ttdef"><b>Definition:</b> AMReX_MultiFabUtil_F.H:27</div></div>
 <div class="ttc" id="classamrex_1_1_fill_box_id_html_a5d0dd9c7e86edf106a794bdc16dd53c5"><div class="ttname"><a href="classamrex_1_1_fill_box_id.html#a5d0dd9c7e86edf106a794bdc16dd53c5">amrex::FillBoxId::FillBoxId</a></div><div class="ttdeci">FillBoxId(int newid, const Box &amp;fillbox)</div><div class="ttdef"><b>Definition:</b> AMReX_FACopyDescriptor.H:25</div></div>
-<div class="ttc" id="_a_m_re_x___s_p_a_c_e_8_h_html_af66ac7d7c04dad9fd54778fe5a4e816f"><div class="ttname"><a href="_a_m_re_x___s_p_a_c_e_8_h.html#af66ac7d7c04dad9fd54778fe5a4e816f">BL_SPACEDIM</a></div><div class="ttdeci">#define BL_SPACEDIM</div><div class="ttdef"><b>Definition:</b> AMReX_SPACE.H:10</div></div>
 <div class="ttc" id="classamrex_1_1_fab_array_copy_descriptor_html_a717aa6067b57f1b49967fcbe2d99e3c9"><div class="ttname"><a href="classamrex_1_1_fab_array_copy_descriptor.html#a717aa6067b57f1b49967fcbe2d99e3c9">amrex::FabArrayCopyDescriptor::AddBox</a></div><div class="ttdeci">FillBoxId AddBox(FabArrayId fabarrayid, const Box &amp;destFabBox, BoxList *unfilledBoxes)</div><div class="ttdef"><b>Definition:</b> AMReX_FACopyDescriptor.H:425</div></div>
 <div class="ttc" id="namespaceamrex_html_a870c2407ed885451a76f66f8a0d7a892"><div class="ttname"><a href="namespaceamrex.html#a870c2407ed885451a76f66f8a0d7a892">amrex::max</a></div><div class="ttdeci">IntVect max(const IntVect &amp;p1, const IntVect &amp;p2)</div><div class="ttdoc">Returns the IntVect that is the component-wise maximum of two argument IntVects. </div><div class="ttdef"><b>Definition:</b> AMReX_IntVect.cpp:132</div></div>
 <div class="ttc" id="structamrex_1_1_fab_copy_descriptor_html_aaa865db7c42ae26183110932425ab7a6"><div class="ttname"><a href="structamrex_1_1_fab_copy_descriptor.html#aaa865db7c42ae26183110932425ab7a6">amrex::FabCopyDescriptor::nComp</a></div><div class="ttdeci">int nComp</div><div class="ttdef"><b>Definition:</b> AMReX_FACopyDescriptor.H:79</div></div>

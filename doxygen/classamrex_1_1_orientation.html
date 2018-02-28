@@ -136,7 +136,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a28117628d9152e50df590e4f0f88ee81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Greater-than or equal.  <a href="#a28117628d9152e50df590e4f0f88ee81">More...</a><br/></td></tr>
 <tr class="separator:a28117628d9152e50df590e4f0f88ee81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2df6d210fe3c757ddf154110e9fdc821"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_orientation.html#a2df6d210fe3c757ddf154110e9fdc821">operator int</a> () const </td></tr>
-<tr class="memdesc:a2df6d210fe3c757ddf154110e9fdc821"><td class="mdescLeft">&#160;</td><td class="mdescRight">This conversion operator maps an orientation into a unique integer in the range [0 .. 2*BL_SPACEDIM-1] according to the above ordering.  <a href="#a2df6d210fe3c757ddf154110e9fdc821">More...</a><br/></td></tr>
+<tr class="memdesc:a2df6d210fe3c757ddf154110e9fdc821"><td class="mdescLeft">&#160;</td><td class="mdescRight">This conversion operator maps an orientation into a unique integer in the range [0 .. 2*AMREX_SPACEDIM-1] according to the above ordering.  <a href="#a2df6d210fe3c757ddf154110e9fdc821">More...</a><br/></td></tr>
 <tr class="separator:a2df6d210fe3c757ddf154110e9fdc821"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88f3c670915c7f7034b378a7b0d9676c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_orientation.html">Orientation</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_orientation.html#a88f3c670915c7f7034b378a7b0d9676c">flip</a> () const </td></tr>
 <tr class="memdesc:a88f3c670915c7f7034b378a7b0d9676c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return opposite orientation.  <a href="#a88f3c670915c7f7034b378a7b0d9676c">More...</a><br/></td></tr>
@@ -164,7 +164,7 @@ Friends</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Encapsulation of the <a class="el" href="classamrex_1_1_orientation.html" title="Encapsulation of the Orientation of the Faces of a Box. ">Orientation</a> of the Faces of a <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a>. </p>
-<p>This class encapsulates the orientation of the faces of a <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> by providing an ordering of each of the faces of a <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> in BL_SPACEDIM dimensions. This allows iterating over all the faces of a <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a>. The ordering first traverses the BL_SPACEDIM low sides from direction 0 .. BL_SPACEDIM-1 and then the BL_SPACEDIM high sides from direction 0 .. BL_SPACEDIM-1. </p>
+<p>This class encapsulates the orientation of the faces of a <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> by providing an ordering of each of the faces of a <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> in AMREX_SPACEDIM dimensions. This allows iterating over all the faces of a <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a>. The ordering first traverses the AMREX_SPACEDIM low sides from direction 0 .. AMREX_SPACEDIM-1 and then the AMREX_SPACEDIM high sides from direction 0 .. AMREX_SPACEDIM-1. </p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a class="anchor" id="a877c697bbab9de21af4012197ba76410"></a>
 <div class="memitem">
@@ -395,7 +395,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>This conversion operator maps an orientation into a unique integer in the range [0 .. 2*BL_SPACEDIM-1] according to the above ordering. </p>
+<p>This conversion operator maps an orientation into a unique integer in the range [0 .. 2*AMREX_SPACEDIM-1] according to the above ordering. </p>
 
 </div>
 </div>

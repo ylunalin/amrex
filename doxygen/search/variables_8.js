@@ -23,7 +23,7 @@ var searchData=
   ['intersect_5flox',['intersect_lox',['../classamrex_1_1_amr.html#a74f3b055b554426d6404985f46bc5713',1,'amrex::Amr']]],
   ['intersect_5floy',['intersect_loy',['../classamrex_1_1_amr.html#a63e0fe7c5999847347e2959ef6d35e84',1,'amrex::Amr']]],
   ['intersect_5floz',['intersect_loz',['../classamrex_1_1_amr.html#ac8fbee6b944ffeb46dac1abb6c4e979c',1,'amrex::Amr']]],
-  ['inv_5fdx',['inv_dx',['../classamrex_1_1_coord_sys.html#a309e5e19c5c224f47b793a68ec5924b6',1,'amrex::CoordSys']]],
+  ['inv_5fdx',['inv_dx',['../classamrex_1_1_coord_sys.html#a09a58ce8c24e2ad549c98754fd2adaeb',1,'amrex::CoordSys']]],
   ['invalid_5ftime',['INVALID_TIME',['../namespaceamrex.html#a3381456f43e80fc04349263ed37a8b55',1,'amrex']]],
   ['inwhichsidecar',['inWhichSidecar',['../namespaceamrex_1_1_parallel_descriptor.html#a4639ba83cf32b5866731068d46563fc5',1,'amrex::ParallelDescriptor']]],
   ['io_5foffset',['io_offset',['../classamrex_1_1_real_vect.html#aec1894e6522770880dc552babe7ec205',1,'amrex::RealVect']]],

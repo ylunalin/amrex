@@ -949,7 +949,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:a76f4fab9ceb58a061b21cc29e88905b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a 1D Array of cells from all boxes in a <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a>.  <a href="#a76f4fab9ceb58a061b21cc29e88905b6">More...</a><br/></td></tr>
 <tr class="separator:a76f4fab9ceb58a061b21cc29e88905b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca59db20007ff011805104bfc0d235ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box_array.html">BoxArray</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#aca59db20007ff011805104bfc0d235ea">UnSerializeBoxArray</a> (const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; int &gt; &amp;serarray)</td></tr>
-<tr class="memdesc:aca59db20007ff011805104bfc0d235ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> (in BL_SPACEDIM dimensions) from a 1D Array of cells.  <a href="#aca59db20007ff011805104bfc0d235ea">More...</a><br/></td></tr>
+<tr class="memdesc:aca59db20007ff011805104bfc0d235ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> (in AMREX_SPACEDIM dimensions) from a 1D Array of cells.  <a href="#aca59db20007ff011805104bfc0d235ea">More...</a><br/></td></tr>
 <tr class="separator:aca59db20007ff011805104bfc0d235ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89eb9459b4109c4f9a9b3225abae29f8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a89eb9459b4109c4f9a9b3225abae29f8">match</a> (const <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> &amp;x, const <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> &amp;y)</td></tr>
 <tr class="memdesc:a89eb9459b4109c4f9a9b3225abae29f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Note that two BoxArrays that match are not necessarily equal.  <a href="#a89eb9459b4109c4f9a9b3225abae29f8">More...</a><br/></td></tr>
@@ -1732,10 +1732,10 @@ Functions</h2></td></tr>
 <tr class="separator:a33cb8c83a4c245e2c88f8a8c6cfb9b3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b03bd2891ded6de08ad70aa314f197a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a3b03bd2891ded6de08ad70aa314f197a">InterpFromCoarseLevel</a> (<a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;mf, Real time, const <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;cmf, int scomp, int dcomp, int <a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;cgeom, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;fgeom, <a class="el" href="classamrex_1_1_phys_b_c_funct_base.html">PhysBCFunctBase</a> &amp;cbc, <a class="el" href="classamrex_1_1_phys_b_c_funct_base.html">PhysBCFunctBase</a> &amp;fbc, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a3a6ea573223fb7730509e32b93601c15">ratio</a>, <a class="el" href="classamrex_1_1_interpolater.html">Interpolater</a> *mapper, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_b_c_rec.html">BCRec</a> &gt; &amp;bcs)</td></tr>
 <tr class="separator:a3b03bd2891ded6de08ad70aa314f197a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa16bbe43422f32a5f46af0b97ad236e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#aa16bbe43422f32a5f46af0b97ad236e6">InterpCrseFineBndryEMfield</a> (<a class="el" href="namespaceamrex.html#a2f30e076962c1c148d279b63851d80df">InterpEM_t</a> interp_type, const std::array&lt; <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a>, <a class="el" href="_a_m_re_x___s_p_a_c_e_8_h.html#af66ac7d7c04dad9fd54778fe5a4e816f">BL_SPACEDIM</a> &gt; &amp;crse, std::array&lt; <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a>, <a class="el" href="_a_m_re_x___s_p_a_c_e_8_h.html#af66ac7d7c04dad9fd54778fe5a4e816f">BL_SPACEDIM</a> &gt; &amp;fine, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;cgeom, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;fgeom, int ref_ratio)</td></tr>
-<tr class="separator:aa16bbe43422f32a5f46af0b97ad236e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a616ed5d8355b28f4b128393de3e8b3f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a616ed5d8355b28f4b128393de3e8b3f3">InterpCrseFineBndryBfield</a> (const std::array&lt; <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a>, <a class="el" href="_a_m_re_x___s_p_a_c_e_8_h.html#af66ac7d7c04dad9fd54778fe5a4e816f">BL_SPACEDIM</a> &gt; &amp;crse, std::array&lt; <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a>, <a class="el" href="_a_m_re_x___s_p_a_c_e_8_h.html#af66ac7d7c04dad9fd54778fe5a4e816f">BL_SPACEDIM</a> &gt; &amp;fine, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;cgeom, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;fgeom, int ref_ratio)</td></tr>
-<tr class="separator:a616ed5d8355b28f4b128393de3e8b3f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80131498da357021b50429cddbe075fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a80131498da357021b50429cddbe075fe">InterpCrseFineBndryEMfield</a> (<a class="el" href="namespaceamrex.html#a2f30e076962c1c148d279b63851d80df">InterpEM_t</a> interp_type, const std::array&lt; <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a>, AMREX_SPACEDIM &gt; &amp;crse, std::array&lt; <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a>, AMREX_SPACEDIM &gt; &amp;fine, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;cgeom, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;fgeom, int ref_ratio)</td></tr>
+<tr class="separator:a80131498da357021b50429cddbe075fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fa6139d4587e4a3e090e936d4f96b1f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a7fa6139d4587e4a3e090e936d4f96b1f">InterpCrseFineBndryBfield</a> (const std::array&lt; <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a>, AMREX_SPACEDIM &gt; &amp;crse, std::array&lt; <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a>, AMREX_SPACEDIM &gt; &amp;fine, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;cgeom, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;fgeom, int ref_ratio)</td></tr>
+<tr class="separator:a7fa6139d4587e4a3e090e936d4f96b1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a255f1f8c5e709392a949283da47211f5"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a255f1f8c5e709392a949283da47211f5">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="classamrex_1_1_mask.html">Mask</a> &amp;m)</td></tr>
 <tr class="separator:a255f1f8c5e709392a949283da47211f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeddafb7300c5464e3bf385c510ddb5e0"><td class="memItemLeft" align="right" valign="top">std::istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#aeddafb7300c5464e3bf385c510ddb5e0">operator&gt;&gt;</a> (std::istream &amp;is, <a class="el" href="classamrex_1_1_mask.html">Mask</a> &amp;m)</td></tr>
@@ -7928,20 +7928,20 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a616ed5d8355b28f4b128393de3e8b3f3"></a>
+<a class="anchor" id="a7fa6139d4587e4a3e090e936d4f96b1f"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void amrex::InterpCrseFineBndryBfield </td>
           <td>(</td>
-          <td class="paramtype">const std::array&lt; MultiFab, <a class="el" href="_a_m_re_x___s_p_a_c_e_8_h.html#af66ac7d7c04dad9fd54778fe5a4e816f">BL_SPACEDIM</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const std::array&lt; MultiFab, AMREX_SPACEDIM &gt; &amp;&#160;</td>
           <td class="paramname"><em>crse</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::array&lt; MultiFab, <a class="el" href="_a_m_re_x___s_p_a_c_e_8_h.html#af66ac7d7c04dad9fd54778fe5a4e816f">BL_SPACEDIM</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">std::array&lt; MultiFab, AMREX_SPACEDIM &gt; &amp;&#160;</td>
           <td class="paramname"><em>fine</em>, </td>
         </tr>
         <tr>
@@ -7972,7 +7972,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="aa16bbe43422f32a5f46af0b97ad236e6"></a>
+<a class="anchor" id="a80131498da357021b50429cddbe075fe"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -7985,13 +7985,13 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::array&lt; MultiFab, <a class="el" href="_a_m_re_x___s_p_a_c_e_8_h.html#af66ac7d7c04dad9fd54778fe5a4e816f">BL_SPACEDIM</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const std::array&lt; MultiFab, AMREX_SPACEDIM &gt; &amp;&#160;</td>
           <td class="paramname"><em>crse</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::array&lt; MultiFab, <a class="el" href="_a_m_re_x___s_p_a_c_e_8_h.html#af66ac7d7c04dad9fd54778fe5a4e816f">BL_SPACEDIM</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">std::array&lt; MultiFab, AMREX_SPACEDIM &gt; &amp;&#160;</td>
           <td class="paramname"><em>fine</em>, </td>
         </tr>
         <tr>
@@ -16086,7 +16086,7 @@ template&lt;&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Construct a <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> (in BL_SPACEDIM dimensions) from a 1D Array of cells. </p>
+<p>Construct a <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> (in AMREX_SPACEDIM dimensions) from a 1D Array of cells. </p>
 
 </div>
 </div>
