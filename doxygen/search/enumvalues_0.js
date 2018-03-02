@@ -8,6 +8,7 @@ var searchData=
   ['allregular',['AllRegular',['../classamrex_1_1_e_b_graph_implem.html#a0410327e394f2a98c8eabd2acee4b326ac73c5a5ee322bac1603a36296ddc820d',1,'amrex::EBGraphImplem::AllRegular()'],['../classamrex_1_1_e_b_graph.html#acf2ee81930e401a32236c03b553145b0a640715459b51ad84d46c473ab0ec4ca2',1,'amrex::EBGraph::AllRegular()']]],
   ['amr1qtrtime',['Amr1QtrTime',['../classamrex_1_1_amr_level.html#a83fa691ff414eb69f75eb6ae1f61b33aa26c31c2a7f0ffe418eca566dd60dcf9a',1,'amrex::AmrLevel']]],
   ['amr3qtrtime',['Amr3QtrTime',['../classamrex_1_1_amr_level.html#a83fa691ff414eb69f75eb6ae1f61b33aae97e640066fc5c0776f300447bec0517',1,'amrex::AmrLevel']]],
+  ['amrex_5fd_5fdecl',['AMREX_D_DECL',['../namespaceamrex.html#a8de829410ed15dbc56e4dafc9bc6ea69a68b0c60ae4f5670ee8d0ad5dda84d0fd',1,'amrex']]],
   ['amrhalftime',['AmrHalfTime',['../classamrex_1_1_amr_level.html#a83fa691ff414eb69f75eb6ae1f61b33aabebff412ae8d5766104330cb143e91c9',1,'amrex::AmrLevel']]],
   ['amrnewtime',['AmrNewTime',['../classamrex_1_1_amr_level.html#a83fa691ff414eb69f75eb6ae1f61b33aa9e86be887aaeac42a556e1f493337472',1,'amrex::AmrLevel']]],
   ['amroldtime',['AmrOldTime',['../classamrex_1_1_amr_level.html#a83fa691ff414eb69f75eb6ae1f61b33aa42553bff8bf17dc01b76ff8e44f3d902',1,'amrex::AmrLevel']]],

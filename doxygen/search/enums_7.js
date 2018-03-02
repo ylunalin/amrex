@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['ordering',['Ordering',['../classamrex_1_1_int_descriptor.html#a330214b8c0c3e224aecd2d2d95c0a839',1,'amrex::IntDescriptor::Ordering()'],['../classamrex_1_1_f_a_bio.html#adbdc54b2ed6a4fa2d0cfd19076e5cc39',1,'amrex::FABio::Ordering()']]]
+  ['maketype',['MakeType',['../namespaceamrex.html#a0a36c65d0681a832330b2812f16786a6',1,'amrex']]],
+  ['maskval',['MaskVal',['../classamrex_1_1_bndry_data.html#a4d31afbfcfb31a6229877bb9ad880fb9',1,'amrex::BndryData']]]
 ];

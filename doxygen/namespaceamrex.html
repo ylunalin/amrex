@@ -728,6 +728,9 @@ Enumerations</h2></td></tr>
 <a class="el" href="namespaceamrex.html#a0a36c65d0681a832330b2812f16786a6a0a2bb4bcb2051ae3a06f94b5c1768e90">make_deep_copy</a>
  }</td></tr>
 <tr class="separator:a0a36c65d0681a832330b2812f16786a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8de829410ed15dbc56e4dafc9bc6ea69"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a8de829410ed15dbc56e4dafc9bc6ea69">Direction</a> : int { <a class="el" href="namespaceamrex.html#a8de829410ed15dbc56e4dafc9bc6ea69a68b0c60ae4f5670ee8d0ad5dda84d0fd">Direction::AMREX_D_DECL</a> =(x = 0, y = 1, z = 2)
+ }</td></tr>
+<tr class="separator:a8de829410ed15dbc56e4dafc9bc6ea69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1475e7df2fc014330b7f649b2e84d801"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a1475e7df2fc014330b7f649b2e84d801">CutStatus</a> { <a class="el" href="namespaceamrex.html#a1475e7df2fc014330b7f649b2e84d801a8c112ddae302a7cdb833905e341b72b9">HoleCut</a> =0, 
 <a class="el" href="namespaceamrex.html#a1475e7df2fc014330b7f649b2e84d801a4620270667a1158b52216ddafd2ed514">SteepCut</a>, 
 <a class="el" href="namespaceamrex.html#a1475e7df2fc014330b7f649b2e84d801aac329ac440a1c2bf58a7eade05ca33b9">BisectCut</a>, 
@@ -1740,9 +1743,9 @@ Functions</h2></td></tr>
 <tr class="separator:a255f1f8c5e709392a949283da47211f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeddafb7300c5464e3bf385c510ddb5e0"><td class="memItemLeft" align="right" valign="top">std::istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#aeddafb7300c5464e3bf385c510ddb5e0">operator&gt;&gt;</a> (std::istream &amp;is, <a class="el" href="classamrex_1_1_mask.html">Mask</a> &amp;m)</td></tr>
 <tr class="separator:aeddafb7300c5464e3bf385c510ddb5e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b23c9511617199b08658ef0d4515619"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a3b23c9511617199b08658ef0d4515619">amrex_particle_set_position</a> (<a class="el" href="namespaceamrex.html#a8ffd900db646020685b37acf03d06464">amrex_particle_real</a> *, int ns, int np, <a class="el" href="_a_m_re_x___particle_container_i_8_h.html#ab1c311773815d6a8c0a99f307bca90a7">AMREX_D_DECL</a>(const <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *x, const <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *y, const <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *z))</td></tr>
+<tr class="memitem:a3b23c9511617199b08658ef0d4515619"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a3b23c9511617199b08658ef0d4515619">amrex_particle_set_position</a> (<a class="el" href="namespaceamrex.html#a8ffd900db646020685b37acf03d06464">amrex_particle_real</a> *, int ns, int np, AMREX_D_DECL(const <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *x, const <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *y, const <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *z))</td></tr>
 <tr class="separator:a3b23c9511617199b08658ef0d4515619"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a489f3be2d72a70a3317b29450354f4f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a489f3be2d72a70a3317b29450354f4f9">amrex_particle_get_position</a> (const <a class="el" href="namespaceamrex.html#a8ffd900db646020685b37acf03d06464">amrex_particle_real</a> *, int ns, int np, <a class="el" href="_a_m_re_x___particle_container_i_8_h.html#ab1c311773815d6a8c0a99f307bca90a7">AMREX_D_DECL</a>(<a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *x, <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *y, <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *z))</td></tr>
+<tr class="memitem:a489f3be2d72a70a3317b29450354f4f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a489f3be2d72a70a3317b29450354f4f9">amrex_particle_get_position</a> (const <a class="el" href="namespaceamrex.html#a8ffd900db646020685b37acf03d06464">amrex_particle_real</a> *, int ns, int np, AMREX_D_DECL(<a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *x, <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *y, <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *z))</td></tr>
 <tr class="separator:a489f3be2d72a70a3317b29450354f4f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1342955fe7a1c605449af948f5db13b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a1342955fe7a1c605449af948f5db13b1">amrex_build_nl</a> (void *, int ns, int np, int *nbor_list, int *size_nl, const int *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a54267e9174e171df90d3594f0c32e114">lo</a>, const int *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a6569fdcb051e8fff2ef4c57db6f9c642">hi</a>, const <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *plo, const <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ad5fa46517dd383f09a279b8446fc397b">dx</a>)</td></tr>
 <tr class="separator:a1342955fe7a1c605449af948f5db13b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2398,6 +2401,30 @@ template&lt;class T , std::size_t N&gt; </div>
 <tr><td class="fieldname"><em><a class="anchor" id="a1475e7df2fc014330b7f649b2e84d801aac329ac440a1c2bf58a7eade05ca33b9"></a>BisectCut</em>&#160;</td><td class="fielddoc">
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="a1475e7df2fc014330b7f649b2e84d801aee9f7ade36d2f4121f0a888acbcc32a3"></a>InvalidCut</em>&#160;</td><td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
+<a class="anchor" id="a8de829410ed15dbc56e4dafc9bc6ea69"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespaceamrex.html#a8de829410ed15dbc56e4dafc9bc6ea69">amrex::Direction</a> : int</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="a8de829410ed15dbc56e4dafc9bc6ea69a68b0c60ae4f5670ee8d0ad5dda84d0fd"></a>AMREX_D_DECL</em>&#160;</td><td class="fielddoc">
 </td></tr>
 </table>
 
