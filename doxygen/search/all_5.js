@@ -87,7 +87,7 @@ var searchData=
   ['endsubcommunicator',['EndSubCommunicator',['../namespaceamrex_1_1_parallel_descriptor.html#acd6abcdc014aaaebb7d89f431e745e3b',1,'amrex::ParallelDescriptor']]],
   ['endteams',['EndTeams',['../namespaceamrex_1_1_parallel_descriptor.html#a1f1780bd83ee339ade2a2dd702473e20',1,'amrex::ParallelDescriptor']]],
   ['enforceperiodicity',['EnforcePeriodicity',['../classamrex_1_1_fab_array.html#adb282b42c0eb97cbb55037bc7bdea04a',1,'amrex::FabArray::EnforcePeriodicity(const Periodicity &amp;period)'],['../classamrex_1_1_fab_array.html#aecf0e342dcbe19b9bb23e73c326155ff',1,'amrex::FabArray::EnforcePeriodicity(int scomp, int ncomp, const Periodicity &amp;period)']]],
-  ['enforceperiodicwhere',['EnforcePeriodicWhere',['../classamrex_1_1_particle_container.html#ae970d05e7de56d235f629cb87202ba11',1,'amrex::ParticleContainer']]],
+  ['enforceperiodicwhere',['EnforcePeriodicWhere',['../classamrex_1_1_particle_container.html#abbf38c48b91649ffb5da36ca3e24a01c',1,'amrex::ParticleContainer']]],
   ['erase',['erase',['../classamrex_1_1_weighted_box_list.html#ac620ef3b683a9b1b7f2f73eb6832e754',1,'amrex::WeightedBoxList::erase()'],['../classamrex_1_1_array_of_structs.html#afe4eb9647a67cc947e6b5b8c1940c704',1,'amrex::ArrayOfStructs::erase()']]],
   ['errfunc',['errFunc',['../classamrex_1_1_error_rec.html#ac3494812ae400116323aca002a45bc96',1,'amrex::ErrorRec']]],
   ['errfunc2',['errFunc2',['../classamrex_1_1_error_rec.html#a4431602f7e46b84a8b77f6120675190c',1,'amrex::ErrorRec']]],
