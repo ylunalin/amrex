@@ -64,7 +64,7 @@ var searchData=
   ['registerfabarray',['RegisterFabArray',['../classamrex_1_1_fab_array_copy_descriptor.html#a827e469bbb8904deeca9a980b1340323',1,'amrex::FabArrayCopyDescriptor']]],
   ['registermultifab',['RegisterMultiFab',['../classamrex_1_1_multi_fab_copy_descriptor.html#af50431312a5892d40fb3ae31592e19e0',1,'amrex::MultiFabCopyDescriptor']]],
   ['registerrealbox',['registerRealBox',['../classamrex_1_1_m_f_iter.html#a07ca0050f401ed1574b6c59ece1ea038',1,'amrex::MFIter']]],
-  ['regrid',['Regrid',['../classamrex_1_1_neighbor_particle_container.html#adbf6915c6877b366e0bda3e6f268eb30',1,'amrex::NeighborParticleContainer::Regrid()'],['../classamrex_1_1_amr.html#a9d6faadd0aabf54081fe9ea12be10484',1,'amrex::Amr::regrid()'],['../classamrex_1_1_amr_core.html#ae80fa713b669de0f235d3ef0792e7200',1,'amrex::AmrCore::regrid()']]],
+  ['regrid',['regrid',['../classamrex_1_1_amr.html#a9d6faadd0aabf54081fe9ea12be10484',1,'amrex::Amr::regrid()'],['../classamrex_1_1_amr_core.html#ae80fa713b669de0f235d3ef0792e7200',1,'amrex::AmrCore::regrid()'],['../classamrex_1_1_neighbor_particle_container.html#adbf6915c6877b366e0bda3e6f268eb30',1,'amrex::NeighborParticleContainer::Regrid()']]],
   ['regrid_5flevel_5f0_5fon_5frestart',['regrid_level_0_on_restart',['../classamrex_1_1_amr.html#a5c2a28dfa0840069f813bf56565b4007',1,'amrex::Amr']]],
   ['regridint',['regridInt',['../classamrex_1_1_amr.html#ac6b7e80d6de43482fa71350d10279eda',1,'amrex::Amr']]],
   ['regridonly',['RegridOnly',['../classamrex_1_1_amr.html#a86f9100ac981896785004b56d5a2f3d6',1,'amrex::Amr']]],

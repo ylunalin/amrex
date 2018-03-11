@@ -94,7 +94,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">AMReX_Utility.H File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;iostream&gt;</code><br/>
+<div class="textblock"><code>#include &lt;cstdlib&gt;</code><br/>
+<code>#include &lt;iostream&gt;</code><br/>
 <code>#include &lt;string&gt;</code><br/>
 <code>#include &lt;map&gt;</code><br/>
 <code>#include &lt;chrono&gt;</code><br/>
@@ -252,6 +253,10 @@ Functions</h2></td></tr>
 <tr class="separator:af353083e449d736188c80257c096f518"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a264e86a5ee72c5d32bf8498067ff2d91"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a264e86a5ee72c5d32bf8498067ff2d91">amrex::second</a> ()</td></tr>
 <tr class="separator:a264e86a5ee72c5d32bf8498067ff2d91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6136b169776e667910d5505dca32259"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_m_re_x___utility_8_h.html#ab6136b169776e667910d5505dca32259">amrex_malloc</a> (std::size_t size)</td></tr>
+<tr class="separator:ab6136b169776e667910d5505dca32259"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2341d68b47f82cd117da58195ac02101"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_m_re_x___utility_8_h.html#a2341d68b47f82cd117da58195ac02101">amrex_free</a> (void *p)</td></tr>
+<tr class="separator:a2341d68b47f82cd117da58195ac02101"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a class="anchor" id="a93b4a56e5a8af340d43839230b94843c"></a>
@@ -262,6 +267,55 @@ Functions</h2></td></tr>
           <td class="memname">#define BL_IGNORE_MAX&#160;&#160;&#160;100000</td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a2341d68b47f82cd117da58195ac02101"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void amrex_free </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ab6136b169776e667910d5505dca32259"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* amrex_malloc </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>size</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
