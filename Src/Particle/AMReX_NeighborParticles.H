@@ -188,6 +188,11 @@ protected:
     long num_snds;
     std::map<int, Vector<char> > send_data;
 
+#ifdef BL_USE_MPI
+    Vector<MPI_Status> stats_;
+    Vector<MPI_Request> rreqs_;
+#endif
+
     std::array<bool, AMREX_SPACEDIM + NStructReal> rc; 
     std::array<bool, 2 + NStructInt>  ic;
 };
