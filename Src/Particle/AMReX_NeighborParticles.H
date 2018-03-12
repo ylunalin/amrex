@@ -128,6 +128,18 @@ public:
     void fillNeighbors(int lev);
 
     ///
+    /// This fills the neighbor buffers for each tile with the proper data
+    /// This is the start of the asynchronous version.
+    ///
+    void fillNeighborsStart(int lev);
+
+    ///
+    /// This fills the neighbor buffers for each tile with the proper data
+    /// This is the end of the asynchronous version.
+    ///
+    void fillNeighborsFinish(int lev);
+
+    ///
     /// This updates the neighbors with their current particle data.
     ///
     void updateNeighbors(int lev, bool reuse_rcv_counts=true);

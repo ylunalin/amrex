@@ -394,6 +394,24 @@ NeighborParticleContainer<NStructReal, NStructInt>
 }
 
 template <int NStructReal, int NStructInt>
+void 
+NeighborParticleContainer<NStructReal, NStructInt>
+::fillNeighborsStart(int lev) {
+    BL_PROFILE("NeighborParticleContainer::fillNeighborsStart");
+    BuildLevelMask(lev);
+    cacheNeighborInfo(lev);
+    updateNeighborsStart(lev, false);
+}
+
+template <int NStructReal, int NStructInt>
+void 
+NeighborParticleContainer<NStructReal, NStructInt>
+::fillNeighborsFinish(int lev) {
+    BL_PROFILE("NeighborParticleContainer::fillNeighborsFinish");
+    updateNeighborsFinish();
+}
+
+template <int NStructReal, int NStructInt>
 void
 NeighborParticleContainer<NStructReal, NStructInt>
 ::updateNeighbors(int lev, bool reuse_rcv_counts) {    
