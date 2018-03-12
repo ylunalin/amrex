@@ -118,24 +118,27 @@ public:
     void Regrid(const DistributionMapping &dmap, const BoxArray &ba );
 
     ///
-    /// This fills the neighbor buffers for each tile with the proper data
+    /// This fills the neighbor buffers for each tile with the proper data.
+    /// This both computes which particles to communicate, and copies the data.
     ///
     void fillNeighbors(int lev);
 
     ///
-    /// This fills the neighbor buffers for each tile with the proper data
+    /// This fills the neighbor buffers for each tile with the proper data.
     /// This is the start of the asynchronous version.
     ///
     void fillNeighborsStart(int lev);
 
     ///
-    /// This fills the neighbor buffers for each tile with the proper data
+    /// This fills the neighbor buffers for each tile with the proper data.
     /// This is the end of the asynchronous version.
     ///
     void fillNeighborsFinish(int lev);
 
     ///
     /// This updates the neighbors with their current particle data.
+    /// updateNeighbors copies the data but does not re-compute which particles
+    /// participate in the send.
     ///
     void updateNeighbors(int lev, bool reuse_rcv_counts=true);
 
