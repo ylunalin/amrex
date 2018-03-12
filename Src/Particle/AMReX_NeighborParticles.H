@@ -127,8 +127,6 @@ public:
     ///
     void fillNeighbors(int lev);
 
-    void cacheNeighborInfo(int lev);
-
     ///
     /// This updates the neighbors with their current particle data.
     ///
@@ -167,6 +165,8 @@ public:
     
 protected:
     
+    void cacheNeighborInfo(int lev);
+
     void initializeCommComps();
     
     void calcCommSize();
