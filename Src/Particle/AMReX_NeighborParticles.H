@@ -118,11 +118,6 @@ public:
     void Regrid(const DistributionMapping &dmap, const BoxArray &ba );
 
     ///
-    /// This builds the internal data structure used for looking up neighbors
-    ///
-    void BuildLevelMask(int lev);
-
-    ///
     /// This fills the neighbor buffers for each tile with the proper data
     ///
     void fillNeighbors(int lev);
@@ -184,6 +179,11 @@ protected:
     void calcCommSize();
     
     void updateNeighborsLocal(int lev);
+
+    ///
+    /// This builds the internal data structure used for looking up neighbors
+    ///
+    void BuildLevelMask(int lev);
 
     ///
     /// Perform the MPI communication neccesary to fill neighbor buffers
