@@ -135,6 +135,18 @@ public:
     void updateNeighbors(int lev, bool reuse_rcv_counts=true);
 
     ///
+    /// This updates the neighbors with their current particle data. This is
+    /// the start of the asynchronous version of updateNeighbors.
+    ///
+    void updateNeighborsStart(int lev, bool reuse_rcv_counts=true);
+
+    ///
+    /// This updates the neighbors with their current particle data. This is
+    /// the end of the asynchronous version of updateNeighbors.
+    ///
+    void updateNeighborsFinish(int lev);
+
+    ///
     /// Each tile clears its neighbors, freeing the memory
     ///
     void clearNeighbors(int lev);
@@ -164,7 +176,9 @@ protected:
     ///
     /// Perform the MPI communication neccesary to fill neighbor buffers
     ///
-    void fillNeighborsMPI(bool reuse_rcv_counts);
+    void fillNeighborsMPIStart(bool reuse_rcv_counts);
+
+    void fillNeighborsMPIFinish();
 
     ///
     /// Perform handshake to figure out how many bytes each proc should receive
@@ -191,6 +205,8 @@ protected:
     std::map<int, Vector<char> > send_data;
 
 #ifdef BL_USE_MPI
+    Vector<char> recvdata_;            // recv buffer
+    Vector<std::size_t> recvoffset_;   // offsets (in bytes) into recv buffer
     int num_rcvs_;
     Vector<MPI_Status> stats_;
     Vector<MPI_Request> rreqs_;

@@ -398,7 +398,23 @@ void
 NeighborParticleContainer<NStructReal, NStructInt>
 ::updateNeighbors(int lev, bool reuse_rcv_counts) {    
     updateNeighborsLocal(lev);    
-    fillNeighborsMPI(reuse_rcv_counts);
+    fillNeighborsMPIStart(reuse_rcv_counts);
+    fillNeighborsMPIFinish();
+}
+
+template <int NStructReal, int NStructInt>
+void
+NeighborParticleContainer<NStructReal, NStructInt>
+::updateNeighborsStart(int lev, bool reuse_rcv_counts) {    
+    updateNeighborsLocal(lev);    
+    fillNeighborsMPIStart(reuse_rcv_counts);
+}
+
+template <int NStructReal, int NStructInt>
+void
+NeighborParticleContainer<NStructReal, NStructInt>
+::updateNeighborsFinish(int lev) {
+    fillNeighborsMPIFinish();
 }
 
 template <int NStructReal, int NStructInt>
@@ -550,9 +566,9 @@ getRcvCountsMPI() {
 template <int NStructReal, int NStructInt>
 void
 NeighborParticleContainer<NStructReal, NStructInt>::
-fillNeighborsMPI(bool reuse_rcv_counts) {
+fillNeighborsMPIStart(bool reuse_rcv_counts) {
     
-    BL_PROFILE("NeighborParticleContainer::fillNeighborsMPI");
+    BL_PROFILE("NeighborParticleContainer::fillNeighborsMPIStart");
     
 #ifdef BL_USE_MPI
     const int NProcs = ParallelDescriptor::NProcs();
@@ -563,12 +579,12 @@ fillNeighborsMPI(bool reuse_rcv_counts) {
     if (num_snds == 0) return;
     
     Vector<int> RcvProc;
-    Vector<std::size_t> rOffset; // Offset (in bytes) in the receive buffer    
+    recvoffset_.clear();
     std::size_t TotRcvBytes = 0;
     for (int i = 0; i < NProcs; ++i) {
         if (rcvs[i] > 0) {
             RcvProc.push_back(i);
-            rOffset.push_back(TotRcvBytes);
+            recvoffset_.push_back(TotRcvBytes);
             TotRcvBytes += rcvs[i];
         }
     }
@@ -580,19 +596,19 @@ fillNeighborsMPI(bool reuse_rcv_counts) {
     const int SeqNum = ParallelDescriptor::SeqNum();
     
     // Allocate data for rcvs as one big chunk.
-    Vector<char> recvdata(TotRcvBytes);
+    recvdata_.resize(TotRcvBytes);
 
     // Post receives.
     for (int i = 0; i < num_rcvs_; ++i) {
         const auto Who    = RcvProc[i];
-        const auto offset = rOffset[i];
+        const auto offset = recvoffset_[i];
         const auto Cnt    = rcvs[Who];
         
         BL_ASSERT(Cnt > 0);
         BL_ASSERT(Cnt < std::numeric_limits<int>::max());
         BL_ASSERT(Who >= 0 && Who < NProcs);
         
-        rreqs_[i] = ParallelDescriptor::Arecv(&recvdata[offset], Cnt, Who, SeqNum).req();
+        rreqs_[i] = ParallelDescriptor::Arecv(&recvdata_[offset], Cnt, Who, SeqNum).req();
     }
     
     // Send.
@@ -606,13 +622,23 @@ fillNeighborsMPI(bool reuse_rcv_counts) {
         
         ParallelDescriptor::Send(kv.second.data(), Cnt, Who, SeqNum);
     }
+#endif
+}
+
+template <int NStructReal, int NStructInt>
+void
+NeighborParticleContainer<NStructReal, NStructInt>::
+fillNeighborsMPIFinish() {
     
+    BL_PROFILE("NeighborParticleContainer::FillNeighborsMPIFinish");
+    
+#ifdef BL_USE_MPI
     // unpack the received data and put them into the proper neighbor buffers
     if (num_rcvs_ > 0) {
         BL_MPI_REQUIRE( MPI_Waitall(num_rcvs_, rreqs_.data(), stats_.data()) );
         for (int i = 0; i < num_rcvs_; ++i) {
-            const int offset = rOffset[i];
-            char* buffer = &recvdata[offset];
+            const int offset = recvoffset_[i];
+            char* buffer = &recvdata_[offset];
             int num_tiles, gid, tid, size, np;
             std::memcpy(&num_tiles, buffer, sizeof(int)); buffer += sizeof(int);
             for (int j = 0; j < num_tiles; ++j) {
@@ -621,7 +647,7 @@ fillNeighborsMPI(bool reuse_rcv_counts) {
                 std::memcpy(&size, buffer, sizeof(int)); buffer += sizeof(int);
                 
                 if (size == 0) continue;
-
+                
                 np = size / cdata_size;
                 
                 PairIndex dst_index(gid, tid);
