@@ -191,6 +191,7 @@ protected:
     std::map<int, Vector<char> > send_data;
 
 #ifdef BL_USE_MPI
+    int num_rcvs_;
     Vector<MPI_Status> stats_;
     Vector<MPI_Request> rreqs_;
 #endif

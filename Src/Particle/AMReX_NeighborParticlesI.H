@@ -514,14 +514,14 @@ getRcvCountsMPI() {
     ParallelDescriptor::ReduceLongMax(num_snds);
     if (num_snds == 0) return;
 
-    const int num_rcvs = neighbor_procs.size();
-    stats_.resize(num_rcvs);
-    rreqs_.resize(num_rcvs);
+    num_rcvs_ = neighbor_procs.size();
+    stats_.resize(num_rcvs_);
+    rreqs_.resize(num_rcvs_);
 
     const int SeqNum = ParallelDescriptor::SeqNum();
 
     // Post receives
-    for (int i = 0; i < num_rcvs; ++i) {
+    for (int i = 0; i < num_rcvs_; ++i) {
         const int Who = neighbor_procs[i];
         const long Cnt = 1;
 
@@ -531,7 +531,7 @@ getRcvCountsMPI() {
     }
     
     // Send.
-    for (int i = 0; i < num_rcvs; ++i) {
+    for (int i = 0; i < num_rcvs_; ++i) {
         const int Who = neighbor_procs[i];
         const long Cnt = 1;
 
@@ -540,8 +540,8 @@ getRcvCountsMPI() {
         ParallelDescriptor::Send(&snds[Who], Cnt, Who, SeqNum);        
     }
 
-    if (num_rcvs > 0) {
-        BL_MPI_REQUIRE( MPI_Waitall(num_rcvs, rreqs_.data(), stats_.data()) );
+    if (num_rcvs_ > 0) {
+        BL_MPI_REQUIRE( MPI_Waitall(num_rcvs_, rreqs_.data(), stats_.data()) );
     }
 
 #endif // BL_USE_MPI
@@ -573,9 +573,9 @@ fillNeighborsMPI(bool reuse_rcv_counts) {
         }
     }
     
-    const int num_rcvs = RcvProc.size();
-    stats_.resize(num_rcvs);
-    rreqs_.resize(num_rcvs);
+    num_rcvs_ = RcvProc.size();
+    stats_.resize(num_rcvs_);
+    rreqs_.resize(num_rcvs_);
     
     const int SeqNum = ParallelDescriptor::SeqNum();
     
@@ -583,7 +583,7 @@ fillNeighborsMPI(bool reuse_rcv_counts) {
     Vector<char> recvdata(TotRcvBytes);
 
     // Post receives.
-    for (int i = 0; i < num_rcvs; ++i) {
+    for (int i = 0; i < num_rcvs_; ++i) {
         const auto Who    = RcvProc[i];
         const auto offset = rOffset[i];
         const auto Cnt    = rcvs[Who];
@@ -608,9 +608,9 @@ fillNeighborsMPI(bool reuse_rcv_counts) {
     }
     
     // unpack the received data and put them into the proper neighbor buffers
-    if (num_rcvs > 0) {
-        BL_MPI_REQUIRE( MPI_Waitall(num_rcvs, rreqs_.data(), stats_.data()) );
-        for (int i = 0; i < num_rcvs; ++i) {
+    if (num_rcvs_ > 0) {
+        BL_MPI_REQUIRE( MPI_Waitall(num_rcvs_, rreqs_.data(), stats_.data()) );
+        for (int i = 0; i < num_rcvs_; ++i) {
             const int offset = rOffset[i];
             char* buffer = &recvdata[offset];
             int num_tiles, gid, tid, size, np;
