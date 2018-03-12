@@ -471,13 +471,6 @@ NeighborParticleContainer<NStructReal, NStructInt>
             }
         }
     }
-
-    for (MFIter mfi = this->MakeMFIter(lev); mfi.isValid(); ++mfi) {
-        const int grid = mfi.index();
-        const int tile = mfi.LocalTileIndex();
-        PairIndex dst_index(grid, tile);
-        neighbors[dst_index].resize(local_neighbor_sizes[dst_index]);
-    }    
 }
 
 template <int NStructReal, int NStructInt>
