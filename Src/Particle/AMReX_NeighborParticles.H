@@ -159,6 +159,8 @@ protected:
     
     void calcCommSize();
     
+    void updateNeighborsLocal(int lev);
+
     ///
     /// Perform the MPI communication neccesary to fill neighbor buffers
     ///

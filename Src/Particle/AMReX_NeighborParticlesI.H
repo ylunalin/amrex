@@ -396,9 +396,19 @@ NeighborParticleContainer<NStructReal, NStructInt>
 template <int NStructReal, int NStructInt>
 void
 NeighborParticleContainer<NStructReal, NStructInt>
-::updateNeighbors(int lev, bool reuse_rcv_counts) {
-    
-    BL_PROFILE_VAR("NeighborParticleContainer::updateNeighbors", update);
+::updateNeighbors(int lev, bool reuse_rcv_counts) {    
+    updateNeighborsLocal(lev);    
+    fillNeighborsMPI(reuse_rcv_counts);
+}
+
+template <int NStructReal, int NStructInt>
+void
+NeighborParticleContainer<NStructReal, NStructInt>
+::updateNeighborsLocal(int lev) 
+{
+
+    BL_PROFILE("NeighborParticleContainer::updateNeighborsLocal");
+
     BL_ASSERT(lev == 0);
 
     const int MyProc = ParallelDescriptor::MyProc();
@@ -467,11 +477,7 @@ NeighborParticleContainer<NStructReal, NStructInt>
         const int tile = mfi.LocalTileIndex();
         PairIndex dst_index(grid, tile);
         neighbors[dst_index].resize(local_neighbor_sizes[dst_index]);
-    }
-    
-    BL_PROFILE_VAR_STOP(update);
-
-    fillNeighborsMPI(reuse_rcv_counts);
+    }    
 }
 
 template <int NStructReal, int NStructInt>
