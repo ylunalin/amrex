@@ -388,9 +388,8 @@ void
 NeighborParticleContainer<NStructReal, NStructInt>
 ::fillNeighbors(int lev) {
     BL_PROFILE("NeighborParticleContainer::fillNeighbors");
-    BuildLevelMask(lev);
-    cacheNeighborInfo(lev);
-    updateNeighbors(lev, false);
+    fillNeighborsStart(lev);
+    fillNeighborsFinish(lev);
 }
 
 template <int NStructReal, int NStructInt>
@@ -408,7 +407,7 @@ void
 NeighborParticleContainer<NStructReal, NStructInt>
 ::fillNeighborsFinish(int lev) {
     BL_PROFILE("NeighborParticleContainer::fillNeighborsFinish");
-    updateNeighborsFinish();
+    updateNeighborsFinish(lev);
 }
 
 template <int NStructReal, int NStructInt>
