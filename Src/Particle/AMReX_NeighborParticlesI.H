@@ -650,6 +650,9 @@ fillNeighborsMPIFinish() {
     BL_PROFILE("NeighborParticleContainer::FillNeighborsMPIFinish");
     
 #ifdef BL_USE_MPI
+
+    if (num_snds == 0) return;
+
     // unpack the received data and put them into the proper neighbor buffers
     if (num_rcvs_ > 0) {
         BL_MPI_REQUIRE( MPI_Waitall(num_rcvs_, rreqs_.data(), stats_.data()) );
