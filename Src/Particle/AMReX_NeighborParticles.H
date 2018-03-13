@@ -216,7 +216,7 @@ protected:
     // from each other proc.
     amrex::Vector<int> neighbor_procs;
     amrex::Vector<long> rcvs;
-    long num_snds;
+    long num_snds_;
     std::map<int, Vector<char> > send_data;
 
 #ifdef BL_USE_MPI

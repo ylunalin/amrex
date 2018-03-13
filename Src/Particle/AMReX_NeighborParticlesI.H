@@ -414,9 +414,8 @@ template <int NStructReal, int NStructInt>
 void
 NeighborParticleContainer<NStructReal, NStructInt>
 ::updateNeighbors(int lev, bool reuse_rcv_counts) {    
-    updateNeighborsLocal(lev);    
-    fillNeighborsMPIStart(reuse_rcv_counts);
-    fillNeighborsMPIFinish();
+    updateNeighborsStart(lev, reuse_rcv_counts);    
+    updateNeighborsFinish(lev);
 }
 
 template <int NStructReal, int NStructInt>
@@ -443,6 +442,13 @@ NeighborParticleContainer<NStructReal, NStructInt>
     BL_PROFILE("NeighborParticleContainer::updateNeighborsLocal");
 
     BL_ASSERT(lev == 0);
+
+    for (MFIter mfi = this->MakeMFIter(lev); mfi.isValid(); ++mfi) {
+        const int grid = mfi.index();
+        const int tile = mfi.LocalTileIndex();
+        PairIndex dst_index(grid, tile);
+        neighbors[dst_index].resize(local_neighbor_sizes[dst_index]);
+    }
 
     const int MyProc = ParallelDescriptor::MyProc();
     const Periodicity& periodicity = this->Geom(lev).periodicity();
@@ -535,20 +541,20 @@ getRcvCountsMPI() {
     // each proc figures out how many bytes it will send, and how
     // many it will receive
     Vector<long> snds(NProcs, 0);
-    rcvs.resize(NProcs);
-    for (int i = 0; i < NProcs; ++i)
-        rcvs[i] = 0;
+    rcvs.resize(NProcs, 0);
 
-    num_snds = 0;
+    num_snds_ = 0;
     for (const auto& kv : send_data) {
-        num_snds      += kv.second.size();
+        num_snds_     += kv.second.size();
         snds[kv.first] = kv.second.size();
     }
-    ParallelDescriptor::ReduceLongMax(num_snds);
-    if (num_snds == 0) return;
+    ParallelDescriptor::ReduceLongMax(num_snds_);
+    if (num_snds_ == 0) return;
 
     num_rcvs_ = neighbor_procs.size();
+    stats_.clear();
     stats_.resize(num_rcvs_);
+    rreqs_.clear();
     rreqs_.resize(num_rcvs_);
 
     const int SeqNum = ParallelDescriptor::SeqNum();
@@ -557,9 +563,9 @@ getRcvCountsMPI() {
     for (int i = 0; i < num_rcvs_; ++i) {
         const int Who = neighbor_procs[i];
         const long Cnt = 1;
-
+        
         BL_ASSERT(Who >= 0 && Who < NProcs);
-
+        
         rreqs_[i] = ParallelDescriptor::Arecv(&rcvs[Who], Cnt, Who, SeqNum).req();
     }
     
@@ -567,16 +573,16 @@ getRcvCountsMPI() {
     for (int i = 0; i < num_rcvs_; ++i) {
         const int Who = neighbor_procs[i];
         const long Cnt = 1;
-
+        
         BL_ASSERT(Who >= 0 && Who < NProcs);
-
+        
         ParallelDescriptor::Send(&snds[Who], Cnt, Who, SeqNum);        
     }
-
+    
     if (num_rcvs_ > 0) {
         BL_MPI_REQUIRE( MPI_Waitall(num_rcvs_, rreqs_.data(), stats_.data()) );
     }
-
+    
 #endif // BL_USE_MPI
 }
 
@@ -593,31 +599,33 @@ fillNeighborsMPIStart(bool reuse_rcv_counts) {
     // each proc figures out how many bytes it will send, and how
     // many it will receive
     if (!reuse_rcv_counts) getRcvCountsMPI();
-    if (num_snds == 0) return;
+    if (num_snds_ == 0) return;
     
-    Vector<int> RcvProc;
+    Vector<int> recvproc;
     recvoffset_.clear();
     std::size_t TotRcvBytes = 0;
     for (int i = 0; i < NProcs; ++i) {
         if (rcvs[i] > 0) {
-            RcvProc.push_back(i);
+            recvproc.push_back(i);
             recvoffset_.push_back(TotRcvBytes);
             TotRcvBytes += rcvs[i];
         }
     }
     
-    num_rcvs_ = RcvProc.size();
+    num_rcvs_ = recvproc.size();
+    stats_.clear();
     stats_.resize(num_rcvs_);
+    rreqs_.clear();
     rreqs_.resize(num_rcvs_);
     
     const int SeqNum = ParallelDescriptor::SeqNum();
     
     // Allocate data for rcvs as one big chunk.
-    recvdata_.resize(TotRcvBytes);
-
+    recvdata_.resize(TotRcvBytes, 0);
+    
     // Post receives.
     for (int i = 0; i < num_rcvs_; ++i) {
-        const auto Who    = RcvProc[i];
+        const auto Who    = recvproc[i];
         const auto offset = recvoffset_[i];
         const auto Cnt    = rcvs[Who];
         
@@ -647,11 +655,11 @@ void
 NeighborParticleContainer<NStructReal, NStructInt>::
 fillNeighborsMPIFinish() {
     
-    BL_PROFILE("NeighborParticleContainer::FillNeighborsMPIFinish");
+    BL_PROFILE("NeighborParticleContainer::fillNeighborsMPIFinish");
     
 #ifdef BL_USE_MPI
 
-    if (num_snds == 0) return;
+    if (num_snds_ == 0) return;
 
     // unpack the received data and put them into the proper neighbor buffers
     if (num_rcvs_ > 0) {
