@@ -585,7 +585,7 @@ getRcvCountsMPI() {
     if (num_rcvs_ > 0) {
         BL_MPI_REQUIRE( MPI_Waitall(num_rcvs_, rreqs_.data(), rstats_.data()) );
     }
-    
+
 #endif // BL_USE_MPI
 }
 
@@ -677,7 +677,6 @@ fillNeighborsMPIFinish() {
     // unpack the received data and put them into the proper neighbor buffers
     if (num_rcvs_ > 0) {
         BL_MPI_REQUIRE( MPI_Waitall(num_rcvs_, rreqs_.data(), rstats_.data()) );
-        BL_MPI_REQUIRE( MPI_Waitall(num_snds_, sreqs_.data(), sstats_.data()) );
         for (int i = 0; i < num_rcvs_; ++i) {
             const int offset = recvoffset_[i];
             char* buffer = &recvdata_[offset];
@@ -720,6 +719,13 @@ fillNeighborsMPIFinish() {
             }
         }
     }
+
+    if (num_snds_ > 0) {
+	BL_MPI_REQUIRE( MPI_Waitall(num_snds_, sreqs_.data(), sstats_.data()) );
+    }
+    
+    ParallelDescriptor::Barrier();
+
 #endif
 }
 
