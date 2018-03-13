@@ -579,7 +579,7 @@ getRcvCountsMPI() {
         
         BL_ASSERT(Who >= 0 && Who < NProcs);
         
-        ParallelDescriptor::Send(&snds[Who], Cnt, Who, SeqNum);        
+        ParallelDescriptor::Asend(&snds[Who], Cnt, Who, SeqNum);        
     }
     
     if (num_rcvs_ > 0) {
@@ -648,7 +648,7 @@ fillNeighborsMPIStart(bool reuse_rcv_counts) {
         BL_ASSERT(Who >= 0 && Who < NProcs);
         BL_ASSERT(Cnt < std::numeric_limits<int>::max());
         
-        ParallelDescriptor::Send(kv.second.data(), Cnt, Who, SeqNum);
+        ParallelDescriptor::Asend(kv.second.data(), Cnt, Who, SeqNum);
     }
 #endif
 }
