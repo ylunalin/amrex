@@ -160,6 +160,14 @@ public:
     void clearNeighbors(int lev);
 
     ///
+    /// Return the number of neighbor particles on the tile pointed to by pti
+    ///
+    int numNeighborParticles(MyParIter& pti){
+        PairIndex index(pti.index(), pti.LocalTileIndex());
+        return num_neighbor_particles[index];
+    }
+
+    ///
     /// Build a Neighbor List for each tile
     ///
     void buildNeighborList(int lev, bool sort=false);
@@ -200,6 +208,8 @@ protected:
     ///
     void getRcvCountsMPI();
 
+    void updateNeighborCounts(int lev);
+
     virtual bool check_pair(const ParticleType& p1, const ParticleType& p2) {
         return false;
     };
@@ -211,6 +221,7 @@ protected:
 
     std::map<PairIndex, Vector<Vector<NeighborCopyTag> > > buffer_tag_cache;
     std::map<PairIndex, int> local_neighbor_sizes;
+    std::map<PairIndex, int> num_neighbor_particles;
 
     // each proc knows how many sends it will do, and how many bytes it will rcv 
     // from each other proc.

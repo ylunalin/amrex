@@ -408,6 +408,7 @@ NeighborParticleContainer<NStructReal, NStructInt>
 ::fillNeighborsFinish(int lev) {
     BL_PROFILE("NeighborParticleContainer::fillNeighborsFinish");
     updateNeighborsFinish(lev);
+    updateNeighborCounts(lev);
 }
 
 template <int NStructReal, int NStructInt>
@@ -524,6 +525,8 @@ NeighborParticleContainer<NStructReal, NStructInt>
     neighbors.clear();
     buffer_tag_cache.clear();
     send_data.clear();
+    local_neighbor_sizes.clear();
+    num_neighbor_particles.clear();
 }
 
 template <int NStructReal, int NStructInt>
@@ -707,6 +710,16 @@ fillNeighborsMPIFinish() {
         }
     }
 #endif
+}
+
+template <int NStructReal, int NStructInt>
+void
+NeighborParticleContainer<NStructReal, NStructInt>::
+updateNeighborCounts(int lev) {
+    for (MyParIter pti(*this, lev); pti.isValid(); ++pti) {
+        PairIndex index(pti.index(), pti.LocalTileIndex());
+        num_neighbor_particles[index] = neighbors[index].size() / pdata_size;
+    }
 }
 
 template <int NStructReal, int NStructInt>
