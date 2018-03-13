@@ -546,17 +546,17 @@ getRcvCountsMPI() {
     Vector<long> snds(NProcs, 0);
     rcvs.resize(NProcs, 0);
 
-    num_snds_ = 0;
+    TotSndBytes = 0;
     for (const auto& kv : send_data) {
-        num_snds_     += kv.second.size();
+        TotSndBytes     += kv.second.size();
         snds[kv.first] = kv.second.size();
     }
-    ParallelDescriptor::ReduceLongMax(num_snds_);
-    if (num_snds_ == 0) return;
+    ParallelDescriptor::ReduceLongMax(TotSndBytes);
+    if (TotSndBytes == 0) return;
 
     num_rcvs_ = neighbor_procs.size();
-    stats_.clear();
-    stats_.resize(num_rcvs_);
+    rstats_.clear();
+    rstats_.resize(num_rcvs_);
     rreqs_.clear();
     rreqs_.resize(num_rcvs_);
 
@@ -579,11 +579,11 @@ getRcvCountsMPI() {
         
         BL_ASSERT(Who >= 0 && Who < NProcs);
         
-        ParallelDescriptor::Asend(&snds[Who], Cnt, Who, SeqNum);        
+        ParallelDescriptor::Send(&snds[Who], Cnt, Who, SeqNum);        
     }
     
     if (num_rcvs_ > 0) {
-        BL_MPI_REQUIRE( MPI_Waitall(num_rcvs_, rreqs_.data(), stats_.data()) );
+        BL_MPI_REQUIRE( MPI_Waitall(num_rcvs_, rreqs_.data(), rstats_.data()) );
     }
     
 #endif // BL_USE_MPI
@@ -602,7 +602,7 @@ fillNeighborsMPIStart(bool reuse_rcv_counts) {
     // each proc figures out how many bytes it will send, and how
     // many it will receive
     if (!reuse_rcv_counts) getRcvCountsMPI();
-    if (num_snds_ == 0) return;
+    if (TotSndBytes == 0) return;
     
     Vector<int> recvproc;
     recvoffset_.clear();
@@ -616,15 +616,24 @@ fillNeighborsMPIStart(bool reuse_rcv_counts) {
     }
     
     num_rcvs_ = recvproc.size();
-    stats_.clear();
-    stats_.resize(num_rcvs_);
+    num_snds_ = send_data.size();
+
+    rstats_.clear();
+    rstats_.resize(num_rcvs_);
+
     rreqs_.clear();
-    rreqs_.resize(num_rcvs_);
+    rreqs_.resize(num_rcvs_, MPI_REQUEST_NULL);
+
+    sstats_.clear();
+    sstats_.resize(num_snds_);
+
+    sreqs_.clear();
+    sreqs_.resize(num_snds_, MPI_REQUEST_NULL);
     
     const int SeqNum = ParallelDescriptor::SeqNum();
     
     // Allocate data for rcvs as one big chunk.
-    recvdata_.resize(TotRcvBytes, 0);
+    recvdata_.resize(TotRcvBytes);
     
     // Post receives.
     for (int i = 0; i < num_rcvs_; ++i) {
@@ -640,6 +649,7 @@ fillNeighborsMPIStart(bool reuse_rcv_counts) {
     }
     
     // Send.
+    int i = 0;
     for (const auto& kv : send_data) {
         const auto Who = kv.first;
         const auto Cnt = kv.second.size();
@@ -648,7 +658,7 @@ fillNeighborsMPIStart(bool reuse_rcv_counts) {
         BL_ASSERT(Who >= 0 && Who < NProcs);
         BL_ASSERT(Cnt < std::numeric_limits<int>::max());
         
-        ParallelDescriptor::Asend(kv.second.data(), Cnt, Who, SeqNum);
+        sreqs_[i++] = ParallelDescriptor::Asend(kv.second.data(), Cnt, Who, SeqNum).req();
     }
 #endif
 }
@@ -662,11 +672,12 @@ fillNeighborsMPIFinish() {
     
 #ifdef BL_USE_MPI
 
-    if (num_snds_ == 0) return;
+    if (TotSndBytes == 0) return;
 
     // unpack the received data and put them into the proper neighbor buffers
     if (num_rcvs_ > 0) {
-        BL_MPI_REQUIRE( MPI_Waitall(num_rcvs_, rreqs_.data(), stats_.data()) );
+        BL_MPI_REQUIRE( MPI_Waitall(num_rcvs_, rreqs_.data(), rstats_.data()) );
+        BL_MPI_REQUIRE( MPI_Waitall(num_snds_, sreqs_.data(), sstats_.data()) );
         for (int i = 0; i < num_rcvs_; ++i) {
             const int offset = recvoffset_[i];
             char* buffer = &recvdata_[offset];

@@ -227,15 +227,18 @@ protected:
     // from each other proc.
     amrex::Vector<int> neighbor_procs;
     amrex::Vector<long> rcvs;
-    long num_snds_;
+    long TotSndBytes;
     std::map<int, Vector<char> > send_data;
 
 #ifdef BL_USE_MPI
     Vector<char> recvdata_;            // recv buffer
     Vector<std::size_t> recvoffset_;   // offsets (in bytes) into recv buffer
     int num_rcvs_;
-    Vector<MPI_Status> stats_;
+    int num_snds_;
+    Vector<MPI_Status> rstats_;
+    Vector<MPI_Status> sstats_;
     Vector<MPI_Request> rreqs_;
+    Vector<MPI_Request> sreqs_;
 #endif
 
     std::array<bool, AMREX_SPACEDIM + NStructReal> rc; 
