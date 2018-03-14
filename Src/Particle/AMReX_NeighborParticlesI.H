@@ -724,8 +724,6 @@ fillNeighborsMPIFinish() {
 	BL_MPI_REQUIRE( MPI_Waitall(num_snds_, sreqs_.data(), sstats_.data()) );
     }
     
-    ParallelDescriptor::Barrier();
-
 #endif
 }
 
