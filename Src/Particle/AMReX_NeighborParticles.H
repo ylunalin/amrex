@@ -160,6 +160,12 @@ public:
     void clearNeighbors(int lev);
 
     ///
+    /// Call MPI_test and all outstanding messages to force progress on asynchronous
+    /// communication.
+    ///
+    void sendTest();
+
+    ///
     /// Return the number of neighbor particles on the tile pointed to by pti
     ///
     int numNeighborParticles(MyParIter& pti){

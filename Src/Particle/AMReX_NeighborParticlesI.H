@@ -516,7 +516,7 @@ NeighborParticleContainer<NStructReal, NStructInt>
 template <int NStructReal, int NStructInt>
 void
 NeighborParticleContainer<NStructReal, NStructInt>
-::clearNeighbors(int lev) 
+::clearNeighbors (int lev) 
 {
 
     BL_PROFILE("NeighborParticleContainer::clearNeighbors");
@@ -527,6 +527,23 @@ NeighborParticleContainer<NStructReal, NStructInt>
     send_data.clear();
     local_neighbor_sizes.clear();
     num_neighbor_particles.clear();
+}
+
+template <int NStructReal, int NStructInt>
+void
+NeighborParticleContainer<NStructReal, NStructInt>
+::sendTest ()
+{
+
+  if (TotSndBytes == 0) return;
+
+  int flag;
+  for (int i = 0; i < num_rcvs_; ++i) {
+    ParallelDescriptor::Test(rreqs_[i], flag, rstats_[i]);
+  }
+  for (int i = 0; i < num_snds_; ++i) {
+    ParallelDescriptor::Test(sreqs_[i], flag, sstats_[i]);    
+  }  
 }
 
 template <int NStructReal, int NStructInt>
@@ -644,8 +661,9 @@ fillNeighborsMPIStart(bool reuse_rcv_counts) {
         BL_ASSERT(Cnt > 0);
         BL_ASSERT(Cnt < std::numeric_limits<int>::max());
         BL_ASSERT(Who >= 0 && Who < NProcs);
-        
+
         rreqs_[i] = ParallelDescriptor::Arecv(&recvdata_[offset], Cnt, Who, SeqNum).req();
+
     }
     
     // Send.
