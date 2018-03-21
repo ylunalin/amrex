@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['wait',['wait',['../classamrex_1_1_parallel_descriptor_1_1_message.html#a94e427eb0ffccce4adcf6a7bc0954c91',1,'amrex::ParallelDescriptor::Message']]],
+  ['wait',['wait',['../classamrex_1_1_parallel_descriptor_1_1_message.html#a94e427eb0ffccce4adcf6a7bc0954c91',1,'amrex::ParallelDescriptor::Message::wait()'],['../namespaceamrex_1_1_parallel_descriptor.html#a4a3a4d36732e6b65907ea76570142b7e',1,'amrex::ParallelDescriptor::Wait()']]],
+  ['waitall',['Waitall',['../namespaceamrex_1_1_parallel_descriptor.html#ab581b8dba6006dbb3457d925c4b0f244',1,'amrex::ParallelDescriptor']]],
+  ['waitany',['Waitany',['../namespaceamrex_1_1_parallel_descriptor.html#ababa9a6a7667b1eef784f9f072385547',1,'amrex::ParallelDescriptor']]],
   ['waitforasyncsends',['WaitForAsyncSends',['../classamrex_1_1_fab_array_base.html#ae87329fe7a046f188ea78e63047152b6',1,'amrex::FabArrayBase']]],
   ['waitsome',['Waitsome',['../namespaceamrex_1_1_parallel_descriptor.html#a3a66ca3d4d64098f62c7aa9c92dcffbb',1,'amrex::ParallelDescriptor']]],
   ['warning',['Warning',['../namespaceamrex.html#a505a9fcb1c91b13f22f94404e0a5a820',1,'amrex::Warning(const char *msg)'],['../namespaceamrex.html#ad1cc69bc2c0172148e82713abb30d2dd',1,'amrex::Warning(const std::string &amp;msg)']]],
