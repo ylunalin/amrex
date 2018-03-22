@@ -176,8 +176,10 @@ Macros</h2></td></tr>
 <tr class="separator:a6a2a794768fcb8da0ad76d1b9034f5f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e4a055a0c49366d95c9397ae1909a06"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_m_re_x___b_l_profiler_8_h.html#a2e4a055a0c49366d95c9397ae1909a06">BL_COMM_PROFILE_REDUCE</a>(cft, size, pid)</td></tr>
 <tr class="separator:a2e4a055a0c49366d95c9397ae1909a06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8162cda6e4c2e2f35cd68aa9c918f038"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_m_re_x___b_l_profiler_8_h.html#a8162cda6e4c2e2f35cd68aa9c918f038">BL_COMM_PROFILE_WAITSOME</a>(cft, reqs, completed, indx, status, bc)</td></tr>
-<tr class="separator:a8162cda6e4c2e2f35cd68aa9c918f038"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58db05b45ded6da301ebfe0ec5327201"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_m_re_x___b_l_profiler_8_h.html#a58db05b45ded6da301ebfe0ec5327201">BL_COMM_PROFILE_WAIT</a>(cft, reqs, status, bc)</td></tr>
+<tr class="separator:a58db05b45ded6da301ebfe0ec5327201"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b40be1d21cdda4842b6771b7eee1e23"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_m_re_x___b_l_profiler_8_h.html#a5b40be1d21cdda4842b6771b7eee1e23">BL_COMM_PROFILE_WAITSOME</a>(cft, reqs, completed, status, bc)</td></tr>
+<tr class="separator:a5b40be1d21cdda4842b6771b7eee1e23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1368490427563251fad018892c29d174"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_m_re_x___b_l_profiler_8_h.html#a1368490427563251fad018892c29d174">BL_COMM_PROFILE_NAMETAG</a>(message)</td></tr>
 <tr class="separator:a1368490427563251fad018892c29d174"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab049707be376e8dae7fbff6d9f04ce00"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_m_re_x___b_l_profiler_8_h.html#ab049707be376e8dae7fbff6d9f04ce00">BL_COMM_PROFILE_FILTER</a>(cft)</td></tr>
@@ -482,7 +484,45 @@ Macros</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a8162cda6e4c2e2f35cd68aa9c918f038"></a>
+<a class="anchor" id="a58db05b45ded6da301ebfe0ec5327201"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BL_COMM_PROFILE_WAIT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cft, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">reqs, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">status, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">bc&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a5b40be1d21cdda4842b6771b7eee1e23"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -503,12 +543,6 @@ Macros</h2></td></tr>
           <td></td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">completed, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">indx, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
