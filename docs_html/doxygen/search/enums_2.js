@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['errortype',['ErrorType',['../classamrex_1_1_error_rec.html#adeca3cab9dffebf73c48525e5f94872d',1,'amrex::ErrorRec']]]
+  ['direction',['Direction',['../namespaceamrex.html#a8de829410ed15dbc56e4dafc9bc6ea69',1,'amrex']]]
 ];

@@ -1,8 +1,13 @@
 var searchData=
 [
   ['s_5fareatolerance',['s_areatolerance',['../classamrex_1_1_poly_geom.html#a5482880889d97bda0cdd88901c0c24ab',1,'amrex::PolyGeom']]],
+  ['s_5fknownfunc',['s_knownFunc',['../classamrex_1_1_smooth_absolute_value.html#a297b81b56c16eb95954f6ad215aee902',1,'amrex::SmoothAbsoluteValue']]],
   ['s_5flengthtolerance',['s_lengthtolerance',['../classamrex_1_1_poly_geom.html#a3cd6a6eb65f821e8d7fd70bf463f6507',1,'amrex::PolyGeom']]],
+  ['s_5fmultiindicies',['s_multiIndicies',['../class_monomial_powers.html#a38f8ef20dee3f64712e623788b7094f3',1,'MonomialPowers']]],
+  ['s_5fsize',['s_size',['../class_monomial_powers.html#aa0f5984b9e2e5ca9ba47d3f2a80ce8d1',1,'MonomialPowers']]],
+  ['s_5fstaticsset',['s_staticsSet',['../class_monomial_powers.html#ac6cfc43f629be57d8ec8faf7eb1538c9',1,'MonomialPowers']]],
   ['s_5ftolerance',['s_tolerance',['../classamrex_1_1_poly_geom.html#a068766169a0bc46f843fee51247a8554',1,'amrex::PolyGeom']]],
+  ['s_5fturnoffmovelocalcoords',['s_turnOffMoveLocalCoords',['../class_local_coord_move_switch.html#ab98fc21f7761facb2836d33f32a8afd2',1,'LocalCoordMoveSwitch']]],
   ['s_5fvectdx',['s_vectDx',['../classamrex_1_1_poly_geom.html#a63c63543ddd8b30b38ca7be824b0ecc9',1,'amrex::PolyGeom']]],
   ['s_5fverbose',['s_verbose',['../classamrex_1_1_base_i_f_f_a_b.html#a0a9241ac4c0d0a7b4d5f8dfe8299a1f7',1,'amrex::BaseIFFAB::s_verbose()'],['../classamrex_1_1_e_b_data_implem.html#adc6fe0629c2397738e865b0030c3e5fb',1,'amrex::EBDataImplem::s_verbose()'],['../classamrex_1_1_e_b_graph_implem.html#a6812731a186a5db5bb01263b5a91739f',1,'amrex::EBGraphImplem::s_verbose()']]],
   ['sbox',['sbox',['../structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#a1c8df51daf5ac3a9d20522cfdb6ab004',1,'amrex::FabArrayBase::CopyComTag']]],

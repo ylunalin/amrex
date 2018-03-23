@@ -2,6 +2,8 @@ var searchData=
 [
   ['access_5ft',['access_t',['../structamrex_1_1_agg_stencil_1_1access__t.html',1,'amrex::AggStencil']]],
   ['access_5ft',['access_t',['../structamrex_1_1_agg_e_b_p_w_l_fill_patch_1_1access__t.html',1,'amrex::AggEBPWLFillPatch']]],
+  ['accum',['Accum',['../struct_metaprograms_1_1_accum.html',1,'Metaprograms']]],
+  ['accum_3c_201_2c_20t_2c_20reducet_2c_20transformt_20_3e',['Accum&lt; 1, T, ReduceT, TransformT &gt;',['../struct_metaprograms_1_1_accum_3_011_00_01_t_00_01_reduce_t_00_01_transform_t_01_4.html',1,'Metaprograms']]],
   ['additionop',['additionOp',['../classamrex_1_1_irreg_f_a_b_1_1addition_op.html',1,'amrex::IrregFAB']]],
   ['aggebpwlfillpatch',['AggEBPWLFillPatch',['../classamrex_1_1_agg_e_b_p_w_l_fill_patch.html',1,'amrex']]],
   ['aggstencil',['AggStencil',['../classamrex_1_1_agg_stencil.html',1,'amrex']]],

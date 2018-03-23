@@ -106,8 +106,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a57971e51dc4e11b648db8582bc2e0699"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a069010c6226f7fbf72fdf8743ea3170e"><td class="memItemLeft" align="right" valign="top">Real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_irreg_node.html#a069010c6226f7fbf72fdf8743ea3170e">bndryArea</a> () const </td></tr>
 <tr class="separator:a069010c6226f7fbf72fdf8743ea3170e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8352ae600941f12fc4e9986a4c73b56c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_irreg_node.html#a8352ae600941f12fc4e9986a4c73b56c">setMomentsToRegular</a> (const Real &amp;a_dx)</td></tr>
+<tr class="separator:a8352ae600941f12fc4e9986a4c73b56c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83c09daf6f743b92d1ec4b32b060658b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_irreg_node.html#a83c09daf6f743b92d1ec4b32b060658b">setMomentsToZero</a> ()</td></tr>
+<tr class="separator:a83c09daf6f743b92d1ec4b32b060658b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef879b1931bffc53ff9caf36d353b2d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_irreg_node.html#aef879b1931bffc53ff9caf36d353b2d0">makeRegular</a> (const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;iv, const Real &amp;a_dx, const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;a_domain)</td></tr>
 <tr class="separator:aef879b1931bffc53ff9caf36d353b2d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae75d0366c6621cb52b9de690a36dd7dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_irreg_node.html#ae75d0366c6621cb52b9de690a36dd7dc">setNormalizedStuff</a> (const Real &amp;a_dx)</td></tr>
+<tr class="separator:ae75d0366c6621cb52b9de690a36dd7dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -137,6 +143,17 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a994039e7eebc2e8723df6263ae679360"><td class="memItemLeft" align="right" valign="top">std::array&lt; <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_real_vect.html">RealVect</a> &gt;<br class="typebreak"/>
 , 2 *SpaceDim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_irreg_node.html#a994039e7eebc2e8723df6263ae679360">m_faceCentroid</a></td></tr>
 <tr class="separator:a994039e7eebc2e8723df6263ae679360"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42a72b8900b7b784a9ccdc52794178dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___e_b___t_y_p_e_d_e_f_s_8_h.html#a6feb21131f43222b5e5185c7b43b5f6e">IndMomSpaceDim</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_irreg_node.html#a42a72b8900b7b784a9ccdc52794178dd">m_EBMoments</a></td></tr>
+<tr class="memdesc:a42a72b8900b7b784a9ccdc52794178dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">the moment at the irregular face associated with the monomial with the input exponents  <a href="#a42a72b8900b7b784a9ccdc52794178dd">More...</a><br/></td></tr>
+<tr class="separator:a42a72b8900b7b784a9ccdc52794178dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22eb82f950ebac573cb9e29995312f95"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___e_b___t_y_p_e_d_e_f_s_8_h.html#a6feb21131f43222b5e5185c7b43b5f6e">IndMomSpaceDim</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_irreg_node.html#a22eb82f950ebac573cb9e29995312f95">m_volumeMoments</a></td></tr>
+<tr class="separator:a22eb82f950ebac573cb9e29995312f95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79afeb9d914253742ae5f6d7ae2bb1ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___e_b___t_y_p_e_d_e_f_s_8_h.html#a6feb21131f43222b5e5185c7b43b5f6e">IndMomSpaceDim</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_irreg_node.html#a79afeb9d914253742ae5f6d7ae2bb1ed">m_normalPartialDeriv</a> [SpaceDim]</td></tr>
+<tr class="separator:a79afeb9d914253742ae5f6d7ae2bb1ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67bcf6cb0bed9a08818b2f951ffa1006"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_irreg_node.html#a67bcf6cb0bed9a08818b2f951ffa1006">m_hasMoments</a></td></tr>
+<tr class="separator:a67bcf6cb0bed9a08818b2f951ffa1006"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7be2a16475459574c3b8466b4da4bc98"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___e_b___t_y_p_e_d_e_f_s_8_h.html#a80fb53ef3ef1b14c3a0d861bc8651428">IndMomSDMinOne</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_irreg_node.html#a7be2a16475459574c3b8466b4da4bc98">m_faceMoments</a> [2 *SpaceDim]</td></tr>
+<tr class="separator:a7be2a16475459574c3b8466b4da4bc98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Node for construction of geometric information. </p>
@@ -272,6 +289,71 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a8352ae600941f12fc4e9986a4c73b56c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void amrex::IrregNode::setMomentsToRegular </td>
+          <td>(</td>
+          <td class="paramtype">const Real &amp;&#160;</td>
+          <td class="paramname"><em>a_dx</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a83c09daf6f743b92d1ec4b32b060658b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void amrex::IrregNode::setMomentsToZero </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ae75d0366c6621cb52b9de690a36dd7dc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void amrex::IrregNode::setNormalizedStuff </td>
+          <td>(</td>
+          <td class="paramtype">const Real &amp;&#160;</td>
+          <td class="paramname"><em>a_dx</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>volume centroid</p>
+<p>boundary centroid </p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a class="anchor" id="ac84e448b8adb85c11f5b299926062b56"></a>
 <div class="memitem">
@@ -335,12 +417,64 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a42a72b8900b7b784a9ccdc52794178dd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_a_m_re_x___e_b___t_y_p_e_d_e_f_s_8_h.html#a6feb21131f43222b5e5185c7b43b5f6e">IndMomSpaceDim</a> amrex::IrregNode::m_EBMoments</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>the moment at the irregular face associated with the monomial with the input exponents </p>
+<p>Given VoF variables x, y, z, p = mono(0), q = mono(1), r = mono(2), returns integral_over_irregular_area((x^p y^q z^r) dA) </p>
+
+</div>
+</div>
 <a class="anchor" id="a994039e7eebc2e8723df6263ae679360"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">std::array&lt;<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt;<a class="el" href="classamrex_1_1_real_vect.html">RealVect</a>&gt;,2*SpaceDim&gt; amrex::IrregNode::m_faceCentroid</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a7be2a16475459574c3b8466b4da4bc98"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_a_m_re_x___e_b___t_y_p_e_d_e_f_s_8_h.html#a80fb53ef3ef1b14c3a0d861bc8651428">IndMomSDMinOne</a> amrex::IrregNode::m_faceMoments[2 *SpaceDim]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>face centered moments the moment at the face associated with the monomial with the input exponents Given face variables x, y, p = mono(0), q = mono(1) returns integral_over_face_area((x^p y^q ) dA) </p>
+
+</div>
+</div>
+<a class="anchor" id="a67bcf6cb0bed9a08818b2f951ffa1006"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool amrex::IrregNode::m_hasMoments</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a79afeb9d914253742ae5f6d7ae2bb1ed"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_a_m_re_x___e_b___t_y_p_e_d_e_f_s_8_h.html#a6feb21131f43222b5e5185c7b43b5f6e">IndMomSpaceDim</a> amrex::IrregNode::m_normalPartialDeriv[SpaceDim]</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -370,6 +504,18 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>data for irregular nodes </p>
+
+</div>
+</div>
+<a class="anchor" id="a22eb82f950ebac573cb9e29995312f95"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_a_m_re_x___e_b___t_y_p_e_d_e_f_s_8_h.html#a6feb21131f43222b5e5185c7b43b5f6e">IndMomSpaceDim</a> amrex::IrregNode::m_volumeMoments</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

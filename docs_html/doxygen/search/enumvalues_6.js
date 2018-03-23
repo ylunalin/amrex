@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['interpb',['InterpB',['../namespaceamrex.html#a2f30e076962c1c148d279b63851d80dfa9d55599aaee42c677bcd175e50bebbca',1,'amrex']]],
-  ['interpe',['InterpE',['../namespaceamrex.html#a2f30e076962c1c148d279b63851d80dfaea241117e55edc2764d31a18a4740ff3',1,'amrex']]],
-  ['interval',['Interval',['../classamrex_1_1_state_descriptor.html#a8e14d2e57bdb2fbd440c8c26c8b99434a0135564ab7966e377f4b9fff395b6eb6',1,'amrex::StateDescriptor']]],
-  ['invalid',['Invalid',['../classamrex_1_1_face_stop.html#a37ec41a3856aad220e1b1ece257abba4a4724b4137f33f54b2871d5df2503b6c1',1,'amrex::FaceStop::Invalid()'],['../classamrex_1_1_side.html#ac42bd5bce68af2b361b95738f55be87caaf302b76cbbbcc2d992c77a506328d0c',1,'amrex::Side::Invalid()']]],
-  ['invalidcut',['InvalidCut',['../namespaceamrex.html#a1475e7df2fc014330b7f649b2e84d801aee9f7ade36d2f4121f0a888acbcc32a3',1,'amrex']]],
-  ['io_5fbuffer_5fsize',['IO_Buffer_Size',['../classamrex_1_1_vis_m_f.html#aabda29e4a41d9175464745a74072d819ac67ac04832d2bbe370aa12c6ca513e85',1,'amrex::VisMF']]],
-  ['irregular',['Irregular',['../classamrex_1_1_geometry_service.html#ab6546708b1e12c188511a708769040d0a7ebe932393c0359efe05824c86ecf2a3',1,'amrex::GeometryService']]]
+  ['hasirregular',['HasIrregular',['../classamrex_1_1_e_b_graph_implem.html#a0410327e394f2a98c8eabd2acee4b326a02dfe1986352669f7de3b3de222deffd',1,'amrex::EBGraphImplem::HasIrregular()'],['../classamrex_1_1_e_b_graph.html#acf2ee81930e401a32236c03b553145b0a53d3512d1c70fd6ecaa96fb98c95f050',1,'amrex::EBGraph::HasIrregular()']]],
+  ['hi',['Hi',['../classamrex_1_1_side.html#ac42bd5bce68af2b361b95738f55be87cad442a59cea0d8787b5e7034cb912fded',1,'amrex::Side']]],
+  ['hiboundaryonly',['HiBoundaryOnly',['../classamrex_1_1_face_stop.html#a37ec41a3856aad220e1b1ece257abba4a2f29c447fd2d8267496b9edb372b03d5',1,'amrex::FaceStop']]],
+  ['high',['high',['../classamrex_1_1_orientation.html#a877c697bbab9de21af4012197ba76410ae82bb2777abd5901ea82ca6721b716a8',1,'amrex::Orientation']]],
+  ['hinoboundary',['HiNoBoundary',['../classamrex_1_1_face_stop.html#a37ec41a3856aad220e1b1ece257abba4aacb7f6c969924c7e8892ad84777392ec',1,'amrex::FaceStop']]],
+  ['hiwithboundary',['HiWithBoundary',['../classamrex_1_1_face_stop.html#a37ec41a3856aad220e1b1ece257abba4a47fb385e92570579907dc53404eb1367',1,'amrex::FaceStop']]],
+  ['holecut',['HoleCut',['../namespaceamrex.html#a1475e7df2fc014330b7f649b2e84d801a8c112ddae302a7cdb833905e341b72b9',1,'amrex']]]
 ];

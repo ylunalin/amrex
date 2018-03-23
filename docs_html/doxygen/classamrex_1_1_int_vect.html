@@ -119,6 +119,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aac40ef5545e9dfeb23d4b610beda22b8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_int_vect.html#aac40ef5545e9dfeb23d4b610beda22b8">IntVect</a> (const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; int &gt; &amp;a)</td></tr>
 <tr class="memdesc:aac40ef5545e9dfeb23d4b610beda22b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct an <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> from an <a class="el" href="classamrex_1_1_vector.html">Vector&lt;int&gt;</a>. It is an error if the <a class="el" href="classamrex_1_1_vector.html">Vector&lt;int&gt;</a> doesn' t have the same dimension as this <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a>.  <a href="#aac40ef5545e9dfeb23d4b610beda22b8">More...</a><br/></td></tr>
 <tr class="separator:aac40ef5545e9dfeb23d4b610beda22b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44aa0af83ff56784a2184da0f04c25cb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_int_vect.html#a44aa0af83ff56784a2184da0f04c25cb">sum</a> () const </td></tr>
+<tr class="separator:a44aa0af83ff56784a2184da0f04c25cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1c50b6f1467859e45eec234389b05a1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_int_vect.html#ad1c50b6f1467859e45eec234389b05a1">max</a> () const </td></tr>
+<tr class="memdesc:ad1c50b6f1467859e45eec234389b05a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">maximum (no absolute values) value  <a href="#ad1c50b6f1467859e45eec234389b05a1">More...</a><br/></td></tr>
+<tr class="separator:ad1c50b6f1467859e45eec234389b05a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a253924b0634a28d8ddf4183d48f1a952"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_int_vect.html#a253924b0634a28d8ddf4183d48f1a952">min</a> () const </td></tr>
+<tr class="memdesc:a253924b0634a28d8ddf4183d48f1a952"><td class="mdescLeft">&#160;</td><td class="mdescRight">minimum (no absolute values) value  <a href="#a253924b0634a28d8ddf4183d48f1a952">More...</a><br/></td></tr>
+<tr class="separator:a253924b0634a28d8ddf4183d48f1a952"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ba21295241711dd1b6c15b345587ed0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_int_vect.html#a7ba21295241711dd1b6c15b345587ed0">maxDir</a> (bool a_doAbsValue) const </td></tr>
+<tr class="separator:a7ba21295241711dd1b6c15b345587ed0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a663c88222fed85f143f42b3b2a9ee19c"><td class="memItemLeft" align="right" valign="top">int &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_int_vect.html#a663c88222fed85f143f42b3b2a9ee19c">operator[]</a> (int i)</td></tr>
 <tr class="memdesc:a663c88222fed85f143f42b3b2a9ee19c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to the i'th coordinate of the <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a>.  <a href="#a663c88222fed85f143f42b3b2a9ee19c">More...</a><br/></td></tr>
 <tr class="separator:a663c88222fed85f143f42b3b2a9ee19c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -748,6 +758,31 @@ Friends</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ad1c50b6f1467859e45eec234389b05a1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int amrex::IntVect::max </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>maximum (no absolute values) value </p>
+
+</div>
+</div>
 <a class="anchor" id="ae63cf88ca4bae4fd44d62d9c2e2add23"></a>
 <div class="memitem">
 <div class="memproto">
@@ -771,6 +806,55 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Modifies <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> by taking component-wise max with argument. </p>
+
+</div>
+</div>
+<a class="anchor" id="a7ba21295241711dd1b6c15b345587ed0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int amrex::IntVect::maxDir </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>a_doAbsValue</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a253924b0634a28d8ddf4183d48f1a952"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int amrex::IntVect::min </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>minimum (no absolute values) value </p>
 
 </div>
 </div>
@@ -1683,6 +1767,30 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Equivalent to shift(0,iv[0]).shift(1,iv[1]) ... </p>
+
+</div>
+</div>
+<a class="anchor" id="a44aa0af83ff56784a2184da0f04c25cb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int amrex::IntVect::sum </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Sum of all components of this <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a>. </p>
 
 </div>
 </div>

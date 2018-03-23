@@ -106,6 +106,14 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a147ae2536a5db3ab5bbec7a68076e290"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_e_b_arith.html#a147ae2536a5db3ab5bbec7a68076e290">convertToITM</a> (<a class="el" href="class_index_t_m.html">IndexTM</a>&lt; Real, SpaceDim &gt; &amp;a_diffrv, const <a class="el" href="classamrex_1_1_real_vect.html">RealVect</a> &amp;a_rv)</td></tr>
+<tr class="separator:a147ae2536a5db3ab5bbec7a68076e290"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4d76a4643a2a46641e2f8ee28623409"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_e_b_arith.html#ac4d76a4643a2a46641e2f8ee28623409">convertToITM</a> (<a class="el" href="class_index_t_m.html">IndexTM</a>&lt; int, SpaceDim &gt; &amp;a_diffrv, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;a_rv)</td></tr>
+<tr class="separator:ac4d76a4643a2a46641e2f8ee28623409"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82141a3ecb5ee126baca10704f84dc04"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_e_b_arith.html#a82141a3ecb5ee126baca10704f84dc04">convertToITM</a> (<a class="el" href="class_index_t_m.html">IndexTM</a>&lt; Real, SpaceDim-1 &gt; &amp;a_diffrv, const <a class="el" href="classamrex_1_1_real_vect.html">RealVect</a> &amp;a_rv, const int &amp;a_ignoreIndex)</td></tr>
+<tr class="separator:a82141a3ecb5ee126baca10704f84dc04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa18187528320096a867266f6a9a1ccf4"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_e_b_arith.html#aa18187528320096a867266f6a9a1ccf4">convertToITM</a> (<a class="el" href="class_index_t_m.html">IndexTM</a>&lt; int, SpaceDim-1 &gt; &amp;a_diffrv, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;a_rv, const int &amp;a_ignoreIndex)</td></tr>
+<tr class="separator:aa18187528320096a867266f6a9a1ccf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8f642eb714906b501445152db240446"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_e_b_arith.html#ac8f642eb714906b501445152db240446">gradIndex</a> (int ivar, int gradDir)</td></tr>
 <tr class="separator:ac8f642eb714906b501445152db240446"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68a07d3bc7db1d5eda60e7cd345ecf76"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_e_b_arith.html#a68a07d3bc7db1d5eda60e7cd345ecf76">createCoarserEBLG</a> (<a class="el" href="classamrex_1_1_e_b_level_grid.html">EBLevelGrid</a> &amp;a_eblgCoar, const <a class="el" href="classamrex_1_1_e_b_level_grid.html">EBLevelGrid</a> &amp;a_eblgFine, const int &amp;a_refRat, const int &amp;a_minBoxSize, const int &amp;a_maxBoxSize)</td></tr>
@@ -502,6 +510,154 @@ Static Public Member Functions</h2></td></tr>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a147ae2536a5db3ab5bbec7a68076e290"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void amrex::EBArith::convertToITM </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_index_t_m.html">IndexTM</a>&lt; Real, SpaceDim &gt; &amp;&#160;</td>
+          <td class="paramname"><em>a_diffrv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_real_vect.html">RealVect</a> &amp;&#160;</td>
+          <td class="paramname"><em>a_rv</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac4d76a4643a2a46641e2f8ee28623409"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void amrex::EBArith::convertToITM </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_index_t_m.html">IndexTM</a>&lt; int, SpaceDim &gt; &amp;&#160;</td>
+          <td class="paramname"><em>a_diffrv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;&#160;</td>
+          <td class="paramname"><em>a_rv</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a82141a3ecb5ee126baca10704f84dc04"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void amrex::EBArith::convertToITM </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_index_t_m.html">IndexTM</a>&lt; Real, SpaceDim-1 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>a_diffrv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_real_vect.html">RealVect</a> &amp;&#160;</td>
+          <td class="paramname"><em>a_rv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>a_ignoreIndex</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa18187528320096a867266f6a9a1ccf4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void amrex::EBArith::convertToITM </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_index_t_m.html">IndexTM</a>&lt; int, SpaceDim-1 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>a_diffrv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;&#160;</td>
+          <td class="paramname"><em>a_rv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>a_ignoreIndex</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

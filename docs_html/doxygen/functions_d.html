@@ -180,6 +180,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="structamrex_1_1_distribution_mapping_1_1_ref_i_d.html#aae919d83758235f1a0d37558f783a8e8">amrex::DistributionMapping::RefID</a>
 , <a class="el" href="classamrex_1_1_real_vect.html#ab206179c838afd606beb2c44ee6cd42d">amrex::RealVect</a>
 , <a class="el" href="classamrex_1_1_vector.html#a314a950b356fb444c94b9f615ba0cd72">amrex::Vector&lt; T, Allocator &gt;</a>
+, <a class="el" href="class_index_t_m.html#acae417f687298ee4fedeb1f2c2bfc7bf">IndexTM&lt; T, N &gt;</a>
 </li>
 <li>dataRayCast()
 : <a class="el" href="classamrex_1_1_e_b_arith.html#a1fb071354ea5162bf282ceb9e6614811">amrex::EBArith</a>
@@ -211,7 +212,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="classamrex_1_1_base_umap.html#a36d3e1ed4439437fdef098dc4fb65242">amrex::BaseUmap&lt; T &gt;</a>
 , <a class="el" href="classamrex_1_1_bndry_data.html#a3457a4bb428e2f1478f95e76fd15a9df">amrex::BndryData</a>
 , <a class="el" href="classamrex_1_1_bndry_register.html#a7ac16569b9b981389bb8a08a6d99e89e">amrex::BndryRegister</a>
-, <a class="el" href="classamrex_1_1_box_array.html#a1797dfe4fdb30221d30cef785da8929d">amrex::BoxArray</a>
+, <a class="el" href="classamrex_1_1_box_array.html#a55d69deebe4b1ae84fc259bfd4d045f2">amrex::BoxArray</a>
 , <a class="el" href="classamrex_1_1_box_iterator.html#a03883564ef32239b307db10d07761184">amrex::BoxIterator</a>
 , <a class="el" href="classamrex_1_1_coord_sys.html#a48ffc9604867e10ae012228873c944d4">amrex::CoordSys</a>
 , <a class="el" href="classamrex_1_1_distribution_mapping.html#a68cc57697b2f40cc3ecc627f046aa0a7">amrex::DistributionMapping</a>
@@ -229,8 +230,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="classamrex_1_1_e_b_graph_implem.html#aae71e5d27d839840d6f7a8f08c08fb3b">amrex::EBGraphImplem</a>
 , <a class="el" href="classamrex_1_1_e_b_index_space.html#a2a8ec54e270ff3ef3eb643ef48b6ec78">amrex::EBIndexSpace</a>
 , <a class="el" href="classamrex_1_1_e_b_i_s_box.html#a12e43f6ed1e9f55945d4f0cc3b47b4bf">amrex::EBISBox</a>
-, <a class="el" href="classamrex_1_1_e_b_i_s_layout.html#a3e0f8770aa9e35727aa0ed61abe3946b">amrex::EBISLayout</a>
-, <a class="el" href="classamrex_1_1_e_b_i_s_layout_implem.html#a72ac0ed08c893eea4267d4aa35fefb9e">amrex::EBISLayoutImplem</a>
+, <a class="el" href="classamrex_1_1_e_b_i_s_layout.html#abf3494b6e92b6830bf1d814b81a1316f">amrex::EBISLayout</a>
+, <a class="el" href="classamrex_1_1_e_b_i_s_layout_implem.html#aa727c4715279235647b446f05407e0c6">amrex::EBISLayoutImplem</a>
 , <a class="el" href="classamrex_1_1_e_b_level_grid.html#ac7822b0a673d768a519e9ee88147135f">amrex::EBLevelGrid</a>
 , <a class="el" href="classamrex_1_1_e_b_level_redist.html#a9850fa7e94569f88d497b48cce258d77">amrex::EBLevelRedist</a>
 , <a class="el" href="classamrex_1_1_e_b_normalize_by_volume_fraction.html#a2a0cf35fd8f3537b17756a58b2b4ba1e">amrex::EBNormalizeByVolumeFraction</a>
@@ -292,6 +293,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="classamrex_1_1_e_b_fine_interp.html#ad79428034f56e2dfc815b40e2c755462">amrex::EBFineInterp</a>
 , <a class="el" href="classamrex_1_1_gradient_op.html#a599e308221cb3816dc24ae8731211f23">amrex::GradientOp</a>
 </li>
+<li>defineLocalCoords()
+: <a class="el" href="class_i_f_data.html#a5bb076a7fcf44de6a2c2c91a3a3ea3fe">IFData&lt; dim &gt;</a>
+</li>
 <li>definePointStencil()
 : <a class="el" href="classamrex_1_1_e_b_coarse_average.html#a08ea0bcccd701fffcf81039907381db1">amrex::EBCoarseAverage</a>
 </li>
@@ -328,9 +332,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>derFunc3D()
 : <a class="el" href="classamrex_1_1_derive_rec.html#a5e989cf8e6341d8c33266548012d2ac7">amrex::DeriveRec</a>
 </li>
+<li>derivative()
+: <a class="el" href="classamrex_1_1_base_i_f.html#acc4ac35cd11d95ce480df94b4ba73bf1">amrex::BaseIF</a>
+, <a class="el" href="classamrex_1_1_ellipsoid_i_f.html#a7fbe3e6850df9a9206d7a6963a62d652">amrex::EllipsoidIF</a>
+, <a class="el" href="classamrex_1_1_plane_i_f.html#a4cdcb66c4d587ba3b8da02857cc9208f">amrex::PlaneIF</a>
+, <a class="el" href="classamrex_1_1_smooth_intersection.html#a555044f4a18642a3439943b4aa029fde">amrex::SmoothIntersection</a>
+, <a class="el" href="classamrex_1_1_smooth_union.html#aed57227b9013fe54c1b0fa208a5622dd">amrex::SmoothUnion</a>
+, <a class="el" href="classamrex_1_1_sphere_i_f.html#a0933f9c8fbcedfe06dff23a5a4ce42ee">amrex::SphereIF</a>
+</li>
+<li>DerivativeProduct
+: <a class="el" href="class_normal_derivative.html#ab6431a1ca6a4d989ee6d189966da2b4b">NormalDerivative&lt; dim &gt;</a>
+, <a class="el" href="class_normal_derivative_3_01_b_l___s_p_a_c_e_d_i_m_01_4.html#aa1d59c9b88626a1650732280a86596c3">NormalDerivative&lt; BL_SPACEDIM &gt;</a>
+</li>
 <li>derive()
 : <a class="el" href="classamrex_1_1_amr.html#a3d596021574d699fd925b664a9c1bf7c">amrex::Amr</a>
-, <a class="el" href="classamrex_1_1_amr_level.html#a2d67ff78f28ebc3850bda9ca476b7f9c">amrex::AmrLevel</a>
+, <a class="el" href="classamrex_1_1_amr_level.html#aa57cb16059880124adbd17cba52c843d">amrex::AmrLevel</a>
 </li>
 <li>derive_lst
 : <a class="el" href="classamrex_1_1_amr_level.html#a792f148ee0bb20432a4acefa1c2cac9a">amrex::AmrLevel</a>
@@ -352,7 +368,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="classamrex_1_1_amr.html#a171c1d4e1c27ff539e512d7e544c5349">amrex::Amr</a>
 </li>
 <li>DeriveRec()
-: <a class="el" href="classamrex_1_1_derive_rec.html#a17637cbd52ab9a728832f697254a0282">amrex::DeriveRec</a>
+: <a class="el" href="classamrex_1_1_derive_rec.html#aa830bf761084d34d74c81ca8c82740d9">amrex::DeriveRec</a>
 </li>
 <li>deriveSmallPlotVars()
 : <a class="el" href="classamrex_1_1_amr.html#a219bb28ed1fde8f810eea7e259a57b5d">amrex::Amr</a>
@@ -392,6 +408,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>diagShift()
 : <a class="el" href="classamrex_1_1_int_vect.html#a3bd72b713d8be462b8838f7c2e563fba">amrex::IntVect</a>
+, <a class="el" href="class_index_t_m.html#a418c7982d60a44f1143df874ffc64525">IndexTM&lt; T, N &gt;</a>
+</li>
+<li>differentiate()
+: <a class="el" href="class_l_s_problem.html#a19acc7ab98c13c054f2cb34aa05cd14f">LSProblem&lt; dim &gt;</a>
 </li>
 <li>dim
 : <a class="el" href="structamrex_1_1__kdtree.html#a116ac2508333623c1677ccdc1045b05f">amrex::_kdtree</a>
@@ -422,16 +442,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>DistributionMap()
 : <a class="el" href="classamrex_1_1_amr_level.html#a7b2a7b336f2f0a2817a16709b6c063cf">amrex::AmrLevel</a>
-, <a class="el" href="classamrex_1_1_amr_mesh.html#a0e239204ca8c8cf3d581fda8b3366252">amrex::AmrMesh</a>
+, <a class="el" href="classamrex_1_1_amr_mesh.html#a53988099dc97d12785e8fd8a7652d0d2">amrex::AmrMesh</a>
 , <a class="el" href="classamrex_1_1_amr_par_g_d_b.html#a8008f8edc6ab3099b32c1dc8d8f25c6a">amrex::AmrParGDB</a>
 , <a class="el" href="classamrex_1_1_bndry_register.html#ad71f22436e694026955933b99acb0967">amrex::BndryRegister</a>
+, <a class="el" href="classamrex_1_1_fab_array_base.html#a91b9b8d89859dcf641c0d42348b3f0ff">amrex::FabArrayBase</a>
 </li>
 <li>distributionMap
 : <a class="el" href="classamrex_1_1_fab_array_base.html#adcb92e864340876da67df2fc64d8bdd7">amrex::FabArrayBase</a>
 </li>
 <li>DistributionMap()
-: <a class="el" href="classamrex_1_1_fab_array_base.html#a91b9b8d89859dcf641c0d42348b3f0ff">amrex::FabArrayBase</a>
-, <a class="el" href="classamrex_1_1_fab_set.html#a842c0212a39e9d6a26c0973ca5f7ec45">amrex::FabSet</a>
+: <a class="el" href="classamrex_1_1_fab_set.html#a842c0212a39e9d6a26c0973ca5f7ec45">amrex::FabSet</a>
 , <a class="el" href="classamrex_1_1_m_f_iter.html#aa0e30190e5049564ed6c4d722c4d9f27">amrex::MFIter</a>
 , <a class="el" href="classamrex_1_1_multi_mask.html#a3176b8f18e3c8aa97d84bf095f2ee62d">amrex::MultiMask</a>
 , <a class="el" href="classamrex_1_1_par_g_d_b.html#a416b527dd5c8e947a91fbfcd0d21a857">amrex::ParGDB</a>
@@ -439,28 +459,32 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="classamrex_1_1_state_data.html#a2c1d89b9525e64322d32c1e502fbea1b">amrex::StateData</a>
 </li>
 <li>DistributionMapping()
-: <a class="el" href="classamrex_1_1_distribution_mapping.html#a69bb6c615b89909808e51b13bafba194">amrex::DistributionMapping</a>
+: <a class="el" href="classamrex_1_1_distribution_mapping.html#a2a514250da8359a912c569ec864430da">amrex::DistributionMapping</a>
 </li>
 <li>DivergenceOp()
-: <a class="el" href="classamrex_1_1_divergence_op.html#a992652ad870ae47a14e58aa3fb7abd99">amrex::DivergenceOp</a>
+: <a class="el" href="classamrex_1_1_divergence_op.html#ae9f1299d69a98ba60d8dfd796d733c94">amrex::DivergenceOp</a>
 </li>
 <li>divide()
-: <a class="el" href="classamrex_1_1_base_fab.html#abeef0d6b5e833951afc32111dab962e1">amrex::BaseFab&lt; T &gt;</a>
+: <a class="el" href="classamrex_1_1_base_fab.html#af5e600fa9de14f50285dce2ff7277c26">amrex::BaseFab&lt; T &gt;</a>
 , <a class="el" href="classamrex_1_1_e_b_cell_f_a_b.html#a59f4143d215368a7d98096ea486c8ebd">amrex::EBCellFAB</a>
 , <a class="el" href="classamrex_1_1_e_b_face_f_a_b.html#a12b2392b41f6bc889a9034e48c032c48">amrex::EBFaceFAB</a>
-, <a class="el" href="classamrex_1_1i_multi_fab.html#ad9722d52a2bd88a4c6f5bbe7f71dd747">amrex::iMultiFab</a>
 </li>
 <li>Divide()
 : <a class="el" href="classamrex_1_1i_multi_fab.html#a9aa5acb6b1a4d4701d4d35cc2a21f2c6">amrex::iMultiFab</a>
 </li>
 <li>divide()
-: <a class="el" href="classamrex_1_1_irreg_f_a_b.html#a3bfb394129c2d8f3ca65af7c81b747cf">amrex::IrregFAB</a>
+: <a class="el" href="classamrex_1_1i_multi_fab.html#ad9722d52a2bd88a4c6f5bbe7f71dd747">amrex::iMultiFab</a>
+, <a class="el" href="classamrex_1_1_irreg_f_a_b.html#ab5d549f91c9b9bed6e4bfc1a1c72a43e">amrex::IrregFAB</a>
+, <a class="el" href="classamrex_1_1_multi_fab.html#aca202d20f39f94aabb5ffd1581a535f2">amrex::MultiFab</a>
 </li>
 <li>Divide()
 : <a class="el" href="classamrex_1_1_multi_fab.html#aa87b51ae98f171c3624b5f6cbdfffac0">amrex::MultiFab</a>
 </li>
-<li>divide()
-: <a class="el" href="classamrex_1_1_multi_fab.html#aca202d20f39f94aabb5ffd1581a535f2">amrex::MultiFab</a>
+<li>divideByFactorial()
+: <a class="el" href="class_indexed_moments.html#aba44e9ed8d0dbb95a7238471eb7b8e5c">IndexedMoments&lt; Dim, P &gt;</a>
+</li>
+<li>DivNormalRefinement()
+: <a class="el" href="class_div_normal_refinement.html#aaf1737846896f7f93b2f448f0294669a">DivNormalRefinement&lt; dim &gt;</a>
 </li>
 <li>dlen
 : <a class="el" href="classamrex_1_1_base_fab.html#a5b93724d7041d0fe2a0fd3c86e4eff60">amrex::BaseFab&lt; T &gt;</a>
@@ -497,6 +521,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>doit()
 : <a class="el" href="classamrex_1_1_box_converter.html#a43c58d145a800ea3c476b5ad319c158b">amrex::BoxConverter</a>
 , <a class="el" href="classamrex_1_1_interpolater_box_coarsener.html#a8a61390489a3aae5a763b531daa1cf5e">amrex::InterpolaterBoxCoarsener</a>
+, <a class="el" href="struct_metaprograms_1_1_lex_l_t.html#a6e14961e0d4cb92021bc0334aae22c8d">Metaprograms::LexLT&lt; N, T &gt;</a>
+, <a class="el" href="struct_metaprograms_1_1_lex_l_t_3_011_00_01_t_01_4.html#ae1d986ca23021e668984ee5787eb8912">Metaprograms::LexLT&lt; 1, T &gt;</a>
 </li>
 <li>Domain()
 : <a class="el" href="classamrex_1_1_amr_level.html#a3d2006342bf56a903fa3b1db8564869a">amrex::AmrLevel</a>
@@ -507,7 +533,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>Domain()
 : <a class="el" href="structamrex_1_1_fab_array_base_1_1_c_finfo.html#a981d853e4825cf8d11e9ea2084bf0f9b">amrex::FabArrayBase::CFinfo</a>
-, <a class="el" href="classamrex_1_1_geometry.html#a34a66feb9b08cd9c5770ac23c37bea91">amrex::Geometry</a>
+, <a class="el" href="classamrex_1_1_geometry.html#a692822d12e8c477bcd8881a422e12e88">amrex::Geometry</a>
 , <a class="el" href="classamrex_1_1_periodicity.html#ab6e097207b0bbb7368bad74f7d762c72">amrex::Periodicity</a>
 </li>
 <li>domainLength
@@ -520,11 +546,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="classamrex_1_1edge_mo.html#a8169e30ffed2a5ebc0da892189346b87">amrex::edgeMo</a>
 , <a class="el" href="classamrex_1_1face_mo.html#a235cb716c1dca14651d1897ff15edab4">amrex::faceMo</a>
 </li>
+<li>doRefine()
+: <a class="el" href="classamrex_1_1_fixed_refinement.html#abf62c777b91278da70413bd6a911eb9b">amrex::FixedRefinement&lt; dim &gt;</a>
+, <a class="el" href="class_div_normal_refinement.html#a6a88fd36fb8198474e58fb244ebc9e33">DivNormalRefinement&lt; dim &gt;</a>
+, <a class="el" href="class_no_refinement.html#a3f38af1e609d255a9ceb88271b8c820b">NoRefinement&lt; dim &gt;</a>
+, <a class="el" href="class_refinement_criterion.html#ac74d30e4ac71802b89738ae359deac19">RefinementCriterion&lt; dim &gt;</a>
+</li>
 <li>dot()
 : <a class="el" href="classamrex_1_1_base_fab.html#aa7fe4fd0d37fd3e951d8fe876bc5ebea">amrex::BaseFab&lt; T &gt;</a>
 </li>
 <li>Dot()
-: <a class="el" href="classamrex_1_1_multi_fab.html#a4530e478f0e9c128719e7649e26af997">amrex::MultiFab</a>
+: <a class="el" href="classamrex_1_1_multi_fab.html#a891a75562cd2f21525d54eb493ae0e2c">amrex::MultiFab</a>
 </li>
 <li>dot()
 : <a class="el" href="classamrex_1_1_poly_geom.html#a03ad16c046c22bb9030e053d2737877f">amrex::PolyGeom</a>
@@ -534,6 +566,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>dotProduct()
 : <a class="el" href="classamrex_1_1_real_vect.html#ae1f260aa04f608e6fc0a1ec23e9080cd">amrex::RealVect</a>
+, <a class="el" href="class_index_t_m.html#ae7007ed391f401905b00ed571f79348a">IndexTM&lt; T, N &gt;</a>
+</li>
+<li>DoubleRampExact()
+: <a class="el" href="classamrex_1_1_double_ramp_exact.html#a069ba3269d76637800be0ddea42ee9c7">amrex::DoubleRampExact</a>
+</li>
+<li>DoubleSphereExact()
+: <a class="el" href="classamrex_1_1_double_sphere_exact.html#a5a4db4ae71608751e7788e0dfd60c018">amrex::DoubleSphereExact</a>
 </li>
 <li>doUnlink
 : <a class="el" href="classamrex_1_1_particle_container.html#ad95c19743d9fafcf24f7b157ae5dae7b">amrex::ParticleContainer&lt; NStructReal, NStructInt, NArrayReal, NArrayInt &gt;</a>
@@ -570,6 +609,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>dumpNames()
 : <a class="el" href="classamrex_1_1_state_descriptor.html#a50c0aa090e4cf73ef8e8c57dda6b8929">amrex::StateDescriptor</a>
+</li>
+<li>dumpOn()
+: <a class="el" href="class_index_t_m.html#a3d737fddda4e6562db1a37c69af21e12">IndexTM&lt; T, N &gt;</a>
 </li>
 <li>dumpTable()
 : <a class="el" href="classamrex_1_1_parm_parse.html#ad5376a2e65027c356b38efbef3180c28">amrex::ParmParse</a>

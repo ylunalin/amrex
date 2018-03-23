@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['regular',['Regular',['../classamrex_1_1_geometry_service.html#ab6546708b1e12c188511a708769040d0a05fcc9daea14d62372a697f00b5cf4d1',1,'amrex::GeometryService::Regular()'],['../namespaceamrex.html#abd2e3d292645433cefc947725585f87aaaf37d08ae228a87dc6b265fd1019c97d',1,'amrex::regular()']]],
-  ['reverseorder',['ReverseOrder',['../classamrex_1_1_int_descriptor.html#a330214b8c0c3e224aecd2d2d95c0a839a4df03ba7689cd2d0b2bceb929c949b61',1,'amrex::IntDescriptor']]],
-  ['roundrobin',['ROUNDROBIN',['../classamrex_1_1_distribution_mapping.html#ad8e078b643635f0027eb797c2d54d3b8a787ff5451e57a2271607a0143b75a38d',1,'amrex::DistributionMapping']]],
-  ['rrsfc',['RRSFC',['../classamrex_1_1_distribution_mapping.html#ad8e078b643635f0027eb797c2d54d3b8a75876358b1ba6c4d337b466fc4404217',1,'amrex::DistributionMapping']]],
-  ['rz',['RZ',['../classamrex_1_1_coord_sys.html#afb633344fd17c5565ce2fff188806ebaa090e74483c754250a5e0ee448bdfe8b3',1,'amrex::CoordSys']]]
+  ['pfc',['PFC',['../classamrex_1_1_distribution_mapping.html#ad8e078b643635f0027eb797c2d54d3b8ae551425362f127ca3c0a51808041477b',1,'amrex::DistributionMapping']]],
+  ['point',['Point',['../classamrex_1_1_state_descriptor.html#a8e14d2e57bdb2fbd440c8c26c8b99434ab4007993e9c944fbfd42096732e4b430',1,'amrex::StateDescriptor']]],
+  ['pxe_5fbooleanlast',['PXE_BooleanLast',['../namespaceamrex.html#a56829511baa00168dea4da5b3e5c8790a1dbb735125a41d3ab9885ea80351915b',1,'amrex']]],
+  ['pxe_5ffalse',['PXE_False',['../namespaceamrex.html#a56829511baa00168dea4da5b3e5c8790a41d8036154d393e85b65ae35d62a7581',1,'amrex']]],
+  ['pxe_5ftrue',['PXE_True',['../namespaceamrex.html#a56829511baa00168dea4da5b3e5c8790a83204ff9b6ad0fa69b127c602576d335',1,'amrex']]]
 ];

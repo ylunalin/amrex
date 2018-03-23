@@ -197,6 +197,18 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a76a05fa7ea404d57406852c8f9bb1332"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30972eef48c5f7b75018b97c44a3e5d5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_e_b_i_s_box.html#a30972eef48c5f7b75018b97c44a3e5d5">EBISBox</a> (<a class="el" href="classamrex_1_1_e_b_i_s_box.html">EBISBox</a> &amp;&amp;rhs) noexcept=default</td></tr>
 <tr class="separator:a30972eef48c5f7b75018b97c44a3e5d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae854603b97ea255a37bcc3d179c0b354"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___e_b___t_y_p_e_d_e_f_s_8_h.html#a6feb21131f43222b5e5185c7b43b5f6e">IndMomSpaceDim</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_e_b_i_s_box.html#ae854603b97ea255a37bcc3d179c0b354">getVolumeMoments</a> (const <a class="el" href="classamrex_1_1_vol_index.html">VolIndex</a> &amp;a_vof) const </td></tr>
+<tr class="memdesc:ae854603b97ea255a37bcc3d179c0b354"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the moment at the VoF associated with the monomial with the input exponents  <a href="#ae854603b97ea255a37bcc3d179c0b354">More...</a><br/></td></tr>
+<tr class="separator:ae854603b97ea255a37bcc3d179c0b354"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa94baab34d4916569aec64bbfbe9c5e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___e_b___t_y_p_e_d_e_f_s_8_h.html#a6feb21131f43222b5e5185c7b43b5f6e">IndMomSpaceDim</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_e_b_i_s_box.html#afa94baab34d4916569aec64bbfbe9c5e">getEBMoments</a> (const <a class="el" href="classamrex_1_1_vol_index.html">VolIndex</a> &amp;a_vof) const </td></tr>
+<tr class="memdesc:afa94baab34d4916569aec64bbfbe9c5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the normal the irregular face associated with the monomial with the input exponents  <a href="#afa94baab34d4916569aec64bbfbe9c5e">More...</a><br/></td></tr>
+<tr class="separator:afa94baab34d4916569aec64bbfbe9c5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af279623dd75c8714055853e934e6aca2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___e_b___t_y_p_e_d_e_f_s_8_h.html#a80fb53ef3ef1b14c3a0d861bc8651428">IndMomSDMinOne</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_e_b_i_s_box.html#af279623dd75c8714055853e934e6aca2">getFaceMoments</a> (const <a class="el" href="classamrex_1_1_face_index.html">FaceIndex</a> &amp;a_face) const </td></tr>
+<tr class="memdesc:af279623dd75c8714055853e934e6aca2"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the moment at the face associated with the monomial with the input exponents  <a href="#af279623dd75c8714055853e934e6aca2">More...</a><br/></td></tr>
+<tr class="separator:af279623dd75c8714055853e934e6aca2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24424bcac462b27c1d2d4a7b6649d092"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___e_b___t_y_p_e_d_e_f_s_8_h.html#a80fb53ef3ef1b14c3a0d861bc8651428">IndMomSDMinOne</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_e_b_i_s_box.html#a24424bcac462b27c1d2d4a7b6649d092">getAreaMoments</a> (const <a class="el" href="classamrex_1_1_face_index.html">FaceIndex</a> &amp;a_face) const </td></tr>
+<tr class="memdesc:a24424bcac462b27c1d2d4a7b6649d092"><td class="mdescLeft">&#160;</td><td class="mdescRight">I am sick of guessing this name wrong.  <a href="#a24424bcac462b27c1d2d4a7b6649d092">More...</a><br/></td></tr>
+<tr class="separator:a24424bcac462b27c1d2d4a7b6649d092"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Geometric description within a box <a class="el" href="classamrex_1_1_e_b_i_s_box.html">EBISBox</a> represents the geometric information of the domain at a given refinement within the boundaries of a particular box. It is implemented as a reference-counted pointer to an <a class="el" href="classamrex_1_1_e_b_i_s_box.html">EBISBox</a> object. This means that assignment and copying are computationally inexpensive but it also means that these functions have the reference-counted pointer semantic. If one copies an <a class="el" href="classamrex_1_1_e_b_i_s_box.html">EBISBox</a> and changes the copy, the original one changes too. </p>
@@ -568,6 +580,32 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a24424bcac462b27c1d2d4a7b6649d092"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_a_m_re_x___e_b___t_y_p_e_d_e_f_s_8_h.html#a80fb53ef3ef1b14c3a0d861bc8651428">IndMomSDMinOne</a> amrex::EBISBox::getAreaMoments </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_face_index.html">FaceIndex</a> &amp;&#160;</td>
+          <td class="paramname"><em>a_face</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>I am sick of guessing this name wrong. </p>
+
+</div>
+</div>
 <a class="anchor" id="a8972e23f2fc99d849d8e799ab12d872d"></a>
 <div class="memitem">
 <div class="memproto">
@@ -610,6 +648,60 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="afa94baab34d4916569aec64bbfbe9c5e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_a_m_re_x___e_b___t_y_p_e_d_e_f_s_8_h.html#a6feb21131f43222b5e5185c7b43b5f6e">IndMomSpaceDim</a> amrex::EBISBox::getEBMoments </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_vol_index.html">VolIndex</a> &amp;&#160;</td>
+          <td class="paramname"><em>a_vof</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>get the normal the irregular face associated with the monomial with the input exponents </p>
+<p>Given VoF variables x, y, z, p = mono(0), q = mono(1), r = mono(2), returns integral_over_VoF((x^p y^q z^r) dV) for p q r </p>
+
+</div>
+</div>
+<a class="anchor" id="af279623dd75c8714055853e934e6aca2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_a_m_re_x___e_b___t_y_p_e_d_e_f_s_8_h.html#a80fb53ef3ef1b14c3a0d861bc8651428">IndMomSDMinOne</a> amrex::EBISBox::getFaceMoments </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_face_index.html">FaceIndex</a> &amp;&#160;</td>
+          <td class="paramname"><em>a_face</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>get the moment at the face associated with the monomial with the input exponents </p>
+<p>Given face variables x, y, p = mono(0), q = mono(1)), returns integral_over_face(x^p y^q dA) for all p q </p>
 
 </div>
 </div>
@@ -764,6 +856,33 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Return the VoFs in the direction and distance given. Chases the connectivity the number of steps given. a_steps = 0 just returns the vof input. a_steps &lt; 0 is an error. Stops at the domain boundary without error. Will be an error if the number of steps steps out of the <a class="el" href="classamrex_1_1_e_b_i_s_box.html">EBISBox</a> region without stepping out of the domain. If this happens, you probably need to define your <a class="el" href="classamrex_1_1_e_b_i_s_layout.html">EBISLayout</a> with more ghost cells. </p>
+
+</div>
+</div>
+<a class="anchor" id="ae854603b97ea255a37bcc3d179c0b354"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_a_m_re_x___e_b___t_y_p_e_d_e_f_s_8_h.html#a6feb21131f43222b5e5185c7b43b5f6e">IndMomSpaceDim</a> amrex::EBISBox::getVolumeMoments </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_vol_index.html">VolIndex</a> &amp;&#160;</td>
+          <td class="paramname"><em>a_vof</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>get the moment at the VoF associated with the monomial with the input exponents </p>
+<p>Given VoF variables x, y, z, p = mono(0), q = mono(1), r = mono(2), returns integral_over_VoF(x^p y^q z^r dV) for all p q </p>
 
 </div>
 </div>

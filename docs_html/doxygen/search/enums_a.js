@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['side',['Side',['../classamrex_1_1_orientation.html#a877c697bbab9de21af4012197ba76410',1,'amrex::Orientation']]],
-  ['strategy',['Strategy',['../classamrex_1_1_distribution_mapping.html#ad8e078b643635f0027eb797c2d54d3b8',1,'amrex::DistributionMapping']]]
+  ['precision',['Precision',['../classamrex_1_1_f_a_bio.html#a3b1ca82feb278c4a975a46229f229660',1,'amrex::FABio']]],
+  ['pxe_5fboolean',['PXE_Boolean',['../namespaceamrex.html#a56829511baa00168dea4da5b3e5c8790',1,'amrex']]]
 ];

@@ -361,7 +361,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;        }</div>
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;</div>
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;        a_data.<a class="code" href="classamrex_1_1_fab_array.html#a4b2db0304bc84a002692917c83bc1626">define</a>(header.m_ba, dm,  header.m_nComp, 0, <a class="code" href="structamrex_1_1_m_f_info.html">MFInfo</a>(), <a class="code" href="classamrex_1_1_default_fab_factory.html">DefaultFabFactory&lt;T&gt;</a>());</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;        <span class="keywordtype">int</span> ibox = 0;</div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;        <span class="keywordflow">for</span>(<a class="code" href="classamrex_1_1_m_f_iter.html">MFIter</a> mfi(a_data); mfi.<a class="code" href="classamrex_1_1_m_f_iter.html#ad1cb993a973d541776b06c959d1ae3cd">isValid</a>(); ++mfi) </div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;        {</div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;          <span class="keywordtype">int</span> baindex = mfi.index();</div>
@@ -383,13 +383,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;          fileStream.flush();</div>
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;          fileStream.close();</div>
 <div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;          <span class="keyword">delete</span>[] inbuf;</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;        }</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;                      </div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;      }</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;  };</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;}</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;          ibox++;</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;        }</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;                      </div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;      }</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;  };</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;}</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="classamrex_1_1_f_a_i_o_element_html_af68ce24a56e83104eee2ade8e84cd098"><div class="ttname"><a href="classamrex_1_1_f_a_i_o_element.html#af68ce24a56e83104eee2ade8e84cd098">amrex::FAIOElement::m_head</a></div><div class="ttdeci">long m_head</div><div class="ttdef"><b>Definition:</b> AMReX_FabArrayIO.H:47</div></div>
 <div class="ttc" id="_a_m_re_x___b_l_profiler_8_h_html_a548fbd9b2cd72a927f463003f4adb0b1"><div class="ttname"><a href="_a_m_re_x___b_l_profiler_8_h.html#a548fbd9b2cd72a927f463003f4adb0b1">BL_PROFILE</a></div><div class="ttdeci">#define BL_PROFILE(a)</div><div class="ttdef"><b>Definition:</b> AMReX_BLProfiler.H:524</div></div>
 <div class="ttc" id="_a_m_re_x___vis_m_f_8_h_html"><div class="ttname"><a href="_a_m_re_x___vis_m_f_8_h.html">AMReX_VisMF.H</a></div></div>

@@ -99,11 +99,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &quot;<a class="el" href="_a_m_re_x___base_i_v_f_a_b_8_h_source.html">AMReX_BaseIVFAB.H</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="_a_m_re_x___base_i_f_f_a_b_8_h_source.html">AMReX_BaseIFFAB.H</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="_a_m_re_x___f_array_box_8_h_source.html">AMReX_FArrayBox.H</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="_a_m_re_x___e_b___t_y_p_e_d_e_f_s_8_h_source.html">AMReX_EB_TYPEDEFS.H</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="_a_m_re_x___indexed_moments_8_h_source.html">AMReX_IndexedMoments.H</a>&quot;</code><br/>
 </div>
 <p><a href="_a_m_re_x___e_b_data_8_h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_boundary_data.html">amrex::BoundaryData</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_vol_data.html">amrex::VolData</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_face_data.html">amrex::FaceData</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_e_b_data_implem.html">amrex::EBDataImplem</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_e_b_data.html">amrex::EBData</a></td></tr>
@@ -117,6 +125,34 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a85a9cbf04ff6f5f4adda85d666a3216c"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a85a9cbf04ff6f5f4adda85d666a3216c"><td class="memTemplItemLeft" align="right" valign="top">int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a85a9cbf04ff6f5f4adda85d666a3216c">amrex::linearSize</a> (const T &amp;inputT)</td></tr>
+<tr class="separator:a85a9cbf04ff6f5f4adda85d666a3216c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb426bb2342a725430b33686668cf598"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:adb426bb2342a725430b33686668cf598"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#adb426bb2342a725430b33686668cf598">amrex::linearIn</a> (T &amp;a_outputT, const void *const inBuf)</td></tr>
+<tr class="separator:adb426bb2342a725430b33686668cf598"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07e7c115f54a5bf670aaa5314a8e7046"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a07e7c115f54a5bf670aaa5314a8e7046"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a07e7c115f54a5bf670aaa5314a8e7046">amrex::linearOut</a> (void *const a_outBuf, const T &amp;inputT)</td></tr>
+<tr class="separator:a07e7c115f54a5bf670aaa5314a8e7046"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0088db4cda90b9197fd554ad2bde899e"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
+<tr class="memitem:a0088db4cda90b9197fd554ad2bde899e"><td class="memTemplItemLeft" align="right" valign="top">int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a0088db4cda90b9197fd554ad2bde899e">amrex::linearSize</a> (const VolData &amp;vdata)</td></tr>
+<tr class="memdesc:a0088db4cda90b9197fd554ad2bde899e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classamrex_1_1_vol_data.html">VolData</a> specializations of linear* functions used by LevelData.  <a href="#a0088db4cda90b9197fd554ad2bde899e">More...</a><br/></td></tr>
+<tr class="separator:a0088db4cda90b9197fd554ad2bde899e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a143655db8d32f81ab1fe29f74bdb6adf"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
+<tr class="memitem:a143655db8d32f81ab1fe29f74bdb6adf"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a143655db8d32f81ab1fe29f74bdb6adf">amrex::linearIn</a> (VolData &amp;a_outputT, const void *const a_inBuf)</td></tr>
+<tr class="separator:a143655db8d32f81ab1fe29f74bdb6adf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac59aeb839dd65e1169c0ebeb4b132cd1"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
+<tr class="memitem:ac59aeb839dd65e1169c0ebeb4b132cd1"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ac59aeb839dd65e1169c0ebeb4b132cd1">amrex::linearOut</a> (void *const a_outBuf, const VolData &amp;a_inputT)</td></tr>
+<tr class="separator:ac59aeb839dd65e1169c0ebeb4b132cd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bf9b121a50ce0bd78a7fafd11afe574"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
+<tr class="memitem:a5bf9b121a50ce0bd78a7fafd11afe574"><td class="memTemplItemLeft" align="right" valign="top">int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a5bf9b121a50ce0bd78a7fafd11afe574">amrex::linearSize</a> (const FaceData &amp;a_fdata)</td></tr>
+<tr class="separator:a5bf9b121a50ce0bd78a7fafd11afe574"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7da7d2da4f82d58364bdbce0dd1b401b"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
+<tr class="memitem:a7da7d2da4f82d58364bdbce0dd1b401b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a7da7d2da4f82d58364bdbce0dd1b401b">amrex::linearIn</a> (FaceData &amp;a_outputT, const void *const a_inBuf)</td></tr>
+<tr class="separator:a7da7d2da4f82d58364bdbce0dd1b401b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2a3bf8ed90b0bff42de9d07d6d7fe23"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
+<tr class="memitem:af2a3bf8ed90b0bff42de9d07d6d7fe23"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#af2a3bf8ed90b0bff42de9d07d6d7fe23">amrex::linearOut</a> (void *const a_outBuf, const FaceData &amp;a_inputT)</td></tr>
+<tr class="separator:af2a3bf8ed90b0bff42de9d07d6d7fe23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ca04672533a0e044518b28e0bb6eaec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a3ca04672533a0e044518b28e0bb6eaec">amrex::null_deleter_ebdi</a> (EBDataImplem *a_input)</td></tr>
 <tr class="separator:a3ca04672533a0e044518b28e0bb6eaec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>

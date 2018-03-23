@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['precision',['Precision',['../classamrex_1_1_f_a_bio.html#a3b1ca82feb278c4a975a46229f229660',1,'amrex::FABio']]],
-  ['pxe_5fboolean',['PXE_Boolean',['../namespaceamrex.html#a56829511baa00168dea4da5b3e5c8790',1,'amrex']]]
+  ['ordering',['Ordering',['../classamrex_1_1_int_descriptor.html#a330214b8c0c3e224aecd2d2d95c0a839',1,'amrex::IntDescriptor::Ordering()'],['../classamrex_1_1_f_a_bio.html#adbdc54b2ed6a4fa2d0cfd19076e5cc39',1,'amrex::FABio::Ordering()']]]
 ];

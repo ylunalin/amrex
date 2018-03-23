@@ -495,172 +495,175 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;<span class="keyword">  </span>{</div>
 <div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;    <a class="code" href="_a_m_re_x___b_l_profiler_8_h.html#a548fbd9b2cd72a927f463003f4adb0b1">BL_PROFILE</a>(<span class="stringliteral">&quot;BaseEBCellFAB::nbytesfull&quot;</span>);</div>
 <div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;    <span class="keywordtype">size_t</span> retval = 0;</div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;    <span class="comment">//first the meta data</span></div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;    <span class="comment">//ncomp</span></div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;    retval += <span class="keyword">sizeof</span>(int);</div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;    <span class="comment">//region and regfab region</span></div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;    retval += m_region.linearSize();</div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;    retval += m_regFAB.box().linearSize();</div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;    <span class="comment">//these make the ebisbox</span></div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;    retval +=  m_ebisBox.getEBGraph().nBytesFull();</div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;    retval +=  m_ebisBox.getEBData( ).nBytesFull();</div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;    <span class="comment">//from the above we can call define</span></div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;    <span class="comment">//now for the data</span></div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;    retval +=  m_regFAB.nBytes(m_regFAB.box(), 0, nComp());</div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;    retval +=  m_irrFAB.nBytes(      m_region, 0, nComp());</div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;</div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;    <span class="keywordflow">return</span> retval;</div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;  }</div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;      </div>
-<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;  <span class="comment">/*************/</span></div>
-<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;  std::size_t </div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;  <a class="code" href="classamrex_1_1_base_e_b_cell_f_a_b.html#ae46a718e9c2e0116ea8e785b5d662b5d">BaseEBCellFAB&lt;T&gt;::</a></div>
-<div class="line"><a name="l00433"></a><span class="lineno"><a class="line" href="classamrex_1_1_base_e_b_cell_f_a_b.html#ae46a718e9c2e0116ea8e785b5d662b5d">  433</a></span>&#160;<a class="code" href="classamrex_1_1_base_e_b_cell_f_a_b.html#ae46a718e9c2e0116ea8e785b5d662b5d">  copyToMemFull</a>(<span class="keywordtype">void</span>*      dst)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;<span class="keyword">  </span>{</div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;    <a class="code" href="_a_m_re_x___b_l_profiler_8_h.html#a548fbd9b2cd72a927f463003f4adb0b1">BL_PROFILE</a>(<span class="stringliteral">&quot;BaseEBCellFAB::copyToMemFull&quot;</span>);</div>
-<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;    <span class="keywordtype">size_t</span> retval = 0;</div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;    <span class="comment">//first the meta data</span></div>
-<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;    <span class="comment">//ncomp</span></div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;    <span class="keywordtype">int</span>* intbuf = (<span class="keywordtype">int</span> *) dst;</div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;    *intbuf = m_regFAB.nComp();    </div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;    intbuf++;</div>
-<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;    retval += <span class="keyword">sizeof</span>(int);</div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;    <span class="keywordtype">size_t</span> incrval  = 0;</div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;</div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;    <span class="comment">//back to byte stream </span></div>
-<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* buffer = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*) intbuf;</div>
-<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;    <span class="comment">//region and box for fab</span></div>
-<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;    <a class="code" href="classamrex_1_1_box.html">Box</a>  regfabbox = m_regFAB.box();</div>
-<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;</div>
-<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;    m_region.<a class="code" href="classamrex_1_1_box.html#ac072472c78205d4b29a5c01f6755a28c">linearOut</a>(buffer);</div>
-<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;    incrval = m_region.linearSize();</div>
-<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;    buffer += incrval;</div>
-<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;    retval += incrval;</div>
-<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;</div>
-<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;    regfabbox.<a class="code" href="classamrex_1_1_box.html#ac072472c78205d4b29a5c01f6755a28c">linearOut</a>(buffer);</div>
-<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;    incrval = regfabbox.<a class="code" href="classamrex_1_1_box.html#a1a77d0389c40ad14489532a5fffc701e">linearSize</a>();</div>
-<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;    buffer += incrval;</div>
-<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;    retval += incrval;</div>
-<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;</div>
-<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;</div>
-<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;    <span class="comment">//these make the ebisbox</span></div>
-<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;    incrval =  m_ebisBox.getEBGraph().copyToMemFull(buffer);</div>
-<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;    buffer += incrval;</div>
-<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;    retval += incrval;</div>
-<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;    incrval =  m_ebisBox.getEBData( ).copyToMemFull(buffer);</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;    <span class="keywordtype">size_t</span> incrval = 0;</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;    <span class="comment">//first the meta data</span></div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;    <span class="comment">//ncomp</span></div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;    retval += <span class="keyword">sizeof</span>(int);</div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;    <span class="comment">//region and regfab region</span></div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;    retval += m_region.linearSize();</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;    retval += m_regFAB.box().linearSize();</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;    <span class="comment">//these make the ebisbox</span></div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;    incrval =  m_ebisBox.getEBGraph().nBytesFull();</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;    retval +=  incrval;</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;    incrval =  m_ebisBox.getEBData( ).nBytesFull();</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;    retval +=  incrval;</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;    <span class="comment">//from the above we can call define</span></div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;    <span class="comment">//now for the data</span></div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;    retval +=  m_regFAB.nBytes(m_regFAB.box(), 0, nComp());</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;    retval +=  m_irrFAB.nBytes(      m_region, 0, nComp());</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;    <span class="keywordflow">return</span> retval;</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;  }</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;      </div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;  <span class="comment">/*************/</span></div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;  std::size_t </div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;  <a class="code" href="classamrex_1_1_base_e_b_cell_f_a_b.html#ae46a718e9c2e0116ea8e785b5d662b5d">BaseEBCellFAB&lt;T&gt;::</a></div>
+<div class="line"><a name="l00436"></a><span class="lineno"><a class="line" href="classamrex_1_1_base_e_b_cell_f_a_b.html#ae46a718e9c2e0116ea8e785b5d662b5d">  436</a></span>&#160;<a class="code" href="classamrex_1_1_base_e_b_cell_f_a_b.html#ae46a718e9c2e0116ea8e785b5d662b5d">  copyToMemFull</a>(<span class="keywordtype">void</span>*      dst)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;    <a class="code" href="_a_m_re_x___b_l_profiler_8_h.html#a548fbd9b2cd72a927f463003f4adb0b1">BL_PROFILE</a>(<span class="stringliteral">&quot;BaseEBCellFAB::copyToMemFull&quot;</span>);</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;    <span class="keywordtype">size_t</span> retval = 0;</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;    <span class="comment">//first the meta data</span></div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;    <span class="comment">//ncomp</span></div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;    <span class="keywordtype">int</span>* intbuf = (<span class="keywordtype">int</span> *) dst;</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;    *intbuf = m_regFAB.nComp();    </div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;    intbuf++;</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;    retval += <span class="keyword">sizeof</span>(int);</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;    <span class="keywordtype">size_t</span> incrval  = 0;</div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;    <span class="comment">//back to byte stream </span></div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* buffer = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*) intbuf;</div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;    <span class="comment">//region and box for fab</span></div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;    <a class="code" href="classamrex_1_1_box.html">Box</a>  regfabbox = m_regFAB.box();</div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;    m_region.<a class="code" href="classamrex_1_1_box.html#ac072472c78205d4b29a5c01f6755a28c">linearOut</a>(buffer);</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;    incrval = m_region.linearSize();</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;    buffer += incrval;</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;    retval += incrval;</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;</div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;    regfabbox.<a class="code" href="classamrex_1_1_box.html#ac072472c78205d4b29a5c01f6755a28c">linearOut</a>(buffer);</div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;    incrval = regfabbox.<a class="code" href="classamrex_1_1_box.html#a1a77d0389c40ad14489532a5fffc701e">linearSize</a>();</div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;    buffer += incrval;</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;    retval += incrval;</div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;</div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;</div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;    <span class="comment">//these make the ebisbox</span></div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;    incrval =  m_ebisBox.getEBGraph().copyToMemFull(buffer);</div>
 <div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;    buffer += incrval;</div>
 <div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;    retval += incrval;</div>
-<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;    <span class="comment">//from the above we can call define</span></div>
-<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;    <span class="comment">//now for the data</span></div>
-<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;</div>
-<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;    incrval =  m_regFAB.copyToMem(regfabbox, 0, nComp(), buffer);</div>
-<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;    buffer += incrval;</div>
-<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;    retval += incrval;</div>
-<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;    incrval =  m_irrFAB.copyToMem( m_region, 0, nComp(), buffer);</div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;    incrval =  m_ebisBox.getEBData( ).copyToMemFull(buffer);</div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;    buffer += incrval;</div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;    retval += incrval;</div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;    <span class="comment">//from the above we can call define</span></div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;    <span class="comment">//now for the data</span></div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;</div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;    incrval =  m_regFAB.copyToMem(regfabbox, 0, nComp(), buffer);</div>
 <div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;    buffer += incrval;</div>
 <div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;    retval += incrval;</div>
-<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;    <span class="keywordflow">return</span> retval;</div>
-<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;  }</div>
-<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;  <span class="comment">/*************/</span></div>
-<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;  std::size_t </div>
-<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;  <a class="code" href="classamrex_1_1_base_e_b_cell_f_a_b.html#a5fa751b157a9db96cb1d4bf6ff428826">BaseEBCellFAB&lt;T&gt;::</a></div>
-<div class="line"><a name="l00483"></a><span class="lineno"><a class="line" href="classamrex_1_1_base_e_b_cell_f_a_b.html#a5fa751b157a9db96cb1d4bf6ff428826">  483</a></span>&#160;<a class="code" href="classamrex_1_1_base_e_b_cell_f_a_b.html#a5fa751b157a9db96cb1d4bf6ff428826">  copyFromMemFull</a>(<span class="keyword">const</span> <span class="keywordtype">void</span>* src)</div>
-<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;  {</div>
-<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;    <a class="code" href="_a_m_re_x___b_l_profiler_8_h.html#a548fbd9b2cd72a927f463003f4adb0b1">BL_PROFILE</a>(<span class="stringliteral">&quot;BaseEBCellFAB::copyFromMemFull&quot;</span>);</div>
-<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;</div>
-<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;    <span class="keywordtype">size_t</span> retval = 0;</div>
-<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;</div>
-<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;    <span class="comment">//first the meta data</span></div>
-<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;    <span class="comment">//ncomp</span></div>
-<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;    <span class="keywordtype">int</span>* intbuf = (<span class="keywordtype">int</span> *) src;</div>
-<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a> = *intbuf;</div>
-<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;    *intbuf = m_regFAB.nComp();    </div>
-<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;    intbuf++;</div>
-<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;    retval += <span class="keyword">sizeof</span>(int);</div>
-<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;</div>
-<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* buffer = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*) intbuf;</div>
-<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;    <a class="code" href="classamrex_1_1_box.html">Box</a> region;</div>
-<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;    <a class="code" href="classamrex_1_1_box.html">Box</a> regfabbox;</div>
-<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;    <span class="keywordtype">size_t</span> incrval  = 0;</div>
-<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;</div>
-<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;    <span class="comment">//back to byte stream </span></div>
-<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;    region.<a class="code" href="classamrex_1_1_box.html#ae89644ece3ff4c7e38131871d2cfa676">linearIn</a>(buffer);</div>
-<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;    incrval = m_region.linearSize();</div>
-<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;    buffer += incrval;</div>
-<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;    retval += incrval;</div>
-<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;</div>
-<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;    regfabbox.<a class="code" href="classamrex_1_1_box.html#ae89644ece3ff4c7e38131871d2cfa676">linearIn</a>(buffer);</div>
-<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;    incrval = regfabbox.<a class="code" href="classamrex_1_1_box.html#a1a77d0389c40ad14489532a5fffc701e">linearSize</a>();</div>
-<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;    buffer += incrval;</div>
-<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;    retval += incrval;</div>
-<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;</div>
-<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;    <span class="comment">//these make the ebisbox</span></div>
-<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;    <a class="code" href="classamrex_1_1_e_b_graph.html">EBGraph</a> ebgraph;</div>
-<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;    <a class="code" href="classamrex_1_1_e_b_data.html">EBData</a>  ebdata;</div>
-<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;    incrval =  ebgraph.<a class="code" href="classamrex_1_1_e_b_graph.html#a25c84a3b627f75e229e4a813dfea7364">copyFromMemFull</a>(buffer);</div>
-<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;    buffer += incrval;</div>
-<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;    retval += incrval;</div>
-<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;    incrval =   ebdata.<a class="code" href="classamrex_1_1_e_b_data.html#a45b888ac72c2c1daafa7c6bfaf076151">copyFromMemFull</a>(buffer);</div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;    incrval =  m_irrFAB.copyToMem( m_region, 0, nComp(), buffer);</div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;    buffer += incrval;</div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;    retval += incrval;</div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;    <span class="keywordflow">return</span> retval;</div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;  }</div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;  <span class="comment">/*************/</span></div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;  std::size_t </div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;  <a class="code" href="classamrex_1_1_base_e_b_cell_f_a_b.html#a5fa751b157a9db96cb1d4bf6ff428826">BaseEBCellFAB&lt;T&gt;::</a></div>
+<div class="line"><a name="l00486"></a><span class="lineno"><a class="line" href="classamrex_1_1_base_e_b_cell_f_a_b.html#a5fa751b157a9db96cb1d4bf6ff428826">  486</a></span>&#160;<a class="code" href="classamrex_1_1_base_e_b_cell_f_a_b.html#a5fa751b157a9db96cb1d4bf6ff428826">  copyFromMemFull</a>(<span class="keyword">const</span> <span class="keywordtype">void</span>* src)</div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;  {</div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;    <a class="code" href="_a_m_re_x___b_l_profiler_8_h.html#a548fbd9b2cd72a927f463003f4adb0b1">BL_PROFILE</a>(<span class="stringliteral">&quot;BaseEBCellFAB::copyFromMemFull&quot;</span>);</div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;</div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;    <span class="keywordtype">size_t</span> retval = 0;</div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;</div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;    <span class="comment">//first the meta data</span></div>
+<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;    <span class="comment">//ncomp</span></div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;    <span class="keywordtype">int</span>* intbuf = (<span class="keywordtype">int</span> *) src;</div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a> = *intbuf;</div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;    *intbuf = m_regFAB.nComp();    </div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;    intbuf++;</div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;    retval += <span class="keyword">sizeof</span>(int);</div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;</div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* buffer = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*) intbuf;</div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;    <a class="code" href="classamrex_1_1_box.html">Box</a> region;</div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;    <a class="code" href="classamrex_1_1_box.html">Box</a> regfabbox;</div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;    <span class="keywordtype">size_t</span> incrval  = 0;</div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;</div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;    <span class="comment">//back to byte stream </span></div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;    region.<a class="code" href="classamrex_1_1_box.html#ae89644ece3ff4c7e38131871d2cfa676">linearIn</a>(buffer);</div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;    incrval = m_region.linearSize();</div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;    buffer += incrval;</div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;    retval += incrval;</div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;</div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;    regfabbox.<a class="code" href="classamrex_1_1_box.html#ae89644ece3ff4c7e38131871d2cfa676">linearIn</a>(buffer);</div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;    incrval = regfabbox.<a class="code" href="classamrex_1_1_box.html#a1a77d0389c40ad14489532a5fffc701e">linearSize</a>();</div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;    buffer += incrval;</div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;    retval += incrval;</div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;</div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;    <span class="comment">//these make the ebisbox</span></div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;    <a class="code" href="classamrex_1_1_e_b_graph.html">EBGraph</a> ebgraph;</div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;    <a class="code" href="classamrex_1_1_e_b_data.html">EBData</a>  ebdata;</div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;    incrval =  ebgraph.<a class="code" href="classamrex_1_1_e_b_graph.html#a25c84a3b627f75e229e4a813dfea7364">copyFromMemFull</a>(buffer);</div>
 <div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;    buffer += incrval;</div>
 <div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;    retval += incrval;</div>
-<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;    <span class="comment">//from the above we can call define</span></div>
-<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;    <a class="code" href="classamrex_1_1_e_b_i_s_box.html">EBISBox</a> ebisBox(ebgraph, ebdata);</div>
-<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;    <span class="comment">//need to send regfabbox because that is what defines the reg fab</span></div>
-<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;    <span class="comment">//the region is intersected with the domain</span></div>
-<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;    this-&gt;define(ebisBox, regfabbox, ncomp);</div>
-<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;</div>
-<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;    <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(m_regFAB.box() == regfabbox);</div>
-<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;    <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(        region == getRegion());</div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;    incrval =   ebdata.<a class="code" href="classamrex_1_1_e_b_data.html#a45b888ac72c2c1daafa7c6bfaf076151">copyFromMemFull</a>(buffer);</div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;    buffer += incrval;</div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;    retval += incrval;</div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;    <span class="comment">//from the above we can call define</span></div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;    <a class="code" href="classamrex_1_1_e_b_i_s_box.html">EBISBox</a> ebisBox(ebgraph, ebdata);</div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;    <span class="comment">//need to send regfabbox because that is what defines the reg fab</span></div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;    <span class="comment">//the region is intersected with the domain</span></div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;    this-&gt;define(ebisBox, regfabbox, ncomp);</div>
 <div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;</div>
-<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;    <span class="comment">//now for the data </span></div>
-<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;    incrval =  m_regFAB.copyFromMem(regfabbox, 0, ncomp, buffer);</div>
-<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;    buffer += incrval;</div>
-<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;    retval += incrval;</div>
-<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;    incrval =  m_irrFAB.copyFromMem(region   , 0, ncomp, buffer);</div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;    <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(m_regFAB.box() == regfabbox);</div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;    <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(        region == getRegion());</div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;</div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;    <span class="comment">//now for the data </span></div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;    incrval =  m_regFAB.copyFromMem(regfabbox, 0, ncomp, buffer);</div>
 <div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;    buffer += incrval;</div>
 <div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;    retval += incrval;</div>
-<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;    <span class="keywordflow">return</span> retval;</div>
-<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;  }</div>
-<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;  <span class="comment">/*************/</span></div>
-<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;  std::size_t </div>
-<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;  <a class="code" href="classamrex_1_1_base_e_b_cell_f_a_b.html#aa4d58f3f2111046b1b80033f63150f9c">BaseEBCellFAB&lt;T&gt;::</a></div>
-<div class="line"><a name="l00544"></a><span class="lineno"><a class="line" href="classamrex_1_1_base_e_b_cell_f_a_b.html#aa4d58f3f2111046b1b80033f63150f9c">  544</a></span>&#160;<a class="code" href="classamrex_1_1_base_e_b_cell_f_a_b.html#aa4d58f3f2111046b1b80033f63150f9c">  copyToMem</a> (<span class="keyword">const</span> <a class="code" href="classamrex_1_1_box.html">Box</a>&amp; srcbox,</div>
-<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;             <span class="keywordtype">int</span>        srccomp,</div>
-<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;             <span class="keywordtype">int</span>        numcomp,</div>
-<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;             <span class="keywordtype">void</span>*      dst)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;<span class="keyword">  </span>{</div>
-<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;    <a class="code" href="_a_m_re_x___b_l_profiler_8_h.html#a548fbd9b2cd72a927f463003f4adb0b1">BL_PROFILE</a>(<span class="stringliteral">&quot;BaseEBCellFAB::linearOut&quot;</span>);</div>
-<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* buffer = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*) dst;</div>
-<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;    <span class="keywordtype">size_t</span> retval = 0;</div>
-<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;    retval = m_regFAB.copyToMem(srcbox, srccomp, numcomp, buffer);</div>
-<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;    buffer += retval;</div>
-<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;    retval += m_irrFAB.copyToMem(srcbox, srccomp, numcomp, buffer);</div>
-<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;    <span class="keywordflow">return</span> retval;</div>
-<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;  }</div>
-<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;  <span class="comment">/*************/</span></div>
-<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;  std::size_t </div>
-<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;  <a class="code" href="classamrex_1_1_base_e_b_cell_f_a_b.html#a9d78ad5204e4ca1a694e0f4b88c38a8e">BaseEBCellFAB&lt;T&gt;::</a></div>
-<div class="line"><a name="l00561"></a><span class="lineno"><a class="line" href="classamrex_1_1_base_e_b_cell_f_a_b.html#a9d78ad5204e4ca1a694e0f4b88c38a8e">  561</a></span>&#160;<a class="code" href="classamrex_1_1_base_e_b_cell_f_a_b.html#a9d78ad5204e4ca1a694e0f4b88c38a8e">  copyFromMem</a> (<span class="keyword">const</span> <a class="code" href="classamrex_1_1_box.html">Box</a>&amp;  dstbox,</div>
-<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;               <span class="keywordtype">int</span>         dstcomp,</div>
-<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;               <span class="keywordtype">int</span>         numcomp,</div>
-<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;               <span class="keyword">const</span> <span class="keywordtype">void</span>* src)</div>
-<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;  {</div>
-<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;    <a class="code" href="_a_m_re_x___b_l_profiler_8_h.html#a548fbd9b2cd72a927f463003f4adb0b1">BL_PROFILE</a>(<span class="stringliteral">&quot;BaseEBCellFAB::linearIn&quot;</span>);</div>
-<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* buffer = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*) src;</div>
-<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;    <span class="keywordtype">size_t</span> retval = 0;</div>
-<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;    retval = m_regFAB.copyFromMem(dstbox, dstcomp, numcomp, buffer);</div>
-<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;    buffer += retval;</div>
-<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;    retval += m_irrFAB.copyFromMem(dstbox, dstcomp, numcomp, buffer);</div>
-<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;    <span class="keywordflow">return</span> retval;</div>
-<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;  }</div>
-<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;}</div>
-<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;      </div>
-<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;    incrval =  m_irrFAB.copyFromMem(region   , 0, ncomp, buffer);</div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;    buffer += incrval;</div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;    retval += incrval;</div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;    <span class="keywordflow">return</span> retval;</div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;  }</div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;  <span class="comment">/*************/</span></div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;  std::size_t </div>
+<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;  <a class="code" href="classamrex_1_1_base_e_b_cell_f_a_b.html#aa4d58f3f2111046b1b80033f63150f9c">BaseEBCellFAB&lt;T&gt;::</a></div>
+<div class="line"><a name="l00547"></a><span class="lineno"><a class="line" href="classamrex_1_1_base_e_b_cell_f_a_b.html#aa4d58f3f2111046b1b80033f63150f9c">  547</a></span>&#160;<a class="code" href="classamrex_1_1_base_e_b_cell_f_a_b.html#aa4d58f3f2111046b1b80033f63150f9c">  copyToMem</a> (<span class="keyword">const</span> <a class="code" href="classamrex_1_1_box.html">Box</a>&amp; srcbox,</div>
+<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;             <span class="keywordtype">int</span>        srccomp,</div>
+<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;             <span class="keywordtype">int</span>        numcomp,</div>
+<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;             <span class="keywordtype">void</span>*      dst)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;    <a class="code" href="_a_m_re_x___b_l_profiler_8_h.html#a548fbd9b2cd72a927f463003f4adb0b1">BL_PROFILE</a>(<span class="stringliteral">&quot;BaseEBCellFAB::linearOut&quot;</span>);</div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* buffer = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*) dst;</div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;    <span class="keywordtype">size_t</span> retval = 0;</div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;    retval = m_regFAB.copyToMem(srcbox, srccomp, numcomp, buffer);</div>
+<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;    buffer += retval;</div>
+<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;    retval += m_irrFAB.copyToMem(srcbox, srccomp, numcomp, buffer);</div>
+<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;    <span class="keywordflow">return</span> retval;</div>
+<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;  }</div>
+<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;  <span class="comment">/*************/</span></div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;  std::size_t </div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;  <a class="code" href="classamrex_1_1_base_e_b_cell_f_a_b.html#a9d78ad5204e4ca1a694e0f4b88c38a8e">BaseEBCellFAB&lt;T&gt;::</a></div>
+<div class="line"><a name="l00564"></a><span class="lineno"><a class="line" href="classamrex_1_1_base_e_b_cell_f_a_b.html#a9d78ad5204e4ca1a694e0f4b88c38a8e">  564</a></span>&#160;<a class="code" href="classamrex_1_1_base_e_b_cell_f_a_b.html#a9d78ad5204e4ca1a694e0f4b88c38a8e">  copyFromMem</a> (<span class="keyword">const</span> <a class="code" href="classamrex_1_1_box.html">Box</a>&amp;  dstbox,</div>
+<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;               <span class="keywordtype">int</span>         dstcomp,</div>
+<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;               <span class="keywordtype">int</span>         numcomp,</div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;               <span class="keyword">const</span> <span class="keywordtype">void</span>* src)</div>
+<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;  {</div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;    <a class="code" href="_a_m_re_x___b_l_profiler_8_h.html#a548fbd9b2cd72a927f463003f4adb0b1">BL_PROFILE</a>(<span class="stringliteral">&quot;BaseEBCellFAB::linearIn&quot;</span>);</div>
+<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* buffer = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*) src;</div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;    <span class="keywordtype">size_t</span> retval = 0;</div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;    retval = m_regFAB.copyFromMem(dstbox, dstcomp, numcomp, buffer);</div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;    buffer += retval;</div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;    retval += m_irrFAB.copyFromMem(dstbox, dstcomp, numcomp, buffer);</div>
+<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;    <span class="keywordflow">return</span> retval;</div>
+<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;  }</div>
+<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;}</div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;      </div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="classamrex_1_1_base_i_v_f_a_b_html"><div class="ttname"><a href="classamrex_1_1_base_i_v_f_a_b.html">amrex::BaseIVFAB</a></div><div class="ttdef"><b>Definition:</b> AMReX_BaseIVFAB.H:24</div></div>
 <div class="ttc" id="classamrex_1_1_base_e_b_cell_f_a_b_html_ab8514010b02112819c65999b7c3b5474"><div class="ttname"><a href="classamrex_1_1_base_e_b_cell_f_a_b.html#ab8514010b02112819c65999b7c3b5474">amrex::BaseEBCellFAB::m_regFAB</a></div><div class="ttdeci">BaseFab&lt; T &gt; m_regFAB</div><div class="ttdoc">data at single-valued cells </div><div class="ttdef"><b>Definition:</b> AMReX_BaseEBCellFAB.H:265</div></div>
 <div class="ttc" id="classamrex_1_1_base_e_b_cell_f_a_b_html_a3a5df8bede1155268e1f480a2ff091ba"><div class="ttname"><a href="classamrex_1_1_base_e_b_cell_f_a_b.html#a3a5df8bede1155268e1f480a2ff091ba">amrex::BaseEBCellFAB::m_irrFAB</a></div><div class="ttdeci">BaseIVFAB&lt; T &gt; m_irrFAB</div><div class="ttdoc">data at multi-valued cells </div><div class="ttdef"><b>Definition:</b> AMReX_BaseEBCellFAB.H:262</div></div>
@@ -671,13 +674,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classamrex_1_1_base_fab_html"><div class="ttname"><a href="classamrex_1_1_base_fab.html">amrex::BaseFab</a></div><div class="ttdoc">A Fortran Array-like Object BaseFab emulates the Fortran array concept. Useful operations can be perf...</div><div class="ttdef"><b>Definition:</b> AMReX_BaseFab.H:90</div></div>
 <div class="ttc" id="classamrex_1_1_base_e_b_cell_f_a_b_html_a8f1dd0cdcbd3b9e541a71bdff97f0709"><div class="ttname"><a href="classamrex_1_1_base_e_b_cell_f_a_b.html#a8f1dd0cdcbd3b9e541a71bdff97f0709">amrex::BaseEBCellFAB::box</a></div><div class="ttdeci">const Box &amp; box() const </div><div class="ttdef"><b>Definition:</b> AMReX_BaseEBCellFABI.H:224</div></div>
 <div class="ttc" id="classamrex_1_1_box_html_a1852ed4693c450cb4fd299f01726bb5d"><div class="ttname"><a href="classamrex_1_1_box.html#a1852ed4693c450cb4fd299f01726bb5d">amrex::Box::isEmpty</a></div><div class="ttdeci">bool isEmpty() const </div><div class="ttdoc">Checks if it is an empty box. </div><div class="ttdef"><b>Definition:</b> AMReX_Box.H:273</div></div>
-<div class="ttc" id="classamrex_1_1_e_b_data_html"><div class="ttname"><a href="classamrex_1_1_e_b_data.html">amrex::EBData</a></div><div class="ttdef"><b>Definition:</b> AMReX_EBData.H:280</div></div>
+<div class="ttc" id="classamrex_1_1_e_b_data_html"><div class="ttname"><a href="classamrex_1_1_e_b_data.html">amrex::EBData</a></div><div class="ttdef"><b>Definition:</b> AMReX_EBData.H:439</div></div>
 <div class="ttc" id="classamrex_1_1_int_vect_html"><div class="ttname"><a href="classamrex_1_1_int_vect.html">amrex::IntVect</a></div><div class="ttdef"><b>Definition:</b> AMReX_IntVect.H:25</div></div>
 <div class="ttc" id="classamrex_1_1_base_e_b_cell_f_a_b_html_a73e1949bfd7ae0e7f3cbd9cf163c3112"><div class="ttname"><a href="classamrex_1_1_base_e_b_cell_f_a_b.html#a73e1949bfd7ae0e7f3cbd9cf163c3112">amrex::BaseEBCellFAB::setVal</a></div><div class="ttdeci">void setVal(const T &amp;value)</div><div class="ttdef"><b>Definition:</b> AMReX_BaseEBCellFABI.H:164</div></div>
-<div class="ttc" id="classamrex_1_1_base_e_b_cell_f_a_b_html_a5fa751b157a9db96cb1d4bf6ff428826"><div class="ttname"><a href="classamrex_1_1_base_e_b_cell_f_a_b.html#a5fa751b157a9db96cb1d4bf6ff428826">amrex::BaseEBCellFAB::copyFromMemFull</a></div><div class="ttdeci">std::size_t copyFromMemFull(const void *src)</div><div class="ttdoc">this includes all meta data </div><div class="ttdef"><b>Definition:</b> AMReX_BaseEBCellFABI.H:483</div></div>
+<div class="ttc" id="classamrex_1_1_base_e_b_cell_f_a_b_html_a5fa751b157a9db96cb1d4bf6ff428826"><div class="ttname"><a href="classamrex_1_1_base_e_b_cell_f_a_b.html#a5fa751b157a9db96cb1d4bf6ff428826">amrex::BaseEBCellFAB::copyFromMemFull</a></div><div class="ttdeci">std::size_t copyFromMemFull(const void *src)</div><div class="ttdoc">this includes all meta data </div><div class="ttdef"><b>Definition:</b> AMReX_BaseEBCellFABI.H:486</div></div>
 <div class="ttc" id="_a_m_re_x___b_lassert_8_h_html_a53ebc8b227de416f458800faa44c619e"><div class="ttname"><a href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a></div><div class="ttdeci">#define BL_ASSERT(EX)</div><div class="ttdef"><b>Definition:</b> AMReX_BLassert.H:49</div></div>
 <div class="ttc" id="classamrex_1_1_vol_index_html_a8d977b25591a0efa7ee5704d68156609"><div class="ttname"><a href="classamrex_1_1_vol_index.html#a8d977b25591a0efa7ee5704d68156609">amrex::VolIndex::gridIndex</a></div><div class="ttdeci">const IntVect &amp; gridIndex() const </div><div class="ttdef"><b>Definition:</b> AMReX_VolIndex.cpp:32</div></div>
-<div class="ttc" id="classamrex_1_1_base_e_b_cell_f_a_b_html_a9d78ad5204e4ca1a694e0f4b88c38a8e"><div class="ttname"><a href="classamrex_1_1_base_e_b_cell_f_a_b.html#a9d78ad5204e4ca1a694e0f4b88c38a8e">amrex::BaseEBCellFAB::copyFromMem</a></div><div class="ttdeci">std::size_t copyFromMem(const Box &amp;dstbox, int dstcomp, int numcomp, const void *src)</div><div class="ttdoc">this is for copy and fillboundary when meta data is already filled </div><div class="ttdef"><b>Definition:</b> AMReX_BaseEBCellFABI.H:561</div></div>
+<div class="ttc" id="classamrex_1_1_base_e_b_cell_f_a_b_html_a9d78ad5204e4ca1a694e0f4b88c38a8e"><div class="ttname"><a href="classamrex_1_1_base_e_b_cell_f_a_b.html#a9d78ad5204e4ca1a694e0f4b88c38a8e">amrex::BaseEBCellFAB::copyFromMem</a></div><div class="ttdeci">std::size_t copyFromMem(const Box &amp;dstbox, int dstcomp, int numcomp, const void *src)</div><div class="ttdoc">this is for copy and fillboundary when meta data is already filled </div><div class="ttdef"><b>Definition:</b> AMReX_BaseEBCellFABI.H:564</div></div>
 <div class="ttc" id="classamrex_1_1_base_e_b_cell_f_a_b_html_ac2b5cd9058afbd0489b1f292a3ad3843"><div class="ttname"><a href="classamrex_1_1_base_e_b_cell_f_a_b.html#ac2b5cd9058afbd0489b1f292a3ad3843">amrex::BaseEBCellFAB::nBytes</a></div><div class="ttdeci">std::size_t nBytes(const Box &amp;bx, int start_comp, int ncomps) const </div><div class="ttdoc">this is for copy and fillboundary when meta data is already filled </div><div class="ttdef"><b>Definition:</b> AMReX_BaseEBCellFABI.H:394</div></div>
 <div class="ttc" id="classamrex_1_1_box_html_ae89644ece3ff4c7e38131871d2cfa676"><div class="ttname"><a href="classamrex_1_1_box.html#ae89644ece3ff4c7e38131871d2cfa676">amrex::Box::linearIn</a></div><div class="ttdeci">void linearIn(void *a_buffer)</div><div class="ttdoc">for serialization </div><div class="ttdef"><b>Definition:</b> AMReX_Box.H:500</div></div>
 <div class="ttc" id="classamrex_1_1_base_e_b_cell_f_a_b_html_ace6e7ca266984e1bcf30338e4f0e0bf3"><div class="ttname"><a href="classamrex_1_1_base_e_b_cell_f_a_b.html#ace6e7ca266984e1bcf30338e4f0e0bf3">amrex::BaseEBCellFAB::setDefaultValues</a></div><div class="ttdeci">void setDefaultValues()</div><div class="ttdef"><b>Definition:</b> AMReX_BaseEBCellFABI.H:372</div></div>
@@ -686,14 +689,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classamrex_1_1_base_e_b_cell_f_a_b_html_a909cb332bbe87b0b6aa43be2beeef2da"><div class="ttname"><a href="classamrex_1_1_base_e_b_cell_f_a_b.html#a909cb332bbe87b0b6aa43be2beeef2da">amrex::BaseEBCellFAB::m_region</a></div><div class="ttdeci">Box m_region</div><div class="ttdef"><b>Definition:</b> AMReX_BaseEBCellFAB.H:269</div></div>
 <div class="ttc" id="classamrex_1_1_base_e_b_cell_f_a_b_html_a30006b7833ad1a2b85f9e7fbbdbce813"><div class="ttname"><a href="classamrex_1_1_base_e_b_cell_f_a_b.html#a30006b7833ad1a2b85f9e7fbbdbce813">amrex::BaseEBCellFAB::getSingleValuedFAB</a></div><div class="ttdeci">const BaseFab&lt; T &gt; &amp; getSingleValuedFAB() const </div><div class="ttdef"><b>Definition:</b> AMReX_BaseEBCellFABI.H:254</div></div>
 <div class="ttc" id="classamrex_1_1_base_e_b_cell_f_a_b_html_a9691b3936a4e407ac603f70cb8d50b90"><div class="ttname"><a href="classamrex_1_1_base_e_b_cell_f_a_b.html#a9691b3936a4e407ac603f70cb8d50b90">amrex::BaseEBCellFAB::copy</a></div><div class="ttdeci">BaseEBCellFAB&lt; T &gt; &amp; copy(const BaseEBCellFAB&lt; T &gt; &amp;source, const Box &amp;srcbox, int srccomp, const Box &amp;destbox, int destcomp, int numcomp)</div><div class="ttdef"><b>Definition:</b> AMReX_BaseEBCellFABI.H:60</div></div>
-<div class="ttc" id="classamrex_1_1_base_e_b_cell_f_a_b_html_ae46a718e9c2e0116ea8e785b5d662b5d"><div class="ttname"><a href="classamrex_1_1_base_e_b_cell_f_a_b.html#ae46a718e9c2e0116ea8e785b5d662b5d">amrex::BaseEBCellFAB::copyToMemFull</a></div><div class="ttdeci">std::size_t copyToMemFull(void *dst) const </div><div class="ttdoc">this includes all meta data </div><div class="ttdef"><b>Definition:</b> AMReX_BaseEBCellFABI.H:433</div></div>
+<div class="ttc" id="classamrex_1_1_base_e_b_cell_f_a_b_html_ae46a718e9c2e0116ea8e785b5d662b5d"><div class="ttname"><a href="classamrex_1_1_base_e_b_cell_f_a_b.html#ae46a718e9c2e0116ea8e785b5d662b5d">amrex::BaseEBCellFAB::copyToMemFull</a></div><div class="ttdeci">std::size_t copyToMemFull(void *dst) const </div><div class="ttdoc">this includes all meta data </div><div class="ttdef"><b>Definition:</b> AMReX_BaseEBCellFABI.H:436</div></div>
 <div class="ttc" id="classamrex_1_1_e_b_i_s_box_html"><div class="ttname"><a href="classamrex_1_1_e_b_i_s_box.html">amrex::EBISBox</a></div><div class="ttdef"><b>Definition:</b> AMReX_EBISBox.H:34</div></div>
 <div class="ttc" id="_a_m_re_x___box_iterator_8_h_html"><div class="ttname"><a href="_a_m_re_x___box_iterator_8_h.html">AMReX_BoxIterator.H</a></div></div>
 <div class="ttc" id="classamrex_1_1_base_e_b_cell_f_a_b_html_a2f273b585561bc9ef8be523142ecde26"><div class="ttname"><a href="classamrex_1_1_base_e_b_cell_f_a_b.html#a2f273b585561bc9ef8be523142ecde26">amrex::BaseEBCellFAB::BaseEBCellFAB</a></div><div class="ttdeci">BaseEBCellFAB()</div><div class="ttdef"><b>Definition:</b> AMReX_BaseEBCellFABI.H:94</div></div>
 <div class="ttc" id="classamrex_1_1_e_b_i_s_box_html_a41a15bf952a9a6020ff9c5de61d8b8fe"><div class="ttname"><a href="classamrex_1_1_e_b_i_s_box.html#a41a15bf952a9a6020ff9c5de61d8b8fe">amrex::EBISBox::getRegion</a></div><div class="ttdeci">const Box &amp; getRegion() const </div><div class="ttdef"><b>Definition:</b> AMReX_EBISBox.cpp:11</div></div>
 <div class="ttc" id="namespaceamrex_html_ac0e2e23df625040ded95611ceae98352"><div class="ttname"><a href="namespaceamrex.html#ac0e2e23df625040ded95611ceae98352">amrex::Error</a></div><div class="ttdeci">void Error(const char *msg=0)</div><div class="ttdoc">Print out message to cerr and exit via amrex::Abort(). </div><div class="ttdef"><b>Definition:</b> AMReX.cpp:110</div></div>
 <div class="ttc" id="classamrex_1_1_base_e_b_cell_f_a_b_html"><div class="ttname"><a href="classamrex_1_1_base_e_b_cell_f_a_b.html">amrex::BaseEBCellFAB</a></div><div class="ttdoc">Array defined at the VolIndexs of an Box in an EBIS. </div><div class="ttdef"><b>Definition:</b> AMReX_BaseEBCellFAB.H:28</div></div>
-<div class="ttc" id="classamrex_1_1_e_b_data_html_a45b888ac72c2c1daafa7c6bfaf076151"><div class="ttname"><a href="classamrex_1_1_e_b_data.html#a45b888ac72c2c1daafa7c6bfaf076151">amrex::EBData::copyFromMemFull</a></div><div class="ttdeci">std::size_t copyFromMemFull(const void *src)</div><div class="ttdoc">this includes all metadata </div><div class="ttdef"><b>Definition:</b> AMReX_EBData.H:365</div></div>
+<div class="ttc" id="classamrex_1_1_e_b_data_html_a45b888ac72c2c1daafa7c6bfaf076151"><div class="ttname"><a href="classamrex_1_1_e_b_data.html#a45b888ac72c2c1daafa7c6bfaf076151">amrex::EBData::copyFromMemFull</a></div><div class="ttdeci">std::size_t copyFromMemFull(const void *src)</div><div class="ttdoc">this includes all metadata </div><div class="ttdef"><b>Definition:</b> AMReX_EBData.H:525</div></div>
 <div class="ttc" id="classamrex_1_1_base_e_b_cell_f_a_b_html_acbfca8feca8ec079bb7cfdd27542cfc3"><div class="ttname"><a href="classamrex_1_1_base_e_b_cell_f_a_b.html#acbfca8feca8ec079bb7cfdd27542cfc3">amrex::BaseEBCellFAB::getMultiValuedFAB</a></div><div class="ttdeci">const BaseIVFAB&lt; T &gt; &amp; getMultiValuedFAB() const </div><div class="ttdef"><b>Definition:</b> AMReX_BaseEBCellFABI.H:233</div></div>
 <div class="ttc" id="classamrex_1_1_int_vect_set_html_a6cb61a41e4b3297813e60c5d180ef030"><div class="ttname"><a href="classamrex_1_1_int_vect_set.html#a6cb61a41e4b3297813e60c5d180ef030">amrex::IntVectSet::isEmpty</a></div><div class="ttdeci">bool isEmpty() const </div><div class="ttdef"><b>Definition:</b> AMReX_IntVectSet.cpp:369</div></div>
 <div class="ttc" id="classamrex_1_1_vol_index_html"><div class="ttname"><a href="classamrex_1_1_vol_index.html">amrex::VolIndex</a></div><div class="ttdoc">Volume of Fluid Index. </div><div class="ttdef"><b>Definition:</b> AMReX_VolIndex.H:19</div></div>
@@ -710,7 +713,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classamrex_1_1_box_html_ac072472c78205d4b29a5c01f6755a28c"><div class="ttname"><a href="classamrex_1_1_box.html#ac072472c78205d4b29a5c01f6755a28c">amrex::Box::linearOut</a></div><div class="ttdeci">void linearOut(void *a_buffer) const </div><div class="ttdoc">for serialization </div><div class="ttdef"><b>Definition:</b> AMReX_Box.H:487</div></div>
 <div class="ttc" id="classamrex_1_1_box_html_a1a77d0389c40ad14489532a5fffc701e"><div class="ttname"><a href="classamrex_1_1_box.html#a1a77d0389c40ad14489532a5fffc701e">amrex::Box::linearSize</a></div><div class="ttdeci">static size_t linearSize()</div><div class="ttdoc">for serialization </div><div class="ttdef"><b>Definition:</b> AMReX_Box.H:479</div></div>
 <div class="ttc" id="classamrex_1_1_base_e_b_cell_f_a_b_html_aa6d6402fdb723f83185b235a8e882706"><div class="ttname"><a href="classamrex_1_1_base_e_b_cell_f_a_b.html#aa6d6402fdb723f83185b235a8e882706">amrex::BaseEBCellFAB::getMultiCells</a></div><div class="ttdeci">Vector&lt; VolIndex &gt; getMultiCells() const </div><div class="ttdoc">has to be by value because sometimes the Array does not exist. </div><div class="ttdef"><b>Definition:</b> AMReX_BaseEBCellFABI.H:80</div></div>
-<div class="ttc" id="classamrex_1_1_base_e_b_cell_f_a_b_html_aa4d58f3f2111046b1b80033f63150f9c"><div class="ttname"><a href="classamrex_1_1_base_e_b_cell_f_a_b.html#aa4d58f3f2111046b1b80033f63150f9c">amrex::BaseEBCellFAB::copyToMem</a></div><div class="ttdeci">std::size_t copyToMem(const Box &amp;srcbox, int srccomp, int numcomp, void *dst) const </div><div class="ttdoc">this is for copy and fillboundary when meta data is already filled </div><div class="ttdef"><b>Definition:</b> AMReX_BaseEBCellFABI.H:544</div></div>
+<div class="ttc" id="classamrex_1_1_base_e_b_cell_f_a_b_html_aa4d58f3f2111046b1b80033f63150f9c"><div class="ttname"><a href="classamrex_1_1_base_e_b_cell_f_a_b.html#aa4d58f3f2111046b1b80033f63150f9c">amrex::BaseEBCellFAB::copyToMem</a></div><div class="ttdeci">std::size_t copyToMem(const Box &amp;srcbox, int srccomp, int numcomp, void *dst) const </div><div class="ttdoc">this is for copy and fillboundary when meta data is already filled </div><div class="ttdef"><b>Definition:</b> AMReX_BaseEBCellFABI.H:547</div></div>
 <div class="ttc" id="classamrex_1_1_e_b_graph_html_a25c84a3b627f75e229e4a813dfea7364"><div class="ttname"><a href="classamrex_1_1_e_b_graph.html#a25c84a3b627f75e229e4a813dfea7364">amrex::EBGraph::copyFromMemFull</a></div><div class="ttdeci">std::size_t copyFromMemFull(const void *src)</div><div class="ttdoc">this includes all meta data </div><div class="ttdef"><b>Definition:</b> AMReX_EBGraph.H:737</div></div>
 <div class="ttc" id="classamrex_1_1_base_e_b_cell_f_a_b_html_a08ba93411edea93c2c7129b83b5755f3"><div class="ttname"><a href="classamrex_1_1_base_e_b_cell_f_a_b.html#a08ba93411edea93c2c7129b83b5755f3">amrex::BaseEBCellFAB::nBytesFull</a></div><div class="ttdeci">std::size_t nBytesFull() const </div><div class="ttdoc">this includes all meta data </div><div class="ttdef"><b>Definition:</b> AMReX_BaseEBCellFABI.H:407</div></div>
 <div class="ttc" id="classamrex_1_1_base_e_b_cell_f_a_b_html_acb75887d3c87534b34c07bfc4fb8290e"><div class="ttname"><a href="classamrex_1_1_base_e_b_cell_f_a_b.html#acb75887d3c87534b34c07bfc4fb8290e">amrex::BaseEBCellFAB::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdef"><b>Definition:</b> AMReX_BaseEBCellFABI.H:152</div></div>

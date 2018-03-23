@@ -106,6 +106,7 @@ Inheritance diagram for amrex::GeometryService:</div>
 <area href="classamrex_1_1_all_regular_service.html" title="A geometry service that is always regular. " alt="amrex::AllRegularService" shape="rect" coords="0,56,155,80"/>
 <area href="classamrex_1_1_flat_plate_geom.html" alt="amrex::FlatPlateGeom" shape="rect" coords="165,56,320,80"/>
 <area href="classamrex_1_1_geometry_shop.html" alt="amrex::GeometryShop" shape="rect" coords="330,56,485,80"/>
+<area href="classamrex_1_1_wrapped_g_shop.html" alt="amrex::WrappedGShop" shape="rect" coords="495,56,650,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -123,6 +124,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a77a7a8a9571a37d6aebc0a3a2fbfa09c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5692301109f916360341425959194945"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_geometry_service.html#a5692301109f916360341425959194945">~GeometryService</a> ()</td></tr>
 <tr class="separator:a5692301109f916360341425959194945"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a565aff72d191c964198bbb63d4f304ec"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_geometry_service.html#a565aff72d191c964198bbb63d4f304ec">generatesHigherOrderMoments</a> () const </td></tr>
+<tr class="memdesc:a565aff72d191c964198bbb63d4f304ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">return true if the geometry service generates higher order moments  <a href="#a565aff72d191c964198bbb63d4f304ec">More...</a><br/></td></tr>
+<tr class="separator:a565aff72d191c964198bbb63d4f304ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a139fa99056f00f31568d0343099e7c87"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_geometry_service.html#a139fa99056f00f31568d0343099e7c87">isRegular</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;a_region, const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;a_domain, const <a class="el" href="classamrex_1_1_real_vect.html">RealVect</a> &amp;a_origin, const Real &amp;a_dx) const =0</td></tr>
 <tr class="separator:a139fa99056f00f31568d0343099e7c87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04217c00e3a4229954f24ad72227892b"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_geometry_service.html#a04217c00e3a4229954f24ad72227892b">isCovered</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;a_region, const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;a_domain, const <a class="el" href="classamrex_1_1_real_vect.html">RealVect</a> &amp;a_origin, const Real &amp;a_dx) const =0</td></tr>
@@ -237,6 +241,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Reimplemented in <a class="el" href="classamrex_1_1_wrapped_g_shop.html#a2651866b1418a2679d8a60214abc45c5">amrex::WrappedGShop</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a405f0f179f44d4ed8fd8de06cb330be8"></a>
@@ -308,7 +314,35 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>irregGraph contains a complete list of irregular vofs. \ validRegion is the the region of the graph \ domain is the domain of compuation \ regIrregCovered = 1 for regular, 0 for irregular, -1 for covered. regIrregCovered must contain the valid region grown by 1. \ In chombospeak, \ ghostregion = (grow(validRegion, 1) &amp; domain); </p>
 
-<p>Implemented in <a class="el" href="classamrex_1_1_flat_plate_geom.html#ab46037ed4eac68d541c440963f2083ef">amrex::FlatPlateGeom</a>, <a class="el" href="classamrex_1_1_geometry_shop.html#a8046777ce66ee5db998b1091bb048e8a">amrex::GeometryShop</a>, and <a class="el" href="classamrex_1_1_all_regular_service.html#a67a0df53c8d27abccc4f9c049ebed374">amrex::AllRegularService</a>.</p>
+<p>Implemented in <a class="el" href="classamrex_1_1_wrapped_g_shop.html#ac14c451076999682bb1316dc2955e955">amrex::WrappedGShop</a>, <a class="el" href="classamrex_1_1_flat_plate_geom.html#ab46037ed4eac68d541c440963f2083ef">amrex::FlatPlateGeom</a>, <a class="el" href="classamrex_1_1_geometry_shop.html#a8046777ce66ee5db998b1091bb048e8a">amrex::GeometryShop</a>, and <a class="el" href="classamrex_1_1_all_regular_service.html#a67a0df53c8d27abccc4f9c049ebed374">amrex::AllRegularService</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a565aff72d191c964198bbb63d4f304ec"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool amrex::GeometryService::generatesHigherOrderMoments </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>return true if the geometry service generates higher order moments </p>
+<p>Most of the geometry generating objects we have do <em>not</em> generate higher order moments (they only generate the standard stuff (volume fractions, area fractions and centroids)). <a class="el" href="classamrex_1_1_wrapped_g_shop.html">WrappedGShop</a>, does generate the higher order stuff so that one can return true; </p>
+
+<p>Reimplemented in <a class="el" href="classamrex_1_1_wrapped_g_shop.html#a6d592e816f413e61a66e9dc4e2c9bfbd">amrex::WrappedGShop</a>.</p>
 
 </div>
 </div>
@@ -560,7 +594,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return true if every cell in region is covered at the refinement described by dx. </p>
 
-<p>Implemented in <a class="el" href="classamrex_1_1_geometry_shop.html#a786f2fefc2ec06264d527f006d140fd6">amrex::GeometryShop</a>, <a class="el" href="classamrex_1_1_flat_plate_geom.html#a159ed8d3c5abf2023cc943456101a8fc">amrex::FlatPlateGeom</a>, and <a class="el" href="classamrex_1_1_all_regular_service.html#ad6a68f8295f71c9208d075eecde6481e">amrex::AllRegularService</a>.</p>
+<p>Implemented in <a class="el" href="classamrex_1_1_geometry_shop.html#a786f2fefc2ec06264d527f006d140fd6">amrex::GeometryShop</a>, <a class="el" href="classamrex_1_1_wrapped_g_shop.html#a4e88851d7beecc26cfc94699534349c8">amrex::WrappedGShop</a>, <a class="el" href="classamrex_1_1_flat_plate_geom.html#a159ed8d3c5abf2023cc943456101a8fc">amrex::FlatPlateGeom</a>, and <a class="el" href="classamrex_1_1_all_regular_service.html#ad6a68f8295f71c9208d075eecde6481e">amrex::AllRegularService</a>.</p>
 
 </div>
 </div>
@@ -607,6 +641,8 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classamrex_1_1_wrapped_g_shop.html#a503d3ebf619d877098db01773d29e74a">amrex::WrappedGShop</a>.</p>
 
 </div>
 </div>
@@ -655,7 +691,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return true if every cell in region is regular at the refinement described by dx. </p>
 
-<p>Implemented in <a class="el" href="classamrex_1_1_geometry_shop.html#ac89a95153592ae716ebc6f3a060dbdee">amrex::GeometryShop</a>, <a class="el" href="classamrex_1_1_flat_plate_geom.html#a5d1aa3ae41d5916b727db8fde1008bbc">amrex::FlatPlateGeom</a>, and <a class="el" href="classamrex_1_1_all_regular_service.html#a412bacd4a1f9019eb3100bb48fa048c0">amrex::AllRegularService</a>.</p>
+<p>Implemented in <a class="el" href="classamrex_1_1_wrapped_g_shop.html#ab5636b7c077706075ade04692036dff3">amrex::WrappedGShop</a>, <a class="el" href="classamrex_1_1_geometry_shop.html#ac89a95153592ae716ebc6f3a060dbdee">amrex::GeometryShop</a>, <a class="el" href="classamrex_1_1_flat_plate_geom.html#a5d1aa3ae41d5916b727db8fde1008bbc">amrex::FlatPlateGeom</a>, and <a class="el" href="classamrex_1_1_all_regular_service.html#a412bacd4a1f9019eb3100bb48fa048c0">amrex::AllRegularService</a>.</p>
 
 </div>
 </div>

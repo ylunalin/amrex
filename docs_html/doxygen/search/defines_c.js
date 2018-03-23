@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['off',['OFF',['../_a_m_re_x___tag_box_8cpp.html#abc1eab952af4119e0dd12a9cd006daa3',1,'OFF():&#160;AMReX_TagBox.cpp'],['../_a_m_re_x___tag_box_8cpp.html#abc1eab952af4119e0dd12a9cd006daa3',1,'OFF():&#160;AMReX_TagBox.cpp']]],
-  ['outflow',['Outflow',['../_a_m_re_x___b_c___t_y_p_e_s_8_h.html#a074cf210a9dd1472db2a2811976abb88',1,'AMReX_BC_TYPES.H']]]
+  ['machineprecision',['MACHINEPRECISION',['../_a_m_re_x___notation_8_h.html#a11a064dbd2fe0f140461dd071481f25c',1,'AMReX_Notation.H']]],
+  ['making_5feb_5fgeom',['MAKING_EB_GEOM',['../_a_m_re_x___notation_8_h.html#a49d12bedab6133df9f0ee85223edf6d9',1,'AMReX_Notation.H']]]
 ];

@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['reflect_5feven',['REFLECT_EVEN',['../_a_m_re_x___b_c___t_y_p_e_s_8_h.html#a3084fca6e965f4bac15cee757a39915e',1,'AMReX_BC_TYPES.H']]],
-  ['reflect_5fodd',['REFLECT_ODD',['../_a_m_re_x___b_c___t_y_p_e_s_8_h.html#af3aeaaa2c4f177482545bae75d04656f',1,'AMReX_BC_TYPES.H']]],
-  ['restrict',['RESTRICT',['../_a_m_re_x___k_d_tree_8_h.html#aae3356b63849abbe8789dd41648ee90a',1,'AMReX_KDTree.H']]]
+  ['off',['OFF',['../_a_m_re_x___tag_box_8cpp.html#abc1eab952af4119e0dd12a9cd006daa3',1,'OFF():&#160;AMReX_TagBox.cpp'],['../_a_m_re_x___tag_box_8cpp.html#abc1eab952af4119e0dd12a9cd006daa3',1,'OFF():&#160;AMReX_TagBox.cpp']]],
+  ['on',['ON',['../_a_m_re_x___notation_8_h.html#ad76d1750a6cdeebd506bfcd6752554d2',1,'AMReX_Notation.H']]],
+  ['out',['OUT',['../_a_m_re_x___notation_8_h.html#aec78e7a9e90a406a56f859ee456e8eae',1,'AMReX_Notation.H']]],
+  ['outflow',['Outflow',['../_a_m_re_x___b_c___t_y_p_e_s_8_h.html#a074cf210a9dd1472db2a2811976abb88',1,'AMReX_BC_TYPES.H']]]
 ];
