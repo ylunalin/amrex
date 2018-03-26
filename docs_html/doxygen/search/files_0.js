@@ -402,8 +402,6 @@ var searchData=
   ['amrex_5frediststencil_2ecpp',['AMReX_RedistStencil.cpp',['../_a_m_re_x___redist_stencil_8cpp.html',1,'']]],
   ['amrex_5frediststencil_2eh',['AMReX_RedistStencil.H',['../_a_m_re_x___redist_stencil_8_h.html',1,'']]],
   ['amrex_5frefinementcriterion_2eh',['AMReX_RefinementCriterion.H',['../_a_m_re_x___refinement_criterion_8_h.html',1,'']]],
-  ['amrex_5fslabservice_2ecpp',['AMReX_SlabService.cpp',['../_a_m_re_x___slab_service_8cpp.html',1,'']]],
-  ['amrex_5fslabservice_2eh',['AMReX_SlabService.H',['../_a_m_re_x___slab_service_8_h.html',1,'']]],
   ['amrex_5fsmoothabsolutevalue_2ecpp',['AMReX_SmoothAbsoluteValue.cpp',['../_a_m_re_x___smooth_absolute_value_8cpp.html',1,'']]],
   ['amrex_5fsmoothabsolutevalue_2eh',['AMReX_SmoothAbsoluteValue.H',['../_a_m_re_x___smooth_absolute_value_8_h.html',1,'']]],
   ['amrex_5fsmoothintersection_2ecpp',['AMReX_SmoothIntersection.cpp',['../_a_m_re_x___smooth_intersection_8cpp.html',1,'']]],

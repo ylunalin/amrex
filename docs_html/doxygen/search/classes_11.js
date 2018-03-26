@@ -7,7 +7,6 @@ var searchData=
   ['shmem',['ShMem',['../structamrex_1_1_fab_array_1_1_sh_mem.html',1,'amrex::FabArray']]],
   ['side',['Side',['../classamrex_1_1_side.html',1,'amrex']]],
   ['sideiterator',['SideIterator',['../classamrex_1_1_side_iterator.html',1,'amrex']]],
-  ['slabservice',['SlabService',['../class_slab_service.html',1,'']]],
   ['smoothabsolutevalue',['SmoothAbsoluteValue',['../classamrex_1_1_smooth_absolute_value.html',1,'amrex']]],
   ['smoothintersection',['SmoothIntersection',['../classamrex_1_1_smooth_intersection.html',1,'amrex']]],
   ['smoothunion',['SmoothUnion',['../classamrex_1_1_smooth_union.html',1,'amrex']]],

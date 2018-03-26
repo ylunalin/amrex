@@ -63,7 +63,6 @@ var searchData=
   ['m_5fcomm_5fsub',['m_comm_sub',['../namespaceamrex_1_1_parallel_descriptor.html#a8ebc91c13e682b5697df9af50b352ec6',1,'amrex::ParallelDescriptor']]],
   ['m_5fconstraintssucceeded',['m_constraintsSucceeded',['../class_refinement_criterion.html#afb2ad6561c9139755ae88f34ea62d04d',1,'RefinementCriterion']]],
   ['m_5fcornersigns',['m_cornerSigns',['../class_i_f_data.html#af7536e73792dc2567596b6f84e1f7405',1,'IFData::m_cornerSigns()'],['../class_i_f_data_3_011_01_4.html#abb9b9dd4912723f8f1c830ce356c26be',1,'IFData&lt; 1 &gt;::m_cornerSigns()']]],
-  ['m_5fcoveredregion',['m_coveredRegion',['../class_slab_service.html#afca5fb50c37e032a9c616c9411894898',1,'SlabService']]],
   ['m_5fcpc_5fstats',['m_CPC_stats',['../classamrex_1_1_fab_array_base.html#a7300ef91cdc58de4230d68dee3691006',1,'amrex::FabArrayBase']]],
   ['m_5fcross',['m_cross',['../structamrex_1_1_fab_array_base_1_1_f_b.html#a5dabbd852ff0a3516c1d7b2b40496773',1,'amrex::FabArrayBase::FB']]],
   ['m_5fcrse_5fdata',['m_crse_data',['../classamrex_1_1_y_a_flux_register.html#ad10fb234e2fec5e6486d114884150a2b',1,'amrex::YAFluxRegister']]],
