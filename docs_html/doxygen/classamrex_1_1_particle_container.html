@@ -271,8 +271,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6e75b71866d56450d04a1c243d4c3cfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca1ee98a4dce5d7301527e13dbd35eeb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_particle_container.html#a9c8d796e15d37e7dad6efb3e9fdb4fca">ParticleTileType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_particle_container.html#aca1ee98a4dce5d7301527e13dbd35eeb">ParticlesAt</a> (int lev, int grid, int tile)</td></tr>
 <tr class="separator:aca1ee98a4dce5d7301527e13dbd35eeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b7f8d9faf8e7e7acf0cf0b0a2b2218e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_particle_container.html#a1b7f8d9faf8e7e7acf0cf0b0a2b2218e">AssignDensity</a> (int rho_index, bool sub_cycle, <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::unique_ptr&lt; <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &gt; &gt; &amp;mf, int lev_min=0, int <a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>=1, int finest_level=-1) const </td></tr>
-<tr class="separator:a1b7f8d9faf8e7e7acf0cf0b0a2b2218e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbb652c95113acc88c65d144d2f38dcb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_particle_container.html#adbb652c95113acc88c65d144d2f38dcb">AssignDensity</a> (int rho_index, bool sub_cycle, <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::unique_ptr&lt; <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &gt; &gt; &amp;mf, int lev_min=0, int <a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>=1, int finest_level=-1, int ngrow=1) const </td></tr>
+<tr class="separator:adbb652c95113acc88c65d144d2f38dcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adcd1ddba09d406f49028772992910fdb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_particle_container.html#adcd1ddba09d406f49028772992910fdb">AssignDensitySingleLevel</a> (int rho_index, <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;mf, int level, int <a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>=1, int particle_lvl_offset=0) const </td></tr>
 <tr class="separator:adcd1ddba09d406f49028772992910fdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abdac67029aa0b0314a88c1cd37dfde14"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_particle_container.html#abdac67029aa0b0314a88c1cd37dfde14">AssignDensityFort</a> (int rho_index, <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::unique_ptr&lt; <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &gt; &gt; &amp;mf_to_be_filled, int lev_min, int <a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>, int finest_level) const </td></tr>
@@ -799,7 +799,7 @@ template&lt;int NStructReal, int NStructInt, int NArrayReal, int NArrayInt&gt; <
 
 </div>
 </div>
-<a class="anchor" id="a1b7f8d9faf8e7e7acf0cf0b0a2b2218e"></a>
+<a class="anchor" id="adbb652c95113acc88c65d144d2f38dcb"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -839,7 +839,13 @@ template&lt;int NStructReal, int NStructInt, int NArrayReal, int NArrayInt&gt; <
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>finest_level</em> = <code>-1</code>&#160;</td>
+          <td class="paramname"><em>finest_level</em> = <code>-1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ngrow</em> = <code>1</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
