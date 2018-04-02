@@ -362,6 +362,8 @@ distributed to neighbor cells.</span></p>
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBIndexSpace</span></span></code>, which must be initialized at the start of the calculation.
 The procedure for this goes as follows:</p>
 <ul class="simple">
+<li>If one has an archived EBIndexSpace plt file, she can initialize the
+database by calling EBIndexSpace::read with the filename</li>
 <li>Define function of position which describes the surface and use it define a
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">GeometryShop</span></span></code>&nbsp;object – specifically, the scalar value returned by this
 function takes on a negative value inside the fluid, a positive value in the
@@ -371,11 +373,24 @@ will fill the underlying database of geometric information, specifically
 tailored to the actual meshes that will be used. Thus, the construction
 requires one to specify the actual mesh resolution that will be used in a
 calculation.</li>
+<li><dl class="first docutils">
+<dt>If one wants to archive the geometric data for later runs, she can</dt>
+<dd>call EBIndexSpace::write to put the data into a file.  One must be
+cautious, however, since these plot files are not binary portable.
+An EBIndexSpace plot file generated on one machine won’t
+necessarily work on another machine.</dd>
+</dl>
+</li>
 </ul>
-<p>To facilitate the first step, AMReX defines a virtual class, an “implicit
-function”, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BaseIF</span></span></code>, which encapsulates this functionality.  An instance
+<blockquote>
+<div><dl class="docutils">
+<dt>To facilitate the generation step,</dt>
+<dd>AMReX defines a virtual class, an “implicit function”,
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BaseIF</span></span></code>, which encapsulates this functionality.  An instance
 of a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BaseIF</span></span></code>&nbsp;object is required for the construction of a
-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">GeometryShop</span></span></code>&nbsp;object.</p>
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">GeometryShop</span></span></code>&nbsp;object.</dd>
+</dl>
+</div></blockquote>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">GeometryShop</span><span class="p">(</span><span class="k">const</span> <span class="n">BaseIF</span><span class="o">&amp;</span> <span class="n">a_localGeom</span><span class="p">)</span>
 </pre></div>
 </div>
