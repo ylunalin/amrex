@@ -18,7 +18,6 @@ var searchData=
   ['dim',['dim',['../structamrex_1_1__kdtree.html#a116ac2508333623c1677ccdc1045b05f',1,'amrex::_kdtree']]],
   ['dir',['dir',['../structamrex_1_1__kdnode.html#ae2d359bf47b828870a949b92e363e411',1,'amrex::_kdnode']]],
   ['dist_5fsq',['dist_sq',['../structamrex_1_1__resultnode.html#acceec026fa6a75407f295ebf5cb504b6',1,'amrex::_resultnode']]],
-  ['distmapindex',['distMapIndex',['../structamrex_1_1_fab_array_1_1_f_a_b_moves.html#a9b8653dc00050cf5f2db34ba4bdea7a2',1,'amrex::FabArray::FABMoves']]],
   ['distributionmap',['distributionMap',['../classamrex_1_1_fab_array_base.html#adcb92e864340876da67df2fc64d8bdd7',1,'amrex::FabArrayBase']]],
   ['dlen',['dlen',['../classamrex_1_1_base_fab.html#a5b93724d7041d0fe2a0fd3c86e4eff60',1,'amrex::BaseFab']]],
   ['dm_5fcfb',['dm_cfb',['../structamrex_1_1_fab_array_base_1_1_c_finfo.html#aeb127de6351fbe080c4d924c38e6a9db',1,'amrex::FabArrayBase::CFinfo']]],

@@ -87,7 +87,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
@@ -114,17 +113,6 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structamrex_1_1_parallel_descriptor_1_1_process_team.html">ProcessTeam</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provide functionalities needed to construct a team of processes to perform a particular job.  <a href="structamrex_1_1_parallel_descriptor_1_1_process_team.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A communicator can be split into multiple sub-communicators associated with different colors.  <a href="classamrex_1_1_parallel_descriptor_1_1_color.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:a75dafa480f05f1082c176b22d4190c8d"><td class="memItemLeft" align="right" valign="top">typedef std::list<br class="typebreak"/>
-&lt; <a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a5fc1ef4f93e6387abd88ae1099dfb8fe">ParallelDescriptor::PTR_TO_SIGNAL_HANDLER</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a75dafa480f05f1082c176b22d4190c8d">SH_LIST</a></td></tr>
-<tr class="separator:a75dafa480f05f1082c176b22d4190c8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5fc1ef4f93e6387abd88ae1099dfb8fe"><td class="memItemLeft" align="right" valign="top">typedef int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a5fc1ef4f93e6387abd88ae1099dfb8fe">PTR_TO_SIGNAL_HANDLER</a> )(int)</td></tr>
-<tr class="separator:a5fc1ef4f93e6387abd88ae1099dfb8fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -141,57 +129,26 @@ Functions</h2></td></tr>
 <tr class="memitem:adba9c2f37d79e96a2b69649d409b54bc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#adba9c2f37d79e96a2b69649d409b54bc">MPIOneSided</a> ()</td></tr>
 <tr class="memdesc:adba9c2f37d79e96a2b69649d409b54bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return true if MPI one sided is enabled.  <a href="#adba9c2f37d79e96a2b69649d409b54bc">More...</a><br/></td></tr>
 <tr class="separator:adba9c2f37d79e96a2b69649d409b54bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6061d095fdae6f12ffaa39177d39186"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#ab6061d095fdae6f12ffaa39177d39186">AddSignalHandler</a> (<a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a5fc1ef4f93e6387abd88ae1099dfb8fe">PTR_TO_SIGNAL_HANDLER</a>)</td></tr>
-<tr class="separator:ab6061d095fdae6f12ffaa39177d39186"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a990d0a17b08dcd68a0d77a7b35cfebaf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a990d0a17b08dcd68a0d77a7b35cfebaf">EndParallel</a> ()</td></tr>
 <tr class="memdesc:a990d0a17b08dcd68a0d77a7b35cfebaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform any needed parallel finalization. This MUST be the last routine in this class called from within a program.  <a href="#a990d0a17b08dcd68a0d77a7b35cfebaf">More...</a><br/></td></tr>
 <tr class="separator:a990d0a17b08dcd68a0d77a7b35cfebaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3deabb4447125ee364f9ca1c5a07c1e4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a3deabb4447125ee364f9ca1c5a07c1e4">MyProc</a> ()</td></tr>
-<tr class="memdesc:a3deabb4447125ee364f9ca1c5a07c1e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the rank number local to the comp or sidecar groups  <a href="#a3deabb4447125ee364f9ca1c5a07c1e4">More...</a><br/></td></tr>
+<tr class="memdesc:a3deabb4447125ee364f9ca1c5a07c1e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the rank number local to the current Parallel Context  <a href="#a3deabb4447125ee364f9ca1c5a07c1e4">More...</a><br/></td></tr>
 <tr class="separator:a3deabb4447125ee364f9ca1c5a07c1e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a743e39383c377873be7aaa10e00c42a8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a743e39383c377873be7aaa10e00c42a8">MyProc</a> (<a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a> comm)</td></tr>
 <tr class="separator:a743e39383c377873be7aaa10e00c42a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab0ac24ec3e05f5f8904050d0c35d196"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#aab0ac24ec3e05f5f8904050d0c35d196">MyProcAll</a> ()</td></tr>
-<tr class="memdesc:aab0ac24ec3e05f5f8904050d0c35d196"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the rank number for the global group  <a href="#aab0ac24ec3e05f5f8904050d0c35d196">More...</a><br/></td></tr>
-<tr class="separator:aab0ac24ec3e05f5f8904050d0c35d196"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ee54ce2e6eac4b3f3de155d3061bd80"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a3ee54ce2e6eac4b3f3de155d3061bd80">MyProcComp</a> ()</td></tr>
-<tr class="separator:a3ee54ce2e6eac4b3f3de155d3061bd80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41ec226ab15604bd3feca6da2acef9ff"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a41ec226ab15604bd3feca6da2acef9ff">MyProcSidecar</a> ()</td></tr>
-<tr class="separator:a41ec226ab15604bd3feca6da2acef9ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a116eeaf690e53b1aafb513b9927e244b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a116eeaf690e53b1aafb513b9927e244b">InSidecarGroup</a> ()</td></tr>
-<tr class="separator:a116eeaf690e53b1aafb513b9927e244b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22c499a39346c2d7fd3a394588198e3d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a22c499a39346c2d7fd3a394588198e3d">InWhichSidecar</a> ()</td></tr>
-<tr class="separator:a22c499a39346c2d7fd3a394588198e3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac99d25dd50a12e0aa74e941ece56a0ef"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#ac99d25dd50a12e0aa74e941ece56a0ef">InCompGroup</a> ()</td></tr>
-<tr class="separator:ac99d25dd50a12e0aa74e941ece56a0ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92e7adf81fe24f9c727cf5ef402cd7e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a92e7adf81fe24f9c727cf5ef402cd7e4">init_clr_vars</a> ()</td></tr>
-<tr class="separator:a92e7adf81fe24f9c727cf5ef402cd7e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7bbe20d54cde6b22cd7071603bf2874f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a7bbe20d54cde6b22cd7071603bf2874f">SetNProcsSidecars</a> (const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; int &gt; &amp;compRanksInAll, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; int &gt; &gt; &amp;sidecarRanksInAll, bool printRanks=false)</td></tr>
-<tr class="memdesc:a7bbe20d54cde6b22cd7071603bf2874f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This sets the number of MPI ranks in the sidecar and initializes nProcs, MyId, groups, and communicators for the comp and sidecar sets of ranks. The user will need to handle any consequences of changing the numbers of processors in each group (such as changing distribution maps and moving data in FabArrays).  <a href="#a7bbe20d54cde6b22cd7071603bf2874f">More...</a><br/></td></tr>
-<tr class="separator:a7bbe20d54cde6b22cd7071603bf2874f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a712e8455e468445f220e9053c0aa7433"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a712e8455e468445f220e9053c0aa7433">SetNProcsSidecars</a> (int nscp)</td></tr>
-<tr class="memdesc:a712e8455e468445f220e9053c0aa7433"><td class="mdescLeft">&#160;</td><td class="mdescRight">This version makes one sidecar (number zero in the sidecar array) Sidecar ranks are set to the high end of the range [0, m_nProcs_all)  <a href="#a712e8455e468445f220e9053c0aa7433">More...</a><br/></td></tr>
-<tr class="separator:a712e8455e468445f220e9053c0aa7433"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23f63fd8cf3344f8a49ba15b7f5b7268"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a23f63fd8cf3344f8a49ba15b7f5b7268">MinTag</a> ()</td></tr>
+<tr class="separator:a23f63fd8cf3344f8a49ba15b7f5b7268"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53116e3ea43d8b7b2e503e556be19013"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a53116e3ea43d8b7b2e503e556be19013">MaxTag</a> ()</td></tr>
 <tr class="separator:a53116e3ea43d8b7b2e503e556be19013"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0455b3ad4f2a4c13b57d33e4c6325dca"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a0455b3ad4f2a4c13b57d33e4c6325dca">NProcs</a> ()</td></tr>
-<tr class="memdesc:a0455b3ad4f2a4c13b57d33e4c6325dca"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the number of MPI ranks local to the comp or sidecar groups  <a href="#a0455b3ad4f2a4c13b57d33e4c6325dca">More...</a><br/></td></tr>
+<tr class="memdesc:a0455b3ad4f2a4c13b57d33e4c6325dca"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the number of MPI ranks local to the current Parallel Context  <a href="#a0455b3ad4f2a4c13b57d33e4c6325dca">More...</a><br/></td></tr>
 <tr class="separator:a0455b3ad4f2a4c13b57d33e4c6325dca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad751d0935684ea7b0740ab4134f17114"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#ad751d0935684ea7b0740ab4134f17114">NProcsAll</a> ()</td></tr>
-<tr class="separator:ad751d0935684ea7b0740ab4134f17114"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a667efb8038eaf951201cabc307d96a68"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a667efb8038eaf951201cabc307d96a68">NProcsComp</a> ()</td></tr>
-<tr class="separator:a667efb8038eaf951201cabc307d96a68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e78e3181c915579043fad67a811d172"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a0e78e3181c915579043fad67a811d172">NProcsSidecar</a> (int whichSidecar)</td></tr>
-<tr class="separator:a0e78e3181c915579043fad67a811d172"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8dc50c8a2f174d929b79a6250480dcb5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a8dc50c8a2f174d929b79a6250480dcb5">IOProcessorNumber</a> ()</td></tr>
 <tr class="separator:a8dc50c8a2f174d929b79a6250480dcb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad18ffaf39eeab8920abb52e1085adf3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#aad18ffaf39eeab8920abb52e1085adf3">IOProcessorNumberAll</a> ()</td></tr>
-<tr class="separator:aad18ffaf39eeab8920abb52e1085adf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30b2c3b76c069be9c22ea40b9b8c5d75"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a30b2c3b76c069be9c22ea40b9b8c5d75">IOProcessor</a> ()</td></tr>
 <tr class="memdesc:a30b2c3b76c069be9c22ea40b9b8c5d75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is this CPU the I/O Processor? To get the rank number, call <a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a8dc50c8a2f174d929b79a6250480dcb5">IOProcessorNumber()</a>  <a href="#a30b2c3b76c069be9c22ea40b9b8c5d75">More...</a><br/></td></tr>
 <tr class="separator:a30b2c3b76c069be9c22ea40b9b8c5d75"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ffe3af90ad4cc4898fb527e6d918324"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a4ffe3af90ad4cc4898fb527e6d918324">IOProcessorAll</a> ()</td></tr>
-<tr class="separator:a4ffe3af90ad4cc4898fb527e6d918324"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3853f9b7ee9719c0de679f068dd34c5e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a3853f9b7ee9719c0de679f068dd34c5e">TeamSize</a> ()</td></tr>
 <tr class="separator:a3853f9b7ee9719c0de679f068dd34c5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36abe6be2660465d0661ee1426c11a46"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a36abe6be2660465d0661ee1426c11a46">NTeams</a> ()</td></tr>
@@ -227,47 +184,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a1b1bd2a6da53acc442dac0945108b376"><td class="memTemplParams" colspan="2">template&lt;typename F &gt; </td></tr>
 <tr class="memitem:a1b1bd2a6da53acc442dac0945108b376"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a1b1bd2a6da53acc442dac0945108b376">team_for</a> (int begin, int end, int rit, int nworkers, const F &amp;f)</td></tr>
 <tr class="separator:a1b1bd2a6da53acc442dac0945108b376"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8cee07c047fe852344d44e41648fa55a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a8cee07c047fe852344d44e41648fa55a">operator==</a> (const <a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> &amp;lhs, const <a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> &amp;rhs)</td></tr>
-<tr class="separator:a8cee07c047fe852344d44e41648fa55a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab858dfd096f30683d4722643e2a32da3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#ab858dfd096f30683d4722643e2a32da3">operator!=</a> (const <a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> &amp;lhs, const <a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> &amp;rhs)</td></tr>
-<tr class="separator:ab858dfd096f30683d4722643e2a32da3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15a2714ca215f54c6e78852749301982"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a15a2714ca215f54c6e78852749301982">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> &amp;color)</td></tr>
-<tr class="separator:a15a2714ca215f54c6e78852749301982"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91b8ab21072fd5839690af5a72ce81f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a91b8ab21072fd5839690af5a72ce81f0">StartSubCommunicator</a> ()</td></tr>
-<tr class="separator:a91b8ab21072fd5839690af5a72ce81f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd6abcdc014aaaebb7d89f431e745e3b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#acd6abcdc014aaaebb7d89f431e745e3b">EndSubCommunicator</a> ()</td></tr>
-<tr class="separator:acd6abcdc014aaaebb7d89f431e745e3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adead000c5181a8d08b2031ccbf2198ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#adead000c5181a8d08b2031ccbf2198ea">Communicator</a> ()</td></tr>
 <tr class="memdesc:adead000c5181a8d08b2031ccbf2198ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the "local" communicator.  <a href="#adead000c5181a8d08b2031ccbf2198ea">More...</a><br/></td></tr>
 <tr class="separator:adead000c5181a8d08b2031ccbf2198ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30e78fcadfb8a91f21d3f11e747988ba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a30e78fcadfb8a91f21d3f11e747988ba">CommunicatorAll</a> ()</td></tr>
-<tr class="separator:a30e78fcadfb8a91f21d3f11e747988ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6db8df125fc9bf4b52a8068b3bec8863"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a6db8df125fc9bf4b52a8068b3bec8863">CommunicatorComp</a> ()</td></tr>
-<tr class="separator:a6db8df125fc9bf4b52a8068b3bec8863"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8df6aa84db6ca906ef2981223bee1a3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#ad8df6aa84db6ca906ef2981223bee1a3">CommunicatorSidecar</a> ()</td></tr>
-<tr class="separator:ad8df6aa84db6ca906ef2981223bee1a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2eaa9f24f630bd7e26ac11416d7cf6a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#ad2eaa9f24f630bd7e26ac11416d7cf6a">CommunicatorInter</a> (int whichSidecar)</td></tr>
-<tr class="separator:ad2eaa9f24f630bd7e26ac11416d7cf6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03244fe3037fd7fb9b49e750134abd80"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a03244fe3037fd7fb9b49e750134abd80">CommunicatorBoth</a> (int whichSidecar)</td></tr>
-<tr class="separator:a03244fe3037fd7fb9b49e750134abd80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00b102258f4f7f66b82d6f973744afe2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a00b102258f4f7f66b82d6f973744afe2">NColors</a> ()</td></tr>
-<tr class="separator:a00b102258f4f7f66b82d6f973744afe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69cc0320e2362c1b8952423c84ab238e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a69cc0320e2362c1b8952423c84ab238e">DefaultColor</a> ()</td></tr>
-<tr class="separator:a69cc0320e2362c1b8952423c84ab238e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84f1a2dca5e10521048c149382201746"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a84f1a2dca5e10521048c149382201746">SubCommColor</a> ()</td></tr>
-<tr class="separator:a84f1a2dca5e10521048c149382201746"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a967a8b951b0cbf77db3b91c3ac1ef08a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a967a8b951b0cbf77db3b91c3ac1ef08a">isActive</a> (<a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> color)</td></tr>
-<tr class="separator:a967a8b951b0cbf77db3b91c3ac1ef08a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67601495de4758dd1c1ce9f884fba950"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a67601495de4758dd1c1ce9f884fba950">MyProc</a> (<a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> color)</td></tr>
-<tr class="separator:a67601495de4758dd1c1ce9f884fba950"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d3cb201cfdd4fd6f76fe69f07787307"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a5d3cb201cfdd4fd6f76fe69f07787307">NProcs</a> (<a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> color)</td></tr>
-<tr class="separator:a5d3cb201cfdd4fd6f76fe69f07787307"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a415f11cffb19e3721c4e3f2e66b9e15b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a415f11cffb19e3721c4e3f2e66b9e15b">Communicator</a> (<a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> color)</td></tr>
-<tr class="separator:a415f11cffb19e3721c4e3f2e66b9e15b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa7aa0f5fce1d1f8cb9b8d7cc2df90499"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#aa7aa0f5fce1d1f8cb9b8d7cc2df90499">Translate</a> (int rk_clrd, <a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> clr)</td></tr>
-<tr class="separator:aa7aa0f5fce1d1f8cb9b8d7cc2df90499"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ab4825a64296d9b128ac01410629544"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a3ab4825a64296d9b128ac01410629544">IOProcessor</a> (<a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> color)</td></tr>
-<tr class="separator:a3ab4825a64296d9b128ac01410629544"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a732a4be5017987f2d6edc0fcd2329301"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a732a4be5017987f2d6edc0fcd2329301">Barrier</a> (const std::string &amp;message=<a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#ac6df74b4b37bb6ee58dffea68507d259">Unnamed</a>)</td></tr>
 <tr class="separator:a732a4be5017987f2d6edc0fcd2329301"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8ebad8ea16a50d70821ec935c70aea9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#aa8ebad8ea16a50d70821ec935c70aea9">Barrier</a> (const <a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a> &amp;comm, const std::string &amp;message=<a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#ac6df74b4b37bb6ee58dffea68507d259">Unnamed</a>)</td></tr>
@@ -285,25 +204,25 @@ Functions</h2></td></tr>
 <tr class="memitem:a8de3d39ba1b77f3fa21b0b0cbba9fc1b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a8de3d39ba1b77f3fa21b0b0cbba9fc1b">second</a> ()</td></tr>
 <tr class="memdesc:a8de3d39ba1b77f3fa21b0b0cbba9fc1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns wall-clock seconds since start of execution.  <a href="#a8de3d39ba1b77f3fa21b0b0cbba9fc1b">More...</a><br/></td></tr>
 <tr class="separator:a8de3d39ba1b77f3fa21b0b0cbba9fc1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7d66b631126150688136d558c148a57"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#ac7d66b631126150688136d558c148a57">ReduceBoolAnd</a> (bool &amp;rvar, <a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> color=<a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a69cc0320e2362c1b8952423c84ab238e">DefaultColor</a>())</td></tr>
-<tr class="memdesc:ac7d66b631126150688136d558c148a57"><td class="mdescLeft">&#160;</td><td class="mdescRight">And-wise boolean reduction.  <a href="#ac7d66b631126150688136d558c148a57">More...</a><br/></td></tr>
-<tr class="separator:ac7d66b631126150688136d558c148a57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85f79f28c8cb6cc5762e3edd80c57fc0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a85f79f28c8cb6cc5762e3edd80c57fc0">ReduceBoolAnd</a> (bool &amp;rvar)</td></tr>
+<tr class="memdesc:a85f79f28c8cb6cc5762e3edd80c57fc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">And-wise boolean reduction.  <a href="#a85f79f28c8cb6cc5762e3edd80c57fc0">More...</a><br/></td></tr>
+<tr class="separator:a85f79f28c8cb6cc5762e3edd80c57fc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45569b295bf42f447fac8a9610790ff0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a45569b295bf42f447fac8a9610790ff0">ReduceBoolAnd</a> (bool &amp;rvar, int cpu)</td></tr>
 <tr class="memdesc:a45569b295bf42f447fac8a9610790ff0"><td class="mdescLeft">&#160;</td><td class="mdescRight">And-wise boolean reduction to specified cpu.  <a href="#a45569b295bf42f447fac8a9610790ff0">More...</a><br/></td></tr>
 <tr class="separator:a45569b295bf42f447fac8a9610790ff0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ada15ed1a25589f03f5754deb3695d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a1ada15ed1a25589f03f5754deb3695d1">ReduceBoolOr</a> (bool &amp;rvar, <a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> color=<a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a69cc0320e2362c1b8952423c84ab238e">DefaultColor</a>())</td></tr>
-<tr class="memdesc:a1ada15ed1a25589f03f5754deb3695d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Or-wise boolean reduction.  <a href="#a1ada15ed1a25589f03f5754deb3695d1">More...</a><br/></td></tr>
-<tr class="separator:a1ada15ed1a25589f03f5754deb3695d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e74f51d2321b7e827baae5d86a83824"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a8e74f51d2321b7e827baae5d86a83824">ReduceBoolOr</a> (bool &amp;rvar)</td></tr>
+<tr class="memdesc:a8e74f51d2321b7e827baae5d86a83824"><td class="mdescLeft">&#160;</td><td class="mdescRight">Or-wise boolean reduction.  <a href="#a8e74f51d2321b7e827baae5d86a83824">More...</a><br/></td></tr>
+<tr class="separator:a8e74f51d2321b7e827baae5d86a83824"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45ff8728249b5e214f520e284c04143b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a45ff8728249b5e214f520e284c04143b">ReduceBoolOr</a> (bool &amp;rvar, int cpu)</td></tr>
 <tr class="memdesc:a45ff8728249b5e214f520e284c04143b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Or-wise boolean reduction to specified cpu.  <a href="#a45ff8728249b5e214f520e284c04143b">More...</a><br/></td></tr>
 <tr class="separator:a45ff8728249b5e214f520e284c04143b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4a872be07945a94ac1c524c22c8f555"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#aa4a872be07945a94ac1c524c22c8f555">ReduceRealSum</a> (Real &amp;rvar, <a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> color=<a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a69cc0320e2362c1b8952423c84ab238e">DefaultColor</a>())</td></tr>
-<tr class="memdesc:aa4a872be07945a94ac1c524c22c8f555"><td class="mdescLeft">&#160;</td><td class="mdescRight">Real sum reduction.  <a href="#aa4a872be07945a94ac1c524c22c8f555">More...</a><br/></td></tr>
-<tr class="separator:aa4a872be07945a94ac1c524c22c8f555"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39e2bb6308d8bcfec0576bfdb8da64ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a39e2bb6308d8bcfec0576bfdb8da64ac">ReduceRealSum</a> (Real *rvar, int cnt, <a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> color=<a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a69cc0320e2362c1b8952423c84ab238e">DefaultColor</a>())</td></tr>
-<tr class="separator:a39e2bb6308d8bcfec0576bfdb8da64ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad269a4602f7ecd304b9afcdf5effe38f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#ad269a4602f7ecd304b9afcdf5effe38f">ReduceRealSum</a> (<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::reference_wrapper&lt; Real &gt; &gt; &amp;&amp;rvar, <a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> color=<a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a69cc0320e2362c1b8952423c84ab238e">DefaultColor</a>())</td></tr>
-<tr class="separator:ad269a4602f7ecd304b9afcdf5effe38f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33cc0d4af07237333e42214807d82e99"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a33cc0d4af07237333e42214807d82e99">ReduceRealSum</a> (Real &amp;rvar)</td></tr>
+<tr class="memdesc:a33cc0d4af07237333e42214807d82e99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Real sum reduction.  <a href="#a33cc0d4af07237333e42214807d82e99">More...</a><br/></td></tr>
+<tr class="separator:a33cc0d4af07237333e42214807d82e99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0329bc7c7dac44f28e589da8b51f90f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a0329bc7c7dac44f28e589da8b51f90f4">ReduceRealSum</a> (Real *rvar, int cnt)</td></tr>
+<tr class="separator:a0329bc7c7dac44f28e589da8b51f90f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e6864b6b7866ce41c7d41cfd961568c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a2e6864b6b7866ce41c7d41cfd961568c">ReduceRealSum</a> (<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::reference_wrapper&lt; Real &gt; &gt; &amp;&amp;rvar)</td></tr>
+<tr class="separator:a2e6864b6b7866ce41c7d41cfd961568c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf63edc9b791634aaee01966a9f20ab6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#acf63edc9b791634aaee01966a9f20ab6">ReduceRealSum</a> (Real &amp;rvar, int cpu)</td></tr>
 <tr class="memdesc:acf63edc9b791634aaee01966a9f20ab6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Real sum reduction to specified cpu.  <a href="#acf63edc9b791634aaee01966a9f20ab6">More...</a><br/></td></tr>
 <tr class="separator:acf63edc9b791634aaee01966a9f20ab6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -311,13 +230,13 @@ Functions</h2></td></tr>
 <tr class="separator:a5ff49950b9307555c1e2bf5bee451642"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b9f9c5bc4f384ba939f0aaeab8d05bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a0b9f9c5bc4f384ba939f0aaeab8d05bd">ReduceRealSum</a> (<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::reference_wrapper&lt; Real &gt; &gt; &amp;&amp;rvar, int cpu)</td></tr>
 <tr class="separator:a0b9f9c5bc4f384ba939f0aaeab8d05bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f8d144d1b4b6f216e842c2a93e5c455"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a3f8d144d1b4b6f216e842c2a93e5c455">ReduceRealMax</a> (Real &amp;rvar, <a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> color=<a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a69cc0320e2362c1b8952423c84ab238e">DefaultColor</a>())</td></tr>
-<tr class="memdesc:a3f8d144d1b4b6f216e842c2a93e5c455"><td class="mdescLeft">&#160;</td><td class="mdescRight">Real max reduction.  <a href="#a3f8d144d1b4b6f216e842c2a93e5c455">More...</a><br/></td></tr>
-<tr class="separator:a3f8d144d1b4b6f216e842c2a93e5c455"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e801944d04fd7bc306d8afae36209fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a1e801944d04fd7bc306d8afae36209fd">ReduceRealMax</a> (Real *rvar, int cnt, <a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> color=<a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a69cc0320e2362c1b8952423c84ab238e">DefaultColor</a>())</td></tr>
-<tr class="separator:a1e801944d04fd7bc306d8afae36209fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a564d019b5b1e51ae7651f64448732bc0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a564d019b5b1e51ae7651f64448732bc0">ReduceRealMax</a> (<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::reference_wrapper&lt; Real &gt; &gt; &amp;&amp;rvar, <a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> color=<a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a69cc0320e2362c1b8952423c84ab238e">DefaultColor</a>())</td></tr>
-<tr class="separator:a564d019b5b1e51ae7651f64448732bc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a552f084c17efd580d0962eb68e6b43ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a552f084c17efd580d0962eb68e6b43ee">ReduceRealMax</a> (Real &amp;rvar)</td></tr>
+<tr class="memdesc:a552f084c17efd580d0962eb68e6b43ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Real max reduction.  <a href="#a552f084c17efd580d0962eb68e6b43ee">More...</a><br/></td></tr>
+<tr class="separator:a552f084c17efd580d0962eb68e6b43ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0fb71557913b8db39b4b44be0247225"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#af0fb71557913b8db39b4b44be0247225">ReduceRealMax</a> (Real *rvar, int cnt)</td></tr>
+<tr class="separator:af0fb71557913b8db39b4b44be0247225"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64dba21e51015abe9de8ac24fab4811b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a64dba21e51015abe9de8ac24fab4811b">ReduceRealMax</a> (<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::reference_wrapper&lt; Real &gt; &gt; &amp;&amp;rvar)</td></tr>
+<tr class="separator:a64dba21e51015abe9de8ac24fab4811b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32b30a9856cf8d162b9a023fcb981e46"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a32b30a9856cf8d162b9a023fcb981e46">ReduceRealMax</a> (Real &amp;rvar, int cpu)</td></tr>
 <tr class="memdesc:a32b30a9856cf8d162b9a023fcb981e46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Real max reduction to specified cpu.  <a href="#a32b30a9856cf8d162b9a023fcb981e46">More...</a><br/></td></tr>
 <tr class="separator:a32b30a9856cf8d162b9a023fcb981e46"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -325,13 +244,13 @@ Functions</h2></td></tr>
 <tr class="separator:a9cbf72964e4a7c67b590931a5fce45dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae433399fc2930cc766ff6a1f7a2e34f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#ae433399fc2930cc766ff6a1f7a2e34f0">ReduceRealMax</a> (<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::reference_wrapper&lt; Real &gt; &gt; &amp;&amp;rvar, int cpu)</td></tr>
 <tr class="separator:ae433399fc2930cc766ff6a1f7a2e34f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4daab9d5a42dbdc32c65207b4ede3634"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a4daab9d5a42dbdc32c65207b4ede3634">ReduceRealMin</a> (Real &amp;rvar, <a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> color=<a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a69cc0320e2362c1b8952423c84ab238e">DefaultColor</a>())</td></tr>
-<tr class="memdesc:a4daab9d5a42dbdc32c65207b4ede3634"><td class="mdescLeft">&#160;</td><td class="mdescRight">Real min reduction.  <a href="#a4daab9d5a42dbdc32c65207b4ede3634">More...</a><br/></td></tr>
-<tr class="separator:a4daab9d5a42dbdc32c65207b4ede3634"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f9f0e0a5dd2ba8b38dfedd08d2e822a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a3f9f0e0a5dd2ba8b38dfedd08d2e822a">ReduceRealMin</a> (Real *rvar, int cnt, <a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> color=<a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a69cc0320e2362c1b8952423c84ab238e">DefaultColor</a>())</td></tr>
-<tr class="separator:a3f9f0e0a5dd2ba8b38dfedd08d2e822a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28136b57bf989c72f6dd29e2b7c95eee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a28136b57bf989c72f6dd29e2b7c95eee">ReduceRealMin</a> (<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::reference_wrapper&lt; Real &gt; &gt; &amp;&amp;rvar, <a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> color=<a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a69cc0320e2362c1b8952423c84ab238e">DefaultColor</a>())</td></tr>
-<tr class="separator:a28136b57bf989c72f6dd29e2b7c95eee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46fe886b901e6fe6a49295e8bd6b2ace"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a46fe886b901e6fe6a49295e8bd6b2ace">ReduceRealMin</a> (Real &amp;rvar)</td></tr>
+<tr class="memdesc:a46fe886b901e6fe6a49295e8bd6b2ace"><td class="mdescLeft">&#160;</td><td class="mdescRight">Real min reduction.  <a href="#a46fe886b901e6fe6a49295e8bd6b2ace">More...</a><br/></td></tr>
+<tr class="separator:a46fe886b901e6fe6a49295e8bd6b2ace"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9afc75968888ce93106cce1beeeb2e9f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a9afc75968888ce93106cce1beeeb2e9f">ReduceRealMin</a> (Real *rvar, int cnt)</td></tr>
+<tr class="separator:a9afc75968888ce93106cce1beeeb2e9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80163550f36a94b2a3426c4da40d1087"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a80163550f36a94b2a3426c4da40d1087">ReduceRealMin</a> (<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::reference_wrapper&lt; Real &gt; &gt; &amp;&amp;rvar)</td></tr>
+<tr class="separator:a80163550f36a94b2a3426c4da40d1087"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7ff760f79048d84641347cf9d05c850"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#ab7ff760f79048d84641347cf9d05c850">ReduceRealMin</a> (Real &amp;rvar, int cpu)</td></tr>
 <tr class="memdesc:ab7ff760f79048d84641347cf9d05c850"><td class="mdescLeft">&#160;</td><td class="mdescRight">Real min reduction to specified cpu.  <a href="#ab7ff760f79048d84641347cf9d05c850">More...</a><br/></td></tr>
 <tr class="separator:ab7ff760f79048d84641347cf9d05c850"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -339,13 +258,13 @@ Functions</h2></td></tr>
 <tr class="separator:a2e679e4ae8ac6ba49e52b3b8f19032a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acaab6be7bc06bae9160aa0050a82c719"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#acaab6be7bc06bae9160aa0050a82c719">ReduceRealMin</a> (<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::reference_wrapper&lt; Real &gt; &gt; &amp;&amp;rvar, int cpu)</td></tr>
 <tr class="separator:acaab6be7bc06bae9160aa0050a82c719"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0c99293a06b6831edffbbdf0127e2aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#ae0c99293a06b6831edffbbdf0127e2aa">ReduceIntSum</a> (int &amp;rvar, <a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> color=<a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a69cc0320e2362c1b8952423c84ab238e">DefaultColor</a>())</td></tr>
-<tr class="memdesc:ae0c99293a06b6831edffbbdf0127e2aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integer sum reduction.  <a href="#ae0c99293a06b6831edffbbdf0127e2aa">More...</a><br/></td></tr>
-<tr class="separator:ae0c99293a06b6831edffbbdf0127e2aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d744f55066d2dde89c8a0c2994ead87"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a8d744f55066d2dde89c8a0c2994ead87">ReduceIntSum</a> (int *rvar, int cnt, <a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> color=<a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a69cc0320e2362c1b8952423c84ab238e">DefaultColor</a>())</td></tr>
-<tr class="separator:a8d744f55066d2dde89c8a0c2994ead87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2833c445f7fce24f12ba55ddd43bb2e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#ae2833c445f7fce24f12ba55ddd43bb2e">ReduceIntSum</a> (<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::reference_wrapper&lt; int &gt; &gt; &amp;&amp;rvar, <a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> color=<a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a69cc0320e2362c1b8952423c84ab238e">DefaultColor</a>())</td></tr>
-<tr class="separator:ae2833c445f7fce24f12ba55ddd43bb2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a132abb9498b1ed2f491583c1f7719afb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a132abb9498b1ed2f491583c1f7719afb">ReduceIntSum</a> (int &amp;rvar)</td></tr>
+<tr class="memdesc:a132abb9498b1ed2f491583c1f7719afb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integer sum reduction.  <a href="#a132abb9498b1ed2f491583c1f7719afb">More...</a><br/></td></tr>
+<tr class="separator:a132abb9498b1ed2f491583c1f7719afb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f59b78ddec4caf56f47c2c4aea3b569"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a0f59b78ddec4caf56f47c2c4aea3b569">ReduceIntSum</a> (int *rvar, int cnt)</td></tr>
+<tr class="separator:a0f59b78ddec4caf56f47c2c4aea3b569"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dc8802a3fdec1698a17fb68be93401b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a5dc8802a3fdec1698a17fb68be93401b">ReduceIntSum</a> (<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::reference_wrapper&lt; int &gt; &gt; &amp;&amp;rvar)</td></tr>
+<tr class="separator:a5dc8802a3fdec1698a17fb68be93401b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afbd2261dcc7ea1687666a76188724baa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#afbd2261dcc7ea1687666a76188724baa">ReduceIntSum</a> (int &amp;rvar, int cpu)</td></tr>
 <tr class="memdesc:afbd2261dcc7ea1687666a76188724baa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integer sum reduction to specified cpu.  <a href="#afbd2261dcc7ea1687666a76188724baa">More...</a><br/></td></tr>
 <tr class="separator:afbd2261dcc7ea1687666a76188724baa"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -353,13 +272,13 @@ Functions</h2></td></tr>
 <tr class="separator:a9073a119dcda583906de8999b27a65f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ad18f3047a8d8412332fabd03ffdf5d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a8ad18f3047a8d8412332fabd03ffdf5d">ReduceIntSum</a> (<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::reference_wrapper&lt; int &gt; &gt; &amp;&amp;rvar, int cpu)</td></tr>
 <tr class="separator:a8ad18f3047a8d8412332fabd03ffdf5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d9f08891a4dea254c080ca0d3b454cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a6d9f08891a4dea254c080ca0d3b454cf">ReduceIntMax</a> (int &amp;rvar, <a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> color=<a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a69cc0320e2362c1b8952423c84ab238e">DefaultColor</a>())</td></tr>
-<tr class="memdesc:a6d9f08891a4dea254c080ca0d3b454cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integer max reduction.  <a href="#a6d9f08891a4dea254c080ca0d3b454cf">More...</a><br/></td></tr>
-<tr class="separator:a6d9f08891a4dea254c080ca0d3b454cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade9c130f2843147fec3d11846cc3b518"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#ade9c130f2843147fec3d11846cc3b518">ReduceIntMax</a> (int *rvar, int cnt, <a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> color=<a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a69cc0320e2362c1b8952423c84ab238e">DefaultColor</a>())</td></tr>
-<tr class="separator:ade9c130f2843147fec3d11846cc3b518"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9a8df37b89e0296610626a04eab20eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#af9a8df37b89e0296610626a04eab20eb">ReduceIntMax</a> (<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::reference_wrapper&lt; int &gt; &gt; &amp;&amp;rvar, <a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> color=<a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a69cc0320e2362c1b8952423c84ab238e">DefaultColor</a>())</td></tr>
-<tr class="separator:af9a8df37b89e0296610626a04eab20eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a709e52679c5ca426b23c887ffe1b4ab9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a709e52679c5ca426b23c887ffe1b4ab9">ReduceIntMax</a> (int &amp;rvar)</td></tr>
+<tr class="memdesc:a709e52679c5ca426b23c887ffe1b4ab9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integer max reduction.  <a href="#a709e52679c5ca426b23c887ffe1b4ab9">More...</a><br/></td></tr>
+<tr class="separator:a709e52679c5ca426b23c887ffe1b4ab9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a557f937eb9820b18b2827d388703087d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a557f937eb9820b18b2827d388703087d">ReduceIntMax</a> (int *rvar, int cnt)</td></tr>
+<tr class="separator:a557f937eb9820b18b2827d388703087d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14a30ebffe4778a95598aa2b0ed7cc2f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a14a30ebffe4778a95598aa2b0ed7cc2f">ReduceIntMax</a> (<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::reference_wrapper&lt; int &gt; &gt; &amp;&amp;rvar)</td></tr>
+<tr class="separator:a14a30ebffe4778a95598aa2b0ed7cc2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24bb8ef806f88e3157be27c793ffb345"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a24bb8ef806f88e3157be27c793ffb345">ReduceIntMax</a> (int &amp;rvar, int cpu)</td></tr>
 <tr class="memdesc:a24bb8ef806f88e3157be27c793ffb345"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integer max reduction to specified cpu.  <a href="#a24bb8ef806f88e3157be27c793ffb345">More...</a><br/></td></tr>
 <tr class="separator:a24bb8ef806f88e3157be27c793ffb345"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -367,13 +286,13 @@ Functions</h2></td></tr>
 <tr class="separator:af8c25e84b0f1d3d95d4feae13a792367"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46ff5f6e7d21e67ec83811ef78127af9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a46ff5f6e7d21e67ec83811ef78127af9">ReduceIntMax</a> (<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::reference_wrapper&lt; int &gt; &gt; &amp;&amp;rvar, int cpu)</td></tr>
 <tr class="separator:a46ff5f6e7d21e67ec83811ef78127af9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a585ff743f6a248aa1b77c20f11706c72"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a585ff743f6a248aa1b77c20f11706c72">ReduceIntMin</a> (int &amp;rvar, <a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> color=<a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a69cc0320e2362c1b8952423c84ab238e">DefaultColor</a>())</td></tr>
-<tr class="memdesc:a585ff743f6a248aa1b77c20f11706c72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integer min reduction.  <a href="#a585ff743f6a248aa1b77c20f11706c72">More...</a><br/></td></tr>
-<tr class="separator:a585ff743f6a248aa1b77c20f11706c72"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9aa216f542bfaeb8bcdfa06a3a0fa466"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a9aa216f542bfaeb8bcdfa06a3a0fa466">ReduceIntMin</a> (int *rvar, int cnt, <a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> color=<a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a69cc0320e2362c1b8952423c84ab238e">DefaultColor</a>())</td></tr>
-<tr class="separator:a9aa216f542bfaeb8bcdfa06a3a0fa466"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa7057c6bf09d21b15b81e1ada02a9cd5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#aa7057c6bf09d21b15b81e1ada02a9cd5">ReduceIntMin</a> (<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::reference_wrapper&lt; int &gt; &gt; &amp;&amp;rvar, <a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> color=<a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a69cc0320e2362c1b8952423c84ab238e">DefaultColor</a>())</td></tr>
-<tr class="separator:aa7057c6bf09d21b15b81e1ada02a9cd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff32fd8c6e4cd30f666fab624fc4ee86"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#aff32fd8c6e4cd30f666fab624fc4ee86">ReduceIntMin</a> (int &amp;rvar)</td></tr>
+<tr class="memdesc:aff32fd8c6e4cd30f666fab624fc4ee86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integer min reduction.  <a href="#aff32fd8c6e4cd30f666fab624fc4ee86">More...</a><br/></td></tr>
+<tr class="separator:aff32fd8c6e4cd30f666fab624fc4ee86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a870c570152d24fe9ba6e41a8bf4793c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a870c570152d24fe9ba6e41a8bf4793c2">ReduceIntMin</a> (int *rvar, int cnt)</td></tr>
+<tr class="separator:a870c570152d24fe9ba6e41a8bf4793c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a223e887828c94c995035d5753aad6734"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a223e887828c94c995035d5753aad6734">ReduceIntMin</a> (<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::reference_wrapper&lt; int &gt; &gt; &amp;&amp;rvar)</td></tr>
+<tr class="separator:a223e887828c94c995035d5753aad6734"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c531d59e55cd4b449b7b1918a6c0980"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a8c531d59e55cd4b449b7b1918a6c0980">ReduceIntMin</a> (int &amp;rvar, int cpu)</td></tr>
 <tr class="memdesc:a8c531d59e55cd4b449b7b1918a6c0980"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integer min reduction to specified cpu.  <a href="#a8c531d59e55cd4b449b7b1918a6c0980">More...</a><br/></td></tr>
 <tr class="separator:a8c531d59e55cd4b449b7b1918a6c0980"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -381,13 +300,13 @@ Functions</h2></td></tr>
 <tr class="separator:ae9af28284188a189e2cca8e4f3c55364"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2e2eeaa4da6bb9b3db4d9b849421ae0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#aa2e2eeaa4da6bb9b3db4d9b849421ae0">ReduceIntMin</a> (<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::reference_wrapper&lt; int &gt; &gt; &amp;&amp;rvar, int cpu)</td></tr>
 <tr class="separator:aa2e2eeaa4da6bb9b3db4d9b849421ae0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9838bafce100a4e811586e648c060ebc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a9838bafce100a4e811586e648c060ebc">ReduceLongSum</a> (long &amp;rvar, <a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> color=<a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a69cc0320e2362c1b8952423c84ab238e">DefaultColor</a>())</td></tr>
-<tr class="memdesc:a9838bafce100a4e811586e648c060ebc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Long sum reduction.  <a href="#a9838bafce100a4e811586e648c060ebc">More...</a><br/></td></tr>
-<tr class="separator:a9838bafce100a4e811586e648c060ebc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2c41e5efc6f3ae0039ce0844f11d7ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#ae2c41e5efc6f3ae0039ce0844f11d7ea">ReduceLongSum</a> (long *rvar, int cnt, <a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> color=<a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a69cc0320e2362c1b8952423c84ab238e">DefaultColor</a>())</td></tr>
-<tr class="separator:ae2c41e5efc6f3ae0039ce0844f11d7ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f05d1bf096ed9b443e7517551cd721f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a9f05d1bf096ed9b443e7517551cd721f">ReduceLongSum</a> (<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::reference_wrapper&lt; long &gt; &gt; &amp;&amp;rvar, <a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> color=<a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a69cc0320e2362c1b8952423c84ab238e">DefaultColor</a>())</td></tr>
-<tr class="separator:a9f05d1bf096ed9b443e7517551cd721f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2638b2cea26b2c9b4d9d1062b3d1fa2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#ae2638b2cea26b2c9b4d9d1062b3d1fa2">ReduceLongSum</a> (long &amp;rvar)</td></tr>
+<tr class="memdesc:ae2638b2cea26b2c9b4d9d1062b3d1fa2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Long sum reduction.  <a href="#ae2638b2cea26b2c9b4d9d1062b3d1fa2">More...</a><br/></td></tr>
+<tr class="separator:ae2638b2cea26b2c9b4d9d1062b3d1fa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac01d3bd93daa16d886ef23eb2ac3f90c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#ac01d3bd93daa16d886ef23eb2ac3f90c">ReduceLongSum</a> (long *rvar, int cnt)</td></tr>
+<tr class="separator:ac01d3bd93daa16d886ef23eb2ac3f90c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76fd8a05815e4a0510d23ffd919a7588"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a76fd8a05815e4a0510d23ffd919a7588">ReduceLongSum</a> (<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::reference_wrapper&lt; long &gt; &gt; &amp;&amp;rvar)</td></tr>
+<tr class="separator:a76fd8a05815e4a0510d23ffd919a7588"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0fc115a9576fd5ea99df60dc609bb8d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a0fc115a9576fd5ea99df60dc609bb8d5">ReduceLongSum</a> (long &amp;rvar, int cpu)</td></tr>
 <tr class="memdesc:a0fc115a9576fd5ea99df60dc609bb8d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Long sum reduction to specified cpu.  <a href="#a0fc115a9576fd5ea99df60dc609bb8d5">More...</a><br/></td></tr>
 <tr class="separator:a0fc115a9576fd5ea99df60dc609bb8d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -395,13 +314,13 @@ Functions</h2></td></tr>
 <tr class="separator:aa4ac238ce462219c58309e11cf030210"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e7e88a823c9006cf1cf97a3df37c84a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a6e7e88a823c9006cf1cf97a3df37c84a">ReduceLongSum</a> (<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::reference_wrapper&lt; long &gt; &gt; &amp;&amp;rvar, int cpu)</td></tr>
 <tr class="separator:a6e7e88a823c9006cf1cf97a3df37c84a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab3ce730800bfc30335c1172ddff6b9b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#ab3ce730800bfc30335c1172ddff6b9b4">ReduceLongMax</a> (long &amp;rvar, <a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> color=<a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a69cc0320e2362c1b8952423c84ab238e">DefaultColor</a>())</td></tr>
-<tr class="memdesc:ab3ce730800bfc30335c1172ddff6b9b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Long max reduction.  <a href="#ab3ce730800bfc30335c1172ddff6b9b4">More...</a><br/></td></tr>
-<tr class="separator:ab3ce730800bfc30335c1172ddff6b9b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97b8bfe77f780752c849d4a2bef91013"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a97b8bfe77f780752c849d4a2bef91013">ReduceLongMax</a> (long *rvar, int cnt, <a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> color=<a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a69cc0320e2362c1b8952423c84ab238e">DefaultColor</a>())</td></tr>
-<tr class="separator:a97b8bfe77f780752c849d4a2bef91013"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0270e79a4d426285461a2ec5f28169d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a0270e79a4d426285461a2ec5f28169d6">ReduceLongMax</a> (<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::reference_wrapper&lt; long &gt; &gt; &amp;&amp;rvar, <a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> color=<a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a69cc0320e2362c1b8952423c84ab238e">DefaultColor</a>())</td></tr>
-<tr class="separator:a0270e79a4d426285461a2ec5f28169d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16a7f03bfb684be8d5ce15b1a526ecda"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a16a7f03bfb684be8d5ce15b1a526ecda">ReduceLongMax</a> (long &amp;rvar)</td></tr>
+<tr class="memdesc:a16a7f03bfb684be8d5ce15b1a526ecda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Long max reduction.  <a href="#a16a7f03bfb684be8d5ce15b1a526ecda">More...</a><br/></td></tr>
+<tr class="separator:a16a7f03bfb684be8d5ce15b1a526ecda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7c2bae54b0d885071e9d1ff5077ac69"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#ad7c2bae54b0d885071e9d1ff5077ac69">ReduceLongMax</a> (long *rvar, int cnt)</td></tr>
+<tr class="separator:ad7c2bae54b0d885071e9d1ff5077ac69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27a2a9535e744f73fbe4dcecb18e9a4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a27a2a9535e744f73fbe4dcecb18e9a4c">ReduceLongMax</a> (<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::reference_wrapper&lt; long &gt; &gt; &amp;&amp;rvar)</td></tr>
+<tr class="separator:a27a2a9535e744f73fbe4dcecb18e9a4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f9d3f4488404f6177c46a7c18feb0ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a8f9d3f4488404f6177c46a7c18feb0ee">ReduceLongMax</a> (long &amp;rvar, int cpu)</td></tr>
 <tr class="memdesc:a8f9d3f4488404f6177c46a7c18feb0ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Long max reduction to specified cpu.  <a href="#a8f9d3f4488404f6177c46a7c18feb0ee">More...</a><br/></td></tr>
 <tr class="separator:a8f9d3f4488404f6177c46a7c18feb0ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -409,13 +328,13 @@ Functions</h2></td></tr>
 <tr class="separator:abf01ed676eeda7c74d69c0a19b1755b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aecc845a880b591c7744906a5b1726707"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#aecc845a880b591c7744906a5b1726707">ReduceLongMax</a> (<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::reference_wrapper&lt; long &gt; &gt; &amp;&amp;rvar, int cpu)</td></tr>
 <tr class="separator:aecc845a880b591c7744906a5b1726707"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb1625bdc20d8670dbd2c522d2638157"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#abb1625bdc20d8670dbd2c522d2638157">ReduceLongMin</a> (long &amp;rvar, <a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> color=<a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a69cc0320e2362c1b8952423c84ab238e">DefaultColor</a>())</td></tr>
-<tr class="memdesc:abb1625bdc20d8670dbd2c522d2638157"><td class="mdescLeft">&#160;</td><td class="mdescRight">Long min reduction.  <a href="#abb1625bdc20d8670dbd2c522d2638157">More...</a><br/></td></tr>
-<tr class="separator:abb1625bdc20d8670dbd2c522d2638157"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16deeb922ca20aad85b6c92ac5e72997"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a16deeb922ca20aad85b6c92ac5e72997">ReduceLongMin</a> (long *rvar, int cnt, <a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> color=<a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a69cc0320e2362c1b8952423c84ab238e">DefaultColor</a>())</td></tr>
-<tr class="separator:a16deeb922ca20aad85b6c92ac5e72997"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adcb8c87abfcb8121d951db518ab43cef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#adcb8c87abfcb8121d951db518ab43cef">ReduceLongMin</a> (<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::reference_wrapper&lt; long &gt; &gt; &amp;&amp;rvar, <a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> color=<a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a69cc0320e2362c1b8952423c84ab238e">DefaultColor</a>())</td></tr>
-<tr class="separator:adcb8c87abfcb8121d951db518ab43cef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bd0fa25fecbf8707e334186bbdfe8b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a4bd0fa25fecbf8707e334186bbdfe8b0">ReduceLongMin</a> (long &amp;rvar)</td></tr>
+<tr class="memdesc:a4bd0fa25fecbf8707e334186bbdfe8b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Long min reduction.  <a href="#a4bd0fa25fecbf8707e334186bbdfe8b0">More...</a><br/></td></tr>
+<tr class="separator:a4bd0fa25fecbf8707e334186bbdfe8b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c28fc1b6a076433f74ac4152c0ad870"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a5c28fc1b6a076433f74ac4152c0ad870">ReduceLongMin</a> (long *rvar, int cnt)</td></tr>
+<tr class="separator:a5c28fc1b6a076433f74ac4152c0ad870"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acddcce61786fdb0147699380b2fd5ba9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#acddcce61786fdb0147699380b2fd5ba9">ReduceLongMin</a> (<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::reference_wrapper&lt; long &gt; &gt; &amp;&amp;rvar)</td></tr>
+<tr class="separator:acddcce61786fdb0147699380b2fd5ba9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad863340136b375b62c03912e70cbbef5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#ad863340136b375b62c03912e70cbbef5">ReduceLongMin</a> (long &amp;rvar, int cpu)</td></tr>
 <tr class="memdesc:ad863340136b375b62c03912e70cbbef5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Long min reduction to specified cpu.  <a href="#ad863340136b375b62c03912e70cbbef5">More...</a><br/></td></tr>
 <tr class="separator:ad863340136b375b62c03912e70cbbef5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -423,13 +342,13 @@ Functions</h2></td></tr>
 <tr class="separator:aa73dad8652fb6c95dd122ef1fd01d748"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf5e6f55bc44cdd76e1cbb53bf395532"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#acf5e6f55bc44cdd76e1cbb53bf395532">ReduceLongMin</a> (<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::reference_wrapper&lt; long &gt; &gt; &amp;&amp;rvar, int cpu)</td></tr>
 <tr class="separator:acf5e6f55bc44cdd76e1cbb53bf395532"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9b757e164c77a858722c71a7df10632"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#ae9b757e164c77a858722c71a7df10632">ReduceLongAnd</a> (long &amp;rvar, <a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> color=<a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a69cc0320e2362c1b8952423c84ab238e">DefaultColor</a>())</td></tr>
-<tr class="memdesc:ae9b757e164c77a858722c71a7df10632"><td class="mdescLeft">&#160;</td><td class="mdescRight">Long and-wise reduction.  <a href="#ae9b757e164c77a858722c71a7df10632">More...</a><br/></td></tr>
-<tr class="separator:ae9b757e164c77a858722c71a7df10632"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74fb8baee3d32dd2510ad182febb2900"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a74fb8baee3d32dd2510ad182febb2900">ReduceLongAnd</a> (long *rvar, int cnt, <a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> color=<a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a69cc0320e2362c1b8952423c84ab238e">DefaultColor</a>())</td></tr>
-<tr class="separator:a74fb8baee3d32dd2510ad182febb2900"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba4879004fc7f37e2c2eea4aaf9a1fc5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#aba4879004fc7f37e2c2eea4aaf9a1fc5">ReduceLongAnd</a> (<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::reference_wrapper&lt; long &gt; &gt; &amp;&amp;rvar, <a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> color=<a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a69cc0320e2362c1b8952423c84ab238e">DefaultColor</a>())</td></tr>
-<tr class="separator:aba4879004fc7f37e2c2eea4aaf9a1fc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac049b371d62448b6c841a432f63100c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#ac049b371d62448b6c841a432f63100c0">ReduceLongAnd</a> (long &amp;rvar)</td></tr>
+<tr class="memdesc:ac049b371d62448b6c841a432f63100c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Long and-wise reduction.  <a href="#ac049b371d62448b6c841a432f63100c0">More...</a><br/></td></tr>
+<tr class="separator:ac049b371d62448b6c841a432f63100c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5042632966da7581b8a84910a77010b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a5042632966da7581b8a84910a77010b5">ReduceLongAnd</a> (long *rvar, int cnt)</td></tr>
+<tr class="separator:a5042632966da7581b8a84910a77010b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19656a5ad64f61a589d995aafc118201"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a19656a5ad64f61a589d995aafc118201">ReduceLongAnd</a> (<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::reference_wrapper&lt; long &gt; &gt; &amp;&amp;rvar)</td></tr>
+<tr class="separator:a19656a5ad64f61a589d995aafc118201"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac169a703881764b0b84e2299cb6f92b8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#ac169a703881764b0b84e2299cb6f92b8">ReduceLongAnd</a> (long &amp;rvar, int cpu)</td></tr>
 <tr class="memdesc:ac169a703881764b0b84e2299cb6f92b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Long and-wise reduction to specified cpu.  <a href="#ac169a703881764b0b84e2299cb6f92b8">More...</a><br/></td></tr>
 <tr class="separator:ac169a703881764b0b84e2299cb6f92b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -440,11 +359,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a5e16712b9f4c3f14537cd0b561758aa5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a5e16712b9f4c3f14537cd0b561758aa5">Gather</a> (Real *sendbuf, int sendcount, Real *recvbuf, int root)</td></tr>
 <tr class="memdesc:a5e16712b9f4c3f14537cd0b561758aa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parallel gather.  <a href="#a5e16712b9f4c3f14537cd0b561758aa5">More...</a><br/></td></tr>
 <tr class="separator:a5e16712b9f4c3f14537cd0b561758aa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc1ee2d527e98fe750f038480efc439c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#adc1ee2d527e98fe750f038480efc439c">SeqNum</a> (int getsetinc=0, int newvalue=0)</td></tr>
-<tr class="memdesc:adc1ee2d527e98fe750f038480efc439c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns sequential message sequence numbers, usually used as tags for send/recv. getsetinc has these values: 0: return the current sequence number and increment 1: return the current sequence number 2: set the current sequence number to newvalue 3: jump the current sequence number and return the sequence number before the call.  <a href="#adc1ee2d527e98fe750f038480efc439c">More...</a><br/></td></tr>
-<tr class="separator:adc1ee2d527e98fe750f038480efc439c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76e895f86c3c537adaa425cc00b716b0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a76e895f86c3c537adaa425cc00b716b0">SubSeqNum</a> (int getsetinc=0, int newvalue=0)</td></tr>
-<tr class="separator:a76e895f86c3c537adaa425cc00b716b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a610003b1a92f316356dd84be39f9a9b0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a610003b1a92f316356dd84be39f9a9b0">SeqNum</a> ()</td></tr>
+<tr class="memdesc:a610003b1a92f316356dd84be39f9a9b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns sequential message sequence numbers, usually used as tags for send/recv.  <a href="#a610003b1a92f316356dd84be39f9a9b0">More...</a><br/></td></tr>
+<tr class="separator:a610003b1a92f316356dd84be39f9a9b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0903eb5194f11fcf386f79e6ff3c02f7"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr class="memitem:a0903eb5194f11fcf386f79e6ff3c02f7"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_parallel_descriptor_1_1_message.html">Message</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a0903eb5194f11fcf386f79e6ff3c02f7">Asend</a> (const T *, size_t <a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a54f6ce0fb55c5e079b66b7ac9b865843">n</a>, int pid, int tag)</td></tr>
 <tr class="separator:a0903eb5194f11fcf386f79e6ff3c02f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -523,108 +440,21 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a0b046d229634fc8d4829d6de1e287ddc"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a0b046d229634fc8d4829d6de1e287ddc">myId_undefined</a> = -11</td></tr>
-<tr class="separator:a0b046d229634fc8d4829d6de1e287ddc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa41fc3821ab8eba41477ec6561a71408"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#aa41fc3821ab8eba41477ec6561a71408">myId_notInGroup</a> = -22</td></tr>
-<tr class="separator:aa41fc3821ab8eba41477ec6561a71408"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79a15f1f32efcf3a6682881d228808d5"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a79a15f1f32efcf3a6682881d228808d5">nProcs_undefined</a> = -33</td></tr>
-<tr class="separator:a79a15f1f32efcf3a6682881d228808d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7f5d9b03dc326aba89fb9fb996fcc96"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#af7f5d9b03dc326aba89fb9fb996fcc96">notInSidecar</a> = -44</td></tr>
-<tr class="separator:af7f5d9b03dc326aba89fb9fb996fcc96"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a316e6889302e6dfb29bea89d86423576"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a316e6889302e6dfb29bea89d86423576">m_MyId_all</a> = 0</td></tr>
-<tr class="separator:a316e6889302e6dfb29bea89d86423576"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8c75297e99c456171a011b1375e71a8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#ad8c75297e99c456171a011b1375e71a8">m_MyId_comp</a> = 0</td></tr>
-<tr class="separator:ad8c75297e99c456171a011b1375e71a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a051627ad41c199e2d0b95699b59d47cb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a051627ad41c199e2d0b95699b59d47cb">m_MyId_sub</a> = 0</td></tr>
-<tr class="separator:a051627ad41c199e2d0b95699b59d47cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53b3c5a16a269bbcd2a099d9fc36af8b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a53b3c5a16a269bbcd2a099d9fc36af8b">m_MyId_sidecar</a> = <a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#aa41fc3821ab8eba41477ec6561a71408">myId_notInGroup</a></td></tr>
-<tr class="separator:a53b3c5a16a269bbcd2a099d9fc36af8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1615fe402c29957cde4ac8f5028badb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#ae1615fe402c29957cde4ac8f5028badb">m_nProcs_all</a> = 1</td></tr>
-<tr class="separator:ae1615fe402c29957cde4ac8f5028badb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d7b02fc726e803dd1372013ca005e13"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a5d7b02fc726e803dd1372013ca005e13">m_nProcs_comp</a> = 1</td></tr>
-<tr class="separator:a5d7b02fc726e803dd1372013ca005e13"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acae2f53939a9ab0ad9823ec676734f2d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#acae2f53939a9ab0ad9823ec676734f2d">m_nProcs_sub</a> = 1</td></tr>
-<tr class="separator:acae2f53939a9ab0ad9823ec676734f2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a229425819bb3307ab5fb70234fd1ebb4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a229425819bb3307ab5fb70234fd1ebb4">m_num_procs_clr</a></td></tr>
-<tr class="separator:a229425819bb3307ab5fb70234fd1ebb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0cd6f6345c633aa22b67c28f35042c1d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a0cd6f6345c633aa22b67c28f35042c1d">m_first_procs_clr</a></td></tr>
-<tr class="separator:a0cd6f6345c633aa22b67c28f35042c1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d6c5a5a4b8739ba06a174c9f4c17c83"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a6d6c5a5a4b8739ba06a174c9f4c17c83">m_nProcs_sidecar</a></td></tr>
-<tr class="separator:a6d6c5a5a4b8739ba06a174c9f4c17c83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a989af8a7ee795fa719957eadbc265b59"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a989af8a7ee795fa719957eadbc265b59">nSidecars</a> = 0</td></tr>
-<tr class="separator:a989af8a7ee795fa719957eadbc265b59"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4639ba83cf32b5866731068d46563fc5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a4639ba83cf32b5866731068d46563fc5">inWhichSidecar</a> = <a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#af7f5d9b03dc326aba89fb9fb996fcc96">notInSidecar</a></td></tr>
-<tr class="separator:a4639ba83cf32b5866731068d46563fc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a80b6d86037c06fed7ef5fb0d2a8d28"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structamrex_1_1_parallel_descriptor_1_1_process_team.html">ProcessTeam</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a9a80b6d86037c06fed7ef5fb0d2a8d28">m_Team</a></td></tr>
 <tr class="separator:a9a80b6d86037c06fed7ef5fb0d2a8d28"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37c5f278cf88996e01c784933f0fc063"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a37c5f278cf88996e01c784933f0fc063">m_comm_all</a> = 0</td></tr>
-<tr class="separator:a37c5f278cf88996e01c784933f0fc063"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91e4790aa7f415343fdef6d590685a47"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a91e4790aa7f415343fdef6d590685a47">m_comm_comp</a> = 0</td></tr>
-<tr class="separator:a91e4790aa7f415343fdef6d590685a47"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ebc91c13e682b5697df9af50b352ec6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a8ebc91c13e682b5697df9af50b352ec6">m_comm_sub</a> = 0</td></tr>
-<tr class="separator:a8ebc91c13e682b5697df9af50b352ec6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb912a2d10cbca4fa2b213c4e4b26151"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#aeb912a2d10cbca4fa2b213c4e4b26151">m_comm_sidecar</a></td></tr>
-<tr class="separator:aeb912a2d10cbca4fa2b213c4e4b26151"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afcb2ecc1f5251303bfe4b5ac4358ff3c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#afcb2ecc1f5251303bfe4b5ac4358ff3c">m_comm_inter</a></td></tr>
-<tr class="separator:afcb2ecc1f5251303bfe4b5ac4358ff3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abfa4acb56bf102877d3771b587c39796"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a2e7770334e9e65834ce3c95dd0c3a50f">MPI_Group</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#abfa4acb56bf102877d3771b587c39796">m_group_all</a> = 0</td></tr>
-<tr class="separator:abfa4acb56bf102877d3771b587c39796"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18d12c4fa15f173aaa7f5ed23e898b3e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a2e7770334e9e65834ce3c95dd0c3a50f">MPI_Group</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a18d12c4fa15f173aaa7f5ed23e898b3e">m_group_comp</a> = 0</td></tr>
-<tr class="separator:a18d12c4fa15f173aaa7f5ed23e898b3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a072d6348954f5186c9c1ff0992640f25"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a2e7770334e9e65834ce3c95dd0c3a50f">MPI_Group</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a072d6348954f5186c9c1ff0992640f25">m_group_sidecar</a> = 0</td></tr>
-<tr class="separator:a072d6348954f5186c9c1ff0992640f25"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64287f47a8057c3ab2f2cb13b7ac9efc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a64287f47a8057c3ab2f2cb13b7ac9efc">m_nCommColors</a> = 1</td></tr>
-<tr class="separator:a64287f47a8057c3ab2f2cb13b7ac9efc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b960f84361b12ef8255c36f21555a6f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a2b960f84361b12ef8255c36f21555a6f">m_clr_map</a> = 0</td></tr>
-<tr class="separator:a2b960f84361b12ef8255c36f21555a6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7cfe626099fb7095d9f41984830995f8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a7cfe626099fb7095d9f41984830995f8">m_MyCommSubColor</a></td></tr>
-<tr class="separator:a7cfe626099fb7095d9f41984830995f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68d6dd3f744859dec2da453696a946a7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a68d6dd3f744859dec2da453696a946a7">m_MyCommCompColor</a></td></tr>
-<tr class="separator:a68d6dd3f744859dec2da453696a946a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af87612855c6b73a8cc9f11ed5bd0d3f9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#af87612855c6b73a8cc9f11ed5bd0d3f9">m_comm</a> = <a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a9c299ed1c4c5eaa48a6446c85fb2d689">MPI_COMM_NULL</a></td></tr>
+<tr class="separator:af87612855c6b73a8cc9f11ed5bd0d3f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a715b18055542b3909b818a2eb81ff469"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a715b18055542b3909b818a2eb81ff469">m_MinTag</a> = 1000</td></tr>
 <tr class="separator:a715b18055542b3909b818a2eb81ff469"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1582152747831aa49cac881d1bbec9ad"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a1582152747831aa49cac881d1bbec9ad">m_MaxTag</a> = -1</td></tr>
 <tr class="separator:a1582152747831aa49cac881d1bbec9ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a885dd7fa1d96d0d3e8bd8c9b2edf34a9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a885dd7fa1d96d0d3e8bd8c9b2edf34a9">m_MaxTag_MPI</a> = -1</td></tr>
-<tr class="separator:a885dd7fa1d96d0d3e8bd8c9b2edf34a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8d596c93baf48e312d2a9bf60f65251"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#ab8d596c93baf48e312d2a9bf60f65251">tagBuffer</a> = 32</td></tr>
-<tr class="separator:ab8d596c93baf48e312d2a9bf60f65251"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a170c7ee692d457514ef07c0d6206f7e2"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a170c7ee692d457514ef07c0d6206f7e2">ioProcessor</a> = 0</td></tr>
 <tr class="memdesc:a170c7ee692d457514ef07c0d6206f7e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The MPI rank number of the I/O Processor (probably rank 0). This rank is usually used to write to stdout.  <a href="#a170c7ee692d457514ef07c0d6206f7e2">More...</a><br/></td></tr>
 <tr class="separator:a170c7ee692d457514ef07c0d6206f7e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38bd469523e576208254aefc0031943c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a75dafa480f05f1082c176b22d4190c8d">SH_LIST</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a38bd469523e576208254aefc0031943c">The_Signal_Handler_List</a></td></tr>
-<tr class="separator:a38bd469523e576208254aefc0031943c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9337f7c4c92a37f569251a76b4ebf420"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a9337f7c4c92a37f569251a76b4ebf420">m_comm_both</a></td></tr>
-<tr class="separator:a9337f7c4c92a37f569251a76b4ebf420"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Parallel frontend that abstracts functionalities needed to spawn processes and handle communication. </p>
-</div><h2 class="groupheader">Typedef Documentation</h2>
-<a class="anchor" id="a5fc1ef4f93e6387abd88ae1099dfb8fe"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef int(* amrex::ParallelDescriptor::PTR_TO_SIGNAL_HANDLER)(int)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a75dafa480f05f1082c176b22d4190c8d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef std::list&lt;<a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a5fc1ef4f93e6387abd88ae1099dfb8fe">ParallelDescriptor::PTR_TO_SIGNAL_HANDLER</a>&gt; <a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a75dafa480f05f1082c176b22d4190c8d">amrex::ParallelDescriptor::SH_LIST</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a class="anchor" id="ae6927a6804e22fedb86c1fe19d6567fc"></a>
 <div class="memitem">
 <div class="memproto">
@@ -650,22 +480,6 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Abort with specified error code. </p>
-
-</div>
-</div>
-<a class="anchor" id="ab6061d095fdae6f12ffaa39177d39186"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void amrex::ParallelDescriptor::AddSignalHandler </td>
-          <td>(</td>
-          <td class="paramtype">PTR_TO_SIGNAL_HANDLER&#160;</td>
-          <td class="paramname"><em>fp</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
 
 </div>
 </div>
@@ -1120,170 +934,6 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a415f11cffb19e3721c4e3f2e66b9e15b"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a> amrex::ParallelDescriptor::Communicator </td>
-          <td>(</td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a30e78fcadfb8a91f21d3f11e747988ba"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a> amrex::ParallelDescriptor::CommunicatorAll </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a03244fe3037fd7fb9b49e750134abd80"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a> amrex::ParallelDescriptor::CommunicatorBoth </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>whichSidecar</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a6db8df125fc9bf4b52a8068b3bec8863"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a> amrex::ParallelDescriptor::CommunicatorComp </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ad2eaa9f24f630bd7e26ac11416d7cf6a"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a> amrex::ParallelDescriptor::CommunicatorInter </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>whichSidecar</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ad8df6aa84db6ca906ef2981223bee1a3"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a> amrex::ParallelDescriptor::CommunicatorSidecar </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a69cc0320e2362c1b8952423c84ab238e"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> amrex::ParallelDescriptor::DefaultColor </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="a979a22fc5814d711e8e1e3b8118c41c9"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1321,21 +971,6 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>Perform any needed parallel finalization. This MUST be the last routine in this class called from within a program. </p>
-
-</div>
-</div>
-<a class="anchor" id="acd6abcdc014aaaebb7d89f431e745e3b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void amrex::ParallelDescriptor::EndSubCommunicator </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
 
 </div>
 </div>
@@ -1590,90 +1225,6 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="ac99d25dd50a12e0aa74e941ece56a0ef"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool amrex::ParallelDescriptor::InCompGroup </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a92e7adf81fe24f9c727cf5ef402cd7e4"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void amrex::ParallelDescriptor::init_clr_vars </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a116eeaf690e53b1aafb513b9927e244b"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool amrex::ParallelDescriptor::InSidecarGroup </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a22c499a39346c2d7fd3a394588198e3d"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int amrex::ParallelDescriptor::InWhichSidecar </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="a30b2c3b76c069be9c22ea40b9b8c5d75"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1699,53 +1250,6 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a3ab4825a64296d9b128ac01410629544"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool amrex::ParallelDescriptor::IOProcessor </td>
-          <td>(</td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a4ffe3af90ad4cc4898fb527e6d918324"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool amrex::ParallelDescriptor::IOProcessorAll </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="a8dc50c8a2f174d929b79a6250480dcb5"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1755,29 +1259,6 @@ template&lt;class T &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">int amrex::ParallelDescriptor::IOProcessorNumber </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aad18ffaf39eeab8920abb52e1085adf3"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int amrex::ParallelDescriptor::IOProcessorNumberAll </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -1874,30 +1355,6 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a967a8b951b0cbf77db3b91c3ac1ef08a"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool amrex::ParallelDescriptor::isActive </td>
-          <td>(</td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="a37cee9b7e9c18c0aa83eefaded6b7627"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1930,6 +1387,29 @@ template&lt;class T &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">int amrex::ParallelDescriptor::MaxTag </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a23f63fd8cf3344f8a49ba15b7f5b7268"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int amrex::ParallelDescriptor::MinTag </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -2020,7 +1500,7 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>return the rank number local to the comp or sidecar groups </p>
+<p>return the rank number local to the current Parallel Context </p>
 
 </div>
 </div>
@@ -2036,101 +1516,6 @@ template&lt;class T &gt; </div>
           <td>(</td>
           <td class="paramtype"><a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a>&#160;</td>
           <td class="paramname"><em>comm</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a67601495de4758dd1c1ce9f884fba950"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int amrex::ParallelDescriptor::MyProc </td>
-          <td>(</td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aab0ac24ec3e05f5f8904050d0c35d196"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int amrex::ParallelDescriptor::MyProcAll </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>return the rank number for the global group </p>
-
-</div>
-</div>
-<a class="anchor" id="a3ee54ce2e6eac4b3f3de155d3061bd80"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int amrex::ParallelDescriptor::MyProcComp </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a41ec226ab15604bd3feca6da2acef9ff"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int amrex::ParallelDescriptor::MyProcSidecar </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -2235,29 +1620,6 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a00b102258f4f7f66b82d6f973744afe2"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int amrex::ParallelDescriptor::NColors </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="a0455b3ad4f2a4c13b57d33e4c6325dca"></a>
 <div class="memitem">
 <div class="memproto">
@@ -2279,101 +1641,7 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>return the number of MPI ranks local to the comp or sidecar groups </p>
-
-</div>
-</div>
-<a class="anchor" id="a5d3cb201cfdd4fd6f76fe69f07787307"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int amrex::ParallelDescriptor::NProcs </td>
-          <td>(</td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ad751d0935684ea7b0740ab4134f17114"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int amrex::ParallelDescriptor::NProcsAll </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a667efb8038eaf951201cabc307d96a68"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int amrex::ParallelDescriptor::NProcsComp </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a0e78e3181c915579043fad67a811d172"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int amrex::ParallelDescriptor::NProcsSidecar </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>whichSidecar</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>return the number of MPI ranks local to the current Parallel Context </p>
 
 </div>
 </div>
@@ -2389,108 +1657,6 @@ template&lt;class T &gt; </div>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ab858dfd096f30683d4722643e2a32da3"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool amrex::ParallelDescriptor::operator!= </td>
-          <td>(</td>
-          <td class="paramtype">const Color &amp;&#160;</td>
-          <td class="paramname"><em>lhs</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Color &amp;&#160;</td>
-          <td class="paramname"><em>rhs</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a15a2714ca215f54c6e78852749301982"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::ostream&amp; amrex::ParallelDescriptor::operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>os</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Color &amp;&#160;</td>
-          <td class="paramname"><em>color</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a8cee07c047fe852344d44e41648fa55a"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool amrex::ParallelDescriptor::operator== </td>
-          <td>(</td>
-          <td class="paramtype">const Color &amp;&#160;</td>
-          <td class="paramname"><em>lhs</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Color &amp;&#160;</td>
-          <td class="paramname"><em>rhs</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -2684,7 +1850,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="ac7d66b631126150688136d558c148a57"></a>
+<a class="anchor" id="a85f79f28c8cb6cc5762e3edd80c57fc0"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -2692,18 +1858,8 @@ template&lt;class T &gt; </div>
           <td class="memname">void amrex::ParallelDescriptor::ReduceBoolAnd </td>
           <td>(</td>
           <td class="paramtype">bool &amp;&#160;</td>
-          <td class="paramname"><em>rvar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>rvar</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em> = <code>DefaultColor()</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -2740,7 +1896,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a1ada15ed1a25589f03f5754deb3695d1"></a>
+<a class="anchor" id="a8e74f51d2321b7e827baae5d86a83824"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -2748,18 +1904,8 @@ template&lt;class T &gt; </div>
           <td class="memname">void amrex::ParallelDescriptor::ReduceBoolOr </td>
           <td>(</td>
           <td class="paramtype">bool &amp;&#160;</td>
-          <td class="paramname"><em>rvar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>rvar</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em> = <code>DefaultColor()</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -2796,7 +1942,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a6d9f08891a4dea254c080ca0d3b454cf"></a>
+<a class="anchor" id="a709e52679c5ca426b23c887ffe1b4ab9"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -2804,18 +1950,8 @@ template&lt;class T &gt; </div>
           <td class="memname">void amrex::ParallelDescriptor::ReduceIntMax </td>
           <td>(</td>
           <td class="paramtype">int &amp;&#160;</td>
-          <td class="paramname"><em>rvar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>rvar</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em> = <code>DefaultColor()</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -2824,7 +1960,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="ade9c130f2843147fec3d11846cc3b518"></a>
+<a class="anchor" id="a557f937eb9820b18b2827d388703087d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -2838,13 +1974,7 @@ template&lt;class T &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>cnt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em> = <code>DefaultColor()</code>&#160;</td>
+          <td class="paramname"><em>cnt</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -2856,7 +1986,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="af9a8df37b89e0296610626a04eab20eb"></a>
+<a class="anchor" id="a14a30ebffe4778a95598aa2b0ed7cc2f"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -2864,18 +1994,8 @@ template&lt;class T &gt; </div>
           <td class="memname">void amrex::ParallelDescriptor::ReduceIntMax </td>
           <td>(</td>
           <td class="paramtype">Vector&lt; std::reference_wrapper&lt; int &gt; &gt; &amp;&amp;&#160;</td>
-          <td class="paramname"><em>rvar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>rvar</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em> = <code>DefaultColor()</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -2968,7 +2088,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a585ff743f6a248aa1b77c20f11706c72"></a>
+<a class="anchor" id="aff32fd8c6e4cd30f666fab624fc4ee86"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -2976,18 +2096,8 @@ template&lt;class T &gt; </div>
           <td class="memname">void amrex::ParallelDescriptor::ReduceIntMin </td>
           <td>(</td>
           <td class="paramtype">int &amp;&#160;</td>
-          <td class="paramname"><em>rvar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>rvar</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em> = <code>DefaultColor()</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -2996,7 +2106,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a9aa216f542bfaeb8bcdfa06a3a0fa466"></a>
+<a class="anchor" id="a870c570152d24fe9ba6e41a8bf4793c2"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -3010,13 +2120,7 @@ template&lt;class T &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>cnt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em> = <code>DefaultColor()</code>&#160;</td>
+          <td class="paramname"><em>cnt</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -3028,7 +2132,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="aa7057c6bf09d21b15b81e1ada02a9cd5"></a>
+<a class="anchor" id="a223e887828c94c995035d5753aad6734"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -3036,18 +2140,8 @@ template&lt;class T &gt; </div>
           <td class="memname">void amrex::ParallelDescriptor::ReduceIntMin </td>
           <td>(</td>
           <td class="paramtype">Vector&lt; std::reference_wrapper&lt; int &gt; &gt; &amp;&amp;&#160;</td>
-          <td class="paramname"><em>rvar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>rvar</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em> = <code>DefaultColor()</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -3140,7 +2234,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="ae0c99293a06b6831edffbbdf0127e2aa"></a>
+<a class="anchor" id="a132abb9498b1ed2f491583c1f7719afb"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -3148,18 +2242,8 @@ template&lt;class T &gt; </div>
           <td class="memname">void amrex::ParallelDescriptor::ReduceIntSum </td>
           <td>(</td>
           <td class="paramtype">int &amp;&#160;</td>
-          <td class="paramname"><em>rvar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>rvar</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em> = <code>DefaultColor()</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -3168,7 +2252,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a8d744f55066d2dde89c8a0c2994ead87"></a>
+<a class="anchor" id="a0f59b78ddec4caf56f47c2c4aea3b569"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -3182,13 +2266,7 @@ template&lt;class T &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>cnt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em> = <code>DefaultColor()</code>&#160;</td>
+          <td class="paramname"><em>cnt</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -3200,7 +2278,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="ae2833c445f7fce24f12ba55ddd43bb2e"></a>
+<a class="anchor" id="a5dc8802a3fdec1698a17fb68be93401b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -3208,18 +2286,8 @@ template&lt;class T &gt; </div>
           <td class="memname">void amrex::ParallelDescriptor::ReduceIntSum </td>
           <td>(</td>
           <td class="paramtype">Vector&lt; std::reference_wrapper&lt; int &gt; &gt; &amp;&amp;&#160;</td>
-          <td class="paramname"><em>rvar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>rvar</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em> = <code>DefaultColor()</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -3312,7 +2380,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="ae9b757e164c77a858722c71a7df10632"></a>
+<a class="anchor" id="ac049b371d62448b6c841a432f63100c0"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -3320,18 +2388,8 @@ template&lt;class T &gt; </div>
           <td class="memname">void amrex::ParallelDescriptor::ReduceLongAnd </td>
           <td>(</td>
           <td class="paramtype">long &amp;&#160;</td>
-          <td class="paramname"><em>rvar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>rvar</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em> = <code>DefaultColor()</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -3340,7 +2398,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a74fb8baee3d32dd2510ad182febb2900"></a>
+<a class="anchor" id="a5042632966da7581b8a84910a77010b5"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -3354,13 +2412,7 @@ template&lt;class T &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>cnt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em> = <code>DefaultColor()</code>&#160;</td>
+          <td class="paramname"><em>cnt</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -3372,7 +2424,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="aba4879004fc7f37e2c2eea4aaf9a1fc5"></a>
+<a class="anchor" id="a19656a5ad64f61a589d995aafc118201"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -3380,18 +2432,8 @@ template&lt;class T &gt; </div>
           <td class="memname">void amrex::ParallelDescriptor::ReduceLongAnd </td>
           <td>(</td>
           <td class="paramtype">Vector&lt; std::reference_wrapper&lt; long &gt; &gt; &amp;&amp;&#160;</td>
-          <td class="paramname"><em>rvar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>rvar</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em> = <code>DefaultColor()</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -3484,7 +2526,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="ab3ce730800bfc30335c1172ddff6b9b4"></a>
+<a class="anchor" id="a16a7f03bfb684be8d5ce15b1a526ecda"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -3492,18 +2534,8 @@ template&lt;class T &gt; </div>
           <td class="memname">void amrex::ParallelDescriptor::ReduceLongMax </td>
           <td>(</td>
           <td class="paramtype">long &amp;&#160;</td>
-          <td class="paramname"><em>rvar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>rvar</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em> = <code>DefaultColor()</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -3512,7 +2544,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a97b8bfe77f780752c849d4a2bef91013"></a>
+<a class="anchor" id="ad7c2bae54b0d885071e9d1ff5077ac69"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -3526,13 +2558,7 @@ template&lt;class T &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>cnt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em> = <code>DefaultColor()</code>&#160;</td>
+          <td class="paramname"><em>cnt</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -3544,7 +2570,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a0270e79a4d426285461a2ec5f28169d6"></a>
+<a class="anchor" id="a27a2a9535e744f73fbe4dcecb18e9a4c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -3552,18 +2578,8 @@ template&lt;class T &gt; </div>
           <td class="memname">void amrex::ParallelDescriptor::ReduceLongMax </td>
           <td>(</td>
           <td class="paramtype">Vector&lt; std::reference_wrapper&lt; long &gt; &gt; &amp;&amp;&#160;</td>
-          <td class="paramname"><em>rvar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>rvar</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em> = <code>DefaultColor()</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -3656,7 +2672,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="abb1625bdc20d8670dbd2c522d2638157"></a>
+<a class="anchor" id="a4bd0fa25fecbf8707e334186bbdfe8b0"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -3664,18 +2680,8 @@ template&lt;class T &gt; </div>
           <td class="memname">void amrex::ParallelDescriptor::ReduceLongMin </td>
           <td>(</td>
           <td class="paramtype">long &amp;&#160;</td>
-          <td class="paramname"><em>rvar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>rvar</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em> = <code>DefaultColor()</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -3684,7 +2690,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a16deeb922ca20aad85b6c92ac5e72997"></a>
+<a class="anchor" id="a5c28fc1b6a076433f74ac4152c0ad870"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -3698,13 +2704,7 @@ template&lt;class T &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>cnt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em> = <code>DefaultColor()</code>&#160;</td>
+          <td class="paramname"><em>cnt</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -3716,7 +2716,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="adcb8c87abfcb8121d951db518ab43cef"></a>
+<a class="anchor" id="acddcce61786fdb0147699380b2fd5ba9"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -3724,18 +2724,8 @@ template&lt;class T &gt; </div>
           <td class="memname">void amrex::ParallelDescriptor::ReduceLongMin </td>
           <td>(</td>
           <td class="paramtype">Vector&lt; std::reference_wrapper&lt; long &gt; &gt; &amp;&amp;&#160;</td>
-          <td class="paramname"><em>rvar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>rvar</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em> = <code>DefaultColor()</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -3828,7 +2818,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a9838bafce100a4e811586e648c060ebc"></a>
+<a class="anchor" id="ae2638b2cea26b2c9b4d9d1062b3d1fa2"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -3836,18 +2826,8 @@ template&lt;class T &gt; </div>
           <td class="memname">void amrex::ParallelDescriptor::ReduceLongSum </td>
           <td>(</td>
           <td class="paramtype">long &amp;&#160;</td>
-          <td class="paramname"><em>rvar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>rvar</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em> = <code>DefaultColor()</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -3856,7 +2836,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="ae2c41e5efc6f3ae0039ce0844f11d7ea"></a>
+<a class="anchor" id="ac01d3bd93daa16d886ef23eb2ac3f90c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -3870,13 +2850,7 @@ template&lt;class T &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>cnt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em> = <code>DefaultColor()</code>&#160;</td>
+          <td class="paramname"><em>cnt</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -3888,7 +2862,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a9f05d1bf096ed9b443e7517551cd721f"></a>
+<a class="anchor" id="a76fd8a05815e4a0510d23ffd919a7588"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -3896,18 +2870,8 @@ template&lt;class T &gt; </div>
           <td class="memname">void amrex::ParallelDescriptor::ReduceLongSum </td>
           <td>(</td>
           <td class="paramtype">Vector&lt; std::reference_wrapper&lt; long &gt; &gt; &amp;&amp;&#160;</td>
-          <td class="paramname"><em>rvar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>rvar</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em> = <code>DefaultColor()</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -4000,7 +2964,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a3f8d144d1b4b6f216e842c2a93e5c455"></a>
+<a class="anchor" id="a552f084c17efd580d0962eb68e6b43ee"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -4008,18 +2972,8 @@ template&lt;class T &gt; </div>
           <td class="memname">void amrex::ParallelDescriptor::ReduceRealMax </td>
           <td>(</td>
           <td class="paramtype">Real &amp;&#160;</td>
-          <td class="paramname"><em>rvar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>rvar</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em> = <code>DefaultColor()</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -4028,7 +2982,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a1e801944d04fd7bc306d8afae36209fd"></a>
+<a class="anchor" id="af0fb71557913b8db39b4b44be0247225"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -4042,13 +2996,7 @@ template&lt;class T &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>cnt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em> = <code>DefaultColor()</code>&#160;</td>
+          <td class="paramname"><em>cnt</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -4060,7 +3008,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a564d019b5b1e51ae7651f64448732bc0"></a>
+<a class="anchor" id="a64dba21e51015abe9de8ac24fab4811b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -4068,18 +3016,8 @@ template&lt;class T &gt; </div>
           <td class="memname">void amrex::ParallelDescriptor::ReduceRealMax </td>
           <td>(</td>
           <td class="paramtype">Vector&lt; std::reference_wrapper&lt; Real &gt; &gt; &amp;&amp;&#160;</td>
-          <td class="paramname"><em>rvar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>rvar</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em> = <code>DefaultColor()</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -4172,7 +3110,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a4daab9d5a42dbdc32c65207b4ede3634"></a>
+<a class="anchor" id="a46fe886b901e6fe6a49295e8bd6b2ace"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -4180,18 +3118,8 @@ template&lt;class T &gt; </div>
           <td class="memname">void amrex::ParallelDescriptor::ReduceRealMin </td>
           <td>(</td>
           <td class="paramtype">Real &amp;&#160;</td>
-          <td class="paramname"><em>rvar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>rvar</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em> = <code>DefaultColor()</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -4200,7 +3128,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a3f9f0e0a5dd2ba8b38dfedd08d2e822a"></a>
+<a class="anchor" id="a9afc75968888ce93106cce1beeeb2e9f"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -4214,13 +3142,7 @@ template&lt;class T &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>cnt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em> = <code>DefaultColor()</code>&#160;</td>
+          <td class="paramname"><em>cnt</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -4232,7 +3154,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a28136b57bf989c72f6dd29e2b7c95eee"></a>
+<a class="anchor" id="a80163550f36a94b2a3426c4da40d1087"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -4240,18 +3162,8 @@ template&lt;class T &gt; </div>
           <td class="memname">void amrex::ParallelDescriptor::ReduceRealMin </td>
           <td>(</td>
           <td class="paramtype">Vector&lt; std::reference_wrapper&lt; Real &gt; &gt; &amp;&amp;&#160;</td>
-          <td class="paramname"><em>rvar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>rvar</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em> = <code>DefaultColor()</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -4344,7 +3256,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="aa4a872be07945a94ac1c524c22c8f555"></a>
+<a class="anchor" id="a33cc0d4af07237333e42214807d82e99"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -4352,18 +3264,8 @@ template&lt;class T &gt; </div>
           <td class="memname">void amrex::ParallelDescriptor::ReduceRealSum </td>
           <td>(</td>
           <td class="paramtype">Real &amp;&#160;</td>
-          <td class="paramname"><em>rvar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>rvar</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em> = <code>DefaultColor()</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -4372,7 +3274,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a39e2bb6308d8bcfec0576bfdb8da64ac"></a>
+<a class="anchor" id="a0329bc7c7dac44f28e589da8b51f90f4"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -4386,13 +3288,7 @@ template&lt;class T &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>cnt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em> = <code>DefaultColor()</code>&#160;</td>
+          <td class="paramname"><em>cnt</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -4404,7 +3300,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="ad269a4602f7ecd304b9afcdf5effe38f"></a>
+<a class="anchor" id="a2e6864b6b7866ce41c7d41cfd961568c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -4412,18 +3308,8 @@ template&lt;class T &gt; </div>
           <td class="memname">void amrex::ParallelDescriptor::ReduceRealSum </td>
           <td>(</td>
           <td class="paramtype">Vector&lt; std::reference_wrapper&lt; Real &gt; &gt; &amp;&amp;&#160;</td>
-          <td class="paramname"><em>rvar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>rvar</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em> = <code>DefaultColor()</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -4757,84 +3643,28 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="adc1ee2d527e98fe750f038480efc439c"></a>
+<a class="anchor" id="a610003b1a92f316356dd84be39f9a9b0"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int amrex::ParallelDescriptor::SeqNum </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>getsetinc</em> = <code>0</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>newvalue</em> = <code>0</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns sequential message sequence numbers, usually used as tags for send/recv. getsetinc has these values: 0: return the current sequence number and increment 1: return the current sequence number 2: set the current sequence number to newvalue 3: jump the current sequence number and return the sequence number before the call. </p>
-
-</div>
-</div>
-<a class="anchor" id="a7bbe20d54cde6b22cd7071603bf2874f"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void amrex::ParallelDescriptor::SetNProcsSidecars </td>
-          <td>(</td>
-          <td class="paramtype">const Vector&lt; int &gt; &amp;&#160;</td>
-          <td class="paramname"><em>compRanksInAll</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Vector&lt; Vector&lt; int &gt; &gt; &amp;&#160;</td>
-          <td class="paramname"><em>sidecarRanksInAll</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>printRanks</em> = <code>false</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>This sets the number of MPI ranks in the sidecar and initializes nProcs, MyId, groups, and communicators for the comp and sidecar sets of ranks. The user will need to handle any consequences of changing the numbers of processors in each group (such as changing distribution maps and moving data in FabArrays). </p>
-<p>The union of ranks in the comp and sidecar arrays must be equal to the set of ranks in 'all' (the amrex global communicator). The sets must be disjoint. Global rank zero is required to be in compRanksInAll[0], this restriction may be removed in the future. </p>
-
-</div>
-</div>
-<a class="anchor" id="a712e8455e468445f220e9053c0aa7433"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void amrex::ParallelDescriptor::SetNProcsSidecars </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>nscp</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>This version makes one sidecar (number zero in the sidecar array) Sidecar ranks are set to the high end of the range [0, m_nProcs_all) </p>
+<p>Returns sequential message sequence numbers, usually used as tags for send/recv. </p>
 
 </div>
 </div>
@@ -4873,21 +3703,6 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a91b8ab21072fd5839690af5a72ce81f0"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void amrex::ParallelDescriptor::StartSubCommunicator </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="af5ce3cf99985348d87f77ba2c811514f"></a>
 <div class="memitem">
 <div class="memproto">
@@ -4902,55 +3717,6 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>Split the process pool into teams. </p>
-
-</div>
-</div>
-<a class="anchor" id="a84f1a2dca5e10521048c149382201746"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> amrex::ParallelDescriptor::SubCommColor </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a76e895f86c3c537adaa425cc00b716b0"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int amrex::ParallelDescriptor::SubSeqNum </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>getsetinc</em> = <code>0</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>newvalue</em> = <code>0</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
 
 </div>
 </div>
@@ -5199,32 +3965,6 @@ template&lt;typename F &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="aa7aa0f5fce1d1f8cb9b8d7cc2df90499"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int amrex::ParallelDescriptor::Translate </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>rk_clrd</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>clr</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="ac6df74b4b37bb6ee58dffea68507d259"></a>
 <div class="memitem">
 <div class="memproto">
@@ -5364,18 +4104,6 @@ template&lt;typename F &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a class="anchor" id="a4639ba83cf32b5866731068d46563fc5"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int amrex::ParallelDescriptor::inWhichSidecar = <a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#af7f5d9b03dc326aba89fb9fb996fcc96">notInSidecar</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="a170c7ee692d457514ef07c0d6206f7e2"></a>
 <div class="memitem">
 <div class="memproto">
@@ -5390,132 +4118,12 @@ template&lt;typename F &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a2b960f84361b12ef8255c36f21555a6f"></a>
+<a class="anchor" id="af87612855c6b73a8cc9f11ed5bd0d3f9"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int amrex::ParallelDescriptor::m_clr_map = 0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a37c5f278cf88996e01c784933f0fc063"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a> amrex::ParallelDescriptor::m_comm_all = 0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a9337f7c4c92a37f569251a76b4ebf420"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt;<a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a>&gt; amrex::ParallelDescriptor::m_comm_both</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a91e4790aa7f415343fdef6d590685a47"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a> amrex::ParallelDescriptor::m_comm_comp = 0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="afcb2ecc1f5251303bfe4b5ac4358ff3c"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a> &gt; amrex::ParallelDescriptor::m_comm_inter</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aeb912a2d10cbca4fa2b213c4e4b26151"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a> &gt; amrex::ParallelDescriptor::m_comm_sidecar</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a8ebc91c13e682b5697df9af50b352ec6"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a> amrex::ParallelDescriptor::m_comm_sub = 0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a0cd6f6345c633aa22b67c28f35042c1d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; int &gt; amrex::ParallelDescriptor::m_first_procs_clr</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="abfa4acb56bf102877d3771b587c39796"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a2e7770334e9e65834ce3c95dd0c3a50f">MPI_Group</a> amrex::ParallelDescriptor::m_group_all = 0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a18d12c4fa15f173aaa7f5ed23e898b3e"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a2e7770334e9e65834ce3c95dd0c3a50f">MPI_Group</a> amrex::ParallelDescriptor::m_group_comp = 0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a072d6348954f5186c9c1ff0992640f25"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a2e7770334e9e65834ce3c95dd0c3a50f">MPI_Group</a> amrex::ParallelDescriptor::m_group_sidecar = 0</td>
+          <td class="memname"><a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a> amrex::ParallelDescriptor::m_comm = <a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a9c299ed1c4c5eaa48a6446c85fb2d689">MPI_COMM_NULL</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -5534,18 +4142,6 @@ template&lt;typename F &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a885dd7fa1d96d0d3e8bd8c9b2edf34a9"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int amrex::ParallelDescriptor::m_MaxTag_MPI = -1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="a715b18055542b3909b818a2eb81ff469"></a>
 <div class="memitem">
 <div class="memproto">
@@ -5558,240 +4154,12 @@ template&lt;typename F &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a68d6dd3f744859dec2da453696a946a7"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> amrex::ParallelDescriptor::m_MyCommCompColor</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a7cfe626099fb7095d9f41984830995f8"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">Color</a> amrex::ParallelDescriptor::m_MyCommSubColor</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a316e6889302e6dfb29bea89d86423576"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int amrex::ParallelDescriptor::m_MyId_all = 0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ad8c75297e99c456171a011b1375e71a8"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int amrex::ParallelDescriptor::m_MyId_comp = 0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a53b3c5a16a269bbcd2a099d9fc36af8b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int amrex::ParallelDescriptor::m_MyId_sidecar = <a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#aa41fc3821ab8eba41477ec6561a71408">myId_notInGroup</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a051627ad41c199e2d0b95699b59d47cb"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int amrex::ParallelDescriptor::m_MyId_sub = 0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a64287f47a8057c3ab2f2cb13b7ac9efc"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int amrex::ParallelDescriptor::m_nCommColors = 1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ae1615fe402c29957cde4ac8f5028badb"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int amrex::ParallelDescriptor::m_nProcs_all = 1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a5d7b02fc726e803dd1372013ca005e13"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int amrex::ParallelDescriptor::m_nProcs_comp = 1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a6d6c5a5a4b8739ba06a174c9f4c17c83"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; int &gt; amrex::ParallelDescriptor::m_nProcs_sidecar</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="acae2f53939a9ab0ad9823ec676734f2d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int amrex::ParallelDescriptor::m_nProcs_sub = 1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a229425819bb3307ab5fb70234fd1ebb4"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; int &gt; amrex::ParallelDescriptor::m_num_procs_clr</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="a9a80b6d86037c06fed7ef5fb0d2a8d28"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="structamrex_1_1_parallel_descriptor_1_1_process_team.html">ProcessTeam</a> amrex::ParallelDescriptor::m_Team</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aa41fc3821ab8eba41477ec6561a71408"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const int amrex::ParallelDescriptor::myId_notInGroup = -22</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a0b046d229634fc8d4829d6de1e287ddc"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const int amrex::ParallelDescriptor::myId_undefined = -11</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="af7f5d9b03dc326aba89fb9fb996fcc96"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const int amrex::ParallelDescriptor::notInSidecar = -44</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a79a15f1f32efcf3a6682881d228808d5"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const int amrex::ParallelDescriptor::nProcs_undefined = -33</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a989af8a7ee795fa719957eadbc265b59"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int amrex::ParallelDescriptor::nSidecars = 0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ab8d596c93baf48e312d2a9bf60f65251"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int amrex::ParallelDescriptor::tagBuffer = 32</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a38bd469523e576208254aefc0031943c"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespaceamrex_1_1_parallel_descriptor.html#a75dafa480f05f1082c176b22d4190c8d">SH_LIST</a> amrex::ParallelDescriptor::The_Signal_Handler_List</td>
         </tr>
       </table>
 </div><div class="memdoc">

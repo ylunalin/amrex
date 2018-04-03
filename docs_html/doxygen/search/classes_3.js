@@ -12,7 +12,6 @@ var searchData=
   ['cluster',['Cluster',['../classamrex_1_1_cluster.html',1,'amrex']]],
   ['clusterlist',['ClusterList',['../classamrex_1_1_cluster_list.html',1,'amrex']]],
   ['coar_5flogic_5ft',['coar_logic_t',['../structamrex_1_1_agg_e_b_p_w_l_fill_patch_1_1coar__logic__t.html',1,'amrex::AggEBPWLFillPatch']]],
-  ['color',['Color',['../classamrex_1_1_parallel_descriptor_1_1_color.html',1,'amrex::ParallelDescriptor']]],
   ['complementif',['ComplementIF',['../classamrex_1_1_complement_i_f.html',1,'amrex']]],
   ['conninfo',['conninfo',['../structamrex_1_1_s_t_l_mesh_1_1conninfo.html',1,'amrex::STLMesh']]],
   ['const_5fiterator',['const_iterator',['../structamrex_1_1_base_umap_1_1const__iterator.html',1,'amrex::BaseUmap']]],

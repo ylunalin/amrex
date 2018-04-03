@@ -331,10 +331,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2972b42fa723220283b8275fcd7a8be8"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_amr_level.html#a2972b42fa723220283b8275fcd7a8be8">writeSmallPlotNow</a> ()</td></tr>
 <tr class="memdesc:a2972b42fa723220283b8275fcd7a8be8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Does the <a class="el" href="classamrex_1_1_amr_level.html" title="Virtual base class for managing individual levels. AmrLevel functions both as a container for state d...">AmrLevel</a> want <a class="el" href="classamrex_1_1_amr.html" title="Manage hierarchy of levels for time-dependent AMR computations. ">Amr</a> to write a small plotfile now?  <a href="#a2972b42fa723220283b8275fcd7a8be8">More...</a><br/></td></tr>
 <tr class="separator:a2972b42fa723220283b8275fcd7a8be8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7eaec1f6ae06b4edf53f2e0bd515e4dd"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_amr_level.html#a7eaec1f6ae06b4edf53f2e0bd515e4dd">AddProcsToComp</a> (<a class="el" href="classamrex_1_1_amr.html">Amr</a> *aptr, int nSidecarProcs, int prevSidecarProcs, int ioProcNumSCS, int ioProcNumAll, int scsMyId, <a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a> scsComm)</td></tr>
-<tr class="separator:a7eaec1f6ae06b4edf53f2e0bd515e4dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8ce7e332530cf15f3cea68886dc7026"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_amr_level.html#ab8ce7e332530cf15f3cea68886dc7026">Check</a> () const </td></tr>
-<tr class="separator:ab8ce7e332530cf15f3cea68886dc7026"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -581,70 +577,6 @@ Friends</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a7eaec1f6ae06b4edf53f2e0bd515e4dd"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void amrex::AmrLevel::AddProcsToComp </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classamrex_1_1_amr.html">Amr</a> *&#160;</td>
-          <td class="paramname"><em>aptr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>nSidecarProcs</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>prevSidecarProcs</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>ioProcNumSCS</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>ioProcNumAll</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>scsMyId</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a>&#160;</td>
-          <td class="paramname"><em>scsComm</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="a96b6f33d22c9341b1cff894f17555f47"></a>
 <div class="memitem">
 <div class="memproto">
@@ -740,21 +672,6 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>List of grids at this level. </p>
-
-</div>
-</div>
-<a class="anchor" id="ab8ce7e332530cf15f3cea68886dc7026"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void amrex::AmrLevel::Check </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
 
 </div>
 </div>

@@ -25,7 +25,6 @@ var searchData=
   ['intersect_5floz',['intersect_loz',['../classamrex_1_1_amr.html#ac8fbee6b944ffeb46dac1abb6c4e979c',1,'amrex::Amr']]],
   ['inv_5fdx',['inv_dx',['../classamrex_1_1_coord_sys.html#a09a58ce8c24e2ad549c98754fd2adaeb',1,'amrex::CoordSys']]],
   ['invalid_5ftime',['INVALID_TIME',['../namespaceamrex.html#a3381456f43e80fc04349263ed37a8b55',1,'amrex']]],
-  ['inwhichsidecar',['inWhichSidecar',['../namespaceamrex_1_1_parallel_descriptor.html#a4639ba83cf32b5866731068d46563fc5',1,'amrex::ParallelDescriptor']]],
   ['io_5foffset',['io_offset',['../classamrex_1_1_real_vect.html#aec1894e6522770880dc552babe7ec205',1,'amrex::RealVect']]],
   ['iobuffer',['ioBuffer',['../structamrex_1_1_vis_m_f_1_1_persistent_i_f_stream.html#a1e023351bf031aee0da7cc17272716ae',1,'amrex::VisMF::PersistentIFStream']]],
   ['ioprocessor',['ioProcessor',['../namespaceamrex_1_1_parallel_descriptor.html#a170c7ee692d457514ef07c0d6206f7e2',1,'amrex::ParallelDescriptor']]],

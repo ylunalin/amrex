@@ -9,6 +9,5 @@ var searchData=
   ['pthmoment',['PthMoment',['../class_cut_cell_moments.html#a917453ac90d6d4d7dabcfe77fc4516dc',1,'CutCellMoments::PthMoment()'],['../class_minimal_c_c_c_m.html#a4071e04abcf5291cc829a23dad40d48a',1,'MinimalCCCM::PthMoment()']]],
   ['pthmomentlesserdimension',['PthMomentLesserDimension',['../class_cut_cell_moments.html#a415dcb58209820dedd8f93df808cf0ad',1,'CutCellMoments::PthMomentLesserDimension()'],['../class_minimal_c_c_c_m.html#ab4235e45e5987c8004c410d0c00b1483',1,'MinimalCCCM::PthMomentLesserDimension()']]],
   ['pthmomentloc',['PthMomentLoc',['../class_cut_cell_moments.html#ab8e0a712185371a6453ac80853537e71',1,'CutCellMoments::PthMomentLoc()'],['../class_minimal_c_c_c_m.html#aed72fa485309526bb53e3f4429c05321',1,'MinimalCCCM::PthMomentLoc()']]],
-  ['ptr_5fto_5fsignal_5fhandler',['PTR_TO_SIGNAL_HANDLER',['../namespaceamrex_1_1_parallel_descriptor.html#a5fc1ef4f93e6387abd88ae1099dfb8fe',1,'amrex::ParallelDescriptor']]],
   ['ptr_5fto_5fvoid_5ffunc',['PTR_TO_VOID_FUNC',['../namespaceamrex.html#acd7b625566c505e27b79ff3f812f90e7',1,'amrex']]]
 ];

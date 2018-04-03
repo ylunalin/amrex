@@ -6,5 +6,6 @@ var searchData=
   ['globaldestrflag',['globalDestrFlag',['../structamrex_1_1__kdtree.html#ae341b5b8ee7c9d8b81d4e890d7747c44',1,'amrex::_kdtree']]],
   ['grid_5feff',['grid_eff',['../classamrex_1_1_amr_mesh.html#ae75a2551575e5fd697ab4dc8754541ad',1,'amrex::AmrMesh']]],
   ['gridlog',['gridlog',['../classamrex_1_1_amr.html#a8faf7f22cccf4da975ca761f1920f5e8',1,'amrex::Amr']]],
-  ['grids',['grids',['../classamrex_1_1_amr_level.html#a5ffc98d138f381698b2a61fc6cb2ce01',1,'amrex::AmrLevel::grids()'],['../classamrex_1_1_amr_mesh.html#ae53347adc8a239367f153d3705a8ed25',1,'amrex::AmrMesh::grids()'],['../classamrex_1_1_bndry_register.html#ae15db9f8fcfd9583ae5907d4cf69eeb9',1,'amrex::BndryRegister::grids()']]]
+  ['grids',['grids',['../classamrex_1_1_amr_level.html#a5ffc98d138f381698b2a61fc6cb2ce01',1,'amrex::AmrLevel::grids()'],['../classamrex_1_1_amr_mesh.html#ae53347adc8a239367f153d3705a8ed25',1,'amrex::AmrMesh::grids()'],['../classamrex_1_1_bndry_register.html#ae15db9f8fcfd9583ae5907d4cf69eeb9',1,'amrex::BndryRegister::grids()']]],
+  ['group',['group',['../classamrex_1_1_parallel_context_1_1_frame.html#a2cb41a80f7a3c545e1e537bf84acbbc9',1,'amrex::ParallelContext::Frame']]]
 ];

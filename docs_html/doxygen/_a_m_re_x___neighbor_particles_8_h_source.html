@@ -137,7 +137,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        }</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="namespaceamrex_1_1_parallel_descriptor.html#a8cee07c047fe852344d44e41648fa55a">operator==</a>(<span class="keyword">const</span> NeighborCopyTag&amp; other)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> NeighborCopyTag&amp; other)<span class="keyword"> const </span>{</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">return</span> (grid == other.grid) and (tile == other.tile)</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                and (periodic_shift[0] == other.periodic_shift[0])</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                and (periodic_shift[1] == other.periodic_shift[1])</div>
@@ -164,7 +164,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                     tile_id &lt; other.tile_id ));</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        }</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="namespaceamrex_1_1_parallel_descriptor.html#a8cee07c047fe852344d44e41648fa55a">operator==</a>(<span class="keyword">const</span> NeighborCommTag&amp; other)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> NeighborCommTag&amp; other)<span class="keyword"> const </span>{</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            <span class="keywordflow">return</span> ( (proc_id == other.proc_id) and </div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                     (grid_id == other.grid_id) and</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                     (tile_id == other.tile_id) );</div>
@@ -249,7 +249,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="preprocessor">#endif // _NEIGHBORPARTICLES_H_</span></div>
 <div class="ttc" id="classamrex_1_1_par_g_d_b_base_html"><div class="ttname"><a href="classamrex_1_1_par_g_d_b_base.html">amrex::ParGDBBase</a></div><div class="ttdef"><b>Definition:</b> AMReX_ParGDB.H:11</div></div>
-<div class="ttc" id="namespaceamrex_1_1_parallel_descriptor_html_a8cee07c047fe852344d44e41648fa55a"><div class="ttname"><a href="namespaceamrex_1_1_parallel_descriptor.html#a8cee07c047fe852344d44e41648fa55a">amrex::ParallelDescriptor::operator==</a></div><div class="ttdeci">bool operator==(const Color &amp;lhs, const Color &amp;rhs)</div><div class="ttdef"><b>Definition:</b> AMReX_ParallelDescriptor.H:567</div></div>
 <div class="ttc" id="classamrex_1_1_neighbor_particle_container_html_a78a0bf763811ffa755a8a562f2cdede1"><div class="ttname"><a href="classamrex_1_1_neighbor_particle_container.html#a78a0bf763811ffa755a8a562f2cdede1">amrex::NeighborParticleContainer::getRcvCountsMPI</a></div><div class="ttdeci">void getRcvCountsMPI()</div><div class="ttdef"><b>Definition:</b> AMReX_NeighborParticles.H:493</div></div>
 <div class="ttc" id="classamrex_1_1_neighbor_particle_container_html_a683d4fcc37d9b1553f64124f5d6adafe"><div class="ttname"><a href="classamrex_1_1_neighbor_particle_container.html#a683d4fcc37d9b1553f64124f5d6adafe">amrex::NeighborParticleContainer::pdata_size</a></div><div class="ttdeci">const size_t pdata_size</div><div class="ttdef"><b>Definition:</b> AMReX_NeighborParticles.H:154</div></div>
 <div class="ttc" id="classamrex_1_1_neighbor_particle_container_html_a629d1fec40d6c7034d090e90453d3c5a"><div class="ttname"><a href="classamrex_1_1_neighbor_particle_container.html#a629d1fec40d6c7034d090e90453d3c5a">amrex::NeighborParticleContainer::buildNeighborList</a></div><div class="ttdeci">void buildNeighborList(int lev, bool sort=false)</div><div class="ttdef"><b>Definition:</b> AMReX_NeighborParticles.H:661</div></div>

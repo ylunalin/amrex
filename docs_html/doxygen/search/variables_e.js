@@ -14,8 +14,6 @@ var searchData=
   ['plot_5fnfiles',['plot_nfiles',['../namespaceamrex.html#aee4d1d20e920bfb1eceeb7db0a36be0f',1,'amrex']]],
   ['plot_5fper',['plot_per',['../classamrex_1_1_amr.html#af097e0455a9da7e8e6a9dc131d1b96f2',1,'amrex::Amr']]],
   ['plotfile_5fon_5frestart',['plotfile_on_restart',['../namespaceamrex.html#a8e6b05f30acfc8c62599db29b80f0458',1,'amrex']]],
-  ['pnumrankmm',['pNumRankMM',['../namespaceamrex.html#aa045e5adaf47154cd6524668fe8db2a5',1,'amrex']]],
-  ['pnumtopivmap',['pNumTopIVMap',['../namespaceamrex.html#a619c5d8012f16d5978a9b8e259400f00',1,'amrex']]],
   ['pos',['pos',['../structamrex_1_1_base_umap_1_1_tuple.html#a0e42426fd0537612640d95fa8b435349',1,'amrex::BaseUmap::Tuple::pos()'],['../unionamrex_1_1_particle_1_1rm__t.html#a7be515751793052c69a269369873b89f',1,'amrex::Particle::rm_t::pos()'],['../structamrex_1_1__kdnode.html#a46f2a84ebc638090b1e08db9d7536341',1,'amrex::_kdnode::pos()'],['../structamrex_1_1__resultnode.html#a6fadde4ddb0338419ed8abc1c851d73c',1,'amrex::_resultnode::pos()']]],
   ['post_5fstep_5fregrid',['post_step_regrid',['../classamrex_1_1_amr_level.html#a9ef7971fd5d7dd152886c202feb7d806',1,'amrex::AmrLevel']]],
   ['powers',['powers',['../classamrex_1_1_poly_term.html#a4d42f1ec26be4499c3f0389bb08eb42a',1,'amrex::PolyTerm']]],

@@ -102,6 +102,15 @@ Functions</h2></td></tr>
 <tr class="memitem:aec4851bdc1cec40c7b0abe1abda16ac2"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:aec4851bdc1cec40c7b0abe1abda16ac2"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_all_reduce.html#aec4851bdc1cec40c7b0abe1abda16ac2">Max</a> (<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::reference_wrapper&lt; T &gt; &gt; &amp;&amp;v, <a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a> comm)</td></tr>
 <tr class="separator:aec4851bdc1cec40c7b0abe1abda16ac2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38123c36ae58daf58059cb4ba16ea9bc"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a38123c36ae58daf58059cb4ba16ea9bc"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_all_reduce.html#a38123c36ae58daf58059cb4ba16ea9bc">Min</a> (T &amp;rvar, <a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a> comm)</td></tr>
+<tr class="separator:a38123c36ae58daf58059cb4ba16ea9bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8356af98bdf5fd19f472e5a68bc5935"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ae8356af98bdf5fd19f472e5a68bc5935"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_all_reduce.html#ae8356af98bdf5fd19f472e5a68bc5935">Min</a> (T *rvar, int cnt, <a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a> comm)</td></tr>
+<tr class="separator:ae8356af98bdf5fd19f472e5a68bc5935"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a362c4cca4105125f096fbb513fc0a5d9"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a362c4cca4105125f096fbb513fc0a5d9"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_all_reduce.html#a362c4cca4105125f096fbb513fc0a5d9">Min</a> (<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::reference_wrapper&lt; T &gt; &gt; &amp;&amp;v, <a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a> comm)</td></tr>
+<tr class="separator:a362c4cca4105125f096fbb513fc0a5d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14efdbebcf9e7e93a41f31b53b4f25a2"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a14efdbebcf9e7e93a41f31b53b4f25a2"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_all_reduce.html#a14efdbebcf9e7e93a41f31b53b4f25a2">Sum</a> (T &amp;rvar, <a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a> comm)</td></tr>
 <tr class="separator:a14efdbebcf9e7e93a41f31b53b4f25a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -183,6 +192,96 @@ template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void amrex::ParallelAllReduce::Max </td>
+          <td>(</td>
+          <td class="paramtype">Vector&lt; std::reference_wrapper&lt; T &gt; &gt; &amp;&amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a>&#160;</td>
+          <td class="paramname"><em>comm</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a38123c36ae58daf58059cb4ba16ea9bc"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void amrex::ParallelAllReduce::Min </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&#160;</td>
+          <td class="paramname"><em>rvar</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a>&#160;</td>
+          <td class="paramname"><em>comm</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ae8356af98bdf5fd19f472e5a68bc5935"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void amrex::ParallelAllReduce::Min </td>
+          <td>(</td>
+          <td class="paramtype">T *&#160;</td>
+          <td class="paramname"><em>rvar</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>cnt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a>&#160;</td>
+          <td class="paramname"><em>comm</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a362c4cca4105125f096fbb513fc0a5d9"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void amrex::ParallelAllReduce::Min </td>
           <td>(</td>
           <td class="paramtype">Vector&lt; std::reference_wrapper&lt; T &gt; &gt; &amp;&amp;&#160;</td>
           <td class="paramname"><em>v</em>, </td>

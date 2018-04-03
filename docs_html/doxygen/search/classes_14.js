@@ -17,6 +17,7 @@ var searchData=
   ['vector_3c_20amrex_3a_3ainterpolater_20_2a_20_3e',['Vector&lt; amrex::Interpolater * &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20amrex_3a_3aintvect_20_3e',['Vector&lt; amrex::IntVect &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20amrex_3a_3aintvectset_20_3e',['Vector&lt; amrex::IntVectSet &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
+  ['vector_3c_20amrex_3a_3amultifab_20_3e',['Vector&lt; amrex::MultiFab &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20amrex_3a_3amultimask_20_3e',['Vector&lt; amrex::MultiMask &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20amrex_3a_3aparticle_20_3e',['Vector&lt; amrex::Particle &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20amrex_3a_3apolyterm_20_3e',['Vector&lt; amrex::PolyTerm &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],

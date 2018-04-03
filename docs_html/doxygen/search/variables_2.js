@@ -20,6 +20,7 @@ var searchData=
   ['coarsestdx',['coarsestDx',['../classamrex_1_1_grid_parameters.html#a793ff1b9f63d8af35ce5c735f2419c59',1,'amrex::GridParameters']]],
   ['coef',['coef',['../classamrex_1_1_poly_term.html#a94411825c1c579589208c75b5347880d',1,'amrex::PolyTerm']]],
   ['collectdata_5frecv_5fevent',['CollectData_recv_event',['../namespaceamrex_1_1_b_l_pgas.html#ab3205055492a0f70bf901097e2f99109',1,'amrex::BLPgas']]],
+  ['comm',['comm',['../classamrex_1_1_parallel_context_1_1_frame.html#a00076c4be0a8a1fa1a56d8d9c3fdfa2f',1,'amrex::ParallelContext::Frame']]],
   ['comm_5ftile_5fsize',['comm_tile_size',['../classamrex_1_1_fab_array_base.html#aec4332affa6c055da41aab70b684a064',1,'amrex::FabArrayBase']]],
   ['communicate_5fint_5fcomp',['communicate_int_comp',['../classamrex_1_1_particle_container.html#a6b59c2f3c8342b421deeb74380a46175',1,'amrex::ParticleContainer']]],
   ['communicate_5freal_5fcomp',['communicate_real_comp',['../classamrex_1_1_particle_container.html#ab9f454ac348d292cb7834eb189d45f76',1,'amrex::ParticleContainer']]],

@@ -146,9 +146,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1d90d4d170241cd5fba0ff90640bb163"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_bndry_register.html#a1d90d4d170241cd5fba0ff90640bb163">size</a> () const </td></tr>
 <tr class="memdesc:a1d90d4d170241cd5fba0ff90640bb163"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the number of grids in this domain.  <a href="#a1d90d4d170241cd5fba0ff90640bb163">More...</a><br/></td></tr>
 <tr class="separator:a1d90d4d170241cd5fba0ff90640bb163"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2c67ec17b235e8f5a8ea9f38e887d39"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">ParallelDescriptor::Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_bndry_register.html#ad2c67ec17b235e8f5a8ea9f38e887d39">color</a> () const </td></tr>
-<tr class="memdesc:ad2c67ec17b235e8f5a8ea9f38e887d39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return color.  <a href="#ad2c67ec17b235e8f5a8ea9f38e887d39">More...</a><br/></td></tr>
-<tr class="separator:ad2c67ec17b235e8f5a8ea9f38e887d39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5058be14bb5689f986b25ba4af72737"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classamrex_1_1_fab_set.html">FabSet</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_bndry_register.html#ac5058be14bb5689f986b25ba4af72737">operator[]</a> (<a class="el" href="classamrex_1_1_orientation.html">Orientation</a> face) const </td></tr>
 <tr class="memdesc:ac5058be14bb5689f986b25ba4af72737"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return const set of FABs bounding the domain grid boxes on a given orientation.  <a href="#ac5058be14bb5689f986b25ba4af72737">More...</a><br/></td></tr>
 <tr class="separator:ac5058be14bb5689f986b25ba4af72737"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -184,9 +181,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4cb1af64eb4645b6e6398c1839ecabe7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_bndry_register.html#a4cb1af64eb4645b6e6398c1839ecabe7">read</a> (const std::string &amp;name, std::istream &amp;is)</td></tr>
 <tr class="memdesc:a4cb1af64eb4645b6e6398c1839ecabe7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read (used for reading from checkpoint)  <a href="#a4cb1af64eb4645b6e6398c1839ecabe7">More...</a><br/></td></tr>
 <tr class="separator:a4cb1af64eb4645b6e6398c1839ecabe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f4b5cf293b11fadc3874b0061b214a1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_bndry_register.html#a5f4b5cf293b11fadc3874b0061b214a1">AddProcsToComp</a> (int ioProcNumSCS, int ioProcNumAll, int scsMyId, <a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a> scsComm)</td></tr>
-<tr class="memdesc:a5f4b5cf293b11fadc3874b0061b214a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">AddProcsToComp.  <a href="#a5f4b5cf293b11fadc3874b0061b214a1">More...</a><br/></td></tr>
-<tr class="separator:a5f4b5cf293b11fadc3874b0061b214a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -347,56 +341,6 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a5f4b5cf293b11fadc3874b0061b214a1"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void amrex::BndryRegister::AddProcsToComp </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>ioProcNumSCS</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>ioProcNumAll</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>scsMyId</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a>&#160;</td>
-          <td class="paramname"><em>scsComm</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>AddProcsToComp. </p>
-
-<p>Reimplemented in <a class="el" href="classamrex_1_1_flux_register.html#a434b5b56fe767c13ded4edd25baa8a0e">amrex::FluxRegister</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="a481cc8f63d2903492d64ddd2d1733b41"></a>
 <div class="memitem">
 <div class="memproto">
@@ -434,31 +378,6 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ad2c67ec17b235e8f5a8ea9f38e887d39"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classamrex_1_1_parallel_descriptor_1_1_color.html">ParallelDescriptor::Color</a> amrex::BndryRegister::color </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return color. </p>
 
 </div>
 </div>

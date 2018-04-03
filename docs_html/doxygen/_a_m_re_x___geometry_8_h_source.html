@@ -205,33 +205,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                        <span class="keyword">const</span> <a class="code" href="classamrex_1_1_box.html">Box</a>&amp;      src, </div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                        <a class="code" href="classamrex_1_1_vector.html">Vector&lt;IntVect&gt;</a>&amp; out) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="preprocessor">#ifdef BL_USE_MPI</span></div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="preprocessor"></span>    <span class="keyword">static</span> <span class="keywordtype">void</span> SendGeometryToSidecar (<a class="code" href="classamrex_1_1_geometry.html">Geometry</a> *geom, <span class="keywordtype">int</span> whichSidecar);</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordtype">void</span> read_params ();</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> BroadcastGeometry (<a class="code" href="classamrex_1_1_geometry.html">Geometry</a> &amp;geom, <span class="keywordtype">int</span> fromProc, <a class="code" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a> comm);</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> BroadcastGeometry (<a class="code" href="classamrex_1_1_geometry.html">Geometry</a> &amp;geom, <span class="keywordtype">int</span> fromProc, <a class="code" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a> comm, <span class="keywordtype">bool</span> bcastSource);</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keywordtype">void</span> read_params ();</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="comment">// Static data.</span></div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span>     spherical_origin_fix;</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span>    is_periodic[AMREX_SPACEDIM]; <span class="comment">// 0 means not periodic</span></div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keyword">static</span> <a class="code" href="classamrex_1_1_real_box.html">RealBox</a> prob_domain;</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="comment">// Non-static data.</span></div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <a class="code" href="classamrex_1_1_box.html">Box</a> domain;</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;};</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="comment">// Static data.</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span>     spherical_origin_fix;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span>    is_periodic[AMREX_SPACEDIM]; <span class="comment">// 0 means not periodic</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keyword">static</span> <a class="code" href="classamrex_1_1_real_box.html">RealBox</a> prob_domain;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="comment">// Non-static data.</span></div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <a class="code" href="classamrex_1_1_box.html">Box</a> domain;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;};</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;std::ostream&amp; <a class="code" href="namespaceamrex.html#a539c997273a93fdaabfc2a131c4425cf">operator&lt;&lt; </a>(std::ostream&amp;, <span class="keyword">const</span> Geometry&amp;);</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;std::istream&amp; <a class="code" href="namespaceamrex.html#aac7b44499bc56506bcf5ed89ec42bc09">operator&gt;&gt; </a>(std::istream&amp;, Geometry&amp;);</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;}</div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;std::ostream&amp; <a class="code" href="namespaceamrex.html#a539c997273a93fdaabfc2a131c4425cf">operator&lt;&lt; </a>(std::ostream&amp;, <span class="keyword">const</span> Geometry&amp;);</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;std::istream&amp; <a class="code" href="namespaceamrex.html#aac7b44499bc56506bcf5ed89ec42bc09">operator&gt;&gt; </a>(std::istream&amp;, Geometry&amp;);</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;}</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/*_GEOMETRY_H_*/</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/*_GEOMETRY_H_*/</span><span class="preprocessor"></span></div>
 <div class="ttc" id="classamrex_1_1_geometry_html_a98091e22b9e88c2f16dab3c7465b58d6"><div class="ttname"><a href="classamrex_1_1_geometry.html#a98091e22b9e88c2f16dab3c7465b58d6">amrex::Geometry::ProbHi</a></div><div class="ttdeci">static const Real * ProbHi()</div><div class="ttdoc">Returns the hi end of the problem domain in each dimension. </div><div class="ttdef"><b>Definition:</b> AMReX_Geometry.H:68</div></div>
 <div class="ttc" id="classamrex_1_1_geometry_html_ab8e39778598a7ec2c22bb3bb4b3b65f3"><div class="ttname"><a href="classamrex_1_1_geometry.html#ab8e39778598a7ec2c22bb3bb4b3b65f3">amrex::Geometry::Setup</a></div><div class="ttdeci">static void Setup(const RealBox *rb=nullptr, int coord=-1, int *is_per=nullptr)</div><div class="ttdoc">Read static values from ParmParse database. </div><div class="ttdef"><b>Definition:</b> AMReX_Geometry.cpp:105</div></div>
 <div class="ttc" id="classamrex_1_1_real_box_html"><div class="ttname"><a href="classamrex_1_1_real_box.html">amrex::RealBox</a></div><div class="ttdoc">A Box with real dimensions. A RealBox is OK iff volume &gt;= 0. </div><div class="ttdef"><b>Definition:</b> AMReX_RealBox.H:18</div></div>
@@ -249,7 +242,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classamrex_1_1_geometry_html_ac9995bee825c800a9e5cd343ab512f68"><div class="ttname"><a href="classamrex_1_1_geometry.html#ac9995bee825c800a9e5cd343ab512f68">amrex::Geometry::period</a></div><div class="ttdeci">int period(int dir) const </div><div class="ttdoc">What&#39;s period in specified direction? </div><div class="ttdef"><b>Definition:</b> AMReX_Geometry.H:136</div></div>
 <div class="ttc" id="classamrex_1_1_box_html"><div class="ttname"><a href="classamrex_1_1_box.html">amrex::Box</a></div><div class="ttdoc">A Rectangular Domain on an Integer Lattice. </div><div class="ttdef"><b>Definition:</b> AMReX_Box.H:181</div></div>
 <div class="ttc" id="_a_m_re_x___coord_sys_8_h_html"><div class="ttname"><a href="_a_m_re_x___coord_sys_8_h.html">AMReX_CoordSys.H</a></div></div>
-<div class="ttc" id="_a_m_re_x__ccse-mpi_8_h_html_a68c509d4adb3f4a1d6fe3a9b0b87c7b9"><div class="ttname"><a href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a></div><div class="ttdeci">int MPI_Comm</div><div class="ttdef"><b>Definition:</b> AMReX_ccse-mpi.H:43</div></div>
 <div class="ttc" id="classamrex_1_1_geometry_html_a34a66feb9b08cd9c5770ac23c37bea91"><div class="ttname"><a href="classamrex_1_1_geometry.html#a34a66feb9b08cd9c5770ac23c37bea91">amrex::Geometry::Domain</a></div><div class="ttdeci">const Box &amp; Domain() const </div><div class="ttdoc">Returns our rectangular domain. </div><div class="ttdef"><b>Definition:</b> AMReX_Geometry.H:81</div></div>
 <div class="ttc" id="classamrex_1_1_geometry_html_afa01c6e9ad7462682bef8e2dd95057d5"><div class="ttname"><a href="classamrex_1_1_geometry.html#afa01c6e9ad7462682bef8e2dd95057d5">amrex::Geometry::isPeriodic</a></div><div class="ttdeci">static bool isPeriodic(int dir)</div><div class="ttdoc">Is the domain periodic in the specified direction? </div><div class="ttdef"><b>Definition:</b> AMReX_Geometry.H:124</div></div>
 <div class="ttc" id="classamrex_1_1_multi_fab_html"><div class="ttname"><a href="classamrex_1_1_multi_fab.html">amrex::MultiFab</a></div><div class="ttdoc">A collection (stored as an array) of FArrayBox objects. This class is useful for storing floating poi...</div><div class="ttdef"><b>Definition:</b> AMReX_MultiFab.H:29</div></div>

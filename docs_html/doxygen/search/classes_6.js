@@ -32,7 +32,6 @@ var searchData=
   ['fabio_5f8bit',['FABio_8bit',['../classamrex_1_1_f_a_bio__8bit.html',1,'amrex']]],
   ['fabio_5fascii',['FABio_ascii',['../classamrex_1_1_f_a_bio__ascii.html',1,'amrex']]],
   ['fabio_5fbinary',['FABio_binary',['../classamrex_1_1_f_a_bio__binary.html',1,'amrex']]],
-  ['fabmoves',['FABMoves',['../structamrex_1_1_fab_array_1_1_f_a_b_moves.html',1,'amrex::FabArray']]],
   ['fabondisk',['FabOnDisk',['../structamrex_1_1_vis_m_f_1_1_fab_on_disk.html',1,'amrex::VisMF']]],
   ['fabreadlink',['FabReadLink',['../structamrex_1_1_vis_m_f_1_1_fab_read_link.html',1,'amrex::VisMF']]],
   ['fabset',['FabSet',['../classamrex_1_1_fab_set.html',1,'amrex']]],
@@ -56,7 +55,9 @@ var searchData=
   ['fixedrefinement',['FixedRefinement',['../classamrex_1_1_fixed_refinement.html',1,'amrex']]],
   ['flatplategeom',['FlatPlateGeom',['../classamrex_1_1_flat_plate_geom.html',1,'amrex']]],
   ['fluxregister',['FluxRegister',['../classamrex_1_1_flux_register.html',1,'amrex']]],
+  ['forkjoin',['ForkJoin',['../classamrex_1_1_fork_join.html',1,'amrex']]],
   ['fpc',['FPC',['../classamrex_1_1_f_p_c.html',1,'amrex']]],
   ['fpinfo',['FPinfo',['../structamrex_1_1_fab_array_base_1_1_f_pinfo.html',1,'amrex::FabArrayBase']]],
+  ['frame',['Frame',['../classamrex_1_1_parallel_context_1_1_frame.html',1,'amrex::ParallelContext']]],
   ['frame',['Frame',['../classamrex_1_1_parm_parse_1_1_frame.html',1,'amrex::ParmParse']]]
 ];

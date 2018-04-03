@@ -1,11 +1,8 @@
 var searchData=
 [
   ['abort_5fon_5fstream_5fretry_5ffailure',['abort_on_stream_retry_failure',['../classamrex_1_1_amr.html#a98d00dad9a4ef2a681aaafdf2a59cb0b',1,'amrex::Amr']]],
-  ['afapid',['aFAPId',['../classamrex_1_1_fab_array_base.html#a33a855383f533f00ded237f4b4de3800',1,'amrex::FabArrayBase']]],
-  ['afapidlock',['aFAPIdLock',['../classamrex_1_1_fab_array_base.html#a2d1d2694940eff655dc3b0d574cb959a',1,'amrex::FabArrayBase']]],
   ['align_5fsize',['align_size',['../classamrex_1_1_arena.html#a52dd4bf03bb4d31899bca6ca3440760a',1,'amrex::Arena']]],
   ['alloc',['alloc',['../structamrex_1_1_m_f_info.html#a61ae5fd154086ea2849fe236e1dce794',1,'amrex::MFInfo::alloc()'],['../structamrex_1_1_fab_array_1_1_sh_mem.html#a518a05aca520436cde584e328f5815c3',1,'amrex::FabArray::ShMem::alloc()'],['../structamrex_1_1_fab_info.html#a826adbd1c96b9aab9f1826b69a894459',1,'amrex::FabInfo::alloc()']]],
-  ['allocatedfapointers',['allocatedFAPointers',['../classamrex_1_1_fab_array.html#af787e2fd3da07dadddfac750bd2d279c',1,'amrex::FabArray']]],
   ['allow_5fparticles_5fnear_5fboundary',['allow_particles_near_boundary',['../classamrex_1_1_particle_container.html#ab2acf56238efe92167f33723dc9d4b3b',1,'amrex::ParticleContainer']]],
   ['allprocs',['AllProcs',['../classamrex_1_1_print.html#ac54860bd8ad68a5551e588ff8e01aa3b',1,'amrex::Print::AllProcs()'],['../classamrex_1_1_print_to_file.html#a0067feaedbdfba6996f079b3b44162cc',1,'amrex::PrintToFile::AllProcs()']]],
   ['amr_5flevel',['amr_level',['../classamrex_1_1_amr.html#a48ea3d37aac2f07a6488cb599f45fc8b',1,'amrex::Amr']]],
