@@ -696,9 +696,9 @@ Classes</h2></td></tr>
 Typedefs</h2></td></tr>
 <tr class="memitem:acd7b625566c505e27b79ff3f812f90e7"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#acd7b625566c505e27b79ff3f812f90e7">PTR_TO_VOID_FUNC</a> )(void)</td></tr>
 <tr class="separator:acd7b625566c505e27b79ff3f812f90e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3dc312065fc43f9eef3bc514b54066ad"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a3dc312065fc43f9eef3bc514b54066ad"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a3dc312065fc43f9eef3bc514b54066ad">Array</a> = <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; T &gt;</td></tr>
-<tr class="separator:a3dc312065fc43f9eef3bc514b54066ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe930d74045516fece8591f173e57007"><td class="memTemplParams" colspan="2">template&lt;class T , std::size_t N&gt; </td></tr>
+<tr class="memitem:afe930d74045516fece8591f173e57007"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#afe930d74045516fece8591f173e57007">Array</a> = std::array&lt; T, N &gt;</td></tr>
+<tr class="separator:afe930d74045516fece8591f173e57007"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f4d0df7602cb80e9c2217dae6b9281d"><td class="memItemLeft" align="right" valign="top">typedef int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a9f4d0df7602cb80e9c2217dae6b9281d">key_table_type</a></td></tr>
 <tr class="separator:a9f4d0df7602cb80e9c2217dae6b9281d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abda821661019fb0a77eb3a9706dc7330"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#abda821661019fb0a77eb3a9706dc7330">FArrayBoxFactory</a> = <a class="el" href="classamrex_1_1_default_fab_factory.html">DefaultFabFactory</a>&lt; <a class="el" href="classamrex_1_1_f_array_box.html">FArrayBox</a> &gt;</td></tr>
@@ -819,18 +819,6 @@ Functions</h2></td></tr>
 <tr class="separator:a0c0dc9355722e150b88c6fc71422288e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3d1414946b992f39ca41f135f12a0d1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_arena.html">Arena</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ae3d1414946b992f39ca41f135f12a0d1">The_Arena</a> ()</td></tr>
 <tr class="separator:ae3d1414946b992f39ca41f135f12a0d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ec0fd427d1e6ec5e50e7f7e01aa2680"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a5ec0fd427d1e6ec5e50e7f7e01aa2680"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; T * &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a5ec0fd427d1e6ec5e50e7f7e01aa2680">GetArrOfPtrs</a> (const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::unique_ptr&lt; T &gt; &gt; &amp;a)</td></tr>
-<tr class="separator:a5ec0fd427d1e6ec5e50e7f7e01aa2680"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c33f17d48d4d67e3034781273fda526"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a9c33f17d48d4d67e3034781273fda526"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; const T * &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a9c33f17d48d4d67e3034781273fda526">GetArrOfConstPtrs</a> (const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::unique_ptr&lt; T &gt; &gt; &amp;a)</td></tr>
-<tr class="separator:a9c33f17d48d4d67e3034781273fda526"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ad0b8a3430716cb50cc635c9fe55426"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a1ad0b8a3430716cb50cc635c9fe55426"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; const T * &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a1ad0b8a3430716cb50cc635c9fe55426">GetArrOfConstPtrs</a> (const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; T * &gt; &amp;a)</td></tr>
-<tr class="separator:a1ad0b8a3430716cb50cc635c9fe55426"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4454da5b24f32c800a1bb534850565d7"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a4454da5b24f32c800a1bb534850565d7"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; T * &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a4454da5b24f32c800a1bb534850565d7">GetArrOfArrOfPtrs</a> (const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::unique_ptr&lt; T &gt; &gt; &gt; &amp;a)</td></tr>
-<tr class="separator:a4454da5b24f32c800a1bb534850565d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ca1eefa55eeb6a77f1b5f5f1aa2a089"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr class="memitem:a1ca1eefa55eeb6a77f1b5f5f1aa2a089"><td class="memTemplItemLeft" align="right" valign="top">std::array&lt; T *, AMREX_SPACEDIM &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a1ca1eefa55eeb6a77f1b5f5f1aa2a089">GetArrOfPtrs</a> (std::array&lt; T, AMREX_SPACEDIM &gt; &amp;a)</td></tr>
 <tr class="separator:a1ca1eefa55eeb6a77f1b5f5f1aa2a089"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2200,14 +2188,14 @@ const int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 
 </div>
 </div>
-<a class="anchor" id="a3dc312065fc43f9eef3bc514b54066ad"></a>
+<a class="anchor" id="afe930d74045516fece8591f173e57007"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class T &gt; </div>
+template&lt;class T , std::size_t N&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespaceamrex.html#a3dc312065fc43f9eef3bc514b54066ad">amrex::Array</a> = typedef <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt;T&gt;</td>
+          <td class="memname">using <a class="el" href="namespaceamrex.html#afe930d74045516fece8591f173e57007">amrex::Array</a> = typedef std::array&lt;T,N&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -7089,60 +7077,6 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a4454da5b24f32c800a1bb534850565d7"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt;<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt;T*&gt; &gt; amrex::GetArrOfArrOfPtrs </td>
-          <td>(</td>
-          <td class="paramtype">const Vector&lt; Vector&lt; std::unique_ptr&lt; T &gt; &gt; &gt; &amp;&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a9c33f17d48d4d67e3034781273fda526"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt;const T*&gt; amrex::GetArrOfConstPtrs </td>
-          <td>(</td>
-          <td class="paramtype">const Vector&lt; std::unique_ptr&lt; T &gt; &gt; &amp;&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a1ad0b8a3430716cb50cc635c9fe55426"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt;const T*&gt; amrex::GetArrOfConstPtrs </td>
-          <td>(</td>
-          <td class="paramtype">const Vector&lt; T * &gt; &amp;&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="a203249f88d9dcd9f313d57720d438416"></a>
 <div class="memitem">
 <div class="memproto">
@@ -7153,24 +7087,6 @@ template&lt;class T &gt; </div>
           <td class="memname">std::array&lt;T const*,AMREX_SPACEDIM&gt; amrex::GetArrOfConstPtrs </td>
           <td>(</td>
           <td class="paramtype">const std::array&lt; T, AMREX_SPACEDIM &gt; &amp;&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a5ec0fd427d1e6ec5e50e7f7e01aa2680"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt;T*&gt; amrex::GetArrOfPtrs </td>
-          <td>(</td>
-          <td class="paramtype">const Vector&lt; std::unique_ptr&lt; T &gt; &gt; &amp;&#160;</td>
           <td class="paramname"><em>a</em></td><td>)</td>
           <td></td>
         </tr>
@@ -14579,45 +14495,6 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a69bf266cc5fefb0b385d84f685dd0df6"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void amrex::readIntData </td>
-          <td>(</td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>size</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::istream &amp;&#160;</td>
-          <td class="paramname"><em>is</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classamrex_1_1_int_descriptor.html">IntDescriptor</a> &amp;&#160;</td>
-          <td class="paramname"><em>id</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Read int data from the istream. The arguments are a pointer to data buffer to read into, the size of that buffer, the istream, and an <a class="el" href="classamrex_1_1_int_descriptor.html">IntDescriptor</a> that describes the format of the data on disk. The buffer is assumed to be large enough to store 'size' integers, and it is the user's reponsiblity to allocate this data. </p>
-
-</div>
-</div>
 <a class="anchor" id="af8ec915a2cffc7c342e1f15e52cbd697"></a>
 <div class="memitem">
 <div class="memproto">
@@ -14655,6 +14532,45 @@ template&lt;typename To , typename From &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a69bf266cc5fefb0b385d84f685dd0df6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void amrex::readIntData </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::istream &amp;&#160;</td>
+          <td class="paramname"><em>is</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_int_descriptor.html">IntDescriptor</a> &amp;&#160;</td>
+          <td class="paramname"><em>id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Read int data from the istream. The arguments are a pointer to data buffer to read into, the size of that buffer, the istream, and an <a class="el" href="classamrex_1_1_int_descriptor.html">IntDescriptor</a> that describes the format of the data on disk. The buffer is assumed to be large enough to store 'size' integers, and it is the user's reponsiblity to allocate this data. </p>
 
 </div>
 </div>
