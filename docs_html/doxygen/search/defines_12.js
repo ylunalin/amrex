@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['tolerance',['TOLERANCE',['../_a_m_re_x___notation_8_h.html#a30c17564229ec2e37dfea9c6c9ad643e',1,'AMReX_Notation.H']]],
-  ['tp_5fprofile_5fregion_5fstart',['TP_PROFILE_REGION_START',['../_a_m_re_x___b_l_profiler_8_h.html#a79eba41eae8c42e9424b6900fed47432',1,'AMReX_BLProfiler.H']]],
-  ['tp_5fprofile_5fregion_5fstop',['TP_PROFILE_REGION_STOP',['../_a_m_re_x___b_l_profiler_8_h.html#a5ccc14e8e493053567fe20466e2a704c',1,'AMReX_BLProfiler.H']]]
+  ['unlikely',['unlikely',['../_a_m_re_x___p_x_stuff_8_h.html#ad8700448546b3b5111404cc021061fd5',1,'AMReX_PXStuff.H']]],
+  ['use_5flist_5fnode_5fallocator',['USE_LIST_NODE_ALLOCATOR',['../_a_m_re_x___k_d_tree_8_h.html#ac0259e59073baaf1f3ad74ca8a2a3a07',1,'AMReX_KDTree.H']]],
+  ['using_5ftop_5fface_5fmoments',['USING_TOP_FACE_MOMENTS',['../_a_m_re_x___notation_8_h.html#a862e4fe418b80fd28688a82cc96e6b08',1,'AMReX_Notation.H']]]
 ];
