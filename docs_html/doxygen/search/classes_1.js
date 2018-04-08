@@ -27,6 +27,7 @@ var searchData=
   ['amrex_5finterp_5fmodule',['amrex_interp_module',['../classamrex__interp__module.html',1,'']]],
   ['amrex_5finterpbndrydata_5fmodule',['amrex_interpbndrydata_module',['../classamrex__interpbndrydata__module.html',1,'']]],
   ['amrex_5flo_5fbctypes_5fmodule',['amrex_lo_bctypes_module',['../classamrex__lo__bctypes__module.html',1,'']]],
+  ['amrex_5flo_5futil_5fmodule',['amrex_lo_util_module',['../classamrex__lo__util__module.html',1,'']]],
   ['amrex_5fmalloc',['amrex_malloc',['../interfaceamrex__fort__module_1_1amrex__malloc.html',1,'amrex_fort_module']]],
   ['amrex_5fmempool_5falloc',['amrex_mempool_alloc',['../interfacemempool__module_1_1amrex__mempool__alloc.html',1,'mempool_module']]],
   ['amrex_5fmempool_5ffree',['amrex_mempool_free',['../interfacemempool__module_1_1amrex__mempool__free.html',1,'mempool_module']]],

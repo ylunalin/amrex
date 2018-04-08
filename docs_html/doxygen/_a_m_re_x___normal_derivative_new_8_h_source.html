@@ -230,9 +230,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;          Real len = 0;</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;          <span class="keywordflow">for</span> (<span class="keywordtype">int</span> d=0; d &lt; dim; ++d)</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;          {</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;            Real <a class="code" href="namespaceamrex.html#a3c8a8d58f461ec4ae855c3d602174082">val</a> = a_phiDerivs[BASISV_TM&lt;int,dim&gt;(d)]; </div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;            dphi[d] = <a class="code" href="namespaceamrex.html#a3c8a8d58f461ec4ae855c3d602174082">val</a>;</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;            len += val*<a class="code" href="namespaceamrex.html#a3c8a8d58f461ec4ae855c3d602174082">val</a>;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;            Real val = a_phiDerivs[BASISV_TM&lt;int,dim&gt;(d)]; </div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;            dphi[d] = val;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;            len += val*val;</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;          }</div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;          a_lDerivs[a_deriv] = sqrt(len);</div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;          <span class="keywordflow">return</span>;</div>
@@ -339,7 +339,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classamrex_1_1_box_html"><div class="ttname"><a href="classamrex_1_1_box.html">amrex::Box</a></div><div class="ttdoc">A Rectangular Domain on an Integer Lattice. </div><div class="ttdef"><b>Definition:</b> AMReX_Box.H:181</div></div>
 <div class="ttc" id="class_normal_derivative_new_html_a6cd86cb0a85874f98a4ec3c84a07150c"><div class="ttname"><a href="class_normal_derivative_new.html#a6cd86cb0a85874f98a4ec3c84a07150c">NormalDerivativeNew::ScalarPowerMap</a></div><div class="ttdeci">map&lt; IvDim, Real, LexLT&lt; IvDim &gt; &gt; ScalarPowerMap</div><div class="ttdef"><b>Definition:</b> AMReX_NormalDerivativeNew.H:25</div></div>
 <div class="ttc" id="_a_m_re_x___notation_8_h_html"><div class="ttname"><a href="_a_m_re_x___notation_8_h.html">AMReX_Notation.H</a></div></div>
-<div class="ttc" id="namespaceamrex_html_a3c8a8d58f461ec4ae855c3d602174082"><div class="ttname"><a href="namespaceamrex.html#a3c8a8d58f461ec4ae855c3d602174082">amrex::val</a></div><div class="ttdeci">const int const int const int int * val</div><div class="ttdef"><b>Definition:</b> AMReX_ParmParse.cpp:1914</div></div>
 <div class="ttc" id="class_normal_derivative_new_html_ad353c9e0eab1e8ec73e1ca20ffb87de4"><div class="ttname"><a href="class_normal_derivative_new.html#ad353c9e0eab1e8ec73e1ca20ffb87de4">NormalDerivativeNew::NormalDerivativeNew</a></div><div class="ttdeci">NormalDerivativeNew()</div><div class="ttdoc">Null constructor. </div><div class="ttdef"><b>Definition:</b> AMReX_NormalDerivativeNew.H:32</div></div>
 <div class="ttc" id="class_normal_derivative_new_html_a8d86f1049a24dffbde834c18ac6e35b8"><div class="ttname"><a href="class_normal_derivative_new.html#a8d86f1049a24dffbde834c18ac6e35b8">NormalDerivativeNew::RvDim</a></div><div class="ttdeci">IndexTM&lt; Real, dim &gt; RvDim</div><div class="ttdef"><b>Definition:</b> AMReX_NormalDerivativeNew.H:21</div></div>
 <div class="ttc" id="_a_m_re_x___box_iterator_8_h_html"><div class="ttname"><a href="_a_m_re_x___box_iterator_8_h.html">AMReX_BoxIterator.H</a></div></div>

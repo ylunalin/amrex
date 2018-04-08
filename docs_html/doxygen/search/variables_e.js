@@ -2,7 +2,6 @@ var searchData=
 [
   ['p',['p',['../structamrex__parmparse__module_1_1amrex__parmparse.html#add6764a664666a9bdb4065f20184514e',1,'amrex_parmparse_module::amrex_parmparse']]],
   ['parent',['parent',['../classamrex_1_1_amr_level.html#aeb2c20016c60209d0bc5112f262957c2',1,'amrex::AmrLevel']]],
-  ['parsers',['parsers',['../namespaceamrex.html#acb46d3ab354f11ed5418c8dfb6ba202c',1,'amrex']]],
   ['particlerealdescriptor',['ParticleRealDescriptor',['../classamrex_1_1_particle_container.html#a3745cc53b964fc08052fe340d1fd42b2',1,'amrex::ParticleContainer']]],
   ['pc_5finterp',['pc_interp',['../namespaceamrex.html#add23b3df81e9353cea327552654d630b',1,'amrex']]],
   ['pdata_5fsize',['pdata_size',['../classamrex_1_1_neighbor_particle_container.html#a683d4fcc37d9b1553f64124f5d6adafe',1,'amrex::NeighborParticleContainer']]],
@@ -17,8 +16,6 @@ var searchData=
   ['pos',['pos',['../structamrex_1_1_base_umap_1_1_tuple.html#a0e42426fd0537612640d95fa8b435349',1,'amrex::BaseUmap::Tuple::pos()'],['../unionamrex_1_1_particle_1_1rm__t.html#a7be515751793052c69a269369873b89f',1,'amrex::Particle::rm_t::pos()'],['../structamrex_1_1__kdnode.html#a46f2a84ebc638090b1e08db9d7536341',1,'amrex::_kdnode::pos()'],['../structamrex_1_1__resultnode.html#a6fadde4ddb0338419ed8abc1c851d73c',1,'amrex::_resultnode::pos()']]],
   ['post_5fstep_5fregrid',['post_step_regrid',['../classamrex_1_1_amr_level.html#a9ef7971fd5d7dd152886c202feb7d806',1,'amrex::AmrLevel']]],
   ['powers',['powers',['../classamrex_1_1_poly_term.html#a4d42f1ec26be4499c3f0389bb08eb42a',1,'amrex::PolyTerm']]],
-  ['pp',['pp',['../namespaceamrex.html#a787b25181d9fc9bd4599c372c0a08b66',1,'amrex']]],
-  ['ppr',['ppr',['../namespaceamrex.html#ab687d707cd0ef76ddf2ef2035ab66979',1,'amrex']]],
   ['precreatedirectories',['precreateDirectories',['../namespaceamrex.html#aee87bad8e223463237efb0e157629193',1,'amrex']]],
   ['prereadfaheaders',['prereadFAHeaders',['../namespaceamrex.html#a82af7510a857d501de8f3a1de444472a',1,'amrex']]],
   ['private_5ftotal_5fbytes_5fallocated_5fin_5ffabs',['private_total_bytes_allocated_in_fabs',['../namespaceamrex.html#acb97f6f7553a0dbf1813a0faac636b90',1,'amrex']]],

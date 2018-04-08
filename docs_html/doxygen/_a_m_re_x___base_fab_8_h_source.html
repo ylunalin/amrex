@@ -330,20 +330,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;    <a class="code" href="classamrex_1_1_int_vect.html">IntVect</a> <a class="code" href="classamrex_1_1_base_fab.html#abf85012a8d7c64d43bc12dbc3c6ef49a">maxIndex</a> (<span class="keyword">const</span> <a class="code" href="classamrex_1_1_box.html">Box</a>&amp; subbox,</div>
 <div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;                      <span class="keywordtype">int</span>        comp = 0) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classamrex_1_1_base_fab.html#a806c5dba218e6098909c519df0958505">maskLT</a> (<a class="code" href="classamrex_1_1_base_fab.html">BaseFab&lt;int&gt;</a>&amp; mask,</div>
-<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;                T             <a class="code" href="namespaceamrex.html#a3c8a8d58f461ec4ae855c3d602174082">val</a>,</div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;                T             val,</div>
 <div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;                <span class="keywordtype">int</span>           comp = 0) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classamrex_1_1_base_fab.html#a2a055bf62da17207f8e4db4dea0d4327">maskLE</a> (<a class="code" href="classamrex_1_1_base_fab.html">BaseFab&lt;int&gt;</a>&amp; mask,</div>
-<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;                T             <a class="code" href="namespaceamrex.html#a3c8a8d58f461ec4ae855c3d602174082">val</a>,</div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;                T             val,</div>
 <div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;                <span class="keywordtype">int</span>           comp = 0) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;    </div>
 <div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classamrex_1_1_base_fab.html#ac39f1cda41b0f2f2d6d3b3dd06fb8014">maskEQ</a> (<a class="code" href="classamrex_1_1_base_fab.html">BaseFab&lt;int&gt;</a>&amp; mask,</div>
-<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;                T             <a class="code" href="namespaceamrex.html#a3c8a8d58f461ec4ae855c3d602174082">val</a>,</div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;                T             val,</div>
 <div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;                <span class="keywordtype">int</span>           comp = 0) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classamrex_1_1_base_fab.html#a5d35522a5629475d65400cf4cf390e4b">maskGT</a> (<a class="code" href="classamrex_1_1_base_fab.html">BaseFab&lt;int&gt;</a>&amp; mask,</div>
-<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;                T             <a class="code" href="namespaceamrex.html#a3c8a8d58f461ec4ae855c3d602174082">val</a>,</div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;                T             val,</div>
 <div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;                <span class="keywordtype">int</span>           comp = 0) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classamrex_1_1_base_fab.html#abcebef11683d656c51ed70af3ddf8992">maskGE</a> (<a class="code" href="classamrex_1_1_base_fab.html">BaseFab&lt;int&gt;</a>&amp; mask,</div>
-<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;                T             <a class="code" href="namespaceamrex.html#a3c8a8d58f461ec4ae855c3d602174082">val</a>,</div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;                T             val,</div>
 <div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;                <span class="keywordtype">int</span>           comp = 0) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;    T <a class="code" href="classamrex_1_1_base_fab.html#a8cfe54108f85df3a9ee9d0301413edc5">sum</a> (<span class="keywordtype">int</span> comp,</div>
 <div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;           <span class="keywordtype">int</span> numcomp = 1) <span class="keyword">const</span>;</div>
@@ -946,7 +946,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01250"></a><span class="lineno"> 1250</span>&#160;</div>
 <div class="line"><a name="l01251"></a><span class="lineno"> 1251</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
 <div class="line"><a name="l01252"></a><span class="lineno"> 1252</span>&#160;<span class="keywordtype">void</span></div>
-<div class="line"><a name="l01253"></a><span class="lineno"><a class="line" href="classamrex_1_1_base_fab.html#a06932857cb938d6c1dc82b8c9967a552"> 1253</a></span>&#160;<a class="code" href="classamrex_1_1_base_fab.html#afa9e4bc89ae38b7862a401fe97985efd">BaseFab&lt;T&gt;::setVal</a> (T <a class="code" href="namespaceamrex.html#a3c8a8d58f461ec4ae855c3d602174082">val</a>)</div>
+<div class="line"><a name="l01253"></a><span class="lineno"><a class="line" href="classamrex_1_1_base_fab.html#a06932857cb938d6c1dc82b8c9967a552"> 1253</a></span>&#160;<a class="code" href="classamrex_1_1_base_fab.html#afa9e4bc89ae38b7862a401fe97985efd">BaseFab&lt;T&gt;::setVal</a> (T val)</div>
 <div class="line"><a name="l01254"></a><span class="lineno"> 1254</span>&#160;{</div>
 <div class="line"><a name="l01255"></a><span class="lineno"> 1255</span>&#160;    performSetVal(val,box(), 0, nvar);</div>
 <div class="line"><a name="l01256"></a><span class="lineno"> 1256</span>&#160;}</div>
@@ -1272,7 +1272,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01576"></a><span class="lineno"> 1576</span>&#160;</div>
 <div class="line"><a name="l01577"></a><span class="lineno"> 1577</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
 <div class="line"><a name="l01578"></a><span class="lineno"> 1578</span>&#160;<span class="keywordtype">void</span></div>
-<div class="line"><a name="l01579"></a><span class="lineno"><a class="line" href="classamrex_1_1_base_fab.html#ab51dc6fa24a3f2deeb7244e1a42a59fa"> 1579</a></span>&#160;<a class="code" href="classamrex_1_1_base_fab.html#ab51dc6fa24a3f2deeb7244e1a42a59fa">BaseFab&lt;T&gt;::performSetVal</a> (T          <a class="code" href="namespaceamrex.html#a3c8a8d58f461ec4ae855c3d602174082">val</a>,</div>
+<div class="line"><a name="l01579"></a><span class="lineno"><a class="line" href="classamrex_1_1_base_fab.html#ab51dc6fa24a3f2deeb7244e1a42a59fa"> 1579</a></span>&#160;<a class="code" href="classamrex_1_1_base_fab.html#ab51dc6fa24a3f2deeb7244e1a42a59fa">BaseFab&lt;T&gt;::performSetVal</a> (T          val,</div>
 <div class="line"><a name="l01580"></a><span class="lineno"> 1580</span>&#160;                           <span class="keyword">const</span> <a class="code" href="classamrex_1_1_box.html">Box</a>&amp; bx,</div>
 <div class="line"><a name="l01581"></a><span class="lineno"> 1581</span>&#160;                           <span class="keywordtype">int</span>        ns,</div>
 <div class="line"><a name="l01582"></a><span class="lineno"> 1582</span>&#160;                           <span class="keywordtype">int</span>        num)</div>
@@ -1286,12 +1286,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01590"></a><span class="lineno"> 1590</span>&#160;</div>
 <div class="line"><a name="l01591"></a><span class="lineno"> 1591</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">long</span> i = 0, N = num*numpts; i &lt; N; i++)</div>
 <div class="line"><a name="l01592"></a><span class="lineno"> 1592</span>&#160;        {</div>
-<div class="line"><a name="l01593"></a><span class="lineno"> 1593</span>&#160;            *data++ = <a class="code" href="namespaceamrex.html#a3c8a8d58f461ec4ae855c3d602174082">val</a>;</div>
+<div class="line"><a name="l01593"></a><span class="lineno"> 1593</span>&#160;            *data++ = val;</div>
 <div class="line"><a name="l01594"></a><span class="lineno"> 1594</span>&#160;        }</div>
 <div class="line"><a name="l01595"></a><span class="lineno"> 1595</span>&#160;    }</div>
 <div class="line"><a name="l01596"></a><span class="lineno"> 1596</span>&#160;    <span class="keywordflow">else</span></div>
 <div class="line"><a name="l01597"></a><span class="lineno"> 1597</span>&#160;    {</div>
-<div class="line"><a name="l01598"></a><span class="lineno"> 1598</span>&#160;        ForEach(bx, ns, num, [&amp;val](T&amp; x) { x = <a class="code" href="namespaceamrex.html#a3c8a8d58f461ec4ae855c3d602174082">val</a>; });</div>
+<div class="line"><a name="l01598"></a><span class="lineno"> 1598</span>&#160;        ForEach(bx, ns, num, [&amp;val](T&amp; x) { x = val; });</div>
 <div class="line"><a name="l01599"></a><span class="lineno"> 1599</span>&#160;    }</div>
 <div class="line"><a name="l01600"></a><span class="lineno"> 1600</span>&#160;}</div>
 <div class="line"><a name="l01601"></a><span class="lineno"> 1601</span>&#160;</div>
@@ -1340,7 +1340,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01644"></a><span class="lineno"> 1644</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l01645"></a><span class="lineno"> 1645</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
 <div class="line"><a name="l01646"></a><span class="lineno"> 1646</span>&#160;<a class="code" href="classamrex_1_1_base_fab.html">BaseFab&lt;Real&gt;</a>&amp;</div>
-<div class="line"><a name="l01647"></a><span class="lineno"> 1647</span>&#160;<a class="code" href="classamrex_1_1_base_fab.html#a35862ca343785adec26866d0a4384fef">BaseFab&lt;Real&gt;::invert</a> (Real       <a class="code" href="namespaceamrex.html#a3c8a8d58f461ec4ae855c3d602174082">val</a>,</div>
+<div class="line"><a name="l01647"></a><span class="lineno"> 1647</span>&#160;<a class="code" href="classamrex_1_1_base_fab.html#a35862ca343785adec26866d0a4384fef">BaseFab&lt;Real&gt;::invert</a> (Real       val,</div>
 <div class="line"><a name="l01648"></a><span class="lineno"> 1648</span>&#160;                       <span class="keyword">const</span> <a class="code" href="classamrex_1_1_box.html">Box</a>&amp; subbox,</div>
 <div class="line"><a name="l01649"></a><span class="lineno"> 1649</span>&#160;                       <span class="keywordtype">int</span>        comp,</div>
 <div class="line"><a name="l01650"></a><span class="lineno"> 1650</span>&#160;                       <span class="keywordtype">int</span>        numcomp);</div>
@@ -1366,7 +1366,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01670"></a><span class="lineno"> 1670</span>&#160;                            <span class="keyword">const</span> <span class="keywordtype">void</span>* src);</div>
 <div class="line"><a name="l01671"></a><span class="lineno"> 1671</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
 <div class="line"><a name="l01672"></a><span class="lineno"> 1672</span>&#160;<span class="keywordtype">void</span></div>
-<div class="line"><a name="l01673"></a><span class="lineno"> 1673</span>&#160;<a class="code" href="classamrex_1_1_base_fab.html#ab51dc6fa24a3f2deeb7244e1a42a59fa">BaseFab&lt;Real&gt;::performSetVal</a> (Real       <a class="code" href="namespaceamrex.html#a3c8a8d58f461ec4ae855c3d602174082">val</a>,</div>
+<div class="line"><a name="l01673"></a><span class="lineno"> 1673</span>&#160;<a class="code" href="classamrex_1_1_base_fab.html#ab51dc6fa24a3f2deeb7244e1a42a59fa">BaseFab&lt;Real&gt;::performSetVal</a> (Real       val,</div>
 <div class="line"><a name="l01674"></a><span class="lineno"> 1674</span>&#160;                              <span class="keyword">const</span> <a class="code" href="classamrex_1_1_box.html">Box</a>&amp; bx,</div>
 <div class="line"><a name="l01675"></a><span class="lineno"> 1675</span>&#160;                              <span class="keywordtype">int</span>        ns,</div>
 <div class="line"><a name="l01676"></a><span class="lineno"> 1676</span>&#160;                              <span class="keywordtype">int</span>        num);</div>
@@ -1632,7 +1632,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01936"></a><span class="lineno"> 1936</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
 <div class="line"><a name="l01937"></a><span class="lineno"> 1937</span>&#160;<span class="keywordtype">int</span></div>
 <div class="line"><a name="l01938"></a><span class="lineno"><a class="line" href="classamrex_1_1_base_fab.html#a806c5dba218e6098909c519df0958505"> 1938</a></span>&#160;<a class="code" href="classamrex_1_1_base_fab.html#a806c5dba218e6098909c519df0958505">BaseFab&lt;T&gt;::maskLT</a> (<a class="code" href="classamrex_1_1_base_fab.html">BaseFab&lt;int&gt;</a>&amp; mask,</div>
-<div class="line"><a name="l01939"></a><span class="lineno"> 1939</span>&#160;                    T             <a class="code" href="namespaceamrex.html#a3c8a8d58f461ec4ae855c3d602174082">val</a>,</div>
+<div class="line"><a name="l01939"></a><span class="lineno"> 1939</span>&#160;                    T             val,</div>
 <div class="line"><a name="l01940"></a><span class="lineno"> 1940</span>&#160;                    <span class="keywordtype">int</span>           comp)<span class="keyword"> const</span></div>
 <div class="line"><a name="l01941"></a><span class="lineno"> 1941</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l01942"></a><span class="lineno"> 1942</span>&#160;    mask.<a class="code" href="classamrex_1_1_base_fab.html#a48099208f15f741c739316388f61737a">resize</a>(domain,1);</div>
@@ -1652,7 +1652,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01956"></a><span class="lineno"> 1956</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
 <div class="line"><a name="l01957"></a><span class="lineno"> 1957</span>&#160;<span class="keywordtype">int</span></div>
 <div class="line"><a name="l01958"></a><span class="lineno"><a class="line" href="classamrex_1_1_base_fab.html#a2a055bf62da17207f8e4db4dea0d4327"> 1958</a></span>&#160;<a class="code" href="classamrex_1_1_base_fab.html#a2a055bf62da17207f8e4db4dea0d4327">BaseFab&lt;T&gt;::maskLE</a> (<a class="code" href="classamrex_1_1_base_fab.html">BaseFab&lt;int&gt;</a>&amp; mask,</div>
-<div class="line"><a name="l01959"></a><span class="lineno"> 1959</span>&#160;                    T             <a class="code" href="namespaceamrex.html#a3c8a8d58f461ec4ae855c3d602174082">val</a>,</div>
+<div class="line"><a name="l01959"></a><span class="lineno"> 1959</span>&#160;                    T             val,</div>
 <div class="line"><a name="l01960"></a><span class="lineno"> 1960</span>&#160;                    <span class="keywordtype">int</span>           comp)<span class="keyword"> const</span></div>
 <div class="line"><a name="l01961"></a><span class="lineno"> 1961</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l01962"></a><span class="lineno"> 1962</span>&#160;    mask.<a class="code" href="classamrex_1_1_base_fab.html#a48099208f15f741c739316388f61737a">resize</a>(domain,1);</div>
@@ -1672,7 +1672,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01976"></a><span class="lineno"> 1976</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
 <div class="line"><a name="l01977"></a><span class="lineno"> 1977</span>&#160;<span class="keywordtype">int</span></div>
 <div class="line"><a name="l01978"></a><span class="lineno"><a class="line" href="classamrex_1_1_base_fab.html#ac39f1cda41b0f2f2d6d3b3dd06fb8014"> 1978</a></span>&#160;<a class="code" href="classamrex_1_1_base_fab.html#ac39f1cda41b0f2f2d6d3b3dd06fb8014">BaseFab&lt;T&gt;::maskEQ</a> (<a class="code" href="classamrex_1_1_base_fab.html">BaseFab&lt;int&gt;</a>&amp; mask,</div>
-<div class="line"><a name="l01979"></a><span class="lineno"> 1979</span>&#160;                    T             <a class="code" href="namespaceamrex.html#a3c8a8d58f461ec4ae855c3d602174082">val</a>,</div>
+<div class="line"><a name="l01979"></a><span class="lineno"> 1979</span>&#160;                    T             val,</div>
 <div class="line"><a name="l01980"></a><span class="lineno"> 1980</span>&#160;                    <span class="keywordtype">int</span>           comp)<span class="keyword"> const</span></div>
 <div class="line"><a name="l01981"></a><span class="lineno"> 1981</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l01982"></a><span class="lineno"> 1982</span>&#160;    mask.<a class="code" href="classamrex_1_1_base_fab.html#a48099208f15f741c739316388f61737a">resize</a>(domain,1);</div>
@@ -1692,7 +1692,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01996"></a><span class="lineno"> 1996</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
 <div class="line"><a name="l01997"></a><span class="lineno"> 1997</span>&#160;<span class="keywordtype">int</span></div>
 <div class="line"><a name="l01998"></a><span class="lineno"><a class="line" href="classamrex_1_1_base_fab.html#a5d35522a5629475d65400cf4cf390e4b"> 1998</a></span>&#160;<a class="code" href="classamrex_1_1_base_fab.html#a5d35522a5629475d65400cf4cf390e4b">BaseFab&lt;T&gt;::maskGT</a> (<a class="code" href="classamrex_1_1_base_fab.html">BaseFab&lt;int&gt;</a>&amp; mask,</div>
-<div class="line"><a name="l01999"></a><span class="lineno"> 1999</span>&#160;                    T             <a class="code" href="namespaceamrex.html#a3c8a8d58f461ec4ae855c3d602174082">val</a>,</div>
+<div class="line"><a name="l01999"></a><span class="lineno"> 1999</span>&#160;                    T             val,</div>
 <div class="line"><a name="l02000"></a><span class="lineno"> 2000</span>&#160;                    <span class="keywordtype">int</span>           comp)<span class="keyword"> const</span></div>
 <div class="line"><a name="l02001"></a><span class="lineno"> 2001</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l02002"></a><span class="lineno"> 2002</span>&#160;    mask.<a class="code" href="classamrex_1_1_base_fab.html#a48099208f15f741c739316388f61737a">resize</a>(domain,1);</div>
@@ -1712,7 +1712,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l02016"></a><span class="lineno"> 2016</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
 <div class="line"><a name="l02017"></a><span class="lineno"> 2017</span>&#160;<span class="keywordtype">int</span></div>
 <div class="line"><a name="l02018"></a><span class="lineno"><a class="line" href="classamrex_1_1_base_fab.html#abcebef11683d656c51ed70af3ddf8992"> 2018</a></span>&#160;<a class="code" href="classamrex_1_1_base_fab.html#abcebef11683d656c51ed70af3ddf8992">BaseFab&lt;T&gt;::maskGE</a>(<a class="code" href="classamrex_1_1_base_fab.html">BaseFab&lt;int&gt;</a>&amp; mask,</div>
-<div class="line"><a name="l02019"></a><span class="lineno"> 2019</span>&#160;                   T             <a class="code" href="namespaceamrex.html#a3c8a8d58f461ec4ae855c3d602174082">val</a>,</div>
+<div class="line"><a name="l02019"></a><span class="lineno"> 2019</span>&#160;                   T             val,</div>
 <div class="line"><a name="l02020"></a><span class="lineno"> 2020</span>&#160;                   <span class="keywordtype">int</span>           comp)<span class="keyword"> const</span></div>
 <div class="line"><a name="l02021"></a><span class="lineno"> 2021</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l02022"></a><span class="lineno"> 2022</span>&#160;    mask.<a class="code" href="classamrex_1_1_base_fab.html#a48099208f15f741c739316388f61737a">resize</a>(domain,1);</div>
@@ -2319,7 +2319,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="_a_m_re_x___make_type_8_h_html"><div class="ttname"><a href="_a_m_re_x___make_type_8_h.html">AMReX_MakeType.H</a></div></div>
 <div class="ttc" id="namespaceamrex_html_abddd18768ababe2fa8aa52a8ae441675"><div class="ttname"><a href="namespaceamrex.html#abddd18768ababe2fa8aa52a8ae441675">amrex::ResetTotalBytesAllocatedInFabsHWM</a></div><div class="ttdeci">void ResetTotalBytesAllocatedInFabsHWM()</div><div class="ttdef"><b>Definition:</b> AMReX_BaseFab.cpp:129</div></div>
 <div class="ttc" id="classamrex_1_1_base_fab_html_a7c6e3bfcfdc315e61bbe447be5698d8f"><div class="ttname"><a href="classamrex_1_1_base_fab.html#a7c6e3bfcfdc315e61bbe447be5698d8f">amrex::BaseFab::nBytes</a></div><div class="ttdeci">std::size_t nBytes() const </div><div class="ttdoc">Returns how many bytes used. </div><div class="ttdef"><b>Definition:</b> AMReX_BaseFab.H:169</div></div>
-<div class="ttc" id="namespaceamrex_html_a3c8a8d58f461ec4ae855c3d602174082"><div class="ttname"><a href="namespaceamrex.html#a3c8a8d58f461ec4ae855c3d602174082">amrex::val</a></div><div class="ttdeci">const int const int const int int * val</div><div class="ttdef"><b>Definition:</b> AMReX_ParmParse.cpp:1914</div></div>
 <div class="ttc" id="classamrex_1_1_arena_html_a0c7e0730574c98febb6ddca2712cb515"><div class="ttname"><a href="classamrex_1_1_arena.html#a0c7e0730574c98febb6ddca2712cb515">amrex::Arena::free</a></div><div class="ttdeci">virtual void free(void *pt)=0</div><div class="ttdoc">A pure virtual function for deleting the arena pointed to by pt. </div></div>
 <div class="ttc" id="classamrex_1_1_base_fab_html_afc34273221a2e411f2bccbd54a1f13e7"><div class="ttname"><a href="classamrex_1_1_base_fab.html#afc34273221a2e411f2bccbd54a1f13e7">amrex::BaseFab::dataPtr</a></div><div class="ttdeci">T * dataPtr(int n=0)</div><div class="ttdoc">Returns a pointer to an object of type T that is the value of the Nth component associated with the c...</div><div class="ttdef"><b>Definition:</b> AMReX_BaseFab.H:253</div></div>
 <div class="ttc" id="classamrex_1_1_base_fab_html_aa160bc73c44a0019e749b758cb7ff487"><div class="ttname"><a href="classamrex_1_1_base_fab.html#aa160bc73c44a0019e749b758cb7ff487">amrex::BaseFab::nBytes</a></div><div class="ttdeci">std::size_t nBytes(const Box &amp;bx, int start_comp, int ncomps) const </div><div class="ttdoc">Returns bytes used in the Box for those components. </div><div class="ttdef"><b>Definition:</b> AMReX_BaseFab.H:176</div></div>

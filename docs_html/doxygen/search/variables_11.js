@@ -38,7 +38,6 @@ var searchData=
   ['src_5fptr',['src_ptr',['../structamrex_1_1_b_l_pgas_1_1_send_info.html#a16caa57f3a54745cb39ba00f85c4dd2b',1,'amrex::BLPgas::SendInfo']]],
   ['srccomp',['srcComp',['../structamrex_1_1_fab_array_base_1_1_fab_com_tag.html#a01917a2e8e16dff02f56a81a578687f1',1,'amrex::FabArrayBase::FabComTag::srcComp()'],['../structamrex_1_1_fab_copy_descriptor.html#abf33adc9a73450887814df15429e64ac',1,'amrex::FabCopyDescriptor::srcComp()']]],
   ['srcindex',['srcIndex',['../structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#aa03667cd08814ea67d8fc2170a93a07c',1,'amrex::FabArrayBase::CopyComTag']]],
-  ['ss',['ss',['../namespaceamrex.html#a352e55ff9f99eb974da42fd1532996bf',1,'amrex']]],
   ['start_5ftime',['start_time',['../classamrex_1_1_amr.html#ad97c2f4d6656288b817b8bbcc0bba7b6',1,'amrex::Amr']]],
   ['state',['state',['../classamrex_1_1_amr_level.html#ac00306c6990dffb14241578a8f4aa281',1,'amrex::AmrLevel']]],
   ['state_5fplot_5fvars',['state_plot_vars',['../classamrex_1_1_amr.html#a68d5307a670be15bf2684597d9a4484a',1,'amrex::Amr']]],

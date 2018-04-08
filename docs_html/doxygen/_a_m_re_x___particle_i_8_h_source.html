@@ -354,7 +354,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    {</div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        first = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;        <a class="code" href="classamrex_1_1_parm_parse.html">ParmParse</a> <a class="code" href="namespaceamrex.html#a787b25181d9fc9bd4599c372c0a08b66">pp</a>(<span class="stringliteral">&quot;particles&quot;</span>);</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;        <a class="code" href="classamrex_1_1_parm_parse.html">ParmParse</a> pp(<span class="stringliteral">&quot;particles&quot;</span>);</div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;</div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;        Max_Readers = Max_Readers_def;</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;</div>
@@ -387,7 +387,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    {</div>
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;        first = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;        <a class="code" href="classamrex_1_1_parm_parse.html">ParmParse</a> <a class="code" href="namespaceamrex.html#a787b25181d9fc9bd4599c372c0a08b66">pp</a>(<span class="stringliteral">&quot;particles&quot;</span>);</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;        <a class="code" href="classamrex_1_1_parm_parse.html">ParmParse</a> pp(<span class="stringliteral">&quot;particles&quot;</span>);</div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;</div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;        Max_Particles_Per_Read = Max_Particles_Per_Read_def;</div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;</div>
@@ -483,9 +483,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;    <a class="code" href="structamrex_1_1_particle.html">Particle&lt;NReal, NInt&gt;::CIC_Fracs</a>(frac, fracs);</div>
 <div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;    <a class="code" href="structamrex_1_1_particle.html">Particle&lt;NReal, NInt&gt;::CIC_Cells</a>(cell, cells);</div>
 <div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;    Real <a class="code" href="namespaceamrex.html#a3c8a8d58f461ec4ae855c3d602174082">val</a> = <a class="code" href="structamrex_1_1_particle.html">Particle&lt;NReal, NInt&gt;::InterpDoit</a>(fab,fracs,cells,comp);</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;    Real val = <a class="code" href="structamrex_1_1_particle.html">Particle&lt;NReal, NInt&gt;::InterpDoit</a>(fab,fracs,cells,comp);</div>
 <div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;</div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespaceamrex.html#a3c8a8d58f461ec4ae855c3d602174082">val</a>;</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;    <span class="keywordflow">return</span> val;</div>
 <div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;}</div>
 <div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;</div>
 <div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> NReal, <span class="keywordtype">int</span> NInt&gt;</div>
@@ -498,14 +498,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;    <a class="code" href="_a_m_re_x___b_l_profiler_8_h.html#a548fbd9b2cd72a927f463003f4adb0b1">BL_PROFILE</a>(<span class="stringliteral">&quot;Particle&lt;NReal, NInt&gt;::InterpDoit(ffcc)&quot;</span>);</div>
 <div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> M = AMREX_D_TERM(2,+2,+4);</div>
 <div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;</div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;    Real <a class="code" href="namespaceamrex.html#a3c8a8d58f461ec4ae855c3d602174082">val</a> = 0;</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;    Real val = 0;</div>
 <div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;</div>
 <div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; M; i++)</div>
 <div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;    {</div>
 <div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;        val += fab(cells[i],comp) * fracs[i];</div>
 <div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;    }</div>
 <div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespaceamrex.html#a3c8a8d58f461ec4ae855c3d602174082">val</a>;</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;    <span class="keywordflow">return</span> val;</div>
 <div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;}</div>
 <div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;</div>
 <div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> NReal, <span class="keywordtype">int</span> NInt&gt;</div>
@@ -514,7 +514,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;              <span class="keyword">const</span> <a class="code" href="classamrex_1_1_geometry.html">Geometry</a>&amp;     geom,</div>
 <div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;              <span class="keyword">const</span> <a class="code" href="classamrex_1_1_f_array_box.html">FArrayBox</a>&amp;    fab,</div>
 <div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;              <span class="keyword">const</span> <span class="keywordtype">int</span>*          idx,</div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;              Real*               <a class="code" href="namespaceamrex.html#a3c8a8d58f461ec4ae855c3d602174082">val</a>,</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;              Real*               val,</div>
 <div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;              <span class="keywordtype">int</span>                 cnt)</div>
 <div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;{</div>
 <div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;    <a class="code" href="_a_m_re_x___b_l_profiler_8_h.html#a548fbd9b2cd72a927f463003f4adb0b1">BL_PROFILE</a>(<span class="stringliteral">&quot;Particle&lt;NReal, NInt&gt;::Interp()&quot;</span>);</div>
@@ -565,7 +565,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; AMREX_SPACEDIM + NReal; i++)</div>
 <div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;        os &lt;&lt; p.m_rdata.arr[i] &lt;&lt; <span class="charliteral">&#39; &#39;</span>;</div>
 <div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;</div>
-<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;    <a class="code" href="namespaceamrex.html#a24a7305e01f5dd277469cc118a6e8e88">for</a> (<span class="keywordtype">int</span> i = 2; i &lt; 2 + NInt; i++)</div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;    for (<span class="keywordtype">int</span> i = 2; i &lt; 2 + NInt; i++)</div>
 <div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;        os &lt;&lt; p.m_idata.arr[i] &lt;&lt; <span class="charliteral">&#39; &#39;</span>;</div>
 <div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;</div>
 <div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;    if (!os.good())</div>
@@ -578,12 +578,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classamrex_1_1_parm_parse_html"><div class="ttname"><a href="classamrex_1_1_parm_parse.html">amrex::ParmParse</a></div><div class="ttdoc">Parse Parameters From Command Line and Input Files. </div><div class="ttdef"><b>Definition:</b> AMReX_ParmParse.H:237</div></div>
 <div class="ttc" id="classamrex_1_1_coord_sys_html_aa9fe64171f27487e0bfff3b4e35d1ea1"><div class="ttname"><a href="classamrex_1_1_coord_sys.html#aa9fe64171f27487e0bfff3b4e35d1ea1">amrex::CoordSys::CellSize</a></div><div class="ttdeci">const Real * CellSize() const </div><div class="ttdoc">Returns the cellsize for each coordinate direction. </div><div class="ttdef"><b>Definition:</b> AMReX_CoordSys.H:74</div></div>
 <div class="ttc" id="classamrex_1_1_int_vect_html"><div class="ttname"><a href="classamrex_1_1_int_vect.html">amrex::IntVect</a></div><div class="ttdef"><b>Definition:</b> AMReX_IntVect.H:25</div></div>
-<div class="ttc" id="namespaceamrex_html_a787b25181d9fc9bd4599c372c0a08b66"><div class="ttname"><a href="namespaceamrex.html#a787b25181d9fc9bd4599c372c0a08b66">amrex::pp</a></div><div class="ttdeci">const int const int *nstr * pp</div><div class="ttdef"><b>Definition:</b> AMReX_ParmParse.cpp:1902</div></div>
 <div class="ttc" id="_a_m_re_x___b_lassert_8_h_html_a53ebc8b227de416f458800faa44c619e"><div class="ttname"><a href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a></div><div class="ttdeci">#define BL_ASSERT(EX)</div><div class="ttdef"><b>Definition:</b> AMReX_BLassert.H:49</div></div>
 <div class="ttc" id="namespaceamrex_html_aea69993eec3c9ca497cd0e47522b2ec6"><div class="ttname"><a href="namespaceamrex.html#aea69993eec3c9ca497cd0e47522b2ec6">amrex::Abort</a></div><div class="ttdeci">void Abort(const char *msg=0)</div><div class="ttdoc">Print out message to cerr and exit via abort(). </div><div class="ttdef"><b>Definition:</b> AMReX.cpp:194</div></div>
 <div class="ttc" id="structamrex_1_1_particle_html_a83a0b10e55acc252c8fa642aa4c240ba"><div class="ttname"><a href="structamrex_1_1_particle.html#a83a0b10e55acc252c8fa642aa4c240ba">amrex::Particle::m_rdata</a></div><div class="ttdeci">rm_t m_rdata</div><div class="ttdef"><b>Definition:</b> AMReX_Particles.H:125</div></div>
 <div class="ttc" id="namespaceamrex_html_a870c2407ed885451a76f66f8a0d7a892"><div class="ttname"><a href="namespaceamrex.html#a870c2407ed885451a76f66f8a0d7a892">amrex::max</a></div><div class="ttdeci">IntVect max(const IntVect &amp;p1, const IntVect &amp;p2)</div><div class="ttdoc">Returns the IntVect that is the component-wise maximum of two argument IntVects. </div><div class="ttdef"><b>Definition:</b> AMReX_IntVect.cpp:132</div></div>
-<div class="ttc" id="namespaceamrex_html_a3c8a8d58f461ec4ae855c3d602174082"><div class="ttname"><a href="namespaceamrex.html#a3c8a8d58f461ec4ae855c3d602174082">amrex::val</a></div><div class="ttdeci">const int const int const int int * val</div><div class="ttdef"><b>Definition:</b> AMReX_ParmParse.cpp:1914</div></div>
 <div class="ttc" id="_a_m_re_x___multi_fab_util___f_8_h_html_a887504417652135e27c7f9f8e3c25c9f"><div class="ttname"><a href="_a_m_re_x___multi_fab_util___f_8_h.html#a887504417652135e27c7f9f8e3c25c9f">AMREX_D_DECL</a></div><div class="ttdeci">const int const int AMREX_D_DECL(const BL_FORT_FAB_ARG(Ex), const BL_FORT_FAB_ARG(Ey), const BL_FORT_FAB_ARG(Ez)))</div></div>
 <div class="ttc" id="namespaceamrex_html_ad4158723bb78d3d5f19e396a20c0ce2d"><div class="ttname"><a href="namespaceamrex.html#ad4158723bb78d3d5f19e396a20c0ce2d">amrex::Version</a></div><div class="ttdeci">std::string Version()</div><div class="ttdef"><b>Definition:</b> AMReX.cpp:68</div></div>
 <div class="ttc" id="namespaceamrex_html_ac0e2e23df625040ded95611ceae98352"><div class="ttname"><a href="namespaceamrex.html#ac0e2e23df625040ded95611ceae98352">amrex::Error</a></div><div class="ttdeci">void Error(const char *msg=0)</div><div class="ttdoc">Print out message to cerr and exit via amrex::Abort(). </div><div class="ttdef"><b>Definition:</b> AMReX.cpp:118</div></div>
@@ -594,7 +592,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classamrex_1_1_geometry_html_aa73e7f884ec26924a7250edb262f618d"><div class="ttname"><a href="classamrex_1_1_geometry.html#aa73e7f884ec26924a7250edb262f618d">amrex::Geometry::ProbLo</a></div><div class="ttdeci">static const Real * ProbLo()</div><div class="ttdoc">Returns the lo end of the problem domain in each dimension. </div><div class="ttdef"><b>Definition:</b> AMReX_Geometry.H:66</div></div>
 <div class="ttc" id="classamrex_1_1_base_fab_html_a95f000f763dd71c1ff576c3bfe7e3462"><div class="ttname"><a href="classamrex_1_1_base_fab.html#a95f000f763dd71c1ff576c3bfe7e3462">amrex::BaseFab::nComp</a></div><div class="ttdeci">int nComp() const </div><div class="ttdoc">Returns the number of components. </div><div class="ttdef"><b>Definition:</b> AMReX_BaseFab.H:180</div></div>
 <div class="ttc" id="namespaceamrex_1_1_parallel_descriptor_html_a0455b3ad4f2a4c13b57d33e4c6325dca"><div class="ttname"><a href="namespaceamrex_1_1_parallel_descriptor.html#a0455b3ad4f2a4c13b57d33e4c6325dca">amrex::ParallelDescriptor::NProcs</a></div><div class="ttdeci">int NProcs()</div><div class="ttdoc">return the number of MPI ranks local to the current Parallel Context </div><div class="ttdef"><b>Definition:</b> AMReX_ParallelDescriptor.H:235</div></div>
-<div class="ttc" id="namespaceamrex_html_a24a7305e01f5dd277469cc118a6e8e88"><div class="ttname"><a href="namespaceamrex.html#a24a7305e01f5dd277469cc118a6e8e88">amrex::for</a></div><div class="ttdeci">for(int i=0, N=arr.size();i&lt; N;++i)</div><div class="ttdef"><b>Definition:</b> AMReX_ParmParse.cpp:1925</div></div>
 <div class="ttc" id="structamrex_1_1_particle_html"><div class="ttname"><a href="structamrex_1_1_particle.html">amrex::Particle</a></div><div class="ttdef"><b>Definition:</b> AMReX_Particles.H:94</div></div>
 <div class="ttc" id="namespaceamrex_html_ae79501364b5617d85255a267082276db"><div class="ttname"><a href="namespaceamrex.html#ae79501364b5617d85255a267082276db">amrex::min</a></div><div class="ttdeci">IntVect min(const IntVect &amp;p1, const IntVect &amp;p2)</div><div class="ttdoc">Returns the IntVect that is the component-wise minimum of two argument IntVects. </div><div class="ttdef"><b>Definition:</b> AMReX_IntVect.cpp:123</div></div>
 <div class="ttc" id="classamrex_1_1_f_array_box_html"><div class="ttname"><a href="classamrex_1_1_f_array_box.html">amrex::FArrayBox</a></div><div class="ttdoc">A Fortran Array of REALs. </div><div class="ttdef"><b>Definition:</b> AMReX_FArrayBox.H:196</div></div>

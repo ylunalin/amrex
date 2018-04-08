@@ -187,7 +187,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;      Real maxMono = 0.0;</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;      Real minMono = 0.0;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;      monoMaxMin(maxMono,minMono,mono,a_ccm.<a class="code" href="class_cut_cell_moments.html#a8ba5f549228cefaeb469ff7949bc76a7">m_IFData</a>);</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;      Real <a class="code" href="namespaceamrex.html#a3c8a8d58f461ec4ae855c3d602174082">val</a> = it-&gt;second;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;      Real val = it-&gt;second;</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;      <span class="keywordflow">if</span> (minMono &lt; 0.0)</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;      {</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        Real newLoBnd = val/minMono;</div>
@@ -253,7 +253,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;           it2 != a_ccm.<a class="code" href="class_cut_cell_moments.html#aabd0fc3e921167dae4b5c9ca92ad7675">m_moments</a>.end();++it2)</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;      {</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        <a class="code" href="class_index_t_m.html">IvDim</a> mono2 = it2-&gt;first;</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        Real <a class="code" href="namespaceamrex.html#a3c8a8d58f461ec4ae855c3d602174082">val</a> = it2-&gt;second;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        Real val = it2-&gt;second;</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        Real maxMono = 0.0;</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        Real minMono = 0.0;</div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        monoMaxMin(maxMono,minMono,mono2,a_ccm.<a class="code" href="class_cut_cell_moments.html#a8ba5f549228cefaeb469ff7949bc76a7">m_IFData</a>);</div>
@@ -657,7 +657,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="class_constrained_l_s_html"><div class="ttname"><a href="class_constrained_l_s.html">ConstrainedLS</a></div><div class="ttdef"><b>Definition:</b> AMReX_ConstrainedLS.H:12</div></div>
 <div class="ttc" id="class_l_s_problem_html_ad888298114c7869c7168d9f3f912b743"><div class="ttname"><a href="class_l_s_problem.html#ad888298114c7869c7168d9f3f912b743">LSProblem::fillMap</a></div><div class="ttdeci">void fillMap(PthMomentLoc &amp;a_monoLoc, LocPthMoment &amp;a_locMono, const int &amp;a_degree)</div><div class="ttdef"><b>Definition:</b> AMReX_LSProblemImplem.H:489</div></div>
 <div class="ttc" id="class_constrained_l_s_html_a7c90b2866b00889b44676fcfe38fadd0"><div class="ttname"><a href="class_constrained_l_s.html#a7c90b2866b00889b44676fcfe38fadd0">ConstrainedLS::solveBoundConstrained</a></div><div class="ttdeci">LSResult solveBoundConstrained(Vector&lt; Real &gt; &amp;a_x, Real **a_A, const Vector&lt; Real &gt; &amp;a_rhs, const Vector&lt; Real &gt; &amp;a_lowerBound, const Vector&lt; Real &gt; &amp;a_upperBound)</div><div class="ttdef"><b>Definition:</b> AMReX_ConstrainedLS.cpp:152</div></div>
-<div class="ttc" id="namespaceamrex_html_a3c8a8d58f461ec4ae855c3d602174082"><div class="ttname"><a href="namespaceamrex.html#a3c8a8d58f461ec4ae855c3d602174082">amrex::val</a></div><div class="ttdeci">const int const int const int int * val</div><div class="ttdef"><b>Definition:</b> AMReX_ParmParse.cpp:1914</div></div>
 <div class="ttc" id="class_l_squares_html"><div class="ttname"><a href="class_l_squares.html">LSquares</a></div><div class="ttdef"><b>Definition:</b> AMReX_LSquares.H:15</div></div>
 <div class="ttc" id="class_l_s_problem_html_ac832aa3a623b15f21eebb6cad116b5bc"><div class="ttname"><a href="class_l_s_problem.html#ac832aa3a623b15f21eebb6cad116b5bc">LSProblem::m_upperBound</a></div><div class="ttdeci">Vector&lt; Real &gt; m_upperBound</div><div class="ttdef"><b>Definition:</b> AMReX_LSProblem.H:192</div></div>
 <div class="ttc" id="class_constrained_l_s_html_a6e412b9d41a6cfeb6b166abf4995491f"><div class="ttname"><a href="class_constrained_l_s.html#a6e412b9d41a6cfeb6b166abf4995491f">ConstrainedLS::LSResult</a></div><div class="ttdeci">LSResult</div><div class="ttdef"><b>Definition:</b> AMReX_ConstrainedLS.H:22</div></div>

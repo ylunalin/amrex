@@ -24,6 +24,5 @@ var searchData=
   ['local_5ftile_5findex_5fmap',['local_tile_index_map',['../classamrex_1_1_m_f_iter.html#a72828c9a333be0dfff3e89e350fd0e11',1,'amrex::MFIter']]],
   ['localfabsource',['localFabSource',['../structamrex_1_1_fab_copy_descriptor.html#a49a660fc34d5de5bbd5d8fb8b49580e8',1,'amrex::FabCopyDescriptor']]],
   ['localindexmap',['localIndexMap',['../structamrex_1_1_fab_array_base_1_1_tile_array.html#a65f8a2b40876923cd17cd7bb45b1177e',1,'amrex::FabArrayBase::TileArray']]],
-  ['localtileindexmap',['localTileIndexMap',['../structamrex_1_1_fab_array_base_1_1_tile_array.html#a77df041121016e402a0b5df46a8fe7e6',1,'amrex::FabArrayBase::TileArray']]],
-  ['lval',['lval',['../namespaceamrex.html#a165e67b7a9517436e95ea41fddd98a71',1,'amrex']]]
+  ['localtileindexmap',['localTileIndexMap',['../structamrex_1_1_fab_array_base_1_1_tile_array.html#a77df041121016e402a0b5df46a8fe7e6',1,'amrex::FabArrayBase::TileArray']]]
 ];

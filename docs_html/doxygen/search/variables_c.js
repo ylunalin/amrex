@@ -32,7 +32,7 @@ var searchData=
   ['noutfilesprepost',['nOutFilesPrePost',['../classamrex_1_1_particle_container.html#ace382ba1157b559d2ef5ff00fbca36e2',1,'amrex::ParticleContainer']]],
   ['nparticlesatlevelprepost',['nParticlesAtLevelPrePost',['../classamrex_1_1_particle_container.html#a6e7c1ff537295e739af9e43819ba4636',1,'amrex::ParticleContainer']]],
   ['nparticlesprepost',['nparticlesPrePost',['../classamrex_1_1_particle_container.html#aa1d938ace39436b8ce17da3ac8e371a3',1,'amrex::ParticleContainer']]],
-  ['nstr',['NSTR',['../_a_m_re_x_8cpp.html#ae078190369c20a6e00eec508f558852f',1,'NSTR():&#160;AMReX.cpp'],['../namespaceamrex.html#a9b8a7805a4a32fed1684aafdf95984ed',1,'amrex::nstr()']]],
+  ['nstr',['NSTR',['../_a_m_re_x_8cpp.html#ae078190369c20a6e00eec508f558852f',1,'AMReX.cpp']]],
   ['num_5fbuild',['num_build',['../structamrex_1_1_fab_array_base_1_1_fab_array_stats.html#a11d7300007b694fa66c0aead6b930f06',1,'amrex::FabArrayBase::FabArrayStats']]],
   ['num_5ffabarrays',['num_fabarrays',['../structamrex_1_1_fab_array_base_1_1_fab_array_stats.html#ab4b3c50d480036fa2cd0506f9e8f96ff',1,'amrex::FabArrayBase::FabArrayStats']]],
   ['num_5fint_5fsoa_5fcomps',['num_int_soa_comps',['../classamrex_1_1_particle_container.html#a0cddb16f78a5ef5c074fcaccdafebeee',1,'amrex::ParticleContainer']]],
@@ -45,6 +45,5 @@ var searchData=
   ['numlocaltiles',['numLocalTiles',['../structamrex_1_1_fab_array_base_1_1_tile_array.html#a830d98c3be0b8b1f0eb88118f7a1f35c',1,'amrex::FabArrayBase::TileArray']]],
   ['numpts',['numpts',['../classamrex_1_1_base_fab.html#a61944781ac783ff9fba39a9e87ec8d6e',1,'amrex::BaseFab::numpts()'],['../classamrex_1_1_base_umap.html#a5420c2fdbb1aafae7a455ce7b5cb8267',1,'amrex::BaseUmap::numpts()']]],
   ['nuse',['nuse',['../structamrex_1_1_fab_array_base_1_1_cache_stats.html#ab1660586b93a1c418a659ac9d836e833',1,'amrex::FabArrayBase::CacheStats::nuse()'],['../structamrex_1_1_fab_array_base_1_1_tile_array.html#a0a2af2655e0205f6bf46bf2876d4f229',1,'amrex::FabArrayBase::TileArray::nuse()']]],
-  ['nval',['nval',['../namespaceamrex.html#a92ce4c6787cb3496641bb80080a6d302',1,'amrex']]],
   ['nvar',['nvar',['../classamrex_1_1_base_fab.html#a99b1638f6702821a6b6e63cb860d938f',1,'amrex::BaseFab::nvar()'],['../classamrex_1_1_base_umap.html#afff9dd7123b0033209dc8e53723c9ce6',1,'amrex::BaseUmap::nvar()']]]
 ];

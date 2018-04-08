@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['val',['val',['../namespaceamrex.html#a3c8a8d58f461ec4ae855c3d602174082',1,'amrex']]],
   ['value',['value',['../struct_metaprograms_1_1_pow.html#a0ddebd00789b4f4dbaba5a18bfebb52a',1,'Metaprograms::Pow::value()'],['../struct_metaprograms_1_1_pow_3_01_n_00_011_01_4.html#a4b409b1989aa6945b2d356a2041a58e2',1,'Metaprograms::Pow&lt; N, 1 &gt;::value()']]],
   ['variables',['variables',['../classamrex_1_1_vo_f_stencil.html#a29710620415970534dc290ef785ed47f',1,'amrex::VoFStencil']]],
   ['vect',['vect',['../classamrex_1_1_real_vect.html#a0f0b7286c21b06ba0eea3a31c09cf2f1',1,'amrex::RealVect']]],

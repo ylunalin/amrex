@@ -148,6 +148,5 @@ var searchData=
   ['lsproblem',['LSProblem',['../class_l_s_problem.html',1,'LSProblem&lt; dim &gt;'],['../class_l_s_problem.html#a876119cc7e3ea4d91f7268be2681fbbd',1,'LSProblem::LSProblem(const int &amp;a_degreeP, const bool &amp;a_useConstraints)'],['../class_l_s_problem.html#ae54bca9b89eb6002ba6c9b470502ec41',1,'LSProblem::LSProblem(const int &amp;a_orderAccuracy, const int &amp;a_degreeP, const bool &amp;a_useConstraints, const IndexTM&lt; Real, dim &gt; &amp;a_normal)'],['../class_l_s_problem_3_011_01_4.html#a0bea7f1cc43c858eace264b63dc36e8e',1,'LSProblem&lt; 1 &gt;::LSProblem(const LSProblem&lt; 1 &gt; &amp;a_lsProblem)'],['../class_l_s_problem_3_011_01_4.html#a1abf0e6861802ca77db5a0494c966e6b',1,'LSProblem&lt; 1 &gt;::LSProblem()']]],
   ['lsproblem_3c_201_20_3e',['LSProblem&lt; 1 &gt;',['../class_l_s_problem_3_011_01_4.html',1,'']]],
   ['lsquares',['LSquares',['../class_l_squares.html',1,'']]],
-  ['lsresult',['LSResult',['../class_constrained_l_s.html#a6e412b9d41a6cfeb6b166abf4995491f',1,'ConstrainedLS']]],
-  ['lval',['lval',['../namespaceamrex.html#a165e67b7a9517436e95ea41fddd98a71',1,'amrex']]]
+  ['lsresult',['LSResult',['../class_constrained_l_s.html#a6e412b9d41a6cfeb6b166abf4995491f',1,'ConstrainedLS']]]
 ];
