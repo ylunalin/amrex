@@ -87,7 +87,12 @@
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="AMR_Tutorial.html">Tutorials/Amr</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorials/Basic</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorials/Basic</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#helloworld"><strong>HelloWorld</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#main"><strong>main</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#heatequation"><strong>HeatEquation</strong></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="CVODE_Tutorial.html">Tutorials/CVODE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="EB_Tutorial.html">Tutorials/EB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="HYPRE_Tutorial.html">Tutorials/HYPRE</a></li>
@@ -162,7 +167,8 @@
 <h1>Tutorials/Basic<a class="headerlink" href="#tutorials-basic" title="Permalink to this headline">¶</a></h1>
 <p>The tutorials in amrex/Tutorials/Basic demonstrate the most fundamental
 operations supported by AMReX.</p>
-<p>For example,</p>
+<div class="section" id="helloworld">
+<h2><strong>HelloWorld</strong><a class="headerlink" href="#helloworld" title="Permalink to this headline">¶</a></h2>
 <p>HelloWorld_C and HellowWorld_F demonstrate the GNU Make system – with
 a sample Make.package and GNUmakefile – and the amrex::Initialize
 and amrex::Finalize functions.</p>
@@ -174,6 +180,39 @@ which are Fortran wrappers for the underlying C++ data strutures and
 iterators.  Here, for example, rather than calling amrex::Print() in C++, we
 test on whether amrex_parallel_ioprocessor() is true, and if so, invoke
 the usual Fortran print call.</p>
+</div>
+<div class="section" id="main">
+<h2><strong>main</strong><a class="headerlink" href="#main" title="Permalink to this headline">¶</a></h2>
+<p>main_C and main_F introduce the following:</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p class="first">By default, AMReX initializes MPI and uses MPI_COMM_WORLD as its communicator.
+However, applications could choose to initialize MPI themselves and pass in an
+existing communicator.</p>
+</li>
+<li><p class="first">By default, AMReX treats command line arguments as inputs parameters.  The expected
+format of argv is</p>
+<blockquote>
+<div><p><em>executable inputs_file parm=value</em></p>
+</div></blockquote>
+<p>Here, <cite>excutable</cite> is the filename of the executable, <cite>inputs_file</cite> is the file containing
+runtime parameters used to build AMReX ParmParse database, and <cite>parm=value</cite> is an input
+parameter that will override its value in <cite>inputs_file</cite>.  Both <cite>inputs_file</cite> and
+<cite>parm=value</cite> are optional.  At most one <cite>inputs_file</cite> is allowed. Howeer, there can be
+multiple <a href="#id1"><span class="problematic" id="id2">`</span></a>parm=value`s.</p>
+<p>The parsing of the command line arguments is performed in amrex::Initialize.  Applications
+can choose to skip command line parsing.  Applications can also provide a function that
+adds parameters to AMReX ParmParse database.</p>
+</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="heatequation">
+<h2><strong>HeatEquation</strong><a class="headerlink" href="#heatequation" title="Permalink to this headline">¶</a></h2>
+<p>The HeatEquation examples solve a 2D or 3D (determined by how you set DIM in the GNUmakefile)
+heat equation explicitly on a domain-decomposed mesh.  This example is described in detail in
+the <a class="reference external" href="https://amrex-codes.github.io/amrex/docs_html/Basics.html">Basics</a> chapter of the amrex Documentation</p>
+</div>
 </div>
 
 
