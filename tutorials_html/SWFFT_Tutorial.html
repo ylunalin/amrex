@@ -159,6 +159,20 @@
             
   <div class="section" id="tutorials-swfft">
 <h1>Tutorials/SWFFT<a class="headerlink" href="#tutorials-swfft" title="Permalink to this headline">¶</a></h1>
+<p>This Tutorial demonstrates how to call the SWFFT wrapper to the FFTW3 solver.</p>
+<p>In this test case we set up a right hand side (rhs), call the forward transform,
+modify the coefficients, then call the backward solver and output the solution
+to the discrete Poisson equation.</p>
+<p>To build the code, type ‘make’ in amrex/Tutorials/SWFFT.  This
+will include code from amrex/Src/Extern/SWFFT and you will need to
+link to the FFT solvers themselves (on NERSC’s Cori machine, for example,
+you would need to “module load fft”)</p>
+<p>To run the code, type ‘main3d.gnu.MPI.ex inputs’ in this directory</p>
+<p>To visualize the output, set the bool write_data to true, then
+use amrvis3d (source available at <a class="reference external" href="https://github.com/AMReX-Codes/Amrvis">https://github.com/AMReX-Codes/Amrvis</a>):</p>
+<p>amrvis3d -mf RHS SOL_EXACT SOL_COMP</p>
+<p>to visualize the rhs, the exact solution and the computed solution.</p>
+<p>The max norm of the difference between the exact and computed solution is also printed.</p>
 </div>
 
 
