@@ -672,21 +672,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;<span class="comment">//      to allow profiling the BL_PROFILE with additional flag.</span></div>
 <div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;<span class="comment">// ============================================================</span></div>
 <div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;</div>
-<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;<span class="preprocessor">#if defined(VTUNE)</span></div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;<span class="preprocessor">#if defined(AMREX_VTUNE)</span></div>
 <div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;<span class="preprocessor">#define TP_PROFILE_REGION_START()   __itt_resume(); \</span></div>
 <div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;<span class="preprocessor">amrex::Print() &lt;&lt; &quot;VTune regional recording has begun.\n&quot;;</span></div>
 <div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define TP_PROFILE_REGION_STOP()    __itt_pause(); \</span></div>
 <div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;<span class="preprocessor">amrex::Print() &lt;&lt; &quot;VTune regional recording has been stopped.\n&quot;;</span></div>
 <div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;<span class="preprocessor">#elif defined(CRAYPAT)</span></div>
+<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;<span class="preprocessor">#elif defined(AMREX_CRAYPAT)</span></div>
 <div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;<span class="preprocessor">#define TP_PROFILE_REGION_START()   PAT_record(PAT_STATE_ON); \</span></div>
 <div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;<span class="preprocessor">amrex::Print() &lt;&lt; &quot;CrayPat regional recording has begun.\n&quot;;</span></div>
 <div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define TP_PROFILE_REGION_STOP()    PAT_record(PAT_STATE_OFF); \</span></div>
 <div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;<span class="preprocessor">amrex::Print() &lt;&lt; &quot;CrayPat regional recording has been stopped.\n&quot;;</span></div>
 <div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;<span class="preprocessor">#elif defined(FORGE)</span></div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;<span class="preprocessor">#elif defined(AMREX_FORGE)</span></div>
 <div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;<span class="preprocessor">#define TP_PROFILE_REGION_START()   allinea_start_sampling(); \</span></div>
 <div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;<span class="preprocessor">amrex::Print() &lt;&lt; &quot;MAP regional recording has begun.\n&quot;; </span></div>
