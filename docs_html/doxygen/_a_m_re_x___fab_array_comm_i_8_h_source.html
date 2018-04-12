@@ -1157,7 +1157,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01067"></a><span class="lineno"> 1067</span>&#160;    <span class="comment">//</span></div>
 <div class="line"><a name="l01068"></a><span class="lineno"> 1068</span>&#160;    <span class="comment">//  Note that subbox must be identical on each process!!</span></div>
 <div class="line"><a name="l01069"></a><span class="lineno"> 1069</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l01070"></a><span class="lineno"> 1070</span>&#160;<span class="preprocessor">#ifdef DEBUG</span></div>
+<div class="line"><a name="l01070"></a><span class="lineno"> 1070</span>&#160;<span class="preprocessor">#ifdef AMREX_DEBUG</span></div>
 <div class="line"><a name="l01071"></a><span class="lineno"> 1071</span>&#160;<span class="preprocessor"></span>    {</div>
 <div class="line"><a name="l01072"></a><span class="lineno"> 1072</span>&#160;    BoxCommHelper bch(subbox);  </div>
 <div class="line"><a name="l01073"></a><span class="lineno"> 1073</span>&#160;    <a class="code" href="namespaceamrex_1_1_parallel_descriptor.html#a20157f27c3bf88a426b0f44bd6bbf135">ParallelDescriptor::Bcast</a>(bch.data(), bch.size(), 0, <a class="code" href="namespaceamrex_1_1_parallel_context.html#afb1955e0ab6b3f188007ad3aa5a4ef8a">ParallelContext::CommunicatorSub</a>());</div>
