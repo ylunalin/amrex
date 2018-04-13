@@ -156,12 +156,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="namespaceamrex_1_1system.html#a795aa5887c4cdd0f1af9818d45442826">signal_handling</a>;</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    }</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;}</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/*BL_AMREX_H*/</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="namespaceamrex.html#a9d0fa7afb6bbeb5e81b5570445599fbf">   95</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="namespaceamrex.html#a9d0fa7afb6bbeb5e81b5570445599fbf">GccPlacater</a> ()</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    {</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        std::allocator&lt;char&gt; a1;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        std::allocator&lt;int&gt; a2;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        std::allocator&lt;float&gt; a3;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        std::allocator&lt;double&gt; a4;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        std::allocator&lt;std::string&gt; a5;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    }</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;}</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/*BL_AMREX_H*/</span><span class="preprocessor"></span></div>
 <div class="ttc" id="namespaceamrex_html_ab6a2e5010fd3fcf597991b9d1a251c0d"><div class="ttname"><a href="namespaceamrex.html#ab6a2e5010fd3fcf597991b9d1a251c0d">amrex::Assert</a></div><div class="ttdeci">void Assert(const char *EX, const char *file, int line, const char *msg=nullptr)</div><div class="ttdoc">Prints assertion failed messages to cerr and exits via abort(). Intended for use by the BL_ASSERT() m...</div><div class="ttdef"><b>Definition:</b> AMReX.cpp:223</div></div>
 <div class="ttc" id="namespaceamrex_1_1system_html_aba644ca5c4d0bf30d567a08a6dc0ebd1"><div class="ttname"><a href="namespaceamrex_1_1system.html#aba644ca5c4d0bf30d567a08a6dc0ebd1">amrex::system::verbose</a></div><div class="ttdeci">int verbose</div><div class="ttdef"><b>Definition:</b> AMReX.cpp:54</div></div>
 <div class="ttc" id="namespaceamrex_1_1system_html_a795aa5887c4cdd0f1af9818d45442826"><div class="ttname"><a href="namespaceamrex_1_1system.html#a795aa5887c4cdd0f1af9818d45442826">amrex::system::signal_handling</a></div><div class="ttdeci">int signal_handling</div><div class="ttdef"><b>Definition:</b> AMReX.cpp:55</div></div>
+<div class="ttc" id="namespaceamrex_html_a9d0fa7afb6bbeb5e81b5570445599fbf"><div class="ttname"><a href="namespaceamrex.html#a9d0fa7afb6bbeb5e81b5570445599fbf">amrex::GccPlacater</a></div><div class="ttdeci">void GccPlacater()</div><div class="ttdef"><b>Definition:</b> AMReX.H:95</div></div>
 <div class="ttc" id="namespaceamrex_html_aea69993eec3c9ca497cd0e47522b2ec6"><div class="ttname"><a href="namespaceamrex.html#aea69993eec3c9ca497cd0e47522b2ec6">amrex::Abort</a></div><div class="ttdeci">void Abort(const char *msg=0)</div><div class="ttdoc">Print out message to cerr and exit via abort(). </div><div class="ttdef"><b>Definition:</b> AMReX.cpp:194</div></div>
 <div class="ttc" id="namespaceamrex_html_a98433bd642d901d057750276875f85f6"><div class="ttname"><a href="namespaceamrex.html#a98433bd642d901d057750276875f85f6">amrex::Finalize</a></div><div class="ttdeci">void Finalize(bool finalize_parallel=true)</div><div class="ttdef"><b>Definition:</b> AMReX.cpp:458</div></div>
 <div class="ttc" id="_a_m_re_x__ccse-mpi_8_h_html_a68c509d4adb3f4a1d6fe3a9b0b87c7b9"><div class="ttname"><a href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a></div><div class="ttdeci">int MPI_Comm</div><div class="ttdef"><b>Definition:</b> AMReX_ccse-mpi.H:43</div></div>
