@@ -1797,13 +1797,13 @@ physical (non-periodic) boundary conditions.</p>
 </div>
 <div class="section" id="memory-allocation">
 <h1>Memory Allocation<a class="headerlink" href="#memory-allocation" title="Permalink to this headline">¶</a></h1>
-<p>AMReX&nbsp;has a Fortran module, <code class="code fortran docutils literal notranslate"><span class="name"><span class="pre">mempool_module</span></span></code> that can be used to
+<p>AMReX&nbsp;has a Fortran module, <code class="code fortran docutils literal notranslate"><span class="name"><span class="pre">amrex_mempool_module</span></span></code> that can be used to
 allocate memory for Fortran pointers. The reason that such a module exists in
 AMReX,&nbsp;is that memory allocation is often very slow in multi-threaded OpenMP
-parallel regions. AMReX <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">mempool_module</span></span></code> provides a much faster
+parallel regions. AMReX <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex_mempool_module</span></span></code> provides a much faster
 alternative approach, in which each thread has its own memory pool. Here are
 examples of using the module.</p>
-<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">use </span><span class="n">mempool_module</span><span class="p">,</span> <span class="n">only</span> <span class="p">:</span> <span class="n">bl_allocate</span><span class="p">,</span> <span class="n">bl_deallocate</span>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">use </span><span class="n">amrex_mempool_module</span><span class="p">,</span> <span class="n">only</span> <span class="p">:</span> <span class="n">bl_allocate</span><span class="p">,</span> <span class="n">bl_deallocate</span>
 <span class="kt">real</span><span class="p">(</span><span class="n">amrex_real</span><span class="p">),</span> <span class="k">pointer</span><span class="p">,</span> <span class="k">contiguous</span> <span class="kd">::</span> <span class="n">a</span><span class="p">(:,:,:),</span> <span class="n">b</span><span class="p">(:,:,:,:)</span>
 <span class="kt">integer</span> <span class="kd">::</span> <span class="n">lo1</span><span class="p">,</span> <span class="n">hi1</span><span class="p">,</span> <span class="n">lo2</span><span class="p">,</span> <span class="n">hi2</span><span class="p">,</span> <span class="n">lo3</span><span class="p">,</span> <span class="n">hi3</span><span class="p">,</span> <span class="n">lo</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="n">hi</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="c">! lo1 = ...</span>

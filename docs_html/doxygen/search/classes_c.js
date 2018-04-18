@@ -3,7 +3,6 @@ var searchData=
   ['macbndry',['MacBndry',['../classamrex_1_1_mac_bndry.html',1,'amrex']]],
   ['mask',['Mask',['../classamrex_1_1_mask.html',1,'amrex']]],
   ['meminfo',['MemInfo',['../structamrex_1_1_mem_profiler_1_1_mem_info.html',1,'amrex::MemProfiler']]],
-  ['mempool_5fmodule',['mempool_module',['../classmempool__module.html',1,'']]],
   ['memprofiler',['MemProfiler',['../classamrex_1_1_mem_profiler.html',1,'amrex']]],
   ['message',['Message',['../classamrex_1_1_parallel_descriptor_1_1_message.html',1,'amrex::ParallelDescriptor']]],
   ['mfghostiter',['MFGhostIter',['../classamrex_1_1_m_f_ghost_iter.html',1,'amrex']]],
