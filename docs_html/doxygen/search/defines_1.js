@@ -60,6 +60,8 @@ var searchData=
   ['bl_5fprofile_5fvar_5fstart',['BL_PROFILE_VAR_START',['../_a_m_re_x___b_l_profiler_8_h.html#a100d10b382fff9099a61671e766e1f19',1,'AMReX_BLProfiler.H']]],
   ['bl_5fprofile_5fvar_5fstop',['BL_PROFILE_VAR_STOP',['../_a_m_re_x___b_l_profiler_8_h.html#a82c334c787872a6bbacabe9a38389224',1,'AMReX_BLProfiler.H']]],
   ['bl_5fspacedim',['BL_SPACEDIM',['../_a_m_re_x___s_p_a_c_e_8_h.html#af66ac7d7c04dad9fd54778fe5a4e816f',1,'AMReX_SPACE.H']]],
+  ['bl_5ftp_5fprofile_5fregion_5fstart',['BL_TP_PROFILE_REGION_START',['../_a_m_re_x___b_l_profiler_8_h.html#aba8257f12be77bede2be8276361f8d30',1,'AMReX_BLProfiler.H']]],
+  ['bl_5ftp_5fprofile_5fregion_5fstop',['BL_TP_PROFILE_REGION_STOP',['../_a_m_re_x___b_l_profiler_8_h.html#a29124e86c7ae9f04380d6558788a6cee',1,'AMReX_BLProfiler.H']]],
   ['bl_5ftrace_5fprofile_5fflush',['BL_TRACE_PROFILE_FLUSH',['../_a_m_re_x___b_l_profiler_8_h.html#aa5310169186251333ce571bca98b3e2b',1,'AMReX_BLProfiler.H']]],
   ['bl_5ftrace_5fprofile_5fsetflushsize',['BL_TRACE_PROFILE_SETFLUSHSIZE',['../_a_m_re_x___b_l_profiler_8_h.html#a71c3034d46d84ab1e7ed88d757d5d1ed',1,'AMReX_BLProfiler.H']]],
   ['bl_5fuse_5fdouble',['BL_USE_DOUBLE',['../_a_m_re_x___r_e_a_l_8_h.html#a765c6b1ed112a0f460a6ddd8714214b9',1,'AMReX_REAL.H']]],

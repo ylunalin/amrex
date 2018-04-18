@@ -705,6 +705,10 @@ Typedefs</h2></td></tr>
 <tr class="separator:abda821661019fb0a77eb3a9706dc7330"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a270e267cbd0e472dd8297d46a9c76854"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classamrex_1_1_fab_array_id.html">FabArrayId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a270e267cbd0e472dd8297d46a9c76854">MultiFabId</a></td></tr>
 <tr class="separator:a270e267cbd0e472dd8297d46a9c76854"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4644e325d68829f48fa9f707a27d38d"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#af4644e325d68829f48fa9f707a27d38d">BndryFuncDefault</a> )(Real *data, <a class="el" href="_a_m_re_x___array_lim_8_h.html#af53c6334de4f960ca760f7ea802e1e98">AMREX_ARLIM_P</a>(<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a54267e9174e171df90d3594f0c32e114">lo</a>), <a class="el" href="_a_m_re_x___array_lim_8_h.html#af53c6334de4f960ca760f7ea802e1e98">AMREX_ARLIM_P</a>(<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a6569fdcb051e8fff2ef4c57db6f9c642">hi</a>), const int *dom_lo, const int *dom_hi, const Real *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ad5fa46517dd383f09a279b8446fc397b">dx</a>, const Real *grd_lo, const Real *time, const int *bc)</td></tr>
+<tr class="separator:af4644e325d68829f48fa9f707a27d38d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7b3adaf83de740cb8bfebcaa309fd6b"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ac7b3adaf83de740cb8bfebcaa309fd6b">BndryFunc3DDefault</a> )(Real *data, const int *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a54267e9174e171df90d3594f0c32e114">lo</a>, const int *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a6569fdcb051e8fff2ef4c57db6f9c642">hi</a>, const int *dom_lo, const int *dom_hi, const Real *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ad5fa46517dd383f09a279b8446fc397b">dx</a>, const Real *grd_lo, const Real *time, const int *bc)</td></tr>
+<tr class="separator:ac7b3adaf83de740cb8bfebcaa309fd6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a62563da3fe4e55c8bba5b5e1aadf2495"><td class="memTemplParams" colspan="2">template&lt;class T , std::size_t N&gt; </td></tr>
 <tr class="memitem:a62563da3fe4e55c8bba5b5e1aadf2495"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a62563da3fe4e55c8bba5b5e1aadf2495">Tuple</a> = std::array&lt; T, N &gt;</td></tr>
 <tr class="separator:a62563da3fe4e55c8bba5b5e1aadf2495"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2136,6 +2140,30 @@ template&lt;class T , std::size_t N&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="namespaceamrex.html#afe930d74045516fece8591f173e57007">amrex::Array</a> = typedef std::array&lt;T,N&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac7b3adaf83de740cb8bfebcaa309fd6b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef void(* amrex::BndryFunc3DDefault)(Real *data, const int *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a54267e9174e171df90d3594f0c32e114">lo</a>, const int *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a6569fdcb051e8fff2ef4c57db6f9c642">hi</a>, const int *dom_lo, const int *dom_hi, const Real *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ad5fa46517dd383f09a279b8446fc397b">dx</a>, const Real *grd_lo, const Real *time, const int *bc)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af4644e325d68829f48fa9f707a27d38d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef void(* amrex::BndryFuncDefault)(Real *data, <a class="el" href="_a_m_re_x___array_lim_8_h.html#af53c6334de4f960ca760f7ea802e1e98">AMREX_ARLIM_P</a>(<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a54267e9174e171df90d3594f0c32e114">lo</a>), <a class="el" href="_a_m_re_x___array_lim_8_h.html#af53c6334de4f960ca760f7ea802e1e98">AMREX_ARLIM_P</a>(<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a6569fdcb051e8fff2ef4c57db6f9c642">hi</a>), const int *dom_lo, const int *dom_hi, const Real *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ad5fa46517dd383f09a279b8446fc397b">dx</a>, const Real *grd_lo, const Real *time, const int *bc)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -8837,34 +8865,6 @@ template&lt;&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a7da7d2da4f82d58364bdbce0dd1b401b"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void amrex::linearIn </td>
-          <td>(</td>
-          <td class="paramtype">FaceData &amp;&#160;</td>
-          <td class="paramname"><em>a_outputT</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const void *const&#160;</td>
-          <td class="paramname"><em>a_inBuf</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="a6741b36cd95211813ed94cf57daebc7b"></a>
 <div class="memitem">
 <div class="memproto">
@@ -8882,6 +8882,34 @@ template&lt;&gt; </div>
           <td></td>
           <td class="paramtype">const void *const&#160;</td>
           <td class="paramname"><em>inBuf</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a7da7d2da4f82d58364bdbce0dd1b401b"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void amrex::linearIn </td>
+          <td>(</td>
+          <td class="paramtype">FaceData &amp;&#160;</td>
+          <td class="paramname"><em>a_outputT</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *const&#160;</td>
+          <td class="paramname"><em>a_inBuf</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -9725,34 +9753,6 @@ template&lt;&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="af2a3bf8ed90b0bff42de9d07d6d7fe23"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void amrex::linearOut </td>
-          <td>(</td>
-          <td class="paramtype">void *const&#160;</td>
-          <td class="paramname"><em>a_outBuf</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const FaceData &amp;&#160;</td>
-          <td class="paramname"><em>a_inputT</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="a5b69bc5c46e62693ee6b76077b78b166"></a>
 <div class="memitem">
 <div class="memproto">
@@ -9797,6 +9797,34 @@ template&lt;&gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const unsigned long long &amp;&#160;</td>
+          <td class="paramname"><em>a_inputT</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af2a3bf8ed90b0bff42de9d07d6d7fe23"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void amrex::linearOut </td>
+          <td>(</td>
+          <td class="paramtype">void *const&#160;</td>
+          <td class="paramname"><em>a_outBuf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const FaceData &amp;&#160;</td>
           <td class="paramname"><em>a_inputT</em>&#160;</td>
         </tr>
         <tr>
