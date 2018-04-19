@@ -375,6 +375,8 @@ var searchData=
   ['amrex_5fparticlecontaineri_2eh',['AMReX_ParticleContainerI.H',['../_a_m_re_x___particle_container_i_8_h.html',1,'']]],
   ['amrex_5fparticlei_2eh',['AMReX_ParticleI.H',['../_a_m_re_x___particle_i_8_h.html',1,'']]],
   ['amrex_5fparticleinit_2eh',['AMReX_ParticleInit.H',['../_a_m_re_x___particle_init_8_h.html',1,'']]],
+  ['amrex_5fparticlempiutil_2ecpp',['AMReX_ParticleMPIUtil.cpp',['../_a_m_re_x___particle_m_p_i_util_8cpp.html',1,'']]],
+  ['amrex_5fparticlempiutil_2eh',['AMReX_ParticleMPIUtil.H',['../_a_m_re_x___particle_m_p_i_util_8_h.html',1,'']]],
   ['amrex_5fparticles_2eh',['AMReX_Particles.H',['../_a_m_re_x___particles_8_h.html',1,'']]],
   ['amrex_5fparticles_5f1d_2ef',['AMReX_Particles_1D.F',['../_a_m_re_x___particles__1_d_8_f.html',1,'']]],
   ['amrex_5fparticles_5f2d_2ef',['AMReX_Particles_2D.F',['../_a_m_re_x___particles__2_d_8_f.html',1,'']]],
