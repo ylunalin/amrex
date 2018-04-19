@@ -43,6 +43,8 @@ var searchData=
   ['amrex_5fparmparse',['amrex_parmparse',['../structamrex__parmparse__module_1_1amrex__parmparse.html',1,'amrex_parmparse_module']]],
   ['amrex_5fparmparse_5fmodule',['amrex_parmparse_module',['../classamrex__parmparse__module.html',1,'']]],
   ['amrex_5fparticle_5fmodule',['amrex_particle_module',['../classamrex__particle__module.html',1,'']]],
+  ['amrex_5frandom',['amrex_random',['../interfaceamrex__fort__module_1_1amrex__random.html',1,'amrex_fort_module']]],
+  ['amrex_5frandom_5fint',['amrex_random_int',['../interfaceamrex__fort__module_1_1amrex__random__int.html',1,'amrex_fort_module']]],
   ['amrex_5freal_5farray_5finit',['amrex_real_array_init',['../interfaceamrex__mempool__module_1_1amrex__real__array__init.html',1,'amrex_mempool_module']]],
   ['amrex_5fstring',['amrex_string',['../structamrex__string__module_1_1amrex__string.html',1,'amrex_string_module']]],
   ['amrex_5fstring_5fmodule',['amrex_string_module',['../classamrex__string__module.html',1,'']]],
