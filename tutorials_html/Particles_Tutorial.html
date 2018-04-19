@@ -92,7 +92,11 @@
 <li class="toctree-l1"><a class="reference internal" href="EB_Tutorial.html">Tutorials/EB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="HYPRE_Tutorial.html">Tutorials/HYPRE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="LinearSolvers_Tutorial.html">Tutorials/LinearSolvers</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorials/Particles</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorials/Particles</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#electrostaticpic"><strong>ElectrostaticPIC</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#neighborlist"><strong>NeighborList</strong></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="SWFFT_Tutorial.html">Tutorials/SWFFT</a></li>
 </ul>
 
@@ -160,6 +164,38 @@
             
   <div class="section" id="tutorials-particles">
 <h1>Tutorials/Particles<a class="headerlink" href="#tutorials-particles" title="Permalink to this headline">¶</a></h1>
+<p>There are two tutorials in amrex/Tutorials/Particles that demonstrate the basic usage of
+AMReX’s particle data structures.</p>
+<div class="section" id="electrostaticpic">
+<h2><strong>ElectrostaticPIC</strong><a class="headerlink" href="#electrostaticpic" title="Permalink to this headline">¶</a></h2>
+<p>This tutorial demonstrates how to perform an electrostatic Particle-in-Cell calculation
+using AMReX. The code initializes a single particle in a conducting box (i.e. Dirichlet
+zero boundary conditions) that is slightly off-center in one direction. Because of the
+boundary conditions, the particle sees an image charge and is accelerated in this direction.</p>
+<p>The code is currently set up to use one level of static mesh refinement. The charge density,
+electric field, and electrostatic potential are all defined on the mesh nodes. To solve
+Poisson’s equation, we use AMReX’s Fortran-based multigrid solver. The Fortran routines for
+performing charge deposition, field gathering, and the particle push are all defined in
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">electrostatic_pic_2d</span></span><span class="punctuation"><span class="pre">.</span></span><span class="name"><span class="pre">f90</span></span></code> and <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">electrostatic_pic_3d</span></span><span class="punctuation"><span class="pre">.</span></span><span class="name"><span class="pre">f90</span></span></code> for 2D and 3D, respectively.</p>
+<p>The particle container in this example using a Struct-of-Arrays layout, with <code class="code cpp c++ docutils literal notranslate"><span class="literal number integer"><span class="pre">1</span></span> <span class="operator"><span class="pre">+</span></span> <span class="literal number integer"><span class="pre">2</span></span><span class="operator"><span class="pre">*</span></span><span class="name"><span class="pre">BL_SPACEDIM</span></span></code>
+real components to store the particle weight, velocity, and the electric field interpolated
+to the particle position. To see how to set up such a particle container, see
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">ElectrostaticParticleContainer</span></span><span class="punctuation"><span class="pre">.</span></span><span class="name"><span class="pre">H</span></span></code>.</p>
+</div>
+<div class="section" id="neighborlist">
+<h2><strong>NeighborList</strong><a class="headerlink" href="#neighborlist" title="Permalink to this headline">¶</a></h2>
+<p>This tutorial demonstrates how to have AMReX’s particles undergo short-range collisions
+with each other. To facilite this, a neighbor list data structure is created, in which
+all of the partners that could potentially collide with a given particle are pre-computed.
+This is done by first constructing a cell-linked list, and then looping over all 27 neighbor
+cells to test for potential collision partners. The Fortran subroutine <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex_compute_forces_nl</span></span></code>
+defined in <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">neighbor_list_2d</span></span><span class="punctuation"><span class="pre">.</span></span><span class="name"><span class="pre">f90</span></span></code> and <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">neighbor_list_3d</span></span><span class="punctuation"><span class="pre">.</span></span><span class="name"><span class="pre">f90</span></span></code> demonstrates how to loop over
+the resulting data structure.</p>
+<p>The particles in this example store velocity and acceleration in addition to the default
+components. They are initially placed at cell centers and given random velocities. When a
+particle reaches the domain boundary, it is specularly reflected back into the domain. To
+see how the particle data structures are set up, see <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">NeighborListParticleContainer</span></span><span class="punctuation"><span class="pre">.</span></span><span class="name"><span class="pre">cpp</span></span></code>.</p>
+</div>
 </div>
 
 
