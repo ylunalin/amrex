@@ -226,8 +226,8 @@ var searchData=
   ['cp_5frecv_5fevent',['cp_recv_event',['../namespaceamrex_1_1_b_l_pgas.html#af28d723ceea6075a8c0cc70fb1cb0336',1,'amrex::BLPgas']]],
   ['cp_5fsend_5fcounter',['cp_send_counter',['../namespaceamrex_1_1_b_l_pgas.html#a006a6e9402010787ee8cb2fb2b75a144',1,'amrex::BLPgas']]],
   ['cp_5fsend_5fevent',['cp_send_event',['../namespaceamrex_1_1_b_l_pgas.html#a670380fc0263565e4a2d453e158fb7e1',1,'amrex::BLPgas']]],
-  ['cpc',['CPC',['../structamrex_1_1_fab_array_base_1_1_c_p_c.html',1,'amrex::FabArrayBase']]],
   ['cpc',['CPC',['../structamrex_1_1_fab_array_base_1_1_c_p_c.html#af06ddede1de8c8ba9ff9ca1145147497',1,'amrex::FabArrayBase::CPC::CPC(const FabArrayBase &amp;dstfa, int dstng, const FabArrayBase &amp;srcfa, int srcng, const Periodicity &amp;period)'],['../structamrex_1_1_fab_array_base_1_1_c_p_c.html#a38bc33a91ac00de7d14190db859023bc',1,'amrex::FabArrayBase::CPC::CPC(const BoxArray &amp;dstba, const DistributionMapping &amp;dstdm, const Vector&lt; int &gt; &amp;dstidx, int dstng, const BoxArray &amp;srcba, const DistributionMapping &amp;srcdm, const Vector&lt; int &gt; &amp;srcidx, int srcng, const Periodicity &amp;period, int myproc)']]],
+  ['cpc',['CPC',['../structamrex_1_1_fab_array_base_1_1_c_p_c.html',1,'amrex::FabArrayBase']]],
   ['cpcache',['CPCache',['../classamrex_1_1_fab_array_base.html#a68151f78c47e353f18a8077ce54afc30',1,'amrex::FabArrayBase']]],
   ['cpcacheiter',['CPCacheIter',['../classamrex_1_1_fab_array_base.html#ae1a0d2f95995d26b5afe7c866f760bd6',1,'amrex::FabArrayBase']]],
   ['cpop',['CpOp',['../classamrex_1_1_fab_array_base.html#ac86e93bfc13df1bdcfb0ebbafb6a1cff',1,'amrex::FabArrayBase']]],
@@ -258,9 +258,6 @@ var searchData=
   ['currentnfabarrays',['CurrentNFabArrays',['../classamrex_1_1_fab_array_copy_descriptor.html#a88333fba7ee0fc09cf5c5fc722df7972',1,'amrex::FabArrayCopyDescriptor']]],
   ['currentposition',['currentPosition',['../structamrex_1_1_vis_m_f_1_1_persistent_i_f_stream.html#a85eca5ae503569f1b40b8d4bac373997',1,'amrex::VisMF::PersistentIFStream']]],
   ['curtime',['curTime',['../classamrex_1_1_state_data.html#a507991b8e94a2dcda227f976acfa3af8',1,'amrex::StateData']]],
-  ['cut',['Cut',['../classamrex_1_1_cut.html#a746cae073fa3c99ffa65e0c7f627e733',1,'amrex::Cut']]],
-  ['cut',['Cut',['../classamrex_1_1_cut.html',1,'amrex']]],
   ['cutcellmoments',['CutCellMoments',['../class_cut_cell_moments.html',1,'CutCellMoments&lt; dim &gt;'],['../class_cut_cell_moments.html#a2d7111f969876074b833f724b20bf524',1,'CutCellMoments::CutCellMoments()'],['../class_cut_cell_moments.html#ac56d387ea73ccd18b38670280ba06701',1,'CutCellMoments::CutCellMoments(const CutCellMoments&lt; dim &gt; &amp;a_cutCellMoments)'],['../class_cut_cell_moments.html#a967de4999f5e8da5a94510db034d1c8f',1,'CutCellMoments::CutCellMoments(const IFData&lt; dim &gt; &amp;a_info)'],['../class_cut_cell_moments_3_011_01_4.html#af371393d47af64988682b11cd082e79d',1,'CutCellMoments&lt; 1 &gt;::CutCellMoments()'],['../class_cut_cell_moments_3_011_01_4.html#ae91a9a86f5ab796d64fb33eb157d1d41',1,'CutCellMoments&lt; 1 &gt;::CutCellMoments(const CutCellMoments&lt; 1 &gt; &amp;a_cutCellMoments)'],['../class_cut_cell_moments_3_011_01_4.html#a65fb1160c06b2fd7378a4402ae34c0e2',1,'CutCellMoments&lt; 1 &gt;::CutCellMoments(const IFData&lt; 1 &gt; &amp;a_info)']]],
-  ['cutcellmoments_3c_201_20_3e',['CutCellMoments&lt; 1 &gt;',['../class_cut_cell_moments_3_011_01_4.html',1,'']]],
-  ['cutstatus',['CutStatus',['../namespaceamrex.html#a1475e7df2fc014330b7f649b2e84d801',1,'amrex']]]
+  ['cutcellmoments_3c_201_20_3e',['CutCellMoments&lt; 1 &gt;',['../class_cut_cell_moments_3_011_01_4.html',1,'']]]
 ];

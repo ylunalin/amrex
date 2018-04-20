@@ -8,7 +8,6 @@ var searchData=
   ['ifslicer_3c_20bl_5fspacedim_20_3e',['IFSlicer&lt; BL_SPACEDIM &gt;',['../class_i_f_slicer_3_01_b_l___s_p_a_c_e_d_i_m_01_4.html',1,'']]],
   ['im_5ft',['im_t',['../unionamrex_1_1_particle_1_1im__t.html',1,'amrex::Particle']]],
   ['imultifab',['iMultiFab',['../classamrex_1_1i_multi_fab.html',1,'amrex']]],
-  ['inbox',['InBox',['../classamrex_1_1_in_box.html',1,'amrex']]],
   ['indexedmoments',['IndexedMoments',['../class_indexed_moments.html',1,'']]],
   ['indexedmoments_3c_20bl_5fspacedim_2c_20ch_5febis_5forder_20_3e',['IndexedMoments&lt; BL_SPACEDIM, CH_EBIS_ORDER &gt;',['../class_indexed_moments.html',1,'']]],
   ['indexedmoments_3c_20bl_5fspacedim_2d1_2c_20ch_5febis_5forder_20_3e',['IndexedMoments&lt; BL_SPACEDIM-1, CH_EBIS_ORDER &gt;',['../class_indexed_moments.html',1,'']]],

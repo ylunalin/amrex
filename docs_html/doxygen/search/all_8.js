@@ -31,7 +31,6 @@ var searchData=
   ['hiwithboundary',['HiWithBoundary',['../classamrex_1_1_face_stop.html#a37ec41a3856aad220e1b1ece257abba4a47fb385e92570579907dc53404eb1367',1,'amrex::FaceStop']]],
   ['hoextrap',['HOEXTRAP',['../_a_m_re_x___b_c___t_y_p_e_s_8_h.html#ab3f2cb808193937a3651291078955292',1,'AMReX_BC_TYPES.H']]],
   ['hoextraptocc',['hoextraptocc',['../_a_m_re_x___f_i_l_c_c__2_d_8_f90.html#aceaaec1fa1ad1f14d4a3b277da4f4a3c',1,'hoextraptocc(q, q_l1, q_l2, q_h1, q_h2, domlo, domhi, dx, xlo):&#160;AMReX_FILCC_2D.F90'],['../_a_m_re_x___f_i_l_c_c__3_d_8_f90.html#a02ca9842cbb4347d6ba0a920c636fb7c',1,'hoextraptocc(q, q_l1, q_l2, q_l3, q_h1, q_h2, q_h3, domlo, domhi, dx, xlo):&#160;AMReX_FILCC_3D.F90']]],
-  ['holecut',['HoleCut',['../namespaceamrex.html#a1475e7df2fc014330b7f649b2e84d801a8c112ddae302a7cdb833905e341b72b9',1,'amrex']]],
   ['how',['How',['../classamrex_1_1_vis_m_f.html#aa50a3ce471ac0bdf8f78134f0004e156',1,'amrex::VisMF']]],
   ['hwm_5fbuilds',['hwm_builds',['../structamrex_1_1_mem_profiler_1_1_n_builds_info.html#ac85d7c7f2a90d5d1025386987ad4aaa5',1,'amrex::MemProfiler::NBuildsInfo']]],
   ['hwm_5fbytes',['hwm_bytes',['../structamrex_1_1_mem_profiler_1_1_mem_info.html#a0986f22c847ee689a532d882351b7ee0',1,'amrex::MemProfiler::MemInfo']]],

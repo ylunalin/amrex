@@ -22,7 +22,6 @@ var searchData=
   ['coordsys',['CoordSys',['../classamrex_1_1_coord_sys.html',1,'amrex']]],
   ['copycomtag',['CopyComTag',['../structamrex_1_1_fab_array_base_1_1_copy_com_tag.html',1,'amrex::FabArrayBase']]],
   ['cpc',['CPC',['../structamrex_1_1_fab_array_base_1_1_c_p_c.html',1,'amrex::FabArrayBase']]],
-  ['cut',['Cut',['../classamrex_1_1_cut.html',1,'amrex']]],
   ['cutcellmoments',['CutCellMoments',['../class_cut_cell_moments.html',1,'']]],
   ['cutcellmoments_3c_201_20_3e',['CutCellMoments&lt; 1 &gt;',['../class_cut_cell_moments_3_011_01_4.html',1,'']]]
 ];

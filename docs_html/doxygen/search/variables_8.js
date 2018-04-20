@@ -2,7 +2,7 @@ var searchData=
 [
   ['ibd_5fmax_5forder_5fdef',['IBD_max_order_DEF',['../classamrex_1_1_interp_bndry_data.html#a3c37f7ae3bebb39f7fac821540e10227',1,'amrex::InterpBndryData']]],
   ['ic',['ic',['../classamrex_1_1_neighbor_particle_container.html#aeaa3b1bb8b6e40c8899b06779754db1d',1,'amrex::NeighborParticleContainer']]],
-  ['id',['id',['../unionamrex_1_1_particle_1_1im__t.html#a90be7512d9a3064b2b5237abb496b68b',1,'amrex::Particle::im_t::id()'],['../structamrex_1_1_edge.html#aa520a503a826dd68143e26fa40ae898a',1,'amrex::Edge::ID()']]],
+  ['id',['ID',['../structamrex_1_1_edge.html#aa520a503a826dd68143e26fa40ae898a',1,'amrex::Edge::ID()'],['../unionamrex_1_1_particle_1_1im__t.html#a90be7512d9a3064b2b5237abb496b68b',1,'amrex::Particle::im_t::id()']]],
   ['ieee_5fdouble',['ieee_double',['../classamrex_1_1_f_p_c.html#ad349e02b1bbbc807501d2c8de41ebef9',1,'amrex::FPC']]],
   ['ieee_5ffloat',['ieee_float',['../classamrex_1_1_f_p_c.html#a1b3e2650f0f9184f503b42a96a8ebd60',1,'amrex::FPC']]],
   ['index_5fmap',['index_map',['../classamrex_1_1_m_f_iter.html#ac482cbbf5ecee6f2593a3e4437623082',1,'amrex::MFIter']]],
@@ -23,7 +23,6 @@ var searchData=
   ['intersect_5floy',['intersect_loy',['../classamrex_1_1_amr.html#a63e0fe7c5999847347e2959ef6d35e84',1,'amrex::Amr']]],
   ['intersect_5floz',['intersect_loz',['../classamrex_1_1_amr.html#ac8fbee6b944ffeb46dac1abb6c4e979c',1,'amrex::Amr']]],
   ['inv_5fdx',['inv_dx',['../classamrex_1_1_coord_sys.html#a09a58ce8c24e2ad549c98754fd2adaeb',1,'amrex::CoordSys']]],
-  ['invalid_5ftime',['INVALID_TIME',['../namespaceamrex.html#a3381456f43e80fc04349263ed37a8b55',1,'amrex']]],
   ['io_5foffset',['io_offset',['../classamrex_1_1_real_vect.html#aec1894e6522770880dc552babe7ec205',1,'amrex::RealVect']]],
   ['iobuffer',['ioBuffer',['../structamrex_1_1_vis_m_f_1_1_persistent_i_f_stream.html#a1e023351bf031aee0da7cc17272716ae',1,'amrex::VisMF::PersistentIFStream']]],
   ['ioprocessor',['ioProcessor',['../namespaceamrex_1_1_parallel_descriptor.html#a170c7ee692d457514ef07c0d6206f7e2',1,'amrex::ParallelDescriptor']]],

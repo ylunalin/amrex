@@ -10,7 +10,6 @@ var searchData=
   ['spherical',['SPHERICAL',['../classamrex_1_1_coord_sys.html#afb633344fd17c5565ce2fff188806ebaaa0c55dfafca5806f988babd974f5b158',1,'amrex::CoordSys']]],
   ['split',['split',['../classamrex_1_1_fork_join.html#a72de18d1d16fadce31b830834ffff282aeefec303079ad17405c889e092e105b0',1,'amrex::ForkJoin']]],
   ['standard',['Standard',['../classamrex_1_1_error_rec.html#adeca3cab9dffebf73c48525e5f94872dabd4b8573edb15206522a41ee3a5db143',1,'amrex::ErrorRec']]],
-  ['steepcut',['SteepCut',['../namespaceamrex.html#a1475e7df2fc014330b7f649b2e84d801a4620270667a1158b52216ddafd2ed514',1,'amrex']]],
   ['success',['SUCCESS',['../class_constrained_l_s.html#a6e412b9d41a6cfeb6b166abf4995491fa8c7142517eebb13ab0410dd4dcb8fffd',1,'ConstrainedLS']]],
   ['surroundingnoboundary',['SurroundingNoBoundary',['../classamrex_1_1_face_stop.html#a37ec41a3856aad220e1b1ece257abba4a75acaf7d75a5a3d8fa05d3d4d4f466fa',1,'amrex::FaceStop']]],
   ['surroundingwithboundary',['SurroundingWithBoundary',['../classamrex_1_1_face_stop.html#a37ec41a3856aad220e1b1ece257abba4ad0a96746374e5b4e60a72451931d535c',1,'amrex::FaceStop']]]
