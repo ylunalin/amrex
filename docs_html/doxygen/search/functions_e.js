@@ -28,6 +28,7 @@ var searchData=
   ['nfabcopydescs',['nFabCopyDescs',['../classamrex_1_1_fab_array_copy_descriptor.html#a1af4bdca134932bb4ffa3790bb5c16df',1,'amrex::FabArrayCopyDescriptor']]],
   ['nfilesiter',['NFilesIter',['../classamrex_1_1_n_files_iter.html#ae897aacaf05af5ff9c575a345315be88',1,'amrex::NFilesIter::NFilesIter(int noutfiles, const std::string &amp;fileprefix, bool groupsets, bool setBuf)'],['../classamrex_1_1_n_files_iter.html#add24fee333e89cdcbc0cd9890a6f2b34',1,'amrex::NFilesIter::NFilesIter(const std::string &amp;fileName, const Vector&lt; int &gt; &amp;readRanks, bool setBuf=false)']]],
   ['ngrow',['nGrow',['../classamrex_1_1_fab_array_base.html#adbca6fa8ac3f0235bd5127d2ac6b824d',1,'amrex::FabArrayBase::nGrow()'],['../classamrex_1_1_vis_m_f.html#a4d2dd5d09383bc182c919795f859b1e6',1,'amrex::VisMF::nGrow()'],['../classamrex_1_1_error_rec.html#a97566505507752c898c03d92672316a4',1,'amrex::ErrorRec::nGrow()']]],
+  ['ngrowvect',['nGrowVect',['../classamrex_1_1_fab_array_base.html#a04f6b5015129a821f4795f7d6961882d',1,'amrex::FabArrayBase::nGrowVect()'],['../classamrex_1_1_vis_m_f.html#a1428bfdbc4dae39af42809e49c030e3c',1,'amrex::VisMF::nGrowVect()']]],
   ['nitemsperbin',['NItemsPerBin',['../namespaceamrex.html#aaf97cdbc0db387b57d9641d57cce591e',1,'amrex']]],
   ['nodaldepositionsinglelevel',['NodalDepositionSingleLevel',['../classamrex_1_1_particle_container.html#a5afd2850a8ba87b47e9d9ff49cdd5d9a',1,'amrex::ParticleContainer']]],
   ['nodaltilebox',['nodaltilebox',['../classamrex_1_1_m_f_iter.html#a9c69e3a5196ec1466c349566cada2a2b',1,'amrex::MFIter']]],

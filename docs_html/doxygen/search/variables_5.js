@@ -10,6 +10,7 @@ var searchData=
   ['fb_5fcross',['fb_cross',['../classamrex_1_1_fab_array.html#ad60d54b29f531bb4dce101be2b1ce475',1,'amrex::FabArray']]],
   ['fb_5fepo',['fb_epo',['../classamrex_1_1_fab_array.html#a1d61605f01e636ad1cf1023030ade541',1,'amrex::FabArray']]],
   ['fb_5fncomp',['fb_ncomp',['../classamrex_1_1_fab_array.html#a44253b7e74c28fdcd2608632024db814',1,'amrex::FabArray']]],
+  ['fb_5fnghost',['fb_nghost',['../classamrex_1_1_fab_array.html#a3acbfa5ddb651d940c5081bf658d03d8',1,'amrex::FabArray']]],
   ['fb_5fperiod',['fb_period',['../classamrex_1_1_fab_array.html#a45e5a0e80d71edc1f5d3e6ae606fd50b',1,'amrex::FabArray']]],
   ['fb_5frecv_5fdata',['fb_recv_data',['../classamrex_1_1_fab_array.html#a8f4b315f83778346660ed20f94f9e3cf',1,'amrex::FabArray']]],
   ['fb_5frecv_5fevent',['fb_recv_event',['../namespaceamrex_1_1_b_l_pgas.html#ae7c47b8c04e6775105fca2a8f23f4bdf',1,'amrex::BLPgas']]],

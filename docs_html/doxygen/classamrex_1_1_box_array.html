@@ -286,6 +286,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5e4e4bc0ce85e8bdbe8411e99e37b540"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_box_array.html#a5e4e4bc0ce85e8bdbe8411e99e37b540">intersects</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b, int ng=0) const </td></tr>
 <tr class="memdesc:a5e4e4bc0ce85e8bdbe8411e99e37b540"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if the <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> intersects with this <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a>(+ghostcells). The <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> must have the same <a class="el" href="classamrex_1_1_index_type.html" title="Cell-Based or Node-Based Indices. ">IndexType</a> as those in this <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a>.  <a href="#a5e4e4bc0ce85e8bdbe8411e99e37b540">More...</a><br/></td></tr>
 <tr class="separator:a5e4e4bc0ce85e8bdbe8411e99e37b540"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bb3ab19e4f6c0bd022fac9867b5fa0a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_box_array.html#a8bb3ab19e4f6c0bd022fac9867b5fa0a">intersects</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;ng) const </td></tr>
+<tr class="separator:a8bb3ab19e4f6c0bd022fac9867b5fa0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa18b2101c3312c7dad9a6692249fbeaa"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::pair&lt; int, <br class="typebreak"/>
 <a class="el" href="classamrex_1_1_box.html">Box</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_box_array.html#aa18b2101c3312c7dad9a6692249fbeaa">intersections</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;bx) const </td></tr>
 <tr class="memdesc:aa18b2101c3312c7dad9a6692249fbeaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return intersections of <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> and <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a>.  <a href="#aa18b2101c3312c7dad9a6692249fbeaa">More...</a><br/></td></tr>
@@ -294,12 +296,17 @@ Public Member Functions</h2></td></tr>
 <a class="el" href="classamrex_1_1_box.html">Box</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_box_array.html#a319d10412d00d88445667d0ab17b37ca">intersections</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;bx, bool first_only, int ng) const </td></tr>
 <tr class="memdesc:a319d10412d00d88445667d0ab17b37ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return intersections of <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> and <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a>(+ghostcells).  <a href="#a319d10412d00d88445667d0ab17b37ca">More...</a><br/></td></tr>
 <tr class="separator:a319d10412d00d88445667d0ab17b37ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a1f3d0a26c3013d1c78929891835afd"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::pair&lt; int, <br class="typebreak"/>
+<a class="el" href="classamrex_1_1_box.html">Box</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_box_array.html#a5a1f3d0a26c3013d1c78929891835afd">intersections</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;bx, bool first_only, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;ng) const </td></tr>
+<tr class="separator:a5a1f3d0a26c3013d1c78929891835afd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a475e354adc3fee9a9f31afb43a092723"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_box_array.html#a475e354adc3fee9a9f31afb43a092723">intersections</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;bx, std::vector&lt; std::pair&lt; int, <a class="el" href="classamrex_1_1_box.html">Box</a> &gt; &gt; &amp;isects) const </td></tr>
 <tr class="memdesc:a475e354adc3fee9a9f31afb43a092723"><td class="mdescLeft">&#160;</td><td class="mdescRight">intersect <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> and <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a>, then store the result in isects  <a href="#a475e354adc3fee9a9f31afb43a092723">More...</a><br/></td></tr>
 <tr class="separator:a475e354adc3fee9a9f31afb43a092723"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5651ec7b52ae0f2d95540ccd0ce88045"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_box_array.html#a5651ec7b52ae0f2d95540ccd0ce88045">intersections</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;bx, std::vector&lt; std::pair&lt; int, <a class="el" href="classamrex_1_1_box.html">Box</a> &gt; &gt; &amp;isects, bool first_only, int ng) const </td></tr>
 <tr class="memdesc:a5651ec7b52ae0f2d95540ccd0ce88045"><td class="mdescLeft">&#160;</td><td class="mdescRight">intersect <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> and <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a>(+ghostcells), then store the result in isects  <a href="#a5651ec7b52ae0f2d95540ccd0ce88045">More...</a><br/></td></tr>
 <tr class="separator:a5651ec7b52ae0f2d95540ccd0ce88045"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66380d733cd68c76c5aa0bd057bf26a6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_box_array.html#a66380d733cd68c76c5aa0bd057bf26a6">intersections</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;bx, std::vector&lt; std::pair&lt; int, <a class="el" href="classamrex_1_1_box.html">Box</a> &gt; &gt; &amp;isects, bool first_only, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;ng) const </td></tr>
+<tr class="separator:a66380d733cd68c76c5aa0bd057bf26a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3b22d3a396645e254efa7808df0f979"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box_list.html">BoxList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_box_array.html#ab3b22d3a396645e254efa7808df0f979">complementIn</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b) const </td></tr>
 <tr class="memdesc:ab3b22d3a396645e254efa7808df0f979"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return box - boxarray.  <a href="#ab3b22d3a396645e254efa7808df0f979">More...</a><br/></td></tr>
 <tr class="separator:ab3b22d3a396645e254efa7808df0f979"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1390,6 +1397,38 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a5a1f3d0a26c3013d1c78929891835afd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::pair&lt; int, <a class="el" href="classamrex_1_1_box.html">Box</a> &gt; &gt; amrex::BoxArray::intersections </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;&#160;</td>
+          <td class="paramname"><em>bx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>first_only</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;&#160;</td>
+          <td class="paramname"><em>ng</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a475e354adc3fee9a9f31afb43a092723"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1458,6 +1497,44 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a66380d733cd68c76c5aa0bd057bf26a6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void amrex::BoxArray::intersections </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;&#160;</td>
+          <td class="paramname"><em>bx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::pair&lt; int, <a class="el" href="classamrex_1_1_box.html">Box</a> &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>isects</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>first_only</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;&#160;</td>
+          <td class="paramname"><em>ng</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a5e4e4bc0ce85e8bdbe8411e99e37b540"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1483,6 +1560,32 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>True if the <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> intersects with this <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a>(+ghostcells). The <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> must have the same <a class="el" href="classamrex_1_1_index_type.html" title="Cell-Based or Node-Based Indices. ">IndexType</a> as those in this <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="a8bb3ab19e4f6c0bd022fac9867b5fa0a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool amrex::BoxArray::intersects </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;&#160;</td>
+          <td class="paramname"><em>ng</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

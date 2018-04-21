@@ -955,6 +955,8 @@ Functions</h2></td></tr>
 <tr class="memitem:a31f38031bc51519297d88d3234115277"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box_array.html">BoxArray</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a31f38031bc51519297d88d3234115277">intersect</a> (const <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> &amp;ba, const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b, int ng=0)</td></tr>
 <tr class="memdesc:a31f38031bc51519297d88d3234115277"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make a <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> from the intersection of <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> b and <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a>(+ghostcells).  <a href="#a31f38031bc51519297d88d3234115277">More...</a><br/></td></tr>
 <tr class="separator:a31f38031bc51519297d88d3234115277"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fa5535ba8d983023e1a6bd61c9a4880"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box_array.html">BoxArray</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a2fa5535ba8d983023e1a6bd61c9a4880">intersect</a> (const <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> &amp;ba, const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;ng)</td></tr>
+<tr class="separator:a2fa5535ba8d983023e1a6bd61c9a4880"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a172c409fe49ab498d9910cc19b732346"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box_array.html">BoxArray</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a172c409fe49ab498d9910cc19b732346">intersect</a> (const <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> &amp;lhs, const <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> &amp;rhs)</td></tr>
 <tr class="memdesc:a172c409fe49ab498d9910cc19b732346"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make a <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> from the intersection of two BoxArrays.  <a href="#a172c409fe49ab498d9910cc19b732346">More...</a><br/></td></tr>
 <tr class="separator:a172c409fe49ab498d9910cc19b732346"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -8044,6 +8046,38 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="a2fa5535ba8d983023e1a6bd61c9a4880"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> amrex::intersect </td>
+          <td>(</td>
+          <td class="paramtype">const BoxArray &amp;&#160;</td>
+          <td class="paramname"><em>ba</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Box &amp;&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const IntVect &amp;&#160;</td>
+          <td class="paramname"><em>ng</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a172c409fe49ab498d9910cc19b732346"></a>
 <div class="memitem">
 <div class="memproto">
@@ -14211,6 +14245,45 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="a69bf266cc5fefb0b385d84f685dd0df6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void amrex::readIntData </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::istream &amp;&#160;</td>
+          <td class="paramname"><em>is</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_int_descriptor.html">IntDescriptor</a> &amp;&#160;</td>
+          <td class="paramname"><em>id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Read int data from the istream. The arguments are a pointer to data buffer to read into, the size of that buffer, the istream, and an <a class="el" href="classamrex_1_1_int_descriptor.html">IntDescriptor</a> that describes the format of the data on disk. The buffer is assumed to be large enough to store 'size' integers, and it is the user's reponsiblity to allocate this data. </p>
+
+</div>
+</div>
 <a class="anchor" id="af8ec915a2cffc7c342e1f15e52cbd697"></a>
 <div class="memitem">
 <div class="memproto">
@@ -14248,45 +14321,6 @@ template&lt;typename To , typename From &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a69bf266cc5fefb0b385d84f685dd0df6"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void amrex::readIntData </td>
-          <td>(</td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>size</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::istream &amp;&#160;</td>
-          <td class="paramname"><em>is</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classamrex_1_1_int_descriptor.html">IntDescriptor</a> &amp;&#160;</td>
-          <td class="paramname"><em>id</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Read int data from the istream. The arguments are a pointer to data buffer to read into, the size of that buffer, the istream, and an <a class="el" href="classamrex_1_1_int_descriptor.html">IntDescriptor</a> that describes the format of the data on disk. The buffer is assumed to be large enough to store 'size' integers, and it is the user's reponsiblity to allocate this data. </p>
 
 </div>
 </div>
