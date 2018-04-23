@@ -19,6 +19,7 @@ var searchData=
   ['amrex_5fdeallocate',['amrex_deallocate',['../interfaceamrex__mempool__module_1_1amrex__deallocate.html',1,'amrex_mempool_module']]],
   ['amrex_5febis',['AMReX_EBIS',['../classamrex_1_1_a_m_re_x___e_b_i_s.html',1,'amrex']]],
   ['amrex_5ferror_5fmodule',['amrex_error_module',['../classamrex__error__module.html',1,'']]],
+  ['amrex_5fextrapolater',['amrex_extrapolater',['../classamrex__extrapolater.html',1,'']]],
   ['amrex_5ffi_5fpd_5fioprocessor',['amrex_fi_pd_ioprocessor',['../interfaceamrex__paralleldescriptor__module_1_1amrex__fi__pd__ioprocessor.html',1,'amrex_paralleldescriptor_module']]],
   ['amrex_5ffi_5fpd_5fmyproc',['amrex_fi_pd_myproc',['../interfaceamrex__paralleldescriptor__module_1_1amrex__fi__pd__myproc.html',1,'amrex_paralleldescriptor_module']]],
   ['amrex_5ffi_5fpd_5fnprocs',['amrex_fi_pd_nprocs',['../interfaceamrex__paralleldescriptor__module_1_1amrex__fi__pd__nprocs.html',1,'amrex_paralleldescriptor_module']]],

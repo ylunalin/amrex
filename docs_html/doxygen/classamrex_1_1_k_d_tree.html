@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>AMReX: Member List</title>
+<title>AMReX: amrex::KDTree Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -80,21 +80,112 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespaceamrex.html">amrex</a></li><li class="navelem"><a class="el" href="classamrex_1_1_k_d_tree.html">KDTree</a></li>  </ul>
+</div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="classamrex_1_1_k_d_tree-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">bl_extrapolater Member List</div>  </div>
+<div class="title">amrex::KDTree Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="classbl__extrapolater.html">bl_extrapolater</a>, including all inherited members.</p>
-<table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="classbl__extrapolater.html#a3074e7b63ad293c9b9e5c34fdb70f7dd">crsecell</a></td><td class="entry"><a class="el" href="classbl__extrapolater.html">bl_extrapolater</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classbl__extrapolater.html#aef1a0fc89fae6141e13dd980b5cdf9c9">finecell</a></td><td class="entry"><a class="el" href="classbl__extrapolater.html">bl_extrapolater</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classbl__extrapolater.html#a25b57e2f29c6d1ab499dd722ba6c366d">first_order_extrap</a>(u, ulo, uhi, nu, msk, mlo, mhi, lo, hi, sc, nc)</td><td class="entry"><a class="el" href="classbl__extrapolater.html">bl_extrapolater</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classbl__extrapolater.html#a25b57e2f29c6d1ab499dd722ba6c366d">first_order_extrap</a>(u, ulo, uhi, nu, msk, mlo, mhi, lo, hi, sc, nc)</td><td class="entry"><a class="el" href="classbl__extrapolater.html">bl_extrapolater</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classbl__extrapolater.html#a25b57e2f29c6d1ab499dd722ba6c366d">first_order_extrap</a>(u, ulo, uhi, nu, msk, mlo, mhi, lo, hi, sc, nc)</td><td class="entry"><a class="el" href="classbl__extrapolater.html">bl_extrapolater</a></td><td class="entry"></td></tr>
-</table></div><!-- contents -->
+<p><code>#include &lt;<a class="el" href="_a_m_re_x___load_balance_k_d_8_h_source.html">AMReX_LoadBalanceKD.H</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:ac00b4f4a9c637811023dd9176a6d7f13"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_k_d_tree.html#ac00b4f4a9c637811023dd9176a6d7f13">KDTree</a> (const <a class="el" href="classamrex_1_1_box.html">amrex::Box</a> &amp;domain, const <a class="el" href="classamrex_1_1_f_array_box.html">amrex::FArrayBox</a> &amp;cost, int <a class="el" href="namespaceamrex.html#a80ec36e3f3da3a42bac50af1a797551a">num_procs</a>)</td></tr>
+<tr class="separator:ac00b4f4a9c637811023dd9176a6d7f13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bb93334bcc1793b744e78ffc674ff57"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_k_d_tree.html#a5bb93334bcc1793b744e78ffc674ff57">~KDTree</a> ()</td></tr>
+<tr class="separator:a5bb93334bcc1793b744e78ffc674ff57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab84f4ec77a8fc678e6668dffbd2dc550"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_k_d_tree.html#ab84f4ec77a8fc678e6668dffbd2dc550">GetBoxes</a> (<a class="el" href="classamrex_1_1_box_list.html">amrex::BoxList</a> &amp;bl, <a class="el" href="classamrex_1_1_vector.html">amrex::Vector</a>&lt; amrex::Real &gt; &amp;costs)</td></tr>
+<tr class="separator:ab84f4ec77a8fc678e6668dffbd2dc550"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ac00b4f4a9c637811023dd9176a6d7f13"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">amrex::KDTree::KDTree </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_box.html">amrex::Box</a> &amp;&#160;</td>
+          <td class="paramname"><em>domain</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_f_array_box.html">amrex::FArrayBox</a> &amp;&#160;</td>
+          <td class="paramname"><em>cost</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>num_procs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a5bb93334bcc1793b744e78ffc674ff57"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">amrex::KDTree::~KDTree </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ab84f4ec77a8fc678e6668dffbd2dc550"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void amrex::KDTree::GetBoxes </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classamrex_1_1_box_list.html">amrex::BoxList</a> &amp;&#160;</td>
+          <td class="paramname"><em>bl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classamrex_1_1_vector.html">amrex::Vector</a>&lt; amrex::Real &gt; &amp;&#160;</td>
+          <td class="paramname"><em>costs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>/home/travis/build/AMReX-Codes/amrex/Src/Particle/<a class="el" href="_a_m_re_x___load_balance_k_d_8_h_source.html">AMReX_LoadBalanceKD.H</a></li>
+<li>/home/travis/build/AMReX-Codes/amrex/Src/Particle/<a class="el" href="_a_m_re_x___load_balance_k_d_8cpp.html">AMReX_LoadBalanceKD.cpp</a></li>
+</ul>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

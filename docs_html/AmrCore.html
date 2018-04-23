@@ -188,7 +188,7 @@
            <div itemprop="articleBody">
             
   <span id="fig-adv"></span><table border="1" class="docutils align-center" id="id1">
-<caption><span class="caption-number">Table 6 </span><span class="caption-text">Time sequence (<span class="math notranslate">\(t=0,0.5,1,1.5,2\)</span>&nbsp;s) of advection of a Gaussian profile using the SingleVortex tutorial. The red, green, and blue boxes indicate grids at AMR levels <span class="math notranslate">\(\ell=0,1\)</span>, and <span class="math notranslate">\(2\)</span>.</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 6 </span><span class="caption-text">Time sequence (<span class="math notranslate nohighlight">\(t=0,0.5,1,1.5,2\)</span>&nbsp;s) of advection of a Gaussian profile using the SingleVortex tutorial. The red, green, and blue boxes indicate grids at AMR levels <span class="math notranslate nohighlight">\(\ell=0,1\)</span>, and <span class="math notranslate nohighlight">\(2\)</span>.</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="25%" />
 <col width="25%" />
@@ -206,28 +206,28 @@
 <div class="section" id="the-advection-equation">
 <h1>The Advection Equation<a class="headerlink" href="#the-advection-equation" title="Permalink to this headline">¶</a></h1>
 <p>We seek to solve the advection equation on a multi-level, adaptive grid structure:</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[\frac{\partial\phi}{\partial t} = -\nabla\cdot(\phi{\bf U}).\]</div>
 <p>The velocity field is a specified divergence-free (so the flow field is incompressible)
 function of space and time. The initial scalar field is a
 Gaussian profile. To integrate these equations on a given level, we use a simple conservative update,</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[\frac{\phi_{i,\,j}^{n+1}-\phi_{i,\,j}^n}{\Delta t} = \frac{(\phi u)_{i+^1\!/_2,\,j}^{n+^1\!/_2}-(\phi u)_{i-^1\!/_2,\,j}^{n+^1\!/_2}}{\Delta x} + \frac{(\phi v)_{i,\,j+^1\!/_2}^{n+^1\!/_2} - (\phi v)_{i,\,j-^1\!/_2}^{n+^1\!/_2}}{\Delta y},\]</div>
 <p>where the velocities on faces are prescribed functions of space and time, and the scalars on faces
 are computed using a Godunov advection integration scheme. The fluxes in this case are the face-centered,
-time-centered “<span class="math notranslate">\(\phi u\)</span>” and “<span class="math notranslate">\(\phi v\)</span>” terms.</p>
+time-centered “<span class="math notranslate nohighlight">\(\phi u\)</span>” and “<span class="math notranslate nohighlight">\(\phi v\)</span>” terms.</p>
 <p>We use a subcycling-in-time approach where finer levels are advanced with smaller
 time steps than coarser levels, and then synchronization is later performed between levels.
 More specifically, the multi-level procedure can most
-easily be thought of as a recursive algorithm in which, to advance level <span class="math notranslate">\(\ell\)</span>,
-<span class="math notranslate">\(0\le\ell\le\ell_{\rm max}\)</span>, the following steps are taken:</p>
+easily be thought of as a recursive algorithm in which, to advance level <span class="math notranslate nohighlight">\(\ell\)</span>,
+<span class="math notranslate nohighlight">\(0\le\ell\le\ell_{\rm max}\)</span>, the following steps are taken:</p>
 <ul class="simple">
-<li>Advance level <span class="math notranslate">\(\ell\)</span> in time by one time step, <span class="math notranslate">\(\Delta t^{\ell}\)</span>, as if it is
-the only level. If <span class="math notranslate">\(\ell&gt;0\)</span>, obtain boundary data (i.e. fill the level <span class="math notranslate">\(\ell\)</span> ghost cells)
-using space- and time-interpolated data from the grids at <span class="math notranslate">\(\ell-1\)</span> where appropriate.</li>
-<li>If <span class="math notranslate">\(\ell&lt;\ell_{\rm max}\)</span><ul>
-<li>Advance level <span class="math notranslate">\((\ell+1)\)</span> for <span class="math notranslate">\(r\)</span> time steps with <span class="math notranslate">\(\Delta t^{\ell+1} = \frac{1}{r}\Delta t^{\ell}\)</span>.</li>
-<li>Synchronize the data between levels <span class="math notranslate">\(\ell\)</span> and <span class="math notranslate">\(\ell+1\)</span>.</li>
+<li>Advance level <span class="math notranslate nohighlight">\(\ell\)</span> in time by one time step, <span class="math notranslate nohighlight">\(\Delta t^{\ell}\)</span>, as if it is
+the only level. If <span class="math notranslate nohighlight">\(\ell&gt;0\)</span>, obtain boundary data (i.e. fill the level <span class="math notranslate nohighlight">\(\ell\)</span> ghost cells)
+using space- and time-interpolated data from the grids at <span class="math notranslate nohighlight">\(\ell-1\)</span> where appropriate.</li>
+<li>If <span class="math notranslate nohighlight">\(\ell&lt;\ell_{\rm max}\)</span><ul>
+<li>Advance level <span class="math notranslate nohighlight">\((\ell+1)\)</span> for <span class="math notranslate nohighlight">\(r\)</span> time steps with <span class="math notranslate nohighlight">\(\Delta t^{\ell+1} = \frac{1}{r}\Delta t^{\ell}\)</span>.</li>
+<li>Synchronize the data between levels <span class="math notranslate nohighlight">\(\ell\)</span> and <span class="math notranslate nohighlight">\(\ell+1\)</span>.</li>
 </ul>
 </li>
 </ul>
@@ -238,16 +238,16 @@ using space- and time-interpolated data from the grids at <span class="math notr
 <p>Specifically, for a 3-level simulation, depicted graphically in the figure
 showing the <a class="reference internal" href="#fig-subcycling"><span class="std std-ref">Schematic of subcycling-in-time algorithm.</span></a> above:</p>
 <ol class="arabic simple">
-<li>Integrate <span class="math notranslate">\(\ell=0\)</span> over <span class="math notranslate">\(\Delta t\)</span>.</li>
-<li>Integrate <span class="math notranslate">\(\ell=1\)</span> over <span class="math notranslate">\(\Delta t/2\)</span>.</li>
-<li>Integrate <span class="math notranslate">\(\ell=2\)</span> over <span class="math notranslate">\(\Delta t/4\)</span>.</li>
-<li>Integrate <span class="math notranslate">\(\ell=2\)</span> over <span class="math notranslate">\(\Delta t/4\)</span>.</li>
-<li>Synchronize levels <span class="math notranslate">\(\ell=1,2\)</span>.</li>
-<li>Integrate <span class="math notranslate">\(\ell=1\)</span> over <span class="math notranslate">\(\Delta t/2\)</span>.</li>
-<li>Integrate <span class="math notranslate">\(\ell=2\)</span> over <span class="math notranslate">\(\Delta t/4\)</span>.</li>
-<li>Integrate <span class="math notranslate">\(\ell=2\)</span> over <span class="math notranslate">\(\Delta t/4\)</span>.</li>
-<li>Synchronize levels <span class="math notranslate">\(\ell=1,2\)</span>.</li>
-<li>Synchronize levels <span class="math notranslate">\(\ell=0,1\)</span>.</li>
+<li>Integrate <span class="math notranslate nohighlight">\(\ell=0\)</span> over <span class="math notranslate nohighlight">\(\Delta t\)</span>.</li>
+<li>Integrate <span class="math notranslate nohighlight">\(\ell=1\)</span> over <span class="math notranslate nohighlight">\(\Delta t/2\)</span>.</li>
+<li>Integrate <span class="math notranslate nohighlight">\(\ell=2\)</span> over <span class="math notranslate nohighlight">\(\Delta t/4\)</span>.</li>
+<li>Integrate <span class="math notranslate nohighlight">\(\ell=2\)</span> over <span class="math notranslate nohighlight">\(\Delta t/4\)</span>.</li>
+<li>Synchronize levels <span class="math notranslate nohighlight">\(\ell=1,2\)</span>.</li>
+<li>Integrate <span class="math notranslate nohighlight">\(\ell=1\)</span> over <span class="math notranslate nohighlight">\(\Delta t/2\)</span>.</li>
+<li>Integrate <span class="math notranslate nohighlight">\(\ell=2\)</span> over <span class="math notranslate nohighlight">\(\Delta t/4\)</span>.</li>
+<li>Integrate <span class="math notranslate nohighlight">\(\ell=2\)</span> over <span class="math notranslate nohighlight">\(\Delta t/4\)</span>.</li>
+<li>Synchronize levels <span class="math notranslate nohighlight">\(\ell=1,2\)</span>.</li>
+<li>Synchronize levels <span class="math notranslate nohighlight">\(\ell=0,1\)</span>.</li>
 </ol>
 <p>For the scalar field, we keep track volume and time-weighted fluxes at coarse-fine interfaces.
 We accumulate area and time-weighted fluxes in <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FluxRegister</span></span></code> objects, which can be
@@ -257,13 +257,13 @@ come from the coarse or fine level), the flux registers essentially store the ex
 which the solution does not maintain conservation. Conservation only happens if the
 sum of the (area and time-weighted) fine fluxes equals the coarse flux, which in general
 is not true.</p>
-<p>The idea behind the level <span class="math notranslate">\(\ell/(\ell+1)\)</span> synchronization step is to correct for sources of
+<p>The idea behind the level <span class="math notranslate nohighlight">\(\ell/(\ell+1)\)</span> synchronization step is to correct for sources of
 mismatch in the composite solution:</p>
 <ol class="arabic simple">
-<li>The data at level <span class="math notranslate">\(\ell\)</span> that underlie the level <span class="math notranslate">\(\ell+1\)</span> data are not synchronized with the level <span class="math notranslate">\(\ell+1\)</span> data.
+<li>The data at level <span class="math notranslate nohighlight">\(\ell\)</span> that underlie the level <span class="math notranslate nohighlight">\(\ell+1\)</span> data are not synchronized with the level <span class="math notranslate nohighlight">\(\ell+1\)</span> data.
 This is simply corrected by overwriting covered coarse cells to be the average of the overlying fine cells.</li>
-<li>The area and time-weighted fluxes from the level <span class="math notranslate">\(\ell\)</span> faces and the level <span class="math notranslate">\(\ell+1\)</span> faces
-do not agree at the <span class="math notranslate">\(\ell/(\ell+1)\)</span> interface, resulting in a loss of conservation.
+<li>The area and time-weighted fluxes from the level <span class="math notranslate nohighlight">\(\ell\)</span> faces and the level <span class="math notranslate nohighlight">\(\ell+1\)</span> faces
+do not agree at the <span class="math notranslate nohighlight">\(\ell/(\ell+1)\)</span> interface, resulting in a loss of conservation.
 The remedy is to modify the solution in the coarse cells immediately next to the coarse-fine interface
 to account for the mismatch stored in the flux register (computed by taking the coarse-level divergence of the
 flux register data).</li>
@@ -450,7 +450,7 @@ In the most general terms, a FluxRegister is a special type of BndryRegister
 that stores and manipulates data (most often fluxes) at coarse-fine interfaces.
 A simple usage scenario comes from a conservative discretization of a hyperbolic
 system:</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[\frac{\partial\phi}{\partial t} = \nabla\cdot{\bf F}
 \rightarrow
 \frac{\phi_{i,\,j}^{n+1}-\phi_{i,\,j}^n}{\Delta t} = \frac{F_{i+^1\!/_2,\,j}-F_{i-^1\!/_2,\,j}}{\Delta x} + \frac{F_{i,\,j+^1\!/_2} - F_{i,\,j-^1\!/_2}}{\Delta y}.\]</div>
@@ -461,8 +461,8 @@ coarse level only to supply boundary conditions. At the coarse-fine interface,
 the area-weighted fluxes from the fine grid advance do not in general match the
 underlying flux from the coarse grid face, resulting in a lack of global
 conservation. Note that for subcycling-in-time algorithms (where for each coarse
-grid advance, the fine grid is advanced <span class="math notranslate">\(r\)</span> times using a coarse grid time
-step reduced by a factor of <span class="math notranslate">\(r\)</span>, where <span class="math notranslate">\(r\)</span> is the refinement ratio),
+grid advance, the fine grid is advanced <span class="math notranslate nohighlight">\(r\)</span> times using a coarse grid time
+step reduced by a factor of <span class="math notranslate nohighlight">\(r\)</span>, where <span class="math notranslate nohighlight">\(r\)</span> is the refinement ratio),
 the coarse grid flux must be compared to the area <em>and</em> time-weighted fine grid
 fluxes. A <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FluxRegister</span></span></code> accumulates and ultimately stores the net
 difference in fluxes between the coarse grid and fine grid advance over each
@@ -607,7 +607,7 @@ These fluxes are used to set or increment the flux registers.</p>
 tutorial we use the instance in <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">AmrCore</span></span></code>).</p>
 <p>At the beginning of each time step, we check whether we need to regrid.
 In this example, we use a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">regrid_int</span></span></code> and keep track of how many times each level
-has been advanced. When any given particular level <span class="math notranslate">\(\ell&lt;\ell_{\rm max}\)</span> has been
+has been advanced. When any given particular level <span class="math notranslate nohighlight">\(\ell&lt;\ell_{\rm max}\)</span> has been
 advanced a multiple of <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">regrid_int</span></span></code>, we call the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">regrid</span></span></code> function.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span>
 <span class="n">AmrCoreAdv</span><span class="o">::</span><span class="n">timeStep</span> <span class="p">(</span><span class="kt">int</span> <span class="n">lev</span><span class="p">,</span> <span class="n">Real</span> <span class="n">time</span><span class="p">,</span> <span class="kt">int</span> <span class="n">iteration</span><span class="p">)</span>
@@ -785,7 +785,7 @@ there are still fewer grids than processes, repeat the steps above with <code cl
 <p>This example has two functions, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">AmrCoreAdv</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">FillPatch</span></span></code> and <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">AmrCoreAdv</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">CoarseFillPatch</span></span></code>,
 that make use of functions in AmrCore/AMReX_FillPatchUtil.</p>
 <p>In <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">AmrCoreAdv</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">Advance</span></span></code>, we create a temporary <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code> called <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Sborder</span></span></code>, which
-is essentially <span class="math notranslate">\(\phi\)</span> but with ghost cells filled in. The valid and ghost cells are filled in from
+is essentially <span class="math notranslate nohighlight">\(\phi\)</span> but with ghost cells filled in. The valid and ghost cells are filled in from
 actual valid data at that level, space-time interpolated data from the next-coarser level,
 neighboring grids at the same level, or domain boundary conditions
 (for examples that have non-periodic boundary conditions).</p>

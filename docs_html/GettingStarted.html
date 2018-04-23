@@ -290,15 +290,15 @@ can then run,</p>
 <p>We now look at a more complicated example at
 <code class="docutils literal notranslate"><span class="pre">amrex/Tutorials/Basic/HeatEquation_EX1_C</span></code> and show how simulation results
 can be visualized. This example solves the heat equation,</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[\frac{\partial\phi}{\partial t} = \nabla^2\phi\]</div>
 <p>using forward Euler temporal integration on a periodic domain.  We could use a
 5-point (in 2D) or 7-point (in 3D) stencil, but for demonstration purposes we
 spatially discretize the PDE by first constructing fluxes on cell faces, e.g.,</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[F_{i+^1\!/_2,\,j} = \frac{\phi_{i+1,j}-\phi_{i,j}}{\Delta x},\]</div>
 <p>and then taking the divergence to update the cells,</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[\phi_{i,\,j}^{n+1} = \phi_{i,\,j}^n
 + \frac{\Delta t}{\Delta x}\left(F_{i+^1\!/_2,\,j}-F_{i-^1\!/_2,\,j}\right)
 + \frac{\Delta t}{\Delta y}\left(F_{i,\,j+^1\!/_2}-F_{i,\,j-^1\!/_2}\right)\]</div>
@@ -314,8 +314,8 @@ will generate an executable named <code class="docutils literal notranslate"><sp
 </pre></div>
 </div>
 <p>Note that the command takes a file <code class="docutils literal notranslate"><span class="pre">inputs_2d.</span></code> The calculation solves the
-heat equation in 2D on a domain with <span class="math notranslate">\(256 \times 256\)</span> cells.  It runs
-<span class="math notranslate">\(10,000\)</span> steps and makes a plotfile every <span class="math notranslate">\(1,000\)</span> steps.  When the
+heat equation in 2D on a domain with <span class="math notranslate nohighlight">\(256 \times 256\)</span> cells.  It runs
+<span class="math notranslate nohighlight">\(10,000\)</span> steps and makes a plotfile every <span class="math notranslate nohighlight">\(1,000\)</span> steps.  When the
 run finishes, you will have a number of plotfiles, <code class="docutils literal notranslate"><span class="pre">plt00000,</span> <span class="pre">plt01000,</span></code> etc,
 in the directory where you are running.  You can control runtime parameters
 such as how many time steps to run and how often to write plotfiles by setting

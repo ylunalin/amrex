@@ -422,7 +422,7 @@ example, to iterate over all the AoS data:</p>
 </div>
 <p>The outer loop will execute once every grid (or tile, if tiling is enabled)
 <em>that contains particles</em>; grids or tiles that don’t have any particles will be
-skipped. You can also access the SoA data using the <span class="math notranslate">\(ParIter\)</span> as follows:</p>
+skipped. You can also access the SoA data using the <span class="math notranslate nohighlight">\(ParIter\)</span> as follows:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">MyParIter</span> <span class="o">=</span> <span class="n">ParIter</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="o">&gt;</span><span class="p">;</span>
 <span class="k">for</span> <span class="p">(</span><span class="n">MyParIter</span> <span class="n">pti</span><span class="p">(</span><span class="n">pc</span><span class="p">,</span> <span class="n">lev</span><span class="p">);</span> <span class="n">pti</span><span class="p">.</span><span class="n">isValid</span><span class="p">();</span> <span class="o">++</span><span class="n">pti</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">auto</span><span class="o">&amp;</span> <span class="n">particle_attributes</span> <span class="o">=</span> <span class="n">pti</span><span class="p">.</span><span class="n">GetStructOfArrays</span><span class="p">();</span>
@@ -537,7 +537,7 @@ that exert short-range forces on each other. In this case, beyond some cut-off
 distance, the particles don’t interact with each other and therefore don’t need
 to be included in the force calculation. Our approach to these kind of
 particles is to fill “neighbor buffers” on each tile that contain copies of the
-particles on neighboring tiles that are within some number of cells <span class="math notranslate">\(N_g\)</span>
+particles on neighboring tiles that are within some number of cells <span class="math notranslate nohighlight">\(N_g\)</span>
 of the tile boundaries. See <a class="reference internal" href="#fig-particles-neighbor-particles"><span class="std std-numref">Fig. 8</span></a>, below
 for an illustration. By choosing the number of ghost cells to match the
 interaction radius of the particles, you can capture all of the neighbors that
@@ -547,9 +547,9 @@ of each other using a variety of methods.</p>
 <div class="figure" id="id8">
 <span id="fig-particles-neighbor-particles"></span><a class="reference internal image-reference" href="_images/neighbor_particles.png"><img alt="_images/neighbor_particles.png" src="_images/neighbor_particles.png" style="width: 75.0%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">: An illustration of filling neighbor particles for short-range force
-calculations. Here, we have a domain consisting of one <span class="math notranslate">\(32 \times 32\)</span>
-grid, broken up into <span class="math notranslate">\(8 \times 8\)</span> tiles. The number of ghost cells is
-taken to be <span class="math notranslate">\(1\)</span>.  For the tile in green, particles on other tiles in
+calculations. Here, we have a domain consisting of one <span class="math notranslate nohighlight">\(32 \times 32\)</span>
+grid, broken up into <span class="math notranslate nohighlight">\(8 \times 8\)</span> tiles. The number of ghost cells is
+taken to be <span class="math notranslate nohighlight">\(1\)</span>.  For the tile in green, particles on other tiles in
 the entire shaded region will copied and packed into the green tile’s
 neighbor buffer. These particles can then be included in the force
 calculation. If the domain is periodic, particles in the grown region for
@@ -578,7 +578,7 @@ and neighbor particles into a Fortran subroutine, as follows:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Alternatively, one can avoid doing a direct <span class="math notranslate">\(N^2\)</span> summation over the
+<p>Alternatively, one can avoid doing a direct <span class="math notranslate nohighlight">\(N^2\)</span> summation over the
 particles on a tile by binning the particles by cell and building a neighbor
 list. A tutorial that demonstrates this process is available at
 <code class="docutils literal notranslate"><span class="pre">amrex/Tutorials/Particles/NeighborList</span></code>. The data structure used to represent

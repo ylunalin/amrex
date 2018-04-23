@@ -34,7 +34,6 @@ var searchData=
   ['small_5fplot_5ffile_5froot',['small_plot_file_root',['../classamrex_1_1_amr.html#a55fb651c5355f362017c26f4f02cc127',1,'amrex::Amr']]],
   ['small_5fplot_5fint',['small_plot_int',['../classamrex_1_1_amr.html#a61f6ee1066c6df367e8b5f3680965b0e',1,'amrex::Amr']]],
   ['small_5fplot_5fper',['small_plot_per',['../classamrex_1_1_amr.html#aa9f5b7511d029e894847247437d90e19',1,'amrex::Amr']]],
-  ['sp',['SP',['../namespaceamrex.html#abb3d9377a120bc1272de21fe3d349517',1,'amrex']]],
   ['src_5fptr',['src_ptr',['../structamrex_1_1_b_l_pgas_1_1_send_info.html#a16caa57f3a54745cb39ba00f85c4dd2b',1,'amrex::BLPgas::SendInfo']]],
   ['srccomp',['srcComp',['../structamrex_1_1_fab_array_base_1_1_fab_com_tag.html#a01917a2e8e16dff02f56a81a578687f1',1,'amrex::FabArrayBase::FabComTag::srcComp()'],['../structamrex_1_1_fab_copy_descriptor.html#abf33adc9a73450887814df15429e64ac',1,'amrex::FabCopyDescriptor::srcComp()']]],
   ['srcindex',['srcIndex',['../structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#aa03667cd08814ea67d8fc2170a93a07c',1,'amrex::FabArrayBase::CopyComTag']]],

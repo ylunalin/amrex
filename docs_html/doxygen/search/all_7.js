@@ -72,7 +72,7 @@ var searchData=
   ['getbdmoment',['getBdMoment',['../class_cut_cell_moments.html#a942a62a647f72973b51a98a2f9ba1650',1,'CutCellMoments::getBdMoment()'],['../class_cut_cell_moments_3_011_01_4.html#a2f366742928ed6c42ed078060b604860',1,'CutCellMoments&lt; 1 &gt;::getBdMoment()']]],
   ['getbndrycells',['GetBndryCells',['../namespaceamrex.html#a719e505b04b336141e1a9a6ab52ecbcd',1,'amrex']]],
   ['getboxarray',['getBoxArray',['../classamrex_1_1_e_b_level_grid.html#aad2b5664e105dd07db75cb979ed94060',1,'amrex::EBLevelGrid']]],
-  ['getboxes',['GetBoxes',['../class_k_d_tree.html#ac7333b26b88b04bf1cac9a5d7fb18f5a',1,'KDTree']]],
+  ['getboxes',['GetBoxes',['../classamrex_1_1_k_d_tree.html#ab84f4ec77a8fc678e6668dffbd2dc550',1,'amrex::KDTree']]],
   ['getcellcenteredbox',['getCellCenteredBox',['../classamrex_1_1_box_array.html#a4228497f6d40fc8198c5bd26b5dbaeb4',1,'amrex::BoxArray']]],
   ['getcelledgeintersection',['GetCellEdgeIntersection',['../classamrex_1_1_s_t_l_explorer.html#a2c20f74bab73f181b1f91c490b26418a',1,'amrex::STLExplorer']]],
   ['getcellloc',['GetCellLoc',['../classamrex_1_1_coord_sys.html#a4826233fc01d64e54c79e5efc681cdc7',1,'amrex::CoordSys']]],

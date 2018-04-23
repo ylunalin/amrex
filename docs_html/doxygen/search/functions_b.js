@@ -23,7 +23,7 @@ var searchData=
   ['kdsetdatadestructor',['KDSetDataDestructor',['../namespaceamrex.html#aeeb606b620e1c9bb72a9467b0608421a',1,'amrex']]],
   ['kdsetglobaldata',['KDSetGlobalData',['../namespaceamrex.html#a0f7a2d156d272e6590fe310e77f2fb40',1,'amrex']]],
   ['kdsetglobaldatadestructor',['KDSetGlobalDataDestructor',['../namespaceamrex.html#a8141a913a6f8bd7e1697c54a081ad09c',1,'amrex']]],
-  ['kdtree',['KDTree',['../class_k_d_tree.html#ac0f076142cb3c311d49ff8746574c872',1,'KDTree']]],
+  ['kdtree',['KDTree',['../classamrex_1_1_k_d_tree.html#ac00b4f4a9c637811023dd9176a6d7f13',1,'amrex::KDTree']]],
   ['kdtreefinalize',['KDTreeFinalize',['../namespaceamrex.html#a8d1ac85f8d5f34ad1394b771d65b0dc5',1,'amrex']]],
   ['kdtreeprint',['KDTreePrint',['../namespaceamrex.html#a316a1673c105824a63a90c9070ccc0d6',1,'amrex']]],
   ['kdtreestatistics',['KDTreeStatistics',['../namespaceamrex.html#aba0407ca424e8fb220829a4196a5e968',1,'amrex']]],

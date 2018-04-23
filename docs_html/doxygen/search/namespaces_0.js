@@ -4,6 +4,7 @@ var searchData=
   ['blpgas',['BLPgas',['../namespaceamrex_1_1_b_l_pgas.html',1,'amrex']]],
   ['extrapolater',['Extrapolater',['../namespaceamrex_1_1_extrapolater.html',1,'amrex']]],
   ['lazy',['Lazy',['../namespaceamrex_1_1_lazy.html',1,'amrex']]],
+  ['loadbalancekd',['loadBalanceKD',['../namespaceamrex_1_1load_balance_k_d.html',1,'amrex']]],
   ['parallelallreduce',['ParallelAllReduce',['../namespaceamrex_1_1_parallel_all_reduce.html',1,'amrex']]],
   ['parallelcontext',['ParallelContext',['../namespaceamrex_1_1_parallel_context.html',1,'amrex']]],
   ['paralleldescriptor',['ParallelDescriptor',['../namespaceamrex_1_1_parallel_descriptor.html',1,'amrex']]],

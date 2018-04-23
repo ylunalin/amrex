@@ -102,7 +102,7 @@ var searchData=
   ['computealpha',['computeAlpha',['../classamrex_1_1_poly_geom.html#a704bfac862e03e8c833f41f61bb1e17b',1,'amrex::PolyGeom']]],
   ['computeanyvolume',['computeAnyVolume',['../classamrex_1_1_poly_geom.html#a02b9984de13ca29c75b92287cd0838aa',1,'amrex::PolyGeom']]],
   ['computebounds',['computeBounds',['../class_l_s_problem.html#ac534c1781612633673dbe164cb4839ed',1,'LSProblem']]],
-  ['computecost',['computeCost',['../namespaceload_balance_k_d.html#a966aefb3f76f051abe5733231f44a761',1,'loadBalanceKD']]],
+  ['computecost',['computeCost',['../namespaceamrex_1_1load_balance_k_d.html#ad33644c42ce9b13ed99874a358d40bd4',1,'amrex::loadBalanceKD']]],
   ['computecoveredfaces',['computeCoveredFaces',['../classamrex_1_1_e_b_arith.html#a6c20d3e6f51322ae335d143456474d86',1,'amrex::EBArith']]],
   ['computeinitialdt',['computeInitialDt',['../classamrex_1_1_amr_level.html#a252f7123d2f0a98351bc7b39c32b3152',1,'amrex::AmrLevel']]],
   ['computemoments',['computeMoments',['../class_minimal_c_c_c_m.html#a9dba5a69de92ee267b03db6c7401f38d',1,'MinimalCCCM::computeMoments()'],['../class_minimal_c_c_c_m_3_011_01_4.html#a39bad1f1b677b451120d8f40821d8498',1,'MinimalCCCM&lt; 1 &gt;::computeMoments()']]],

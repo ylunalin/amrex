@@ -36,7 +36,7 @@ var searchData=
   ['fine_5fgrid_5fidx',['fine_grid_idx',['../structamrex_1_1_fab_array_base_1_1_c_finfo.html#aca354eb516dc263308380e26666bb0b7',1,'amrex::FabArrayBase::CFinfo']]],
   ['fine_5fratio',['fine_ratio',['../classamrex_1_1_amr_level.html#a109f988dd098fdb2a6b854a742015397',1,'amrex::AmrLevel']]],
   ['finebnd',['finebnd',['../namespaceamrex_1_1_extrapolater.html#a84bd1ce2743440bc77f2be80eea8bee4',1,'amrex::Extrapolater']]],
-  ['finecell',['finecell',['../classbl__extrapolater.html#aef1a0fc89fae6141e13dd980b5cdf9c9',1,'bl_extrapolater']]],
+  ['finecell',['finecell',['../classamrex__extrapolater.html#a220d4e9cb9d54790340878e154c06575',1,'amrex_extrapolater']]],
   ['fineindex',['fineIndex',['../structamrex_1_1_fab_array_base_1_1_fab_com_tag.html#aea1dff058968ff389de6b6f7535de577',1,'amrex::FabArrayBase::FabComTag']]],
   ['fineiv',['fineiv',['../structamrex_1_1_agg_e_b_p_w_l_fill_patch_1_1fine__logic__t.html#add52f5c59738f06b9eff659085e6b1de',1,'amrex::AggEBPWLFillPatch::fine_logic_t']]],
   ['finest_5flevel',['finest_level',['../classamrex_1_1_amr_mesh.html#a7a466d1cfea1c18c35128fb5a7c5793f',1,'amrex::AmrMesh']]],

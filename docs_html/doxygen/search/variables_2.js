@@ -40,7 +40,7 @@ var searchData=
   ['crse_5ffine_5fboundary_5fcell',['crse_fine_boundary_cell',['../classamrex__ya__flux__reg__nd__module.html#afc0a42dc56bcbb6951e7cf0d3c1d638d',1,'amrex_ya_flux_reg_nd_module']]],
   ['crse_5fratio',['crse_ratio',['../classamrex_1_1_amr_level.html#a7fc1ed7f6a21702c3af072650ed4de4a',1,'amrex::AmrLevel']]],
   ['crsebnd',['crsebnd',['../namespaceamrex_1_1_extrapolater.html#a75142b5cf7161587ede4a7a67f308579',1,'amrex::Extrapolater']]],
-  ['crsecell',['crsecell',['../classbl__extrapolater.html#a3074e7b63ad293c9b9e5c34fdb70f7dd',1,'bl_extrapolater']]],
+  ['crsecell',['crsecell',['../classamrex__extrapolater.html#ae66876c1b838f7ae7d151441730fc229',1,'amrex_extrapolater']]],
   ['cumtime',['cumtime',['../classamrex_1_1_amr.html#a9b46db71980158bc8f12c2f7eebede4a',1,'amrex::Amr']]],
   ['current_5fbuilds',['current_builds',['../structamrex_1_1_mem_profiler_1_1_n_builds_info.html#a1af174d3541b8cb0ffddf9902562db08',1,'amrex::MemProfiler::NBuildsInfo']]],
   ['current_5fbytes',['current_bytes',['../structamrex_1_1_mem_profiler_1_1_mem_info.html#a334add2acca04ed49223180ab7991e19',1,'amrex::MemProfiler::MemInfo']]],

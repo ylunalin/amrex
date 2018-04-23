@@ -528,7 +528,7 @@ The computational domain on each AMR level is decomposed into a union of
 rectangular domains. <a class="reference internal" href="#fig-basics-amrgrids"><span class="std std-numref">Fig. 2</span></a> below shows an example of
 AMR with three total levels.  In the AMReX&nbsp;numbering convention, the coarsest
 level is level 0. The coarsest grid (<em>black</em>) covers the domain with
-<span class="math notranslate">\(16^2\)</span> cells. Bold lines represent grid boundaries. There are two
+<span class="math notranslate nohighlight">\(16^2\)</span> cells. Bold lines represent grid boundaries. There are two
 intermediate resolution grids (<em>blue</em>) at level 1 and the cells are a factor of
 two finer than those at level 0. The two finest grids (<em>red</em>) are at level 2
 and the cells are a factor of two finer than the level 1 cells. There are 1, 2
@@ -629,7 +629,7 @@ one representing cell and node, respectively.</p>
 </pre></div>
 </div>
 <p>Index type is a very important concept in AMReX. It is a way of representing
-the notion of indices <span class="math notranslate">\(i\)</span> and <span class="math notranslate">\(i+1/2\)</span>.</p>
+the notion of indices <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(i+1/2\)</span>.</p>
 </div>
 <div class="section" id="box">
 <h2>Box<a class="headerlink" href="#box" title="Permalink to this headline">¶</a></h2>
@@ -657,15 +657,15 @@ output, three integer tuples for each box are the lower corner indices, upper
 corner indices, and the index types. Note that 0 and 1 denote cell and node,
 respectively. For each tuple like <code class="code cpp c++ docutils literal notranslate"><span class="punctuation"><span class="pre">(</span></span><span class="literal number integer"><span class="pre">64</span></span><span class="punctuation"><span class="pre">,</span></span><span class="literal number integer"><span class="pre">64</span></span><span class="punctuation"><span class="pre">,</span></span><span class="literal number integer"><span class="pre">64</span></span><span class="punctuation"><span class="pre">)</span></span></code>, the 3 numbers are for 3
 directions. The two Boxes in the code above represent different indexing views
-of the same domain of <span class="math notranslate">\(64^3\)</span> cells. Note that in AMReX&nbsp;convention, the
+of the same domain of <span class="math notranslate nohighlight">\(64^3\)</span> cells. Note that in AMReX&nbsp;convention, the
 lower side of a cell has the same integer value as the cell centered index.
-That is if we consider a cell based index represent <span class="math notranslate">\(i\)</span>, the nodal index
-with the same integer value represents <span class="math notranslate">\(i-1/2\)</span>.
+That is if we consider a cell based index represent <span class="math notranslate nohighlight">\(i\)</span>, the nodal index
+with the same integer value represents <span class="math notranslate nohighlight">\(i-1/2\)</span>.
 <a class="reference internal" href="#fig-basics-indextypes"><span class="std std-numref">Fig. 3</span></a> shows some of the different index types for 2D.</p>
 <div class="figure" id="id3">
 <span id="fig-basics-indextypes"></span><a class="reference internal image-reference" href="_images/indextypes.png"><img alt="_images/indextypes.png" src="_images/indextypes.png" style="width: 5in;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Some of the different index types in two dimensions: (a) cell-centered, (b) <span class="math notranslate">\(x\)</span>-face-centered
-(i.e., nodal in <span class="math notranslate">\(x\)</span>-direction only), and (c) corner/nodal,
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Some of the different index types in two dimensions: (a) cell-centered, (b) <span class="math notranslate nohighlight">\(x\)</span>-face-centered
+(i.e., nodal in <span class="math notranslate nohighlight">\(x\)</span>-direction only), and (c) corner/nodal,
 i.e., nodal in all dimensions.</span></p>
 </div>
 <p>There are a number of ways of converting a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code> from one type to another.</p>
@@ -791,7 +791,7 @@ dimension. If it is not given, the domain is assumed to be non-periodic unless
 there is the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">ParmParse</span></span></code> integer array parameter <code class="docutils literal notranslate"><span class="pre">geometry.is_periodic</span></code>
 with 0 denoting non-periodic and 1 denoting periodic. Below is an example of
 defining a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Geometry</span></span></code> for a periodic rectangular domain of
-<span class="math notranslate">\([-1.0,1.0]\)</span> in each direction discretized with <span class="math notranslate">\(64\)</span> numerical
+<span class="math notranslate nohighlight">\([-1.0,1.0]\)</span> in each direction discretized with <span class="math notranslate nohighlight">\(64\)</span> numerical
 cells in each direction.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">n_cell</span> <span class="o">=</span> <span class="mi">64</span><span class="p">;</span>
 
@@ -954,7 +954,7 @@ basic types such as <code class="code cpp c++ docutils literal notranslate"><spa
 of the array is <code class="docutils literal notranslate"><span class="pre">AMREX_SPACEDIM</span></code> <em>plus one</em>. The additional dimension is for
 the number of components. The data are internally stored in a contiguous block
 of memory in Fortran array order (i.e., column-major order) for
-<span class="math notranslate">\((x,y,z,\mathrm{component})\)</span>, and each component also occupies a
+<span class="math notranslate nohighlight">\((x,y,z,\mathrm{component})\)</span>, and each component also occupies a
 contiguous block of memory because of the ordering. For example, a
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BaseFab</span></span><span class="operator"><span class="pre">&lt;</span></span><span class="name"><span class="pre">Real</span></span><span class="operator"><span class="pre">&gt;</span></span></code> with 4 components defined on a three-dimensional
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span><span class="punctuation"><span class="pre">(</span></span><span class="name"><span class="pre">IntVect</span></span><span class="punctuation"><span class="pre">{</span></span><span class="operator"><span class="pre">-</span></span><span class="literal number integer"><span class="pre">4</span></span><span class="punctuation"><span class="pre">,</span></span><span class="literal number integer"><span class="pre">8</span></span><span class="punctuation"><span class="pre">,</span></span><span class="literal number integer"><span class="pre">32</span></span><span class="punctuation"><span class="pre">},</span></span><span class="name"><span class="pre">IntVect</span></span><span class="punctuation"><span class="pre">{</span></span><span class="literal number integer"><span class="pre">32</span></span><span class="punctuation"><span class="pre">,</span></span><span class="literal number integer"><span class="pre">64</span></span><span class="punctuation"><span class="pre">,</span></span><span class="literal number integer"><span class="pre">48</span></span><span class="punctuation"><span class="pre">})</span></span></code> is like a Fortran array of
@@ -1190,9 +1190,9 @@ the fluxes are on the faces. Suppose the cell based <code class="code cpp c++ do
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span><span class="punctuation"><span class="pre">{(</span></span><span class="literal number integer"><span class="pre">8</span></span><span class="punctuation"><span class="pre">,</span></span><span class="literal number integer"><span class="pre">8</span></span><span class="punctuation"><span class="pre">,</span></span><span class="literal number integer"><span class="pre">16</span></span><span class="punctuation"><span class="pre">),</span></span> <span class="punctuation"><span class="pre">(</span></span><span class="literal number integer"><span class="pre">15</span></span><span class="punctuation"><span class="pre">,</span></span><span class="literal number integer"><span class="pre">15</span></span><span class="punctuation"><span class="pre">,</span></span><span class="literal number integer"><span class="pre">31</span></span><span class="punctuation"><span class="pre">)}</span></span></code>. The state on that <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code> is conceptually
 a Fortran Array with the dimension of <code class="code fortran docutils literal notranslate"><span class="punctuation"><span class="pre">(</span></span><span class="literal number integer"><span class="pre">8</span></span><span class="punctuation"><span class="pre">:</span></span><span class="literal number integer"><span class="pre">15</span></span><span class="punctuation"><span class="pre">,</span></span><span class="literal number integer"><span class="pre">8</span></span><span class="punctuation"><span class="pre">:</span></span><span class="literal number integer"><span class="pre">15</span></span><span class="punctuation"><span class="pre">,</span></span><span class="literal number integer"><span class="pre">16</span></span><span class="punctuation"><span class="pre">:</span></span><span class="literal number integer"><span class="pre">31</span></span><span class="punctuation"><span class="pre">,</span></span><span class="literal number integer"><span class="pre">0</span></span><span class="punctuation"><span class="pre">:</span></span><span class="literal number integer"><span class="pre">2</span></span><span class="punctuation"><span class="pre">)</span></span></code>. The
 fluxes are arrays with slightly different indices. For example, the
-<span class="math notranslate">\(x\)</span>-direction flux for that <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code> has the dimension of
+<span class="math notranslate nohighlight">\(x\)</span>-direction flux for that <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code> has the dimension of
 <code class="code fortran docutils literal notranslate"><span class="punctuation"><span class="pre">(</span></span><span class="literal number integer"><span class="pre">8</span></span><span class="punctuation"><span class="pre">:</span></span><span class="literal number integer"><span class="pre">16</span></span><span class="punctuation"><span class="pre">,</span></span><span class="literal number integer"><span class="pre">8</span></span><span class="punctuation"><span class="pre">:</span></span><span class="literal number integer"><span class="pre">15</span></span><span class="punctuation"><span class="pre">,</span></span><span class="literal number integer"><span class="pre">16</span></span><span class="punctuation"><span class="pre">:</span></span><span class="literal number integer"><span class="pre">31</span></span><span class="punctuation"><span class="pre">,</span></span><span class="literal number integer"><span class="pre">0</span></span><span class="punctuation"><span class="pre">:</span></span><span class="literal number integer"><span class="pre">2</span></span><span class="punctuation"><span class="pre">)</span></span></code>. Note there is an extra element in
-<span class="math notranslate">\(x\)</span>-direction.</p>
+<span class="math notranslate nohighlight">\(x\)</span>-direction.</p>
 <p>The <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code> class provides many functions performing common arithmetic
 operations on a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code> or between <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFabs</span></span></code> built with the
 <em>same</em> <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BoxArray</span></span></code> and <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">DistributionMap</span></span></code>.  For example,</p>
@@ -1501,13 +1501,13 @@ usually require very little changes.</p>
 <tr class="row-even"><td><div class="first last line-block">
 <div class="line">Example of cell-centered valid boxes.</div>
 <div class="line">There are two valid boxes in this example.</div>
-<div class="line">Each has <span class="math notranslate">\(8^2\)</span> cells.</div>
+<div class="line">Each has <span class="math notranslate nohighlight">\(8^2\)</span> cells.</div>
 </div>
 </td>
 <td><div class="first last line-block">
 <div class="line">Example of cell-centered tile boxes. Each grid</div>
 <div class="line">is <em>logically</em> broken into 4 tiles, and each tile</div>
-<div class="line">as <span class="math notranslate">\(4^2\)</span> cells. There are 8 tiles in total.</div>
+<div class="line">as <span class="math notranslate nohighlight">\(4^2\)</span> cells. There are 8 tiles in total.</div>
 </div>
 </td>
 </tr>
@@ -1546,7 +1546,7 @@ parameter <code class="docutils literal notranslate"><span class="pre">fabarray.
 <tr class="row-even"><td><div class="first last line-block">
 <div class="line">Example of face valid boxes. There are two</div>
 <div class="line">valid boxes in this example. Each has</div>
-<div class="line"><span class="math notranslate">\(9\times 8\)</span> points. Note that points in one</div>
+<div class="line"><span class="math notranslate nohighlight">\(9\times 8\)</span> points. Note that points in one</div>
 <div class="line"><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code> may overlap with points in the other</div>
 <div class="line"><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code>. However, the memory locations for</div>
 <div class="line">storing floating point data of those points do</div>
@@ -1558,8 +1558,8 @@ parameter <code class="docutils literal notranslate"><span class="pre">fabarray.
 <div class="line">Example of face tile boxes. Each grid is</div>
 <div class="line"><em>logically</em> broken into 4 tiles as indicated by</div>
 <div class="line">the symbols. There are 8 tiles in total. Some</div>
-<div class="line">tiles have <span class="math notranslate">\(5\times 4\)</span> points, whereas</div>
-<div class="line">others have <span class="math notranslate">\(4 \times 4\)</span> points. Points from</div>
+<div class="line">tiles have <span class="math notranslate nohighlight">\(5\times 4\)</span> points, whereas</div>
+<div class="line">others have <span class="math notranslate nohighlight">\(4 \times 4\)</span> points. Points from</div>
 <div class="line">different Boxes may overlap, but points from</div>
 <div class="line">different tiles of the same Box do not.</div>
 </div>
@@ -1571,7 +1571,7 @@ parameter <code class="docutils literal notranslate"><span class="pre">fabarray.
 example, in which two MultiFabs, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">U</span></span></code> and <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">F</span></span></code>, use <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> via
 <code class="code cpp c++ docutils literal notranslate"><span class="keyword"><span class="pre">operator</span></span><span class="punctuation"><span class="pre">[]</span></span></code>. These different MultiFabs may have different BoxArrays. For
 example, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">U</span></span></code> might be cell-centered, whereas <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">F</span></span></code> might be nodal in
-<span class="math notranslate">\(x\)</span>-direction and cell in other directions. The <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">validbox</span></span></code>
+<span class="math notranslate nohighlight">\(x\)</span>-direction and cell in other directions. The <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">validbox</span></span></code>
 and <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">tilebox</span></span></code> functions return Boxes of the same type as the
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code> used in defining the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> (<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">F</span></span></code> in this example).
 <a class="reference internal" href="#fig-basics-ec-comparison"><span class="std std-numref">Table 4</span></a> illustrates an example of non-cell-centered
@@ -1899,11 +1899,11 @@ First order extrapolation from last cell in interior.</p>
 </dd>
 <dt>reflect_even</dt>
 <dd><p class="first last">Reflection from interior cells with sign
-unchanged, <span class="math notranslate">\(q(-i) = q(i)\)</span>.</p>
+unchanged, <span class="math notranslate nohighlight">\(q(-i) = q(i)\)</span>.</p>
 </dd>
 <dt>reflect_odd</dt>
 <dd><p class="first last">Reflection from interior cells with sign
-unchanged, <span class="math notranslate">\(q(-i) = -q(i)\)</span>.</p>
+unchanged, <span class="math notranslate nohighlight">\(q(-i) = -q(i)\)</span>.</p>
 </dd>
 </dl>
 </div></blockquote>

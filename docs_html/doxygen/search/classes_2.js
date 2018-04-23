@@ -31,7 +31,6 @@ var searchData=
   ['bf_5finit',['BF_init',['../classamrex_1_1_b_f__init.html',1,'amrex']]],
   ['bl_5fallocate',['bl_allocate',['../interfaceamrex__mempool__module_1_1bl__allocate.html',1,'amrex_mempool_module']]],
   ['bl_5fdeallocate',['bl_deallocate',['../interfaceamrex__mempool__module_1_1bl__deallocate.html',1,'amrex_mempool_module']]],
-  ['bl_5fextrapolater',['bl_extrapolater',['../classbl__extrapolater.html',1,'']]],
   ['blbacktrace',['BLBackTrace',['../structamrex_1_1_b_l_back_trace.html',1,'amrex']]],
   ['blprofiler',['BLProfiler',['../classamrex_1_1_b_l_profiler.html',1,'amrex']]],
   ['bndrydata',['BndryData',['../classamrex_1_1_bndry_data.html',1,'amrex']]],

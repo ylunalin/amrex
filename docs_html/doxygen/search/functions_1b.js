@@ -123,7 +123,7 @@ var searchData=
   ['_7eirregfab',['~IrregFAB',['../classamrex_1_1_irreg_f_a_b.html#a905e03283ca4d7cd9a3b175e1a84cb38',1,'amrex::IrregFAB']]],
   ['_7eirregfabfactory',['~IrregFABFactory',['../classamrex_1_1_irreg_f_a_b_factory.html#a71b48f205f26be0c1f9e0eafa5f02dc8',1,'amrex::IrregFABFactory']]],
   ['_7eirregnode',['~IrregNode',['../classamrex_1_1_irreg_node.html#a57971e51dc4e11b648db8582bc2e0699',1,'amrex::IrregNode']]],
-  ['_7ekdtree',['~KDTree',['../class_k_d_tree.html#a0920219cb85bb5abc8dc1bb22c44a56c',1,'KDTree']]],
+  ['_7ekdtree',['~KDTree',['../classamrex_1_1_k_d_tree.html#a5bb93334bcc1793b744e78ffc674ff57',1,'amrex::KDTree']]],
   ['_7elatheif',['~LatheIF',['../classamrex_1_1_lathe_i_f.html#a3526b297bd45f8abe74eddc828a8cb09',1,'amrex::LatheIF']]],
   ['_7elayoutdata',['~LayoutData',['../classamrex_1_1_layout_data.html#a9214bb32356bf3443aa0383b54bbb195',1,'amrex::LayoutData']]],
   ['_7elevelbld',['~LevelBld',['../classamrex_1_1_level_bld.html#a1a908a0759bb7d6a1607f344b677ea58',1,'amrex::LevelBld']]],

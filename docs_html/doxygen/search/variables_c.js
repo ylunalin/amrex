@@ -23,7 +23,6 @@ var searchData=
   ['nextdynamicindex',['nextDynamicIndex',['../classamrex_1_1_m_f_iter.html#a07296b12634219c4a15337435852a67b',1,'amrex::MFIter']]],
   ['nine',['nine',['../classamrex__constants__module.html#aae50c9977dbcf4102a6360ab0f576b07',1,'amrex_constants_module']]],
   ['nineth',['nineth',['../classamrex__constants__module.html#a92c54ddd1e792991bf2ffb06ab3397e2',1,'amrex_constants_module']]],
-  ['nl',['NL',['../namespaceamrex.html#ab6875993a932b307623f8aaac68f38a2',1,'amrex']]],
   ['node_5fbilinear_5finterp',['node_bilinear_interp',['../namespaceamrex.html#a7655c2dbeff4b92d06ddf5d3f964e7b2',1,'amrex']]],
   ['node_5fsize',['node_size',['../namespaceamrex.html#a6c6d85a2ab815c914d82842d370a03d3',1,'amrex']]],
   ['normal',['normal',['../structamrex_1_1_s_t_l_mesh_1_1trilist.html#a90290f8ead5dcac96b4a3132a3a56605',1,'amrex::STLMesh::trilist']]],

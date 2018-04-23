@@ -104,6 +104,8 @@ Namespaces</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespaceamrex_1_1_lazy"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_lazy.html">Lazy</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespaceamrex_1_1load_balance_k_d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1load_balance_k_d.html">loadBalanceKD</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespaceamrex_1_1_parallel_all_reduce"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_all_reduce.html">ParallelAllReduce</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespaceamrex_1_1_parallel_context"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_context.html">ParallelContext</a></td></tr>
@@ -396,6 +398,8 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_multi_mask_iter.html">MultiMaskIter</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_y_a_flux_register.html">YAFluxRegister</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_k_d_tree.html">KDTree</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_neighbor_particle_container.html">NeighborParticleContainer</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -720,8 +724,6 @@ Typedefs</h2></td></tr>
 <tr class="separator:aa9fb3f17754e739fee71084bce31899f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a790dc8a62881c2b4c4aae6935224cfc2"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a790dc8a62881c2b4c4aae6935224cfc2">ErrorFunc3DDefault</a> )(int *tag, const int *tlo, const int *thi, const int *tagval, const int *clearval, amrex::Real *data, const int *data_lo, const int *data_hi, const int *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a54267e9174e171df90d3594f0c32e114">lo</a>, const int *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a6569fdcb051e8fff2ef4c57db6f9c642">hi</a>, const int *nvar, const int *domain_lo, const int *domain_hi, const amrex::Real *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ad5fa46517dd383f09a279b8446fc397b">dx</a>, const amrex::Real *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a2c670f4a7b523860a14120bdf4999674">xlo</a>, const amrex::Real *prob_lo, const amrex::Real *time, const int *level)</td></tr>
 <tr class="separator:a790dc8a62881c2b4c4aae6935224cfc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ffd900db646020685b37acf03d06464"><td class="memItemLeft" align="right" valign="top">typedef double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a8ffd900db646020685b37acf03d06464">amrex_particle_real</a></td></tr>
-<tr class="separator:a8ffd900db646020685b37acf03d06464"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2172ed493dfadbd34d5cdb72995f96af"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a2172ed493dfadbd34d5cdb72995f96af">TracerParIter</a> = <a class="el" href="classamrex_1_1_par_iter.html">ParIter</a>&lt; AMREX_SPACEDIM &gt;</td></tr>
 <tr class="separator:a2172ed493dfadbd34d5cdb72995f96af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11ed263afe50d0e2f5669331c0c82772"><td class="memItemLeft" align="right" valign="top">typedef std::pair&lt; <a class="el" href="structamrex_1_1_edge.html">Edge</a>, <br class="typebreak"/>
@@ -1730,24 +1732,6 @@ Functions</h2></td></tr>
 <tr class="separator:a255f1f8c5e709392a949283da47211f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeddafb7300c5464e3bf385c510ddb5e0"><td class="memItemLeft" align="right" valign="top">std::istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#aeddafb7300c5464e3bf385c510ddb5e0">operator&gt;&gt;</a> (std::istream &amp;is, <a class="el" href="classamrex_1_1_mask.html">Mask</a> &amp;m)</td></tr>
 <tr class="separator:aeddafb7300c5464e3bf385c510ddb5e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b23c9511617199b08658ef0d4515619"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a3b23c9511617199b08658ef0d4515619">amrex_particle_set_position</a> (<a class="el" href="namespaceamrex.html#a8ffd900db646020685b37acf03d06464">amrex_particle_real</a> *, int ns, int np, AMREX_D_DECL(const <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *x, const <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *y, const <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *z))</td></tr>
-<tr class="separator:a3b23c9511617199b08658ef0d4515619"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a489f3be2d72a70a3317b29450354f4f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a489f3be2d72a70a3317b29450354f4f9">amrex_particle_get_position</a> (const <a class="el" href="namespaceamrex.html#a8ffd900db646020685b37acf03d06464">amrex_particle_real</a> *, int ns, int np, AMREX_D_DECL(<a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *x, <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *y, <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *z))</td></tr>
-<tr class="separator:a489f3be2d72a70a3317b29450354f4f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1342955fe7a1c605449af948f5db13b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a1342955fe7a1c605449af948f5db13b1">amrex_build_nl</a> (void *, int ns, int np, int *nbor_list, int *size_nl, const int *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a54267e9174e171df90d3594f0c32e114">lo</a>, const int *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a6569fdcb051e8fff2ef4c57db6f9c642">hi</a>, const <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *plo, const <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ad5fa46517dd383f09a279b8446fc397b">dx</a>)</td></tr>
-<tr class="separator:a1342955fe7a1c605449af948f5db13b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac29aeb8f09725c7f7b5158e37395b09b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ac29aeb8f09725c7f7b5158e37395b09b">amrex_deposit_cic</a> (const <a class="el" href="namespaceamrex.html#a8ffd900db646020685b37acf03d06464">amrex_particle_real</a> *, int ns, int np, int nc, <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *rho, const int *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a54267e9174e171df90d3594f0c32e114">lo</a>, const int *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a6569fdcb051e8fff2ef4c57db6f9c642">hi</a>, const <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *plo, const <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ad5fa46517dd383f09a279b8446fc397b">dx</a>)</td></tr>
-<tr class="separator:ac29aeb8f09725c7f7b5158e37395b09b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af69639f72f856b996a27ee7d14497d70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#af69639f72f856b996a27ee7d14497d70">amrex_deposit_particle_dx_cic</a> (const <a class="el" href="namespaceamrex.html#a8ffd900db646020685b37acf03d06464">amrex_particle_real</a> *, int ns, int np, int nc, <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *rho, const int *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a54267e9174e171df90d3594f0c32e114">lo</a>, const int *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a6569fdcb051e8fff2ef4c57db6f9c642">hi</a>, const <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *plo, const <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ad5fa46517dd383f09a279b8446fc397b">dx</a>, const <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *particle_dx)</td></tr>
-<tr class="separator:af69639f72f856b996a27ee7d14497d70"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9dbda09cae2621f36441c7d8e7a23b60"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a9dbda09cae2621f36441c7d8e7a23b60">amrex_interpolate_cic</a> (const <a class="el" href="namespaceamrex.html#a8ffd900db646020685b37acf03d06464">amrex_particle_real</a> *, int ns, int np, const <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *acc, const int *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a54267e9174e171df90d3594f0c32e114">lo</a>, const int *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a6569fdcb051e8fff2ef4c57db6f9c642">hi</a>, int <a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>, const <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *plo, const <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ad5fa46517dd383f09a279b8446fc397b">dx</a>)</td></tr>
-<tr class="separator:a9dbda09cae2621f36441c7d8e7a23b60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae28294138deb6041d45fad69529ebe38"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ae28294138deb6041d45fad69529ebe38">amrex_atomic_accumulate_fab</a> (const <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *, const int *, const int *, <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *, const int *, const int *, int)</td></tr>
-<tr class="separator:ae28294138deb6041d45fad69529ebe38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8ca7f682bd3eae324177e1426a982b9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#aa8ca7f682bd3eae324177e1426a982b9">BL_FORT_FAB_ARG</a> (crse_fab)</td></tr>
-<tr class="separator:aa8ca7f682bd3eae324177e1426a982b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee343ebbebdc371777fb0f71e71b43e9"><td class="memItemLeft" align="right" valign="top">const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#aee343ebbebdc371777fb0f71e71b43e9">BL_FORT_FAB_ARG</a> (fine_fab)</td></tr>
-<tr class="separator:aee343ebbebdc371777fb0f71e71b43e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab612cdff7b506fd2884de82a842e95b8"><td class="memTemplParams" colspan="2">template&lt;int NReal, int NInt&gt; </td></tr>
 <tr class="memitem:ab612cdff7b506fd2884de82a842e95b8"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ab612cdff7b506fd2884de82a842e95b8">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="structamrex_1_1_particle.html">Particle</a>&lt; NReal, NInt &gt; &amp;p)</td></tr>
 <tr class="separator:ab612cdff7b506fd2884de82a842e95b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1910,33 +1894,33 @@ Functions</h2></td></tr>
 <tr class="separator:a14f5d90f760df88f98b7e40312c7ce34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab44c253b9a4ca1653ef187bcb01cb667"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_int_vect_set.html">IntVectSet</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ab44c253b9a4ca1653ef187bcb01cb667">intersect</a> (const <a class="el" href="classamrex_1_1_int_vect_set.html">IntVectSet</a> &amp;ivs, const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;bx)</td></tr>
 <tr class="separator:ab44c253b9a4ca1653ef187bcb01cb667"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5bcca0217bd42356b8597b0e01859c1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceamrex.html#abcfe48e30d74110d39f2ee16dde9afc9">KDTree</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#af5bcca0217bd42356b8597b0e01859c1">KDCreate</a> (int const k, int *ierr)</td></tr>
+<tr class="memitem:af5bcca0217bd42356b8597b0e01859c1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_k_d_tree.html">KDTree</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#af5bcca0217bd42356b8597b0e01859c1">KDCreate</a> (int const k, int *ierr)</td></tr>
 <tr class="separator:af5bcca0217bd42356b8597b0e01859c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed907981ff318f25d78deae0713fbf52"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#aed907981ff318f25d78deae0713fbf52">KDFree</a> (<a class="el" href="namespaceamrex.html#abcfe48e30d74110d39f2ee16dde9afc9">KDTree</a> *tree)</td></tr>
+<tr class="memitem:aed907981ff318f25d78deae0713fbf52"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#aed907981ff318f25d78deae0713fbf52">KDFree</a> (<a class="el" href="classamrex_1_1_k_d_tree.html">KDTree</a> *tree)</td></tr>
 <tr class="separator:aed907981ff318f25d78deae0713fbf52"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd13ea9457edc58e18e62f7da64bbda1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#abd13ea9457edc58e18e62f7da64bbda1">KDClear</a> (<a class="el" href="namespaceamrex.html#abcfe48e30d74110d39f2ee16dde9afc9">KDTree</a> *tree)</td></tr>
+<tr class="memitem:abd13ea9457edc58e18e62f7da64bbda1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#abd13ea9457edc58e18e62f7da64bbda1">KDClear</a> (<a class="el" href="classamrex_1_1_k_d_tree.html">KDTree</a> *tree)</td></tr>
 <tr class="separator:abd13ea9457edc58e18e62f7da64bbda1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f7a2d156d272e6590fe310e77f2fb40"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a0f7a2d156d272e6590fe310e77f2fb40">KDSetGlobalData</a> (<a class="el" href="namespaceamrex.html#abcfe48e30d74110d39f2ee16dde9afc9">KDTree</a> *tree, void *data)</td></tr>
+<tr class="memitem:a0f7a2d156d272e6590fe310e77f2fb40"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a0f7a2d156d272e6590fe310e77f2fb40">KDSetGlobalData</a> (<a class="el" href="classamrex_1_1_k_d_tree.html">KDTree</a> *tree, void *data)</td></tr>
 <tr class="separator:a0f7a2d156d272e6590fe310e77f2fb40"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9538b7a96f1aa99d31e06c3033e4c03"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#aa9538b7a96f1aa99d31e06c3033e4c03">KDGetGlobalData</a> (<a class="el" href="namespaceamrex.html#abcfe48e30d74110d39f2ee16dde9afc9">KDTree</a> *tree, void **data)</td></tr>
+<tr class="memitem:aa9538b7a96f1aa99d31e06c3033e4c03"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#aa9538b7a96f1aa99d31e06c3033e4c03">KDGetGlobalData</a> (<a class="el" href="classamrex_1_1_k_d_tree.html">KDTree</a> *tree, void **data)</td></tr>
 <tr class="separator:aa9538b7a96f1aa99d31e06c3033e4c03"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8141a913a6f8bd7e1697c54a081ad09c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a8141a913a6f8bd7e1697c54a081ad09c">KDSetGlobalDataDestructor</a> (<a class="el" href="namespaceamrex.html#abcfe48e30d74110d39f2ee16dde9afc9">KDTree</a> *tree, void(*destr)(void *))</td></tr>
+<tr class="memitem:a8141a913a6f8bd7e1697c54a081ad09c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a8141a913a6f8bd7e1697c54a081ad09c">KDSetGlobalDataDestructor</a> (<a class="el" href="classamrex_1_1_k_d_tree.html">KDTree</a> *tree, void(*destr)(void *))</td></tr>
 <tr class="separator:a8141a913a6f8bd7e1697c54a081ad09c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeeb606b620e1c9bb72a9467b0608421a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#aeeb606b620e1c9bb72a9467b0608421a">KDSetDataDestructor</a> (<a class="el" href="namespaceamrex.html#abcfe48e30d74110d39f2ee16dde9afc9">KDTree</a> *tree, void(*destr)(void *))</td></tr>
+<tr class="memitem:aeeb606b620e1c9bb72a9467b0608421a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#aeeb606b620e1c9bb72a9467b0608421a">KDSetDataDestructor</a> (<a class="el" href="classamrex_1_1_k_d_tree.html">KDTree</a> *tree, void(*destr)(void *))</td></tr>
 <tr class="separator:aeeb606b620e1c9bb72a9467b0608421a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6fc5441de18a0b96b38a96417f5f14f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ae6fc5441de18a0b96b38a96417f5f14f">KDInsert</a> (<a class="el" href="namespaceamrex.html#abcfe48e30d74110d39f2ee16dde9afc9">KDTree</a> *tree, Real const *pos, void *data)</td></tr>
+<tr class="memitem:ae6fc5441de18a0b96b38a96417f5f14f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ae6fc5441de18a0b96b38a96417f5f14f">KDInsert</a> (<a class="el" href="classamrex_1_1_k_d_tree.html">KDTree</a> *tree, Real const *pos, void *data)</td></tr>
 <tr class="separator:ae6fc5441de18a0b96b38a96417f5f14f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba0407ca424e8fb220829a4196a5e968"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#aba0407ca424e8fb220829a4196a5e968">KDTreeStatistics</a> (<a class="el" href="namespaceamrex.html#abcfe48e30d74110d39f2ee16dde9afc9">KDTree</a> const *tree)</td></tr>
+<tr class="memitem:aba0407ca424e8fb220829a4196a5e968"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#aba0407ca424e8fb220829a4196a5e968">KDTreeStatistics</a> (<a class="el" href="classamrex_1_1_k_d_tree.html">KDTree</a> const *tree)</td></tr>
 <tr class="separator:aba0407ca424e8fb220829a4196a5e968"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c2fb54f9e6af31be27ef6ebb6ded303"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a6c2fb54f9e6af31be27ef6ebb6ded303">KDSearch</a> (<a class="el" href="namespaceamrex.html#abcfe48e30d74110d39f2ee16dde9afc9">KDTree</a> const *tree, Real const *pos, int *foundFlag)</td></tr>
+<tr class="memitem:a6c2fb54f9e6af31be27ef6ebb6ded303"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a6c2fb54f9e6af31be27ef6ebb6ded303">KDSearch</a> (<a class="el" href="classamrex_1_1_k_d_tree.html">KDTree</a> const *tree, Real const *pos, int *foundFlag)</td></tr>
 <tr class="separator:a6c2fb54f9e6af31be27ef6ebb6ded303"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5960e8da8e556320c7438646dcfaf6e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#aa5960e8da8e556320c7438646dcfaf6e">KDExhaustiveSearch</a> (<a class="el" href="namespaceamrex.html#abcfe48e30d74110d39f2ee16dde9afc9">KDTree</a> const *tree, Real const *pos, int *numFound)</td></tr>
+<tr class="memitem:aa5960e8da8e556320c7438646dcfaf6e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#aa5960e8da8e556320c7438646dcfaf6e">KDExhaustiveSearch</a> (<a class="el" href="classamrex_1_1_k_d_tree.html">KDTree</a> const *tree, Real const *pos, int *numFound)</td></tr>
 <tr class="separator:aa5960e8da8e556320c7438646dcfaf6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34a5d825426fdb3f22fbf64810f99264"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a34a5d825426fdb3f22fbf64810f99264">KDNearestNeighbor</a> (<a class="el" href="namespaceamrex.html#abcfe48e30d74110d39f2ee16dde9afc9">KDTree</a> const *tree, Real const *queryPoint, Real *resultPoint, void **resultData, Real *pbestDistSquared, int const approx)</td></tr>
+<tr class="memitem:a34a5d825426fdb3f22fbf64810f99264"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a34a5d825426fdb3f22fbf64810f99264">KDNearestNeighbor</a> (<a class="el" href="classamrex_1_1_k_d_tree.html">KDTree</a> const *tree, Real const *queryPoint, Real *resultPoint, void **resultData, Real *pbestDistSquared, int const approx)</td></tr>
 <tr class="separator:a34a5d825426fdb3f22fbf64810f99264"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0021c1ebaeefeedfff11a73f3dd27276"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a0021c1ebaeefeedfff11a73f3dd27276">KDBBoxSearch</a> (<a class="el" href="namespaceamrex.html#abcfe48e30d74110d39f2ee16dde9afc9">KDTree</a> const *tree, Real const *<a class="el" href="_a_m_re_x___k_d_tree_8_h.html#aae3356b63849abbe8789dd41648ee90a">RESTRICT</a> xbb, int *pnData, void ***resultData)</td></tr>
+<tr class="memitem:a0021c1ebaeefeedfff11a73f3dd27276"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a0021c1ebaeefeedfff11a73f3dd27276">KDBBoxSearch</a> (<a class="el" href="classamrex_1_1_k_d_tree.html">KDTree</a> const *tree, Real const *<a class="el" href="_a_m_re_x___k_d_tree_8_h.html#aae3356b63849abbe8789dd41648ee90a">RESTRICT</a> xbb, int *pnData, void ***resultData)</td></tr>
 <tr class="separator:a0021c1ebaeefeedfff11a73f3dd27276"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a8fcbadee776a7cee8bd551495b6b5c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceamrex.html#a18cd86be5567e7fe82f9a47d00f76c81">KDResult</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a5a8fcbadee776a7cee8bd551495b6b5c">KDNearestRange</a> (<a class="el" href="namespaceamrex.html#abcfe48e30d74110d39f2ee16dde9afc9">KDTree</a> *kd, Real const *query, Real const range, int *ierr)</td></tr>
+<tr class="memitem:a5a8fcbadee776a7cee8bd551495b6b5c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceamrex.html#a18cd86be5567e7fe82f9a47d00f76c81">KDResult</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a5a8fcbadee776a7cee8bd551495b6b5c">KDNearestRange</a> (<a class="el" href="classamrex_1_1_k_d_tree.html">KDTree</a> *kd, Real const *query, Real const range, int *ierr)</td></tr>
 <tr class="separator:a5a8fcbadee776a7cee8bd551495b6b5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad185ba73bf2e02694436d81c7e032645"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ad185ba73bf2e02694436d81c7e032645">KDResultFree</a> (<a class="el" href="namespaceamrex.html#a18cd86be5567e7fe82f9a47d00f76c81">KDResult</a> *rset)</td></tr>
 <tr class="separator:ad185ba73bf2e02694436d81c7e032645"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1992,7 +1976,7 @@ Functions</h2></td></tr>
 <tr class="separator:af0703274bd58cc80a8a38d76303e78f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a256be11e677221f5cff92502d207ff17"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a256be11e677221f5cff92502d207ff17">StackFree</a> (<a class="el" href="namespaceamrex.html#abfd64fa3d3f49df0898f293a0df9bc6f">ListHead</a> *head)</td></tr>
 <tr class="separator:a256be11e677221f5cff92502d207ff17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a316a1673c105824a63a90c9070ccc0d6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a316a1673c105824a63a90c9070ccc0d6">KDTreePrint</a> (<a class="el" href="namespaceamrex.html#abcfe48e30d74110d39f2ee16dde9afc9">KDTree</a> const *tree)</td></tr>
+<tr class="memitem:a316a1673c105824a63a90c9070ccc0d6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a316a1673c105824a63a90c9070ccc0d6">KDTreePrint</a> (<a class="el" href="classamrex_1_1_k_d_tree.html">KDTree</a> const *tree)</td></tr>
 <tr class="separator:a316a1673c105824a63a90c9070ccc0d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa09d987e53a2285a4dd201293a9b6d96"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#aa09d987e53a2285a4dd201293a9b6d96">KDNodePrint</a> (<a class="el" href="namespaceamrex.html#a6d18be7f18683a63f9cf0beddea627b1">KDNode</a> const *node, const string &amp;prefix)</td></tr>
 <tr class="separator:aa09d987e53a2285a4dd201293a9b6d96"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2088,17 +2072,6 @@ Variables</h2></td></tr>
 <tr class="separator:aec5e350e7334dcbe6776eb60a1b77160"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a5decb8ebeab1e499c7c66e78a0eb07"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_cell_conservative_quartic.html">CellConservativeQuartic</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a2a5decb8ebeab1e499c7c66e78a0eb07">quartic_interp</a></td></tr>
 <tr class="separator:a2a5decb8ebeab1e499c7c66e78a0eb07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6875993a932b307623f8aaac68f38a2"><td class="memItemLeft" align="right" valign="top">const char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ab6875993a932b307623f8aaac68f38a2">NL</a> = '\<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a54f6ce0fb55c5e079b66b7ac9b865843">n</a>'</td></tr>
-<tr class="separator:ab6875993a932b307623f8aaac68f38a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb3d9377a120bc1272de21fe3d349517"><td class="memItemLeft" align="right" valign="top">const char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#abb3d9377a120bc1272de21fe3d349517">SP</a> = ' '</td></tr>
-<tr class="separator:abb3d9377a120bc1272de21fe3d349517"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f57eac252f589bcbf60e28df2278fb3"><td class="memItemLeft" align="right" valign="top">const const int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a2f57eac252f589bcbf60e28df2278fb3">ovlo</a></td></tr>
-<tr class="separator:a2f57eac252f589bcbf60e28df2278fb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade093dbd682053d950be5f7e2657800a"><td class="memItemLeft" align="right" valign="top">const const int const int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ade093dbd682053d950be5f7e2657800a">ovhi</a></td></tr>
-<tr class="separator:ade093dbd682053d950be5f7e2657800a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa41bef1e947abb6f71dec3afae665109"><td class="memItemLeft" align="right" valign="top">const const int const int <br class="typebreak"/>
-const int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#aa41bef1e947abb6f71dec3afae665109">rat</a></td></tr>
-<tr class="separator:aa41bef1e947abb6f71dec3afae665109"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac7180675f8effa2cc611653522519667"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ac7180675f8effa2cc611653522519667">PXE_ErrorCodeName</a> [17]</td></tr>
 <tr class="separator:ac7180675f8effa2cc611653522519667"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -2114,18 +2087,6 @@ const int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 <p>Factory class to produce EBCellFABs. This is needed for LevelData construction.</p>
 <p>For these derivatives, let us be thankful for A) the existence of maxima B) trig functions having uncomplicated derivatives and most importantly C) The equality of mixed derivs. </p>
 </div><h2 class="groupheader">Typedef Documentation</h2>
-<a class="anchor" id="a8ffd900db646020685b37acf03d06464"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef double <a class="el" href="namespaceamrex.html#a8ffd900db646020685b37acf03d06464">amrex::amrex_particle_real</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="afe930d74045516fece8591f173e57007"></a>
 <div class="memitem">
 <div class="memproto">
@@ -2277,7 +2238,7 @@ template&lt;class T , std::size_t N&gt; </div>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef struct <a class="el" href="structamrex_1_1__kdtree.html">_kdtree</a> <a class="el" href="namespaceamrex.html#abcfe48e30d74110d39f2ee16dde9afc9">amrex::KDTree</a></td>
+          <td class="memname">typedef struct <a class="el" href="structamrex_1_1__kdtree.html">_kdtree</a> <a class="el" href="classamrex_1_1_k_d_tree.html">amrex::KDTree</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -2910,416 +2871,6 @@ template&lt;class T , std::size_t N&gt; </div>
           <td class="paramtype">Vector&lt; Box &gt; &amp;&#160;</td>
           <td class="paramname"><em>bxs</em></td><td>)</td>
           <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ae28294138deb6041d45fad69529ebe38"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void amrex::amrex_atomic_accumulate_fab </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int *&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int *&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int *&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int *&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a1342955fe7a1c605449af948f5db13b1"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void amrex::amrex_build_nl </td>
-          <td>(</td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>ns</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>np</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>nbor_list</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>size_nl</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int *&#160;</td>
-          <td class="paramname"><em>lo</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int *&#160;</td>
-          <td class="paramname"><em>hi</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *&#160;</td>
-          <td class="paramname"><em>plo</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *&#160;</td>
-          <td class="paramname"><em>dx</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ac29aeb8f09725c7f7b5158e37395b09b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void amrex::amrex_deposit_cic </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespaceamrex.html#a8ffd900db646020685b37acf03d06464">amrex_particle_real</a> *&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>ns</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>np</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>nc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *&#160;</td>
-          <td class="paramname"><em>rho</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int *&#160;</td>
-          <td class="paramname"><em>lo</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int *&#160;</td>
-          <td class="paramname"><em>hi</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *&#160;</td>
-          <td class="paramname"><em>plo</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *&#160;</td>
-          <td class="paramname"><em>dx</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="af69639f72f856b996a27ee7d14497d70"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void amrex::amrex_deposit_particle_dx_cic </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespaceamrex.html#a8ffd900db646020685b37acf03d06464">amrex_particle_real</a> *&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>ns</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>np</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>nc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *&#160;</td>
-          <td class="paramname"><em>rho</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int *&#160;</td>
-          <td class="paramname"><em>lo</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int *&#160;</td>
-          <td class="paramname"><em>hi</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *&#160;</td>
-          <td class="paramname"><em>plo</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *&#160;</td>
-          <td class="paramname"><em>dx</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *&#160;</td>
-          <td class="paramname"><em>particle_dx</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a9dbda09cae2621f36441c7d8e7a23b60"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void amrex::amrex_interpolate_cic </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespaceamrex.html#a8ffd900db646020685b37acf03d06464">amrex_particle_real</a> *&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>ns</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>np</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *&#160;</td>
-          <td class="paramname"><em>acc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int *&#160;</td>
-          <td class="paramname"><em>lo</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int *&#160;</td>
-          <td class="paramname"><em>hi</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>ncomp</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *&#160;</td>
-          <td class="paramname"><em>plo</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *&#160;</td>
-          <td class="paramname"><em>dx</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a489f3be2d72a70a3317b29450354f4f9"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void amrex::amrex_particle_get_position </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespaceamrex.html#a8ffd900db646020685b37acf03d06464">amrex_particle_real</a> *&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>ns</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>np</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="_a_m_re_x___particle_container_i_8_h.html#ab1c311773815d6a8c0a99f307bca90a7">AMREX_D_DECL</a>(<a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *x, <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *y, <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *z)&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a3b23c9511617199b08658ef0d4515619"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void amrex::amrex_particle_set_position </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespaceamrex.html#a8ffd900db646020685b37acf03d06464">amrex_particle_real</a> *&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>ns</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>np</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="_a_m_re_x___particle_container_i_8_h.html#ab1c311773815d6a8c0a99f307bca90a7">AMREX_D_DECL</a>(const <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *x, const <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *y, const <a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a> *z)&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -4061,38 +3612,6 @@ template&lt;class T , std::size_t N&gt; </div>
 </div><div class="memdoc">
 
 <p>Similar to bdryLo and bdryHi except that it operates on the given face of box b. </p>
-
-</div>
-</div>
-<a class="anchor" id="aa8ca7f682bd3eae324177e1426a982b9"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const amrex::BL_FORT_FAB_ARG </td>
-          <td>(</td>
-          <td class="paramtype">crse_fab&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aee343ebbebdc371777fb0f71e71b43e9"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const amrex::BL_FORT_FAB_ARG </td>
-          <td>(</td>
-          <td class="paramtype">fine_fab&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
 
 </div>
 </div>
@@ -8243,7 +7762,7 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="memname">int amrex::KDBBoxSearch </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_k_d_tree.html">KDTree</a> const *&#160;</td>
+          <td class="paramtype">KDTree const *&#160;</td>
           <td class="paramname"><em>tree</em>, </td>
         </tr>
         <tr>
@@ -8281,7 +7800,7 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="memname">int amrex::KDClear </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_k_d_tree.html">KDTree</a> *&#160;</td>
+          <td class="paramtype">KDTree *&#160;</td>
           <td class="paramname"><em>tree</em></td><td>)</td>
           <td></td>
         </tr>
@@ -8295,7 +7814,7 @@ template&lt;class T &gt; </div>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespaceamrex.html#abcfe48e30d74110d39f2ee16dde9afc9">KDTree</a> * amrex::KDCreate </td>
+          <td class="memname"><a class="el" href="classamrex_1_1_k_d_tree.html">KDTree</a> * amrex::KDCreate </td>
           <td>(</td>
           <td class="paramtype">int const&#160;</td>
           <td class="paramname"><em>k</em>, </td>
@@ -8323,7 +7842,7 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="memname">int amrex::KDExhaustiveSearch </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_k_d_tree.html">KDTree</a> const *&#160;</td>
+          <td class="paramtype">KDTree const *&#160;</td>
           <td class="paramname"><em>tree</em>, </td>
         </tr>
         <tr>
@@ -8355,7 +7874,7 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="memname">int amrex::KDFree </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_k_d_tree.html">KDTree</a> *&#160;</td>
+          <td class="paramtype">KDTree *&#160;</td>
           <td class="paramname"><em>tree</em></td><td>)</td>
           <td></td>
         </tr>
@@ -8371,7 +7890,7 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="memname">void amrex::KDGetGlobalData </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_k_d_tree.html">KDTree</a> *&#160;</td>
+          <td class="paramtype">KDTree *&#160;</td>
           <td class="paramname"><em>tree</em>, </td>
         </tr>
         <tr>
@@ -8397,7 +7916,7 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="memname">int amrex::KDInsert </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_k_d_tree.html">KDTree</a> *&#160;</td>
+          <td class="paramtype">KDTree *&#160;</td>
           <td class="paramname"><em>tree</em>, </td>
         </tr>
         <tr>
@@ -8429,7 +7948,7 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="memname">int amrex::KDNearestNeighbor </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_k_d_tree.html">KDTree</a> const *&#160;</td>
+          <td class="paramtype">KDTree const *&#160;</td>
           <td class="paramname"><em>tree</em>, </td>
         </tr>
         <tr>
@@ -8479,7 +7998,7 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="memname"><a class="el" href="namespaceamrex.html#a18cd86be5567e7fe82f9a47d00f76c81">KDResult</a> * amrex::KDNearestRange </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_k_d_tree.html">KDTree</a> *&#160;</td>
+          <td class="paramtype">KDTree *&#160;</td>
           <td class="paramname"><em>kd</em>, </td>
         </tr>
         <tr>
@@ -8665,7 +8184,7 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="memname">int amrex::KDSearch </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_k_d_tree.html">KDTree</a> const *&#160;</td>
+          <td class="paramtype">KDTree const *&#160;</td>
           <td class="paramname"><em>tree</em>, </td>
         </tr>
         <tr>
@@ -8697,7 +8216,7 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="memname">int amrex::KDSetDataDestructor </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_k_d_tree.html">KDTree</a> *&#160;</td>
+          <td class="paramtype">KDTree *&#160;</td>
           <td class="paramname"><em>tree</em>, </td>
         </tr>
         <tr>
@@ -8723,7 +8242,7 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="memname">void amrex::KDSetGlobalData </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_k_d_tree.html">KDTree</a> *&#160;</td>
+          <td class="paramtype">KDTree *&#160;</td>
           <td class="paramname"><em>tree</em>, </td>
         </tr>
         <tr>
@@ -8749,7 +8268,7 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="memname">int amrex::KDSetGlobalDataDestructor </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_k_d_tree.html">KDTree</a> *&#160;</td>
+          <td class="paramtype">KDTree *&#160;</td>
           <td class="paramname"><em>tree</em>, </td>
         </tr>
         <tr>
@@ -8790,7 +8309,7 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="memname">int amrex::KDTreePrint </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_k_d_tree.html">KDTree</a> const *&#160;</td>
+          <td class="paramtype">KDTree const *&#160;</td>
           <td class="paramname"><em>tree</em></td><td>)</td>
           <td></td>
         </tr>
@@ -8806,7 +8325,7 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="memname">int amrex::KDTreeStatistics </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_k_d_tree.html">KDTree</a> const *&#160;</td>
+          <td class="paramtype">KDTree const *&#160;</td>
           <td class="paramname"><em>tree</em></td><td>)</td>
           <td></td>
         </tr>
@@ -14245,45 +13764,6 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a69bf266cc5fefb0b385d84f685dd0df6"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void amrex::readIntData </td>
-          <td>(</td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>size</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::istream &amp;&#160;</td>
-          <td class="paramname"><em>is</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classamrex_1_1_int_descriptor.html">IntDescriptor</a> &amp;&#160;</td>
-          <td class="paramname"><em>id</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Read int data from the istream. The arguments are a pointer to data buffer to read into, the size of that buffer, the istream, and an <a class="el" href="classamrex_1_1_int_descriptor.html">IntDescriptor</a> that describes the format of the data on disk. The buffer is assumed to be large enough to store 'size' integers, and it is the user's reponsiblity to allocate this data. </p>
-
-</div>
-</div>
 <a class="anchor" id="af8ec915a2cffc7c342e1f15e52cbd697"></a>
 <div class="memitem">
 <div class="memproto">
@@ -14321,6 +13801,45 @@ template&lt;typename To , typename From &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a69bf266cc5fefb0b385d84f685dd0df6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void amrex::readIntData </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::istream &amp;&#160;</td>
+          <td class="paramname"><em>is</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_int_descriptor.html">IntDescriptor</a> &amp;&#160;</td>
+          <td class="paramname"><em>id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Read int data from the istream. The arguments are a pointer to data buffer to read into, the size of that buffer, the istream, and an <a class="el" href="classamrex_1_1_int_descriptor.html">IntDescriptor</a> that describes the format of the data on disk. The buffer is assumed to be large enough to store 'size' integers, and it is the user's reponsiblity to allocate this data. </p>
 
 </div>
 </div>
@@ -16711,18 +16230,6 @@ template&lt;typename To , typename From &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="ab6875993a932b307623f8aaac68f38a2"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const char amrex::NL = '\<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a54f6ce0fb55c5e079b66b7ac9b865843">n</a>'</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="a7655c2dbeff4b92d06ddf5d3f964e7b2"></a>
 <div class="memitem">
 <div class="memproto">
@@ -16753,30 +16260,6 @@ template&lt;typename To , typename From &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">int amrex::num_procs = 1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ade093dbd682053d950be5f7e2657800a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const const int const int * amrex::ovhi</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a2f57eac252f589bcbf60e28df2278fb3"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const const int * amrex::ovlo</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -16992,18 +16475,6 @@ template&lt;typename To , typename From &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="aa41bef1e947abb6f71dec3afae665109"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const const int const int const int * amrex::rat</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="a54360d5e4005db7d308c6aff7628d08d"></a>
 <div class="memitem">
 <div class="memproto">
@@ -17034,18 +16505,6 @@ template&lt;typename To , typename From &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">int amrex::sfc_threshold</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="abb3d9377a120bc1272de21fe3d349517"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const char amrex::SP = ' '</td>
         </tr>
       </table>
 </div><div class="memdoc">
