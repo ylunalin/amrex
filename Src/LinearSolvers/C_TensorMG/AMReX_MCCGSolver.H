@@ -79,15 +79,15 @@ public:
     //
     // Destructor.
     //
-    virtual ~MCCGSolver ();
+    ~MCCGSolver ();
     //
     // Solve the system, Lp(solnL)=rhsL to relative err, tolerance.
     //
-    virtual void solve (MultiFab&       solnL,
-			const MultiFab& rhsL,
-			Real            eps_rel = -1.0,
-			Real            eps_abs = -1.0,
-			MCBC_Mode       bc_mode = MCInhomogeneous_BC);
+    int solve (MultiFab&       solnL,
+               const MultiFab& rhsL,
+               Real            eps_rel = -1.0,
+               Real            eps_abs = -1.0,
+               MCBC_Mode       bc_mode = MCInhomogeneous_BC);
     //
     // Set maximum allowed number of CG iterations.
     //

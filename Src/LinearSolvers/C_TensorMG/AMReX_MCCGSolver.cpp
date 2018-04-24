@@ -108,7 +108,7 @@ MCCGSolver::norm (const MultiFab& res)
     return restot;
 }
 
-void
+int
 MCCGSolver::solve (MultiFab&       sol,
 		   const MultiFab& rhs,
 		   Real            eps_rel,
@@ -138,7 +138,7 @@ MCCGSolver::solve (MultiFab&       sol,
     const BoxArray& ba = sol.boxArray();
     const DistributionMapping& dm = sol.DistributionMap();
 
-    MultiFab s(ba, dm, ncomp, nghost);
+    MultiFab sorig(ba, dm, ncomp, nghost);
     MultiFab r(ba, dm, ncomp, nghost);
     MultiFab z(ba, dm, ncomp, nghost);
     MultiFab w(ba, dm, ncomp, nghost);
@@ -147,7 +147,7 @@ MCCGSolver::solve (MultiFab&       sol,
     // Copy initial guess into a temp multifab guaranteed to have ghost cells.
     //
     int srccomp=0;  int destcomp=0;  nghost=0;
-    s.copy(sol,srccomp,destcomp,ncomp);
+    MultiFab::Copy(sorig,sol,srccomp,destcomp,ncomp,nghost);
 
     /* Note:
 	 This routine assumes the MCLinOp is linear, and that when bc_mode =
@@ -170,7 +170,7 @@ MCCGSolver::solve (MultiFab&       sol,
 	 the initial guess.  Thus we get by with only one call to Lp.residual.
 	 Without this assumption, we'd need two.
          */
-    Lp.residual(r, rhs, s, lev, bc_mode);
+    Lp.residual(r, rhs, sorig, lev, bc_mode);
     //
     // Set initial guess for correction to 0.
     //
@@ -232,7 +232,7 @@ MCCGSolver::solve (MultiFab&       sol,
 	    // k=1, p_1 = z_0.
             //
 	    srccomp=0;  destcomp=0;  nghost=0;
-	    p.copy(z, srccomp, destcomp, ncomp);
+            MultiFab::Copy(p,z,srccomp,destcomp,ncomp,nghost);
 	}
         else
         {
@@ -249,7 +249,12 @@ MCCGSolver::solve (MultiFab&       sol,
 	//
 	// alpha = rho_k-1/p^tw.
         //
-	Real alpha = rho/pw;
+        Real alpha = 0;
+        if (pw == 0.0) {
+            ret = 1; break;
+        } else {
+            alpha = rho/pw;
+        }
 	
 	if (verbose > 2 && ParallelDescriptor::IOProcessor())
         {
@@ -271,6 +276,9 @@ MCCGSolver::solve (MultiFab&       sol,
 	rhoold = rho;
 	update( sol, alpha, r, p, w );
 	rnorm = norm(r);
+
+        if (rnorm < eps_rel*rnorm0 || rnorm < eps_abs) break;
+
         if (rnorm > def_unstable_criterion*minrnorm)
         {
             ret = 2;
@@ -297,22 +305,26 @@ MCCGSolver::solve (MultiFab&       sol,
 	}
     }
 
-    if (ret != 0 && isExpert == false)
-    {
-        amrex::Error("MCCGSolver:: apparent accuracy problem; try expert setting or change unstable_criterion");
+    if ( ret == 0 &&  rnorm > eps_rel*rnorm0 && rnorm > eps_abs ) {
+        ret = 8;
     }
-    if (ret==0 && rnorm > eps_rel*rnorm0 && rnorm > eps_abs)
+
+//    if (ret != 0 && isExpert == false)
+//    {
+//        amrex::Error("MCCGSolver:: apparent accuracy problem; try expert setting or change unstable_criterion");
+//    }
+
+    if ( ( ret == 0 || ret == 8 ) && (rnorm < rnorm0) )
     {
-        amrex::Error("MCCGSolver:: failed to converge!");
+        sol.plus(sorig, 0, ncomp, 0);
     }
-    //
-    // Omit ghost update since maybe not initialized in calling routine.
-    //
-    if (ret == 0)
+    else
     {
-        srccomp=0; nghost=0;
-        sol.plus(s,srccomp,ncomp,nghost);
+        sol.setVal(0);
+        sol.plus(sorig, 0, ncomp, 0);
     }
+
+    return ret;
 }
 
 void

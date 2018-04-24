@@ -497,7 +497,12 @@ MCMultiGrid::coarsestSmooth (MultiFab& solL,
     {
         bool use_mg_precond = false;
         MCCGSolver cg(Lp, use_mg_precond, level);
-        cg.solve(solL, rhsL, rtol_b, atol_b, bc_mode);
+        int ret = cg.solve(solL, rhsL, rtol_b, atol_b, bc_mode);
+        if (ret != 0)
+        {
+            for (int i = finalSmooth(); i > 0; i--)
+                Lp.smooth(solL, rhsL, level, bc_mode);
+        }
         for(int i=0; i<nu_b; i++)
             Lp.smooth(solL, rhsL, level, bc_mode);
     }
