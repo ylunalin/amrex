@@ -1134,7 +1134,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01153"></a><span class="lineno"> 1153</span>&#160;    <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(distributionMap[boxno] == <a class="code" href="namespaceamrex_1_1_parallel_descriptor.html#a3deabb4447125ee364f9ca1c5a07c1e4">ParallelDescriptor::MyProc</a>());</div>
 <div class="line"><a name="l01154"></a><span class="lineno"> 1154</span>&#160;</div>
 <div class="line"><a name="l01155"></a><span class="lineno"> 1155</span>&#160;    <span class="keywordflow">if</span> (m_fabs_v.size() == 0) {</div>
-<div class="line"><a name="l01156"></a><span class="lineno"> 1156</span>&#160;    m_fabs_v.resize(indexArray.size());</div>
+<div class="line"><a name="l01156"></a><span class="lineno"> 1156</span>&#160;      m_fabs_v.resize(indexArray.size(),<span class="keyword">nullptr</span>);</div>
 <div class="line"><a name="l01157"></a><span class="lineno"> 1157</span>&#160;    }</div>
 <div class="line"><a name="l01158"></a><span class="lineno"> 1158</span>&#160;</div>
 <div class="line"><a name="l01159"></a><span class="lineno"> 1159</span>&#160;    m_fabs_v[localindex(boxno)] = elem;</div>
@@ -1161,7 +1161,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01180"></a><span class="lineno"> 1180</span>&#160;    }</div>
 <div class="line"><a name="l01181"></a><span class="lineno"> 1181</span>&#160;</div>
 <div class="line"><a name="l01182"></a><span class="lineno"> 1182</span>&#160;    <span class="keywordflow">if</span> (m_fabs_v.size() == 0) {</div>
-<div class="line"><a name="l01183"></a><span class="lineno"> 1183</span>&#160;        m_fabs_v.resize(indexArray.size());</div>
+<div class="line"><a name="l01183"></a><span class="lineno"> 1183</span>&#160;      m_fabs_v.resize(indexArray.size(),<span class="keyword">nullptr</span>);</div>
 <div class="line"><a name="l01184"></a><span class="lineno"> 1184</span>&#160;    }</div>
 <div class="line"><a name="l01185"></a><span class="lineno"> 1185</span>&#160;</div>
 <div class="line"><a name="l01186"></a><span class="lineno"> 1186</span>&#160;    m_fabs_v[mfi.<a class="code" href="classamrex_1_1_m_f_iter.html#a0287cec92e00fb111b559123590206f8">LocalIndex</a>()] = elem;</div>
