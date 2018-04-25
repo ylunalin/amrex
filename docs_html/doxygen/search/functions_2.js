@@ -98,7 +98,7 @@ var searchData=
   ['boxcoarsener',['BoxCoarsener',['../classamrex_1_1_interpolater.html#a076d83ba84b125ee187a18aa8d60ee3e',1,'amrex::Interpolater']]],
   ['boxcommhelper',['BoxCommHelper',['../classamrex_1_1_box_comm_helper.html#a2c1e46fced3f278523d85a2157b458af',1,'amrex::BoxCommHelper']]],
   ['boxcomplement',['boxComplement',['../namespaceamrex.html#af4b25f1a81ffa836ed7356d6da7e814e',1,'amrex']]],
-  ['boxdiff',['boxDiff',['../namespaceamrex.html#a7cb1edb123daa9e2146ae0db8e2ed910',1,'amrex']]],
+  ['boxdiff',['boxDiff',['../namespaceamrex.html#a7cb1edb123daa9e2146ae0db8e2ed910',1,'amrex::boxDiff(const Box &amp;b1in, const Box &amp;b2)'],['../namespaceamrex.html#a23d225d20bb2631874de8edff71dbc88',1,'amrex::boxDiff(BoxList &amp;bl_diff, const Box &amp;b1in, const Box &amp;b2)']]],
   ['boxdomain',['BoxDomain',['../classamrex_1_1_box_domain.html#a47079914541e9badea37cd84a4eb8511',1,'amrex::BoxDomain::BoxDomain()'],['../classamrex_1_1_box_domain.html#adf430e5f38acc600c84e559bb68dc5d2',1,'amrex::BoxDomain::BoxDomain(const Box &amp;bx)'],['../classamrex_1_1_box_domain.html#a64ee738d97ad6b873205801db2689a09',1,'amrex::BoxDomain::BoxDomain(IndexType itype)'],['../classamrex_1_1_box_domain.html#ae7e866a10cb52706285c1896ef3f5678',1,'amrex::BoxDomain::BoxDomain(const BoxDomain &amp;rhs)=default'],['../classamrex_1_1_box_domain.html#afe15b34d24e99d95b6ab964d2939599b',1,'amrex::BoxDomain::BoxDomain(BoxDomain &amp;&amp;rhs)=default']]],
   ['boxes',['boxes',['../classamrex_1_1_bndry_register.html#a481cc8f63d2903492d64ddd2d1733b41',1,'amrex::BndryRegister']]],
   ['boxid',['boxid',['../classamrex_1_1_weighted_box.html#adaf32137c65c390d870b21d8ac8e4473',1,'amrex::WeightedBox']]],
