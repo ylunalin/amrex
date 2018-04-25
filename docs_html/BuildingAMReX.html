@@ -356,7 +356,7 @@ needed.</p>
 <div class="section" id="building-with-cmake">
 <span id="sec-build-cmake"></span><h1>Building with CMake<a class="headerlink" href="#building-with-cmake" title="Permalink to this headline">¶</a></h1>
 <p>An alternative to the approach described in the section&nbsp;on <a class="reference internal" href="#sec-build-lib"><span class="std std-ref">Building libamrex</span></a>
-is to install AMReX&nbsp;as an external library busing the CMake build system.  A
+is to install AMReX&nbsp;as an external library by using the CMake build system.  A
 CMake build is a two-step process. First <code class="docutils literal notranslate"><span class="pre">cmake</span></code> is invoked to create
 configuration files and makefiles in a chosen directory (<code class="docutils literal notranslate"><span class="pre">builddir</span></code>).  This
 is roughly equivalent to running <code class="docutils literal notranslate"><span class="pre">./configure</span></code> (see the section on
@@ -383,10 +383,10 @@ complete, builddir can be removed.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cmake -DENABLE_OMP=1 -DCMAKE_INSTALL_PREFIX:PATH=/path/to/installdir  /path/to/amrex</span>
 </pre></div>
 </div>
-<p>The list of available option is reported in the table on&nbsp;<a class="reference internal" href="#tab-cmakevar"><span class="std std-ref">Important cmake build options</span></a>
+<p>The list of available option is reported in the table on&nbsp;<a class="reference internal" href="#tab-cmakevar"><span class="std std-ref">AMReX build options</span></a>
 below.</p>
 <span id="tab-cmakevar"></span><table border="1" class="docutils" id="id2">
-<caption><span class="caption-number">Table 2 </span><span class="caption-text">Important cmake build options</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 2 </span><span class="caption-text">AMReX build options</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="25%" />
 <col width="46%" />
@@ -506,14 +506,14 @@ below.</p>
 <td>OFF</td>
 <td>ON,OFF</td>
 </tr>
-<tr class="row-odd"><td>AMREX_FFLAGS_OVERRIDES</td>
+<tr class="row-odd"><td>CMAKE_Fortran_FLAGS</td>
 <td>User-defined Fortran flags</td>
-<td>None</td>
+<td>&#160;</td>
 <td>user-defined</td>
 </tr>
-<tr class="row-even"><td>AMREX_CXXFLAGS_OVERRIDES</td>
+<tr class="row-even"><td>CMAKE_CXX_FLAGS</td>
 <td>User-defined C++ flags</td>
-<td>None</td>
+<td>&#160;</td>
 <td>user-defined</td>
 </tr>
 </tbody>
@@ -525,6 +525,13 @@ well by providing the option <code class="docutils literal notranslate"><span cl
 <p>The option <code class="docutils literal notranslate"><span class="pre">DEBUG=ON</span></code> implies <code class="docutils literal notranslate"><span class="pre">ENABLE_ASSERTION=ON</span></code>. In order to turn off
 assertions in debug mode, <code class="docutils literal notranslate"><span class="pre">ENABLE_ASSERTION=OFF</span></code> must be set explicitly while
 invoking CMake.</p>
+<p>The options <code class="docutils literal notranslate"><span class="pre">CMAKE_Fortran_FLAGS</span></code> and <code class="docutils literal notranslate"><span class="pre">CMAKE_CXX_FLAGS</span></code> allow the user to
+set his own compilation flags for Fortran and C++ source files respectively.
+If <code class="docutils literal notranslate"><span class="pre">CMAKE_Fortran_FLAGS</span></code>/ <code class="docutils literal notranslate"><span class="pre">CMAKE_CXX_FLAGS</span></code> are not set by the user,
+they will be initialized with the value of the environmental variables <code class="docutils literal notranslate"><span class="pre">FFLAGS</span></code>/
+<code class="docutils literal notranslate"><span class="pre">CXXFLAGS</span></code>. If <code class="docutils literal notranslate"><span class="pre">FFLAGS</span></code>/ <code class="docutils literal notranslate"><span class="pre">CXXFLAGS</span></code> are not defined in the environment,
+<code class="docutils literal notranslate"><span class="pre">CMAKE_Fortran_FLAGS</span></code>/ <code class="docutils literal notranslate"><span class="pre">CMAKE_CXX_FLAGS</span></code> will be set to the AMReX default values
+defined in  <code class="docutils literal notranslate"><span class="pre">/path/to/amrex/Tools/CMake/AMReX_Compilers.cmake</span></code>.</p>
 </div>
 <div class="section" id="importing-amrex-configuration-into-a-cmake-project">
 <span id="sec-build-cmake-config"></span><h2>Importing AMReX configuration into a CMake project<a class="headerlink" href="#importing-amrex-configuration-into-a-cmake-project" title="Permalink to this headline">¶</a></h2>
