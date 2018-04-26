@@ -864,12 +864,61 @@ Functions</h2></td></tr>
 <tr class="separator:a539c997273a93fdaabfc2a131c4425cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b7407c69f5df5cb424eccddb336331b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a0b7407c69f5df5cb424eccddb336331b">FillDomainBoundary</a> (<a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;phi, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;geom, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_b_c_rec.html">BCRec</a> &gt; &amp;bc)</td></tr>
 <tr class="separator:a0b7407c69f5df5cb424eccddb336331b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a792321e027b1507e93c73c4d899dd81a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a792321e027b1507e93c73c4d899dd81a">convert</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;typ)</td></tr>
+<tr class="memdesc:a792321e027b1507e93c73c4d899dd81a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> with different type.  <a href="#a792321e027b1507e93c73c4d899dd81a">More...</a><br/></td></tr>
+<tr class="separator:a792321e027b1507e93c73c4d899dd81a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81a5dbf0cb2d9850a6c5c908e0156161"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a81a5dbf0cb2d9850a6c5c908e0156161">convert</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b, const <a class="el" href="classamrex_1_1_index_type.html">IndexType</a> &amp;t)</td></tr>
+<tr class="separator:a81a5dbf0cb2d9850a6c5c908e0156161"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21fcf130f356cfa788dd3b18a46204f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a21fcf130f356cfa788dd3b18a46204f5">surroundingNodes</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b, int dir)</td></tr>
+<tr class="memdesc:a21fcf130f356cfa788dd3b18a46204f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> with NODE based coordinates in direction dir that encloses <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> b. NOTE: equivalent to b.convert(dir,NODE) NOTE: error if b.type(dir) == NODE.  <a href="#a21fcf130f356cfa788dd3b18a46204f5">More...</a><br/></td></tr>
+<tr class="separator:a21fcf130f356cfa788dd3b18a46204f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88401b7a871007b7de39449e9abce3a5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a88401b7a871007b7de39449e9abce3a5">surroundingNodes</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b)</td></tr>
+<tr class="memdesc:a88401b7a871007b7de39449e9abce3a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> with NODE based coordinates in all directions that encloses <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> b.  <a href="#a88401b7a871007b7de39449e9abce3a5">More...</a><br/></td></tr>
+<tr class="separator:a88401b7a871007b7de39449e9abce3a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2da8a355a78a76c49ddf5f4f97428bb2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a2da8a355a78a76c49ddf5f4f97428bb2">enclosedCells</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b, int dir)</td></tr>
+<tr class="memdesc:a2da8a355a78a76c49ddf5f4f97428bb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> with CELL based coordinates in direction dir that is enclosed by b. NOTE: equivalent to b.convert(dir,CELL) NOTE: error if b.type(dir) == CELL.  <a href="#a2da8a355a78a76c49ddf5f4f97428bb2">More...</a><br/></td></tr>
+<tr class="separator:a2da8a355a78a76c49ddf5f4f97428bb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51510d4921488e1bdb0c1f5a9e7422d8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a51510d4921488e1bdb0c1f5a9e7422d8">enclosedCells</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b)</td></tr>
+<tr class="memdesc:a51510d4921488e1bdb0c1f5a9e7422d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> with CELL based coordinates in all directions that is enclosed by b.  <a href="#a51510d4921488e1bdb0c1f5a9e7422d8">More...</a><br/></td></tr>
+<tr class="separator:a51510d4921488e1bdb0c1f5a9e7422d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aded67b6a8fd015f89f19f03ed9fdcb73"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#aded67b6a8fd015f89f19f03ed9fdcb73">grow</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b, int i)</td></tr>
+<tr class="memdesc:aded67b6a8fd015f89f19f03ed9fdcb73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grow <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> in all directions by given amount.  <a href="#aded67b6a8fd015f89f19f03ed9fdcb73">More...</a><br/></td></tr>
+<tr class="separator:aded67b6a8fd015f89f19f03ed9fdcb73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97709dc9353124754200008e6c7e5a51"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a97709dc9353124754200008e6c7e5a51">grow</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;v)</td></tr>
+<tr class="memdesc:a97709dc9353124754200008e6c7e5a51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grow <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> in each direction by specified amount.  <a href="#a97709dc9353124754200008e6c7e5a51">More...</a><br/></td></tr>
+<tr class="separator:a97709dc9353124754200008e6c7e5a51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00bf35ab5897e235ecb28aee49287eda"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a00bf35ab5897e235ecb28aee49287eda">grow</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b, int idir, int n_cell)</td></tr>
+<tr class="memdesc:a00bf35ab5897e235ecb28aee49287eda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grow <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> in direction idir be n_cell cells.  <a href="#a00bf35ab5897e235ecb28aee49287eda">More...</a><br/></td></tr>
+<tr class="separator:a00bf35ab5897e235ecb28aee49287eda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a293fd01c7ba43b85e62e3dea60a036d7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a293fd01c7ba43b85e62e3dea60a036d7">growLo</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b, int idir, int n_cell)</td></tr>
+<tr class="separator:a293fd01c7ba43b85e62e3dea60a036d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa159cdf830c19cd53844b9b82cd87b60"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#aa159cdf830c19cd53844b9b82cd87b60">growHi</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b, int idir, int n_cell)</td></tr>
+<tr class="separator:aa159cdf830c19cd53844b9b82cd87b60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71f10725276fb4e5fb14ddc7a8bb5b5f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a71f10725276fb4e5fb14ddc7a8bb5b5f">refine</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b, int ref_ratio)</td></tr>
+<tr class="separator:a71f10725276fb4e5fb14ddc7a8bb5b5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad20ef68e89b5f6a5bbe8ac723058e9f0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ad20ef68e89b5f6a5bbe8ac723058e9f0">refine</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;refinement_ratio)</td></tr>
+<tr class="memdesc:ad20ef68e89b5f6a5bbe8ac723058e9f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Refine <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> by given (positive) refinement ratio. NOTE: if type(dir) = CELL centered: lo &lt;- lo*ratio and hi &lt;- (hi+1)*ratio - 1. NOTE: if type(dir) = NODE centered: lo &lt;- lo*ratio and hi &lt;- hi*ratio.  <a href="#ad20ef68e89b5f6a5bbe8ac723058e9f0">More...</a><br/></td></tr>
+<tr class="separator:ad20ef68e89b5f6a5bbe8ac723058e9f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e8290af3a280e0132d66d78f3e48e84"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a4e8290af3a280e0132d66d78f3e48e84">shift</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b, int dir, int nzones)</td></tr>
+<tr class="memdesc:a4e8290af3a280e0132d66d78f3e48e84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> with indices shifted by nzones in dir direction.  <a href="#a4e8290af3a280e0132d66d78f3e48e84">More...</a><br/></td></tr>
+<tr class="separator:a4e8290af3a280e0132d66d78f3e48e84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85b73b3b7b0c1aa398fad1e8f22695a0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a85b73b3b7b0c1aa398fad1e8f22695a0">shift</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;nzones)</td></tr>
+<tr class="separator:a85b73b3b7b0c1aa398fad1e8f22695a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72511ce8b34f9dc363e8737e5ef5bc80"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a72511ce8b34f9dc363e8737e5ef5bc80">coarsen</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b, int refinement_ratio)</td></tr>
+<tr class="memdesc:a72511ce8b34f9dc363e8737e5ef5bc80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coarsen <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> by given (positive) refinement ratio. NOTE: if type(dir) = CELL centered: lo &lt;- lo/ratio and hi &lt;- hi/ratio. NOTE: if type(dir) = NODE centered: lo &lt;- lo/ratio and hi &lt;- hi/ratio + ((hiratio)==0 ? 0 : 1). That is, refinement of coarsened <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> must contain the original <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a>.  <a href="#a72511ce8b34f9dc363e8737e5ef5bc80">More...</a><br/></td></tr>
+<tr class="separator:a72511ce8b34f9dc363e8737e5ef5bc80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad513cf0f47bc35ace52f59f800c39708"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ad513cf0f47bc35ace52f59f800c39708">coarsen</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;refinement_ratio)</td></tr>
+<tr class="memdesc:ad513cf0f47bc35ace52f59f800c39708"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coarsen <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> by given (positive) refinement ratio. NOTE: if type(dir) = CELL centered: lo &lt;- lo/ratio and hi &lt;- hi/ratio. NOTE: if type(dir) = NODE centered: lo &lt;- lo/ratio and hi &lt;- hi/ratio + ((hiratio)==0 ? 0 : 1). That is, refinement of coarsened <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> must contain the original <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a>.  <a href="#ad513cf0f47bc35ace52f59f800c39708">More...</a><br/></td></tr>
+<tr class="separator:ad513cf0f47bc35ace52f59f800c39708"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a8c3c95822fc26d529026c5ef8b9308"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a5a8c3c95822fc26d529026c5ef8b9308">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;bx)</td></tr>
 <tr class="memdesc:a5a8c3c95822fc26d529026c5ef8b9308"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write an ASCII representation to the ostream.  <a href="#a5a8c3c95822fc26d529026c5ef8b9308">More...</a><br/></td></tr>
 <tr class="separator:a5a8c3c95822fc26d529026c5ef8b9308"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac7b44499bc56506bcf5ed89ec42bc09"><td class="memItemLeft" align="right" valign="top">std::istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#aac7b44499bc56506bcf5ed89ec42bc09">operator&gt;&gt;</a> (std::istream &amp;os, <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;bx)</td></tr>
 <tr class="memdesc:aac7b44499bc56506bcf5ed89ec42bc09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read from istream.  <a href="#aac7b44499bc56506bcf5ed89ec42bc09">More...</a><br/></td></tr>
 <tr class="separator:aac7b44499bc56506bcf5ed89ec42bc09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a7eb17ecb8578d2adfcf1d5c0401c20"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a3a7eb17ecb8578d2adfcf1d5c0401c20">minBox</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b1, const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b2)</td></tr>
+<tr class="memdesc:a3a7eb17ecb8578d2adfcf1d5c0401c20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modify <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> to that of the minimum <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> containing both the original <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> and the argument. Both Boxes must have identical type.  <a href="#a3a7eb17ecb8578d2adfcf1d5c0401c20">More...</a><br/></td></tr>
+<tr class="separator:a3a7eb17ecb8578d2adfcf1d5c0401c20"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51dbd0fd071ccc767a39726bded0bd6a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a51dbd0fd071ccc767a39726bded0bd6a">bdryLo</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b, int dir, int len=1)</td></tr>
 <tr class="memdesc:a51dbd0fd071ccc767a39726bded0bd6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the edge-centered <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> (in direction dir) defining the low side of <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> b.  <a href="#a51dbd0fd071ccc767a39726bded0bd6a">More...</a><br/></td></tr>
 <tr class="separator:a51dbd0fd071ccc767a39726bded0bd6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -890,61 +939,12 @@ Functions</h2></td></tr>
 <tr class="separator:ab0383aaa0f5350800829d30adad5bcf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a849a05089c0eba793a31e95426d1397a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a849a05089c0eba793a31e95426d1397a">SerializeBox</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b)</td></tr>
 <tr class="separator:a849a05089c0eba793a31e95426d1397a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a404450845959fbab17d1968664f9b9c2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a404450845959fbab17d1968664f9b9c2">SerializeBoxSize</a> ()</td></tr>
+<tr class="separator:a404450845959fbab17d1968664f9b9c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad89ecad0ab53b395ee7d2327ab2202c8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ad89ecad0ab53b395ee7d2327ab2202c8">UnSerializeBox</a> (const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; int &gt; &amp;serarray)</td></tr>
 <tr class="separator:ad89ecad0ab53b395ee7d2327ab2202c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad871bc2fa6939b610a2ad14b3055627f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ad871bc2fa6939b610a2ad14b3055627f">AllGatherBoxes</a> (<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_box.html">Box</a> &gt; &amp;bxs)</td></tr>
 <tr class="separator:ad871bc2fa6939b610a2ad14b3055627f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aded67b6a8fd015f89f19f03ed9fdcb73"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#aded67b6a8fd015f89f19f03ed9fdcb73">grow</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b, int i)</td></tr>
-<tr class="memdesc:aded67b6a8fd015f89f19f03ed9fdcb73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grow <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> in all directions by given amount.  <a href="#aded67b6a8fd015f89f19f03ed9fdcb73">More...</a><br/></td></tr>
-<tr class="separator:aded67b6a8fd015f89f19f03ed9fdcb73"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97709dc9353124754200008e6c7e5a51"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a97709dc9353124754200008e6c7e5a51">grow</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;v)</td></tr>
-<tr class="memdesc:a97709dc9353124754200008e6c7e5a51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grow <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> in each direction by specified amount.  <a href="#a97709dc9353124754200008e6c7e5a51">More...</a><br/></td></tr>
-<tr class="separator:a97709dc9353124754200008e6c7e5a51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00bf35ab5897e235ecb28aee49287eda"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a00bf35ab5897e235ecb28aee49287eda">grow</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b, int idir, int n_cell)</td></tr>
-<tr class="memdesc:a00bf35ab5897e235ecb28aee49287eda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grow <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> in direction idir be n_cell cells.  <a href="#a00bf35ab5897e235ecb28aee49287eda">More...</a><br/></td></tr>
-<tr class="separator:a00bf35ab5897e235ecb28aee49287eda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a293fd01c7ba43b85e62e3dea60a036d7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a293fd01c7ba43b85e62e3dea60a036d7">growLo</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b, int idir, int n_cell)</td></tr>
-<tr class="separator:a293fd01c7ba43b85e62e3dea60a036d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa159cdf830c19cd53844b9b82cd87b60"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#aa159cdf830c19cd53844b9b82cd87b60">growHi</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b, int idir, int n_cell)</td></tr>
-<tr class="separator:aa159cdf830c19cd53844b9b82cd87b60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9feef5187dbbc40e8c7b62d7cb986e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#af9feef5187dbbc40e8c7b62d7cb986e7">coarsen</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b, int ref_ratio)</td></tr>
-<tr class="memdesc:af9feef5187dbbc40e8c7b62d7cb986e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coarsen <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> by given (positive) refinement ratio. NOTE: if type(dir) = CELL centered: lo &lt;- lo/ratio and hi &lt;- hi/ratio. NOTE: if type(dir) = NODE centered: lo &lt;- lo/ratio and hi &lt;- hi/ratio + ((hiratio)==0 ? 0 : 1). That is, refinement of coarsened <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> must contain the original <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a>.  <a href="#af9feef5187dbbc40e8c7b62d7cb986e7">More...</a><br/></td></tr>
-<tr class="separator:af9feef5187dbbc40e8c7b62d7cb986e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0ae611011bd5b5c58ea594fccc78ae0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ac0ae611011bd5b5c58ea594fccc78ae0">coarsen</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;ref_ratio)</td></tr>
-<tr class="memdesc:ac0ae611011bd5b5c58ea594fccc78ae0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coarsen <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> by given (positive) refinement ratio. NOTE: if type(dir) = CELL centered: lo &lt;- lo/ratio and hi &lt;- hi/ratio. NOTE: if type(dir) = NODE centered: lo &lt;- lo/ratio and hi &lt;- hi/ratio + ((hiratio)==0 ? 0 : 1). That is, refinement of coarsened <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> must contain the original <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a>.  <a href="#ac0ae611011bd5b5c58ea594fccc78ae0">More...</a><br/></td></tr>
-<tr class="separator:ac0ae611011bd5b5c58ea594fccc78ae0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a71f10725276fb4e5fb14ddc7a8bb5b5f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a71f10725276fb4e5fb14ddc7a8bb5b5f">refine</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b, int ref_ratio)</td></tr>
-<tr class="separator:a71f10725276fb4e5fb14ddc7a8bb5b5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17bafd8cfa54c3e06feb6ab5c3ba6e27"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a17bafd8cfa54c3e06feb6ab5c3ba6e27">refine</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;ref_ratio)</td></tr>
-<tr class="memdesc:a17bafd8cfa54c3e06feb6ab5c3ba6e27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Refine <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> by given (positive) refinement ratio. NOTE: if type(dir) = CELL centered: lo &lt;- lo*ratio and hi &lt;- (hi+1)*ratio - 1. NOTE: if type(dir) = NODE centered: lo &lt;- lo*ratio and hi &lt;- hi*ratio.  <a href="#a17bafd8cfa54c3e06feb6ab5c3ba6e27">More...</a><br/></td></tr>
-<tr class="separator:a17bafd8cfa54c3e06feb6ab5c3ba6e27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e8290af3a280e0132d66d78f3e48e84"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a4e8290af3a280e0132d66d78f3e48e84">shift</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b, int dir, int nzones)</td></tr>
-<tr class="memdesc:a4e8290af3a280e0132d66d78f3e48e84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> with indices shifted by nzones in dir direction.  <a href="#a4e8290af3a280e0132d66d78f3e48e84">More...</a><br/></td></tr>
-<tr class="separator:a4e8290af3a280e0132d66d78f3e48e84"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85b73b3b7b0c1aa398fad1e8f22695a0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a85b73b3b7b0c1aa398fad1e8f22695a0">shift</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;nzones)</td></tr>
-<tr class="separator:a85b73b3b7b0c1aa398fad1e8f22695a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21fcf130f356cfa788dd3b18a46204f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a21fcf130f356cfa788dd3b18a46204f5">surroundingNodes</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b, int dir)</td></tr>
-<tr class="memdesc:a21fcf130f356cfa788dd3b18a46204f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> with NODE based coordinates in direction dir that encloses <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> b. NOTE: equivalent to b.convert(dir,NODE) NOTE: error if b.type(dir) == NODE.  <a href="#a21fcf130f356cfa788dd3b18a46204f5">More...</a><br/></td></tr>
-<tr class="separator:a21fcf130f356cfa788dd3b18a46204f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88401b7a871007b7de39449e9abce3a5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a88401b7a871007b7de39449e9abce3a5">surroundingNodes</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b)</td></tr>
-<tr class="memdesc:a88401b7a871007b7de39449e9abce3a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> with NODE based coordinates in all directions that encloses <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> b.  <a href="#a88401b7a871007b7de39449e9abce3a5">More...</a><br/></td></tr>
-<tr class="separator:a88401b7a871007b7de39449e9abce3a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a792321e027b1507e93c73c4d899dd81a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a792321e027b1507e93c73c4d899dd81a">convert</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;typ)</td></tr>
-<tr class="memdesc:a792321e027b1507e93c73c4d899dd81a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> with different type.  <a href="#a792321e027b1507e93c73c4d899dd81a">More...</a><br/></td></tr>
-<tr class="separator:a792321e027b1507e93c73c4d899dd81a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6129b22a73977f91bab29b8b9561d419"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a6129b22a73977f91bab29b8b9561d419">convert</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b, const <a class="el" href="classamrex_1_1_index_type.html">IndexType</a> &amp;typ)</td></tr>
-<tr class="separator:a6129b22a73977f91bab29b8b9561d419"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2da8a355a78a76c49ddf5f4f97428bb2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a2da8a355a78a76c49ddf5f4f97428bb2">enclosedCells</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b, int dir)</td></tr>
-<tr class="memdesc:a2da8a355a78a76c49ddf5f4f97428bb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> with CELL based coordinates in direction dir that is enclosed by b. NOTE: equivalent to b.convert(dir,CELL) NOTE: error if b.type(dir) == CELL.  <a href="#a2da8a355a78a76c49ddf5f4f97428bb2">More...</a><br/></td></tr>
-<tr class="separator:a2da8a355a78a76c49ddf5f4f97428bb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51510d4921488e1bdb0c1f5a9e7422d8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a51510d4921488e1bdb0c1f5a9e7422d8">enclosedCells</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b)</td></tr>
-<tr class="memdesc:a51510d4921488e1bdb0c1f5a9e7422d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> with CELL based coordinates in all directions that is enclosed by b.  <a href="#a51510d4921488e1bdb0c1f5a9e7422d8">More...</a><br/></td></tr>
-<tr class="separator:a51510d4921488e1bdb0c1f5a9e7422d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a7eb17ecb8578d2adfcf1d5c0401c20"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a3a7eb17ecb8578d2adfcf1d5c0401c20">minBox</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b1, const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b2)</td></tr>
-<tr class="memdesc:a3a7eb17ecb8578d2adfcf1d5c0401c20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modify <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> to that of the minimum <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> containing both the original <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> and the argument. Both Boxes must have identical type.  <a href="#a3a7eb17ecb8578d2adfcf1d5c0401c20">More...</a><br/></td></tr>
-<tr class="separator:a3a7eb17ecb8578d2adfcf1d5c0401c20"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a404450845959fbab17d1968664f9b9c2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a404450845959fbab17d1968664f9b9c2">SerializeBoxSize</a> ()</td></tr>
-<tr class="separator:a404450845959fbab17d1968664f9b9c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada7c77f7ac84c643ea21113e4ff5f2d0"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ada7c77f7ac84c643ea21113e4ff5f2d0">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> &amp;ba)</td></tr>
 <tr class="memdesc:ada7c77f7ac84c643ea21113e4ff5f2d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> to an ostream in ASCII format.  <a href="#ada7c77f7ac84c643ea21113e4ff5f2d0">More...</a><br/></td></tr>
 <tr class="separator:ada7c77f7ac84c643ea21113e4ff5f2d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -4368,6 +4368,62 @@ template&lt;typename Key , typename T , class Compare &gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="a72511ce8b34f9dc363e8737e5ef5bc80"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classamrex_1_1_box.html">Box</a> amrex::coarsen </td>
+          <td>(</td>
+          <td class="paramtype">const Box &amp;&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ref_ratio</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Coarsen <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> by given (positive) refinement ratio. NOTE: if type(dir) = CELL centered: lo &lt;- lo/ratio and hi &lt;- hi/ratio. NOTE: if type(dir) = NODE centered: lo &lt;- lo/ratio and hi &lt;- hi/ratio + ((hiratio)==0 ? 0 : 1). That is, refinement of coarsened <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> must contain the original <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="ad513cf0f47bc35ace52f59f800c39708"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classamrex_1_1_box.html">Box</a> amrex::coarsen </td>
+          <td>(</td>
+          <td class="paramtype">const Box &amp;&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const IntVect &amp;&#160;</td>
+          <td class="paramname"><em>ref_ratio</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Coarsen <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> by given (positive) refinement ratio. NOTE: if type(dir) = CELL centered: lo &lt;- lo/ratio and hi &lt;- hi/ratio. NOTE: if type(dir) = NODE centered: lo &lt;- lo/ratio and hi &lt;- hi/ratio + ((hiratio)==0 ? 0 : 1). That is, refinement of coarsened <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> must contain the original <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a>. </p>
+
+</div>
+</div>
 <a class="anchor" id="a0edcd325cdf4577797dd48618f5a31fd"></a>
 <div class="memitem">
 <div class="memproto">
@@ -4437,78 +4493,6 @@ template&lt;typename Key , typename T , class Compare &gt; </div>
 </div><div class="memdoc">
 
 <p>Returns an <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> which is the component-wise integer projection of <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> p1 by <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> p2. </p>
-
-</div>
-</div>
-<a class="anchor" id="af9feef5187dbbc40e8c7b62d7cb986e7"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classamrex_1_1_box.html">Box</a> amrex::coarsen </td>
-          <td>(</td>
-          <td class="paramtype">const Box &amp;&#160;</td>
-          <td class="paramname"><em>b</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>ref_ratio</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Coarsen <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> by given (positive) refinement ratio. NOTE: if type(dir) = CELL centered: lo &lt;- lo/ratio and hi &lt;- hi/ratio. NOTE: if type(dir) = NODE centered: lo &lt;- lo/ratio and hi &lt;- hi/ratio + ((hiratio)==0 ? 0 : 1). That is, refinement of coarsened <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> must contain the original <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a>. </p>
-
-</div>
-</div>
-<a class="anchor" id="ac0ae611011bd5b5c58ea594fccc78ae0"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classamrex_1_1_box.html">Box</a> amrex::coarsen </td>
-          <td>(</td>
-          <td class="paramtype">const Box &amp;&#160;</td>
-          <td class="paramname"><em>b</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const IntVect &amp;&#160;</td>
-          <td class="paramname"><em>ref_ratio</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Coarsen <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> by given (positive) refinement ratio. NOTE: if type(dir) = CELL centered: lo &lt;- lo/ratio and hi &lt;- hi/ratio. NOTE: if type(dir) = NODE centered: lo &lt;- lo/ratio and hi &lt;- hi/ratio + ((hiratio)==0 ? 0 : 1). That is, refinement of coarsened <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> must contain the original <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a>. </p>
 
 </div>
 </div>
@@ -4685,9 +4669,6 @@ template&lt;typename Key , typename T , class Compare &gt; </div>
 <a class="anchor" id="a792321e027b1507e93c73c4d899dd81a"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classamrex_1_1_box.html">Box</a> amrex::convert </td>
@@ -4707,23 +4688,15 @@ template&lt;typename Key , typename T , class Compare &gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Returns a <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> with different type. </p>
 
 </div>
 </div>
-<a class="anchor" id="a6129b22a73977f91bab29b8b9561d419"></a>
+<a class="anchor" id="a81a5dbf0cb2d9850a6c5c908e0156161"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classamrex_1_1_box.html">Box</a> amrex::convert </td>
@@ -4735,7 +4708,7 @@ template&lt;typename Key , typename T , class Compare &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const IndexType &amp;&#160;</td>
-          <td class="paramname"><em>typ</em>&#160;</td>
+          <td class="paramname"><em>t</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -4743,11 +4716,6 @@ template&lt;typename Key , typename T , class Compare &gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -5522,9 +5490,6 @@ template&lt;typename Key , typename T , class Compare &gt; </div>
 <a class="anchor" id="a2da8a355a78a76c49ddf5f4f97428bb2"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classamrex_1_1_box.html">Box</a> amrex::enclosedCells </td>
@@ -5544,11 +5509,6 @@ template&lt;typename Key , typename T , class Compare &gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Returns a <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> with CELL based coordinates in direction dir that is enclosed by b. NOTE: equivalent to b.convert(dir,CELL) NOTE: error if b.type(dir) == CELL. </p>
@@ -5558,9 +5518,6 @@ template&lt;typename Key , typename T , class Compare &gt; </div>
 <a class="anchor" id="a51510d4921488e1bdb0c1f5a9e7422d8"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classamrex_1_1_box.html">Box</a> amrex::enclosedCells </td>
@@ -5570,11 +5527,6 @@ template&lt;typename Key , typename T , class Compare &gt; </div>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Returns a <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> with CELL based coordinates in all directions that is enclosed by b. </p>
@@ -6698,9 +6650,6 @@ template&lt;class T &gt; </div>
 <a class="anchor" id="aded67b6a8fd015f89f19f03ed9fdcb73"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classamrex_1_1_box.html">Box</a> amrex::grow </td>
@@ -6720,11 +6669,6 @@ template&lt;class T &gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Grow <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> in all directions by given amount. </p>
@@ -6735,9 +6679,6 @@ template&lt;class T &gt; </div>
 <a class="anchor" id="a97709dc9353124754200008e6c7e5a51"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classamrex_1_1_box.html">Box</a> amrex::grow </td>
@@ -6757,11 +6698,6 @@ template&lt;class T &gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Grow <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> in each direction by specified amount. </p>
@@ -6771,9 +6707,6 @@ template&lt;class T &gt; </div>
 <a class="anchor" id="a00bf35ab5897e235ecb28aee49287eda"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classamrex_1_1_box.html">Box</a> amrex::grow </td>
@@ -6799,11 +6732,6 @@ template&lt;class T &gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Grow <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> in direction idir be n_cell cells. </p>
@@ -6813,9 +6741,6 @@ template&lt;class T &gt; </div>
 <a class="anchor" id="aa159cdf830c19cd53844b9b82cd87b60"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classamrex_1_1_box.html">Box</a> amrex::growHi </td>
@@ -6841,11 +6766,6 @@ template&lt;class T &gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -6853,9 +6773,6 @@ template&lt;class T &gt; </div>
 <a class="anchor" id="a293fd01c7ba43b85e62e3dea60a036d7"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classamrex_1_1_box.html">Box</a> amrex::growLo </td>
@@ -6881,11 +6798,6 @@ template&lt;class T &gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -11205,21 +11117,18 @@ template&lt;&gt; </div>
 <a class="anchor" id="a3a7eb17ecb8578d2adfcf1d5c0401c20"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classamrex_1_1_box.html">Box</a> amrex::minBox </td>
           <td>(</td>
           <td class="paramtype">const Box &amp;&#160;</td>
-          <td class="paramname"><em>b1</em>, </td>
+          <td class="paramname"><em>b</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const Box &amp;&#160;</td>
-          <td class="paramname"><em>b2</em>&#160;</td>
+          <td class="paramname"><em>o</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -11227,11 +11136,6 @@ template&lt;&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Modify <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> to that of the minimum <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> containing both the original <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> and the argument. Both Boxes must have identical type. </p>
@@ -12383,34 +12287,6 @@ template&lt;&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a5a8c3c95822fc26d529026c5ef8b9308"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::ostream &amp; amrex::operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>os</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Box &amp;&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Write an ASCII representation to the ostream. </p>
-
-</div>
-</div>
 <a class="anchor" id="aadb6da61ab59ea2923bdf326e791654a"></a>
 <div class="memitem">
 <div class="memproto">
@@ -12707,6 +12583,34 @@ template&lt;int NReal, int NInt&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a5a8c3c95822fc26d529026c5ef8b9308"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream &amp; amrex::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Box &amp;&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Write an ASCII representation to the ostream. </p>
 
 </div>
 </div>
@@ -13194,34 +13098,6 @@ template&lt;int NReal, int NInt&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="aac7b44499bc56506bcf5ed89ec42bc09"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::istream &amp; amrex::operator&gt;&gt; </td>
-          <td>(</td>
-          <td class="paramtype">std::istream &amp;&#160;</td>
-          <td class="paramname"><em>is</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Box &amp;&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Read from istream. </p>
-
-</div>
-</div>
 <a class="anchor" id="a230f55f581d477c535f07ecf100671bf"></a>
 <div class="memitem">
 <div class="memproto">
@@ -13355,6 +13231,34 @@ template&lt;class T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aac7b44499bc56506bcf5ed89ec42bc09"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::istream &amp; amrex::operator&gt;&gt; </td>
+          <td>(</td>
+          <td class="paramtype">std::istream &amp;&#160;</td>
+          <td class="paramname"><em>is</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Box &amp;&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Read from istream. </p>
 
 </div>
 </div>
@@ -14196,9 +14100,6 @@ template&lt;typename To , typename From &gt; </div>
 <a class="anchor" id="a71f10725276fb4e5fb14ddc7a8bb5b5f"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classamrex_1_1_box.html">Box</a> amrex::refine </td>
@@ -14210,7 +14111,7 @@ template&lt;typename To , typename From &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>ref_ratio</em>&#160;</td>
+          <td class="paramname"><em>refinement_ratio</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -14218,22 +14119,14 @@ template&lt;typename To , typename From &gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 <p>Refine <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> by given (positive) refinement ratio. NOTE: if type(dir) = CELL centered: lo &lt;- lo*ratio and hi &lt;- (hi+1)*ratio - 1. NOTE: if type(dir) = NODE centered: lo &lt;- lo*ratio and hi &lt;- hi*ratio. </p>
 
 </div>
 </div>
-<a class="anchor" id="a17bafd8cfa54c3e06feb6ab5c3ba6e27"></a>
+<a class="anchor" id="ad20ef68e89b5f6a5bbe8ac723058e9f0"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classamrex_1_1_box.html">Box</a> amrex::refine </td>
@@ -14253,11 +14146,6 @@ template&lt;typename To , typename From &gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Refine <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> by given (positive) refinement ratio. NOTE: if type(dir) = CELL centered: lo &lt;- lo*ratio and hi &lt;- (hi+1)*ratio - 1. NOTE: if type(dir) = NODE centered: lo &lt;- lo*ratio and hi &lt;- hi*ratio. </p>
@@ -14561,9 +14449,6 @@ template&lt;class T &gt; </div>
 <a class="anchor" id="a404450845959fbab17d1968664f9b9c2"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int amrex::SerializeBoxSize </td>
@@ -14572,11 +14457,6 @@ template&lt;class T &gt; </div>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -14719,9 +14599,6 @@ template&lt;class T &gt; </div>
 <a class="anchor" id="a4e8290af3a280e0132d66d78f3e48e84"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classamrex_1_1_box.html">Box</a> amrex::shift </td>
@@ -14747,11 +14624,6 @@ template&lt;class T &gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Return a <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> with indices shifted by nzones in dir direction. </p>
@@ -14761,9 +14633,6 @@ template&lt;class T &gt; </div>
 <a class="anchor" id="a85b73b3b7b0c1aa398fad1e8f22695a0"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classamrex_1_1_box.html">Box</a> amrex::shift </td>
@@ -14783,11 +14652,6 @@ template&lt;class T &gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -15026,9 +14890,6 @@ template&lt;class T &gt; </div>
 <a class="anchor" id="a21fcf130f356cfa788dd3b18a46204f5"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classamrex_1_1_box.html">Box</a> amrex::surroundingNodes </td>
@@ -15048,11 +14909,6 @@ template&lt;class T &gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Returns a <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> with NODE based coordinates in direction dir that encloses <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> b. NOTE: equivalent to b.convert(dir,NODE) NOTE: error if b.type(dir) == NODE. </p>
@@ -15062,9 +14918,6 @@ template&lt;class T &gt; </div>
 <a class="anchor" id="a88401b7a871007b7de39449e9abce3a5"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classamrex_1_1_box.html">Box</a> amrex::surroundingNodes </td>
@@ -15074,11 +14927,6 @@ template&lt;class T &gt; </div>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Returns a <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> with NODE based coordinates in all directions that encloses <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> b. </p>
