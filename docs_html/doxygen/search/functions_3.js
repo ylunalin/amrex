@@ -11,7 +11,7 @@ var searchData=
   ['calculateweightingmatrixred',['calculateWeightingMatrixRed',['../classamrex_1_1_e_b_arith.html#a57ef9db469ad1d7a9ba2a252f7bfd801',1,'amrex::EBArith']]],
   ['canderive',['canDerive',['../classamrex_1_1_derive_list.html#a8fdd1e3b8b9cdddbd927ee7ffc2651e6',1,'amrex::DeriveList']]],
   ['cangeneratemulticells',['canGenerateMultiCells',['../classamrex_1_1_geometry_service.html#a570833cfef5972e2e437c46748c2f8a1',1,'amrex::GeometryService::canGenerateMultiCells()'],['../classamrex_1_1_wrapped_g_shop.html#a2651866b1418a2679d8a60214abc45c5',1,'amrex::WrappedGShop::canGenerateMultiCells()']]],
-  ['capacity',['capacity',['../classamrex_1_1_box_array.html#a106f7266aa8eee636dea85a6aa8c5b64',1,'amrex::BoxArray::capacity()'],['../classamrex_1_1_distribution_mapping.html#a585c6569199e3fd65118f665c1980990',1,'amrex::DistributionMapping::capacity()']]],
+  ['capacity',['capacity',['../classamrex_1_1_box_array.html#a106f7266aa8eee636dea85a6aa8c5b64',1,'amrex::BoxArray::capacity()'],['../classamrex_1_1_box_list.html#a8d2215001d19151e57f94b9b11c54220',1,'amrex::BoxList::capacity()'],['../classamrex_1_1_distribution_mapping.html#a585c6569199e3fd65118f665c1980990',1,'amrex::DistributionMapping::capacity()']]],
   ['carena',['CArena',['../classamrex_1_1_c_arena.html#affcc0ea230482def7cf60c2721785747',1,'amrex::CArena']]],
   ['catenate',['catenate',['../classamrex_1_1_box_list.html#a5401acc7f967b93eb6e755966491aa58',1,'amrex::BoxList']]],
   ['cbegin',['cbegin',['../classamrex_1_1_array_of_structs.html#a8d9e4e28066e67b8439b1f07aa0855d8',1,'amrex::ArrayOfStructs::cbegin()'],['../classamrex_1_1_int_vect_set.html#a78bbc5db97e9c82b0f8bd7c9fff8e095',1,'amrex::IntVectSet::cbegin()']]],
