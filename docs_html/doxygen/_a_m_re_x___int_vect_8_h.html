@@ -94,6 +94,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 <div class="textblock"><code>#include &lt;iosfwd&gt;</code><br/>
 <code>#include &lt;cstdlib&gt;</code><br/>
+<code>#include &lt;cmath&gt;</code><br/>
 <code>#include &lt;<a class="el" href="_a_m_re_x__ccse-mpi_8_h_source.html">AMReX_ccse-mpi.H</a>&gt;</code><br/>
 <code>#include &lt;<a class="el" href="_a_m_re_x___s_p_a_c_e_8_h_source.html">AMReX_SPACE.H</a>&gt;</code><br/>
 <code>#include &lt;<a class="el" href="_a_m_re_x___array_8_h_source.html">AMReX_Array.H</a>&gt;</code><br/>
@@ -117,15 +118,24 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a5ff61b0cd69e209fe1584dbb34b94686"><td class="memItemLeft" align="right" valign="top">IntVect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a5ff61b0cd69e209fe1584dbb34b94686">amrex::BASISV</a> (int dir)</td></tr>
-<tr class="memdesc:a5ff61b0cd69e209fe1584dbb34b94686"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a basis vector in the given coordinate direction; eg. <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> BASISV(1) == (0,1,0). Note that the coordinate directions are zero based.  <a href="#a5ff61b0cd69e209fe1584dbb34b94686">More...</a><br/></td></tr>
-<tr class="separator:a5ff61b0cd69e209fe1584dbb34b94686"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a648764287c69ccba936d260b096dbf19"><td class="memItemLeft" align="right" valign="top">IntVect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a648764287c69ccba936d260b096dbf19">amrex::operator+</a> (int s, const IntVect &amp;p)</td></tr>
+<tr class="memdesc:a648764287c69ccba936d260b096dbf19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns p + s.  <a href="#a648764287c69ccba936d260b096dbf19">More...</a><br/></td></tr>
+<tr class="separator:a648764287c69ccba936d260b096dbf19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa5a15eece4ad0efc1bd012d182688cf"><td class="memItemLeft" align="right" valign="top">IntVect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#aaa5a15eece4ad0efc1bd012d182688cf">amrex::operator-</a> (int s, const IntVect &amp;p)</td></tr>
+<tr class="memdesc:aaa5a15eece4ad0efc1bd012d182688cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns -p + s.  <a href="#aaa5a15eece4ad0efc1bd012d182688cf">More...</a><br/></td></tr>
+<tr class="separator:aaa5a15eece4ad0efc1bd012d182688cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af86040980faa9d9715c19287cc4f9f19"><td class="memItemLeft" align="right" valign="top">IntVect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#af86040980faa9d9715c19287cc4f9f19">amrex::operator*</a> (int s, const IntVect &amp;p)</td></tr>
+<tr class="memdesc:af86040980faa9d9715c19287cc4f9f19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns p * s.  <a href="#af86040980faa9d9715c19287cc4f9f19">More...</a><br/></td></tr>
+<tr class="separator:af86040980faa9d9715c19287cc4f9f19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae79501364b5617d85255a267082276db"><td class="memItemLeft" align="right" valign="top">IntVect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ae79501364b5617d85255a267082276db">amrex::min</a> (const IntVect &amp;p1, const IntVect &amp;p2)</td></tr>
 <tr class="memdesc:ae79501364b5617d85255a267082276db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> that is the component-wise minimum of two argument IntVects.  <a href="#ae79501364b5617d85255a267082276db">More...</a><br/></td></tr>
 <tr class="separator:ae79501364b5617d85255a267082276db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a870c2407ed885451a76f66f8a0d7a892"><td class="memItemLeft" align="right" valign="top">IntVect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a870c2407ed885451a76f66f8a0d7a892">amrex::max</a> (const IntVect &amp;p1, const IntVect &amp;p2)</td></tr>
 <tr class="memdesc:a870c2407ed885451a76f66f8a0d7a892"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> that is the component-wise maximum of two argument IntVects.  <a href="#a870c2407ed885451a76f66f8a0d7a892">More...</a><br/></td></tr>
 <tr class="separator:a870c2407ed885451a76f66f8a0d7a892"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ff61b0cd69e209fe1584dbb34b94686"><td class="memItemLeft" align="right" valign="top">IntVect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a5ff61b0cd69e209fe1584dbb34b94686">amrex::BASISV</a> (int dir)</td></tr>
+<tr class="memdesc:a5ff61b0cd69e209fe1584dbb34b94686"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a basis vector in the given coordinate direction; eg. <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> BASISV(1) == (0,1,0). Note that the coordinate directions are zero based.  <a href="#a5ff61b0cd69e209fe1584dbb34b94686">More...</a><br/></td></tr>
+<tr class="separator:a5ff61b0cd69e209fe1584dbb34b94686"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c7e2b6764af224cffb725d95957f113"><td class="memItemLeft" align="right" valign="top">IntVect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a1c7e2b6764af224cffb725d95957f113">amrex::scale</a> (const IntVect &amp;p, int s)</td></tr>
 <tr class="memdesc:a1c7e2b6764af224cffb725d95957f113"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> obtained by multiplying each of the components of this <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> by s.  <a href="#a1c7e2b6764af224cffb725d95957f113">More...</a><br/></td></tr>
 <tr class="separator:a1c7e2b6764af224cffb725d95957f113"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -141,15 +151,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a0b978cbaf5b7389ca9b5271d4f4fa674"><td class="memItemLeft" align="right" valign="top">IntVect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a0b978cbaf5b7389ca9b5271d4f4fa674">amrex::coarsen</a> (const IntVect &amp;p1, const IntVect &amp;p2)</td></tr>
 <tr class="memdesc:a0b978cbaf5b7389ca9b5271d4f4fa674"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> which is the component-wise integer projection of <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> p1 by <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> p2.  <a href="#a0b978cbaf5b7389ca9b5271d4f4fa674">More...</a><br/></td></tr>
 <tr class="separator:a0b978cbaf5b7389ca9b5271d4f4fa674"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a648764287c69ccba936d260b096dbf19"><td class="memItemLeft" align="right" valign="top">IntVect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a648764287c69ccba936d260b096dbf19">amrex::operator+</a> (int s, const IntVect &amp;p)</td></tr>
-<tr class="memdesc:a648764287c69ccba936d260b096dbf19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns p + s.  <a href="#a648764287c69ccba936d260b096dbf19">More...</a><br/></td></tr>
-<tr class="separator:a648764287c69ccba936d260b096dbf19"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa5a15eece4ad0efc1bd012d182688cf"><td class="memItemLeft" align="right" valign="top">IntVect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#aaa5a15eece4ad0efc1bd012d182688cf">amrex::operator-</a> (int s, const IntVect &amp;p)</td></tr>
-<tr class="memdesc:aaa5a15eece4ad0efc1bd012d182688cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns -p + s.  <a href="#aaa5a15eece4ad0efc1bd012d182688cf">More...</a><br/></td></tr>
-<tr class="separator:aaa5a15eece4ad0efc1bd012d182688cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af86040980faa9d9715c19287cc4f9f19"><td class="memItemLeft" align="right" valign="top">IntVect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#af86040980faa9d9715c19287cc4f9f19">amrex::operator*</a> (int s, const IntVect &amp;p)</td></tr>
-<tr class="memdesc:af86040980faa9d9715c19287cc4f9f19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns p * s.  <a href="#af86040980faa9d9715c19287cc4f9f19">More...</a><br/></td></tr>
-<tr class="separator:af86040980faa9d9715c19287cc4f9f19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -253,9 +253,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:adc656fca8cd66933de91331b356c1338"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_box_array.html#adc656fca8cd66933de91331b356c1338">operator[]</a> (int index) const </td></tr>
 <tr class="memdesc:adc656fca8cd66933de91331b356c1338"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return element index of this <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a>.  <a href="#adc656fca8cd66933de91331b356c1338">More...</a><br/></td></tr>
 <tr class="separator:adc656fca8cd66933de91331b356c1338"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a887ec82fa0b4a4e95da4b4d10b3a65f0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_box_array.html#a887ec82fa0b4a4e95da4b4d10b3a65f0">operator[]</a> (const <a class="el" href="classamrex_1_1_m_f_iter.html">MFIter</a> &amp;index) const </td></tr>
-<tr class="memdesc:a887ec82fa0b4a4e95da4b4d10b3a65f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return element index of this <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a>.  <a href="#a887ec82fa0b4a4e95da4b4d10b3a65f0">More...</a><br/></td></tr>
-<tr class="separator:a887ec82fa0b4a4e95da4b4d10b3a65f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0b044abfbf1ab7bd56cdb27f1522215"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_box_array.html#aa0b044abfbf1ab7bd56cdb27f1522215">operator[]</a> (const <a class="el" href="classamrex_1_1_m_f_iter.html">MFIter</a> &amp;mfi) const </td></tr>
+<tr class="memdesc:aa0b044abfbf1ab7bd56cdb27f1522215"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return element index of this <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a>.  <a href="#aa0b044abfbf1ab7bd56cdb27f1522215">More...</a><br/></td></tr>
+<tr class="separator:aa0b044abfbf1ab7bd56cdb27f1522215"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a049a9acc8142829acfa7ffd3a22fce7d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_box_array.html#a049a9acc8142829acfa7ffd3a22fce7d">get</a> (int index) const </td></tr>
 <tr class="memdesc:a049a9acc8142829acfa7ffd3a22fce7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return element index of this <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a>.  <a href="#a049a9acc8142829acfa7ffd3a22fce7d">More...</a><br/></td></tr>
 <tr class="separator:a049a9acc8142829acfa7ffd3a22fce7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -604,6 +604,9 @@ Static Public Attributes</h2></td></tr>
 <a class="anchor" id="a106f7266aa8eee636dea85a6aa8c5b64"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">long amrex::BoxArray::capacity </td>
@@ -612,6 +615,11 @@ Static Public Attributes</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Return the number of boxes that can be held in the current allocated storage. </p>
@@ -1035,6 +1043,9 @@ Static Public Attributes</h2></td></tr>
 <a class="anchor" id="a6453c405bc262d57421ad75dcba2abc6"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool amrex::BoxArray::empty </td>
@@ -1043,6 +1054,11 @@ Static Public Attributes</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Return whether the <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> is empty. </p>
@@ -1136,6 +1152,9 @@ Static Public Attributes</h2></td></tr>
 <a class="anchor" id="a4228497f6d40fc8198c5bd26b5dbaeb4"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classamrex_1_1_box.html">Box</a> amrex::BoxArray::getCellCenteredBox </td>
@@ -1145,6 +1164,11 @@ Static Public Attributes</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Return cell-centered box at element index of this <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a>. </p>
@@ -1791,6 +1815,9 @@ Static Public Attributes</h2></td></tr>
 <a class="anchor" id="adc656fca8cd66933de91331b356c1338"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classamrex_1_1_box.html">Box</a> amrex::BoxArray::operator[] </td>
@@ -1800,13 +1827,18 @@ Static Public Attributes</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Return element index of this <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a>. </p>
 
 </div>
 </div>
-<a class="anchor" id="a887ec82fa0b4a4e95da4b4d10b3a65f0"></a>
+<a class="anchor" id="aa0b044abfbf1ab7bd56cdb27f1522215"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -1814,7 +1846,7 @@ Static Public Attributes</h2></td></tr>
           <td class="memname"><a class="el" href="classamrex_1_1_box.html">Box</a> amrex::BoxArray::operator[] </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classamrex_1_1_m_f_iter.html">MFIter</a> &amp;&#160;</td>
-          <td class="paramname"><em>index</em></td><td>)</td>
+          <td class="paramname"><em>mfi</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -2027,6 +2059,9 @@ Static Public Attributes</h2></td></tr>
 <a class="anchor" id="a8631008cf4785c0d4eb02da299ee2600"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">long amrex::BoxArray::size </td>
@@ -2035,6 +2070,11 @@ Static Public Attributes</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Return the number of boxes in the <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a>. </p>
