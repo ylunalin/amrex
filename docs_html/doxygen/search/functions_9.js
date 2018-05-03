@@ -88,7 +88,7 @@ var searchData=
   ['irregvof',['irregVoF',['../classamrex_1_1_e_b_data_implem.html#adfc2705e60addb72b12c331fcc7850c0',1,'amrex::EBDataImplem']]],
   ['is_5fcell_5fcentered',['is_cell_centered',['../classamrex_1_1_multi_fab.html#a61a5f26b3df9a3c1f616796d077f2204',1,'amrex::MultiFab']]],
   ['is_5finteger',['is_integer',['../namespaceamrex.html#a107cab62d5043f039671cf5b68068ddc',1,'amrex']]],
-  ['is_5fnodal',['is_nodal',['../classamrex_1_1_multi_fab.html#a2c222f6e65f9089ba9cf1e7af58f6ad0',1,'amrex::MultiFab']]],
+  ['is_5fnodal',['is_nodal',['../classamrex_1_1_multi_fab.html#a2c222f6e65f9089ba9cf1e7af58f6ad0',1,'amrex::MultiFab::is_nodal() const '],['../classamrex_1_1_multi_fab.html#abb41b026ea68b8663f1fc948cf0e6ff1',1,'amrex::MultiFab::is_nodal(int dir) const ']]],
   ['isallcovered',['isAllCovered',['../classamrex_1_1_e_b_graph_implem.html#aa587139319997e1123e84b3e4592a8a4',1,'amrex::EBGraphImplem::isAllCovered()'],['../classamrex_1_1_e_b_graph.html#a9e20715812a6536e921c34425dc7d659',1,'amrex::EBGraph::isAllCovered()'],['../classamrex_1_1_e_b_i_s_box.html#a8e154247d528d9bd3615c79fbeaa3f61',1,'amrex::EBISBox::isAllCovered()']]],
   ['isallocated',['isAllocated',['../classamrex_1_1_base_fab.html#aced9485e827de92aa0817d91f2d6b234',1,'amrex::BaseFab']]],
   ['isallperiodic',['isAllPeriodic',['../classamrex_1_1_geometry.html#a8d72d686324ede94e130f9676c2cfbfb',1,'amrex::Geometry::isAllPeriodic()'],['../classamrex_1_1_periodicity.html#adb21cce8aec83f6bfbaad20b86667d82',1,'amrex::Periodicity::isAllPeriodic()']]],
