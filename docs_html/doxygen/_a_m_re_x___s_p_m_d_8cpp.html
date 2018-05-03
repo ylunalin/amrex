@@ -86,15 +86,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">AMReX_SPMD.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;iostream&gt;</code><br/>
 <code>#include &lt;cstring&gt;</code><br/>
-<code>#include &lt;unistd.h&gt;</code><br/>
 <code>#include &quot;<a class="el" href="_a_m_re_x___print_8_h_source.html">AMReX_Print.H</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="_a_m_re_x___s_p_m_d_8_h_source.html">AMReX_SPMD.H</a>&quot;</code><br/>
 </div><table class="memberdecls">
@@ -106,14 +104,6 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a04ca5a8febb0a33ec4cf8f34ec65f5c1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a04ca5a8febb0a33ec4cf8f34ec65f5c1">amrex::reportMPIStats</a> ()</td></tr>
-<tr class="separator:a04ca5a8febb0a33ec4cf8f34ec65f5c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8a2096c4f0f22eaaa5e40d7c60657ec"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ad8a2096c4f0f22eaaa5e40d7c60657ec">amrex::procID</a> ()</td></tr>
-<tr class="memdesc:ad8a2096c4f0f22eaaa5e40d7c60657ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">local process ID  <a href="#ad8a2096c4f0f22eaaa5e40d7c60657ec">More...</a><br/></td></tr>
-<tr class="separator:ad8a2096c4f0f22eaaa5e40d7c60657ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a106e89b6312c2cf3d046be14cf005653"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a106e89b6312c2cf3d046be14cf005653">amrex::numProc</a> ()</td></tr>
-<tr class="memdesc:a106e89b6312c2cf3d046be14cf005653"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of parallel processes  <a href="#a106e89b6312c2cf3d046be14cf005653">More...</a><br/></td></tr>
-<tr class="separator:a106e89b6312c2cf3d046be14cf005653"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa36f8519a8b1ef4a53a2a13058996b03"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
 <tr class="memitem:aa36f8519a8b1ef4a53a2a13058996b03"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#aa36f8519a8b1ef4a53a2a13058996b03">amrex::linearIn&lt; float &gt;</a> (float &amp;a_outputT, const void *const a_inBuf)</td></tr>
 <tr class="memdesc:aa36f8519a8b1ef4a53a2a13058996b03"><td class="mdescLeft">&#160;</td><td class="mdescRight">these should work independent of MPI's existence  <a href="#aa36f8519a8b1ef4a53a2a13058996b03">More...</a><br/></td></tr>
@@ -250,19 +240,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a86b305ea4f8efc0e2ada7f08de575e38"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
 <tr class="memitem:a86b305ea4f8efc0e2ada7f08de575e38"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a86b305ea4f8efc0e2ada7f08de575e38">amrex::linearOut</a> (void *const a_outBuf, const std::vector&lt; std::vector&lt; int &gt; &gt; &amp;a_inputT)</td></tr>
 <tr class="separator:a86b305ea4f8efc0e2ada7f08de575e38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:af01f0adcc682bfe50c568071f5b58c0c"><td class="memItemLeft" align="right" valign="top">unsigned long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#af01f0adcc682bfe50c568071f5b58c0c">amrex::CH_MAX_MPI_MESSAGE_SIZE</a> = 30*1024*1024</td></tr>
-<tr class="separator:af01f0adcc682bfe50c568071f5b58c0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae933c5e399ed5ecd37b53ceb92ca647b"><td class="memItemLeft" align="right" valign="top">unsigned long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ae933c5e399ed5ecd37b53ceb92ca647b">amrex::CH_MaxMPISendSize</a> = 0</td></tr>
-<tr class="separator:ae933c5e399ed5ecd37b53ceb92ca647b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8468992eb39984b0adfab69f16a51fc5"><td class="memItemLeft" align="right" valign="top">unsigned long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a8468992eb39984b0adfab69f16a51fc5">amrex::CH_MaxMPIRecvSize</a> = 0</td></tr>
-<tr class="separator:a8468992eb39984b0adfab69f16a51fc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e92a3c3d246261d3871f075777f1482"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a4e92a3c3d246261d3871f075777f1482">amrex::pids</a></td></tr>
-<tr class="separator:a4e92a3c3d246261d3871f075777f1482"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80ec36e3f3da3a42bac50af1a797551a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a80ec36e3f3da3a42bac50af1a797551a">amrex::num_procs</a> = 1</td></tr>
-<tr class="separator:a80ec36e3f3da3a42bac50af1a797551a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->

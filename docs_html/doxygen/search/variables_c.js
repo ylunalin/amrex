@@ -37,7 +37,6 @@ var searchData=
   ['num_5fint_5fsoa_5fcomps',['num_int_soa_comps',['../classamrex_1_1_particle_container.html#a0cddb16f78a5ef5c074fcaccdafebeee',1,'amrex::ParticleContainer']]],
   ['num_5flocal_5ftiles',['num_local_tiles',['../classamrex_1_1_m_f_iter.html#a967c3c48ccb4f316911d06fcaccb29fa',1,'amrex::MFIter']]],
   ['num_5fneighbor_5fcells',['num_neighbor_cells',['../classamrex_1_1_neighbor_particle_container.html#ad768701ff7b07d66cb0c75e0598eb0f3',1,'amrex::NeighborParticleContainer']]],
-  ['num_5fprocs',['num_procs',['../namespaceamrex.html#a80ec36e3f3da3a42bac50af1a797551a',1,'amrex']]],
   ['num_5freal_5fsoa_5fcomps',['num_real_soa_comps',['../classamrex_1_1_particle_container.html#ac7eb48182983000e67051ca8e25f3105',1,'amrex::ParticleContainer']]],
   ['num_5fsnds',['num_snds',['../classamrex_1_1_neighbor_particle_container.html#a0223bc2e3edebb49c92f6565ba28dd4e',1,'amrex::NeighborParticleContainer']]],
   ['numlevels',['numLevels',['../classamrex_1_1_grid_parameters.html#af52cd768a777dc0cb8dfbd371798e9b7',1,'amrex::GridParameters']]],

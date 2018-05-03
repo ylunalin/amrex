@@ -84,7 +84,6 @@ var searchData=
   ['numlocaltilesatlevel',['numLocalTilesAtLevel',['../classamrex_1_1_particle_container.html#a2be183949c39b61d2d506c1199ac3cf7',1,'amrex::ParticleContainer']]],
   ['nummonomials',['numMonomials',['../class_l_s_problem.html#acdde08c57687511ebd62a52f2687ffdd',1,'LSProblem']]],
   ['numparticles',['numParticles',['../classamrex_1_1_array_of_structs.html#a97fb96cfe3eae08a5eece375511c0cc7',1,'amrex::ArrayOfStructs::numParticles()'],['../structamrex_1_1_struct_of_arrays.html#abbab1633479d755b6302a6e944b40d3c',1,'amrex::StructOfArrays::numParticles()'],['../structamrex_1_1_particle_tile.html#a80b9e96e04c429ac908a7772478f3f29',1,'amrex::ParticleTile::numParticles()'],['../classamrex_1_1_par_iter_base.html#a356c705a38c9d4d139c8573cb54a6b3b',1,'amrex::ParIterBase::numParticles()']]],
-  ['numproc',['numProc',['../namespaceamrex.html#a106e89b6312c2cf3d046be14cf005653',1,'amrex']]],
   ['numpts',['numPts',['../classamrex_1_1_box.html#a599a302b2d78d7fbdf2fc27cb5c54682',1,'amrex::Box::numPts()'],['../classamrex_1_1_box_array.html#a4fcb7346a4003827f8b179413862c495',1,'amrex::BoxArray::numPts()'],['../classamrex_1_1_int_vect_set.html#a4f8837a5d1ee0415b9f77f0a84cb280e',1,'amrex::IntVectSet::numPts()']]],
   ['numrange',['numRange',['../classamrex_1_1_derive_rec.html#a57248d041a24da08203ca3b0bbe83e73',1,'amrex::DeriveRec']]],
   ['numstate',['numState',['../classamrex_1_1_derive_rec.html#a7df994b8acd412aa145c2ad332c3e292',1,'amrex::DeriveRec']]],

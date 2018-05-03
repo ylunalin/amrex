@@ -84,7 +84,6 @@ var searchData=
   ['replacenewdata',['replaceNewData',['../classamrex_1_1_state_data.html#a376829be63fffc6f04fd72b62c578a8c',1,'amrex::StateData::replaceNewData(MultiFab *mf)'],['../classamrex_1_1_state_data.html#a3c5fc5e62763a1c66248c47951055162',1,'amrex::StateData::replaceNewData(StateData &amp;s)']]],
   ['replaceolddata',['replaceOldData',['../classamrex_1_1_state_data.html#ad9c0fb8d636777e0a7c309daf9a1d010',1,'amrex::StateData::replaceOldData(MultiFab *mf)'],['../classamrex_1_1_state_data.html#adfaafffb0ba3924042c4357b7d51fe53',1,'amrex::StateData::replaceOldData(StateData &amp;s)']]],
   ['report',['report',['../classamrex_1_1_mem_profiler.html#a63001e27552e159e32b2ed48fc39bb1f',1,'amrex::MemProfiler']]],
-  ['reportmpistats',['reportMPIStats',['../namespaceamrex.html#a04ca5a8febb0a33ec4cf8f34ec65f5c1',1,'amrex']]],
   ['req',['req',['../classamrex_1_1_parallel_descriptor_1_1_message.html#a57999afb8ef13d17fc24750bdae6cd00',1,'amrex::ParallelDescriptor::Message']]],
   ['request',['Request',['../namespaceamrex_1_1_b_l_pgas.html#acc540645f9c11df2f133814c0128d65c',1,'amrex::BLPgas']]],
   ['reserve',['reserve',['../classamrex_1_1_box_list.html#a7b999e76e5422aa024da160623cc81f8',1,'amrex::BoxList']]],
