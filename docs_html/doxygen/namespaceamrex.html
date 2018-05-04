@@ -1583,11 +1583,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a7916c1f3adf571c67baaf478cf139bff"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a7916c1f3adf571c67baaf478cf139bff">Random_int</a> (unsigned long <a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a54f6ce0fb55c5e079b66b7ac9b865843">n</a>)</td></tr>
 <tr class="memdesc:a7916c1f3adf571c67baaf478cf139bff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a psuedo-random int using C++11's mt19937.  <a href="#a7916c1f3adf571c67baaf478cf139bff">More...</a><br/></td></tr>
 <tr class="separator:a7916c1f3adf571c67baaf478cf139bff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93de6099718f1f212f72153934643512"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a93de6099718f1f212f72153934643512">InitRandom</a> (unsigned long seed)</td></tr>
-<tr class="memdesc:a93de6099718f1f212f72153934643512"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the seed of the random number generator.  <a href="#a93de6099718f1f212f72153934643512">More...</a><br/></td></tr>
-<tr class="separator:a93de6099718f1f212f72153934643512"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a037cb7f1eaa6b38d10d36424e8218a6b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a037cb7f1eaa6b38d10d36424e8218a6b">InitRandom</a> (unsigned long seed, int nprocs)</td></tr>
-<tr class="separator:a037cb7f1eaa6b38d10d36424e8218a6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d52f3a8f85790665ab8361b0235f391"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a6d52f3a8f85790665ab8361b0235f391">InitRandom</a> (unsigned long seed, int nprocs=0)</td></tr>
+<tr class="memdesc:a6d52f3a8f85790665ab8361b0235f391"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the seed of the random number generator.  <a href="#a6d52f3a8f85790665ab8361b0235f391">More...</a><br/></td></tr>
+<tr class="separator:a6d52f3a8f85790665ab8361b0235f391"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a916b42a59d03ab2bbefddf68e90be0e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a916b42a59d03ab2bbefddf68e90be0e3">ResetRandomSeed</a> (unsigned long seed)</td></tr>
 <tr class="separator:a916b42a59d03ab2bbefddf68e90be0e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1b283df95b292f478597bc503170459"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ad1b283df95b292f478597bc503170459">SaveRandomState</a> (std::ostream &amp;os)</td></tr>
@@ -6998,29 +6996,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a93de6099718f1f212f72153934643512"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void amrex::InitRandom </td>
-          <td>(</td>
-          <td class="paramtype">unsigned long&#160;</td>
-          <td class="paramname"><em>seed</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Set the seed of the random number generator. </p>
-<p>There is also an entry point for Fortran callable as:</p>
-<p>INTEGER seed call blutilinitrand(seed)</p>
-<p>or</p>
-<p>INTEGER seed call blinitrand(seed) </p>
-
-</div>
-</div>
-<a class="anchor" id="a037cb7f1eaa6b38d10d36424e8218a6b"></a>
+<a class="anchor" id="a6d52f3a8f85790665ab8361b0235f391"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -7034,7 +7010,7 @@ template&lt;class T &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>nprocs</em>&#160;</td>
+          <td class="paramname"><em>nprocs</em> = <code>0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -7043,6 +7019,12 @@ template&lt;class T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Set the seed of the random number generator. </p>
+<p>There is also an entry point for Fortran callable as:</p>
+<p>INTEGER seed call blutilinitrand(seed)</p>
+<p>or</p>
+<p>INTEGER seed call blinitrand(seed) </p>
 
 </div>
 </div>

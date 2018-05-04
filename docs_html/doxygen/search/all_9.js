@@ -69,7 +69,7 @@ var searchData=
   ['initonepercell',['InitOnePerCell',['../classamrex_1_1_particle_container.html#a23fef3ef39243107d38903a067b38bc7',1,'amrex::ParticleContainer']]],
   ['initparams',['InitParams',['../classamrex_1_1_b_l_profiler.html#af6d5560f2938564e691ec706ef87b5f3',1,'amrex::BLProfiler::InitParams()'],['../classamrex_1_1_b_l_profiler.html#a51c6c0088e1e40e1db8ed8e165c2314f',1,'amrex::BLProfiler::InitParams(const Real ptl, const bool writeall, const bool writefabs)']]],
   ['initpltandchk',['initPltAndChk',['../classamrex_1_1_amr.html#a210649d50f9f052bcaf38336ce97f986',1,'amrex::Amr']]],
-  ['initrandom',['InitRandom',['../classamrex_1_1_particle_container.html#ab625b5a4a0f0b861281f75c797c6787d',1,'amrex::ParticleContainer::InitRandom()'],['../namespaceamrex.html#a93de6099718f1f212f72153934643512',1,'amrex::InitRandom(unsigned long seed)'],['../namespaceamrex.html#a037cb7f1eaa6b38d10d36424e8218a6b',1,'amrex::InitRandom(unsigned long seed, int nprocs)']]],
+  ['initrandom',['InitRandom',['../classamrex_1_1_particle_container.html#ab625b5a4a0f0b861281f75c797c6787d',1,'amrex::ParticleContainer::InitRandom()'],['../namespaceamrex.html#a6d52f3a8f85790665ab8361b0235f391',1,'amrex::InitRandom()']]],
   ['initrandomperbox',['InitRandomPerBox',['../classamrex_1_1_particle_container.html#a78c63ad7c9a8ec65ce136664bdc7dacf',1,'amrex::ParticleContainer']]],
   ['initstatics',['InitStatics',['../classamrex_1_1_int_vect.html#a20ee38ab5419935a0bde3eb69930528e',1,'amrex::IntVect::InitStatics()'],['../class_index_t_m.html#addc81de7994af3e16feb92e890078c26',1,'IndexTM::InitStatics()']]],
   ['initsubcycle',['initSubcycle',['../classamrex_1_1_amr.html#ac817c89d71bd72e6514b12b78ba3a955',1,'amrex::Amr']]],
