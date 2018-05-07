@@ -112,29 +112,33 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    </div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classamrex_1_1_base_i_f.html">BaseIF</a>* <a class="code" href="classamrex_1_1_complement_i_f.html#a003feae2b957a70bfb45d32c2b458aca">newImplicitFunction</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">virtual</span> Real <a class="code" href="classamrex_1_1_complement_i_f.html#a2e0b504cf0cf0ea451e119f352e423ca">derivative</a>(<span class="keyword">const</span>  <a class="code" href="classamrex_1_1_int_vect.html">IntVect</a>&amp; a_deriv,</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                            <span class="keyword">const</span> <a class="code" href="classamrex_1_1_real_vect.html">RealVect</a>&amp; a_point) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    </div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classamrex_1_1_complement_i_f.html#aea2f22dc59d202ebfbb00be2d15e7470">   45</a></span>&#160;    <a class="code" href="classamrex_1_1_base_i_f.html">BaseIF</a>* <a class="code" href="classamrex_1_1_complement_i_f.html#aea2f22dc59d202ebfbb00be2d15e7470">m_impFunc</a>; <span class="comment">// implicit function to complement</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="classamrex_1_1_complement_i_f.html">ComplementIF</a>();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> operator=(<span class="keyword">const</span> <a class="code" href="classamrex_1_1_complement_i_f.html">ComplementIF</a>&amp; a_inputIF);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  };</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    </div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classamrex_1_1_complement_i_f.html#aea2f22dc59d202ebfbb00be2d15e7470">   48</a></span>&#160;    <a class="code" href="classamrex_1_1_base_i_f.html">BaseIF</a>* <a class="code" href="classamrex_1_1_complement_i_f.html#aea2f22dc59d202ebfbb00be2d15e7470">m_impFunc</a>; <span class="comment">// implicit function to complement</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="classamrex_1_1_complement_i_f.html">ComplementIF</a>();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> operator=(<span class="keyword">const</span> <a class="code" href="classamrex_1_1_complement_i_f.html">ComplementIF</a>&amp; a_inputIF);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  };</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="classamrex_1_1_complement_i_f_html_aba0ade3ecbed23f82f5f845e5cbac951"><div class="ttname"><a href="classamrex_1_1_complement_i_f.html#aba0ade3ecbed23f82f5f845e5cbac951">amrex::ComplementIF::value</a></div><div class="ttdeci">virtual Real value(const RealVect &amp;a_point) const </div><div class="ttdef"><b>Definition:</b> AMReX_ComplementIF.cpp:18</div></div>
 <div class="ttc" id="classamrex_1_1_base_i_f_html"><div class="ttname"><a href="classamrex_1_1_base_i_f.html">amrex::BaseIF</a></div><div class="ttdef"><b>Definition:</b> AMReX_BaseIF.H:20</div></div>
+<div class="ttc" id="classamrex_1_1_int_vect_html"><div class="ttname"><a href="classamrex_1_1_int_vect.html">amrex::IntVect</a></div><div class="ttdef"><b>Definition:</b> AMReX_IntVect.H:29</div></div>
 <div class="ttc" id="_a_m_re_x___real_vect_8_h_html"><div class="ttname"><a href="_a_m_re_x___real_vect_8_h.html">AMReX_RealVect.H</a></div></div>
 <div class="ttc" id="_a_m_re_x___base_i_f_8_h_html"><div class="ttname"><a href="_a_m_re_x___base_i_f_8_h.html">AMReX_BaseIF.H</a></div></div>
+<div class="ttc" id="classamrex_1_1_complement_i_f_html_a2e0b504cf0cf0ea451e119f352e423ca"><div class="ttname"><a href="classamrex_1_1_complement_i_f.html#a2e0b504cf0cf0ea451e119f352e423ca">amrex::ComplementIF::derivative</a></div><div class="ttdeci">virtual Real derivative(const IntVect &amp;a_deriv, const RealVect &amp;a_point) const </div><div class="ttdoc">return the partial derivative at the point </div><div class="ttdef"><b>Definition:</b> AMReX_ComplementIF.cpp:33</div></div>
 <div class="ttc" id="classamrex_1_1_complement_i_f_html_a2c7ada56c36af7cca593136965e9a5c4"><div class="ttname"><a href="classamrex_1_1_complement_i_f.html#a2c7ada56c36af7cca593136965e9a5c4">amrex::ComplementIF::~ComplementIF</a></div><div class="ttdeci">virtual ~ComplementIF()</div><div class="ttdoc">Destructor. </div><div class="ttdef"><b>Definition:</b> AMReX_ComplementIF.cpp:12</div></div>
 <div class="ttc" id="classamrex_1_1_complement_i_f_html"><div class="ttname"><a href="classamrex_1_1_complement_i_f.html">amrex::ComplementIF</a></div><div class="ttdef"><b>Definition:</b> AMReX_ComplementIF.H:17</div></div>
-<div class="ttc" id="classamrex_1_1_complement_i_f_html_a003feae2b957a70bfb45d32c2b458aca"><div class="ttname"><a href="classamrex_1_1_complement_i_f.html#a003feae2b957a70bfb45d32c2b458aca">amrex::ComplementIF::newImplicitFunction</a></div><div class="ttdeci">virtual BaseIF * newImplicitFunction() const </div><div class="ttdef"><b>Definition:</b> AMReX_ComplementIF.cpp:32</div></div>
-<div class="ttc" id="classamrex_1_1_complement_i_f_html_aea2f22dc59d202ebfbb00be2d15e7470"><div class="ttname"><a href="classamrex_1_1_complement_i_f.html#aea2f22dc59d202ebfbb00be2d15e7470">amrex::ComplementIF::m_impFunc</a></div><div class="ttdeci">BaseIF * m_impFunc</div><div class="ttdef"><b>Definition:</b> AMReX_ComplementIF.H:45</div></div>
+<div class="ttc" id="classamrex_1_1_complement_i_f_html_a003feae2b957a70bfb45d32c2b458aca"><div class="ttname"><a href="classamrex_1_1_complement_i_f.html#a003feae2b957a70bfb45d32c2b458aca">amrex::ComplementIF::newImplicitFunction</a></div><div class="ttdeci">virtual BaseIF * newImplicitFunction() const </div><div class="ttdef"><b>Definition:</b> AMReX_ComplementIF.cpp:41</div></div>
+<div class="ttc" id="classamrex_1_1_complement_i_f_html_aea2f22dc59d202ebfbb00be2d15e7470"><div class="ttname"><a href="classamrex_1_1_complement_i_f.html#aea2f22dc59d202ebfbb00be2d15e7470">amrex::ComplementIF::m_impFunc</a></div><div class="ttdeci">BaseIF * m_impFunc</div><div class="ttdef"><b>Definition:</b> AMReX_ComplementIF.H:48</div></div>
 <div class="ttc" id="classamrex_1_1_real_vect_html"><div class="ttname"><a href="classamrex_1_1_real_vect.html">amrex::RealVect</a></div><div class="ttdef"><b>Definition:</b> AMReX_RealVect.H:33</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
