@@ -113,6 +113,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#geometric-example-3-a-sphere-inside-a-parabola">Geometric example 3 – A Sphere Inside a Parabola</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#higher-order-geometries-and-wrappedgshop">Higher Order Geometries and WrappedGShop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ebfarraybox">EBFarrayBox</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#ebfarraybox-usage-example">EBFarrayBox Usage Example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#fortran-code-snippets">Fortran code Snippets</a><ul>
@@ -706,6 +707,19 @@ parabola. This code creates the surface shown in <a class="reference internal" h
 <p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">: Zero surface of an implicit function made the above code.</span></p>
 </div>
 </div>
+</div>
+<div class="section" id="higher-order-geometries-and-wrappedgshop">
+<h1>Higher Order Geometries and WrappedGShop<a class="headerlink" href="#higher-order-geometries-and-wrappedgshop" title="Permalink to this headline">¶</a></h1>
+<p>If one wants more geometric information than simple volume and area fractions and centroids,
+one can generate geometric moments (m).
+.. raw:: latex
+begin{equation}
+m^{p,q,r} = int_V x^p y^q z^r dV
+end{equation}
+.. raw:: latex
+To generate this information, one should use WrappedGShop instead of GeometryShop.  The user interface
+is exactly the same.   If you use WrappedGShop to generate your moments, EBData can provide
+moments (up to third order) of every volume and every face in the domain, including the cut face.</p>
 </div>
 <div class="section" id="ebfarraybox">
 <h1>EBFarrayBox<a class="headerlink" href="#ebfarraybox" title="Permalink to this headline">¶</a></h1>
