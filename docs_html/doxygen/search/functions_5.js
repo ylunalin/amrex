@@ -59,6 +59,7 @@ var searchData=
   ['errorfunc2',['ErrorFunc2',['../classamrex_1_1_error_rec_1_1_error_func2.html#aacd6362e36161ff9bb312a1e24088901',1,'amrex::ErrorRec::ErrorFunc2::ErrorFunc2()'],['../classamrex_1_1_error_rec_1_1_error_func2.html#a02a3fc42ec877b30c62f546c68f89ba1',1,'amrex::ErrorRec::ErrorFunc2::ErrorFunc2(ErrorFunc2Default inFunc)']]],
   ['errorlist',['ErrorList',['../classamrex_1_1_error_list.html#a7f27a1e373adbd6f9dc3fd2c2affa93b',1,'amrex::ErrorList']]],
   ['errorrec',['ErrorRec',['../classamrex_1_1_error_rec.html#a23c1a082f625f261a869fca2fbcbd16b',1,'amrex::ErrorRec::ErrorRec(const std::string &amp;nm, int ng, ErrorType etyp, const ErrorRec::ErrorFunc2 &amp;f2)'],['../classamrex_1_1_error_rec.html#a103642c3a3fe6d0f549a70ca1379bc10',1,'amrex::ErrorRec::ErrorRec(const std::string &amp;nm, int ng, ErrorType etyp, const ErrorRec::ErrorFunc &amp;f)']]],
+  ['errorstream',['ErrorStream',['../namespaceamrex.html#a1e213ab52cdac41e691ab49370b30a34',1,'amrex']]],
   ['errorstring',['ErrorString',['../namespaceamrex_1_1_parallel_descriptor.html#a568bbd4bb8f719b9c0ba1950c10678ef',1,'amrex::ParallelDescriptor']]],
   ['errtype',['errType',['../classamrex_1_1_error_rec.html#a898ec3d06f5951b29bce3a2f7c01fa27',1,'amrex::ErrorRec']]],
   ['estimatework',['estimateWork',['../classamrex_1_1_amr_level.html#a03b21d394e621b009b473c427b4769d0',1,'amrex::AmrLevel']]],

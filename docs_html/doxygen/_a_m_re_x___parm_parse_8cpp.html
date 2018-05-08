@@ -110,6 +110,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;<a class="el" href="_a_m_re_x___box_8_h_source.html">AMReX_Box.H</a>&gt;</code><br/>
 <code>#include &lt;<a class="el" href="_a_m_re_x___int_vect_8_h_source.html">AMReX_IntVect.H</a>&gt;</code><br/>
 <code>#include &lt;<a class="el" href="_a_m_re_x___b_l_fort_8_h_source.html">AMReX_BLFort.H</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="_a_m_re_x___print_8_h_source.html">AMReX_Print.H</a>&gt;</code><br/>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
@@ -144,12 +145,13 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">std::cerr &lt;&lt; <span class="stringliteral">&quot;ParmParse::getToken(): invalid string = &quot;</span> &lt;&lt; ostr &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>; \</div>
-<div class="line">   std::cerr &lt;&lt; <span class="stringliteral">&quot;STATE = &quot;</span> &lt;&lt; state_name[state]                 \</div>
-<div class="line">             &lt;&lt; <span class="stringliteral">&quot;, next char = &quot;</span> &lt;&lt; ch &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;                 \</div>
-<div class="line">   std::cerr &lt;&lt; <span class="stringliteral">&quot;, rest of input = \n&quot;</span> &lt;&lt; str &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;                  <a class="code" href="namespaceamrex.html#aea69993eec3c9ca497cd0e47522b2ec6">\</a></div>
+<b>Value:</b><div class="fragment"><div class="line"><a class="code" href="namespaceamrex.html#a1e213ab52cdac41e691ab49370b30a34">amrex::ErrorStream</a>() &lt;&lt; <span class="stringliteral">&quot;ParmParse::getToken(): invalid string = &quot;</span> &lt;&lt; ostr &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>; <a class="code" href="namespaceamrex.html#a1e213ab52cdac41e691ab49370b30a34">\</a></div>
+<div class="line"><a class="code" href="namespaceamrex.html#a1e213ab52cdac41e691ab49370b30a34">   amrex::ErrorStream</a>() &lt;&lt; <span class="stringliteral">&quot;STATE = &quot;</span> &lt;&lt; state_name[state]              \</div>
+<div class="line">                        &lt;&lt; <span class="stringliteral">&quot;, next char = &quot;</span> &lt;&lt; ch &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;              <a class="code" href="namespaceamrex.html#a1e213ab52cdac41e691ab49370b30a34">\</a></div>
+<div class="line"><a class="code" href="namespaceamrex.html#a1e213ab52cdac41e691ab49370b30a34">   amrex::ErrorStream</a>() &lt;&lt; <span class="stringliteral">&quot;, rest of input = \n&quot;</span> &lt;&lt; str &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;       <a class="code" href="namespaceamrex.html#aea69993eec3c9ca497cd0e47522b2ec6">\</a></div>
 <div class="line"><a class="code" href="namespaceamrex.html#aea69993eec3c9ca497cd0e47522b2ec6">   amrex::Abort</a>()</div>
-<div class="ttc" id="namespaceamrex_html_aea69993eec3c9ca497cd0e47522b2ec6"><div class="ttname"><a href="namespaceamrex.html#aea69993eec3c9ca497cd0e47522b2ec6">amrex::Abort</a></div><div class="ttdeci">void Abort(const char *msg=0)</div><div class="ttdoc">Print out message to cerr and exit via abort(). </div><div class="ttdef"><b>Definition:</b> AMReX.cpp:198</div></div>
+<div class="ttc" id="namespaceamrex_html_aea69993eec3c9ca497cd0e47522b2ec6"><div class="ttname"><a href="namespaceamrex.html#aea69993eec3c9ca497cd0e47522b2ec6">amrex::Abort</a></div><div class="ttdeci">void Abort(const char *msg=0)</div><div class="ttdoc">Print out message to cerr and exit via abort(). </div><div class="ttdef"><b>Definition:</b> AMReX.cpp:201</div></div>
+<div class="ttc" id="namespaceamrex_html_a1e213ab52cdac41e691ab49370b30a34"><div class="ttname"><a href="namespaceamrex.html#a1e213ab52cdac41e691ab49370b30a34">amrex::ErrorStream</a></div><div class="ttdeci">std::ostream &amp; ErrorStream()</div><div class="ttdef"><b>Definition:</b> AMReX.cpp:575</div></div>
 </div><!-- fragment -->
 </div>
 </div>
