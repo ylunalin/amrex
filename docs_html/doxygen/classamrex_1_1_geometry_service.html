@@ -104,9 +104,10 @@ Inheritance diagram for amrex::GeometryService:</div>
   <img src="classamrex_1_1_geometry_service.png" usemap="#amrex::GeometryService_map" alt=""/>
   <map id="amrex::GeometryService_map" name="amrex::GeometryService_map">
 <area href="classamrex_1_1_all_regular_service.html" title="A geometry service that is always regular. " alt="amrex::AllRegularService" shape="rect" coords="0,56,155,80"/>
-<area href="classamrex_1_1_flat_plate_geom.html" alt="amrex::FlatPlateGeom" shape="rect" coords="165,56,320,80"/>
-<area href="classamrex_1_1_geometry_shop.html" alt="amrex::GeometryShop" shape="rect" coords="330,56,485,80"/>
-<area href="classamrex_1_1_wrapped_g_shop.html" alt="amrex::WrappedGShop" shape="rect" coords="495,56,650,80"/>
+<area href="classamrex_1_1_covered_slabs.html" alt="amrex::CoveredSlabs" shape="rect" coords="165,56,320,80"/>
+<area href="classamrex_1_1_flat_plate_geom.html" alt="amrex::FlatPlateGeom" shape="rect" coords="330,56,485,80"/>
+<area href="classamrex_1_1_geometry_shop.html" alt="amrex::GeometryShop" shape="rect" coords="495,56,650,80"/>
+<area href="classamrex_1_1_wrapped_g_shop.html" alt="amrex::WrappedGShop" shape="rect" coords="660,56,815,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -314,7 +315,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>irregGraph contains a complete list of irregular vofs. \ validRegion is the the region of the graph \ domain is the domain of compuation \ regIrregCovered = 1 for regular, 0 for irregular, -1 for covered. regIrregCovered must contain the valid region grown by 1. \ In chombospeak, \ ghostregion = (grow(validRegion, 1) &amp; domain); </p>
 
-<p>Implemented in <a class="el" href="classamrex_1_1_wrapped_g_shop.html#ac14c451076999682bb1316dc2955e955">amrex::WrappedGShop</a>, <a class="el" href="classamrex_1_1_flat_plate_geom.html#ab46037ed4eac68d541c440963f2083ef">amrex::FlatPlateGeom</a>, <a class="el" href="classamrex_1_1_geometry_shop.html#a8046777ce66ee5db998b1091bb048e8a">amrex::GeometryShop</a>, and <a class="el" href="classamrex_1_1_all_regular_service.html#a67a0df53c8d27abccc4f9c049ebed374">amrex::AllRegularService</a>.</p>
+<p>Implemented in <a class="el" href="classamrex_1_1_wrapped_g_shop.html#ac14c451076999682bb1316dc2955e955">amrex::WrappedGShop</a>, <a class="el" href="classamrex_1_1_flat_plate_geom.html#ab46037ed4eac68d541c440963f2083ef">amrex::FlatPlateGeom</a>, <a class="el" href="classamrex_1_1_covered_slabs.html#a493e54fd9919710c42fb505646b4977b">amrex::CoveredSlabs</a>, <a class="el" href="classamrex_1_1_geometry_shop.html#a8046777ce66ee5db998b1091bb048e8a">amrex::GeometryShop</a>, and <a class="el" href="classamrex_1_1_all_regular_service.html#a67a0df53c8d27abccc4f9c049ebed374">amrex::AllRegularService</a>.</p>
 
 </div>
 </div>
@@ -594,7 +595,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return true if every cell in region is covered at the refinement described by dx. </p>
 
-<p>Implemented in <a class="el" href="classamrex_1_1_geometry_shop.html#a786f2fefc2ec06264d527f006d140fd6">amrex::GeometryShop</a>, <a class="el" href="classamrex_1_1_wrapped_g_shop.html#a4e88851d7beecc26cfc94699534349c8">amrex::WrappedGShop</a>, <a class="el" href="classamrex_1_1_flat_plate_geom.html#a159ed8d3c5abf2023cc943456101a8fc">amrex::FlatPlateGeom</a>, and <a class="el" href="classamrex_1_1_all_regular_service.html#ad6a68f8295f71c9208d075eecde6481e">amrex::AllRegularService</a>.</p>
+<p>Implemented in <a class="el" href="classamrex_1_1_geometry_shop.html#a786f2fefc2ec06264d527f006d140fd6">amrex::GeometryShop</a>, <a class="el" href="classamrex_1_1_wrapped_g_shop.html#a4e88851d7beecc26cfc94699534349c8">amrex::WrappedGShop</a>, <a class="el" href="classamrex_1_1_flat_plate_geom.html#a159ed8d3c5abf2023cc943456101a8fc">amrex::FlatPlateGeom</a>, <a class="el" href="classamrex_1_1_covered_slabs.html#af58a7ccfe2d7067b30f6838895d119e2">amrex::CoveredSlabs</a>, and <a class="el" href="classamrex_1_1_all_regular_service.html#ad6a68f8295f71c9208d075eecde6481e">amrex::AllRegularService</a>.</p>
 
 </div>
 </div>
@@ -691,7 +692,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return true if every cell in region is regular at the refinement described by dx. </p>
 
-<p>Implemented in <a class="el" href="classamrex_1_1_wrapped_g_shop.html#ab5636b7c077706075ade04692036dff3">amrex::WrappedGShop</a>, <a class="el" href="classamrex_1_1_geometry_shop.html#ac89a95153592ae716ebc6f3a060dbdee">amrex::GeometryShop</a>, <a class="el" href="classamrex_1_1_flat_plate_geom.html#a5d1aa3ae41d5916b727db8fde1008bbc">amrex::FlatPlateGeom</a>, and <a class="el" href="classamrex_1_1_all_regular_service.html#a412bacd4a1f9019eb3100bb48fa048c0">amrex::AllRegularService</a>.</p>
+<p>Implemented in <a class="el" href="classamrex_1_1_wrapped_g_shop.html#ab5636b7c077706075ade04692036dff3">amrex::WrappedGShop</a>, <a class="el" href="classamrex_1_1_geometry_shop.html#ac89a95153592ae716ebc6f3a060dbdee">amrex::GeometryShop</a>, <a class="el" href="classamrex_1_1_flat_plate_geom.html#a5d1aa3ae41d5916b727db8fde1008bbc">amrex::FlatPlateGeom</a>, <a class="el" href="classamrex_1_1_covered_slabs.html#a3ff800b152e9c46e7f32ecc785e1d7de">amrex::CoveredSlabs</a>, and <a class="el" href="classamrex_1_1_all_regular_service.html#a412bacd4a1f9019eb3100bb48fa048c0">amrex::AllRegularService</a>.</p>
 
 </div>
 </div>

@@ -46,6 +46,7 @@ var searchData=
   ['_7ecomplementif',['~ComplementIF',['../classamrex_1_1_complement_i_f.html#a2c7ada56c36af7cca593136965e9a5c4',1,'amrex::ComplementIF']]],
   ['_7ecoordinatesystem',['~CoordinateSystem',['../class_coordinate_system.html#aa819c4c90930a03d418d6f2b5582bd8f',1,'CoordinateSystem']]],
   ['_7ecoordsys',['~CoordSys',['../classamrex_1_1_coord_sys.html#a1d7e80f93fece05cfe429c16f36f9e9f',1,'amrex::CoordSys']]],
+  ['_7ecoveredslabs',['~CoveredSlabs',['../classamrex_1_1_covered_slabs.html#a5737fcc17ecb69cdb467c7a12156d823',1,'amrex::CoveredSlabs']]],
   ['_7ecpc',['~CPC',['../structamrex_1_1_fab_array_base_1_1_c_p_c.html#a97655cd5ccd143f3ab9c2a154d4d4f2f',1,'amrex::FabArrayBase::CPC']]],
   ['_7ecutcellmoments',['~CutCellMoments',['../class_cut_cell_moments.html#a9e8ed457ee1016d5df405b6808005d56',1,'CutCellMoments::~CutCellMoments()'],['../class_cut_cell_moments_3_011_01_4.html#a2bab716a34aec30178323e0b4a02efed',1,'CutCellMoments&lt; 1 &gt;::~CutCellMoments()']]],
   ['_7ederiverec',['~DeriveRec',['../classamrex_1_1_derive_rec.html#a3efcbfca10808d1a81e899f4d3448501',1,'amrex::DeriveRec']]],
