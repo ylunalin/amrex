@@ -7,6 +7,7 @@ var searchData=
   ['makeedgekey',['makeEdgeKey',['../class_i_f_data.html#a84953f92ab7681c9b63d7b8099ec2dd6',1,'IFData']]],
   ['makeempty',['makeEmpty',['../classamrex_1_1_int_vect_set.html#a98708544773e04280a18a9b0a457ed09',1,'amrex::IntVectSet']]],
   ['makeexplorer',['makeExplorer',['../classamrex_1_1_s_t_l_i_f.html#a228893da5ee9857d6f224d1da7e9abd4',1,'amrex::STLIF']]],
+  ['makefinemask',['makeFineMask',['../namespaceamrex.html#adb6a25ecc3b0a78548904c23c20c52a2',1,'amrex']]],
   ['makeknapsack',['makeKnapSack',['../classamrex_1_1_distribution_mapping.html#a0704dfa27b86490adf8d30ddf4cd54f6',1,'amrex::DistributionMapping::makeKnapSack(const MultiFab &amp;weight, int nmax=std::numeric_limits&lt; int &gt;::max())'],['../classamrex_1_1_distribution_mapping.html#a855901ec44101bce7c6a3cf89df36d9b',1,'amrex::DistributionMapping::makeKnapSack(const Vector&lt; Real &gt; &amp;rcost)']]],
   ['makeloadbalancedistributionmap',['makeLoadBalanceDistributionMap',['../classamrex_1_1_amr.html#acaf9fc608c5e55212302fbe0616df723',1,'amrex::Amr']]],
   ['makematrix',['makeMatrix',['../classamrex_1_1_moments.html#a853dc1999daad664257736a92ea4d554',1,'amrex::Moments']]],

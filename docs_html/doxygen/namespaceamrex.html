@@ -1199,6 +1199,8 @@ Functions</h2></td></tr>
 <tr class="memitem:abf696935cfdcc626247b7d1847d2bb1f"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#abf696935cfdcc626247b7d1847d2bb1f">get_slice_data</a> (int dir, Real coord, const <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;cc, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;geom, int fstart, int <a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>)</td></tr>
 <tr class="memdesc:abf696935cfdcc626247b7d1847d2bb1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract a slice from the given cell-centered <a class="el" href="classamrex_1_1_multi_fab.html" title="A collection (stored as an array) of FArrayBox objects. This class is useful for storing floating poi...">MultiFab</a> at coordinate "coord" along direction "dir".  <a href="#abf696935cfdcc626247b7d1847d2bb1f">More...</a><br/></td></tr>
 <tr class="separator:abf696935cfdcc626247b7d1847d2bb1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb6a25ecc3b0a78548904c23c20c52a2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1i_multi_fab.html">iMultiFab</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#adb6a25ecc3b0a78548904c23c20c52a2">makeFineMask</a> (const <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;cmf, const <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> &amp;fba, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a3a6ea573223fb7730509e32b93601c15">ratio</a>)</td></tr>
+<tr class="separator:adb6a25ecc3b0a78548904c23c20c52a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19deaea1de1f8799e4c319910ef2dae4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a19deaea1de1f8799e4c319910ef2dae4">isMFIterSafe</a> (const <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;x, const <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;y)</td></tr>
 <tr class="separator:a19deaea1de1f8799e4c319910ef2dae4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac38f92b345723f71defea15e208ee644"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ac38f92b345723f71defea15e208ee644">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="classamrex_1_1_orientation.html">Orientation</a> &amp;o)</td></tr>
@@ -10934,6 +10936,38 @@ template&lt;&gt; </div>
           <td class="paramtype">ListHead const *&#160;</td>
           <td class="paramname"><em>head</em></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="adb6a25ecc3b0a78548904c23c20c52a2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classamrex_1_1i_multi_fab.html">iMultiFab</a> amrex::makeFineMask </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;&#160;</td>
+          <td class="paramname"><em>cmf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> &amp;&#160;</td>
+          <td class="paramname"><em>fba</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;&#160;</td>
+          <td class="paramname"><em>ratio</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
