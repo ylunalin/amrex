@@ -139,26 +139,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="classamrex_1_1_real_box.html#a96fd4f100c941b923679edc08bf07c0b">   72</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classamrex_1_1_real_box.html#a96fd4f100c941b923679edc08bf07c0b">contains</a> (<span class="keyword">const</span> <a class="code" href="classamrex_1_1_real_vect.html">RealVect</a>&amp; rv, Real eps=0.0)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="classamrex_1_1_real_box.html#a96fd4f100c941b923679edc08bf07c0b">contains</a>(rv.<a class="code" href="classamrex_1_1_real_vect.html#ab206179c838afd606beb2c44ee6cd42d">dataPtr</a>(), eps); }</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classamrex_1_1_real_box.html#af5439dafc2b78b36c2ac8a330b856514">contains</a> (<span class="keyword">const</span> <a class="code" href="classamrex_1_1_real_box.html">RealBox</a>&amp; bx, Real eps=0.0) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="comment">// The data.</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    Real xlo[AMREX_SPACEDIM];</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    Real xhi[AMREX_SPACEDIM];</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;};</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment">// Nice ASCII output.</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;std::ostream&amp; <a class="code" href="namespaceamrex.html#a539c997273a93fdaabfc2a131c4425cf">operator&lt;&lt; </a>(std::ostream&amp;, <span class="keyword">const</span> RealBox&amp;);</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment">// Nice ASCII input.</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;std::istream&amp; <a class="code" href="namespaceamrex.html#aac7b44499bc56506bcf5ed89ec42bc09">operator&gt;&gt; </a>(std::istream&amp;, RealBox&amp;);</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/*_RealBox_H_*/</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classamrex_1_1_real_box.html#a725a635203ffcabc0143ff7d82048ec8">intersects</a> (<span class="keyword">const</span> <a class="code" href="classamrex_1_1_real_box.html">RealBox</a>&amp; bx) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="comment">// The data.</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    Real xlo[AMREX_SPACEDIM];</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    Real xhi[AMREX_SPACEDIM];</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;};</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">// Nice ASCII output.</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;std::ostream&amp; <a class="code" href="namespaceamrex.html#a539c997273a93fdaabfc2a131c4425cf">operator&lt;&lt; </a>(std::ostream&amp;, <span class="keyword">const</span> RealBox&amp;);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment">// Nice ASCII input.</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;std::istream&amp; <a class="code" href="namespaceamrex.html#aac7b44499bc56506bcf5ed89ec42bc09">operator&gt;&gt; </a>(std::istream&amp;, RealBox&amp;);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/*_RealBox_H_*/</span><span class="preprocessor"></span></div>
 <div class="ttc" id="_a_m_re_x___multi_fab_util___f_8_h_html_ad5fa46517dd383f09a279b8446fc397b"><div class="ttname"><a href="_a_m_re_x___multi_fab_util___f_8_h.html#ad5fa46517dd383f09a279b8446fc397b">dx</a></div><div class="ttdeci">const int const int const amrex_real * dx</div><div class="ttdef"><b>Definition:</b> AMReX_MultiFabUtil_F.H:39</div></div>
 <div class="ttc" id="classamrex_1_1_real_box_html"><div class="ttname"><a href="classamrex_1_1_real_box.html">amrex::RealBox</a></div><div class="ttdoc">A Box with real dimensions. A RealBox is OK iff volume &gt;= 0. </div><div class="ttdef"><b>Definition:</b> AMReX_RealBox.H:18</div></div>
 <div class="ttc" id="classamrex_1_1_real_box_html_acc7217375bb895c6d6a4fde242601654"><div class="ttname"><a href="classamrex_1_1_real_box.html#acc7217375bb895c6d6a4fde242601654">amrex::RealBox::setLo</a></div><div class="ttdeci">void setLo(const Vector&lt; Real &gt; &amp;a_lo)</div><div class="ttdoc">Sets lo side. </div><div class="ttdef"><b>Definition:</b> AMReX_RealBox.H:56</div></div>
@@ -190,6 +192,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classamrex_1_1_real_box_html_af5439dafc2b78b36c2ac8a330b856514"><div class="ttname"><a href="classamrex_1_1_real_box.html#af5439dafc2b78b36c2ac8a330b856514">amrex::RealBox::contains</a></div><div class="ttdeci">bool contains(const Real *point, Real eps=0.0) const </div><div class="ttdoc">Is the specified point contained in the RealBox? </div><div class="ttdef"><b>Definition:</b> AMReX_RealBox.cpp:77</div></div>
 <div class="ttc" id="classamrex_1_1_real_box_html_ac13407b3594af3ae782e8096ad8d0ca4"><div class="ttname"><a href="classamrex_1_1_real_box.html#ac13407b3594af3ae782e8096ad8d0ca4">amrex::RealBox::lo</a></div><div class="ttdeci">Real lo(int dir) const </div><div class="ttdoc">Returns length in specified direction. </div><div class="ttdef"><b>Definition:</b> AMReX_RealBox.H:48</div></div>
 <div class="ttc" id="classamrex_1_1_real_box_html_a296ba38a3119afec46001d3a3152c237"><div class="ttname"><a href="classamrex_1_1_real_box.html#a296ba38a3119afec46001d3a3152c237">amrex::RealBox::length</a></div><div class="ttdeci">Real length(int dir) const </div><div class="ttdoc">Returns length in specified direction. </div><div class="ttdef"><b>Definition:</b> AMReX_RealBox.H:52</div></div>
+<div class="ttc" id="classamrex_1_1_real_box_html_a725a635203ffcabc0143ff7d82048ec8"><div class="ttname"><a href="classamrex_1_1_real_box.html#a725a635203ffcabc0143ff7d82048ec8">amrex::RealBox::intersects</a></div><div class="ttdeci">bool intersects(const RealBox &amp;bx) const </div><div class="ttdoc">Does the specified RealBox intersect with this RealBox? </div><div class="ttdef"><b>Definition:</b> AMReX_RealBox.cpp:85</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
