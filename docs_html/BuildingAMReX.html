@@ -388,8 +388,8 @@ below.</p>
 <span id="tab-cmakevar"></span><table border="1" class="docutils" id="id2">
 <caption><span class="caption-number">Table 2 </span><span class="caption-text">AMReX build options</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col width="25%" />
-<col width="46%" />
+<col width="28%" />
+<col width="45%" />
 <col width="12%" />
 <col width="16%" />
 </colgroup>
@@ -441,77 +441,82 @@ below.</p>
 <td>ON</td>
 <td>ON, OFF</td>
 </tr>
-<tr class="row-even"><td>ENABLE_FBASELIB</td>
+<tr class="row-even"><td>ENABLE_LINEAR_SOLVERS_LEGACY</td>
+<td>Build AMReX linear solvers (legacy components)</td>
+<td>ON</td>
+<td>ON, OFF</td>
+</tr>
+<tr class="row-odd"><td>ENABLE_FBASELIB</td>
 <td>Build (deprecated) Fortran kernel</td>
 <td>ON</td>
 <td>ON, OFF</td>
 </tr>
-<tr class="row-odd"><td>ENABLE_AMRDATA</td>
+<tr class="row-even"><td>ENABLE_AMRDATA</td>
 <td>Build data services</td>
 <td>OFF</td>
 <td>ON, OFF</td>
 </tr>
-<tr class="row-even"><td>ENABLE_PARTICLES</td>
+<tr class="row-odd"><td>ENABLE_PARTICLES</td>
 <td>Build particle classes</td>
 <td>OFF</td>
 <td>ON OFF</td>
 </tr>
-<tr class="row-odd"><td>ENABLE_DP_PARTICLES</td>
+<tr class="row-even"><td>ENABLE_DP_PARTICLES</td>
 <td>Use double-precision reals in particle classes</td>
 <td>ON</td>
 <td>ON, OFF</td>
 </tr>
-<tr class="row-even"><td>ENABLE_BASE_PROFILE</td>
+<tr class="row-odd"><td>ENABLE_BASE_PROFILE</td>
 <td>Build with basic profiling support</td>
 <td>OFF</td>
 <td>ON, OFF</td>
 </tr>
-<tr class="row-odd"><td>ENABLE_TINY_PROFILE</td>
+<tr class="row-even"><td>ENABLE_TINY_PROFILE</td>
 <td>Build with tiny profiling support</td>
 <td>OFF</td>
 <td>ON, OFF</td>
 </tr>
-<tr class="row-even"><td>ENABLE_TRACE_PROFILE</td>
+<tr class="row-odd"><td>ENABLE_TRACE_PROFILE</td>
 <td>Build with trace-profiling support</td>
 <td>OFF</td>
 <td>ON, OFF</td>
 </tr>
-<tr class="row-odd"><td>ENABLE_COMM_PROFILE</td>
+<tr class="row-even"><td>ENABLE_COMM_PROFILE</td>
 <td>Build with comm-profiling support</td>
 <td>OFF</td>
 <td>ON, OFF</td>
 </tr>
-<tr class="row-even"><td>ENABLE_MEM_PROFILE</td>
+<tr class="row-odd"><td>ENABLE_MEM_PROFILE</td>
 <td>Build with memory-profiling support</td>
 <td>OFF</td>
 <td>ON, OFF</td>
 </tr>
-<tr class="row-odd"><td>ENABLE_PROFPARSER</td>
+<tr class="row-even"><td>ENABLE_PROFPARSER</td>
 <td>Build with profile parser support</td>
 <td>OFF</td>
 <td>ON, OFF</td>
 </tr>
-<tr class="row-even"><td>ENABLE_BACKTRACE</td>
+<tr class="row-odd"><td>ENABLE_BACKTRACE</td>
 <td>Build with backtrace support</td>
 <td>OFF</td>
 <td>ON, OFF</td>
 </tr>
-<tr class="row-odd"><td>ENABLE_FPE</td>
+<tr class="row-even"><td>ENABLE_FPE</td>
 <td>Build with Floating Point Exceptions checks</td>
 <td>OFF</td>
 <td>ON,OFF</td>
 </tr>
-<tr class="row-even"><td>ENABLE_ASSERTIONS</td>
+<tr class="row-odd"><td>ENABLE_ASSERTIONS</td>
 <td>Build with assertions turned on</td>
 <td>OFF</td>
 <td>ON,OFF</td>
 </tr>
-<tr class="row-odd"><td>CMAKE_Fortran_FLAGS</td>
+<tr class="row-even"><td>CMAKE_Fortran_FLAGS</td>
 <td>User-defined Fortran flags</td>
 <td>&#160;</td>
 <td>user-defined</td>
 </tr>
-<tr class="row-even"><td>CMAKE_CXX_FLAGS</td>
+<tr class="row-odd"><td>CMAKE_CXX_FLAGS</td>
 <td>User-defined C++ flags</td>
 <td>&#160;</td>
 <td>user-defined</td>
