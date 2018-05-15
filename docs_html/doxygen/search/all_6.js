@@ -49,7 +49,7 @@ var searchData=
   ['fabfactory_3c_20irregfab_20_3e',['FabFactory&lt; IrregFAB &gt;',['../classamrex_1_1_fab_factory.html',1,'amrex']]],
   ['fabindex',['fabIndex',['../structamrex_1_1_fab_array_base_1_1_fab_com_tag.html#aabd9d1aff4b684e0fc769347637226a5',1,'amrex::FabArrayBase::FabComTag::fabIndex()'],['../classamrex_1_1_fill_box_id.html#a6a8700aabb67fda339f6bea2d20afc7a',1,'amrex::FillBoxId::FabIndex() const '],['../classamrex_1_1_fill_box_id.html#ae5030aac852320ee49bcd85fb1037122',1,'amrex::FillBoxId::FabIndex(int fabindex)']]],
   ['fabinfo',['FabInfo',['../structamrex_1_1_fab_info.html',1,'amrex']]],
-  ['fabio',['FABio',['../classamrex_1_1_f_array_box.html#a1d09202fafedb82d79c005250c3cef2c',1,'amrex::FArrayBox::FABio()'],['../classamrex_1_1_f_array_box.html#a7b3c6612330474e7db6e4f6ff9d4f380',1,'amrex::FArrayBox::fabio()']]],
+  ['fabio',['fabio',['../classamrex_1_1_f_array_box.html#a7b3c6612330474e7db6e4f6ff9d4f380',1,'amrex::FArrayBox::fabio()'],['../classamrex_1_1_f_array_box.html#a1d09202fafedb82d79c005250c3cef2c',1,'amrex::FArrayBox::FABio()']]],
   ['fabio',['FABio',['../classamrex_1_1_f_a_bio.html',1,'amrex']]],
   ['fabio_5f8bit',['FABio_8bit',['../classamrex_1_1_f_a_bio__8bit.html',1,'amrex']]],
   ['fabio_5fascii',['FABio_ascii',['../classamrex_1_1_f_a_bio__ascii.html',1,'amrex']]],
