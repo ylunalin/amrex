@@ -447,7 +447,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;</div>
 <div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> FAB&gt;</div>
 <div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;<span class="keywordtype">void</span></div>
-<div class="line"><a name="l00360"></a><span class="lineno"><a class="line" href="classamrex_1_1_fab_array.html#a57311b600bf82d2e6577b5a1ef05f2ef">  360</a></span>&#160;<a class="code" href="classamrex_1_1_fab_array.html">FabArray&lt;FAB&gt;::FillBoundary_finish</a> ()</div>
+<div class="line"><a name="l00360"></a><span class="lineno"><a class="line" href="classamrex_1_1_fab_array.html#a1c51ab80e3ebd10bfd7ec574d0eb78a8">  360</a></span>&#160;<a class="code" href="classamrex_1_1_fab_array.html">FabArray&lt;FAB&gt;::FillBoundary_finish</a> ()</div>
 <div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;{</div>
 <div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    <span class="keywordflow">if</span> ( n_grow.allLE(IntVect::TheZeroVector()) &amp;&amp; !fb_epo ) <span class="keywordflow">return</span>; <span class="comment">// For epo (Enforce Periodicity Only), there may be no ghost cells.</span></div>
 <div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;</div>
@@ -590,12 +590,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;    <span class="keywordflow">if</span> (size() == 0 || src.<a class="code" href="classamrex_1_1_fab_array_base.html#aeadcc8b1b71512821a778b9c17ff92a5">size</a>() == 0) <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;</div>
 <div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;    <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(op == FabArrayBase::COPY || op == FabArrayBase::ADD);</div>
-<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;    <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(boxArray().ixType() == src.<a class="code" href="classamrex_1_1_fab_array_base.html#af3cc07aae7bfab423fa9c30bba2efd59">boxArray</a>().ixType());</div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;    <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(boxArray().ixType() == src.<a class="code" href="classamrex_1_1_fab_array_base.html#af3cc07aae7bfab423fa9c30bba2efd59">boxArray</a>().<a class="code" href="classamrex_1_1_box_array.html#ab0def4ab9990fbe6880e98067e27acd5">ixType</a>());</div>
 <div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;</div>
-<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;    <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(src.<a class="code" href="classamrex_1_1_fab_array_base.html#a04f6b5015129a821f4795f7d6961882d">nGrowVect</a>().allGE(snghost));</div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;    <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(src.<a class="code" href="classamrex_1_1_fab_array_base.html#a04f6b5015129a821f4795f7d6961882d">nGrowVect</a>().<a class="code" href="classamrex_1_1_int_vect.html#a91f8f42529173ede28b6ec295930e57f">allGE</a>(snghost));</div>
 <div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;    <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(    nGrowVect().allGE(dnghost));</div>
 <div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;</div>
-<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;    <span class="keywordflow">if</span> ((src.<a class="code" href="classamrex_1_1_fab_array_base.html#af3cc07aae7bfab423fa9c30bba2efd59">boxArray</a>().ixType().cellCentered() || op == FabArrayBase::COPY) &amp;&amp;</div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;    <span class="keywordflow">if</span> ((src.<a class="code" href="classamrex_1_1_fab_array_base.html#af3cc07aae7bfab423fa9c30bba2efd59">boxArray</a>().<a class="code" href="classamrex_1_1_box_array.html#ab0def4ab9990fbe6880e98067e27acd5">ixType</a>().<a class="code" href="classamrex_1_1_index_type.html#a93e248080ee27e9ddf6d691f2b426ccd">cellCentered</a>() || op == FabArrayBase::COPY) &amp;&amp;</div>
 <div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;        (boxarray == src.<a class="code" href="classamrex_1_1_fab_array_base.html#ae63b22ccabe6c5af01dd0779c60740c8">boxarray</a> &amp;&amp; distributionMap == src.<a class="code" href="classamrex_1_1_fab_array_base.html#adcb92e864340876da67df2fc64d8bdd7">distributionMap</a>)</div>
 <div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;    &amp;&amp; snghost == IntVect::TheZeroVector() &amp;&amp; dnghost == IntVect::TheZeroVector()</div>
 <div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;        &amp;&amp; !period.<a class="code" href="classamrex_1_1_periodicity.html#a9a1539019255de794ec99902c6f85306">isAnyPeriodic</a>())</div>
@@ -1128,350 +1128,751 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01038"></a><span class="lineno"> 1038</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/*BL_USE_MPI*/</span><span class="preprocessor"></span></div>
 <div class="line"><a name="l01039"></a><span class="lineno"> 1039</span>&#160;<span class="preprocessor"></span>}</div>
 <div class="line"><a name="l01040"></a><span class="lineno"> 1040</span>&#160;</div>
-<div class="line"><a name="l01041"></a><span class="lineno"> 1041</span>&#160;</div>
-<div class="line"><a name="l01042"></a><span class="lineno"> 1042</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> FAB&gt;</div>
-<div class="line"><a name="l01043"></a><span class="lineno"> 1043</span>&#160;<span class="keywordtype">void</span></div>
-<div class="line"><a name="l01044"></a><span class="lineno"> 1044</span>&#160;FabArray&lt;FAB&gt;::copyTo (FAB&amp;       dest,</div>
-<div class="line"><a name="l01045"></a><span class="lineno"> 1045</span>&#160;               <span class="keyword">const</span> Box&amp; subbox,</div>
-<div class="line"><a name="l01046"></a><span class="lineno"> 1046</span>&#160;               <span class="keywordtype">int</span>        scomp,</div>
-<div class="line"><a name="l01047"></a><span class="lineno"> 1047</span>&#160;               <span class="keywordtype">int</span>        dcomp,</div>
-<div class="line"><a name="l01048"></a><span class="lineno"> 1048</span>&#160;               <span class="keywordtype">int</span>        ncomp,</div>
-<div class="line"><a name="l01049"></a><span class="lineno"> 1049</span>&#160;               <span class="keywordtype">int</span>        nghost)<span class="keyword"> const</span></div>
-<div class="line"><a name="l01050"></a><span class="lineno"> 1050</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l01051"></a><span class="lineno"> 1051</span>&#160;    <a class="code" href="_a_m_re_x___b_l_profiler_8_h.html#a548fbd9b2cd72a927f463003f4adb0b1">BL_PROFILE</a>(<span class="stringliteral">&quot;FabArray::copy(fab)&quot;</span>);</div>
-<div class="line"><a name="l01052"></a><span class="lineno"> 1052</span>&#160;</div>
-<div class="line"><a name="l01053"></a><span class="lineno"> 1053</span>&#160;    <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(dcomp + ncomp &lt;= dest.nComp());</div>
-<div class="line"><a name="l01054"></a><span class="lineno"> 1054</span>&#160;    <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(nghost &lt;= nGrow());</div>
-<div class="line"><a name="l01055"></a><span class="lineno"> 1055</span>&#160;</div>
-<div class="line"><a name="l01056"></a><span class="lineno"> 1056</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="namespaceamrex_1_1_parallel_context.html#a1e98db9c755ff62ca57280f0d6313936">ParallelContext::NProcsSub</a>() == 1)</div>
-<div class="line"><a name="l01057"></a><span class="lineno"> 1057</span>&#160;    {</div>
-<div class="line"><a name="l01058"></a><span class="lineno"> 1058</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0, N = size(); j &lt; N; ++j)</div>
-<div class="line"><a name="l01059"></a><span class="lineno"> 1059</span>&#160;        {</div>
-<div class="line"><a name="l01060"></a><span class="lineno"> 1060</span>&#160;        <span class="keyword">const</span> Box&amp; bx = <a class="code" href="namespaceamrex.html#aded67b6a8fd015f89f19f03ed9fdcb73">amrex::grow</a>(boxarray[j],nghost);</div>
-<div class="line"><a name="l01061"></a><span class="lineno"> 1061</span>&#160;        <span class="keyword">const</span> Box&amp; destbox = bx &amp; subbox;</div>
-<div class="line"><a name="l01062"></a><span class="lineno"> 1062</span>&#160;        <span class="keywordflow">if</span> (destbox.ok())</div>
-<div class="line"><a name="l01063"></a><span class="lineno"> 1063</span>&#160;            {</div>
-<div class="line"><a name="l01064"></a><span class="lineno"> 1064</span>&#160;                dest.copy(<span class="keyword">get</span>(j),destbox,scomp,destbox,dcomp,ncomp);</div>
-<div class="line"><a name="l01065"></a><span class="lineno"> 1065</span>&#160;            }</div>
-<div class="line"><a name="l01066"></a><span class="lineno"> 1066</span>&#160;        }</div>
-<div class="line"><a name="l01067"></a><span class="lineno"> 1067</span>&#160;</div>
-<div class="line"><a name="l01068"></a><span class="lineno"> 1068</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l01069"></a><span class="lineno"> 1069</span>&#160;    }</div>
-<div class="line"><a name="l01070"></a><span class="lineno"> 1070</span>&#160;</div>
-<div class="line"><a name="l01071"></a><span class="lineno"> 1071</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l01072"></a><span class="lineno"> 1072</span>&#160;    <span class="comment">//  Note that subbox must be identical on each process!!</span></div>
-<div class="line"><a name="l01073"></a><span class="lineno"> 1073</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l01074"></a><span class="lineno"> 1074</span>&#160;<span class="preprocessor">#ifdef AMREX_DEBUG</span></div>
-<div class="line"><a name="l01075"></a><span class="lineno"> 1075</span>&#160;<span class="preprocessor"></span>    {</div>
-<div class="line"><a name="l01076"></a><span class="lineno"> 1076</span>&#160;    BoxCommHelper bch(subbox);  </div>
-<div class="line"><a name="l01077"></a><span class="lineno"> 1077</span>&#160;    <a class="code" href="namespaceamrex_1_1_parallel_descriptor.html#a20157f27c3bf88a426b0f44bd6bbf135">ParallelDescriptor::Bcast</a>(bch.data(), bch.size(), 0, <a class="code" href="namespaceamrex_1_1_parallel_context.html#afb1955e0ab6b3f188007ad3aa5a4ef8a">ParallelContext::CommunicatorSub</a>());</div>
-<div class="line"><a name="l01078"></a><span class="lineno"> 1078</span>&#160;    <span class="keyword">const</span> Box&amp; bx0 = bch.make_box();</div>
-<div class="line"><a name="l01079"></a><span class="lineno"> 1079</span>&#160;    <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(subbox == bx0);</div>
-<div class="line"><a name="l01080"></a><span class="lineno"> 1080</span>&#160;    }</div>
-<div class="line"><a name="l01081"></a><span class="lineno"> 1081</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l01082"></a><span class="lineno"> 1082</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l01083"></a><span class="lineno"> 1083</span>&#160;    FAB ovlp;</div>
-<div class="line"><a name="l01084"></a><span class="lineno"> 1084</span>&#160;</div>
-<div class="line"><a name="l01085"></a><span class="lineno"> 1085</span>&#160;    std::vector&lt; std::pair&lt;int,Box&gt; &gt; isects;</div>
-<div class="line"><a name="l01086"></a><span class="lineno"> 1086</span>&#160;    boxarray.intersections(subbox, isects, <span class="keyword">false</span>, nghost);</div>
-<div class="line"><a name="l01087"></a><span class="lineno"> 1087</span>&#160;</div>
-<div class="line"><a name="l01088"></a><span class="lineno"> 1088</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0, M = isects.size(); j &lt; M; ++j)</div>
-<div class="line"><a name="l01089"></a><span class="lineno"> 1089</span>&#160;    {</div>
-<div class="line"><a name="l01090"></a><span class="lineno"> 1090</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span>  k  = isects[j].first;</div>
-<div class="line"><a name="l01091"></a><span class="lineno"> 1091</span>&#160;    <span class="keyword">const</span> Box&amp; bx = isects[j].second;</div>
+<div class="line"><a name="l01041"></a><span class="lineno"> 1041</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> FAB&gt;</div>
+<div class="line"><a name="l01042"></a><span class="lineno"> 1042</span>&#160;<span class="keyword">typename</span> FabArray&lt;FAB&gt;::CopierHandle</div>
+<div class="line"><a name="l01043"></a><span class="lineno"><a class="line" href="classamrex_1_1_fab_array.html#acaaaa3e19cd19ac3eb52252bb41971b6"> 1043</a></span>&#160;<a class="code" href="classamrex_1_1_fab_array.html">FabArray&lt;FAB&gt;::ParallelCopy_nowait</a> (<span class="keyword">const</span> <a class="code" href="classamrex_1_1_fab_array.html">FabArray&lt;FAB&gt;</a>&amp; src,</div>
+<div class="line"><a name="l01044"></a><span class="lineno"> 1044</span>&#160;                                    <span class="keywordtype">int</span>                  scomp,</div>
+<div class="line"><a name="l01045"></a><span class="lineno"> 1045</span>&#160;                                    <span class="keywordtype">int</span>                  dcomp,</div>
+<div class="line"><a name="l01046"></a><span class="lineno"> 1046</span>&#160;                                    <span class="keywordtype">int</span>                  ncomp,</div>
+<div class="line"><a name="l01047"></a><span class="lineno"> 1047</span>&#160;                                    <span class="keyword">const</span> <a class="code" href="classamrex_1_1_int_vect.html">IntVect</a>&amp;       snghost,</div>
+<div class="line"><a name="l01048"></a><span class="lineno"> 1048</span>&#160;                                    <span class="keyword">const</span> <a class="code" href="classamrex_1_1_int_vect.html">IntVect</a>&amp;       dnghost,</div>
+<div class="line"><a name="l01049"></a><span class="lineno"> 1049</span>&#160;                                    <span class="keyword">const</span> <a class="code" href="classamrex_1_1_periodicity.html">Periodicity</a>&amp;   period,</div>
+<div class="line"><a name="l01050"></a><span class="lineno"> 1050</span>&#160;                                    <a class="code" href="classamrex_1_1_fab_array_base.html#ac86e93bfc13df1bdcfb0ebbafb6a1cff">CpOp</a>                 op,</div>
+<div class="line"><a name="l01051"></a><span class="lineno"> 1051</span>&#160;                                    <span class="keyword">const</span> <a class="code" href="structamrex_1_1_fab_array_base_1_1_c_p_c.html">FabArrayBase::CPC</a> * a_cpc)</div>
+<div class="line"><a name="l01052"></a><span class="lineno"> 1052</span>&#160;{</div>
+<div class="line"><a name="l01053"></a><span class="lineno"> 1053</span>&#160;    <a class="code" href="_a_m_re_x___b_l_profiler_8_h.html#a548fbd9b2cd72a927f463003f4adb0b1">BL_PROFILE</a>(<span class="stringliteral">&quot;FabArray::ParallelCopy_nowait()&quot;</span>);</div>
+<div class="line"><a name="l01054"></a><span class="lineno"> 1054</span>&#160;</div>
+<div class="line"><a name="l01055"></a><span class="lineno"> 1055</span>&#160;    <span class="keywordflow">if</span> (size() == 0 || src.<a class="code" href="classamrex_1_1_fab_array_base.html#aeadcc8b1b71512821a778b9c17ff92a5">size</a>() == 0) <span class="keywordflow">return</span> CopierHandle();</div>
+<div class="line"><a name="l01056"></a><span class="lineno"> 1056</span>&#160;</div>
+<div class="line"><a name="l01057"></a><span class="lineno"> 1057</span>&#160;    <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(op == FabArrayBase::COPY || op == FabArrayBase::ADD);</div>
+<div class="line"><a name="l01058"></a><span class="lineno"> 1058</span>&#160;    <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(boxArray().ixType() == src.<a class="code" href="classamrex_1_1_fab_array_base.html#af3cc07aae7bfab423fa9c30bba2efd59">boxArray</a>().<a class="code" href="classamrex_1_1_box_array.html#ab0def4ab9990fbe6880e98067e27acd5">ixType</a>());</div>
+<div class="line"><a name="l01059"></a><span class="lineno"> 1059</span>&#160;</div>
+<div class="line"><a name="l01060"></a><span class="lineno"> 1060</span>&#160;    <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(src.<a class="code" href="classamrex_1_1_fab_array_base.html#a04f6b5015129a821f4795f7d6961882d">nGrowVect</a>().<a class="code" href="classamrex_1_1_int_vect.html#a91f8f42529173ede28b6ec295930e57f">allGE</a>(snghost));</div>
+<div class="line"><a name="l01061"></a><span class="lineno"> 1061</span>&#160;    <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(    nGrowVect().allGE(dnghost));</div>
+<div class="line"><a name="l01062"></a><span class="lineno"> 1062</span>&#160;</div>
+<div class="line"><a name="l01063"></a><span class="lineno"> 1063</span>&#160;    <span class="keywordflow">if</span> ((src.<a class="code" href="classamrex_1_1_fab_array_base.html#af3cc07aae7bfab423fa9c30bba2efd59">boxArray</a>().<a class="code" href="classamrex_1_1_box_array.html#ab0def4ab9990fbe6880e98067e27acd5">ixType</a>().<a class="code" href="classamrex_1_1_index_type.html#a93e248080ee27e9ddf6d691f2b426ccd">cellCentered</a>() || op == FabArrayBase::COPY) &amp;&amp;</div>
+<div class="line"><a name="l01064"></a><span class="lineno"> 1064</span>&#160;        (boxarray == src.<a class="code" href="classamrex_1_1_fab_array_base.html#ae63b22ccabe6c5af01dd0779c60740c8">boxarray</a> &amp;&amp; distributionMap == src.<a class="code" href="classamrex_1_1_fab_array_base.html#adcb92e864340876da67df2fc64d8bdd7">distributionMap</a>)</div>
+<div class="line"><a name="l01065"></a><span class="lineno"> 1065</span>&#160;    &amp;&amp; snghost == IntVect::TheZeroVector() &amp;&amp; dnghost == IntVect::TheZeroVector()</div>
+<div class="line"><a name="l01066"></a><span class="lineno"> 1066</span>&#160;        &amp;&amp; !period.<a class="code" href="classamrex_1_1_periodicity.html#a9a1539019255de794ec99902c6f85306">isAnyPeriodic</a>())</div>
+<div class="line"><a name="l01067"></a><span class="lineno"> 1067</span>&#160;    {</div>
+<div class="line"><a name="l01068"></a><span class="lineno"> 1068</span>&#160;        <span class="comment">//</span></div>
+<div class="line"><a name="l01069"></a><span class="lineno"> 1069</span>&#160;        <span class="comment">// Short-circuit full intersection code if we&#39;re doing copy()s or if</span></div>
+<div class="line"><a name="l01070"></a><span class="lineno"> 1070</span>&#160;        <span class="comment">// we&#39;re doing plus()s on cell-centered data.  Don&#39;t do plus()s on</span></div>
+<div class="line"><a name="l01071"></a><span class="lineno"> 1071</span>&#160;        <span class="comment">// non-cell-centered data this simplistic way.</span></div>
+<div class="line"><a name="l01072"></a><span class="lineno"> 1072</span>&#160;        <span class="comment">//</span></div>
+<div class="line"><a name="l01073"></a><span class="lineno"> 1073</span>&#160;<span class="preprocessor">#ifdef _OPENMP</span></div>
+<div class="line"><a name="l01074"></a><span class="lineno"> 1074</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#pragma omp parallel if (FAB::isCopyOMPSafe())</span></div>
+<div class="line"><a name="l01075"></a><span class="lineno"> 1075</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l01076"></a><span class="lineno"> 1076</span>&#160;<span class="preprocessor"></span>        <span class="keywordflow">for</span> (<a class="code" href="classamrex_1_1_m_f_iter.html">MFIter</a> fai(*<span class="keyword">this</span>,<span class="keyword">true</span>); fai.<a class="code" href="classamrex_1_1_m_f_iter.html#ad1cb993a973d541776b06c959d1ae3cd">isValid</a>(); ++fai)</div>
+<div class="line"><a name="l01077"></a><span class="lineno"> 1077</span>&#160;        {</div>
+<div class="line"><a name="l01078"></a><span class="lineno"> 1078</span>&#160;            <span class="keyword">const</span> <a class="code" href="classamrex_1_1_box.html">Box</a>&amp; bx = fai.tilebox();</div>
+<div class="line"><a name="l01079"></a><span class="lineno"> 1079</span>&#160;</div>
+<div class="line"><a name="l01080"></a><span class="lineno"> 1080</span>&#160;        <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;src) {</div>
+<div class="line"><a name="l01081"></a><span class="lineno"> 1081</span>&#160;        <span class="comment">// avoid self copy or plus</span></div>
+<div class="line"><a name="l01082"></a><span class="lineno"> 1082</span>&#160;        <span class="keywordflow">if</span> (op == FabArrayBase::COPY) {</div>
+<div class="line"><a name="l01083"></a><span class="lineno"> 1083</span>&#160;            <span class="keyword">get</span>(fai).copy(src[fai],bx,scomp,bx,dcomp,ncomp);</div>
+<div class="line"><a name="l01084"></a><span class="lineno"> 1084</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l01085"></a><span class="lineno"> 1085</span>&#160;            <span class="keyword">get</span>(fai).plus(src[fai],bx,bx,scomp,dcomp,ncomp);</div>
+<div class="line"><a name="l01086"></a><span class="lineno"> 1086</span>&#160;        }</div>
+<div class="line"><a name="l01087"></a><span class="lineno"> 1087</span>&#160;        }</div>
+<div class="line"><a name="l01088"></a><span class="lineno"> 1088</span>&#160;        }</div>
+<div class="line"><a name="l01089"></a><span class="lineno"> 1089</span>&#160;</div>
+<div class="line"><a name="l01090"></a><span class="lineno"> 1090</span>&#160;        <span class="keywordflow">return</span> CopierHandle();</div>
+<div class="line"><a name="l01091"></a><span class="lineno"> 1091</span>&#160;    }</div>
 <div class="line"><a name="l01092"></a><span class="lineno"> 1092</span>&#160;</div>
-<div class="line"><a name="l01093"></a><span class="lineno"> 1093</span>&#160;    ovlp.resize(bx,ncomp);</div>
+<div class="line"><a name="l01093"></a><span class="lineno"> 1093</span>&#160;    <span class="keyword">const</span> <a class="code" href="structamrex_1_1_fab_array_base_1_1_c_p_c.html">CPC</a>&amp; thecpc = (a_cpc) ? *a_cpc : getCPC(dnghost, src, snghost, period);</div>
 <div class="line"><a name="l01094"></a><span class="lineno"> 1094</span>&#160;</div>
-<div class="line"><a name="l01095"></a><span class="lineno"> 1095</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="namespaceamrex_1_1_parallel_descriptor.html#a3deabb4447125ee364f9ca1c5a07c1e4">ParallelDescriptor::MyProc</a>() == distributionMap[k])</div>
+<div class="line"><a name="l01095"></a><span class="lineno"> 1095</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="namespaceamrex_1_1_parallel_context.html#a1e98db9c755ff62ca57280f0d6313936">ParallelContext::NProcsSub</a>() == 1)</div>
 <div class="line"><a name="l01096"></a><span class="lineno"> 1096</span>&#160;    {</div>
-<div class="line"><a name="l01097"></a><span class="lineno"> 1097</span>&#160;        ovlp.copy(<span class="keyword">get</span>(k),bx,scomp,bx,0,ncomp);</div>
-<div class="line"><a name="l01098"></a><span class="lineno"> 1098</span>&#160;    }</div>
-<div class="line"><a name="l01099"></a><span class="lineno"> 1099</span>&#160;</div>
-<div class="line"><a name="l01100"></a><span class="lineno"> 1100</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> N = bx.numPts()*<a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>;</div>
-<div class="line"><a name="l01101"></a><span class="lineno"> 1101</span>&#160;</div>
-<div class="line"><a name="l01102"></a><span class="lineno"> 1102</span>&#160;    <a class="code" href="namespaceamrex_1_1_parallel_descriptor.html#a20157f27c3bf88a426b0f44bd6bbf135">ParallelDescriptor::Bcast</a>(ovlp.dataPtr(),N,</div>
-<div class="line"><a name="l01103"></a><span class="lineno"> 1103</span>&#160;                                  <a class="code" href="namespaceamrex_1_1_parallel_context.html#a60c8ba6a67754c2b46d8b1ad78cb26b2">ParallelContext::global_to_local_rank</a>(distributionMap[k]),</div>
-<div class="line"><a name="l01104"></a><span class="lineno"> 1104</span>&#160;                                  <a class="code" href="namespaceamrex_1_1_parallel_context.html#afb1955e0ab6b3f188007ad3aa5a4ef8a">ParallelContext::CommunicatorSub</a>());</div>
-<div class="line"><a name="l01105"></a><span class="lineno"> 1105</span>&#160;</div>
-<div class="line"><a name="l01106"></a><span class="lineno"> 1106</span>&#160;    dest.copy(ovlp,bx,0,bx,dcomp,ncomp);</div>
-<div class="line"><a name="l01107"></a><span class="lineno"> 1107</span>&#160;    }</div>
-<div class="line"><a name="l01108"></a><span class="lineno"> 1108</span>&#160;}</div>
-<div class="line"><a name="l01109"></a><span class="lineno"> 1109</span>&#160;</div>
-<div class="line"><a name="l01110"></a><span class="lineno"> 1110</span>&#160;</div>
-<div class="line"><a name="l01111"></a><span class="lineno"> 1111</span>&#160;<span class="preprocessor">#ifdef BL_USE_MPI</span></div>
-<div class="line"><a name="l01112"></a><span class="lineno"> 1112</span>&#160;<span class="preprocessor"></span><span class="keyword">template</span> &lt;<span class="keyword">class</span> FAB&gt;</div>
-<div class="line"><a name="l01113"></a><span class="lineno"> 1113</span>&#160;<span class="keywordtype">void</span></div>
-<div class="line"><a name="l01114"></a><span class="lineno"> 1114</span>&#160;FabArray&lt;FAB&gt;::PostRcvs (<span class="keyword">const</span> MapOfCopyComTagContainers&amp;  m_RcvVols,</div>
-<div class="line"><a name="l01115"></a><span class="lineno"> 1115</span>&#160;                         <span class="keyword">const</span> MapOfCopyComTagContainers&amp;  m_RcvTags,</div>
-<div class="line"><a name="l01116"></a><span class="lineno"> 1116</span>&#160;                         Vector&lt;char*&gt;&amp;                     recv_data,</div>
-<div class="line"><a name="l01117"></a><span class="lineno"> 1117</span>&#160;                         Vector&lt;int&gt;&amp;                       recv_size,</div>
-<div class="line"><a name="l01118"></a><span class="lineno"> 1118</span>&#160;                         Vector&lt;int&gt;&amp;                       recv_from,</div>
-<div class="line"><a name="l01119"></a><span class="lineno"> 1119</span>&#160;                         Vector&lt;MPI_Request&gt;&amp;               recv_reqs,</div>
-<div class="line"><a name="l01120"></a><span class="lineno"> 1120</span>&#160;                         <span class="keywordtype">int</span>                               icomp,</div>
-<div class="line"><a name="l01121"></a><span class="lineno"> 1121</span>&#160;                         <span class="keywordtype">int</span>                               ncomp,</div>
-<div class="line"><a name="l01122"></a><span class="lineno"> 1122</span>&#160;                         <span class="keywordtype">int</span>                               SeqNum,</div>
-<div class="line"><a name="l01123"></a><span class="lineno"> 1123</span>&#160;                         <span class="keywordtype">int</span>                               preSeqNum)</div>
-<div class="line"><a name="l01124"></a><span class="lineno"> 1124</span>&#160;{</div>
-<div class="line"><a name="l01125"></a><span class="lineno"> 1125</span>&#160;    recv_data.clear();</div>
-<div class="line"><a name="l01126"></a><span class="lineno"> 1126</span>&#160;    recv_size.clear();</div>
-<div class="line"><a name="l01127"></a><span class="lineno"> 1127</span>&#160;    recv_from.clear();</div>
-<div class="line"><a name="l01128"></a><span class="lineno"> 1128</span>&#160;    recv_reqs.clear();</div>
-<div class="line"><a name="l01129"></a><span class="lineno"> 1129</span>&#160;</div>
-<div class="line"><a name="l01130"></a><span class="lineno"> 1130</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; kv : m_RcvVols) <span class="comment">// loop over senders</span></div>
-<div class="line"><a name="l01131"></a><span class="lineno"> 1131</span>&#160;    {</div>
-<div class="line"><a name="l01132"></a><span class="lineno"> 1132</span>&#160;        std::size_t nbytes = 0;</div>
-<div class="line"><a name="l01133"></a><span class="lineno"> 1133</span>&#160;        <span class="keywordflow">if</span> (FAB::preAllocatable())</div>
-<div class="line"><a name="l01134"></a><span class="lineno"> 1134</span>&#160;        {</div>
-<div class="line"><a name="l01135"></a><span class="lineno"> 1135</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>&amp; cct : kv.second)</div>
-<div class="line"><a name="l01136"></a><span class="lineno"> 1136</span>&#160;            {</div>
-<div class="line"><a name="l01137"></a><span class="lineno"> 1137</span>&#160;                nbytes += (*this)[cct.dstIndex].nBytes(cct.dbox,icomp,ncomp);</div>
-<div class="line"><a name="l01138"></a><span class="lineno"> 1138</span>&#160;            }</div>
-<div class="line"><a name="l01139"></a><span class="lineno"> 1139</span>&#160;        }</div>
-<div class="line"><a name="l01140"></a><span class="lineno"> 1140</span>&#160;</div>
-<div class="line"><a name="l01141"></a><span class="lineno"> 1141</span>&#160;        <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(nbytes &lt; <a class="code" href="namespaceamrex.html#a870c2407ed885451a76f66f8a0d7a892">std::numeric_limits&lt;int&gt;::max</a>());</div>
-<div class="line"><a name="l01142"></a><span class="lineno"> 1142</span>&#160;</div>
-<div class="line"><a name="l01143"></a><span class="lineno"> 1143</span>&#160;        recv_data.push_back(<span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l01144"></a><span class="lineno"> 1144</span>&#160;        recv_size.push_back(static_cast&lt;int&gt;(nbytes));</div>
-<div class="line"><a name="l01145"></a><span class="lineno"> 1145</span>&#160;        recv_from.push_back(kv.first);</div>
-<div class="line"><a name="l01146"></a><span class="lineno"> 1146</span>&#160;        recv_reqs.push_back(<a class="code" href="_a_m_re_x__ccse-mpi_8_h.html#a1f063a918d9598b982feec3690d69bec">MPI_REQUEST_NULL</a>);</div>
-<div class="line"><a name="l01147"></a><span class="lineno"> 1147</span>&#160;    }</div>
-<div class="line"><a name="l01148"></a><span class="lineno"> 1148</span>&#160;</div>
-<div class="line"><a name="l01149"></a><span class="lineno"> 1149</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> nrecv = recv_from.size();</div>
-<div class="line"><a name="l01150"></a><span class="lineno"> 1150</span>&#160;    </div>
-<div class="line"><a name="l01151"></a><span class="lineno"> 1151</span>&#160;    Vector&lt;Vector&lt;int&gt; &gt; indv_recv_size;</div>
-<div class="line"><a name="l01152"></a><span class="lineno"> 1152</span>&#160;    Vector&lt;MPI_Request&gt; pre_reqs(nrecv,<a class="code" href="_a_m_re_x__ccse-mpi_8_h.html#a1f063a918d9598b982feec3690d69bec">MPI_REQUEST_NULL</a>);</div>
-<div class="line"><a name="l01153"></a><span class="lineno"> 1153</span>&#160;</div>
-<div class="line"><a name="l01154"></a><span class="lineno"> 1154</span>&#160;    <a class="code" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a> comm = <a class="code" href="namespaceamrex_1_1_parallel_context.html#afb1955e0ab6b3f188007ad3aa5a4ef8a">ParallelContext::CommunicatorSub</a>();</div>
-<div class="line"><a name="l01155"></a><span class="lineno"> 1155</span>&#160;</div>
-<div class="line"><a name="l01156"></a><span class="lineno"> 1156</span>&#160;    <span class="keywordflow">if</span> (!FAB::preAllocatable())</div>
-<div class="line"><a name="l01157"></a><span class="lineno"> 1157</span>&#160;    {</div>
-<div class="line"><a name="l01158"></a><span class="lineno"> 1158</span>&#160;        <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(preSeqNum &gt;= 0);</div>
-<div class="line"><a name="l01159"></a><span class="lineno"> 1159</span>&#160;        indv_recv_size.resize(nrecv);</div>
-<div class="line"><a name="l01160"></a><span class="lineno"> 1160</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = 0; k &lt; nrecv; ++k)</div>
-<div class="line"><a name="l01161"></a><span class="lineno"> 1161</span>&#160;        {</div>
-<div class="line"><a name="l01162"></a><span class="lineno"> 1162</span>&#160;            <span class="keyword">auto</span> n = m_RcvTags.at(recv_from[k]).size();</div>
-<div class="line"><a name="l01163"></a><span class="lineno"> 1163</span>&#160;            indv_recv_size[k].resize(n);</div>
-<div class="line"><a name="l01164"></a><span class="lineno"> 1164</span>&#160;            pre_reqs[k] = <a class="code" href="namespaceamrex_1_1_parallel_descriptor.html#af5ed8a597f21464e9f2803f0e2afc0be">ParallelDescriptor::Arecv</a>(indv_recv_size[k].data(), n,</div>
-<div class="line"><a name="l01165"></a><span class="lineno"> 1165</span>&#160;                                                    <a class="code" href="namespaceamrex_1_1_parallel_context.html#a60c8ba6a67754c2b46d8b1ad78cb26b2">ParallelContext::global_to_local_rank</a>(recv_from[k]),</div>
-<div class="line"><a name="l01166"></a><span class="lineno"> 1166</span>&#160;                                                    preSeqNum, comm).<a class="code" href="classamrex_1_1_parallel_descriptor_1_1_message.html#a57999afb8ef13d17fc24750bdae6cd00">req</a>();</div>
-<div class="line"><a name="l01167"></a><span class="lineno"> 1167</span>&#160;        }</div>
-<div class="line"><a name="l01168"></a><span class="lineno"> 1168</span>&#160;    }</div>
-<div class="line"><a name="l01169"></a><span class="lineno"> 1169</span>&#160;</div>
-<div class="line"><a name="l01170"></a><span class="lineno"> 1170</span>&#160;    <span class="keywordtype">int</span> recv_counter = 0;</div>
-<div class="line"><a name="l01171"></a><span class="lineno"> 1171</span>&#160;    <span class="keywordflow">while</span> (recv_counter &lt; nrecv)</div>
-<div class="line"><a name="l01172"></a><span class="lineno"> 1172</span>&#160;    {</div>
-<div class="line"><a name="l01173"></a><span class="lineno"> 1173</span>&#160;        <span class="keywordtype">int</span> i;</div>
-<div class="line"><a name="l01174"></a><span class="lineno"> 1174</span>&#160;</div>
-<div class="line"><a name="l01175"></a><span class="lineno"> 1175</span>&#160;        <span class="keywordflow">if</span> (FAB::preAllocatable())</div>
-<div class="line"><a name="l01176"></a><span class="lineno"> 1176</span>&#160;        {</div>
-<div class="line"><a name="l01177"></a><span class="lineno"> 1177</span>&#160;            i = recv_counter;</div>
-<div class="line"><a name="l01178"></a><span class="lineno"> 1178</span>&#160;        }</div>
-<div class="line"><a name="l01179"></a><span class="lineno"> 1179</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l01180"></a><span class="lineno"> 1180</span>&#160;        {</div>
-<div class="line"><a name="l01181"></a><span class="lineno"> 1181</span>&#160;            <a class="code" href="struct_m_p_i___status.html">MPI_Status</a> status;</div>
-<div class="line"><a name="l01182"></a><span class="lineno"> 1182</span>&#160;            <a class="code" href="namespaceamrex_1_1_parallel_descriptor.html#a09446a4d2b5bb7632b4c9316c5dd213c">ParallelDescriptor::Waitany</a>(pre_reqs, i, status);</div>
-<div class="line"><a name="l01183"></a><span class="lineno"> 1183</span>&#160;</div>
-<div class="line"><a name="l01184"></a><span class="lineno"> 1184</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span> x : indv_recv_size[i])</div>
-<div class="line"><a name="l01185"></a><span class="lineno"> 1185</span>&#160;            {</div>
-<div class="line"><a name="l01186"></a><span class="lineno"> 1186</span>&#160;                recv_size[i] += x;</div>
-<div class="line"><a name="l01187"></a><span class="lineno"> 1187</span>&#160;            }</div>
-<div class="line"><a name="l01188"></a><span class="lineno"> 1188</span>&#160;        }</div>
-<div class="line"><a name="l01189"></a><span class="lineno"> 1189</span>&#160;</div>
-<div class="line"><a name="l01190"></a><span class="lineno"> 1190</span>&#160;        <span class="keywordflow">if</span> (recv_size[i] &gt; 0)</div>
-<div class="line"><a name="l01191"></a><span class="lineno"> 1191</span>&#160;        {</div>
-<div class="line"><a name="l01192"></a><span class="lineno"> 1192</span>&#160;            recv_data[i] = <span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(<a class="code" href="namespaceamrex.html#ae3d1414946b992f39ca41f135f12a0d1">amrex::The_Arena</a>()-&gt;<a class="code" href="classamrex_1_1_arena.html#a46ce2cd5cfc039cec64548b031fbde2e">alloc</a>(recv_size[i]));</div>
-<div class="line"><a name="l01193"></a><span class="lineno"> 1193</span>&#160;            recv_reqs[i] = <a class="code" href="namespaceamrex_1_1_parallel_descriptor.html#af5ed8a597f21464e9f2803f0e2afc0be">ParallelDescriptor::Arecv</a>(recv_data[i], recv_size[i],</div>
-<div class="line"><a name="l01194"></a><span class="lineno"> 1194</span>&#160;                                                     <a class="code" href="namespaceamrex_1_1_parallel_context.html#a60c8ba6a67754c2b46d8b1ad78cb26b2">ParallelContext::global_to_local_rank</a>(recv_from[i]),</div>
-<div class="line"><a name="l01195"></a><span class="lineno"> 1195</span>&#160;                                                     SeqNum, comm).<a class="code" href="classamrex_1_1_parallel_descriptor_1_1_message.html#a57999afb8ef13d17fc24750bdae6cd00">req</a>();</div>
-<div class="line"><a name="l01196"></a><span class="lineno"> 1196</span>&#160;        }</div>
-<div class="line"><a name="l01197"></a><span class="lineno"> 1197</span>&#160;        </div>
-<div class="line"><a name="l01198"></a><span class="lineno"> 1198</span>&#160;        ++recv_counter;</div>
-<div class="line"><a name="l01199"></a><span class="lineno"> 1199</span>&#160;    }</div>
-<div class="line"><a name="l01200"></a><span class="lineno"> 1200</span>&#160;}</div>
-<div class="line"><a name="l01201"></a><span class="lineno"> 1201</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l01202"></a><span class="lineno"> 1202</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l01203"></a><span class="lineno"> 1203</span>&#160;</div>
-<div class="line"><a name="l01204"></a><span class="lineno"> 1204</span>&#160;<span class="preprocessor">#ifdef BL_USE_MPI3</span></div>
-<div class="line"><a name="l01205"></a><span class="lineno"> 1205</span>&#160;<span class="preprocessor"></span><span class="keyword">template</span> &lt;<span class="keyword">class</span> FAB&gt;</div>
-<div class="line"><a name="l01206"></a><span class="lineno"> 1206</span>&#160;<span class="keywordtype">void</span></div>
-<div class="line"><a name="l01207"></a><span class="lineno"> 1207</span>&#160;FabArray&lt;FAB&gt;::PostRcvs_MPI_Onesided (<span class="keyword">const</span> MapOfCopyComTagContainers&amp;  m_RcvVols,</div>
-<div class="line"><a name="l01208"></a><span class="lineno"> 1208</span>&#160;                                      <span class="keywordtype">char</span>*&amp;                            the_recv_data,</div>
-<div class="line"><a name="l01209"></a><span class="lineno"> 1209</span>&#160;                                      Vector&lt;char*&gt;&amp;                     recv_data,</div>
-<div class="line"><a name="l01210"></a><span class="lineno"> 1210</span>&#160;                                      Vector&lt;int&gt;&amp;                       recv_size,</div>
-<div class="line"><a name="l01211"></a><span class="lineno"> 1211</span>&#160;                                      Vector&lt;int&gt;&amp;                       recv_from,</div>
-<div class="line"><a name="l01212"></a><span class="lineno"> 1212</span>&#160;                                      Vector&lt;MPI_Request&gt;&amp;               recv_reqs,</div>
-<div class="line"><a name="l01213"></a><span class="lineno"> 1213</span>&#160;                                      Vector&lt;MPI_Aint&gt; &amp;                 recv_disp,</div>
-<div class="line"><a name="l01214"></a><span class="lineno"> 1214</span>&#160;                                      <span class="keywordtype">int</span>                               icomp,</div>
-<div class="line"><a name="l01215"></a><span class="lineno"> 1215</span>&#160;                                      <span class="keywordtype">int</span>                               ncomp,</div>
-<div class="line"><a name="l01216"></a><span class="lineno"> 1216</span>&#160;                                      <span class="keywordtype">int</span>                               SeqNum,</div>
-<div class="line"><a name="l01217"></a><span class="lineno"> 1217</span>&#160;                                      MPI_Win &amp;                         win)</div>
-<div class="line"><a name="l01218"></a><span class="lineno"> 1218</span>&#160;{</div>
-<div class="line"><a name="l01219"></a><span class="lineno"> 1219</span>&#160;    recv_data.clear();</div>
-<div class="line"><a name="l01220"></a><span class="lineno"> 1220</span>&#160;    recv_size.clear();</div>
-<div class="line"><a name="l01221"></a><span class="lineno"> 1221</span>&#160;    recv_from.clear();</div>
-<div class="line"><a name="l01222"></a><span class="lineno"> 1222</span>&#160;    recv_reqs.clear();</div>
-<div class="line"><a name="l01223"></a><span class="lineno"> 1223</span>&#160;    recv_disp.clear();</div>
-<div class="line"><a name="l01224"></a><span class="lineno"> 1224</span>&#160;</div>
-<div class="line"><a name="l01225"></a><span class="lineno"> 1225</span>&#160;    std::size_t TotalRcvsVolume = 0;</div>
-<div class="line"><a name="l01226"></a><span class="lineno"> 1226</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; kv : m_RcvVols) <span class="comment">// loop over senders</span></div>
-<div class="line"><a name="l01227"></a><span class="lineno"> 1227</span>&#160;    {</div>
-<div class="line"><a name="l01228"></a><span class="lineno"> 1228</span>&#160;        std::size_t nbytes = 0;</div>
-<div class="line"><a name="l01229"></a><span class="lineno"> 1229</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; cct : kv.second)</div>
-<div class="line"><a name="l01230"></a><span class="lineno"> 1230</span>&#160;        {</div>
-<div class="line"><a name="l01231"></a><span class="lineno"> 1231</span>&#160;            nbytes += (*this)[cct.dstIndex].nBytes(cct.dbox,icomp,ncomp);</div>
-<div class="line"><a name="l01232"></a><span class="lineno"> 1232</span>&#160;        }</div>
-<div class="line"><a name="l01233"></a><span class="lineno"> 1233</span>&#160;</div>
-<div class="line"><a name="l01234"></a><span class="lineno"> 1234</span>&#160;        <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(nbytes &lt; <a class="code" href="namespaceamrex.html#a870c2407ed885451a76f66f8a0d7a892">std::numeric_limits&lt;int&gt;::max</a>());</div>
-<div class="line"><a name="l01235"></a><span class="lineno"> 1235</span>&#160;</div>
-<div class="line"><a name="l01236"></a><span class="lineno"> 1236</span>&#160;        TotalRcvsVolume += nbytes;</div>
-<div class="line"><a name="l01237"></a><span class="lineno"> 1237</span>&#160;</div>
-<div class="line"><a name="l01238"></a><span class="lineno"> 1238</span>&#160;        recv_data.push_back(<span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l01239"></a><span class="lineno"> 1239</span>&#160;        recv_size.push_back(static_cast&lt;int&gt;(nbytes));</div>
-<div class="line"><a name="l01240"></a><span class="lineno"> 1240</span>&#160;        recv_from.push_back(kv.first);</div>
-<div class="line"><a name="l01241"></a><span class="lineno"> 1241</span>&#160;        recv_reqs.push_back(<a class="code" href="_a_m_re_x__ccse-mpi_8_h.html#a1f063a918d9598b982feec3690d69bec">MPI_REQUEST_NULL</a>);</div>
-<div class="line"><a name="l01242"></a><span class="lineno"> 1242</span>&#160;        recv_disp.push_back(0);</div>
-<div class="line"><a name="l01243"></a><span class="lineno"> 1243</span>&#160;    }</div>
-<div class="line"><a name="l01244"></a><span class="lineno"> 1244</span>&#160;</div>
-<div class="line"><a name="l01245"></a><span class="lineno"> 1245</span>&#160;    <span class="keywordflow">if</span> (TotalRcvsVolume == 0)</div>
-<div class="line"><a name="l01246"></a><span class="lineno"> 1246</span>&#160;    {</div>
-<div class="line"><a name="l01247"></a><span class="lineno"> 1247</span>&#160;        the_recv_data = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l01248"></a><span class="lineno"> 1248</span>&#160;    }</div>
-<div class="line"><a name="l01249"></a><span class="lineno"> 1249</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l01250"></a><span class="lineno"> 1250</span>&#160;    {</div>
-<div class="line"><a name="l01251"></a><span class="lineno"> 1251</span>&#160;        the_recv_data = <span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(<a class="code" href="namespaceamrex.html#ae3d1414946b992f39ca41f135f12a0d1">amrex::The_Arena</a>()-&gt;<a class="code" href="classamrex_1_1_arena.html#a46ce2cd5cfc039cec64548b031fbde2e">alloc</a>(TotalRcvsVolume));</div>
-<div class="line"><a name="l01252"></a><span class="lineno"> 1252</span>&#160;</div>
-<div class="line"><a name="l01253"></a><span class="lineno"> 1253</span>&#160;        MPI_Win_attach(win, the_recv_data, TotalRcvsVolume);</div>
-<div class="line"><a name="l01254"></a><span class="lineno"> 1254</span>&#160;</div>
-<div class="line"><a name="l01255"></a><span class="lineno"> 1255</span>&#160;        <span class="keywordtype">int</span> nrecv = recv_from.size();</div>
-<div class="line"><a name="l01256"></a><span class="lineno"> 1256</span>&#160;        </div>
-<div class="line"><a name="l01257"></a><span class="lineno"> 1257</span>&#160;        std::size_t offset = 0;</div>
-<div class="line"><a name="l01258"></a><span class="lineno"> 1258</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; nrecv; ++i)</div>
-<div class="line"><a name="l01259"></a><span class="lineno"> 1259</span>&#160;        {</div>
-<div class="line"><a name="l01260"></a><span class="lineno"> 1260</span>&#160;            <span class="keywordflow">if</span> (recv_size[i] &gt; 0)</div>
-<div class="line"><a name="l01261"></a><span class="lineno"> 1261</span>&#160;            {</div>
-<div class="line"><a name="l01262"></a><span class="lineno"> 1262</span>&#160;                recv_data[i] = the_recv_data + offset;</div>
-<div class="line"><a name="l01263"></a><span class="lineno"> 1263</span>&#160;                MPI_Get_address(recv_data[i], &amp;recv_disp[i]);</div>
-<div class="line"><a name="l01264"></a><span class="lineno"> 1264</span>&#160;                recv_reqs[i] = <a class="code" href="namespaceamrex_1_1_parallel_descriptor.html#a0903eb5194f11fcf386f79e6ff3c02f7">ParallelDescriptor::Asend</a>(&amp;recv_disp[i],1,recv_from[i],SeqNum).<a class="code" href="classamrex_1_1_parallel_descriptor_1_1_message.html#a57999afb8ef13d17fc24750bdae6cd00">req</a>();</div>
-<div class="line"><a name="l01265"></a><span class="lineno"> 1265</span>&#160;                offset += recv_size[i];</div>
-<div class="line"><a name="l01266"></a><span class="lineno"> 1266</span>&#160;            }</div>
-<div class="line"><a name="l01267"></a><span class="lineno"> 1267</span>&#160;        }</div>
-<div class="line"><a name="l01268"></a><span class="lineno"> 1268</span>&#160;    }</div>
-<div class="line"><a name="l01269"></a><span class="lineno"> 1269</span>&#160;}</div>
-<div class="line"><a name="l01270"></a><span class="lineno"> 1270</span>&#160;<span class="preprocessor">#endif   // BL_USE_MPI3</span></div>
-<div class="line"><a name="l01271"></a><span class="lineno"> 1271</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l01272"></a><span class="lineno"> 1272</span>&#160;</div>
-<div class="line"><a name="l01273"></a><span class="lineno"> 1273</span>&#160;<span class="preprocessor">#ifdef BL_USE_UPCXX</span></div>
-<div class="line"><a name="l01274"></a><span class="lineno"> 1274</span>&#160;<span class="preprocessor"></span><span class="keyword">template</span> &lt;<span class="keyword">class</span> FAB&gt;</div>
-<div class="line"><a name="l01275"></a><span class="lineno"> 1275</span>&#160;<span class="keywordtype">void</span></div>
-<div class="line"><a name="l01276"></a><span class="lineno"> 1276</span>&#160;FabArray&lt;FAB&gt;::PostRcvs_PGAS (<span class="keyword">const</span> MapOfCopyComTagContainers&amp;  m_RcvVols,</div>
-<div class="line"><a name="l01277"></a><span class="lineno"> 1277</span>&#160;                              <span class="keywordtype">char</span>*&amp;                            the_recv_data,</div>
-<div class="line"><a name="l01278"></a><span class="lineno"> 1278</span>&#160;                              Vector&lt;char*&gt;&amp;                     recv_data,</div>
-<div class="line"><a name="l01279"></a><span class="lineno"> 1279</span>&#160;                              Vector&lt;int&gt;&amp;                       recv_size,</div>
-<div class="line"><a name="l01280"></a><span class="lineno"> 1280</span>&#160;                              Vector&lt;int&gt;&amp;                       recv_from,</div>
-<div class="line"><a name="l01281"></a><span class="lineno"> 1281</span>&#160;                              <span class="keywordtype">int</span>                               icomp,</div>
-<div class="line"><a name="l01282"></a><span class="lineno"> 1282</span>&#160;                              <span class="keywordtype">int</span>                               ncomp,</div>
-<div class="line"><a name="l01283"></a><span class="lineno"> 1283</span>&#160;                              <span class="keywordtype">int</span>                               SeqNum,</div>
-<div class="line"><a name="l01284"></a><span class="lineno"> 1284</span>&#160;                              upcxx::event*                     recv_event)</div>
-<div class="line"><a name="l01285"></a><span class="lineno"> 1285</span>&#160;{</div>
-<div class="line"><a name="l01286"></a><span class="lineno"> 1286</span>&#160;    recv_data.clear();</div>
-<div class="line"><a name="l01287"></a><span class="lineno"> 1287</span>&#160;    recv_size.clear();</div>
-<div class="line"><a name="l01288"></a><span class="lineno"> 1288</span>&#160;    recv_from.clear();</div>
-<div class="line"><a name="l01289"></a><span class="lineno"> 1289</span>&#160;</div>
-<div class="line"><a name="l01290"></a><span class="lineno"> 1290</span>&#160;    std::size_t TotalRcvsVolume = 0;</div>
-<div class="line"><a name="l01291"></a><span class="lineno"> 1291</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; kv : m_RcvVols) <span class="comment">// loop over senders</span></div>
-<div class="line"><a name="l01292"></a><span class="lineno"> 1292</span>&#160;    {</div>
-<div class="line"><a name="l01293"></a><span class="lineno"> 1293</span>&#160;        std::size_t nbytes = 0;</div>
-<div class="line"><a name="l01294"></a><span class="lineno"> 1294</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; cct : kv.second)</div>
-<div class="line"><a name="l01295"></a><span class="lineno"> 1295</span>&#160;        {</div>
-<div class="line"><a name="l01296"></a><span class="lineno"> 1296</span>&#160;            nbytes += (*this)[cct.dstIndex].nBytes(cct.dbox,icomp,ncomp);</div>
-<div class="line"><a name="l01297"></a><span class="lineno"> 1297</span>&#160;        }</div>
-<div class="line"><a name="l01298"></a><span class="lineno"> 1298</span>&#160;</div>
-<div class="line"><a name="l01299"></a><span class="lineno"> 1299</span>&#160;        <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(nbytes &lt; <a class="code" href="namespaceamrex.html#a870c2407ed885451a76f66f8a0d7a892">std::numeric_limits&lt;int&gt;::max</a>());</div>
-<div class="line"><a name="l01300"></a><span class="lineno"> 1300</span>&#160;</div>
-<div class="line"><a name="l01301"></a><span class="lineno"> 1301</span>&#160;        TotalRcvsVolume += nbytes;</div>
-<div class="line"><a name="l01302"></a><span class="lineno"> 1302</span>&#160;</div>
-<div class="line"><a name="l01303"></a><span class="lineno"> 1303</span>&#160;        recv_data.push_back(<span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l01304"></a><span class="lineno"> 1304</span>&#160;        recv_size.push_back(static_cast&lt;int&gt;(nbytes));</div>
-<div class="line"><a name="l01305"></a><span class="lineno"> 1305</span>&#160;        recv_from.push_back(kv.first);</div>
-<div class="line"><a name="l01306"></a><span class="lineno"> 1306</span>&#160;    }</div>
-<div class="line"><a name="l01307"></a><span class="lineno"> 1307</span>&#160;</div>
-<div class="line"><a name="l01308"></a><span class="lineno"> 1308</span>&#160;    <span class="keywordflow">if</span> (TotalRcvsVolume == 0)</div>
-<div class="line"><a name="l01309"></a><span class="lineno"> 1309</span>&#160;    {</div>
-<div class="line"><a name="l01310"></a><span class="lineno"> 1310</span>&#160;        the_recv_data = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l01311"></a><span class="lineno"> 1311</span>&#160;    }</div>
-<div class="line"><a name="l01312"></a><span class="lineno"> 1312</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l01313"></a><span class="lineno"> 1313</span>&#160;    {</div>
-<div class="line"><a name="l01314"></a><span class="lineno"> 1314</span>&#160;        the_recv_data = <span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(<a class="code" href="namespaceamrex_1_1_b_l_pgas.html#a792f3198bcb515c10dbe41077ce83ce7">BLPgas::alloc</a>(TotalRcvsVolume));</div>
-<div class="line"><a name="l01315"></a><span class="lineno"> 1315</span>&#160;</div>
-<div class="line"><a name="l01316"></a><span class="lineno"> 1316</span>&#160;        <span class="keywordtype">int</span> nrecv = recv_from.size();</div>
-<div class="line"><a name="l01317"></a><span class="lineno"> 1317</span>&#160;</div>
-<div class="line"><a name="l01318"></a><span class="lineno"> 1318</span>&#160;        std::size_t offset = 0;</div>
-<div class="line"><a name="l01319"></a><span class="lineno"> 1319</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; nrecv; ++i)</div>
-<div class="line"><a name="l01320"></a><span class="lineno"> 1320</span>&#160;        {</div>
-<div class="line"><a name="l01321"></a><span class="lineno"> 1321</span>&#160;            <span class="keywordflow">if</span> (recv_size[i] &gt; 0)</div>
-<div class="line"><a name="l01322"></a><span class="lineno"> 1322</span>&#160;            {</div>
-<div class="line"><a name="l01323"></a><span class="lineno"> 1323</span>&#160;                recv_data[i] = the_recv_data + offset;</div>
-<div class="line"><a name="l01324"></a><span class="lineno"> 1324</span>&#160;</div>
-<div class="line"><a name="l01326"></a><span class="lineno"> 1326</span>&#160;                upcxx::global_ptr&lt;void&gt; dst_ptr =</div>
-<div class="line"><a name="l01327"></a><span class="lineno"> 1327</span>&#160;                    upcxx::global_ptr&lt;void&gt;(recv_data[i], upcxx::myrank());</div>
-<div class="line"><a name="l01328"></a><span class="lineno"> 1328</span>&#160;                <span class="comment">// Increment the event reference before launching the remote task</span></div>
-<div class="line"><a name="l01329"></a><span class="lineno"> 1329</span>&#160;                recv_event-&gt;incref();</div>
-<div class="line"><a name="l01330"></a><span class="lineno"> 1330</span>&#160;                <span class="comment">// Launch a remote task on the sender to send me data</span></div>
-<div class="line"><a name="l01331"></a><span class="lineno"> 1331</span>&#160;                <a class="code" href="namespaceamrex_1_1_b_l_pgas.html#acc540645f9c11df2f133814c0128d65c">BLPgas::Request</a>(recv_from[i], dst_ptr, recv_size[i], SeqNum, recv_event);</div>
-<div class="line"><a name="l01332"></a><span class="lineno"> 1332</span>&#160;                upcxx::advance(); <span class="comment">// poll the UPC++ progress engine and the network</span></div>
-<div class="line"><a name="l01333"></a><span class="lineno"> 1333</span>&#160;                offset += recv_size[i];</div>
-<div class="line"><a name="l01334"></a><span class="lineno"> 1334</span>&#160;            }</div>
-<div class="line"><a name="l01335"></a><span class="lineno"> 1335</span>&#160;        }</div>
-<div class="line"><a name="l01336"></a><span class="lineno"> 1336</span>&#160;    }</div>
-<div class="line"><a name="l01337"></a><span class="lineno"> 1337</span>&#160;}</div>
-<div class="line"><a name="l01338"></a><span class="lineno"> 1338</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* BL_USE_UPCXX */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l01339"></a><span class="lineno"> 1339</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l01340"></a><span class="lineno"> 1340</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> FAB&gt;</div>
-<div class="line"><a name="l01341"></a><span class="lineno"> 1341</span>&#160;<span class="keywordtype">void</span></div>
-<div class="line"><a name="l01342"></a><span class="lineno"><a class="line" href="classamrex_1_1_fab_array.html#a9b59622d2c87150475a4c2e290909421"> 1342</a></span>&#160;<a class="code" href="classamrex_1_1_fab_array.html">FabArray&lt;FAB&gt;::Redistribute</a> (<span class="keyword">const</span> <a class="code" href="classamrex_1_1_fab_array.html">FabArray&lt;FAB&gt;</a>&amp; src,</div>
-<div class="line"><a name="l01343"></a><span class="lineno"> 1343</span>&#160;                             <span class="keywordtype">int</span>                  scomp,</div>
-<div class="line"><a name="l01344"></a><span class="lineno"> 1344</span>&#160;                             <span class="keywordtype">int</span>                  dcomp,</div>
-<div class="line"><a name="l01345"></a><span class="lineno"> 1345</span>&#160;                             <span class="keywordtype">int</span>                  ncomp,</div>
-<div class="line"><a name="l01346"></a><span class="lineno"> 1346</span>&#160;                             <span class="keyword">const</span> <a class="code" href="classamrex_1_1_int_vect.html">IntVect</a>&amp;       nghost)</div>
-<div class="line"><a name="l01347"></a><span class="lineno"> 1347</span>&#160;{</div>
-<div class="line"><a name="l01348"></a><span class="lineno"> 1348</span>&#160;    <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a1defc2bb8023a3e2599bfb2fc637cb43">AMREX_ALWAYS_ASSERT_WITH_MESSAGE</a>(boxArray() == src.<a class="code" href="classamrex_1_1_fab_array_base.html#af3cc07aae7bfab423fa9c30bba2efd59">boxArray</a>(),</div>
-<div class="line"><a name="l01349"></a><span class="lineno"> 1349</span>&#160;                                     <span class="stringliteral">&quot;FabArray::Redistribute: must have the same BoxArray&quot;</span>);</div>
-<div class="line"><a name="l01350"></a><span class="lineno"> 1350</span>&#160;</div>
-<div class="line"><a name="l01351"></a><span class="lineno"> 1351</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="namespaceamrex_1_1_parallel_context.html#a1e98db9c755ff62ca57280f0d6313936">ParallelContext::NProcsSub</a>() == 1)</div>
-<div class="line"><a name="l01352"></a><span class="lineno"> 1352</span>&#160;    {</div>
-<div class="line"><a name="l01353"></a><span class="lineno"> 1353</span>&#160;<span class="preprocessor">#ifdef _OPENMP</span></div>
-<div class="line"><a name="l01354"></a><span class="lineno"> 1354</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#pragma omp parallel</span></div>
-<div class="line"><a name="l01355"></a><span class="lineno"> 1355</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l01356"></a><span class="lineno"> 1356</span>&#160;<span class="preprocessor"></span>        <span class="keywordflow">for</span> (<a class="code" href="classamrex_1_1_m_f_iter.html">MFIter</a> fai(*<span class="keyword">this</span>,<span class="keyword">true</span>); fai.<a class="code" href="classamrex_1_1_m_f_iter.html#ad1cb993a973d541776b06c959d1ae3cd">isValid</a>(); ++fai)</div>
-<div class="line"><a name="l01357"></a><span class="lineno"> 1357</span>&#160;        {</div>
-<div class="line"><a name="l01358"></a><span class="lineno"> 1358</span>&#160;            <span class="keyword">const</span> <a class="code" href="classamrex_1_1_box.html">Box</a>&amp; bx = fai.growntilebox(nghost);</div>
-<div class="line"><a name="l01359"></a><span class="lineno"> 1359</span>&#160;            <span class="keyword">get</span>(fai).copy(src[fai],bx,scomp,bx,dcomp,ncomp);</div>
-<div class="line"><a name="l01360"></a><span class="lineno"> 1360</span>&#160;        }</div>
-<div class="line"><a name="l01361"></a><span class="lineno"> 1361</span>&#160;</div>
-<div class="line"><a name="l01362"></a><span class="lineno"> 1362</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l01363"></a><span class="lineno"> 1363</span>&#160;    }</div>
-<div class="line"><a name="l01364"></a><span class="lineno"> 1364</span>&#160;</div>
-<div class="line"><a name="l01365"></a><span class="lineno"> 1365</span>&#160;<span class="preprocessor">#ifdef BL_USE_MPI</span></div>
-<div class="line"><a name="l01366"></a><span class="lineno"> 1366</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l01367"></a><span class="lineno"> 1367</span>&#160;    <a class="code" href="structamrex_1_1_fab_array_base_1_1_c_p_c.html">FabArrayBase::CPC</a> cpc(boxArray(), nghost, DistributionMap(), src.<a class="code" href="classamrex_1_1_fab_array_base.html#a91b9b8d89859dcf641c0d42348b3f0ff">DistributionMap</a>());</div>
-<div class="line"><a name="l01368"></a><span class="lineno"> 1368</span>&#160;</div>
-<div class="line"><a name="l01369"></a><span class="lineno"> 1369</span>&#160;    ParallelCopy(src, scomp, dcomp, ncomp, nghost, nghost, Periodicity::NonPeriodic(),</div>
-<div class="line"><a name="l01370"></a><span class="lineno"> 1370</span>&#160;                 FabArrayBase::COPY, &amp;cpc);</div>
-<div class="line"><a name="l01371"></a><span class="lineno"> 1371</span>&#160;</div>
-<div class="line"><a name="l01372"></a><span class="lineno"> 1372</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l01373"></a><span class="lineno"> 1373</span>&#160;<span class="preprocessor"></span>}</div>
+<div class="line"><a name="l01097"></a><span class="lineno"> 1097</span>&#160;        <span class="comment">//</span></div>
+<div class="line"><a name="l01098"></a><span class="lineno"> 1098</span>&#160;        <span class="comment">// There can only be local work to do.</span></div>
+<div class="line"><a name="l01099"></a><span class="lineno"> 1099</span>&#160;        <span class="comment">//</span></div>
+<div class="line"><a name="l01100"></a><span class="lineno"> 1100</span>&#160;    <span class="keywordtype">int</span> N_loc = (*thecpc.<a class="code" href="structamrex_1_1_fab_array_base_1_1_c_p_c.html#a81bf78da77ae53d44dd1a5bb8f05d999">m_LocTags</a>).size();</div>
+<div class="line"><a name="l01101"></a><span class="lineno"> 1101</span>&#160;<span class="preprocessor">#ifdef _OPENMP</span></div>
+<div class="line"><a name="l01102"></a><span class="lineno"> 1102</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#pragma omp parallel for if (FAB::isCopyOMPSafe() &amp;&amp; thecpc.m_threadsafe_loc)</span></div>
+<div class="line"><a name="l01103"></a><span class="lineno"> 1103</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l01104"></a><span class="lineno"> 1104</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;N_loc; ++i)</div>
+<div class="line"><a name="l01105"></a><span class="lineno"> 1105</span>&#160;        {</div>
+<div class="line"><a name="l01106"></a><span class="lineno"> 1106</span>&#160;            <span class="keyword">const</span> <a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html">CopyComTag</a>&amp; tag = (*thecpc.<a class="code" href="structamrex_1_1_fab_array_base_1_1_c_p_c.html#a81bf78da77ae53d44dd1a5bb8f05d999">m_LocTags</a>)[i];</div>
+<div class="line"><a name="l01107"></a><span class="lineno"> 1107</span>&#160;</div>
+<div class="line"><a name="l01108"></a><span class="lineno"> 1108</span>&#160;        <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;src || tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#abc0d662cdc63c3e99f4c114dc3ac266f">dstIndex</a> != tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#aa03667cd08814ea67d8fc2170a93a07c">srcIndex</a> || tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#a1c8df51daf5ac3a9d20522cfdb6ab004">sbox</a> != tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#aa4ad873f80c114d0041fd4c30d9fbe94">dbox</a>) {</div>
+<div class="line"><a name="l01109"></a><span class="lineno"> 1109</span>&#160;        <span class="comment">// avoid self copy or plus</span></div>
+<div class="line"><a name="l01110"></a><span class="lineno"> 1110</span>&#160;        <span class="keywordflow">if</span> (op == FabArrayBase::COPY) {</div>
+<div class="line"><a name="l01111"></a><span class="lineno"> 1111</span>&#160;            <span class="keyword">get</span>(tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#abc0d662cdc63c3e99f4c114dc3ac266f">dstIndex</a>).copy(src[tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#aa03667cd08814ea67d8fc2170a93a07c">srcIndex</a>],tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#a1c8df51daf5ac3a9d20522cfdb6ab004">sbox</a>,scomp,tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#aa4ad873f80c114d0041fd4c30d9fbe94">dbox</a>,dcomp,ncomp);</div>
+<div class="line"><a name="l01112"></a><span class="lineno"> 1112</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l01113"></a><span class="lineno"> 1113</span>&#160;            <span class="keyword">get</span>(tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#abc0d662cdc63c3e99f4c114dc3ac266f">dstIndex</a>).plus(src[tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#aa03667cd08814ea67d8fc2170a93a07c">srcIndex</a>],tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#a1c8df51daf5ac3a9d20522cfdb6ab004">sbox</a>,tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#aa4ad873f80c114d0041fd4c30d9fbe94">dbox</a>,scomp,dcomp,ncomp);</div>
+<div class="line"><a name="l01114"></a><span class="lineno"> 1114</span>&#160;        }</div>
+<div class="line"><a name="l01115"></a><span class="lineno"> 1115</span>&#160;        }</div>
+<div class="line"><a name="l01116"></a><span class="lineno"> 1116</span>&#160;        }</div>
+<div class="line"><a name="l01117"></a><span class="lineno"> 1117</span>&#160;</div>
+<div class="line"><a name="l01118"></a><span class="lineno"> 1118</span>&#160;        <span class="keywordflow">return</span> CopierHandle();</div>
+<div class="line"><a name="l01119"></a><span class="lineno"> 1119</span>&#160;    }</div>
+<div class="line"><a name="l01120"></a><span class="lineno"> 1120</span>&#160;</div>
+<div class="line"><a name="l01121"></a><span class="lineno"> 1121</span>&#160;<span class="preprocessor">#ifdef BL_USE_MPI</span></div>
+<div class="line"><a name="l01122"></a><span class="lineno"> 1122</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l01123"></a><span class="lineno"> 1123</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l01124"></a><span class="lineno"> 1124</span>&#160;    <span class="comment">// Do this before prematurely exiting if running in parallel.</span></div>
+<div class="line"><a name="l01125"></a><span class="lineno"> 1125</span>&#160;    <span class="comment">// Otherwise sequence numbers will not match across MPI processes.</span></div>
+<div class="line"><a name="l01126"></a><span class="lineno"> 1126</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l01127"></a><span class="lineno"> 1127</span>&#160;    <span class="keywordtype">int</span> preSeqNum;</div>
+<div class="line"><a name="l01128"></a><span class="lineno"> 1128</span>&#160;    <span class="keywordflow">if</span> (!FAB::preAllocatable()) {</div>
+<div class="line"><a name="l01129"></a><span class="lineno"> 1129</span>&#160;        preSeqNum = <a class="code" href="namespaceamrex_1_1_parallel_descriptor.html#a610003b1a92f316356dd84be39f9a9b0">ParallelDescriptor::SeqNum</a>();</div>
+<div class="line"><a name="l01130"></a><span class="lineno"> 1130</span>&#160;    }</div>
+<div class="line"><a name="l01131"></a><span class="lineno"> 1131</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> SeqNum  = <a class="code" href="namespaceamrex_1_1_parallel_descriptor.html#a610003b1a92f316356dd84be39f9a9b0">ParallelDescriptor::SeqNum</a>();</div>
+<div class="line"><a name="l01132"></a><span class="lineno"> 1132</span>&#160;</div>
+<div class="line"><a name="l01133"></a><span class="lineno"> 1133</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> N_snds = thecpc.<a class="code" href="structamrex_1_1_fab_array_base_1_1_c_p_c.html#a1cd653e9db338d0e4026d9a5ef523a13">m_SndTags</a>-&gt;size();</div>
+<div class="line"><a name="l01134"></a><span class="lineno"> 1134</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> N_rcvs = thecpc.<a class="code" href="structamrex_1_1_fab_array_base_1_1_c_p_c.html#ae27301b017bbfff8f0bffb789d13259f">m_RcvTags</a>-&gt;size();</div>
+<div class="line"><a name="l01135"></a><span class="lineno"> 1135</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> N_locs = thecpc.<a class="code" href="structamrex_1_1_fab_array_base_1_1_c_p_c.html#a81bf78da77ae53d44dd1a5bb8f05d999">m_LocTags</a>-&gt;size();</div>
+<div class="line"><a name="l01136"></a><span class="lineno"> 1136</span>&#160;</div>
+<div class="line"><a name="l01137"></a><span class="lineno"> 1137</span>&#160;    <span class="keywordflow">if</span> (N_locs == 0 &amp;&amp; N_rcvs == 0 &amp;&amp; N_snds == 0) {</div>
+<div class="line"><a name="l01138"></a><span class="lineno"> 1138</span>&#160;        <span class="comment">// No work to do.</span></div>
+<div class="line"><a name="l01139"></a><span class="lineno"> 1139</span>&#160;        <span class="keywordflow">return</span> CopierHandle();</div>
+<div class="line"><a name="l01140"></a><span class="lineno"> 1140</span>&#160;    }</div>
+<div class="line"><a name="l01141"></a><span class="lineno"> 1141</span>&#160;</div>
+<div class="line"><a name="l01142"></a><span class="lineno"> 1142</span>&#160;    CopierHandle return_handle(*<span class="keyword">this</span>, thecpc);</div>
+<div class="line"><a name="l01143"></a><span class="lineno"> 1143</span>&#160;    CopierHandleImpl&amp; handle = *(return_handle.m_impl);</div>
+<div class="line"><a name="l01144"></a><span class="lineno"> 1144</span>&#160;</div>
+<div class="line"><a name="l01145"></a><span class="lineno"> 1145</span>&#160;    handle.op = op;</div>
+<div class="line"><a name="l01146"></a><span class="lineno"> 1146</span>&#160;    handle.dcomp = dcomp;</div>
+<div class="line"><a name="l01147"></a><span class="lineno"> 1147</span>&#160;    handle.ncomp = <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>;</div>
+<div class="line"><a name="l01148"></a><span class="lineno"> 1148</span>&#160;    handle.N_snds = N_snds;</div>
+<div class="line"><a name="l01149"></a><span class="lineno"> 1149</span>&#160;    handle.N_rcvs = N_rcvs;</div>
+<div class="line"><a name="l01150"></a><span class="lineno"> 1150</span>&#160;    handle.SeqNum = <a class="code" href="namespaceamrex_1_1_parallel_descriptor.html#a610003b1a92f316356dd84be39f9a9b0">SeqNum</a>;</div>
+<div class="line"><a name="l01151"></a><span class="lineno"> 1151</span>&#160;</div>
+<div class="line"><a name="l01152"></a><span class="lineno"> 1152</span>&#160;    <a class="code" href="classamrex_1_1_vector.html">Vector&lt;int&gt;</a>                         send_size;</div>
+<div class="line"><a name="l01153"></a><span class="lineno"> 1153</span>&#160;    <a class="code" href="classamrex_1_1_vector.html">Vector&lt;int&gt;</a>                         send_rank;</div>
+<div class="line"><a name="l01154"></a><span class="lineno"> 1154</span>&#160;    <a class="code" href="classamrex_1_1_vector.html">Vector&lt;const CopyComTagsContainer*&gt;</a> send_cctc;</div>
+<div class="line"><a name="l01155"></a><span class="lineno"> 1155</span>&#160;    <a class="code" href="classamrex_1_1_vector.html">Vector&lt;Vector&lt;int&gt;</a> &gt;                indv_send_size;</div>
+<div class="line"><a name="l01156"></a><span class="lineno"> 1156</span>&#160;    <a class="code" href="classamrex_1_1_vector.html">Vector&lt;MPI_Request&gt;</a>                 pre_reqs;</div>
+<div class="line"><a name="l01157"></a><span class="lineno"> 1157</span>&#160;</div>
+<div class="line"><a name="l01158"></a><span class="lineno"> 1158</span>&#160;    <a class="code" href="classamrex_1_1_vector.html">Vector&lt;MPI_Request&gt;</a>&amp; send_reqs = handle.send_reqs;</div>
+<div class="line"><a name="l01159"></a><span class="lineno"> 1159</span>&#160;    <a class="code" href="classamrex_1_1_vector.html">Vector&lt;char*&gt;</a>      &amp; send_data = handle.send_data;</div>
+<div class="line"><a name="l01160"></a><span class="lineno"> 1160</span>&#160;    <a class="code" href="classamrex_1_1_vector.html">Vector&lt;int&gt;</a>        &amp; recv_from = handle.recv_from;</div>
+<div class="line"><a name="l01161"></a><span class="lineno"> 1161</span>&#160;    <a class="code" href="classamrex_1_1_vector.html">Vector&lt;char*&gt;</a>      &amp; recv_data = handle.recv_data;</div>
+<div class="line"><a name="l01162"></a><span class="lineno"> 1162</span>&#160;    <a class="code" href="classamrex_1_1_vector.html">Vector&lt;int&gt;</a>        &amp; recv_size = handle.recv_size;</div>
+<div class="line"><a name="l01163"></a><span class="lineno"> 1163</span>&#160;    <a class="code" href="classamrex_1_1_vector.html">Vector&lt;MPI_Request&gt;</a>&amp; recv_reqs = handle.recv_reqs;</div>
+<div class="line"><a name="l01164"></a><span class="lineno"> 1164</span>&#160;</div>
+<div class="line"><a name="l01165"></a><span class="lineno"> 1165</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l01166"></a><span class="lineno"> 1166</span>&#160;    <span class="comment">// Before we post recv, let&#39;s preprocess sends in case FAB is not preAllocatable</span></div>
+<div class="line"><a name="l01167"></a><span class="lineno"> 1167</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l01168"></a><span class="lineno"> 1168</span>&#160;    <span class="keywordflow">if</span> (N_snds &gt; 0)</div>
+<div class="line"><a name="l01169"></a><span class="lineno"> 1169</span>&#160;    {</div>
+<div class="line"><a name="l01170"></a><span class="lineno"> 1170</span>&#160;        send_data.reserve(N_snds);</div>
+<div class="line"><a name="l01171"></a><span class="lineno"> 1171</span>&#160;        send_size.reserve(N_snds);</div>
+<div class="line"><a name="l01172"></a><span class="lineno"> 1172</span>&#160;        send_rank.reserve(N_snds);</div>
+<div class="line"><a name="l01173"></a><span class="lineno"> 1173</span>&#160;        send_reqs.reserve(N_snds);</div>
+<div class="line"><a name="l01174"></a><span class="lineno"> 1174</span>&#160;        send_cctc.reserve(N_snds);</div>
+<div class="line"><a name="l01175"></a><span class="lineno"> 1175</span>&#160;        indv_send_size.reserve(N_snds);</div>
+<div class="line"><a name="l01176"></a><span class="lineno"> 1176</span>&#160;        </div>
+<div class="line"><a name="l01177"></a><span class="lineno"> 1177</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>&amp; kv : *thecpc.<a class="code" href="structamrex_1_1_fab_array_base_1_1_c_p_c.html#a69bdee616d6f275a9f7358d44724de97">m_SndVols</a>)</div>
+<div class="line"><a name="l01178"></a><span class="lineno"> 1178</span>&#160;        {</div>
+<div class="line"><a name="l01179"></a><span class="lineno"> 1179</span>&#160;            <a class="code" href="classamrex_1_1_vector.html">Vector&lt;int&gt;</a> iss;                </div>
+<div class="line"><a name="l01180"></a><span class="lineno"> 1180</span>&#160;            <span class="keyword">auto</span> <span class="keyword">const</span>&amp; cctc = thecpc.<a class="code" href="structamrex_1_1_fab_array_base_1_1_c_p_c.html#a1cd653e9db338d0e4026d9a5ef523a13">m_SndTags</a>-&gt;at(kv.first);</div>
+<div class="line"><a name="l01181"></a><span class="lineno"> 1181</span>&#160;            </div>
+<div class="line"><a name="l01182"></a><span class="lineno"> 1182</span>&#160;            std::size_t nbytes = 0;</div>
+<div class="line"><a name="l01183"></a><span class="lineno"> 1183</span>&#160;            <span class="keywordflow">if</span> (FAB::preAllocatable())</div>
+<div class="line"><a name="l01184"></a><span class="lineno"> 1184</span>&#160;            {</div>
+<div class="line"><a name="l01185"></a><span class="lineno"> 1185</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>&amp; cct : kv.second)</div>
+<div class="line"><a name="l01186"></a><span class="lineno"> 1186</span>&#160;                {</div>
+<div class="line"><a name="l01187"></a><span class="lineno"> 1187</span>&#160;                    nbytes += src[cct.srcIndex].nBytes(cct.sbox,scomp,ncomp);</div>
+<div class="line"><a name="l01188"></a><span class="lineno"> 1188</span>&#160;                }</div>
+<div class="line"><a name="l01189"></a><span class="lineno"> 1189</span>&#160;            }</div>
+<div class="line"><a name="l01190"></a><span class="lineno"> 1190</span>&#160;            <span class="keywordflow">else</span></div>
+<div class="line"><a name="l01191"></a><span class="lineno"> 1191</span>&#160;            {</div>
+<div class="line"><a name="l01192"></a><span class="lineno"> 1192</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>&amp; tag : cctc)</div>
+<div class="line"><a name="l01193"></a><span class="lineno"> 1193</span>&#160;                {</div>
+<div class="line"><a name="l01194"></a><span class="lineno"> 1194</span>&#160;                    std::size_t b = src[tag.srcIndex].nBytes(tag.sbox,scomp,ncomp);</div>
+<div class="line"><a name="l01195"></a><span class="lineno"> 1195</span>&#160;                    nbytes += b;</div>
+<div class="line"><a name="l01196"></a><span class="lineno"> 1196</span>&#160;                    iss.push_back(static_cast&lt;int&gt;(b));</div>
+<div class="line"><a name="l01197"></a><span class="lineno"> 1197</span>&#160;                }</div>
+<div class="line"><a name="l01198"></a><span class="lineno"> 1198</span>&#160;            }</div>
+<div class="line"><a name="l01199"></a><span class="lineno"> 1199</span>&#160;        </div>
+<div class="line"><a name="l01200"></a><span class="lineno"> 1200</span>&#160;            <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(nbytes &lt; <a class="code" href="namespaceamrex.html#a870c2407ed885451a76f66f8a0d7a892">std::numeric_limits&lt;int&gt;::max</a>());</div>
+<div class="line"><a name="l01201"></a><span class="lineno"> 1201</span>&#160;</div>
+<div class="line"><a name="l01202"></a><span class="lineno"> 1202</span>&#160;            <span class="keywordtype">char</span>* data = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l01203"></a><span class="lineno"> 1203</span>&#160;            <span class="keywordflow">if</span> (nbytes &gt; 0)</div>
+<div class="line"><a name="l01204"></a><span class="lineno"> 1204</span>&#160;            {</div>
+<div class="line"><a name="l01205"></a><span class="lineno"> 1205</span>&#160;                data = <span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(<a class="code" href="namespaceamrex.html#ae3d1414946b992f39ca41f135f12a0d1">amrex::The_Arena</a>()-&gt;<a class="code" href="classamrex_1_1_arena.html#a46ce2cd5cfc039cec64548b031fbde2e">alloc</a>(nbytes));</div>
+<div class="line"><a name="l01206"></a><span class="lineno"> 1206</span>&#160;            }</div>
+<div class="line"><a name="l01207"></a><span class="lineno"> 1207</span>&#160;                    </div>
+<div class="line"><a name="l01208"></a><span class="lineno"> 1208</span>&#160;            send_data.push_back(data);</div>
+<div class="line"><a name="l01209"></a><span class="lineno"> 1209</span>&#160;            send_size.push_back(static_cast&lt;int&gt;(nbytes));</div>
+<div class="line"><a name="l01210"></a><span class="lineno"> 1210</span>&#160;            send_rank.push_back(kv.first);</div>
+<div class="line"><a name="l01211"></a><span class="lineno"> 1211</span>&#160;            send_reqs.push_back(<a class="code" href="_a_m_re_x__ccse-mpi_8_h.html#a1f063a918d9598b982feec3690d69bec">MPI_REQUEST_NULL</a>);</div>
+<div class="line"><a name="l01212"></a><span class="lineno"> 1212</span>&#160;            send_cctc.push_back(&amp;cctc);</div>
+<div class="line"><a name="l01213"></a><span class="lineno"> 1213</span>&#160;            indv_send_size.push_back(std::move(iss));</div>
+<div class="line"><a name="l01214"></a><span class="lineno"> 1214</span>&#160;        }</div>
+<div class="line"><a name="l01215"></a><span class="lineno"> 1215</span>&#160;    }</div>
+<div class="line"><a name="l01216"></a><span class="lineno"> 1216</span>&#160;</div>
+<div class="line"><a name="l01217"></a><span class="lineno"> 1217</span>&#160;    <span class="keywordflow">if</span> (!FAB::preAllocatable())</div>
+<div class="line"><a name="l01218"></a><span class="lineno"> 1218</span>&#160;    {</div>
+<div class="line"><a name="l01219"></a><span class="lineno"> 1219</span>&#160;        pre_reqs.resize(N_snds,<a class="code" href="_a_m_re_x__ccse-mpi_8_h.html#a1f063a918d9598b982feec3690d69bec">MPI_REQUEST_NULL</a>);</div>
+<div class="line"><a name="l01220"></a><span class="lineno"> 1220</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j&lt;N_snds; ++j)</div>
+<div class="line"><a name="l01221"></a><span class="lineno"> 1221</span>&#160;        {</div>
+<div class="line"><a name="l01222"></a><span class="lineno"> 1222</span>&#160;            pre_reqs[j] = <a class="code" href="namespaceamrex_1_1_parallel_descriptor.html#a0903eb5194f11fcf386f79e6ff3c02f7">ParallelDescriptor::Asend</a></div>
+<div class="line"><a name="l01223"></a><span class="lineno"> 1223</span>&#160;                (indv_send_size[j].data(), indv_send_size[j].size(),</div>
+<div class="line"><a name="l01224"></a><span class="lineno"> 1224</span>&#160;                 <a class="code" href="namespaceamrex_1_1_parallel_context.html#a60c8ba6a67754c2b46d8b1ad78cb26b2">ParallelContext::global_to_local_rank</a>(send_rank[j]),</div>
+<div class="line"><a name="l01225"></a><span class="lineno"> 1225</span>&#160;                 preSeqNum,</div>
+<div class="line"><a name="l01226"></a><span class="lineno"> 1226</span>&#160;                 <a class="code" href="namespaceamrex_1_1_parallel_context.html#afb1955e0ab6b3f188007ad3aa5a4ef8a">ParallelContext::CommunicatorSub</a>()).<a class="code" href="classamrex_1_1_parallel_descriptor_1_1_message.html#a57999afb8ef13d17fc24750bdae6cd00">req</a>();</div>
+<div class="line"><a name="l01227"></a><span class="lineno"> 1227</span>&#160;        }</div>
+<div class="line"><a name="l01228"></a><span class="lineno"> 1228</span>&#160;    }</div>
+<div class="line"><a name="l01229"></a><span class="lineno"> 1229</span>&#160;</div>
+<div class="line"><a name="l01230"></a><span class="lineno"> 1230</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l01231"></a><span class="lineno"> 1231</span>&#160;    <span class="comment">// Post rcvs</span></div>
+<div class="line"><a name="l01232"></a><span class="lineno"> 1232</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l01233"></a><span class="lineno"> 1233</span>&#160;    handle.actual_n_rcvs = 0;</div>
+<div class="line"><a name="l01234"></a><span class="lineno"> 1234</span>&#160;    <span class="keywordflow">if</span> (N_rcvs &gt; 0) {</div>
+<div class="line"><a name="l01235"></a><span class="lineno"> 1235</span>&#160;        PostRcvs(*thecpc.<a class="code" href="structamrex_1_1_fab_array_base_1_1_c_p_c.html#a261f5a7f13eea27de3f5e19dfe999128">m_RcvVols</a>, *thecpc.<a class="code" href="structamrex_1_1_fab_array_base_1_1_c_p_c.html#ae27301b017bbfff8f0bffb789d13259f">m_RcvTags</a>,</div>
+<div class="line"><a name="l01236"></a><span class="lineno"> 1236</span>&#160;                 recv_data, recv_size, recv_from, recv_reqs, scomp, ncomp, SeqNum, preSeqNum);</div>
+<div class="line"><a name="l01237"></a><span class="lineno"> 1237</span>&#160;        handle.actual_n_rcvs = N_rcvs - std::count(recv_size.begin(), recv_size.end(), 0);</div>
+<div class="line"><a name="l01238"></a><span class="lineno"> 1238</span>&#160;    }</div>
+<div class="line"><a name="l01239"></a><span class="lineno"> 1239</span>&#160;</div>
+<div class="line"><a name="l01240"></a><span class="lineno"> 1240</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l01241"></a><span class="lineno"> 1241</span>&#160;    <span class="comment">// Post send&#39;s</span></div>
+<div class="line"><a name="l01242"></a><span class="lineno"> 1242</span>&#160;    <span class="comment">// </span></div>
+<div class="line"><a name="l01243"></a><span class="lineno"> 1243</span>&#160;    <span class="keywordflow">if</span> (N_snds &gt; 0)</div>
+<div class="line"><a name="l01244"></a><span class="lineno"> 1244</span>&#160;    {</div>
+<div class="line"><a name="l01245"></a><span class="lineno"> 1245</span>&#160;<span class="preprocessor">#ifdef _OPENMP</span></div>
+<div class="line"><a name="l01246"></a><span class="lineno"> 1246</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#pragma omp parallel for if (FAB::isCopyOMPSafe())</span></div>
+<div class="line"><a name="l01247"></a><span class="lineno"> 1247</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l01248"></a><span class="lineno"> 1248</span>&#160;<span class="preprocessor"></span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j&lt;N_snds; ++j)</div>
+<div class="line"><a name="l01249"></a><span class="lineno"> 1249</span>&#160;        {</div>
+<div class="line"><a name="l01250"></a><span class="lineno"> 1250</span>&#160;            <span class="keywordtype">char</span>* dptr = send_data[j];</div>
+<div class="line"><a name="l01251"></a><span class="lineno"> 1251</span>&#160;            <span class="keywordflow">if</span> (dptr != <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l01252"></a><span class="lineno"> 1252</span>&#160;            {</div>
+<div class="line"><a name="l01253"></a><span class="lineno"> 1253</span>&#160;                <span class="keyword">auto</span> <span class="keyword">const</span>&amp; cctc = *send_cctc[j];</div>
+<div class="line"><a name="l01254"></a><span class="lineno"> 1254</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>&amp; tag : cctc)</div>
+<div class="line"><a name="l01255"></a><span class="lineno"> 1255</span>&#160;                {</div>
+<div class="line"><a name="l01256"></a><span class="lineno"> 1256</span>&#160;                    <span class="keyword">const</span> <a class="code" href="classamrex_1_1_box.html">Box</a>&amp; bx = tag.sbox;</div>
+<div class="line"><a name="l01257"></a><span class="lineno"> 1257</span>&#160;                    <span class="keyword">auto</span> n = src[tag.srcIndex].copyToMem(bx,scomp,ncomp,dptr);</div>
+<div class="line"><a name="l01258"></a><span class="lineno"> 1258</span>&#160;                    dptr += <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#a54f6ce0fb55c5e079b66b7ac9b865843">n</a>;</div>
+<div class="line"><a name="l01259"></a><span class="lineno"> 1259</span>&#160;                }</div>
+<div class="line"><a name="l01260"></a><span class="lineno"> 1260</span>&#160;                <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(dptr == send_data[j] + send_size[j]);</div>
+<div class="line"><a name="l01261"></a><span class="lineno"> 1261</span>&#160;            }</div>
+<div class="line"><a name="l01262"></a><span class="lineno"> 1262</span>&#160;        }</div>
+<div class="line"><a name="l01263"></a><span class="lineno"> 1263</span>&#160;        </div>
+<div class="line"><a name="l01264"></a><span class="lineno"> 1264</span>&#160;        <span class="keywordtype">int</span> send_counter = 0;</div>
+<div class="line"><a name="l01265"></a><span class="lineno"> 1265</span>&#160;        <span class="keywordflow">while</span> (send_counter &lt; N_snds)</div>
+<div class="line"><a name="l01266"></a><span class="lineno"> 1266</span>&#160;        {</div>
+<div class="line"><a name="l01267"></a><span class="lineno"> 1267</span>&#160;            <span class="keywordtype">int</span> j;</div>
+<div class="line"><a name="l01268"></a><span class="lineno"> 1268</span>&#160;            </div>
+<div class="line"><a name="l01269"></a><span class="lineno"> 1269</span>&#160;            <span class="keywordflow">if</span> (FAB::preAllocatable())</div>
+<div class="line"><a name="l01270"></a><span class="lineno"> 1270</span>&#160;            {</div>
+<div class="line"><a name="l01271"></a><span class="lineno"> 1271</span>&#160;                j = send_counter;</div>
+<div class="line"><a name="l01272"></a><span class="lineno"> 1272</span>&#160;            }</div>
+<div class="line"><a name="l01273"></a><span class="lineno"> 1273</span>&#160;            <span class="keywordflow">else</span></div>
+<div class="line"><a name="l01274"></a><span class="lineno"> 1274</span>&#160;            {</div>
+<div class="line"><a name="l01275"></a><span class="lineno"> 1275</span>&#160;                <a class="code" href="struct_m_p_i___status.html">MPI_Status</a> status;</div>
+<div class="line"><a name="l01276"></a><span class="lineno"> 1276</span>&#160;                <a class="code" href="namespaceamrex_1_1_parallel_descriptor.html#a09446a4d2b5bb7632b4c9316c5dd213c">ParallelDescriptor::Waitany</a>(pre_reqs, j, status);</div>
+<div class="line"><a name="l01277"></a><span class="lineno"> 1277</span>&#160;            }</div>
+<div class="line"><a name="l01278"></a><span class="lineno"> 1278</span>&#160;            </div>
+<div class="line"><a name="l01279"></a><span class="lineno"> 1279</span>&#160;            <span class="keywordflow">if</span> (send_size[j] &gt; 0)</div>
+<div class="line"><a name="l01280"></a><span class="lineno"> 1280</span>&#160;            {</div>
+<div class="line"><a name="l01281"></a><span class="lineno"> 1281</span>&#160;                <span class="keywordflow">if</span> (FabArrayBase::do_async_sends)</div>
+<div class="line"><a name="l01282"></a><span class="lineno"> 1282</span>&#160;                {</div>
+<div class="line"><a name="l01283"></a><span class="lineno"> 1283</span>&#160;                    send_reqs[j] = <a class="code" href="namespaceamrex_1_1_parallel_descriptor.html#a0903eb5194f11fcf386f79e6ff3c02f7">ParallelDescriptor::Asend</a></div>
+<div class="line"><a name="l01284"></a><span class="lineno"> 1284</span>&#160;                        (send_data[j], send_size[j],</div>
+<div class="line"><a name="l01285"></a><span class="lineno"> 1285</span>&#160;                         <a class="code" href="namespaceamrex_1_1_parallel_context.html#a60c8ba6a67754c2b46d8b1ad78cb26b2">ParallelContext::global_to_local_rank</a>(send_rank[j]),</div>
+<div class="line"><a name="l01286"></a><span class="lineno"> 1286</span>&#160;                         SeqNum,</div>
+<div class="line"><a name="l01287"></a><span class="lineno"> 1287</span>&#160;                         <a class="code" href="namespaceamrex_1_1_parallel_context.html#afb1955e0ab6b3f188007ad3aa5a4ef8a">ParallelContext::CommunicatorSub</a>()).<a class="code" href="classamrex_1_1_parallel_descriptor_1_1_message.html#a57999afb8ef13d17fc24750bdae6cd00">req</a>();</div>
+<div class="line"><a name="l01288"></a><span class="lineno"> 1288</span>&#160;                }</div>
+<div class="line"><a name="l01289"></a><span class="lineno"> 1289</span>&#160;                <span class="keywordflow">else</span></div>
+<div class="line"><a name="l01290"></a><span class="lineno"> 1290</span>&#160;                {</div>
+<div class="line"><a name="l01291"></a><span class="lineno"> 1291</span>&#160;                    <a class="code" href="namespaceamrex_1_1_b_l_pgas.html#af4e08f18e4a2cd3851cb0c8911dac340">ParallelDescriptor::Send</a></div>
+<div class="line"><a name="l01292"></a><span class="lineno"> 1292</span>&#160;                        (send_data[j], send_size[j],</div>
+<div class="line"><a name="l01293"></a><span class="lineno"> 1293</span>&#160;                         <a class="code" href="namespaceamrex_1_1_parallel_context.html#a60c8ba6a67754c2b46d8b1ad78cb26b2">ParallelContext::global_to_local_rank</a>(send_rank[j]),</div>
+<div class="line"><a name="l01294"></a><span class="lineno"> 1294</span>&#160;                         SeqNum,</div>
+<div class="line"><a name="l01295"></a><span class="lineno"> 1295</span>&#160;                         <a class="code" href="namespaceamrex_1_1_parallel_context.html#afb1955e0ab6b3f188007ad3aa5a4ef8a">ParallelContext::CommunicatorSub</a>());</div>
+<div class="line"><a name="l01296"></a><span class="lineno"> 1296</span>&#160;                    <a class="code" href="namespaceamrex.html#ae3d1414946b992f39ca41f135f12a0d1">amrex::The_Arena</a>()-&gt;<a class="code" href="classamrex_1_1_arena.html#a0c7e0730574c98febb6ddca2712cb515">free</a>(send_data[j]);</div>
+<div class="line"><a name="l01297"></a><span class="lineno"> 1297</span>&#160;                }</div>
+<div class="line"><a name="l01298"></a><span class="lineno"> 1298</span>&#160;            }</div>
+<div class="line"><a name="l01299"></a><span class="lineno"> 1299</span>&#160;            </div>
+<div class="line"><a name="l01300"></a><span class="lineno"> 1300</span>&#160;            ++send_counter;</div>
+<div class="line"><a name="l01301"></a><span class="lineno"> 1301</span>&#160;        }</div>
+<div class="line"><a name="l01302"></a><span class="lineno"> 1302</span>&#160;    }</div>
+<div class="line"><a name="l01303"></a><span class="lineno"> 1303</span>&#160;</div>
+<div class="line"><a name="l01304"></a><span class="lineno"> 1304</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l01305"></a><span class="lineno"> 1305</span>&#160;    <span class="comment">// Do the local work.  Hope for a bit of communication/computation overlap.</span></div>
+<div class="line"><a name="l01306"></a><span class="lineno"> 1306</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l01307"></a><span class="lineno"> 1307</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="namespaceamrex_1_1_parallel_descriptor.html#a3853f9b7ee9719c0de679f068dd34c5e">ParallelDescriptor::TeamSize</a>() &gt; 1 &amp;&amp; thecpc.<a class="code" href="structamrex_1_1_fab_array_base_1_1_c_p_c.html#addb3c2428b13f33918b669b3860b7bc5">m_threadsafe_loc</a>)</div>
+<div class="line"><a name="l01308"></a><span class="lineno"> 1308</span>&#160;    {</div>
+<div class="line"><a name="l01309"></a><span class="lineno"> 1309</span>&#160;<span class="preprocessor">#ifdef BL_USE_TEAM</span></div>
+<div class="line"><a name="l01310"></a><span class="lineno"> 1310</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#ifdef _OPENMP</span></div>
+<div class="line"><a name="l01311"></a><span class="lineno"> 1311</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#pragma omp parallel if (FAB::isCopyOMPSafe())</span></div>
+<div class="line"><a name="l01312"></a><span class="lineno"> 1312</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l01313"></a><span class="lineno"> 1313</span>&#160;<span class="preprocessor"></span>        <a class="code" href="namespaceamrex_1_1_parallel_descriptor.html#ae9b60ea81eb861f883e02edaa5876d08">ParallelDescriptor::team_for</a>(0, N_locs, [&amp;] (<span class="keywordtype">int</span> j) </div>
+<div class="line"><a name="l01314"></a><span class="lineno"> 1314</span>&#160;            {</div>
+<div class="line"><a name="l01315"></a><span class="lineno"> 1315</span>&#160;        <span class="keyword">const</span> <a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html">CopyComTag</a>&amp; tag = (*thecpc.<a class="code" href="structamrex_1_1_fab_array_base_1_1_c_p_c.html#a81bf78da77ae53d44dd1a5bb8f05d999">m_LocTags</a>)[j];</div>
+<div class="line"><a name="l01316"></a><span class="lineno"> 1316</span>&#160;        </div>
+<div class="line"><a name="l01317"></a><span class="lineno"> 1317</span>&#160;        <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;src || tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#abc0d662cdc63c3e99f4c114dc3ac266f">dstIndex</a> != tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#aa03667cd08814ea67d8fc2170a93a07c">srcIndex</a> || tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#a1c8df51daf5ac3a9d20522cfdb6ab004">sbox</a> != tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#aa4ad873f80c114d0041fd4c30d9fbe94">dbox</a>) {</div>
+<div class="line"><a name="l01318"></a><span class="lineno"> 1318</span>&#160;            <span class="comment">// avoid self copy or plus</span></div>
+<div class="line"><a name="l01319"></a><span class="lineno"> 1319</span>&#160;            <span class="keywordflow">if</span> (op == FabArrayBase::COPY) {</div>
+<div class="line"><a name="l01320"></a><span class="lineno"> 1320</span>&#160;            <span class="keyword">get</span>(tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#abc0d662cdc63c3e99f4c114dc3ac266f">dstIndex</a>).copy(src[tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#aa03667cd08814ea67d8fc2170a93a07c">srcIndex</a>],tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#a1c8df51daf5ac3a9d20522cfdb6ab004">sbox</a>,scomp,tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#aa4ad873f80c114d0041fd4c30d9fbe94">dbox</a>,dcomp,ncomp);</div>
+<div class="line"><a name="l01321"></a><span class="lineno"> 1321</span>&#160;            } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l01322"></a><span class="lineno"> 1322</span>&#160;            <span class="keyword">get</span>(tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#abc0d662cdc63c3e99f4c114dc3ac266f">dstIndex</a>).plus(src[tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#aa03667cd08814ea67d8fc2170a93a07c">srcIndex</a>],tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#a1c8df51daf5ac3a9d20522cfdb6ab004">sbox</a>,tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#aa4ad873f80c114d0041fd4c30d9fbe94">dbox</a>,scomp,dcomp,ncomp);</div>
+<div class="line"><a name="l01323"></a><span class="lineno"> 1323</span>&#160;            }</div>
+<div class="line"><a name="l01324"></a><span class="lineno"> 1324</span>&#160;        }</div>
+<div class="line"><a name="l01325"></a><span class="lineno"> 1325</span>&#160;        });</div>
+<div class="line"><a name="l01326"></a><span class="lineno"> 1326</span>&#160;<span class="preprocessor">#endif      </span></div>
+<div class="line"><a name="l01327"></a><span class="lineno"> 1327</span>&#160;<span class="preprocessor"></span>    }</div>
+<div class="line"><a name="l01328"></a><span class="lineno"> 1328</span>&#160;    <span class="keywordflow">else</span> </div>
+<div class="line"><a name="l01329"></a><span class="lineno"> 1329</span>&#160;    {</div>
+<div class="line"><a name="l01330"></a><span class="lineno"> 1330</span>&#160;<span class="preprocessor">#ifdef _OPENMP</span></div>
+<div class="line"><a name="l01331"></a><span class="lineno"> 1331</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#pragma omp parallel for if (FAB::isCopyOMPSafe() &amp;&amp; thecpc.m_threadsafe_loc)</span></div>
+<div class="line"><a name="l01332"></a><span class="lineno"> 1332</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l01333"></a><span class="lineno"> 1333</span>&#160;<span class="preprocessor"></span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j&lt;N_locs; ++j)</div>
+<div class="line"><a name="l01334"></a><span class="lineno"> 1334</span>&#160;        {</div>
+<div class="line"><a name="l01335"></a><span class="lineno"> 1335</span>&#160;            <span class="keyword">const</span> <a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html">CopyComTag</a>&amp; tag = (*thecpc.<a class="code" href="structamrex_1_1_fab_array_base_1_1_c_p_c.html#a81bf78da77ae53d44dd1a5bb8f05d999">m_LocTags</a>)[j];</div>
+<div class="line"><a name="l01336"></a><span class="lineno"> 1336</span>&#160;            </div>
+<div class="line"><a name="l01337"></a><span class="lineno"> 1337</span>&#160;            <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;src || tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#abc0d662cdc63c3e99f4c114dc3ac266f">dstIndex</a> != tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#aa03667cd08814ea67d8fc2170a93a07c">srcIndex</a> || tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#a1c8df51daf5ac3a9d20522cfdb6ab004">sbox</a> != tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#aa4ad873f80c114d0041fd4c30d9fbe94">dbox</a>) {</div>
+<div class="line"><a name="l01338"></a><span class="lineno"> 1338</span>&#160;                <span class="comment">// avoid self copy or plus</span></div>
+<div class="line"><a name="l01339"></a><span class="lineno"> 1339</span>&#160;                <span class="keywordflow">if</span> (op == FabArrayBase::COPY) {</div>
+<div class="line"><a name="l01340"></a><span class="lineno"> 1340</span>&#160;                    <span class="keyword">get</span>(tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#abc0d662cdc63c3e99f4c114dc3ac266f">dstIndex</a>).copy(src[tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#aa03667cd08814ea67d8fc2170a93a07c">srcIndex</a>],tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#a1c8df51daf5ac3a9d20522cfdb6ab004">sbox</a>,scomp,tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#aa4ad873f80c114d0041fd4c30d9fbe94">dbox</a>,dcomp,ncomp);</div>
+<div class="line"><a name="l01341"></a><span class="lineno"> 1341</span>&#160;                } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l01342"></a><span class="lineno"> 1342</span>&#160;                    <span class="keyword">get</span>(tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#abc0d662cdc63c3e99f4c114dc3ac266f">dstIndex</a>).plus(src[tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#aa03667cd08814ea67d8fc2170a93a07c">srcIndex</a>],tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#a1c8df51daf5ac3a9d20522cfdb6ab004">sbox</a>,tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#aa4ad873f80c114d0041fd4c30d9fbe94">dbox</a>,scomp,dcomp,ncomp);</div>
+<div class="line"><a name="l01343"></a><span class="lineno"> 1343</span>&#160;                }</div>
+<div class="line"><a name="l01344"></a><span class="lineno"> 1344</span>&#160;            }</div>
+<div class="line"><a name="l01345"></a><span class="lineno"> 1345</span>&#160;        }</div>
+<div class="line"><a name="l01346"></a><span class="lineno"> 1346</span>&#160;    }</div>
+<div class="line"><a name="l01347"></a><span class="lineno"> 1347</span>&#160;</div>
+<div class="line"><a name="l01348"></a><span class="lineno"> 1348</span>&#160;    <span class="keywordflow">return</span> return_handle;</div>
+<div class="line"><a name="l01349"></a><span class="lineno"> 1349</span>&#160;</div>
+<div class="line"><a name="l01350"></a><span class="lineno"> 1350</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/*BL_USE_MPI*/</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l01351"></a><span class="lineno"> 1351</span>&#160;<span class="preprocessor"></span>}</div>
+<div class="line"><a name="l01352"></a><span class="lineno"> 1352</span>&#160;</div>
+<div class="line"><a name="l01353"></a><span class="lineno"> 1353</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> FAB&gt;</div>
+<div class="line"><a name="l01354"></a><span class="lineno"> 1354</span>&#160;<span class="keywordtype">void</span></div>
+<div class="line"><a name="l01355"></a><span class="lineno"> 1355</span>&#160;<a class="code" href="classamrex_1_1_fab_array.html">FabArray&lt;FAB&gt;::CopierHandleImpl::finish</a> ()</div>
+<div class="line"><a name="l01356"></a><span class="lineno"> 1356</span>&#160;{</div>
+<div class="line"><a name="l01357"></a><span class="lineno"> 1357</span>&#160;    <a class="code" href="_a_m_re_x___b_l_profiler_8_h.html#a548fbd9b2cd72a927f463003f4adb0b1">BL_PROFILE</a>(<span class="stringliteral">&quot;FabArray::ParallelCopy_finish()&quot;</span>);</div>
+<div class="line"><a name="l01358"></a><span class="lineno"> 1358</span>&#160;</div>
+<div class="line"><a name="l01359"></a><span class="lineno"> 1359</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l01360"></a><span class="lineno"> 1360</span>&#160;    <span class="comment">//  wait and unpack</span></div>
+<div class="line"><a name="l01361"></a><span class="lineno"> 1361</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l01362"></a><span class="lineno"> 1362</span>&#160;    <span class="keywordflow">if</span> (actual_n_rcvs &gt; 0) {</div>
+<div class="line"><a name="l01363"></a><span class="lineno"> 1363</span>&#160;        <a class="code" href="classamrex_1_1_vector.html">Vector&lt;MPI_Status&gt;</a> stats(N_rcvs);</div>
+<div class="line"><a name="l01364"></a><span class="lineno"> 1364</span>&#160;        <a class="code" href="namespaceamrex_1_1_parallel_descriptor.html#ab581b8dba6006dbb3457d925c4b0f244">ParallelDescriptor::Waitall</a>(recv_reqs, stats);</div>
+<div class="line"><a name="l01365"></a><span class="lineno"> 1365</span>&#160;        <span class="keywordflow">if</span> (!CheckRcvStats(stats, recv_size, MPI_CHAR, SeqNum))</div>
+<div class="line"><a name="l01366"></a><span class="lineno"> 1366</span>&#160;        {</div>
+<div class="line"><a name="l01367"></a><span class="lineno"> 1367</span>&#160;            <a class="code" href="namespaceamrex.html#aea69993eec3c9ca497cd0e47522b2ec6">amrex::Abort</a>(<span class="stringliteral">&quot;ParallelCopy failed with wrong message size&quot;</span>);</div>
+<div class="line"><a name="l01368"></a><span class="lineno"> 1368</span>&#160;        }</div>
+<div class="line"><a name="l01369"></a><span class="lineno"> 1369</span>&#160;    }</div>
+<div class="line"><a name="l01370"></a><span class="lineno"> 1370</span>&#160;    </div>
+<div class="line"><a name="l01371"></a><span class="lineno"> 1371</span>&#160;    <span class="keywordflow">if</span> (N_rcvs &gt; 0)</div>
+<div class="line"><a name="l01372"></a><span class="lineno"> 1372</span>&#160;    {</div>
+<div class="line"><a name="l01373"></a><span class="lineno"> 1373</span>&#160;        Vector&lt;const CopyComTagsContainer*&gt; recv_cctc(N_rcvs,<span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l01374"></a><span class="lineno"> 1374</span>&#160;        </div>
+<div class="line"><a name="l01375"></a><span class="lineno"> 1375</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = 0; k &lt; N_rcvs; ++k)</div>
+<div class="line"><a name="l01376"></a><span class="lineno"> 1376</span>&#160;        {</div>
+<div class="line"><a name="l01377"></a><span class="lineno"> 1377</span>&#160;            <span class="keywordflow">if</span> (recv_size[k] &gt; 0)</div>
+<div class="line"><a name="l01378"></a><span class="lineno"> 1378</span>&#160;            {</div>
+<div class="line"><a name="l01379"></a><span class="lineno"> 1379</span>&#160;                <span class="keyword">auto</span> <span class="keyword">const</span>&amp; cctc = thecpc.m_RcvTags-&gt;at(recv_from[k]);</div>
+<div class="line"><a name="l01380"></a><span class="lineno"> 1380</span>&#160;                recv_cctc[k] = &amp;cctc;</div>
+<div class="line"><a name="l01381"></a><span class="lineno"> 1381</span>&#160;            }</div>
+<div class="line"><a name="l01382"></a><span class="lineno"> 1382</span>&#160;        }</div>
+<div class="line"><a name="l01383"></a><span class="lineno"> 1383</span>&#160;    </div>
+<div class="line"><a name="l01384"></a><span class="lineno"> 1384</span>&#160;<span class="preprocessor">#ifdef _OPENMP</span></div>
+<div class="line"><a name="l01385"></a><span class="lineno"> 1385</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#pragma omp parallel if (FAB::isCopyOMPSafe() &amp;&amp; thecpc.m_threadsafe_rcv)</span></div>
+<div class="line"><a name="l01386"></a><span class="lineno"> 1386</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l01387"></a><span class="lineno"> 1387</span>&#160;<span class="preprocessor"></span>        {</div>
+<div class="line"><a name="l01388"></a><span class="lineno"> 1388</span>&#160;            FAB fab;</div>
+<div class="line"><a name="l01389"></a><span class="lineno"> 1389</span>&#160;            </div>
+<div class="line"><a name="l01390"></a><span class="lineno"> 1390</span>&#160;<span class="preprocessor">#ifdef _OPENMP</span></div>
+<div class="line"><a name="l01391"></a><span class="lineno"> 1391</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#pragma omp for</span></div>
+<div class="line"><a name="l01392"></a><span class="lineno"> 1392</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l01393"></a><span class="lineno"> 1393</span>&#160;<span class="preprocessor"></span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = 0; k &lt; N_rcvs; ++k)</div>
+<div class="line"><a name="l01394"></a><span class="lineno"> 1394</span>&#160;            {</div>
+<div class="line"><a name="l01395"></a><span class="lineno"> 1395</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">char</span>* dptr = recv_data[k];</div>
+<div class="line"><a name="l01396"></a><span class="lineno"> 1396</span>&#160;                <span class="keywordflow">if</span> (dptr != <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l01397"></a><span class="lineno"> 1397</span>&#160;                {</div>
+<div class="line"><a name="l01398"></a><span class="lineno"> 1398</span>&#160;                    <span class="keyword">auto</span> <span class="keyword">const</span>&amp; cctc = *recv_cctc[k];</div>
+<div class="line"><a name="l01399"></a><span class="lineno"> 1399</span>&#160;                    <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>&amp; tag : cctc)</div>
+<div class="line"><a name="l01400"></a><span class="lineno"> 1400</span>&#160;                    {</div>
+<div class="line"><a name="l01401"></a><span class="lineno"> 1401</span>&#160;                        <span class="keyword">const</span> Box&amp; bx  = tag.dbox;</div>
+<div class="line"><a name="l01402"></a><span class="lineno"> 1402</span>&#160;                        std::size_t <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#a54f6ce0fb55c5e079b66b7ac9b865843">n</a>;</div>
+<div class="line"><a name="l01403"></a><span class="lineno"> 1403</span>&#160;                        <span class="keywordflow">if</span> (op == FabArrayBase::COPY)</div>
+<div class="line"><a name="l01404"></a><span class="lineno"> 1404</span>&#160;                        {</div>
+<div class="line"><a name="l01405"></a><span class="lineno"> 1405</span>&#160;                            n = dstfa[tag.dstIndex].copyFromMem(bx,dcomp,ncomp,dptr);</div>
+<div class="line"><a name="l01406"></a><span class="lineno"> 1406</span>&#160;                        }</div>
+<div class="line"><a name="l01407"></a><span class="lineno"> 1407</span>&#160;                        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l01408"></a><span class="lineno"> 1408</span>&#160;                        {</div>
+<div class="line"><a name="l01409"></a><span class="lineno"> 1409</span>&#160;                            fab.resize(bx,ncomp);</div>
+<div class="line"><a name="l01410"></a><span class="lineno"> 1410</span>&#160;                            n = fab.copyFromMem(bx,0,ncomp,dptr);</div>
+<div class="line"><a name="l01411"></a><span class="lineno"> 1411</span>&#160;                            dstfa[tag.dstIndex].plus(fab,bx,bx,0,dcomp,ncomp);</div>
+<div class="line"><a name="l01412"></a><span class="lineno"> 1412</span>&#160;                        }</div>
+<div class="line"><a name="l01413"></a><span class="lineno"> 1413</span>&#160;                        dptr += <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#a54f6ce0fb55c5e079b66b7ac9b865843">n</a>;</div>
+<div class="line"><a name="l01414"></a><span class="lineno"> 1414</span>&#160;                    }</div>
+<div class="line"><a name="l01415"></a><span class="lineno"> 1415</span>&#160;                    <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(dptr == recv_data[k] + recv_size[k]);</div>
+<div class="line"><a name="l01416"></a><span class="lineno"> 1416</span>&#160;                }</div>
+<div class="line"><a name="l01417"></a><span class="lineno"> 1417</span>&#160;            }</div>
+<div class="line"><a name="l01418"></a><span class="lineno"> 1418</span>&#160;        }</div>
+<div class="line"><a name="l01419"></a><span class="lineno"> 1419</span>&#160;        </div>
+<div class="line"><a name="l01420"></a><span class="lineno"> 1420</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> p : recv_data) {</div>
+<div class="line"><a name="l01421"></a><span class="lineno"> 1421</span>&#160;            <a class="code" href="namespaceamrex.html#ae3d1414946b992f39ca41f135f12a0d1">amrex::The_Arena</a>()-&gt;<a class="code" href="classamrex_1_1_arena.html#a0c7e0730574c98febb6ddca2712cb515">free</a>(p);</div>
+<div class="line"><a name="l01422"></a><span class="lineno"> 1422</span>&#160;        }</div>
+<div class="line"><a name="l01423"></a><span class="lineno"> 1423</span>&#160;    }</div>
+<div class="line"><a name="l01424"></a><span class="lineno"> 1424</span>&#160;    </div>
+<div class="line"><a name="l01425"></a><span class="lineno"> 1425</span>&#160;    <span class="keywordflow">if</span> (N_snds &gt; 0) {</div>
+<div class="line"><a name="l01426"></a><span class="lineno"> 1426</span>&#160;        <span class="keywordflow">if</span> (FabArrayBase::do_async_sends &amp;&amp; ! thecpc.m_SndTags-&gt;empty()) {</div>
+<div class="line"><a name="l01427"></a><span class="lineno"> 1427</span>&#160;            Vector&lt;MPI_Status&gt; stats;</div>
+<div class="line"><a name="l01428"></a><span class="lineno"> 1428</span>&#160;            FabArrayBase::WaitForAsyncSends(N_snds,send_reqs,send_data,stats);</div>
+<div class="line"><a name="l01429"></a><span class="lineno"> 1429</span>&#160;        }</div>
+<div class="line"><a name="l01430"></a><span class="lineno"> 1430</span>&#160;    }</div>
+<div class="line"><a name="l01431"></a><span class="lineno"> 1431</span>&#160;</div>
+<div class="line"><a name="l01432"></a><span class="lineno"> 1432</span>&#160;<span class="preprocessor">#ifdef BL_USE_TEAM</span></div>
+<div class="line"><a name="l01433"></a><span class="lineno"> 1433</span>&#160;<span class="preprocessor"></span>    <a class="code" href="namespaceamrex_1_1_parallel_descriptor.html#ae38ab120916cc34186f31beb0e56a397">ParallelDescriptor::MyTeam</a>().<a class="code" href="structamrex_1_1_parallel_descriptor_1_1_process_team.html#a91774a864ad910eae4ed1af75175bc5c">MemoryBarrier</a>();</div>
+<div class="line"><a name="l01434"></a><span class="lineno"> 1434</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l01435"></a><span class="lineno"> 1435</span>&#160;<span class="preprocessor"></span>}</div>
+<div class="line"><a name="l01436"></a><span class="lineno"> 1436</span>&#160;</div>
+<div class="line"><a name="l01437"></a><span class="lineno"> 1437</span>&#160;</div>
+<div class="line"><a name="l01438"></a><span class="lineno"> 1438</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> FAB&gt;</div>
+<div class="line"><a name="l01439"></a><span class="lineno"> 1439</span>&#160;<span class="keywordtype">void</span></div>
+<div class="line"><a name="l01440"></a><span class="lineno"> 1440</span>&#160;<a class="code" href="classamrex_1_1_fab_array.html#a0b91952d964518b99146f011e68e672e">FabArray&lt;FAB&gt;::copyTo</a> (FAB&amp;       dest,</div>
+<div class="line"><a name="l01441"></a><span class="lineno"> 1441</span>&#160;               <span class="keyword">const</span> Box&amp; subbox,</div>
+<div class="line"><a name="l01442"></a><span class="lineno"> 1442</span>&#160;               <span class="keywordtype">int</span>        scomp,</div>
+<div class="line"><a name="l01443"></a><span class="lineno"> 1443</span>&#160;               <span class="keywordtype">int</span>        dcomp,</div>
+<div class="line"><a name="l01444"></a><span class="lineno"> 1444</span>&#160;               <span class="keywordtype">int</span>        ncomp,</div>
+<div class="line"><a name="l01445"></a><span class="lineno"> 1445</span>&#160;               <span class="keywordtype">int</span>        nghost)<span class="keyword"> const</span></div>
+<div class="line"><a name="l01446"></a><span class="lineno"> 1446</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l01447"></a><span class="lineno"> 1447</span>&#160;    <a class="code" href="_a_m_re_x___b_l_profiler_8_h.html#a548fbd9b2cd72a927f463003f4adb0b1">BL_PROFILE</a>(<span class="stringliteral">&quot;FabArray::copy(fab)&quot;</span>);</div>
+<div class="line"><a name="l01448"></a><span class="lineno"> 1448</span>&#160;</div>
+<div class="line"><a name="l01449"></a><span class="lineno"> 1449</span>&#160;    <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(dcomp + ncomp &lt;= dest.nComp());</div>
+<div class="line"><a name="l01450"></a><span class="lineno"> 1450</span>&#160;    <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(nghost &lt;= nGrow());</div>
+<div class="line"><a name="l01451"></a><span class="lineno"> 1451</span>&#160;</div>
+<div class="line"><a name="l01452"></a><span class="lineno"> 1452</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="namespaceamrex_1_1_parallel_context.html#a1e98db9c755ff62ca57280f0d6313936">ParallelContext::NProcsSub</a>() == 1)</div>
+<div class="line"><a name="l01453"></a><span class="lineno"> 1453</span>&#160;    {</div>
+<div class="line"><a name="l01454"></a><span class="lineno"> 1454</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0, N = size(); j &lt; N; ++j)</div>
+<div class="line"><a name="l01455"></a><span class="lineno"> 1455</span>&#160;        {</div>
+<div class="line"><a name="l01456"></a><span class="lineno"> 1456</span>&#160;        <span class="keyword">const</span> Box&amp; bx = <a class="code" href="namespaceamrex.html#aded67b6a8fd015f89f19f03ed9fdcb73">amrex::grow</a>(boxarray[j],nghost);</div>
+<div class="line"><a name="l01457"></a><span class="lineno"> 1457</span>&#160;        <span class="keyword">const</span> Box&amp; destbox = bx &amp; subbox;</div>
+<div class="line"><a name="l01458"></a><span class="lineno"> 1458</span>&#160;        <span class="keywordflow">if</span> (destbox.ok())</div>
+<div class="line"><a name="l01459"></a><span class="lineno"> 1459</span>&#160;            {</div>
+<div class="line"><a name="l01460"></a><span class="lineno"> 1460</span>&#160;                dest.copy(<span class="keyword">get</span>(j),destbox,scomp,destbox,dcomp,ncomp);</div>
+<div class="line"><a name="l01461"></a><span class="lineno"> 1461</span>&#160;            }</div>
+<div class="line"><a name="l01462"></a><span class="lineno"> 1462</span>&#160;        }</div>
+<div class="line"><a name="l01463"></a><span class="lineno"> 1463</span>&#160;</div>
+<div class="line"><a name="l01464"></a><span class="lineno"> 1464</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l01465"></a><span class="lineno"> 1465</span>&#160;    }</div>
+<div class="line"><a name="l01466"></a><span class="lineno"> 1466</span>&#160;</div>
+<div class="line"><a name="l01467"></a><span class="lineno"> 1467</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l01468"></a><span class="lineno"> 1468</span>&#160;    <span class="comment">//  Note that subbox must be identical on each process!!</span></div>
+<div class="line"><a name="l01469"></a><span class="lineno"> 1469</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l01470"></a><span class="lineno"> 1470</span>&#160;<span class="preprocessor">#ifdef AMREX_DEBUG</span></div>
+<div class="line"><a name="l01471"></a><span class="lineno"> 1471</span>&#160;<span class="preprocessor"></span>    {</div>
+<div class="line"><a name="l01472"></a><span class="lineno"> 1472</span>&#160;    BoxCommHelper bch(subbox);  </div>
+<div class="line"><a name="l01473"></a><span class="lineno"> 1473</span>&#160;    <a class="code" href="namespaceamrex_1_1_parallel_descriptor.html#a20157f27c3bf88a426b0f44bd6bbf135">ParallelDescriptor::Bcast</a>(bch.data(), bch.size(), 0, <a class="code" href="namespaceamrex_1_1_parallel_context.html#afb1955e0ab6b3f188007ad3aa5a4ef8a">ParallelContext::CommunicatorSub</a>());</div>
+<div class="line"><a name="l01474"></a><span class="lineno"> 1474</span>&#160;    <span class="keyword">const</span> Box&amp; bx0 = bch.make_box();</div>
+<div class="line"><a name="l01475"></a><span class="lineno"> 1475</span>&#160;    <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(subbox == bx0);</div>
+<div class="line"><a name="l01476"></a><span class="lineno"> 1476</span>&#160;    }</div>
+<div class="line"><a name="l01477"></a><span class="lineno"> 1477</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l01478"></a><span class="lineno"> 1478</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l01479"></a><span class="lineno"> 1479</span>&#160;    FAB ovlp;</div>
+<div class="line"><a name="l01480"></a><span class="lineno"> 1480</span>&#160;</div>
+<div class="line"><a name="l01481"></a><span class="lineno"> 1481</span>&#160;    std::vector&lt; std::pair&lt;int,Box&gt; &gt; isects;</div>
+<div class="line"><a name="l01482"></a><span class="lineno"> 1482</span>&#160;    boxarray.intersections(subbox, isects, <span class="keyword">false</span>, nghost);</div>
+<div class="line"><a name="l01483"></a><span class="lineno"> 1483</span>&#160;</div>
+<div class="line"><a name="l01484"></a><span class="lineno"> 1484</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0, M = isects.size(); j &lt; M; ++j)</div>
+<div class="line"><a name="l01485"></a><span class="lineno"> 1485</span>&#160;    {</div>
+<div class="line"><a name="l01486"></a><span class="lineno"> 1486</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span>  k  = isects[j].first;</div>
+<div class="line"><a name="l01487"></a><span class="lineno"> 1487</span>&#160;    <span class="keyword">const</span> Box&amp; bx = isects[j].second;</div>
+<div class="line"><a name="l01488"></a><span class="lineno"> 1488</span>&#160;</div>
+<div class="line"><a name="l01489"></a><span class="lineno"> 1489</span>&#160;    ovlp.resize(bx,ncomp);</div>
+<div class="line"><a name="l01490"></a><span class="lineno"> 1490</span>&#160;</div>
+<div class="line"><a name="l01491"></a><span class="lineno"> 1491</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="namespaceamrex_1_1_parallel_descriptor.html#a3deabb4447125ee364f9ca1c5a07c1e4">ParallelDescriptor::MyProc</a>() == distributionMap[k])</div>
+<div class="line"><a name="l01492"></a><span class="lineno"> 1492</span>&#160;    {</div>
+<div class="line"><a name="l01493"></a><span class="lineno"> 1493</span>&#160;        ovlp.copy(<span class="keyword">get</span>(k),bx,scomp,bx,0,ncomp);</div>
+<div class="line"><a name="l01494"></a><span class="lineno"> 1494</span>&#160;    }</div>
+<div class="line"><a name="l01495"></a><span class="lineno"> 1495</span>&#160;</div>
+<div class="line"><a name="l01496"></a><span class="lineno"> 1496</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> N = bx.numPts()*<a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>;</div>
+<div class="line"><a name="l01497"></a><span class="lineno"> 1497</span>&#160;</div>
+<div class="line"><a name="l01498"></a><span class="lineno"> 1498</span>&#160;    <a class="code" href="namespaceamrex_1_1_parallel_descriptor.html#a20157f27c3bf88a426b0f44bd6bbf135">ParallelDescriptor::Bcast</a>(ovlp.dataPtr(),N,</div>
+<div class="line"><a name="l01499"></a><span class="lineno"> 1499</span>&#160;                                  <a class="code" href="namespaceamrex_1_1_parallel_context.html#a60c8ba6a67754c2b46d8b1ad78cb26b2">ParallelContext::global_to_local_rank</a>(distributionMap[k]),</div>
+<div class="line"><a name="l01500"></a><span class="lineno"> 1500</span>&#160;                                  <a class="code" href="namespaceamrex_1_1_parallel_context.html#afb1955e0ab6b3f188007ad3aa5a4ef8a">ParallelContext::CommunicatorSub</a>());</div>
+<div class="line"><a name="l01501"></a><span class="lineno"> 1501</span>&#160;</div>
+<div class="line"><a name="l01502"></a><span class="lineno"> 1502</span>&#160;    dest.copy(ovlp,bx,0,bx,dcomp,ncomp);</div>
+<div class="line"><a name="l01503"></a><span class="lineno"> 1503</span>&#160;    }</div>
+<div class="line"><a name="l01504"></a><span class="lineno"> 1504</span>&#160;}</div>
+<div class="line"><a name="l01505"></a><span class="lineno"> 1505</span>&#160;</div>
+<div class="line"><a name="l01506"></a><span class="lineno"> 1506</span>&#160;</div>
+<div class="line"><a name="l01507"></a><span class="lineno"> 1507</span>&#160;<span class="preprocessor">#ifdef BL_USE_MPI</span></div>
+<div class="line"><a name="l01508"></a><span class="lineno"> 1508</span>&#160;<span class="preprocessor"></span><span class="keyword">template</span> &lt;<span class="keyword">class</span> FAB&gt;</div>
+<div class="line"><a name="l01509"></a><span class="lineno"> 1509</span>&#160;<span class="keywordtype">void</span></div>
+<div class="line"><a name="l01510"></a><span class="lineno"> 1510</span>&#160;FabArray&lt;FAB&gt;::PostRcvs (<span class="keyword">const</span> MapOfCopyComTagContainers&amp;  m_RcvVols,</div>
+<div class="line"><a name="l01511"></a><span class="lineno"> 1511</span>&#160;                         <span class="keyword">const</span> MapOfCopyComTagContainers&amp;  m_RcvTags,</div>
+<div class="line"><a name="l01512"></a><span class="lineno"> 1512</span>&#160;                         Vector&lt;char*&gt;&amp;                     recv_data,</div>
+<div class="line"><a name="l01513"></a><span class="lineno"> 1513</span>&#160;                         Vector&lt;int&gt;&amp;                       recv_size,</div>
+<div class="line"><a name="l01514"></a><span class="lineno"> 1514</span>&#160;                         Vector&lt;int&gt;&amp;                       recv_from,</div>
+<div class="line"><a name="l01515"></a><span class="lineno"> 1515</span>&#160;                         Vector&lt;MPI_Request&gt;&amp;               recv_reqs,</div>
+<div class="line"><a name="l01516"></a><span class="lineno"> 1516</span>&#160;                         <span class="keywordtype">int</span>                               icomp,</div>
+<div class="line"><a name="l01517"></a><span class="lineno"> 1517</span>&#160;                         <span class="keywordtype">int</span>                               ncomp,</div>
+<div class="line"><a name="l01518"></a><span class="lineno"> 1518</span>&#160;                         <span class="keywordtype">int</span>                               SeqNum,</div>
+<div class="line"><a name="l01519"></a><span class="lineno"> 1519</span>&#160;                         <span class="keywordtype">int</span>                               preSeqNum)</div>
+<div class="line"><a name="l01520"></a><span class="lineno"> 1520</span>&#160;{</div>
+<div class="line"><a name="l01521"></a><span class="lineno"> 1521</span>&#160;    recv_data.clear();</div>
+<div class="line"><a name="l01522"></a><span class="lineno"> 1522</span>&#160;    recv_size.clear();</div>
+<div class="line"><a name="l01523"></a><span class="lineno"> 1523</span>&#160;    recv_from.clear();</div>
+<div class="line"><a name="l01524"></a><span class="lineno"> 1524</span>&#160;    recv_reqs.clear();</div>
+<div class="line"><a name="l01525"></a><span class="lineno"> 1525</span>&#160;</div>
+<div class="line"><a name="l01526"></a><span class="lineno"> 1526</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; kv : m_RcvVols) <span class="comment">// loop over senders</span></div>
+<div class="line"><a name="l01527"></a><span class="lineno"> 1527</span>&#160;    {</div>
+<div class="line"><a name="l01528"></a><span class="lineno"> 1528</span>&#160;        std::size_t nbytes = 0;</div>
+<div class="line"><a name="l01529"></a><span class="lineno"> 1529</span>&#160;        <span class="keywordflow">if</span> (FAB::preAllocatable())</div>
+<div class="line"><a name="l01530"></a><span class="lineno"> 1530</span>&#160;        {</div>
+<div class="line"><a name="l01531"></a><span class="lineno"> 1531</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>&amp; cct : kv.second)</div>
+<div class="line"><a name="l01532"></a><span class="lineno"> 1532</span>&#160;            {</div>
+<div class="line"><a name="l01533"></a><span class="lineno"> 1533</span>&#160;                nbytes += (*this)[cct.dstIndex].nBytes(cct.dbox,icomp,ncomp);</div>
+<div class="line"><a name="l01534"></a><span class="lineno"> 1534</span>&#160;            }</div>
+<div class="line"><a name="l01535"></a><span class="lineno"> 1535</span>&#160;        }</div>
+<div class="line"><a name="l01536"></a><span class="lineno"> 1536</span>&#160;</div>
+<div class="line"><a name="l01537"></a><span class="lineno"> 1537</span>&#160;        <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(nbytes &lt; <a class="code" href="namespaceamrex.html#a870c2407ed885451a76f66f8a0d7a892">std::numeric_limits&lt;int&gt;::max</a>());</div>
+<div class="line"><a name="l01538"></a><span class="lineno"> 1538</span>&#160;</div>
+<div class="line"><a name="l01539"></a><span class="lineno"> 1539</span>&#160;        recv_data.push_back(<span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l01540"></a><span class="lineno"> 1540</span>&#160;        recv_size.push_back(static_cast&lt;int&gt;(nbytes));</div>
+<div class="line"><a name="l01541"></a><span class="lineno"> 1541</span>&#160;        recv_from.push_back(kv.first);</div>
+<div class="line"><a name="l01542"></a><span class="lineno"> 1542</span>&#160;        recv_reqs.push_back(<a class="code" href="_a_m_re_x__ccse-mpi_8_h.html#a1f063a918d9598b982feec3690d69bec">MPI_REQUEST_NULL</a>);</div>
+<div class="line"><a name="l01543"></a><span class="lineno"> 1543</span>&#160;    }</div>
+<div class="line"><a name="l01544"></a><span class="lineno"> 1544</span>&#160;</div>
+<div class="line"><a name="l01545"></a><span class="lineno"> 1545</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> nrecv = recv_from.size();</div>
+<div class="line"><a name="l01546"></a><span class="lineno"> 1546</span>&#160;    </div>
+<div class="line"><a name="l01547"></a><span class="lineno"> 1547</span>&#160;    Vector&lt;Vector&lt;int&gt; &gt; indv_recv_size;</div>
+<div class="line"><a name="l01548"></a><span class="lineno"> 1548</span>&#160;    Vector&lt;MPI_Request&gt; pre_reqs(nrecv,<a class="code" href="_a_m_re_x__ccse-mpi_8_h.html#a1f063a918d9598b982feec3690d69bec">MPI_REQUEST_NULL</a>);</div>
+<div class="line"><a name="l01549"></a><span class="lineno"> 1549</span>&#160;</div>
+<div class="line"><a name="l01550"></a><span class="lineno"> 1550</span>&#160;    <a class="code" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a> comm = <a class="code" href="namespaceamrex_1_1_parallel_context.html#afb1955e0ab6b3f188007ad3aa5a4ef8a">ParallelContext::CommunicatorSub</a>();</div>
+<div class="line"><a name="l01551"></a><span class="lineno"> 1551</span>&#160;</div>
+<div class="line"><a name="l01552"></a><span class="lineno"> 1552</span>&#160;    <span class="keywordflow">if</span> (!FAB::preAllocatable())</div>
+<div class="line"><a name="l01553"></a><span class="lineno"> 1553</span>&#160;    {</div>
+<div class="line"><a name="l01554"></a><span class="lineno"> 1554</span>&#160;        <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(preSeqNum &gt;= 0);</div>
+<div class="line"><a name="l01555"></a><span class="lineno"> 1555</span>&#160;        indv_recv_size.resize(nrecv);</div>
+<div class="line"><a name="l01556"></a><span class="lineno"> 1556</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = 0; k &lt; nrecv; ++k)</div>
+<div class="line"><a name="l01557"></a><span class="lineno"> 1557</span>&#160;        {</div>
+<div class="line"><a name="l01558"></a><span class="lineno"> 1558</span>&#160;            <span class="keyword">auto</span> n = m_RcvTags.at(recv_from[k]).size();</div>
+<div class="line"><a name="l01559"></a><span class="lineno"> 1559</span>&#160;            indv_recv_size[k].resize(n);</div>
+<div class="line"><a name="l01560"></a><span class="lineno"> 1560</span>&#160;            pre_reqs[k] = <a class="code" href="namespaceamrex_1_1_parallel_descriptor.html#af5ed8a597f21464e9f2803f0e2afc0be">ParallelDescriptor::Arecv</a>(indv_recv_size[k].data(), n,</div>
+<div class="line"><a name="l01561"></a><span class="lineno"> 1561</span>&#160;                                                    <a class="code" href="namespaceamrex_1_1_parallel_context.html#a60c8ba6a67754c2b46d8b1ad78cb26b2">ParallelContext::global_to_local_rank</a>(recv_from[k]),</div>
+<div class="line"><a name="l01562"></a><span class="lineno"> 1562</span>&#160;                                                    preSeqNum, comm).<a class="code" href="classamrex_1_1_parallel_descriptor_1_1_message.html#a57999afb8ef13d17fc24750bdae6cd00">req</a>();</div>
+<div class="line"><a name="l01563"></a><span class="lineno"> 1563</span>&#160;        }</div>
+<div class="line"><a name="l01564"></a><span class="lineno"> 1564</span>&#160;    }</div>
+<div class="line"><a name="l01565"></a><span class="lineno"> 1565</span>&#160;</div>
+<div class="line"><a name="l01566"></a><span class="lineno"> 1566</span>&#160;    <span class="keywordtype">int</span> recv_counter = 0;</div>
+<div class="line"><a name="l01567"></a><span class="lineno"> 1567</span>&#160;    <span class="keywordflow">while</span> (recv_counter &lt; nrecv)</div>
+<div class="line"><a name="l01568"></a><span class="lineno"> 1568</span>&#160;    {</div>
+<div class="line"><a name="l01569"></a><span class="lineno"> 1569</span>&#160;        <span class="keywordtype">int</span> i;</div>
+<div class="line"><a name="l01570"></a><span class="lineno"> 1570</span>&#160;</div>
+<div class="line"><a name="l01571"></a><span class="lineno"> 1571</span>&#160;        <span class="keywordflow">if</span> (FAB::preAllocatable())</div>
+<div class="line"><a name="l01572"></a><span class="lineno"> 1572</span>&#160;        {</div>
+<div class="line"><a name="l01573"></a><span class="lineno"> 1573</span>&#160;            i = recv_counter;</div>
+<div class="line"><a name="l01574"></a><span class="lineno"> 1574</span>&#160;        }</div>
+<div class="line"><a name="l01575"></a><span class="lineno"> 1575</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l01576"></a><span class="lineno"> 1576</span>&#160;        {</div>
+<div class="line"><a name="l01577"></a><span class="lineno"> 1577</span>&#160;            <a class="code" href="struct_m_p_i___status.html">MPI_Status</a> status;</div>
+<div class="line"><a name="l01578"></a><span class="lineno"> 1578</span>&#160;            <a class="code" href="namespaceamrex_1_1_parallel_descriptor.html#a09446a4d2b5bb7632b4c9316c5dd213c">ParallelDescriptor::Waitany</a>(pre_reqs, i, status);</div>
+<div class="line"><a name="l01579"></a><span class="lineno"> 1579</span>&#160;</div>
+<div class="line"><a name="l01580"></a><span class="lineno"> 1580</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span> x : indv_recv_size[i])</div>
+<div class="line"><a name="l01581"></a><span class="lineno"> 1581</span>&#160;            {</div>
+<div class="line"><a name="l01582"></a><span class="lineno"> 1582</span>&#160;                recv_size[i] += x;</div>
+<div class="line"><a name="l01583"></a><span class="lineno"> 1583</span>&#160;            }</div>
+<div class="line"><a name="l01584"></a><span class="lineno"> 1584</span>&#160;        }</div>
+<div class="line"><a name="l01585"></a><span class="lineno"> 1585</span>&#160;</div>
+<div class="line"><a name="l01586"></a><span class="lineno"> 1586</span>&#160;        <span class="keywordflow">if</span> (recv_size[i] &gt; 0)</div>
+<div class="line"><a name="l01587"></a><span class="lineno"> 1587</span>&#160;        {</div>
+<div class="line"><a name="l01588"></a><span class="lineno"> 1588</span>&#160;            recv_data[i] = <span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(<a class="code" href="namespaceamrex.html#ae3d1414946b992f39ca41f135f12a0d1">amrex::The_Arena</a>()-&gt;<a class="code" href="classamrex_1_1_arena.html#a46ce2cd5cfc039cec64548b031fbde2e">alloc</a>(recv_size[i]));</div>
+<div class="line"><a name="l01589"></a><span class="lineno"> 1589</span>&#160;            recv_reqs[i] = <a class="code" href="namespaceamrex_1_1_parallel_descriptor.html#af5ed8a597f21464e9f2803f0e2afc0be">ParallelDescriptor::Arecv</a>(recv_data[i], recv_size[i],</div>
+<div class="line"><a name="l01590"></a><span class="lineno"> 1590</span>&#160;                                                     <a class="code" href="namespaceamrex_1_1_parallel_context.html#a60c8ba6a67754c2b46d8b1ad78cb26b2">ParallelContext::global_to_local_rank</a>(recv_from[i]),</div>
+<div class="line"><a name="l01591"></a><span class="lineno"> 1591</span>&#160;                                                     SeqNum, comm).<a class="code" href="classamrex_1_1_parallel_descriptor_1_1_message.html#a57999afb8ef13d17fc24750bdae6cd00">req</a>();</div>
+<div class="line"><a name="l01592"></a><span class="lineno"> 1592</span>&#160;        }</div>
+<div class="line"><a name="l01593"></a><span class="lineno"> 1593</span>&#160;        </div>
+<div class="line"><a name="l01594"></a><span class="lineno"> 1594</span>&#160;        ++recv_counter;</div>
+<div class="line"><a name="l01595"></a><span class="lineno"> 1595</span>&#160;    }</div>
+<div class="line"><a name="l01596"></a><span class="lineno"> 1596</span>&#160;}</div>
+<div class="line"><a name="l01597"></a><span class="lineno"> 1597</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l01598"></a><span class="lineno"> 1598</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l01599"></a><span class="lineno"> 1599</span>&#160;</div>
+<div class="line"><a name="l01600"></a><span class="lineno"> 1600</span>&#160;<span class="preprocessor">#ifdef BL_USE_MPI3</span></div>
+<div class="line"><a name="l01601"></a><span class="lineno"> 1601</span>&#160;<span class="preprocessor"></span><span class="keyword">template</span> &lt;<span class="keyword">class</span> FAB&gt;</div>
+<div class="line"><a name="l01602"></a><span class="lineno"> 1602</span>&#160;<span class="keywordtype">void</span></div>
+<div class="line"><a name="l01603"></a><span class="lineno"> 1603</span>&#160;FabArray&lt;FAB&gt;::PostRcvs_MPI_Onesided (<span class="keyword">const</span> MapOfCopyComTagContainers&amp;  m_RcvVols,</div>
+<div class="line"><a name="l01604"></a><span class="lineno"> 1604</span>&#160;                                      <span class="keywordtype">char</span>*&amp;                            the_recv_data,</div>
+<div class="line"><a name="l01605"></a><span class="lineno"> 1605</span>&#160;                                      Vector&lt;char*&gt;&amp;                     recv_data,</div>
+<div class="line"><a name="l01606"></a><span class="lineno"> 1606</span>&#160;                                      Vector&lt;int&gt;&amp;                       recv_size,</div>
+<div class="line"><a name="l01607"></a><span class="lineno"> 1607</span>&#160;                                      Vector&lt;int&gt;&amp;                       recv_from,</div>
+<div class="line"><a name="l01608"></a><span class="lineno"> 1608</span>&#160;                                      Vector&lt;MPI_Request&gt;&amp;               recv_reqs,</div>
+<div class="line"><a name="l01609"></a><span class="lineno"> 1609</span>&#160;                                      Vector&lt;MPI_Aint&gt; &amp;                 recv_disp,</div>
+<div class="line"><a name="l01610"></a><span class="lineno"> 1610</span>&#160;                                      <span class="keywordtype">int</span>                               icomp,</div>
+<div class="line"><a name="l01611"></a><span class="lineno"> 1611</span>&#160;                                      <span class="keywordtype">int</span>                               ncomp,</div>
+<div class="line"><a name="l01612"></a><span class="lineno"> 1612</span>&#160;                                      <span class="keywordtype">int</span>                               SeqNum,</div>
+<div class="line"><a name="l01613"></a><span class="lineno"> 1613</span>&#160;                                      MPI_Win &amp;                         win)</div>
+<div class="line"><a name="l01614"></a><span class="lineno"> 1614</span>&#160;{</div>
+<div class="line"><a name="l01615"></a><span class="lineno"> 1615</span>&#160;    recv_data.clear();</div>
+<div class="line"><a name="l01616"></a><span class="lineno"> 1616</span>&#160;    recv_size.clear();</div>
+<div class="line"><a name="l01617"></a><span class="lineno"> 1617</span>&#160;    recv_from.clear();</div>
+<div class="line"><a name="l01618"></a><span class="lineno"> 1618</span>&#160;    recv_reqs.clear();</div>
+<div class="line"><a name="l01619"></a><span class="lineno"> 1619</span>&#160;    recv_disp.clear();</div>
+<div class="line"><a name="l01620"></a><span class="lineno"> 1620</span>&#160;</div>
+<div class="line"><a name="l01621"></a><span class="lineno"> 1621</span>&#160;    std::size_t TotalRcvsVolume = 0;</div>
+<div class="line"><a name="l01622"></a><span class="lineno"> 1622</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; kv : m_RcvVols) <span class="comment">// loop over senders</span></div>
+<div class="line"><a name="l01623"></a><span class="lineno"> 1623</span>&#160;    {</div>
+<div class="line"><a name="l01624"></a><span class="lineno"> 1624</span>&#160;        std::size_t nbytes = 0;</div>
+<div class="line"><a name="l01625"></a><span class="lineno"> 1625</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; cct : kv.second)</div>
+<div class="line"><a name="l01626"></a><span class="lineno"> 1626</span>&#160;        {</div>
+<div class="line"><a name="l01627"></a><span class="lineno"> 1627</span>&#160;            nbytes += (*this)[cct.dstIndex].nBytes(cct.dbox,icomp,ncomp);</div>
+<div class="line"><a name="l01628"></a><span class="lineno"> 1628</span>&#160;        }</div>
+<div class="line"><a name="l01629"></a><span class="lineno"> 1629</span>&#160;</div>
+<div class="line"><a name="l01630"></a><span class="lineno"> 1630</span>&#160;        <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(nbytes &lt; <a class="code" href="namespaceamrex.html#a870c2407ed885451a76f66f8a0d7a892">std::numeric_limits&lt;int&gt;::max</a>());</div>
+<div class="line"><a name="l01631"></a><span class="lineno"> 1631</span>&#160;</div>
+<div class="line"><a name="l01632"></a><span class="lineno"> 1632</span>&#160;        TotalRcvsVolume += nbytes;</div>
+<div class="line"><a name="l01633"></a><span class="lineno"> 1633</span>&#160;</div>
+<div class="line"><a name="l01634"></a><span class="lineno"> 1634</span>&#160;        recv_data.push_back(<span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l01635"></a><span class="lineno"> 1635</span>&#160;        recv_size.push_back(static_cast&lt;int&gt;(nbytes));</div>
+<div class="line"><a name="l01636"></a><span class="lineno"> 1636</span>&#160;        recv_from.push_back(kv.first);</div>
+<div class="line"><a name="l01637"></a><span class="lineno"> 1637</span>&#160;        recv_reqs.push_back(<a class="code" href="_a_m_re_x__ccse-mpi_8_h.html#a1f063a918d9598b982feec3690d69bec">MPI_REQUEST_NULL</a>);</div>
+<div class="line"><a name="l01638"></a><span class="lineno"> 1638</span>&#160;        recv_disp.push_back(0);</div>
+<div class="line"><a name="l01639"></a><span class="lineno"> 1639</span>&#160;    }</div>
+<div class="line"><a name="l01640"></a><span class="lineno"> 1640</span>&#160;</div>
+<div class="line"><a name="l01641"></a><span class="lineno"> 1641</span>&#160;    <span class="keywordflow">if</span> (TotalRcvsVolume == 0)</div>
+<div class="line"><a name="l01642"></a><span class="lineno"> 1642</span>&#160;    {</div>
+<div class="line"><a name="l01643"></a><span class="lineno"> 1643</span>&#160;        the_recv_data = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l01644"></a><span class="lineno"> 1644</span>&#160;    }</div>
+<div class="line"><a name="l01645"></a><span class="lineno"> 1645</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l01646"></a><span class="lineno"> 1646</span>&#160;    {</div>
+<div class="line"><a name="l01647"></a><span class="lineno"> 1647</span>&#160;        the_recv_data = <span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(<a class="code" href="namespaceamrex.html#ae3d1414946b992f39ca41f135f12a0d1">amrex::The_Arena</a>()-&gt;<a class="code" href="classamrex_1_1_arena.html#a46ce2cd5cfc039cec64548b031fbde2e">alloc</a>(TotalRcvsVolume));</div>
+<div class="line"><a name="l01648"></a><span class="lineno"> 1648</span>&#160;</div>
+<div class="line"><a name="l01649"></a><span class="lineno"> 1649</span>&#160;        MPI_Win_attach(win, the_recv_data, TotalRcvsVolume);</div>
+<div class="line"><a name="l01650"></a><span class="lineno"> 1650</span>&#160;</div>
+<div class="line"><a name="l01651"></a><span class="lineno"> 1651</span>&#160;        <span class="keywordtype">int</span> nrecv = recv_from.size();</div>
+<div class="line"><a name="l01652"></a><span class="lineno"> 1652</span>&#160;        </div>
+<div class="line"><a name="l01653"></a><span class="lineno"> 1653</span>&#160;        std::size_t offset = 0;</div>
+<div class="line"><a name="l01654"></a><span class="lineno"> 1654</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; nrecv; ++i)</div>
+<div class="line"><a name="l01655"></a><span class="lineno"> 1655</span>&#160;        {</div>
+<div class="line"><a name="l01656"></a><span class="lineno"> 1656</span>&#160;            <span class="keywordflow">if</span> (recv_size[i] &gt; 0)</div>
+<div class="line"><a name="l01657"></a><span class="lineno"> 1657</span>&#160;            {</div>
+<div class="line"><a name="l01658"></a><span class="lineno"> 1658</span>&#160;                recv_data[i] = the_recv_data + offset;</div>
+<div class="line"><a name="l01659"></a><span class="lineno"> 1659</span>&#160;                MPI_Get_address(recv_data[i], &amp;recv_disp[i]);</div>
+<div class="line"><a name="l01660"></a><span class="lineno"> 1660</span>&#160;                recv_reqs[i] = <a class="code" href="namespaceamrex_1_1_parallel_descriptor.html#a0903eb5194f11fcf386f79e6ff3c02f7">ParallelDescriptor::Asend</a>(&amp;recv_disp[i],1,recv_from[i],SeqNum).<a class="code" href="classamrex_1_1_parallel_descriptor_1_1_message.html#a57999afb8ef13d17fc24750bdae6cd00">req</a>();</div>
+<div class="line"><a name="l01661"></a><span class="lineno"> 1661</span>&#160;                offset += recv_size[i];</div>
+<div class="line"><a name="l01662"></a><span class="lineno"> 1662</span>&#160;            }</div>
+<div class="line"><a name="l01663"></a><span class="lineno"> 1663</span>&#160;        }</div>
+<div class="line"><a name="l01664"></a><span class="lineno"> 1664</span>&#160;    }</div>
+<div class="line"><a name="l01665"></a><span class="lineno"> 1665</span>&#160;}</div>
+<div class="line"><a name="l01666"></a><span class="lineno"> 1666</span>&#160;<span class="preprocessor">#endif   // BL_USE_MPI3</span></div>
+<div class="line"><a name="l01667"></a><span class="lineno"> 1667</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l01668"></a><span class="lineno"> 1668</span>&#160;</div>
+<div class="line"><a name="l01669"></a><span class="lineno"> 1669</span>&#160;<span class="preprocessor">#ifdef BL_USE_UPCXX</span></div>
+<div class="line"><a name="l01670"></a><span class="lineno"> 1670</span>&#160;<span class="preprocessor"></span><span class="keyword">template</span> &lt;<span class="keyword">class</span> FAB&gt;</div>
+<div class="line"><a name="l01671"></a><span class="lineno"> 1671</span>&#160;<span class="keywordtype">void</span></div>
+<div class="line"><a name="l01672"></a><span class="lineno"> 1672</span>&#160;FabArray&lt;FAB&gt;::PostRcvs_PGAS (<span class="keyword">const</span> MapOfCopyComTagContainers&amp;  m_RcvVols,</div>
+<div class="line"><a name="l01673"></a><span class="lineno"> 1673</span>&#160;                              <span class="keywordtype">char</span>*&amp;                            the_recv_data,</div>
+<div class="line"><a name="l01674"></a><span class="lineno"> 1674</span>&#160;                              Vector&lt;char*&gt;&amp;                     recv_data,</div>
+<div class="line"><a name="l01675"></a><span class="lineno"> 1675</span>&#160;                              Vector&lt;int&gt;&amp;                       recv_size,</div>
+<div class="line"><a name="l01676"></a><span class="lineno"> 1676</span>&#160;                              Vector&lt;int&gt;&amp;                       recv_from,</div>
+<div class="line"><a name="l01677"></a><span class="lineno"> 1677</span>&#160;                              <span class="keywordtype">int</span>                               icomp,</div>
+<div class="line"><a name="l01678"></a><span class="lineno"> 1678</span>&#160;                              <span class="keywordtype">int</span>                               ncomp,</div>
+<div class="line"><a name="l01679"></a><span class="lineno"> 1679</span>&#160;                              <span class="keywordtype">int</span>                               SeqNum,</div>
+<div class="line"><a name="l01680"></a><span class="lineno"> 1680</span>&#160;                              upcxx::event*                     recv_event)</div>
+<div class="line"><a name="l01681"></a><span class="lineno"> 1681</span>&#160;{</div>
+<div class="line"><a name="l01682"></a><span class="lineno"> 1682</span>&#160;    recv_data.clear();</div>
+<div class="line"><a name="l01683"></a><span class="lineno"> 1683</span>&#160;    recv_size.clear();</div>
+<div class="line"><a name="l01684"></a><span class="lineno"> 1684</span>&#160;    recv_from.clear();</div>
+<div class="line"><a name="l01685"></a><span class="lineno"> 1685</span>&#160;</div>
+<div class="line"><a name="l01686"></a><span class="lineno"> 1686</span>&#160;    std::size_t TotalRcvsVolume = 0;</div>
+<div class="line"><a name="l01687"></a><span class="lineno"> 1687</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; kv : m_RcvVols) <span class="comment">// loop over senders</span></div>
+<div class="line"><a name="l01688"></a><span class="lineno"> 1688</span>&#160;    {</div>
+<div class="line"><a name="l01689"></a><span class="lineno"> 1689</span>&#160;        std::size_t nbytes = 0;</div>
+<div class="line"><a name="l01690"></a><span class="lineno"> 1690</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; cct : kv.second)</div>
+<div class="line"><a name="l01691"></a><span class="lineno"> 1691</span>&#160;        {</div>
+<div class="line"><a name="l01692"></a><span class="lineno"> 1692</span>&#160;            nbytes += (*this)[cct.dstIndex].nBytes(cct.dbox,icomp,ncomp);</div>
+<div class="line"><a name="l01693"></a><span class="lineno"> 1693</span>&#160;        }</div>
+<div class="line"><a name="l01694"></a><span class="lineno"> 1694</span>&#160;</div>
+<div class="line"><a name="l01695"></a><span class="lineno"> 1695</span>&#160;        <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(nbytes &lt; <a class="code" href="namespaceamrex.html#a870c2407ed885451a76f66f8a0d7a892">std::numeric_limits&lt;int&gt;::max</a>());</div>
+<div class="line"><a name="l01696"></a><span class="lineno"> 1696</span>&#160;</div>
+<div class="line"><a name="l01697"></a><span class="lineno"> 1697</span>&#160;        TotalRcvsVolume += nbytes;</div>
+<div class="line"><a name="l01698"></a><span class="lineno"> 1698</span>&#160;</div>
+<div class="line"><a name="l01699"></a><span class="lineno"> 1699</span>&#160;        recv_data.push_back(<span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l01700"></a><span class="lineno"> 1700</span>&#160;        recv_size.push_back(static_cast&lt;int&gt;(nbytes));</div>
+<div class="line"><a name="l01701"></a><span class="lineno"> 1701</span>&#160;        recv_from.push_back(kv.first);</div>
+<div class="line"><a name="l01702"></a><span class="lineno"> 1702</span>&#160;    }</div>
+<div class="line"><a name="l01703"></a><span class="lineno"> 1703</span>&#160;</div>
+<div class="line"><a name="l01704"></a><span class="lineno"> 1704</span>&#160;    <span class="keywordflow">if</span> (TotalRcvsVolume == 0)</div>
+<div class="line"><a name="l01705"></a><span class="lineno"> 1705</span>&#160;    {</div>
+<div class="line"><a name="l01706"></a><span class="lineno"> 1706</span>&#160;        the_recv_data = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l01707"></a><span class="lineno"> 1707</span>&#160;    }</div>
+<div class="line"><a name="l01708"></a><span class="lineno"> 1708</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l01709"></a><span class="lineno"> 1709</span>&#160;    {</div>
+<div class="line"><a name="l01710"></a><span class="lineno"> 1710</span>&#160;        the_recv_data = <span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(<a class="code" href="namespaceamrex_1_1_b_l_pgas.html#a792f3198bcb515c10dbe41077ce83ce7">BLPgas::alloc</a>(TotalRcvsVolume));</div>
+<div class="line"><a name="l01711"></a><span class="lineno"> 1711</span>&#160;</div>
+<div class="line"><a name="l01712"></a><span class="lineno"> 1712</span>&#160;        <span class="keywordtype">int</span> nrecv = recv_from.size();</div>
+<div class="line"><a name="l01713"></a><span class="lineno"> 1713</span>&#160;</div>
+<div class="line"><a name="l01714"></a><span class="lineno"> 1714</span>&#160;        std::size_t offset = 0;</div>
+<div class="line"><a name="l01715"></a><span class="lineno"> 1715</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; nrecv; ++i)</div>
+<div class="line"><a name="l01716"></a><span class="lineno"> 1716</span>&#160;        {</div>
+<div class="line"><a name="l01717"></a><span class="lineno"> 1717</span>&#160;            <span class="keywordflow">if</span> (recv_size[i] &gt; 0)</div>
+<div class="line"><a name="l01718"></a><span class="lineno"> 1718</span>&#160;            {</div>
+<div class="line"><a name="l01719"></a><span class="lineno"> 1719</span>&#160;                recv_data[i] = the_recv_data + offset;</div>
+<div class="line"><a name="l01720"></a><span class="lineno"> 1720</span>&#160;</div>
+<div class="line"><a name="l01722"></a><span class="lineno"> 1722</span>&#160;                upcxx::global_ptr&lt;void&gt; dst_ptr =</div>
+<div class="line"><a name="l01723"></a><span class="lineno"> 1723</span>&#160;                    upcxx::global_ptr&lt;void&gt;(recv_data[i], upcxx::myrank());</div>
+<div class="line"><a name="l01724"></a><span class="lineno"> 1724</span>&#160;                <span class="comment">// Increment the event reference before launching the remote task</span></div>
+<div class="line"><a name="l01725"></a><span class="lineno"> 1725</span>&#160;                recv_event-&gt;incref();</div>
+<div class="line"><a name="l01726"></a><span class="lineno"> 1726</span>&#160;                <span class="comment">// Launch a remote task on the sender to send me data</span></div>
+<div class="line"><a name="l01727"></a><span class="lineno"> 1727</span>&#160;                <a class="code" href="namespaceamrex_1_1_b_l_pgas.html#acc540645f9c11df2f133814c0128d65c">BLPgas::Request</a>(recv_from[i], dst_ptr, recv_size[i], SeqNum, recv_event);</div>
+<div class="line"><a name="l01728"></a><span class="lineno"> 1728</span>&#160;                upcxx::advance(); <span class="comment">// poll the UPC++ progress engine and the network</span></div>
+<div class="line"><a name="l01729"></a><span class="lineno"> 1729</span>&#160;                offset += recv_size[i];</div>
+<div class="line"><a name="l01730"></a><span class="lineno"> 1730</span>&#160;            }</div>
+<div class="line"><a name="l01731"></a><span class="lineno"> 1731</span>&#160;        }</div>
+<div class="line"><a name="l01732"></a><span class="lineno"> 1732</span>&#160;    }</div>
+<div class="line"><a name="l01733"></a><span class="lineno"> 1733</span>&#160;}</div>
+<div class="line"><a name="l01734"></a><span class="lineno"> 1734</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* BL_USE_UPCXX */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l01735"></a><span class="lineno"> 1735</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l01736"></a><span class="lineno"> 1736</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> FAB&gt;</div>
+<div class="line"><a name="l01737"></a><span class="lineno"> 1737</span>&#160;<span class="keywordtype">void</span></div>
+<div class="line"><a name="l01738"></a><span class="lineno"><a class="line" href="classamrex_1_1_fab_array.html#a27a46bb1495ed6d5d491a163c22e7171"> 1738</a></span>&#160;<a class="code" href="classamrex_1_1_fab_array.html">FabArray&lt;FAB&gt;::Redistribute</a> (<span class="keyword">const</span> <a class="code" href="classamrex_1_1_fab_array.html">FabArray&lt;FAB&gt;</a>&amp; src,</div>
+<div class="line"><a name="l01739"></a><span class="lineno"> 1739</span>&#160;                             <span class="keywordtype">int</span>                  scomp,</div>
+<div class="line"><a name="l01740"></a><span class="lineno"> 1740</span>&#160;                             <span class="keywordtype">int</span>                  dcomp,</div>
+<div class="line"><a name="l01741"></a><span class="lineno"> 1741</span>&#160;                             <span class="keywordtype">int</span>                  ncomp,</div>
+<div class="line"><a name="l01742"></a><span class="lineno"> 1742</span>&#160;                             <span class="keyword">const</span> <a class="code" href="classamrex_1_1_int_vect.html">IntVect</a>&amp;       nghost)</div>
+<div class="line"><a name="l01743"></a><span class="lineno"> 1743</span>&#160;{</div>
+<div class="line"><a name="l01744"></a><span class="lineno"> 1744</span>&#160;    <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a1defc2bb8023a3e2599bfb2fc637cb43">AMREX_ALWAYS_ASSERT_WITH_MESSAGE</a>(boxArray() == src.<a class="code" href="classamrex_1_1_fab_array_base.html#af3cc07aae7bfab423fa9c30bba2efd59">boxArray</a>(),</div>
+<div class="line"><a name="l01745"></a><span class="lineno"> 1745</span>&#160;                                     <span class="stringliteral">&quot;FabArray::Redistribute: must have the same BoxArray&quot;</span>);</div>
+<div class="line"><a name="l01746"></a><span class="lineno"> 1746</span>&#160;</div>
+<div class="line"><a name="l01747"></a><span class="lineno"> 1747</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="namespaceamrex_1_1_parallel_context.html#a1e98db9c755ff62ca57280f0d6313936">ParallelContext::NProcsSub</a>() == 1)</div>
+<div class="line"><a name="l01748"></a><span class="lineno"> 1748</span>&#160;    {</div>
+<div class="line"><a name="l01749"></a><span class="lineno"> 1749</span>&#160;<span class="preprocessor">#ifdef _OPENMP</span></div>
+<div class="line"><a name="l01750"></a><span class="lineno"> 1750</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#pragma omp parallel</span></div>
+<div class="line"><a name="l01751"></a><span class="lineno"> 1751</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l01752"></a><span class="lineno"> 1752</span>&#160;<span class="preprocessor"></span>        <span class="keywordflow">for</span> (<a class="code" href="classamrex_1_1_m_f_iter.html">MFIter</a> fai(*<span class="keyword">this</span>,<span class="keyword">true</span>); fai.<a class="code" href="classamrex_1_1_m_f_iter.html#ad1cb993a973d541776b06c959d1ae3cd">isValid</a>(); ++fai)</div>
+<div class="line"><a name="l01753"></a><span class="lineno"> 1753</span>&#160;        {</div>
+<div class="line"><a name="l01754"></a><span class="lineno"> 1754</span>&#160;            <span class="keyword">const</span> <a class="code" href="classamrex_1_1_box.html">Box</a>&amp; bx = fai.growntilebox(nghost);</div>
+<div class="line"><a name="l01755"></a><span class="lineno"> 1755</span>&#160;            <span class="keyword">get</span>(fai).copy(src[fai],bx,scomp,bx,dcomp,ncomp);</div>
+<div class="line"><a name="l01756"></a><span class="lineno"> 1756</span>&#160;        }</div>
+<div class="line"><a name="l01757"></a><span class="lineno"> 1757</span>&#160;</div>
+<div class="line"><a name="l01758"></a><span class="lineno"> 1758</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l01759"></a><span class="lineno"> 1759</span>&#160;    }</div>
+<div class="line"><a name="l01760"></a><span class="lineno"> 1760</span>&#160;</div>
+<div class="line"><a name="l01761"></a><span class="lineno"> 1761</span>&#160;<span class="preprocessor">#ifdef BL_USE_MPI</span></div>
+<div class="line"><a name="l01762"></a><span class="lineno"> 1762</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l01763"></a><span class="lineno"> 1763</span>&#160;    <a class="code" href="structamrex_1_1_fab_array_base_1_1_c_p_c.html">FabArrayBase::CPC</a> cpc(boxArray(), nghost, DistributionMap(), src.<a class="code" href="classamrex_1_1_fab_array_base.html#a91b9b8d89859dcf641c0d42348b3f0ff">DistributionMap</a>());</div>
+<div class="line"><a name="l01764"></a><span class="lineno"> 1764</span>&#160;</div>
+<div class="line"><a name="l01765"></a><span class="lineno"> 1765</span>&#160;    ParallelCopy(src, scomp, dcomp, ncomp, nghost, nghost, Periodicity::NonPeriodic(),</div>
+<div class="line"><a name="l01766"></a><span class="lineno"> 1766</span>&#160;                 FabArrayBase::COPY, &amp;cpc);</div>
+<div class="line"><a name="l01767"></a><span class="lineno"> 1767</span>&#160;</div>
+<div class="line"><a name="l01768"></a><span class="lineno"> 1768</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l01769"></a><span class="lineno"> 1769</span>&#160;<span class="preprocessor"></span>}</div>
 <div class="ttc" id="namespaceamrex_1_1_parallel_descriptor_html_ae9b60ea81eb861f883e02edaa5876d08"><div class="ttname"><a href="namespaceamrex_1_1_parallel_descriptor.html#ae9b60ea81eb861f883e02edaa5876d08">amrex::ParallelDescriptor::team_for</a></div><div class="ttdeci">void team_for(int begin, int end, const F &amp;f)</div><div class="ttdef"><b>Definition:</b> AMReX_ParallelDescriptor.H:364</div></div>
 <div class="ttc" id="namespaceamrex_1_1_b_l_pgas_html_acc540645f9c11df2f133814c0128d65c"><div class="ttname"><a href="namespaceamrex_1_1_b_l_pgas.html#acc540645f9c11df2f133814c0128d65c">amrex::BLPgas::Request</a></div><div class="ttdeci">void Request(upcxx::rank_t src_rank, upcxx::global_ptr&lt; void &gt; dst_ptr, size_t nbytes, int SeqNum, upcxx::event *signal_event)</div><div class="ttdoc">receive a message using PGAS one-sided communication </div><div class="ttdef"><b>Definition:</b> AMReX_BLPgas.cpp:83</div></div>
 <div class="ttc" id="_a_m_re_x___b_l_profiler_8_h_html_a548fbd9b2cd72a927f463003f4adb0b1"><div class="ttname"><a href="_a_m_re_x___b_l_profiler_8_h.html#a548fbd9b2cd72a927f463003f4adb0b1">BL_PROFILE</a></div><div class="ttdeci">#define BL_PROFILE(a)</div><div class="ttdef"><b>Definition:</b> AMReX_BLProfiler.H:529</div></div>
 <div class="ttc" id="structamrex_1_1_parallel_descriptor_1_1_process_team_html_a91774a864ad910eae4ed1af75175bc5c"><div class="ttname"><a href="structamrex_1_1_parallel_descriptor_1_1_process_team.html#a91774a864ad910eae4ed1af75175bc5c">amrex::ParallelDescriptor::ProcessTeam::MemoryBarrier</a></div><div class="ttdeci">void MemoryBarrier() const </div><div class="ttdoc">memory fence </div><div class="ttdef"><b>Definition:</b> AMReX_ParallelDescriptor.H:172</div></div>
+<div class="ttc" id="classamrex_1_1_fab_array_base_html_ac86e93bfc13df1bdcfb0ebbafb6a1cff"><div class="ttname"><a href="classamrex_1_1_fab_array_base.html#ac86e93bfc13df1bdcfb0ebbafb6a1cff">amrex::FabArrayBase::CpOp</a></div><div class="ttdeci">CpOp</div><div class="ttdef"><b>Definition:</b> AMReX_FabArrayBase.H:383</div></div>
 <div class="ttc" id="structamrex_1_1_fab_array_base_1_1_f_b_html_a1c2b1c9200ee79f522f7ed4428d1ece5"><div class="ttname"><a href="structamrex_1_1_fab_array_base_1_1_f_b.html#a1c2b1c9200ee79f522f7ed4428d1ece5">amrex::FabArrayBase::FB::m_RcvTags</a></div><div class="ttdeci">MapOfCopyComTagContainers * m_RcvTags</div><div class="ttdef"><b>Definition:</b> AMReX_FabArrayBase.H:466</div></div>
 <div class="ttc" id="struct_m_p_i___status_html"><div class="ttname"><a href="struct_m_p_i___status.html">MPI_Status</a></div><div class="ttdef"><b>Definition:</b> AMReX_ccse-mpi.H:46</div></div>
+<div class="ttc" id="structamrex_1_1_fab_array_base_1_1_copy_com_tag_html"><div class="ttname"><a href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html">amrex::FabArrayBase::CopyComTag</a></div><div class="ttdef"><b>Definition:</b> AMReX_FabArrayBase.H:150</div></div>
+<div class="ttc" id="classamrex_1_1_box_array_html_ab0def4ab9990fbe6880e98067e27acd5"><div class="ttname"><a href="classamrex_1_1_box_array.html#ab0def4ab9990fbe6880e98067e27acd5">amrex::BoxArray::ixType</a></div><div class="ttdeci">IndexType ixType() const </div><div class="ttdoc">Return index type of this BoxArray. </div><div class="ttdef"><b>Definition:</b> AMReX_BoxArray.H:485</div></div>
 <div class="ttc" id="namespaceamrex_1_1_parallel_descriptor_html_ab581b8dba6006dbb3457d925c4b0f244"><div class="ttname"><a href="namespaceamrex_1_1_parallel_descriptor.html#ab581b8dba6006dbb3457d925c4b0f244">amrex::ParallelDescriptor::Waitall</a></div><div class="ttdeci">void Waitall(Vector&lt; MPI_Request &gt; &amp;reqs, Vector&lt; MPI_Status &gt; &amp;status)</div><div class="ttdef"><b>Definition:</b> AMReX_ParallelDescriptor.cpp:1861</div></div>
 <div class="ttc" id="namespaceamrex_1_1_parallel_descriptor_html_af5ed8a597f21464e9f2803f0e2afc0be"><div class="ttname"><a href="namespaceamrex_1_1_parallel_descriptor.html#af5ed8a597f21464e9f2803f0e2afc0be">amrex::ParallelDescriptor::Arecv</a></div><div class="ttdeci">Message Arecv(T *, size_t n, int pid, int tag)</div><div class="ttdef"><b>Definition:</b> AMReX_ParallelDescriptor.H:1091</div></div>
 <div class="ttc" id="classamrex_1_1_int_vect_html"><div class="ttname"><a href="classamrex_1_1_int_vect.html">amrex::IntVect</a></div><div class="ttdef"><b>Definition:</b> AMReX_IntVect.H:29</div></div>
 <div class="ttc" id="_a_m_re_x___b_lassert_8_h_html_a53ebc8b227de416f458800faa44c619e"><div class="ttname"><a href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a></div><div class="ttdeci">#define BL_ASSERT(EX)</div><div class="ttdef"><b>Definition:</b> AMReX_BLassert.H:49</div></div>
 <div class="ttc" id="namespaceamrex_html_aea69993eec3c9ca497cd0e47522b2ec6"><div class="ttname"><a href="namespaceamrex.html#aea69993eec3c9ca497cd0e47522b2ec6">amrex::Abort</a></div><div class="ttdeci">void Abort(const char *msg=0)</div><div class="ttdoc">Print out message to cerr and exit via abort(). </div><div class="ttdef"><b>Definition:</b> AMReX.cpp:201</div></div>
 <div class="ttc" id="classamrex_1_1_fab_array_base_html_aeadcc8b1b71512821a778b9c17ff92a5"><div class="ttname"><a href="classamrex_1_1_fab_array_base.html#aeadcc8b1b71512821a778b9c17ff92a5">amrex::FabArrayBase::size</a></div><div class="ttdeci">int size() const </div><div class="ttdoc">Return the number of FABs in the FabArray. </div><div class="ttdef"><b>Definition:</b> AMReX_FabArrayBase.H:88</div></div>
+<div class="ttc" id="structamrex_1_1_fab_array_base_1_1_c_p_c_html_addb3c2428b13f33918b669b3860b7bc5"><div class="ttname"><a href="structamrex_1_1_fab_array_base_1_1_c_p_c.html#addb3c2428b13f33918b669b3860b7bc5">amrex::FabArrayBase::CPC::m_threadsafe_loc</a></div><div class="ttdeci">bool m_threadsafe_loc</div><div class="ttdef"><b>Definition:</b> AMReX_FabArrayBase.H:519</div></div>
+<div class="ttc" id="structamrex_1_1_fab_array_base_1_1_c_p_c_html_a1cd653e9db338d0e4026d9a5ef523a13"><div class="ttname"><a href="structamrex_1_1_fab_array_base_1_1_c_p_c.html#a1cd653e9db338d0e4026d9a5ef523a13">amrex::FabArrayBase::CPC::m_SndTags</a></div><div class="ttdeci">MapOfCopyComTagContainers * m_SndTags</div><div class="ttdef"><b>Definition:</b> AMReX_FabArrayBase.H:522</div></div>
 <div class="ttc" id="classamrex_1_1_box_html"><div class="ttname"><a href="classamrex_1_1_box.html">amrex::Box</a></div><div class="ttdoc">A Rectangular Domain on an Integer Lattice. </div><div class="ttdef"><b>Definition:</b> AMReX_Box.H:31</div></div>
 <div class="ttc" id="structamrex_1_1_fab_array_base_1_1_f_b_html_aee0b169f73c1599212ba766b15d594a4"><div class="ttname"><a href="structamrex_1_1_fab_array_base_1_1_f_b.html#aee0b169f73c1599212ba766b15d594a4">amrex::FabArrayBase::FB::m_SndTags</a></div><div class="ttdeci">MapOfCopyComTagContainers * m_SndTags</div><div class="ttdef"><b>Definition:</b> AMReX_FabArrayBase.H:465</div></div>
 <div class="ttc" id="namespaceamrex_html_a870c2407ed885451a76f66f8a0d7a892"><div class="ttname"><a href="namespaceamrex.html#a870c2407ed885451a76f66f8a0d7a892">amrex::max</a></div><div class="ttdeci">IntVect max(const IntVect &amp;p1, const IntVect &amp;p2)</div><div class="ttdoc">Returns the IntVect that is the component-wise maximum of two argument IntVects. </div><div class="ttdef"><b>Definition:</b> AMReX_IntVect.H:574</div></div>
@@ -1485,16 +1886,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="_a_m_re_x___b_lassert_8_h_html_a1defc2bb8023a3e2599bfb2fc637cb43"><div class="ttname"><a href="_a_m_re_x___b_lassert_8_h.html#a1defc2bb8023a3e2599bfb2fc637cb43">AMREX_ALWAYS_ASSERT_WITH_MESSAGE</a></div><div class="ttdeci">#define AMREX_ALWAYS_ASSERT_WITH_MESSAGE(EX, MSG)</div><div class="ttdef"><b>Definition:</b> AMReX_BLassert.H:54</div></div>
 <div class="ttc" id="namespaceamrex_1_1_parallel_descriptor_html_abb6db8659bdc602f3a644244929523a2"><div class="ttname"><a href="namespaceamrex_1_1_parallel_descriptor.html#abb6db8659bdc602f3a644244929523a2">amrex::ParallelDescriptor::sameTeam</a></div><div class="ttdeci">bool sameTeam(int rank)</div><div class="ttdef"><b>Definition:</b> AMReX_ParallelDescriptor.H:295</div></div>
 <div class="ttc" id="_a_m_re_x___multi_fab_util___f_8_h_html_a54f6ce0fb55c5e079b66b7ac9b865843"><div class="ttname"><a href="_a_m_re_x___multi_fab_util___f_8_h.html#a54f6ce0fb55c5e079b66b7ac9b865843">n</a></div><div class="ttdeci">const int const int const const int const int &amp; n</div><div class="ttdef"><b>Definition:</b> AMReX_MultiFabUtil_F.H:66</div></div>
+<div class="ttc" id="structamrex_1_1_fab_array_base_1_1_copy_com_tag_html_a1c8df51daf5ac3a9d20522cfdb6ab004"><div class="ttname"><a href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#a1c8df51daf5ac3a9d20522cfdb6ab004">amrex::FabArrayBase::CopyComTag::sbox</a></div><div class="ttdeci">Box sbox</div><div class="ttdef"><b>Definition:</b> AMReX_FabArrayBase.H:153</div></div>
 <div class="ttc" id="namespaceamrex_html_ae3d1414946b992f39ca41f135f12a0d1"><div class="ttname"><a href="namespaceamrex.html#ae3d1414946b992f39ca41f135f12a0d1">amrex::The_Arena</a></div><div class="ttdeci">Arena * The_Arena()</div><div class="ttdef"><b>Definition:</b> AMReX_BaseFab.cpp:157</div></div>
+<div class="ttc" id="classamrex_1_1_int_vect_html_a91f8f42529173ede28b6ec295930e57f"><div class="ttname"><a href="classamrex_1_1_int_vect.html#a91f8f42529173ede28b6ec295930e57f">amrex::IntVect::allGE</a></div><div class="ttdeci">bool allGE(const IntVect &amp;rhs) const </div><div class="ttdoc">Returns true if this is greater than or equal to argument for all components. NOTE: This is NOT a str...</div><div class="ttdef"><b>Definition:</b> AMReX_IntVect.H:237</div></div>
 <div class="ttc" id="classamrex_1_1_m_f_iter_html"><div class="ttname"><a href="classamrex_1_1_m_f_iter.html">amrex::MFIter</a></div><div class="ttdef"><b>Definition:</b> AMReX_MFIter.H:37</div></div>
+<div class="ttc" id="structamrex_1_1_fab_array_base_1_1_copy_com_tag_html_aa4ad873f80c114d0041fd4c30d9fbe94"><div class="ttname"><a href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#aa4ad873f80c114d0041fd4c30d9fbe94">amrex::FabArrayBase::CopyComTag::dbox</a></div><div class="ttdeci">Box dbox</div><div class="ttdef"><b>Definition:</b> AMReX_FabArrayBase.H:152</div></div>
 <div class="ttc" id="namespaceamrex_1_1_b_l_pgas_html_af4e08f18e4a2cd3851cb0c8911dac340"><div class="ttname"><a href="namespaceamrex_1_1_b_l_pgas.html#af4e08f18e4a2cd3851cb0c8911dac340">amrex::BLPgas::Send</a></div><div class="ttdeci">void Send(upcxx::global_ptr&lt; void &gt; src_ptr, upcxx::rank_t dst_rank, size_t nbytes, int SeqNum, upcxx::event *done_event, int *send_counter)</div><div class="ttdoc">send a message using PGAS one-sided communication </div><div class="ttdef"><b>Definition:</b> AMReX_BLPgas.cpp:52</div></div>
 <div class="ttc" id="namespaceamrex_1_1_b_l_pgas_html_ae7c47b8c04e6775105fca2a8f23f4bdf"><div class="ttname"><a href="namespaceamrex_1_1_b_l_pgas.html#ae7c47b8c04e6775105fca2a8f23f4bdf">amrex::BLPgas::fb_recv_event</a></div><div class="ttdeci">upcxx::event fb_recv_event</div><div class="ttdef"><b>Definition:</b> AMReX_BLPgas.cpp:26</div></div>
 <div class="ttc" id="classamrex_1_1_arena_html_a46ce2cd5cfc039cec64548b031fbde2e"><div class="ttname"><a href="classamrex_1_1_arena.html#a46ce2cd5cfc039cec64548b031fbde2e">amrex::Arena::alloc</a></div><div class="ttdeci">virtual void * alloc(std::size_t sz)=0</div></div>
 <div class="ttc" id="namespaceamrex_1_1_parallel_descriptor_html_a610003b1a92f316356dd84be39f9a9b0"><div class="ttname"><a href="namespaceamrex_1_1_parallel_descriptor.html#a610003b1a92f316356dd84be39f9a9b0">amrex::ParallelDescriptor::SeqNum</a></div><div class="ttdeci">int SeqNum()</div><div class="ttdoc">Returns sequential message sequence numbers, usually used as tags for send/recv. </div><div class="ttdef"><b>Definition:</b> AMReX_ParallelDescriptor.H:519</div></div>
 <div class="ttc" id="classamrex_1_1_periodicity_html_a9a1539019255de794ec99902c6f85306"><div class="ttname"><a href="classamrex_1_1_periodicity.html#a9a1539019255de794ec99902c6f85306">amrex::Periodicity::isAnyPeriodic</a></div><div class="ttdeci">bool isAnyPeriodic() const </div><div class="ttdef"><b>Definition:</b> AMReX_Periodicity.H:21</div></div>
+<div class="ttc" id="structamrex_1_1_fab_array_base_1_1_c_p_c_html_ae27301b017bbfff8f0bffb789d13259f"><div class="ttname"><a href="structamrex_1_1_fab_array_base_1_1_c_p_c.html#ae27301b017bbfff8f0bffb789d13259f">amrex::FabArrayBase::CPC::m_RcvTags</a></div><div class="ttdeci">MapOfCopyComTagContainers * m_RcvTags</div><div class="ttdef"><b>Definition:</b> AMReX_FabArrayBase.H:523</div></div>
 <div class="ttc" id="namespaceamrex_html_aded67b6a8fd015f89f19f03ed9fdcb73"><div class="ttname"><a href="namespaceamrex.html#aded67b6a8fd015f89f19f03ed9fdcb73">amrex::grow</a></div><div class="ttdeci">Box grow(const Box &amp;b, int i)</div><div class="ttdoc">Grow Box in all directions by given amount. </div><div class="ttdef"><b>Definition:</b> AMReX_Box.H:793</div></div>
 <div class="ttc" id="namespaceamrex_1_1_parallel_descriptor_html_ae38ab120916cc34186f31beb0e56a397"><div class="ttname"><a href="namespaceamrex_1_1_parallel_descriptor.html#ae38ab120916cc34186f31beb0e56a397">amrex::ParallelDescriptor::MyTeam</a></div><div class="ttdeci">const ProcessTeam &amp; MyTeam()</div><div class="ttdef"><b>Definition:</b> AMReX_ParallelDescriptor.H:315</div></div>
 <div class="ttc" id="namespaceamrex_1_1_b_l_pgas_html_a006a6e9402010787ee8cb2fb2b75a144"><div class="ttname"><a href="namespaceamrex_1_1_b_l_pgas.html#a006a6e9402010787ee8cb2fb2b75a144">amrex::BLPgas::cp_send_counter</a></div><div class="ttdeci">int cp_send_counter</div><div class="ttdef"><b>Definition:</b> AMReX_BLPgas.cpp:23</div></div>
+<div class="ttc" id="structamrex_1_1_fab_array_base_1_1_copy_com_tag_html_abc0d662cdc63c3e99f4c114dc3ac266f"><div class="ttname"><a href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#abc0d662cdc63c3e99f4c114dc3ac266f">amrex::FabArrayBase::CopyComTag::dstIndex</a></div><div class="ttdeci">int dstIndex</div><div class="ttdef"><b>Definition:</b> AMReX_FabArrayBase.H:154</div></div>
 <div class="ttc" id="namespaceamrex_1_1_parallel_descriptor_html_a3deabb4447125ee364f9ca1c5a07c1e4"><div class="ttname"><a href="namespaceamrex_1_1_parallel_descriptor.html#a3deabb4447125ee364f9ca1c5a07c1e4">amrex::ParallelDescriptor::MyProc</a></div><div class="ttdeci">int MyProc()</div><div class="ttdoc">return the rank number local to the current Parallel Context </div><div class="ttdef"><b>Definition:</b> AMReX_ParallelDescriptor.H:135</div></div>
 <div class="ttc" id="structamrex_1_1_fab_array_base_1_1_c_p_c_html"><div class="ttname"><a href="structamrex_1_1_fab_array_base_1_1_c_p_c.html">amrex::FabArrayBase::CPC</a></div><div class="ttdef"><b>Definition:</b> AMReX_FabArrayBase.H:493</div></div>
 <div class="ttc" id="classamrex_1_1_vector_html"><div class="ttname"><a href="classamrex_1_1_vector.html">amrex::Vector</a></div><div class="ttdoc">This class is a thin wrapper around std::vector. Unlike vector, Vector::operator[] provides bound che...</div><div class="ttdef"><b>Definition:</b> AMReX_Vector.H:18</div></div>
@@ -1506,11 +1912,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="namespaceamrex_1_1_parallel_descriptor_html_a20157f27c3bf88a426b0f44bd6bbf135"><div class="ttname"><a href="namespaceamrex_1_1_parallel_descriptor.html#a20157f27c3bf88a426b0f44bd6bbf135">amrex::ParallelDescriptor::Bcast</a></div><div class="ttdeci">void Bcast(T *, size_t n, int root=0)</div><div class="ttdef"><b>Definition:</b> AMReX_ParallelDescriptor.H:1133</div></div>
 <div class="ttc" id="classamrex_1_1_fab_array_base_html_a04f6b5015129a821f4795f7d6961882d"><div class="ttname"><a href="classamrex_1_1_fab_array_base.html#a04f6b5015129a821f4795f7d6961882d">amrex::FabArrayBase::nGrowVect</a></div><div class="ttdeci">IntVect nGrowVect() const </div><div class="ttdef"><b>Definition:</b> AMReX_FabArrayBase.H:58</div></div>
 <div class="ttc" id="namespaceamrex_1_1_parallel_descriptor_html_a09446a4d2b5bb7632b4c9316c5dd213c"><div class="ttname"><a href="namespaceamrex_1_1_parallel_descriptor.html#a09446a4d2b5bb7632b4c9316c5dd213c">amrex::ParallelDescriptor::Waitany</a></div><div class="ttdeci">void Waitany(Vector&lt; MPI_Request &gt; &amp;reqs, int &amp;index, MPI_Status &amp;status)</div><div class="ttdef"><b>Definition:</b> AMReX_ParallelDescriptor.cpp:1866</div></div>
+<div class="ttc" id="structamrex_1_1_fab_array_base_1_1_c_p_c_html_a69bdee616d6f275a9f7358d44724de97"><div class="ttname"><a href="structamrex_1_1_fab_array_base_1_1_c_p_c.html#a69bdee616d6f275a9f7358d44724de97">amrex::FabArrayBase::CPC::m_SndVols</a></div><div class="ttdeci">MapOfCopyComTagContainers * m_SndVols</div><div class="ttdef"><b>Definition:</b> AMReX_FabArrayBase.H:524</div></div>
+<div class="ttc" id="structamrex_1_1_fab_array_base_1_1_c_p_c_html_a81bf78da77ae53d44dd1a5bb8f05d999"><div class="ttname"><a href="structamrex_1_1_fab_array_base_1_1_c_p_c.html#a81bf78da77ae53d44dd1a5bb8f05d999">amrex::FabArrayBase::CPC::m_LocTags</a></div><div class="ttdeci">CopyComTagsContainer * m_LocTags</div><div class="ttdef"><b>Definition:</b> AMReX_FabArrayBase.H:521</div></div>
+<div class="ttc" id="classamrex_1_1_fab_array_html_a0b91952d964518b99146f011e68e672e"><div class="ttname"><a href="classamrex_1_1_fab_array.html#a0b91952d964518b99146f011e68e672e">amrex::FabArray&lt; FAB &gt;::copyTo</a></div><div class="ttdeci">void copyTo(FAB &amp;dest, int nghost=0) const</div></div>
 <div class="ttc" id="classamrex_1_1_fab_array_base_html_ae63b22ccabe6c5af01dd0779c60740c8"><div class="ttname"><a href="classamrex_1_1_fab_array_base.html#ae63b22ccabe6c5af01dd0779c60740c8">amrex::FabArrayBase::boxarray</a></div><div class="ttdeci">BoxArray boxarray</div><div class="ttdef"><b>Definition:</b> AMReX_FabArrayBase.H:418</div></div>
 <div class="ttc" id="classamrex_1_1_periodicity_html"><div class="ttname"><a href="classamrex_1_1_periodicity.html">amrex::Periodicity</a></div><div class="ttdoc">This provides length of period for periodic domains. 0 means it is not periodic in that direction...</div><div class="ttdef"><b>Definition:</b> AMReX_Periodicity.H:15</div></div>
+<div class="ttc" id="classamrex_1_1_index_type_html_a93e248080ee27e9ddf6d691f2b426ccd"><div class="ttname"><a href="classamrex_1_1_index_type.html#a93e248080ee27e9ddf6d691f2b426ccd">amrex::IndexType::cellCentered</a></div><div class="ttdeci">bool cellCentered() const </div><div class="ttdoc">True if the IndexType is CELL based in all directions. </div><div class="ttdef"><b>Definition:</b> AMReX_IndexType.H:67</div></div>
+<div class="ttc" id="structamrex_1_1_fab_array_base_1_1_c_p_c_html_a261f5a7f13eea27de3f5e19dfe999128"><div class="ttname"><a href="structamrex_1_1_fab_array_base_1_1_c_p_c.html#a261f5a7f13eea27de3f5e19dfe999128">amrex::FabArrayBase::CPC::m_RcvVols</a></div><div class="ttdeci">MapOfCopyComTagContainers * m_RcvVols</div><div class="ttdef"><b>Definition:</b> AMReX_FabArrayBase.H:525</div></div>
 <div class="ttc" id="namespaceamrex_1_1_parallel_descriptor_html_adba9c2f37d79e96a2b69649d409b54bc"><div class="ttname"><a href="namespaceamrex_1_1_parallel_descriptor.html#adba9c2f37d79e96a2b69649d409b54bc">amrex::ParallelDescriptor::MPIOneSided</a></div><div class="ttdeci">bool MPIOneSided()</div><div class="ttdoc">Return true if MPI one sided is enabled. </div><div class="ttdef"><b>Definition:</b> AMReX_ParallelDescriptor.cpp:2157</div></div>
 <div class="ttc" id="classamrex_1_1_parallel_descriptor_1_1_message_html_a57999afb8ef13d17fc24750bdae6cd00"><div class="ttname"><a href="classamrex_1_1_parallel_descriptor_1_1_message.html#a57999afb8ef13d17fc24750bdae6cd00">amrex::ParallelDescriptor::Message::req</a></div><div class="ttdeci">MPI_Request req() const </div><div class="ttdef"><b>Definition:</b> AMReX_ParallelDescriptor.H:102</div></div>
 <div class="ttc" id="namespaceamrex_1_1_b_l_pgas_html_a670380fc0263565e4a2d453e158fb7e1"><div class="ttname"><a href="namespaceamrex_1_1_b_l_pgas.html#a670380fc0263565e4a2d453e158fb7e1">amrex::BLPgas::cp_send_event</a></div><div class="ttdeci">upcxx::event cp_send_event</div><div class="ttdef"><b>Definition:</b> AMReX_BLPgas.cpp:21</div></div>
+<div class="ttc" id="structamrex_1_1_fab_array_base_1_1_copy_com_tag_html_aa03667cd08814ea67d8fc2170a93a07c"><div class="ttname"><a href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#aa03667cd08814ea67d8fc2170a93a07c">amrex::FabArrayBase::CopyComTag::srcIndex</a></div><div class="ttdeci">int srcIndex</div><div class="ttdef"><b>Definition:</b> AMReX_FabArrayBase.H:155</div></div>
 <div class="ttc" id="namespaceamrex_1_1_b_l_pgas_html_a74b7ba69eadc27c79b1826a6b7250d05"><div class="ttname"><a href="namespaceamrex_1_1_b_l_pgas.html#a74b7ba69eadc27c79b1826a6b7250d05">amrex::BLPgas::fb_send_event</a></div><div class="ttdeci">upcxx::event fb_send_event</div><div class="ttdef"><b>Definition:</b> AMReX_BLPgas.cpp:25</div></div>
 <div class="ttc" id="namespaceamrex_1_1_parallel_descriptor_html_adead000c5181a8d08b2031ccbf2198ea"><div class="ttname"><a href="namespaceamrex_1_1_parallel_descriptor.html#adead000c5181a8d08b2031ccbf2198ea">amrex::ParallelDescriptor::Communicator</a></div><div class="ttdeci">MPI_Comm Communicator()</div><div class="ttdoc">Returns the &quot;local&quot; communicator. </div><div class="ttdef"><b>Definition:</b> AMReX_ParallelDescriptor.H:389</div></div>
 <div class="ttc" id="namespaceamrex_1_1_parallel_context_html_a1e98db9c755ff62ca57280f0d6313936"><div class="ttname"><a href="namespaceamrex_1_1_parallel_context.html#a1e98db9c755ff62ca57280f0d6313936">amrex::ParallelContext::NProcsSub</a></div><div class="ttdeci">int NProcsSub()</div><div class="ttdef"><b>Definition:</b> AMReX_ParallelContext.H:53</div></div>

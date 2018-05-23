@@ -113,6 +113,10 @@ Inheritance diagram for amrex::FabArray&lt; T &gt;:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structamrex_1_1_fab_array_1_1_copier_handle.html">CopierHandle</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structamrex_1_1_fab_array_1_1_copier_handle_impl.html">CopierHandleImpl</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structamrex_1_1_fab_array_1_1_f_a_b_type.html">FABType</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structamrex_1_1_fab_array_1_1_sh_mem.html">ShMem</a></td></tr>
@@ -148,7 +152,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aed34744a8326118324307052aef407d9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array.html#aed34744a8326118324307052aef407d9">FabArray</a> ()</td></tr>
 <tr class="separator:aed34744a8326118324307052aef407d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ab314f12326cda647aa1fe94644653e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array.html#a7ab314f12326cda647aa1fe94644653e">FabArray</a> (const <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> &amp;bxs, const <a class="el" href="classamrex_1_1_distribution_mapping.html">DistributionMapping</a> &amp;dm, int nvar, int ngrow, const <a class="el" href="structamrex_1_1_m_f_info.html">MFInfo</a> &amp;info=<a class="el" href="structamrex_1_1_m_f_info.html">MFInfo</a>(), const <a class="el" href="classamrex_1_1_fab_factory.html">FabFactory</a>&lt; FAB &gt; &amp;factory=<a class="el" href="classamrex_1_1_default_fab_factory.html">DefaultFabFactory</a>&lt; FAB &gt;())</td></tr>
-<tr class="memdesc:a7ab314f12326cda647aa1fe94644653e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a FabArray&lt;FAB&gt; with a valid region defined by bxs and a region of definition defined by the grow factor ngrow and the number of components nvar.  <a href="#a7ab314f12326cda647aa1fe94644653e">More...</a><br/></td></tr>
+<tr class="memdesc:a7ab314f12326cda647aa1fe94644653e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a <a class="el" href="classamrex_1_1_fab_array.html">FabArray&lt;FAB&gt;</a> with a valid region defined by bxs and a region of definition defined by the grow factor ngrow and the number of components nvar.  <a href="#a7ab314f12326cda647aa1fe94644653e">More...</a><br/></td></tr>
 <tr class="separator:a7ab314f12326cda647aa1fe94644653e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2797eff487b1b16ec6cb075cfdd2fb1d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array.html#a2797eff487b1b16ec6cb075cfdd2fb1d">FabArray</a> (const <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> &amp;bxs, const <a class="el" href="classamrex_1_1_distribution_mapping.html">DistributionMapping</a> &amp;dm, int nvar, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;ngrow, const <a class="el" href="structamrex_1_1_m_f_info.html">MFInfo</a> &amp;info=<a class="el" href="structamrex_1_1_m_f_info.html">MFInfo</a>(), const <a class="el" href="classamrex_1_1_fab_factory.html">FabFactory</a>&lt; FAB &gt; &amp;factory=<a class="el" href="classamrex_1_1_default_fab_factory.html">DefaultFabFactory</a>&lt; FAB &gt;())</td></tr>
 <tr class="separator:a2797eff487b1b16ec6cb075cfdd2fb1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -291,12 +295,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a286f1fb7130b60fb61b7cd2c15a6da8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a810a3efefacfe62629f8a0e815726615"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array.html#a810a3efefacfe62629f8a0e815726615">ParallelCopy</a> (const <a class="el" href="classamrex_1_1_fab_array.html">FabArray</a>&lt; FAB &gt; &amp;src, int src_comp, int dest_comp, int num_comp, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;src_nghost, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;dst_nghost, const <a class="el" href="classamrex_1_1_periodicity.html">Periodicity</a> &amp;period=<a class="el" href="classamrex_1_1_periodicity.html#a38c75cba56d022201b4e1970534d5823">Periodicity::NonPeriodic</a>(), <a class="el" href="classamrex_1_1_fab_array_base.html#ac86e93bfc13df1bdcfb0ebbafb6a1cff">CpOp</a> op=<a class="el" href="classamrex_1_1_fab_array_base.html#ac86e93bfc13df1bdcfb0ebbafb6a1cffa30d7d89f4f6df2117a0c88fcec1a65cb">FabArrayBase::COPY</a>, const <a class="el" href="structamrex_1_1_fab_array_base_1_1_c_p_c.html">FabArrayBase::CPC</a> *a_cpc=nullptr)</td></tr>
 <tr class="separator:a810a3efefacfe62629f8a0e815726615"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acaaaa3e19cd19ac3eb52252bb41971b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structamrex_1_1_fab_array_1_1_copier_handle.html">CopierHandle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array.html#acaaaa3e19cd19ac3eb52252bb41971b6">ParallelCopy_nowait</a> (const <a class="el" href="classamrex_1_1_fab_array.html">FabArray</a>&lt; FAB &gt; &amp;src, int src_comp, int dest_comp, int num_comp, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;src_nghost, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;dst_nghost, const <a class="el" href="classamrex_1_1_periodicity.html">Periodicity</a> &amp;period=<a class="el" href="classamrex_1_1_periodicity.html#a38c75cba56d022201b4e1970534d5823">Periodicity::NonPeriodic</a>(), <a class="el" href="classamrex_1_1_fab_array_base.html#ac86e93bfc13df1bdcfb0ebbafb6a1cff">CpOp</a> op=<a class="el" href="classamrex_1_1_fab_array_base.html#ac86e93bfc13df1bdcfb0ebbafb6a1cffa30d7d89f4f6df2117a0c88fcec1a65cb">FabArrayBase::COPY</a>, const <a class="el" href="structamrex_1_1_fab_array_base_1_1_c_p_c.html">FabArrayBase::CPC</a> *a_cpc=nullptr)</td></tr>
+<tr class="separator:acaaaa3e19cd19ac3eb52252bb41971b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a670b214978a1e6d3425e43f91ea006f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array.html#a670b214978a1e6d3425e43f91ea006f5">copy</a> (const <a class="el" href="classamrex_1_1_fab_array.html">FabArray</a>&lt; FAB &gt; &amp;src, int src_comp, int dest_comp, int num_comp, int src_nghost, int dst_nghost, const <a class="el" href="classamrex_1_1_periodicity.html">Periodicity</a> &amp;period=<a class="el" href="classamrex_1_1_periodicity.html#a38c75cba56d022201b4e1970534d5823">Periodicity::NonPeriodic</a>(), <a class="el" href="classamrex_1_1_fab_array_base.html#ac86e93bfc13df1bdcfb0ebbafb6a1cff">CpOp</a> op=<a class="el" href="classamrex_1_1_fab_array_base.html#ac86e93bfc13df1bdcfb0ebbafb6a1cffa30d7d89f4f6df2117a0c88fcec1a65cb">FabArrayBase::COPY</a>)</td></tr>
 <tr class="separator:a670b214978a1e6d3425e43f91ea006f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a245a71c1f1928297dd21cbebc4f86bef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array.html#a245a71c1f1928297dd21cbebc4f86bef">copy</a> (const <a class="el" href="classamrex_1_1_fab_array.html">FabArray</a>&lt; FAB &gt; &amp;src, int src_comp, int dest_comp, int num_comp, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;src_nghost, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;dst_nghost, const <a class="el" href="classamrex_1_1_periodicity.html">Periodicity</a> &amp;period=<a class="el" href="classamrex_1_1_periodicity.html#a38c75cba56d022201b4e1970534d5823">Periodicity::NonPeriodic</a>(), <a class="el" href="classamrex_1_1_fab_array_base.html#ac86e93bfc13df1bdcfb0ebbafb6a1cff">CpOp</a> op=<a class="el" href="classamrex_1_1_fab_array_base.html#ac86e93bfc13df1bdcfb0ebbafb6a1cffa30d7d89f4f6df2117a0c88fcec1a65cb">FabArrayBase::COPY</a>)</td></tr>
 <tr class="separator:a245a71c1f1928297dd21cbebc4f86bef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b59622d2c87150475a4c2e290909421"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array.html#a9b59622d2c87150475a4c2e290909421">Redistribute</a> (const <a class="el" href="classamrex_1_1_fab_array.html">FabArray</a>&lt; FAB &gt; &amp;src, int src_comp, int dest_comp, int num_comp, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;nghost)</td></tr>
-<tr class="separator:a9b59622d2c87150475a4c2e290909421"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27a46bb1495ed6d5d491a163c22e7171"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array.html#a27a46bb1495ed6d5d491a163c22e7171">Redistribute</a> (const <a class="el" href="classamrex_1_1_fab_array.html">FabArray</a>&lt; FAB &gt; &amp;src, int src_comp, int dest_comp, int num_comp, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;nghost)</td></tr>
+<tr class="separator:a27a46bb1495ed6d5d491a163c22e7171"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b91952d964518b99146f011e68e672e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array.html#a0b91952d964518b99146f011e68e672e">copyTo</a> (FAB &amp;dest, int nghost=0) const </td></tr>
 <tr class="separator:a0b91952d964518b99146f011e68e672e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf03244eb777726665c52dd8ae1dba67"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array.html#abf03244eb777726665c52dd8ae1dba67">copyTo</a> (FAB &amp;dest, const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;subbox, int nghost=0) const </td></tr>
@@ -337,8 +343,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a35b5ac9091040a386f3c6e80ee598edb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9cee2171946118a9d537329dc11b73ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array.html#a9cee2171946118a9d537329dc11b73ba">FillBoundary_nowait</a> (int scomp, int <a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;nghost, const <a class="el" href="classamrex_1_1_periodicity.html">Periodicity</a> &amp;period, bool cross=false)</td></tr>
 <tr class="separator:a9cee2171946118a9d537329dc11b73ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57311b600bf82d2e6577b5a1ef05f2ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array.html#a57311b600bf82d2e6577b5a1ef05f2ef">FillBoundary_finish</a> ()</td></tr>
-<tr class="separator:a57311b600bf82d2e6577b5a1ef05f2ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c51ab80e3ebd10bfd7ec574d0eb78a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array.html#a1c51ab80e3ebd10bfd7ec574d0eb78a8">FillBoundary_finish</a> ()</td></tr>
+<tr class="separator:a1c51ab80e3ebd10bfd7ec574d0eb78a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb282b42c0eb97cbb55037bc7bdea04a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array.html#adb282b42c0eb97cbb55037bc7bdea04a">EnforcePeriodicity</a> (const <a class="el" href="classamrex_1_1_periodicity.html">Periodicity</a> &amp;period)</td></tr>
 <tr class="memdesc:adb282b42c0eb97cbb55037bc7bdea04a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill cells outside periodic domains with their corresponding cells inside the domain. Ghost cells are treated the same as valid cells. The <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> is allowed to be overlapping.  <a href="#adb282b42c0eb97cbb55037bc7bdea04a">More...</a><br/></td></tr>
 <tr class="separator:adb282b42c0eb97cbb55037bc7bdea04a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -675,7 +681,7 @@ template&lt;class FAB &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Construct a FabArray&lt;FAB&gt; with a valid region defined by bxs and a region of definition defined by the grow factor ngrow and the number of components nvar. </p>
+<p>Construct a <a class="el" href="classamrex_1_1_fab_array.html">FabArray&lt;FAB&gt;</a> with a valid region defined by bxs and a region of definition defined by the grow factor ngrow and the number of components nvar. </p>
 
 </div>
 </div>
@@ -1880,14 +1886,14 @@ template&lt;class FAB &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a57311b600bf82d2e6577b5a1ef05f2ef"></a>
+<a class="anchor" id="a1c51ab80e3ebd10bfd7ec574d0eb78a8"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void FabArray::FillBoundary_finish </td>
+          <td class="memname">void <a class="el" href="classamrex_1_1_fab_array.html">amrex::FabArray</a>&lt; T &gt;::FillBoundary_finish </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -2845,14 +2851,84 @@ template&lt;typename T&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a9b59622d2c87150475a4c2e290909421"></a>
+<a class="anchor" id="acaaaa3e19cd19ac3eb52252bb41971b6"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void FabArray::Redistribute </td>
+          <td class="memname"><a class="el" href="structamrex_1_1_fab_array_1_1_copier_handle.html">CopierHandle</a> <a class="el" href="classamrex_1_1_fab_array.html">amrex::FabArray</a>&lt; T &gt;::ParallelCopy_nowait </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_fab_array.html">FabArray</a>&lt; FAB &gt; &amp;&#160;</td>
+          <td class="paramname"><em>src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>src_comp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dest_comp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>num_comp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;&#160;</td>
+          <td class="paramname"><em>src_nghost</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;&#160;</td>
+          <td class="paramname"><em>dst_nghost</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_periodicity.html">Periodicity</a> &amp;&#160;</td>
+          <td class="paramname"><em>period</em> = <code><a class="el" href="classamrex_1_1_periodicity.html#a38c75cba56d022201b4e1970534d5823">Periodicity::NonPeriodic</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classamrex_1_1_fab_array_base.html#ac86e93bfc13df1bdcfb0ebbafb6a1cff">CpOp</a>&#160;</td>
+          <td class="paramname"><em>op</em> = <code><a class="el" href="classamrex_1_1_fab_array_base.html#ac86e93bfc13df1bdcfb0ebbafb6a1cffa30d7d89f4f6df2117a0c88fcec1a65cb">FabArrayBase::COPY</a></code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structamrex_1_1_fab_array_base_1_1_c_p_c.html">FabArrayBase::CPC</a> *&#160;</td>
+          <td class="paramname"><em>a_cpc</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a27a46bb1495ed6d5d491a163c22e7171"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classamrex_1_1_fab_array.html">amrex::FabArray</a>&lt; T &gt;::Redistribute </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classamrex_1_1_fab_array.html">FabArray</a>&lt; FAB &gt; &amp;&#160;</td>
           <td class="paramname"><em>src</em>, </td>
@@ -3837,7 +3913,6 @@ template&lt;typename T&gt; </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/travis/build/AMReX-Codes/amrex/Src/Base/<a class="el" href="_a_m_re_x___distribution_mapping_8_h_source.html">AMReX_DistributionMapping.H</a></li>
 <li>/home/travis/build/AMReX-Codes/amrex/Src/Base/<a class="el" href="_a_m_re_x___fab_array_8_h_source.html">AMReX_FabArray.H</a></li>
-<li>/home/travis/build/AMReX-Codes/amrex/Src/Base/<a class="el" href="_a_m_re_x___fab_array_comm_i_8_h_source.html">AMReX_FabArrayCommI.H</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

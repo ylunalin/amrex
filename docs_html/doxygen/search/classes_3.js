@@ -20,6 +20,8 @@ var searchData=
   ['coordinatesystem',['CoordinateSystem',['../class_coordinate_system.html',1,'']]],
   ['coordinatesystem_3c_201_20_3e',['CoordinateSystem&lt; 1 &gt;',['../class_coordinate_system.html',1,'']]],
   ['coordsys',['CoordSys',['../classamrex_1_1_coord_sys.html',1,'amrex']]],
+  ['copierhandle',['CopierHandle',['../structamrex_1_1_fab_array_1_1_copier_handle.html',1,'amrex::FabArray']]],
+  ['copierhandleimpl',['CopierHandleImpl',['../structamrex_1_1_fab_array_1_1_copier_handle_impl.html',1,'amrex::FabArray']]],
   ['copycomtag',['CopyComTag',['../structamrex_1_1_fab_array_base_1_1_copy_com_tag.html',1,'amrex::FabArrayBase']]],
   ['coveredslabs',['CoveredSlabs',['../classamrex_1_1_covered_slabs.html',1,'amrex']]],
   ['cpc',['CPC',['../structamrex_1_1_fab_array_base_1_1_c_p_c.html',1,'amrex::FabArrayBase']]],
