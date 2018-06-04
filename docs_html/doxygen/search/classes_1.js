@@ -24,6 +24,7 @@ var searchData=
   ['amrex_5ffi_5fpd_5fioprocessor',['amrex_fi_pd_ioprocessor',['../interfaceamrex__paralleldescriptor__module_1_1amrex__fi__pd__ioprocessor.html',1,'amrex_paralleldescriptor_module']]],
   ['amrex_5ffi_5fpd_5fmyproc',['amrex_fi_pd_myproc',['../interfaceamrex__paralleldescriptor__module_1_1amrex__fi__pd__myproc.html',1,'amrex_paralleldescriptor_module']]],
   ['amrex_5ffi_5fpd_5fnprocs',['amrex_fi_pd_nprocs',['../interfaceamrex__paralleldescriptor__module_1_1amrex__fi__pd__nprocs.html',1,'amrex_paralleldescriptor_module']]],
+  ['amrex_5ffi_5fpd_5fwtime',['amrex_fi_pd_wtime',['../interfaceamrex__paralleldescriptor__module_1_1amrex__fi__pd__wtime.html',1,'amrex_paralleldescriptor_module']]],
   ['amrex_5ffilcc',['amrex_filcc',['../interfaceamrex__filcc__module_1_1amrex__filcc.html',1,'amrex_filcc_module']]],
   ['amrex_5ffilcc_5fmodule',['amrex_filcc_module',['../classamrex__filcc__module.html',1,'']]],
   ['amrex_5ffluxreg_5fmodule',['amrex_fluxreg_module',['../classamrex__fluxreg__module.html',1,'']]],
