@@ -18,6 +18,7 @@ var searchData=
   ['amrex_5fcoordsys_5fmodule',['amrex_coordsys_module',['../classamrex__coordsys__module.html',1,'']]],
   ['amrex_5fdeallocate',['amrex_deallocate',['../interfaceamrex__mempool__module_1_1amrex__deallocate.html',1,'amrex_mempool_module']]],
   ['amrex_5febis',['AMReX_EBIS',['../classamrex_1_1_a_m_re_x___e_b_i_s.html',1,'amrex']]],
+  ['amrex_5ferror',['amrex_error',['../interfaceamrex__error__module_1_1amrex__error.html',1,'amrex_error_module']]],
   ['amrex_5ferror_5fmodule',['amrex_error_module',['../classamrex__error__module.html',1,'']]],
   ['amrex_5fextrapolater',['amrex_extrapolater',['../classamrex__extrapolater.html',1,'']]],
   ['amrex_5ffi_5fpd_5fbcast_5fr',['amrex_fi_pd_bcast_r',['../interfaceamrex__paralleldescriptor__module_1_1amrex__fi__pd__bcast__r.html',1,'amrex_paralleldescriptor_module']]],
