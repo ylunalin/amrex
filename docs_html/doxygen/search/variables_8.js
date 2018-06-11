@@ -23,7 +23,6 @@ var searchData=
   ['intersect_5floy',['intersect_loy',['../classamrex_1_1_amr.html#a63e0fe7c5999847347e2959ef6d35e84',1,'amrex::Amr']]],
   ['intersect_5floz',['intersect_loz',['../classamrex_1_1_amr.html#ac8fbee6b944ffeb46dac1abb6c4e979c',1,'amrex::Amr']]],
   ['inv_5fdx',['inv_dx',['../classamrex_1_1_coord_sys.html#a09a58ce8c24e2ad549c98754fd2adaeb',1,'amrex::CoordSys']]],
-  ['io_5foffset',['io_offset',['../classamrex_1_1_real_vect.html#aec1894e6522770880dc552babe7ec205',1,'amrex::RealVect']]],
   ['iobuffer',['ioBuffer',['../structamrex_1_1_vis_m_f_1_1_persistent_i_f_stream.html#a1e023351bf031aee0da7cc17272716ae',1,'amrex::VisMF::PersistentIFStream']]],
   ['ioprocessor',['ioProcessor',['../namespaceamrex_1_1_parallel_descriptor.html#a170c7ee692d457514ef07c0d6206f7e2',1,'amrex::ParallelDescriptor']]],
   ['isopen',['isOpen',['../structamrex_1_1_vis_m_f_1_1_persistent_i_f_stream.html#ac1ecab1d0722305f0a0257611aeb1bde',1,'amrex::VisMF::PersistentIFStream']]],
