@@ -1,6 +1,8 @@
 var searchData=
 [
   ['macbndry',['MacBndry',['../classamrex_1_1_mac_bndry.html',1,'amrex']]],
+  ['makeindexsequencehelper',['makeIndexSequenceHelper',['../structamrex_1_1make_index_sequence_helper.html',1,'amrex']]],
+  ['makeindexsequencehelper_3c_200_2c_20iss_2e_2e_2e_3e',['makeIndexSequenceHelper&lt; 0, ISs...&gt;',['../structamrex_1_1make_index_sequence_helper_3_010_00_01_i_ss_8_8_8_4.html',1,'amrex']]],
   ['mask',['Mask',['../classamrex_1_1_mask.html',1,'amrex']]],
   ['meminfo',['MemInfo',['../structamrex_1_1_mem_profiler_1_1_mem_info.html',1,'amrex::MemProfiler']]],
   ['memprofiler',['MemProfiler',['../classamrex_1_1_mem_profiler.html',1,'amrex']]],

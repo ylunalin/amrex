@@ -1,15 +1,11 @@
 var searchData=
 [
-  ['scalar_5ftype',['scalar_type',['../struct_generic_arithmeticable.html#a47c38c27f5732b7d8a9740347bf893ff',1,'GenericArithmeticable']]],
-  ['scalarpowermap',['ScalarPowerMap',['../class_normal_derivative_new.html#a6cd86cb0a85874f98a4ec3c84a07150c',1,'NormalDerivativeNew']]],
-  ['self_5ftype',['self_type',['../struct_generic_arithmeticable.html#ae6ad80885d47005da1e6d023a0873a31',1,'GenericArithmeticable']]],
-  ['setbuf_5fchar_5ftype',['Setbuf_Char_Type',['../classamrex_1_1_vis_m_f.html#ad0a5e71e7eafe2b4f3f23ea91a56f4b0',1,'amrex::VisMF']]],
-  ['soa',['SoA',['../structamrex_1_1_particle_tile.html#ae6b0bb596eb811ce93f8ba2ec6b46589',1,'amrex::ParticleTile::SoA()'],['../classamrex_1_1_particle_container.html#a687d4752e63683529eecb23e0f25d3ff',1,'amrex::ParticleContainer::SoA()'],['../classamrex_1_1_par_iter.html#aeb14944d179d30a9a0bcc628326acddc',1,'amrex::ParIter::SoA()'],['../classamrex_1_1_par_const_iter.html#aa2053d64fd68f8b24e1f640067c73dfa',1,'amrex::ParConstIter::SoA()']]],
-  ['stencil_5ft',['stencil_t',['../classamrex_1_1_agg_stencil.html#aed75838a70c4bb8b0b4168f1a2812b63',1,'amrex::AggStencil']]],
-  ['stlcellmap',['stlCellMap',['../namespaceamrex_1_1_s_t_l_util.html#a38ee235b688771d949e8215c02c02d8a',1,'amrex::STLUtil']]],
-  ['stlcellmapit',['stlCellMapIt',['../namespaceamrex_1_1_s_t_l_util.html#a05fc78e75233d53ab2a2b02b92ab923f',1,'amrex::STLUtil']]],
-  ['stledgemap',['stlEdgeMap',['../namespaceamrex_1_1_s_t_l_util.html#a49fecd9f40247f035fb57787b3abd412',1,'amrex::STLUtil']]],
-  ['stledgemapit',['stlEdgeMapIt',['../namespaceamrex_1_1_s_t_l_util.html#ae95cf72051e411987fbceaaf2fa4aeb9',1,'amrex::STLUtil']]],
-  ['stlnodemap',['stlNodeMap',['../namespaceamrex_1_1_s_t_l_util.html#ad55b216c9dd75197956c1704a0839ef9',1,'amrex::STLUtil']]],
-  ['stlnodemapit',['stlNodeMapIt',['../namespaceamrex_1_1_s_t_l_util.html#ac23f41bafd2da0fbd8ad81d582f8f954',1,'amrex::STLUtil']]]
+  ['realarray',['RealArray',['../namespaceamrex.html#a6c67d45833a700cc41785cc1fa1a1af0',1,'amrex']]],
+  ['realtuple',['RealTuple',['../classamrex_1_1_bndry_data.html#a7d818a2a4471876ea96580404b662b0f',1,'amrex::BndryData']]],
+  ['realtype',['RealType',['../structamrex_1_1_particle_comm_data.html#a8cd595a307d981117b1ca716232e621c',1,'amrex::ParticleCommData::RealType()'],['../structamrex_1_1_particle.html#a57e2e923cf77341e715f8cf41b15fcac',1,'amrex::Particle::RealType()'],['../classamrex_1_1_array_of_structs.html#a6694efa287bd1d39554c85d773d1a894',1,'amrex::ArrayOfStructs::RealType()'],['../classamrex_1_1_particle_container.html#aa415f73a03aab24593ffe0d99075e329',1,'amrex::ParticleContainer::RealType()']]],
+  ['resultnode',['ResultNode',['../namespaceamrex.html#a507daa279c5429a8604f83705f1c1ef5',1,'amrex']]],
+  ['rvdim',['RvDim',['../class_coordinate_system.html#a0eea669e3bbe910ed7a685857eb1c0b0',1,'CoordinateSystem::RvDim()'],['../class_cut_cell_moments.html#a79b86e73c978ec5820d471558d41e9d7',1,'CutCellMoments::RvDim()'],['../class_i_f_data.html#a7a2426b779e1d7f5df9881d2f5e53de0',1,'IFData::RvDim()'],['../class_i_f_data_3_011_01_4.html#a42514f92cb714f1e92dc5cc2480f84d4',1,'IFData&lt; 1 &gt;::RvDim()'],['../class_minimal_c_c_c_m.html#a1c4d603efac2727d9a7a7204d1eb63b3',1,'MinimalCCCM::RvDim()'],['../class_normal_derivative.html#ace53afc3516629f46e4aebe2964d3878',1,'NormalDerivative::RvDim()'],['../class_normal_derivative_3_01_b_l___s_p_a_c_e_d_i_m_01_4.html#a28f5830e80b3a611b37ded04a8e0e3f8',1,'NormalDerivative&lt; BL_SPACEDIM &gt;::RvDim()'],['../class_normal_derivative_new.html#a8d86f1049a24dffbde834c18ac6e35b8',1,'NormalDerivativeNew::RvDim()']]],
+  ['rvgdim',['RvgDim',['../_a_m_re_x___notation_8_h.html#a217ef48430c58aac7411604ef33d019d',1,'AMReX_Notation.H']]],
+  ['rvsdminone',['RvSDMinOne',['../_a_m_re_x___e_b___t_y_p_e_d_e_f_s_8_h.html#ac6efc7f178bfa2b6cc6f3d7639fd8990',1,'AMReX_EB_TYPEDEFS.H']]],
+  ['rvspacedim',['RvSpaceDim',['../_a_m_re_x___e_b___t_y_p_e_d_e_f_s_8_h.html#ab7ad972d4cc9d9a332b1f67038b1b140',1,'AMReX_EB_TYPEDEFS.H']]]
 ];

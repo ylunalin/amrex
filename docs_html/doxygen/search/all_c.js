@@ -140,6 +140,7 @@ var searchData=
   ['lonoboundary',['LoNoBoundary',['../classamrex_1_1_face_stop.html#a37ec41a3856aad220e1b1ece257abba4a884f2179cc7444e9f95397bb0f964c9a',1,'amrex::FaceStop']]],
   ['lonode',['LoNode',['../classamrex_1_1_coord_sys.html#a9fb5a8168d5a44fe79cd9aa7bddd36be',1,'amrex::CoordSys::LoNode(const IntVect &amp;point, Vector&lt; Real &gt; &amp;loc) const '],['../classamrex_1_1_coord_sys.html#a20ddced2d3470f1b745c64f0fa6fd38a',1,'amrex::CoordSys::LoNode(const IntVect &amp;point, Real *loc) const ']]],
   ['lovect',['loVect',['../classamrex_1_1_base_fab.html#a92fc7845a84ef3d7bb0c2588576f2b42',1,'amrex::BaseFab::loVect()'],['../classamrex_1_1_box.html#a50c80805c1ee62b12c07df435dcadb64',1,'amrex::Box::loVect() const &amp;'],['../classamrex_1_1_box.html#a55198abfb5311665c816a3f33d69f0d7',1,'amrex::Box::loVect()&amp;&amp;=delete']]],
+  ['lovect3d',['loVect3d',['../classamrex_1_1_box.html#a12c71ffc30bd6f25f1e6b1b7239364b2',1,'amrex::Box']]],
   ['low',['low',['../classamrex_1_1_orientation.html#a877c697bbab9de21af4012197ba76410a20ab23ed836ba1667dddbd915ff85255',1,'amrex::Orientation']]],
   ['lower_5fbound',['LOWER_BOUND',['../class_constrained_l_s.html#a96327cdbef77a743c8b0554ca6a4ea7ca35c94cf676b1e4cb3b2beb36b30c5649',1,'ConstrainedLS']]],
   ['lowerindex',['LowerIndex',['../classamrex_1_1_coord_sys.html#a770125c3000b060dd95b440100b56526',1,'amrex::CoordSys']]],
