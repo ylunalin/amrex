@@ -208,7 +208,7 @@ BaseFab<Real>::performCopy (const BaseFab<Real>& src,
 #pragma gpu
     amrex_fort_fab_copy
         (AMREX_ARLIM_ARG(destbox.loVect()), AMREX_ARLIM_ARG(destbox.hiVect()),
-         BL_TO_FORTRAN_N_ANYD(*this,destcomp),
+         this->dataPtr(destcomp), this->box(),
          BL_TO_FORTRAN_N_ANYD(src,srccomp),
          AMREX_ARLIM_3D(srcbox.loVect()), AMREX_ARLIM_3D(destbox.loVect()),
          numcomp);

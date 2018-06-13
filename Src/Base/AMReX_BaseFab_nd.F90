@@ -1,16 +1,17 @@
 module basefab_nd_module
 
-  use amrex_fort_module, only: amrex_real, amrex_add, amrex_max
+  use amrex_fort_module, only: amrex_real, amrex_add, amrex_max, box
 
   implicit none
 
 contains
 
   ! dst = src
-  AMREX_DEVICE subroutine amrex_fort_fab_copy(lo, hi, dst, dlo, dhi, src, slo, shi, sblo, dblo, ncomp) bind(c, name='amrex_fort_fab_copy')
-    integer, intent(in) :: lo(3), hi(3), dlo(3), dhi(3), slo(3), shi(3), sblo(3), dblo(3)
+  AMREX_DEVICE subroutine amrex_fort_fab_copy(lo, hi, dst, dst_box, src, slo, shi, sblo, dblo, ncomp) bind(c, name='amrex_fort_fab_copy')
+    integer, intent(in) :: lo(3), hi(3), slo(3), shi(3), sblo(3), dblo(3)
+    type(box), intent(in), value :: dst_box
     real(amrex_real), intent(in   ) :: src(slo(1):shi(1),slo(2):shi(2),slo(3):shi(3),ncomp)
-    real(amrex_real), intent(inout) :: dst(dlo(1):dhi(1),dlo(2):dhi(2),dlo(3):dhi(3),ncomp)
+    real(amrex_real), intent(inout) :: dst(dst_box%lo(1):dst_box%hi(1),dst_box%lo(2):dst_box%hi(2),dst_box%lo(3):dst_box%hi(3),ncomp)
     integer, intent(in), value :: ncomp
 
     integer :: i,j,k,n,off(3)

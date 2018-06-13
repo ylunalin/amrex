@@ -47,6 +47,12 @@ module amrex_fort_module
      end function amrex_random_int
   end interface
 
+  type, bind(c) :: box
+     integer :: lo(3)
+     integer :: hi(3)
+     integer :: btype
+  end type box
+
 contains
 
   function amrex_coarsen_intvect (n, iv, rr) result(civ)
@@ -176,6 +182,6 @@ contains
     x = min(x, y)
 #endif
 
-  end subroutine amrex_min
+  end subroutine amrex_min  
 
 end module amrex_fort_module

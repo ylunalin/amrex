@@ -4,13 +4,14 @@
 #include <AMReX_REAL.H>
 #include <AMReX_ArrayLim.H>
 #include <AMReX_BLFort.H>
+#include <AMReX_Box.H>
 
 #ifdef __cplusplus
 extern "C"
 {
 #endif
     void amrex_fort_fab_copy(const int* lo, const int* hi,
-                             amrex_real* dst, const int* dlo, const int* dhi,
+                             amrex_real* dst, const amrex::Box& box,
                              const amrex_real* src, const int* slo, const int* shi,
                              const int* sblo, const int* dblo,
                              const int ncomp);
