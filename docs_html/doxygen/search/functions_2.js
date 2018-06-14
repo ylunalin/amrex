@@ -119,7 +119,7 @@ var searchData=
   ['buildkdtree',['BuildKDTree',['../classamrex_1_1_s_t_l_explorer.html#a0851053685eeed803b3fd6efd913c26b',1,'amrex::STLExplorer']]],
   ['buildlevelmask',['BuildLevelMask',['../classamrex_1_1_neighbor_particle_container.html#a40d2eb01cf60075e92e75542e4d6b36e',1,'amrex::NeighborParticleContainer']]],
   ['buildmask',['BuildMask',['../classamrex_1_1_fab_array.html#a542bac940ae8e28ba4511df6425972a7',1,'amrex::FabArray']]],
-  ['buildneighborlist',['buildNeighborList',['../classamrex_1_1_neighbor_particle_container.html#a629d1fec40d6c7034d090e90453d3c5a',1,'amrex::NeighborParticleContainer']]],
+  ['buildneighborlist',['buildNeighborList',['../classamrex_1_1_neighbor_particle_container.html#a29bd288b934ed13dd2c6fe2903a574a9',1,'amrex::NeighborParticleContainer::buildNeighborList(int lev, CheckPair check_pair, bool sort=false)'],['../classamrex_1_1_neighbor_particle_container.html#a933a2e321f4cfb12b2399a9b1ac932f6',1,'amrex::NeighborParticleContainer::buildNeighborList(int lev, CheckPair check_pair, bool sort)']]],
   ['buildneighborlistfort',['buildNeighborListFort',['../classamrex_1_1_neighbor_particle_container.html#adb48928bcb87153a6bbd53325e381138',1,'amrex::NeighborParticleContainer']]],
   ['buildnextlevel',['buildNextLevel',['../classamrex_1_1_e_b_index_space.html#ab6d6978c431514d2ecc7829cb93165e5',1,'amrex::EBIndexSpace']]],
   ['buildredistributemask',['BuildRedistributeMask',['../classamrex_1_1_particle_container.html#a0b6d962f95261e87064fb20f6d259c01',1,'amrex::ParticleContainer']]],

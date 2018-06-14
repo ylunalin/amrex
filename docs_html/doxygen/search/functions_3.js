@@ -34,7 +34,6 @@ var searchData=
   ['changemomentcoordinatestocellcenter',['changeMomentCoordinatesToCellCenter',['../class_cut_cell_moments.html#a32091091ccfa742c0b122a83d4a86b27',1,'CutCellMoments::changeMomentCoordinatesToCellCenter()'],['../class_cut_cell_moments_3_011_01_4.html#aeb0b2f3dd8e18fbbb05f43277afb0c5e',1,'CutCellMoments&lt; 1 &gt;::changeMomentCoordinatesToCellCenter()']]],
   ['changemomentcoordinatestoparentcenter',['changeMomentCoordinatesToParentCenter',['../class_cut_cell_moments.html#a6e9ee75de24a3a03dbecb8c6a8115ae9',1,'CutCellMoments::changeMomentCoordinatesToParentCenter()'],['../class_cut_cell_moments_3_011_01_4.html#a92538d6f6d24f15c8ca335204947d781',1,'CutCellMoments&lt; 1 &gt;::changeMomentCoordinatesToParentCenter()']]],
   ['check',['Check',['../classamrex_1_1_vis_m_f.html#ae12f838572701049902254dfb46eb650',1,'amrex::VisMF::Check()'],['../structamrex_1_1_b_l_pgas_1_1_send_info.html#aadd45bbcce580fece9b7710d18ee17b1',1,'amrex::BLPgas::SendInfo::check()']]],
-  ['check_5fpair',['check_pair',['../classamrex_1_1_neighbor_particle_container.html#a06da527edcc681f204b48836ffa92d50',1,'amrex::NeighborParticleContainer']]],
   ['checkagainstknown',['checkAgainstKnown',['../classamrex_1_1_smooth_absolute_value.html#a5dff9864dbb7e822bc78188e6f4f95af',1,'amrex::SmoothAbsoluteValue']]],
   ['checkdata',['checkData',['../classamrex_1_1_e_b_level_data_ops.html#a8c3428ead7918a1f09fd1ad800b75668',1,'amrex::EBLevelDataOps']]],
   ['checkfacedata',['checkFaceData',['../namespaceamrex.html#adc3ae72dd66086c36cdb5258da1ac11a',1,'amrex']]],

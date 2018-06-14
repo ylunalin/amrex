@@ -741,174 +741,184 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;<span class="preprocessor"></span>}</div>
 <div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;</div>
 <div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> NStructReal, <span class="keywordtype">int</span> NStructInt&gt;</div>
-<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;<span class="keywordtype">void</span></div>
-<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;<a class="code" href="classamrex_1_1_neighbor_particle_container.html#a629d1fec40d6c7034d090e90453d3c5a">NeighborParticleContainer&lt;NStructReal, NStructInt&gt;::</a></div>
-<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;<a class="code" href="classamrex_1_1_neighbor_particle_container.html#a629d1fec40d6c7034d090e90453d3c5a">buildNeighborList</a>(<span class="keywordtype">int</span> lev, <span class="keywordtype">bool</span> sort) {</div>
-<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;    </div>
-<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;    <a class="code" href="_a_m_re_x___b_l_profiler_8_h.html#a548fbd9b2cd72a927f463003f4adb0b1">BL_PROFILE</a>(<span class="stringliteral">&quot;NeighborParticleContainer::buildNeighborList&quot;</span>);</div>
-<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;    <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(lev == 0);</div>
-<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;    <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(this-&gt;OK());</div>
-<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;</div>
-<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;    neighbor_list.clear();</div>
-<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;    </div>
-<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;    <span class="keywordflow">for</span> (MyParIter pti(*<span class="keyword">this</span>, lev); pti.isValid(); ++pti) {</div>
-<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;        PairIndex index(pti.index(), pti.LocalTileIndex());</div>
-<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;        neighbor_list[index] = Vector&lt;int&gt;();</div>
-<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;    }</div>
-<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;</div>
-<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;<span class="preprocessor">#ifdef _OPENMP</span></div>
-<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#pragma omp parallel</span></div>
-<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;<span class="preprocessor"></span>    {</div>
-<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;</div>
-<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;    Vector&lt;IntVect&gt; cells;</div>
-<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;    Vector&lt;ParticleType&gt; tmp_particles;</div>
-<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;    BaseFab&lt;int&gt; head;</div>
-<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;    Vector&lt;int&gt;  list;</div>
-<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;</div>
-<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;    <span class="keywordflow">for</span> (MyParIter pti(*<span class="keyword">this</span>, lev, MFItInfo().SetDynamic(<span class="keyword">true</span>)); pti.isValid(); ++pti) {</div>
-<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;</div>
-<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;        PairIndex index(pti.index(), pti.LocalTileIndex());</div>
-<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;        Vector&lt;int&gt;&amp; nl = neighbor_list[index];</div>
-<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;        AoS&amp; particles = pti.GetArrayOfStructs();</div>
-<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;</div>
-<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;        <span class="keywordtype">int</span> Np = particles.size();</div>
-<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;        <span class="keywordtype">int</span> Nn = neighbors[index].size() / pdata_size;</div>
-<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;        <span class="keywordtype">int</span> N = Np + Nn;</div>
-<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;</div>
-<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;        cells.resize(N);</div>
-<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;        tmp_particles.resize(N);</div>
-<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;        std::memcpy(&amp;tmp_particles[0], particles.data(), Np*<span class="keyword">sizeof</span>(ParticleType));</div>
-<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;        <span class="keywordflow">if</span> (Nn &gt; 0)</div>
-<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;           std::memcpy(&amp;tmp_particles[Np], neighbors[index].dataPtr(), Nn*pdata_size); </div>
-<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;</div>
-<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;        <span class="comment">// For each cell on this tile, we build linked lists storing the</span></div>
-<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;        <span class="comment">// indices of the particles belonging to it.</span></div>
-<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;        Box box = pti.tilebox();</div>
-<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;        box.grow(num_neighbor_cells + 1); <span class="comment">// need an extra cell to account for roundoff errors.</span></div>
-<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;        head.resize(box);</div>
-<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;        head.setVal(-1);</div>
-<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;        list.resize(N, -1);</div>
-<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;</div>
-<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; N; ++i) {</div>
-<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;            <span class="keyword">const</span> ParticleType&amp; p = tmp_particles[i];</div>
-<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;            <span class="keyword">const</span> IntVect&amp; cell = this-&gt;Index(p, lev);</div>
-<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;            cells[i] = cell;</div>
-<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;            list[i] = head(cell);</div>
-<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;            head(cell) = i;</div>
-<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;        }</div>
-<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;        </div>
-<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;        <span class="comment">// using these lists, we build a neighbor list containing both</span></div>
-<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;        <span class="comment">// kinds of particles.</span></div>
-<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;        <span class="keywordtype">int</span> p_start_index = 0;</div>
-<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> i = 0; i &lt; Np; ++i) {</div>
-<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;            <span class="keyword">const</span> ParticleType&amp; p = tmp_particles[i];</div>
-<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;            </div>
-<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;            <span class="keywordtype">int</span> num_neighbors = 0;</div>
-<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;            nl.push_back(0);</div>
-<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;            </div>
-<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;            <span class="keyword">const</span> IntVect&amp; cell = cells[i];</div>
-<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;            Box bx(cell, cell);</div>
-<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;            bx.grow(num_neighbor_cells);</div>
-<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;            </div>
-<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;            <span class="keywordflow">for</span> (IntVect iv = bx.smallEnd(); iv &lt;= bx.bigEnd(); bx.next(iv)) {</div>
-<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;                <span class="keywordtype">int</span> j = head(iv);</div>
-<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;                <span class="keywordflow">while</span> (j &gt;= 0) {</div>
-<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;                    <span class="keywordflow">if</span> (i == j) {</div>
-<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;                        j = list[j];</div>
-<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;                        <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;                    }</div>
-<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;                    <span class="keywordflow">if</span> ( check_pair(p, tmp_particles[j]) ) {</div>
-<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;                        nl.push_back(j+1);</div>
-<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;                        num_neighbors += 1;</div>
-<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;                    }</div>
-<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;                    j = list[j];</div>
-<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;                }</div>
-<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;            }</div>
-<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;</div>
-<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;            nl[p_start_index] = num_neighbors;</div>
-<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;            p_start_index += num_neighbors + 1;</div>
-<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;        }</div>
-<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;</div>
-<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;        <span class="keywordflow">if</span> (sort) {</div>
-<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> i = 0; i &lt; nl.size(); i += nl[i] +1) {</div>
-<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;                std::sort(nl.begin() + i + 1,</div>
-<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;                          nl.begin() + nl[i] + i + 1);</div>
-<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;            }</div>
-<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;        }</div>
-<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;    }</div>
+<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> CheckPair&gt;</div>
+<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;<span class="keywordtype">void</span></div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;<a class="code" href="classamrex_1_1_neighbor_particle_container.html#a29bd288b934ed13dd2c6fe2903a574a9">NeighborParticleContainer&lt;NStructReal, NStructInt&gt;::</a></div>
+<div class="line"><a name="l00657"></a><span class="lineno"><a class="line" href="classamrex_1_1_neighbor_particle_container.html#a933a2e321f4cfb12b2399a9b1ac932f6">  657</a></span>&#160;<a class="code" href="classamrex_1_1_neighbor_particle_container.html#a29bd288b934ed13dd2c6fe2903a574a9">buildNeighborList</a>(<span class="keywordtype">int</span> lev, CheckPair check_pair, <span class="keywordtype">bool</span> sort) {</div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;    </div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;    <a class="code" href="_a_m_re_x___b_l_profiler_8_h.html#a548fbd9b2cd72a927f463003f4adb0b1">BL_PROFILE</a>(<span class="stringliteral">&quot;NeighborParticleContainer::buildNeighborList&quot;</span>);</div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;    <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(lev == 0);</div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;    <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(this-&gt;OK());</div>
+<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;</div>
+<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;    neighbor_list.clear();</div>
+<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;    </div>
+<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;    <span class="keywordflow">for</span> (<a class="code" href="classamrex_1_1_par_iter.html">MyParIter</a> pti(*<span class="keyword">this</span>, lev); pti.<a class="code" href="classamrex_1_1_m_f_iter.html#ad1cb993a973d541776b06c959d1ae3cd">isValid</a>(); ++pti) {</div>
+<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;        <a class="code" href="classamrex_1_1_neighbor_particle_container.html#ab169827a8824abb993c34e715e250f49">PairIndex</a> index(pti.index(), pti.LocalTileIndex());</div>
+<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;        neighbor_list[index] = <a class="code" href="classamrex_1_1_vector.html">Vector&lt;int&gt;</a>();</div>
+<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;    }</div>
+<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;</div>
+<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;<span class="preprocessor">#ifdef _OPENMP</span></div>
+<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#pragma omp parallel</span></div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;<span class="preprocessor"></span>    {</div>
+<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;</div>
+<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;    <a class="code" href="classamrex_1_1_vector.html">Vector&lt;IntVect&gt;</a> cells;</div>
+<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;    <a class="code" href="classamrex_1_1_vector.html">Vector&lt;ParticleType&gt;</a> tmp_particles;</div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;    <a class="code" href="classamrex_1_1_base_fab.html">BaseFab&lt;int&gt;</a> head;</div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;    <a class="code" href="classamrex_1_1_vector.html">Vector&lt;int&gt;</a>  list;</div>
+<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;</div>
+<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;    <span class="keywordflow">for</span> (<a class="code" href="classamrex_1_1_par_iter.html">MyParIter</a> pti(*<span class="keyword">this</span>, lev, <a class="code" href="structamrex_1_1_m_f_it_info.html">MFItInfo</a>().<a class="code" href="structamrex_1_1_m_f_it_info.html#aaa6176ad6388845a422006125572577e">SetDynamic</a>(<span class="keyword">true</span>)); pti.<a class="code" href="classamrex_1_1_m_f_iter.html#ad1cb993a973d541776b06c959d1ae3cd">isValid</a>(); ++pti) {</div>
+<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;</div>
+<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;        <a class="code" href="classamrex_1_1_neighbor_particle_container.html#ab169827a8824abb993c34e715e250f49">PairIndex</a> index(pti.index(), pti.LocalTileIndex());</div>
+<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;        <a class="code" href="classamrex_1_1_vector.html">Vector&lt;int&gt;</a>&amp; nl = neighbor_list[index];</div>
+<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;        <a class="code" href="classamrex_1_1_neighbor_particle_container.html#abda283254c9aa57da66fa85e8bcd57da">AoS</a>&amp; particles = pti.GetArrayOfStructs();</div>
+<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;</div>
+<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;        <span class="keywordtype">int</span> Np = particles.<a class="code" href="classamrex_1_1_vector.html#a509fc6837193e6fd97249b0c072c7830">size</a>();</div>
+<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;        <span class="keywordtype">int</span> Nn = neighbors[index].size() / pdata_size;</div>
+<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;        <span class="keywordtype">int</span> N = Np + Nn;</div>
+<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;</div>
+<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;        cells.resize(N);</div>
+<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;        tmp_particles.resize(N);</div>
+<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;        std::memcpy(&amp;tmp_particles[0], particles.data(), Np*<span class="keyword">sizeof</span>(<a class="code" href="classamrex_1_1_neighbor_particle_container.html#aa1d79fe5cc0935cf6d819bbbd00d973b">ParticleType</a>));</div>
+<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;        <span class="keywordflow">if</span> (Nn &gt; 0)</div>
+<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;           std::memcpy(&amp;tmp_particles[Np], neighbors[index].dataPtr(), Nn*pdata_size); </div>
+<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;</div>
+<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;        <span class="comment">// For each cell on this tile, we build linked lists storing the</span></div>
+<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;        <span class="comment">// indices of the particles belonging to it.</span></div>
+<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;        <a class="code" href="classamrex_1_1_box.html">Box</a> box = pti.tilebox();</div>
+<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;        box.<a class="code" href="classamrex_1_1_box.html#a3b0a69f2f36d76b907409781ef7afa6d">grow</a>(num_neighbor_cells + 1); <span class="comment">// need an extra cell to account for roundoff errors.</span></div>
+<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;        head.<a class="code" href="classamrex_1_1_base_fab.html#a48099208f15f741c739316388f61737a">resize</a>(box);</div>
+<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;        head.<a class="code" href="classamrex_1_1_base_fab.html#afa9e4bc89ae38b7862a401fe97985efd">setVal</a>(-1);</div>
+<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;        list.resize(N, -1);</div>
+<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;</div>
+<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; N; ++i) {</div>
+<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;            <span class="keyword">const</span> <a class="code" href="classamrex_1_1_neighbor_particle_container.html#aa1d79fe5cc0935cf6d819bbbd00d973b">ParticleType</a>&amp; p = tmp_particles[i];</div>
+<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;            <span class="keyword">const</span> <a class="code" href="classamrex_1_1_int_vect.html">IntVect</a>&amp; cell = this-&gt;Index(p, lev);</div>
+<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;            cells[i] = cell;</div>
+<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;            list[i] = head(cell);</div>
+<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;            head(cell) = i;</div>
+<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;        }</div>
+<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;        </div>
+<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;        <span class="comment">// using these lists, we build a neighbor list containing both</span></div>
+<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;        <span class="comment">// kinds of particles.</span></div>
+<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;        <span class="keywordtype">int</span> p_start_index = 0;</div>
+<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> i = 0; i &lt; Np; ++i) {</div>
+<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;            <span class="keyword">const</span> <a class="code" href="classamrex_1_1_neighbor_particle_container.html#aa1d79fe5cc0935cf6d819bbbd00d973b">ParticleType</a>&amp; p = tmp_particles[i];</div>
+<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;            </div>
+<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;            <span class="keywordtype">int</span> num_neighbors = 0;</div>
+<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;            nl.push_back(0);</div>
+<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;            </div>
+<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;            <span class="keyword">const</span> <a class="code" href="classamrex_1_1_int_vect.html">IntVect</a>&amp; cell = cells[i];</div>
+<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;            <a class="code" href="classamrex_1_1_box.html">Box</a> bx(cell, cell);</div>
+<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;            bx.<a class="code" href="classamrex_1_1_box.html#a3b0a69f2f36d76b907409781ef7afa6d">grow</a>(num_neighbor_cells);</div>
+<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;            </div>
+<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;            <span class="keywordflow">for</span> (<a class="code" href="classamrex_1_1_int_vect.html">IntVect</a> iv = bx.<a class="code" href="classamrex_1_1_box.html#ac579173dd3e6da5c5814174be20a54d8">smallEnd</a>(); iv &lt;= bx.<a class="code" href="classamrex_1_1_box.html#a63b7187607c41474becd59240a1fe67c">bigEnd</a>(); bx.<a class="code" href="classamrex_1_1_box.html#aab8e57bef4096c565686cbc276b3fcdd">next</a>(iv)) {</div>
+<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;                <span class="keywordtype">int</span> j = head(iv);</div>
+<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;                <span class="keywordflow">while</span> (j &gt;= 0) {</div>
+<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;                    <span class="keywordflow">if</span> (i == j) {</div>
+<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;                        j = list[j];</div>
+<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;                        <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;                    }</div>
+<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;                    <span class="keywordflow">if</span> ( check_pair(p, tmp_particles[j]) ) {</div>
+<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;                        nl.push_back(j+1);</div>
+<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;                        num_neighbors += 1;</div>
+<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;                    }</div>
+<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;                    j = list[j];</div>
+<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;                }</div>
+<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;            }</div>
+<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;</div>
+<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;            nl[p_start_index] = num_neighbors;</div>
+<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;            p_start_index += num_neighbors + 1;</div>
+<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;        }</div>
+<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;</div>
+<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;        <span class="keywordflow">if</span> (sort) {</div>
+<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> i = 0; i &lt; nl.size(); i += nl[i] +1) {</div>
+<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;                std::sort(nl.begin() + i + 1,</div>
+<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;                          nl.begin() + nl[i] + i + 1);</div>
+<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;            }</div>
+<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;        }</div>
 <div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;    }</div>
-<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;}</div>
-<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;</div>
-<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> NStructReal, <span class="keywordtype">int</span> NStructInt&gt;</div>
-<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;<span class="keywordtype">void</span></div>
-<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;<a class="code" href="classamrex_1_1_neighbor_particle_container.html#adb48928bcb87153a6bbd53325e381138">NeighborParticleContainer&lt;NStructReal, NStructInt&gt;::</a></div>
-<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;<a class="code" href="classamrex_1_1_neighbor_particle_container.html#adb48928bcb87153a6bbd53325e381138">buildNeighborListFort</a>(<span class="keywordtype">int</span> lev, <span class="keywordtype">bool</span> sort) {</div>
-<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;    </div>
-<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;    <a class="code" href="_a_m_re_x___b_l_profiler_8_h.html#a548fbd9b2cd72a927f463003f4adb0b1">BL_PROFILE</a>(<span class="stringliteral">&quot;NeighborParticleContainer::buildNeighborListFort&quot;</span>);</div>
-<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;    <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(lev == 0);</div>
-<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;</div>
-<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;    neighbor_list.clear();</div>
-<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;</div>
-<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;    <span class="keyword">const</span> Geometry&amp; gm  = this-&gt;Geom(lev);</div>
-<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;    <span class="keyword">const</span> Real*     plo = gm.ProbLo();</div>
-<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;    <span class="keyword">const</span> Real*     <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ad5fa46517dd383f09a279b8446fc397b">dx</a>  = gm.CellSize();</div>
-<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;</div>
-<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;    <span class="keywordflow">for</span> (MyParIter pti(*<span class="keyword">this</span>, lev); pti.isValid(); ++pti) {</div>
-<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;        </div>
-<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;        PairIndex index(pti.index(), pti.LocalTileIndex());</div>
-<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;        Vector&lt;int&gt;&amp; nl = neighbor_list[index];</div>
-<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;        AoS&amp; particles = pti.GetArrayOfStructs();</div>
-<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;</div>
-<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;        <span class="keywordtype">int</span> Np = particles.size();</div>
-<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;        <span class="keywordtype">int</span> Nn = neighbors[index].size() / pdata_size;</div>
-<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;        <span class="keywordtype">int</span> Ns = particles.dataShape().first;</div>
-<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;        <span class="keywordtype">int</span> N = Np + Nn;</div>
-<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;</div>
-<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;        Vector&lt;ParticleType&gt; tmp_particles(N);</div>
-<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;        std::memcpy(&amp;tmp_particles[0], particles.data(), Np*<span class="keyword">sizeof</span>(ParticleType));</div>
-<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;</div>
-<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; Nn; ++i) {</div>
-<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;            std::memcpy(&amp;tmp_particles[i + Np],</div>
-<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;                        neighbors[index].dataPtr() + i*pdata_size,</div>
-<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;                        pdata_size);</div>
-<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;        }</div>
-<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;</div>
-<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;        <span class="keywordtype">int</span> size_nl = 0;</div>
-<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;        nl.resize(100000);</div>
-<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;</div>
-<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;        Box box = pti.tilebox();</div>
-<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;        box.grow(num_neighbor_cells);        </div>
-<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">int</span>* lo = box.loVect();</div>
-<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">int</span>* hi = box.hiVect();</div>
-<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;</div>
-<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;        <a class="code" href="_a_m_re_x___particles___f_8_h.html#a562b4c295df4c81e3966cb5cf510df54">amrex_build_nl</a>(tmp_particles.data(), Ns, N, nl.data(), &amp;size_nl, </div>
-<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;                       <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#a54267e9174e171df90d3594f0c32e114">lo</a>, <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#a6569fdcb051e8fff2ef4c57db6f9c642">hi</a>, plo, <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ad5fa46517dd383f09a279b8446fc397b">dx</a>);</div>
-<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;</div>
-<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;        nl.resize(size_nl);</div>
-<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;</div>
-<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;        <span class="keywordflow">if</span> (sort) {</div>
-<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> i = 0; i &lt; nl.size(); i += nl[i] +1) {</div>
-<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;                std::sort(nl.begin() + i + 1,</div>
-<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;                          nl.begin() + nl[i] + i + 1);</div>
-<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;            }</div>
-<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;        }</div>
-<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;    }</div>
-<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;}</div>
+<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;    }</div>
+<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;}</div>
+<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;</div>
+<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> NStructReal, <span class="keywordtype">int</span> NStructInt&gt;</div>
+<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;<span class="keywordtype">void</span></div>
+<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;<a class="code" href="classamrex_1_1_neighbor_particle_container.html#adb48928bcb87153a6bbd53325e381138">NeighborParticleContainer&lt;NStructReal, NStructInt&gt;::</a></div>
+<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;<a class="code" href="classamrex_1_1_neighbor_particle_container.html#adb48928bcb87153a6bbd53325e381138">buildNeighborListFort</a>(<span class="keywordtype">int</span> lev, <span class="keywordtype">bool</span> sort) {</div>
+<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;    </div>
+<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;    <a class="code" href="_a_m_re_x___b_l_profiler_8_h.html#a548fbd9b2cd72a927f463003f4adb0b1">BL_PROFILE</a>(<span class="stringliteral">&quot;NeighborParticleContainer::buildNeighborListFort&quot;</span>);</div>
+<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;    <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(lev == 0);</div>
+<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;</div>
+<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;    neighbor_list.clear();</div>
+<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;</div>
+<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;    <span class="keyword">const</span> <a class="code" href="classamrex_1_1_geometry.html">Geometry</a>&amp; gm  = this-&gt;Geom(lev);</div>
+<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;    <span class="keyword">const</span> Real*     plo = gm.<a class="code" href="classamrex_1_1_geometry.html#aa73e7f884ec26924a7250edb262f618d">ProbLo</a>();</div>
+<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;    <span class="keyword">const</span> Real*     <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ad5fa46517dd383f09a279b8446fc397b">dx</a>  = gm.<a class="code" href="classamrex_1_1_coord_sys.html#aa9fe64171f27487e0bfff3b4e35d1ea1">CellSize</a>();</div>
+<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;</div>
+<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;    <span class="keywordflow">for</span> (MyParIter pti(*<span class="keyword">this</span>, lev); pti.isValid(); ++pti) {</div>
+<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;        </div>
+<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;        PairIndex index(pti.index(), pti.LocalTileIndex());</div>
+<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;        <a class="code" href="classamrex_1_1_vector.html">Vector&lt;int&gt;</a>&amp; nl = neighbor_list[index];</div>
+<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;        AoS&amp; particles = pti.GetArrayOfStructs();</div>
+<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;</div>
+<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;        <span class="keywordtype">int</span> Np = particles.<a class="code" href="classamrex_1_1_vector.html#a509fc6837193e6fd97249b0c072c7830">size</a>();</div>
+<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;        <span class="keywordtype">int</span> Nn = neighbors[index].size() / pdata_size;</div>
+<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;        <span class="keywordtype">int</span> Ns = particles.dataShape().first;</div>
+<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;        <span class="keywordtype">int</span> N = Np + Nn;</div>
+<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;</div>
+<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;        <a class="code" href="classamrex_1_1_vector.html">Vector&lt;ParticleType&gt;</a> tmp_particles(N);</div>
+<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;        std::memcpy(&amp;tmp_particles[0], particles.data(), Np*<span class="keyword">sizeof</span>(ParticleType));</div>
+<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;</div>
+<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; Nn; ++i) {</div>
+<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;            std::memcpy(&amp;tmp_particles[i + Np],</div>
+<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;                        neighbors[index].dataPtr() + i*pdata_size,</div>
+<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;                        pdata_size);</div>
+<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;        }</div>
+<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;</div>
+<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;        <span class="keywordtype">int</span> size_nl = 0;</div>
+<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;        nl.resize(100000);</div>
+<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;</div>
+<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;        Box box = pti.tilebox();</div>
+<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;        box.grow(num_neighbor_cells);        </div>
+<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">int</span>* lo = box.loVect();</div>
+<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">int</span>* hi = box.hiVect();</div>
+<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;</div>
+<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;        <a class="code" href="_a_m_re_x___particles___f_8_h.html#a562b4c295df4c81e3966cb5cf510df54">amrex_build_nl</a>(tmp_particles.data(), Ns, N, nl.data(), &amp;size_nl, </div>
+<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;                       <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#a54267e9174e171df90d3594f0c32e114">lo</a>, <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#a6569fdcb051e8fff2ef4c57db6f9c642">hi</a>, plo, <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ad5fa46517dd383f09a279b8446fc397b">dx</a>);</div>
+<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;</div>
+<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;        nl.resize(size_nl);</div>
+<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;</div>
+<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;        <span class="keywordflow">if</span> (sort) {</div>
+<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> i = 0; i &lt; nl.size(); i += nl[i] +1) {</div>
+<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;                std::sort(nl.begin() + i + 1,</div>
+<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;                          nl.begin() + nl[i] + i + 1);</div>
+<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;            }</div>
+<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;        }</div>
+<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;    }</div>
+<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;}</div>
+<div class="ttc" id="classamrex_1_1_box_html_a63b7187607c41474becd59240a1fe67c"><div class="ttname"><a href="classamrex_1_1_box.html#a63b7187607c41474becd59240a1fe67c">amrex::Box::bigEnd</a></div><div class="ttdeci">const IntVect &amp; bigEnd() const &amp;</div><div class="ttdoc">Get the bigend. </div><div class="ttdef"><b>Definition:</b> AMReX_Box.H:93</div></div>
+<div class="ttc" id="classamrex_1_1_box_html_aab8e57bef4096c565686cbc276b3fcdd"><div class="ttname"><a href="classamrex_1_1_box.html#aab8e57bef4096c565686cbc276b3fcdd">amrex::Box::next</a></div><div class="ttdeci">void next(IntVect &amp;) const </div><div class="ttdoc">Step through the rectangle. It is a runtime error to give a point not inside rectangle. Iteration may not be efficient. </div><div class="ttdef"><b>Definition:</b> AMReX_Box.H:731</div></div>
 <div class="ttc" id="_a_m_re_x___multi_fab_util___f_8_h_html_ad5fa46517dd383f09a279b8446fc397b"><div class="ttname"><a href="_a_m_re_x___multi_fab_util___f_8_h.html#ad5fa46517dd383f09a279b8446fc397b">dx</a></div><div class="ttdeci">const int const int const amrex_real * dx</div><div class="ttdef"><b>Definition:</b> AMReX_MultiFabUtil_F.H:46</div></div>
 <div class="ttc" id="namespaceamrex_1_1_parallel_descriptor_html_a89ca8639338d64c25ee28faf1b829701"><div class="ttname"><a href="namespaceamrex_1_1_parallel_descriptor.html#a89ca8639338d64c25ee28faf1b829701">amrex::ParallelDescriptor::Send</a></div><div class="ttdeci">Message Send(const T *buf, size_t n, int dst_pid, int tag)</div><div class="ttdef"><b>Definition:</b> AMReX_ParallelDescriptor.H:1070</div></div>
+<div class="ttc" id="classamrex_1_1_box_html_ac579173dd3e6da5c5814174be20a54d8"><div class="ttname"><a href="classamrex_1_1_box.html#ac579173dd3e6da5c5814174be20a54d8">amrex::Box::smallEnd</a></div><div class="ttdeci">const IntVect &amp; smallEnd() const &amp;</div><div class="ttdoc">Get the smallend of the box. </div><div class="ttdef"><b>Definition:</b> AMReX_Box.H:86</div></div>
 <div class="ttc" id="classamrex_1_1_neighbor_particle_container_html_a78a0bf763811ffa755a8a562f2cdede1"><div class="ttname"><a href="classamrex_1_1_neighbor_particle_container.html#a78a0bf763811ffa755a8a562f2cdede1">amrex::NeighborParticleContainer::getRcvCountsMPI</a></div><div class="ttdeci">void getRcvCountsMPI()</div><div class="ttdef"><b>Definition:</b> AMReX_NeighborParticles.H:489</div></div>
 <div class="ttc" id="_a_m_re_x___b_l_profiler_8_h_html_a548fbd9b2cd72a927f463003f4adb0b1"><div class="ttname"><a href="_a_m_re_x___b_l_profiler_8_h.html#a548fbd9b2cd72a927f463003f4adb0b1">BL_PROFILE</a></div><div class="ttdeci">#define BL_PROFILE(a)</div><div class="ttdef"><b>Definition:</b> AMReX_BLProfiler.H:529</div></div>
-<div class="ttc" id="classamrex_1_1_neighbor_particle_container_html_a629d1fec40d6c7034d090e90453d3c5a"><div class="ttname"><a href="classamrex_1_1_neighbor_particle_container.html#a629d1fec40d6c7034d090e90453d3c5a">amrex::NeighborParticleContainer::buildNeighborList</a></div><div class="ttdeci">void buildNeighborList(int lev, bool sort=false)</div><div class="ttdef"><b>Definition:</b> AMReX_NeighborParticles.H:657</div></div>
+<div class="ttc" id="classamrex_1_1_base_fab_html"><div class="ttname"><a href="classamrex_1_1_base_fab.html">amrex::BaseFab&lt; int &gt;</a></div></div>
+<div class="ttc" id="classamrex_1_1_coord_sys_html_aa9fe64171f27487e0bfff3b4e35d1ea1"><div class="ttname"><a href="classamrex_1_1_coord_sys.html#aa9fe64171f27487e0bfff3b4e35d1ea1">amrex::CoordSys::CellSize</a></div><div class="ttdeci">const Real * CellSize() const </div><div class="ttdoc">Returns the cellsize for each coordinate direction. </div><div class="ttdef"><b>Definition:</b> AMReX_CoordSys.H:74</div></div>
 <div class="ttc" id="namespaceamrex_1_1_parallel_descriptor_html_ab581b8dba6006dbb3457d925c4b0f244"><div class="ttname"><a href="namespaceamrex_1_1_parallel_descriptor.html#ab581b8dba6006dbb3457d925c4b0f244">amrex::ParallelDescriptor::Waitall</a></div><div class="ttdeci">void Waitall(Vector&lt; MPI_Request &gt; &amp;reqs, Vector&lt; MPI_Status &gt; &amp;status)</div><div class="ttdef"><b>Definition:</b> AMReX_ParallelDescriptor.cpp:1861</div></div>
 <div class="ttc" id="namespaceamrex_1_1_parallel_descriptor_html_af5ed8a597f21464e9f2803f0e2afc0be"><div class="ttname"><a href="namespaceamrex_1_1_parallel_descriptor.html#af5ed8a597f21464e9f2803f0e2afc0be">amrex::ParallelDescriptor::Arecv</a></div><div class="ttdeci">Message Arecv(T *, size_t n, int pid, int tag)</div><div class="ttdef"><b>Definition:</b> AMReX_ParallelDescriptor.H:1091</div></div>
+<div class="ttc" id="classamrex_1_1_int_vect_html"><div class="ttname"><a href="classamrex_1_1_int_vect.html">amrex::IntVect</a></div><div class="ttdef"><b>Definition:</b> AMReX_IntVect.H:29</div></div>
 <div class="ttc" id="_a_m_re_x___b_lassert_8_h_html_a53ebc8b227de416f458800faa44c619e"><div class="ttname"><a href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a></div><div class="ttdeci">#define BL_ASSERT(EX)</div><div class="ttdef"><b>Definition:</b> AMReX_BLassert.H:49</div></div>
 <div class="ttc" id="namespaceamrex_html_adc731523d4241d981e7279b29c5d7a6d"><div class="ttname"><a href="namespaceamrex.html#adc731523d4241d981e7279b29c5d7a6d">amrex::RemoveDuplicates</a></div><div class="ttdeci">void RemoveDuplicates(Vector&lt; T &gt; &amp;vec)</div><div class="ttdef"><b>Definition:</b> AMReX_Vector.H:125</div></div>
 <div class="ttc" id="_a_m_re_x___b_l_profiler_8_h_html_aa23714eb98f31ba71d565390dae2a7d2"><div class="ttname"><a href="_a_m_re_x___b_l_profiler_8_h.html#aa23714eb98f31ba71d565390dae2a7d2">BL_PROFILE_VAR</a></div><div class="ttdeci">#define BL_PROFILE_VAR(fname, vname)</div><div class="ttdef"><b>Definition:</b> AMReX_BLProfiler.H:538</div></div>
+<div class="ttc" id="classamrex_1_1_neighbor_particle_container_html_abda283254c9aa57da66fa85e8bcd57da"><div class="ttname"><a href="classamrex_1_1_neighbor_particle_container.html#abda283254c9aa57da66fa85e8bcd57da">amrex::NeighborParticleContainer::AoS</a></div><div class="ttdeci">typename ParticleContainer&lt; NStructReal, NStructInt, 0, 0 &gt;::AoS AoS</div><div class="ttdef"><b>Definition:</b> AMReX_NeighborParticles.H:106</div></div>
 <div class="ttc" id="classamrex_1_1_distribution_mapping_html_a1c20460d2e7b2eaec474e933113575d9"><div class="ttname"><a href="classamrex_1_1_distribution_mapping.html#a1c20460d2e7b2eaec474e933113575d9">amrex::DistributionMapping::SameRefs</a></div><div class="ttdeci">static bool SameRefs(const DistributionMapping &amp;lhs, const DistributionMapping &amp;rhs)</div><div class="ttdef"><b>Definition:</b> AMReX_DistributionMapping.H:145</div></div>
 <div class="ttc" id="classamrex_1_1_neighbor_particle_container_html_aec6aa68d7cccf38bf8f2ece89e2e47ad"><div class="ttname"><a href="classamrex_1_1_neighbor_particle_container.html#aec6aa68d7cccf38bf8f2ece89e2e47ad">amrex::NeighborParticleContainer::NeighborParticleContainer</a></div><div class="ttdeci">NeighborParticleContainer(ParGDBBase *gdb, int ncells)</div><div class="ttdef"><b>Definition:</b> AMReX_NeighborParticles.H:5</div></div>
+<div class="ttc" id="classamrex_1_1_box_html"><div class="ttname"><a href="classamrex_1_1_box.html">amrex::Box</a></div><div class="ttdoc">A Rectangular Domain on an Integer Lattice. </div><div class="ttdef"><b>Definition:</b> AMReX_Box.H:31</div></div>
 <div class="ttc" id="_a_m_re_x___multi_fab_util___f_8_h_html_a6569fdcb051e8fff2ef4c57db6f9c642"><div class="ttname"><a href="_a_m_re_x___multi_fab_util___f_8_h.html#a6569fdcb051e8fff2ef4c57db6f9c642">hi</a></div><div class="ttdeci">const int const int * hi</div><div class="ttdef"><b>Definition:</b> AMReX_MultiFabUtil_F.H:34</div></div>
 <div class="ttc" id="namespaceamrex_html_a870c2407ed885451a76f66f8a0d7a892"><div class="ttname"><a href="namespaceamrex.html#a870c2407ed885451a76f66f8a0d7a892">amrex::max</a></div><div class="ttdeci">IntVect max(const IntVect &amp;p1, const IntVect &amp;p2)</div><div class="ttdoc">Returns the IntVect that is the component-wise maximum of two argument IntVects. </div><div class="ttdef"><b>Definition:</b> AMReX_IntVect.H:576</div></div>
+<div class="ttc" id="classamrex_1_1_vector_html_a509fc6837193e6fd97249b0c072c7830"><div class="ttname"><a href="classamrex_1_1_vector.html#a509fc6837193e6fd97249b0c072c7830">amrex::Vector::size</a></div><div class="ttdeci">long size() const </div><div class="ttdef"><b>Definition:</b> AMReX_Vector.H:43</div></div>
+<div class="ttc" id="classamrex_1_1_base_fab_html_a48099208f15f741c739316388f61737a"><div class="ttname"><a href="classamrex_1_1_base_fab.html#a48099208f15f741c739316388f61737a">amrex::BaseFab::resize</a></div><div class="ttdeci">void resize(const Box &amp;b, int N=1)</div><div class="ttdoc">This function resizes a BaseFab so it covers the Box b with N components. </div><div class="ttdef"><b>Definition:</b> AMReX_BaseFab.H:1502</div></div>
 <div class="ttc" id="namespaceamrex_1_1_parallel_descriptor_html_a16a7f03bfb684be8d5ce15b1a526ecda"><div class="ttname"><a href="namespaceamrex_1_1_parallel_descriptor.html#a16a7f03bfb684be8d5ce15b1a526ecda">amrex::ParallelDescriptor::ReduceLongMax</a></div><div class="ttdeci">void ReduceLongMax(long &amp;rvar)</div><div class="ttdoc">Long max reduction. </div><div class="ttdef"><b>Definition:</b> AMReX_ParallelDescriptor.cpp:1789</div></div>
 <div class="ttc" id="classamrex_1_1_neighbor_particle_container_html_a9fea3b7765226c9483a81c772e3cfcd0"><div class="ttname"><a href="classamrex_1_1_neighbor_particle_container.html#a9fea3b7765226c9483a81c772e3cfcd0">amrex::NeighborParticleContainer::calcCommSize</a></div><div class="ttdeci">void calcCommSize()</div><div class="ttdef"><b>Definition:</b> AMReX_NeighborParticles.H:54</div></div>
 <div class="ttc" id="_a_m_re_x___multi_fab_util___f_8_h_html_a54f6ce0fb55c5e079b66b7ac9b865843"><div class="ttname"><a href="_a_m_re_x___multi_fab_util___f_8_h.html#a54f6ce0fb55c5e079b66b7ac9b865843">n</a></div><div class="ttdeci">const int const int const const int const int &amp; n</div><div class="ttdef"><b>Definition:</b> AMReX_MultiFabUtil_F.H:66</div></div>
@@ -916,23 +926,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classamrex_1_1_neighbor_particle_container_html_a9c5eaf4a73e02b631f586b8d9eaa9b44"><div class="ttname"><a href="classamrex_1_1_neighbor_particle_container.html#a9c5eaf4a73e02b631f586b8d9eaa9b44">amrex::NeighborParticleContainer::setRealCommComp</a></div><div class="ttdeci">void setRealCommComp(int i, bool value)</div><div class="ttdef"><b>Definition:</b> AMReX_NeighborParticles.H:38</div></div>
 <div class="ttc" id="classamrex_1_1_neighbor_particle_container_html_a274184b09d00fe3f83676b4cb1fa9900"><div class="ttname"><a href="classamrex_1_1_neighbor_particle_container.html#a274184b09d00fe3f83676b4cb1fa9900">amrex::NeighborParticleContainer::updateNeighbors</a></div><div class="ttdeci">void updateNeighbors(int lev, bool reuse_rcv_counts=true)</div><div class="ttdef"><b>Definition:</b> AMReX_NeighborParticles.H:391</div></div>
 <div class="ttc" id="_a_m_re_x___multi_fab_util___f_8_h_html_a54267e9174e171df90d3594f0c32e114"><div class="ttname"><a href="_a_m_re_x___multi_fab_util___f_8_h.html#a54267e9174e171df90d3594f0c32e114">lo</a></div><div class="ttdeci">const int * lo</div><div class="ttdef"><b>Definition:</b> AMReX_MultiFabUtil_F.H:34</div></div>
+<div class="ttc" id="classamrex_1_1_box_html_a3b0a69f2f36d76b907409781ef7afa6d"><div class="ttname"><a href="classamrex_1_1_box.html#a3b0a69f2f36d76b907409781ef7afa6d">amrex::Box::grow</a></div><div class="ttdeci">Box &amp; grow(int i)</div><div class="ttdef"><b>Definition:</b> AMReX_Box.H:428</div></div>
+<div class="ttc" id="classamrex_1_1_base_fab_html_afa9e4bc89ae38b7862a401fe97985efd"><div class="ttname"><a href="classamrex_1_1_base_fab.html#afa9e4bc89ae38b7862a401fe97985efd">amrex::BaseFab::setVal</a></div><div class="ttdeci">void setVal(T x, const Box &amp;bx, int nstart, int ncomp)</div><div class="ttdoc">The setVal functions set sub-regions in the BaseFab to a constant value. This most general form speci...</div><div class="ttdef"><b>Definition:</b> AMReX_BaseFab.H:1277</div></div>
 <div class="ttc" id="namespaceamrex_1_1_parallel_descriptor_html_a610003b1a92f316356dd84be39f9a9b0"><div class="ttname"><a href="namespaceamrex_1_1_parallel_descriptor.html#a610003b1a92f316356dd84be39f9a9b0">amrex::ParallelDescriptor::SeqNum</a></div><div class="ttdeci">int SeqNum()</div><div class="ttdoc">Returns sequential message sequence numbers, usually used as tags for send/recv. </div><div class="ttdef"><b>Definition:</b> AMReX_ParallelDescriptor.H:519</div></div>
 <div class="ttc" id="classamrex_1_1_neighbor_particle_container_html_a9fc777a6611729b79c56fc8f1782c830"><div class="ttname"><a href="classamrex_1_1_neighbor_particle_container.html#a9fc777a6611729b79c56fc8f1782c830">amrex::NeighborParticleContainer::initializeCommComps</a></div><div class="ttdeci">void initializeCommComps()</div><div class="ttdef"><b>Definition:</b> AMReX_NeighborParticles.H:27</div></div>
 <div class="ttc" id="classamrex_1_1_neighbor_particle_container_html_af3b5f685680bc88ad15c0f2cd5ee44c8"><div class="ttname"><a href="classamrex_1_1_neighbor_particle_container.html#af3b5f685680bc88ad15c0f2cd5ee44c8">amrex::NeighborParticleContainer::fillNeighborsMPI</a></div><div class="ttdeci">void fillNeighborsMPI(bool reuse_rcv_counts)</div><div class="ttdef"><b>Definition:</b> AMReX_NeighborParticles.H:549</div></div>
-<div class="ttc" id="classamrex_1_1_neighbor_particle_container_html_adb48928bcb87153a6bbd53325e381138"><div class="ttname"><a href="classamrex_1_1_neighbor_particle_container.html#adb48928bcb87153a6bbd53325e381138">amrex::NeighborParticleContainer::buildNeighborListFort</a></div><div class="ttdeci">void buildNeighborListFort(int lev, bool sort=false)</div><div class="ttdef"><b>Definition:</b> AMReX_NeighborParticles.H:757</div></div>
+<div class="ttc" id="classamrex_1_1_neighbor_particle_container_html_adb48928bcb87153a6bbd53325e381138"><div class="ttname"><a href="classamrex_1_1_neighbor_particle_container.html#adb48928bcb87153a6bbd53325e381138">amrex::NeighborParticleContainer::buildNeighborListFort</a></div><div class="ttdeci">void buildNeighborListFort(int lev, bool sort=false)</div><div class="ttdef"><b>Definition:</b> AMReX_NeighborParticles.H:758</div></div>
 <div class="ttc" id="namespaceamrex_html_a4e8290af3a280e0132d66d78f3e48e84"><div class="ttname"><a href="namespaceamrex.html#a4e8290af3a280e0132d66d78f3e48e84">amrex::shift</a></div><div class="ttdeci">Box shift(const Box &amp;b, int dir, int nzones)</div><div class="ttdoc">Return a Box with indices shifted by nzones in dir direction. </div><div class="ttdef"><b>Definition:</b> AMReX_Box.H:892</div></div>
 <div class="ttc" id="namespaceamrex_1_1_parallel_descriptor_html_a3deabb4447125ee364f9ca1c5a07c1e4"><div class="ttname"><a href="namespaceamrex_1_1_parallel_descriptor.html#a3deabb4447125ee364f9ca1c5a07c1e4">amrex::ParallelDescriptor::MyProc</a></div><div class="ttdeci">int MyProc()</div><div class="ttdoc">return the rank number local to the current Parallel Context </div><div class="ttdef"><b>Definition:</b> AMReX_ParallelDescriptor.H:135</div></div>
+<div class="ttc" id="classamrex_1_1_par_iter_html"><div class="ttname"><a href="classamrex_1_1_par_iter.html">amrex::ParIter</a></div><div class="ttdef"><b>Definition:</b> AMReX_Particles.H:1002</div></div>
+<div class="ttc" id="classamrex_1_1_vector_html"><div class="ttname"><a href="classamrex_1_1_vector.html">amrex::Vector&lt; int &gt;</a></div></div>
+<div class="ttc" id="structamrex_1_1_m_f_it_info_html_aaa6176ad6388845a422006125572577e"><div class="ttname"><a href="structamrex_1_1_m_f_it_info.html#aaa6176ad6388845a422006125572577e">amrex::MFItInfo::SetDynamic</a></div><div class="ttdeci">MFItInfo &amp; SetDynamic(bool f)</div><div class="ttdef"><b>Definition:</b> AMReX_MFIter.H:31</div></div>
 <div class="ttc" id="classamrex_1_1_box_array_html_a93718ee84062758c5256a2792939c6f7"><div class="ttname"><a href="classamrex_1_1_box_array.html#a93718ee84062758c5256a2792939c6f7">amrex::BoxArray::SameRefs</a></div><div class="ttdeci">static bool SameRefs(const BoxArray &amp;lhs, const BoxArray &amp;rhs)</div><div class="ttdoc">whether two BoxArrays share the same data </div><div class="ttdef"><b>Definition:</b> AMReX_BoxArray.H:468</div></div>
+<div class="ttc" id="classamrex_1_1_geometry_html"><div class="ttname"><a href="classamrex_1_1_geometry.html">amrex::Geometry</a></div><div class="ttdef"><b>Definition:</b> AMReX_Geometry.H:33</div></div>
 <div class="ttc" id="_a_m_re_x___b_l_profiler_8_h_html_a82c334c787872a6bbacabe9a38389224"><div class="ttname"><a href="_a_m_re_x___b_l_profiler_8_h.html#a82c334c787872a6bbacabe9a38389224">BL_PROFILE_VAR_STOP</a></div><div class="ttdeci">#define BL_PROFILE_VAR_STOP(vname)</div><div class="ttdef"><b>Definition:</b> AMReX_BLProfiler.H:541</div></div>
+<div class="ttc" id="classamrex_1_1_m_f_iter_html_ad1cb993a973d541776b06c959d1ae3cd"><div class="ttname"><a href="classamrex_1_1_m_f_iter.html#ad1cb993a973d541776b06c959d1ae3cd">amrex::MFIter::isValid</a></div><div class="ttdeci">bool isValid() const </div><div class="ttdoc">Is the iterator valid i.e. is it associated with a FAB? </div><div class="ttdef"><b>Definition:</b> AMReX_MFIter.H:130</div></div>
+<div class="ttc" id="classamrex_1_1_geometry_html_aa73e7f884ec26924a7250edb262f618d"><div class="ttname"><a href="classamrex_1_1_geometry.html#aa73e7f884ec26924a7250edb262f618d">amrex::Geometry::ProbLo</a></div><div class="ttdeci">static const Real * ProbLo()</div><div class="ttdoc">Returns the lo end of the problem domain in each dimension. </div><div class="ttdef"><b>Definition:</b> AMReX_Geometry.H:66</div></div>
 <div class="ttc" id="classamrex_1_1_neighbor_particle_container_html_ad0c5dbf474effadf3759270b6766d5ef"><div class="ttname"><a href="classamrex_1_1_neighbor_particle_container.html#ad0c5dbf474effadf3759270b6766d5ef">amrex::NeighborParticleContainer::clearNeighbors</a></div><div class="ttdeci">void clearNeighbors(int lev)</div><div class="ttdef"><b>Definition:</b> AMReX_NeighborParticles.H:475</div></div>
 <div class="ttc" id="classamrex_1_1_neighbor_particle_container_html_a63cbb0b5b6c81df9e4321148bc960f32"><div class="ttname"><a href="classamrex_1_1_neighbor_particle_container.html#a63cbb0b5b6c81df9e4321148bc960f32">amrex::NeighborParticleContainer::setIntCommComp</a></div><div class="ttdeci">void setIntCommComp(int i, bool value)</div><div class="ttdef"><b>Definition:</b> AMReX_NeighborParticles.H:46</div></div>
 <div class="ttc" id="classamrex_1_1_neighbor_particle_container_html_a40d2eb01cf60075e92e75542e4d6b36e"><div class="ttname"><a href="classamrex_1_1_neighbor_particle_container.html#a40d2eb01cf60075e92e75542e4d6b36e">amrex::NeighborParticleContainer::BuildLevelMask</a></div><div class="ttdeci">void BuildLevelMask(int lev)</div><div class="ttdef"><b>Definition:</b> AMReX_NeighborParticles.H:82</div></div>
 <div class="ttc" id="_a_m_re_x___particles___f_8_h_html_a562b4c295df4c81e3966cb5cf510df54"><div class="ttname"><a href="_a_m_re_x___particles___f_8_h.html#a562b4c295df4c81e3966cb5cf510df54">amrex_build_nl</a></div><div class="ttdeci">void amrex_build_nl(void *, int ns, int np, int *nbor_list, int *size_nl, const int *lo, const int *hi, const amrex_real *plo, const amrex_real *dx)</div></div>
 <div class="ttc" id="namespaceamrex_1_1_parallel_descriptor_html_a0455b3ad4f2a4c13b57d33e4c6325dca"><div class="ttname"><a href="namespaceamrex_1_1_parallel_descriptor.html#a0455b3ad4f2a4c13b57d33e4c6325dca">amrex::ParallelDescriptor::NProcs</a></div><div class="ttdeci">int NProcs()</div><div class="ttdoc">return the number of MPI ranks local to the current Parallel Context </div><div class="ttdef"><b>Definition:</b> AMReX_ParallelDescriptor.H:235</div></div>
 <div class="ttc" id="classamrex_1_1_int_vect_html_a2f992c8ef43cee508cbce8712b257ead"><div class="ttname"><a href="classamrex_1_1_int_vect.html#a2f992c8ef43cee508cbce8712b257ead">amrex::IntVect::TheZeroVector</a></div><div class="ttdeci">static IntVect TheZeroVector()</div><div class="ttdoc">This static member function returns a reference to a constant IntVect object, all of whose AMREX_SPAC...</div><div class="ttdef"><b>Definition:</b> AMReX_IntVect.H:390</div></div>
+<div class="ttc" id="classamrex_1_1_neighbor_particle_container_html_aa1d79fe5cc0935cf6d819bbbd00d973b"><div class="ttname"><a href="classamrex_1_1_neighbor_particle_container.html#aa1d79fe5cc0935cf6d819bbbd00d973b">amrex::NeighborParticleContainer::ParticleType</a></div><div class="ttdeci">typename ParticleContainer&lt; NStructReal, NStructInt, 0, 0 &gt;::ParticleType ParticleType</div><div class="ttdef"><b>Definition:</b> AMReX_NeighborParticles.H:102</div></div>
 <div class="ttc" id="classamrex_1_1_parallel_descriptor_1_1_message_html_a57999afb8ef13d17fc24750bdae6cd00"><div class="ttname"><a href="classamrex_1_1_parallel_descriptor_1_1_message.html#a57999afb8ef13d17fc24750bdae6cd00">amrex::ParallelDescriptor::Message::req</a></div><div class="ttdeci">MPI_Request req() const </div><div class="ttdef"><b>Definition:</b> AMReX_ParallelDescriptor.H:102</div></div>
 <div class="ttc" id="classamrex_1_1_neighbor_particle_container_html_a06cc902ba86e3cd428260a699b372885"><div class="ttname"><a href="classamrex_1_1_neighbor_particle_container.html#a06cc902ba86e3cd428260a699b372885">amrex::NeighborParticleContainer::cacheNeighborInfo</a></div><div class="ttdeci">void cacheNeighborInfo(int lev)</div><div class="ttdef"><b>Definition:</b> AMReX_NeighborParticles.H:138</div></div>
 <div class="ttc" id="classamrex_1_1_neighbor_particle_container_html_a7e9f54d1460d709b2b7dc419ca17f2eb"><div class="ttname"><a href="classamrex_1_1_neighbor_particle_container.html#a7e9f54d1460d709b2b7dc419ca17f2eb">amrex::NeighborParticleContainer::fillNeighbors</a></div><div class="ttdeci">void fillNeighbors(int lev)</div><div class="ttdef"><b>Definition:</b> AMReX_NeighborParticles.H:381</div></div>
+<div class="ttc" id="classamrex_1_1_neighbor_particle_container_html_ab169827a8824abb993c34e715e250f49"><div class="ttname"><a href="classamrex_1_1_neighbor_particle_container.html#ab169827a8824abb993c34e715e250f49">amrex::NeighborParticleContainer::PairIndex</a></div><div class="ttdeci">std::pair&lt; int, int &gt; PairIndex</div><div class="ttdef"><b>Definition:</b> AMReX_NeighborParticles.H:104</div></div>
+<div class="ttc" id="structamrex_1_1_m_f_it_info_html"><div class="ttname"><a href="structamrex_1_1_m_f_it_info.html">amrex::MFItInfo</a></div><div class="ttdef"><b>Definition:</b> AMReX_MFIter.H:19</div></div>
+<div class="ttc" id="classamrex_1_1_neighbor_particle_container_html_a29bd288b934ed13dd2c6fe2903a574a9"><div class="ttname"><a href="classamrex_1_1_neighbor_particle_container.html#a29bd288b934ed13dd2c6fe2903a574a9">amrex::NeighborParticleContainer::buildNeighborList</a></div><div class="ttdeci">void buildNeighborList(int lev, CheckPair check_pair, bool sort=false)</div><div class="ttdef"><b>Definition:</b> AMReX_NeighborParticles.H:658</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
