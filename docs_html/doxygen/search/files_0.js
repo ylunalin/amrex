@@ -172,6 +172,7 @@ var searchData=
   ['amrex_5ferror_5fmod_2ef90',['AMReX_error_mod.F90',['../_a_m_re_x__error__mod_8_f90.html',1,'']]],
   ['amrex_5ferrorlist_2ecpp',['AMReX_ErrorList.cpp',['../_a_m_re_x___error_list_8cpp.html',1,'']]],
   ['amrex_5ferrorlist_2eh',['AMReX_ErrorList.H',['../_a_m_re_x___error_list_8_h.html',1,'']]],
+  ['amrex_5fexception_2eh',['AMReX_Exception.H',['../_a_m_re_x___exception_8_h.html',1,'']]],
   ['amrex_5fextrapolater_2ecpp',['AMReX_Extrapolater.cpp',['../_a_m_re_x___extrapolater_8cpp.html',1,'']]],
   ['amrex_5fextrapolater_2eh',['AMReX_Extrapolater.H',['../_a_m_re_x___extrapolater_8_h.html',1,'']]],
   ['amrex_5fextrapolater_5f1d_2ef90',['AMReX_extrapolater_1d.f90',['../_a_m_re_x__extrapolater__1d_8f90.html',1,'']]],

@@ -7,6 +7,7 @@ var searchData=
   ['third',['third',['../classamrex__constants__module.html#a09ef6234d430ece0cd17687b6206eb28',1,'amrex_constants_module']]],
   ['three',['three',['../classamrex__constants__module.html#a92568c3e1a4aca2cda4c4d024be1c584',1,'amrex_constants_module']]],
   ['three4th',['three4th',['../classamrex__constants__module.html#ae99f5d22813068e80dab04582f065463',1,'amrex_constants_module']]],
+  ['throw_5fexception',['throw_exception',['../namespaceamrex_1_1system.html#a265ce78715ba78abdae9a2c5238e5dda',1,'amrex::system']]],
   ['tile_5farray',['tile_array',['../classamrex_1_1_m_f_iter.html#a10b2f0f6900d23295fe25fd526153f43',1,'amrex::MFIter']]],
   ['tile_5fsize',['tile_size',['../classamrex_1_1_m_f_iter.html#ae64d80e0b2d14e9209c426a0654e8a1f',1,'amrex::MFIter::tile_size()'],['../classamrex_1_1_particle_container.html#a433e6240ebcad3866f30555496ab418f',1,'amrex::ParticleContainer::tile_size()']]],
   ['tilearray',['tileArray',['../structamrex_1_1_fab_array_base_1_1_tile_array.html#ae96f9cf0f9ad68ea664c018a6a4baa78',1,'amrex::FabArrayBase::TileArray']]],

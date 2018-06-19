@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>AMReX: /home/travis/build/AMReX-Codes/amrex/Src/AmrCore/AMReX_Cluster.cpp File Reference</title>
+<title>AMReX: /home/travis/build/AMReX-Codes/amrex/Src/Base/AMReX_Exception.H Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -80,70 +80,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_413f4e031a85da0d68269c6fd2f76e1c.html">Src</a></li><li class="navelem"><a class="el" href="dir_55eec958e272d6cfff0ea35b0f5787ca.html">AmrCore</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_413f4e031a85da0d68269c6fd2f76e1c.html">Src</a></li><li class="navelem"><a class="el" href="dir_045e59958a67bf379077e0fcfc423b1e.html">Base</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="summary">
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
-<div class="title">AMReX_Cluster.cpp File Reference</div>  </div>
+<div class="title">AMReX_Exception.H</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;algorithm&gt;</code><br/>
-<code>#include &lt;<a class="el" href="_a_m_re_x___cluster_8_h_source.html">AMReX_Cluster.H</a>&gt;</code><br/>
-<code>#include &lt;<a class="el" href="_a_m_re_x___box_domain_8_h_source.html">AMReX_BoxDomain.H</a>&gt;</code><br/>
-</div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:namespaceamrex"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html">amrex</a></td></tr>
-<tr class="memdesc:namespaceamrex"><td class="mdescLeft">&#160;</td><td class="mdescRight">A Real vector in SpaceDim-dimensional space. <br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:ac83111605a4f79b3ac6e3aeeab48bce5"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><b>CutStatus</b> </td></tr>
-<tr class="separator:ac83111605a4f79b3ac6e3aeeab48bce5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<h2 class="groupheader">Variable Documentation</h2>
-<a class="anchor" id="ad1bc6d45fa336c9ae08741100fe5f401"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Box m_box</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a702cf23ecfb91d369b2cbe6ef9998c57"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">IntVect m_cut</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="af2f77eb4cb49eea0b3272ac65d4ff73f"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int m_dir</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-</div><!-- contents -->
+<a href="_a_m_re_x___exception_8_h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef AMREX_EXCEPTION_H_</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_EXCEPTION_H_</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span>amrex</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="namespaceamrex.html#ac3aaf3d47b0fc6e69f9405fcebcdc4fe">    8</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="namespaceamrex.html#ac3aaf3d47b0fc6e69f9405fcebcdc4fe">RuntimeError</a> = std::runtime_error;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;}</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="namespaceamrex_html_ac3aaf3d47b0fc6e69f9405fcebcdc4fe"><div class="ttname"><a href="namespaceamrex.html#ac3aaf3d47b0fc6e69f9405fcebcdc4fe">amrex::RuntimeError</a></div><div class="ttdeci">std::runtime_error RuntimeError</div><div class="ttdef"><b>Definition:</b> AMReX_Exception.H:8</div></div>
+</div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">
