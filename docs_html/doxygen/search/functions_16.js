@@ -12,7 +12,7 @@ var searchData=
   ['vectorlength',['vectorLength',['../classamrex_1_1_real_vect.html#a8ba80ab0edf2d1c397e5880e5ac25f85',1,'amrex::RealVect']]],
   ['vectormultiply',['vectorMultiply',['../classamrex_1_1_transform_i_f.html#a7637cf26da0b3f59464b561b7358bfc9',1,'amrex::TransformIF']]],
   ['vectsize',['vectSize',['../classamrex_1_1_b_c_rec.html#a795b53e896e81ceae67cc5952225e263',1,'amrex::BCRec']]],
-  ['verbose',['Verbose',['../classamrex_1_1_amr_mesh.html#ac92b13d13b4c315b5a31e87dcecf0a4b',1,'amrex::AmrMesh::Verbose()'],['../classamrex_1_1_particle_container.html#aeed70d1b658b5fe9e82b19f53a4f4862',1,'amrex::ParticleContainer::Verbose()']]],
+  ['verbose',['Verbose',['../classamrex_1_1_amr_core.html#a6d0ad082c14a735202e4e6fa2e65b5d4',1,'amrex::AmrCore::Verbose()'],['../classamrex_1_1_amr_mesh.html#ac92b13d13b4c315b5a31e87dcecf0a4b',1,'amrex::AmrMesh::Verbose()'],['../classamrex_1_1_particle_container.html#aeed70d1b658b5fe9e82b19f53a4f4862',1,'amrex::ParticleContainer::Verbose()'],['../namespaceamrex.html#a95f0930ba986e82b33990bf2cc0423a0',1,'amrex::Verbose()']]],
   ['version',['Version',['../structamrex_1_1_particle.html#abe858dc473078ebe14aaad1231e671a2',1,'amrex::Particle::Version()'],['../namespaceamrex.html#ad4158723bb78d3d5f19e396a20c0ce2d',1,'amrex::Version()']]],
   ['vieweblevel',['viewEBLevel',['../classamrex_1_1_e_b_level_data_ops.html#acbb2e8d00d66ccbe0fa49f66f1e86e27',1,'amrex::EBLevelDataOps']]],
   ['vismf',['VisMF',['../classamrex_1_1_vis_m_f.html#ae372e9dede4ddc3c4c271118812e9b39',1,'amrex::VisMF']]],
