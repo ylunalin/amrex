@@ -15,6 +15,7 @@ var searchData=
   ['datatype',['dataType',['../classamrex_1_1_base_e_b_cell_f_a_b.html#a6079afd8e781383bcab38ec0c3950dfd',1,'amrex::BaseEBCellFAB::dataType()'],['../classamrex_1_1_base_e_b_face_f_a_b.html#abd3ae1e356c1e7efe33f33f960ec35e7',1,'amrex::BaseEBFaceFAB::dataType()'],['../classamrex_1_1_base_i_v_f_a_b.html#a92769d06cdd21d5930e245d5e8205f15',1,'amrex::BaseIVFAB::dataType()']]],
   ['dbox',['dbox',['../structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#aa4ad873f80c114d0041fd4c30d9fbe94',1,'amrex::FabArrayBase::CopyComTag']]],
   ['dcomp',['dcomp',['../structamrex_1_1_fab_array_1_1_copier_handle_impl.html#a82debb09eb89417bf0a60eaaa86d9ba6',1,'amrex::FabArray::CopierHandleImpl']]],
+  ['debug',['Debug',['../namespaceamrex_1_1system.html#aeb34e12844e5d37ee8582e569d702c95',1,'amrex::system']]],
   ['def_5fclimits',['DEF_CLIMITS',['../_a_m_re_x___interp_bndry_data_8cpp.html#ad8e0b5fe209d59aa1f12967b14035faf',1,'AMReX_InterpBndryData.cpp']]],
   ['def_5flimits',['DEF_LIMITS',['../_a_m_re_x___coord_sys_8cpp.html#a560e33d3eba8a528b757e7e1377cfb4f',1,'DEF_LIMITS():&#160;AMReX_CoordSys.cpp'],['../_a_m_re_x___interp_bndry_data_8cpp.html#a560e33d3eba8a528b757e7e1377cfb4f',1,'DEF_LIMITS():&#160;AMReX_InterpBndryData.cpp']]],
   ['defaultfabfactory',['DefaultFabFactory',['../classamrex_1_1_default_fab_factory.html',1,'amrex']]],

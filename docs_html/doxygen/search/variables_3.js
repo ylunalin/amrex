@@ -8,6 +8,7 @@ var searchData=
   ['datalogname',['datalogname',['../classamrex_1_1_amr.html#a2cbd53ff9ac71cac5e52e7311de0b2b8',1,'amrex::Amr']]],
   ['dbox',['dbox',['../structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#aa4ad873f80c114d0041fd4c30d9fbe94',1,'amrex::FabArrayBase::CopyComTag']]],
   ['dcomp',['dcomp',['../structamrex_1_1_fab_array_1_1_copier_handle_impl.html#a82debb09eb89417bf0a60eaaa86d9ba6',1,'amrex::FabArray::CopierHandleImpl']]],
+  ['debug',['Debug',['../namespaceamrex_1_1system.html#aeb34e12844e5d37ee8582e569d702c95',1,'amrex::system']]],
   ['define_5ffunction_5fcalled',['define_function_called',['../classamrex_1_1_fab_array.html#a14fe629ee5ee2c06799be911b3da3800',1,'amrex::FabArray']]],
   ['derive_5flst',['derive_lst',['../classamrex_1_1_amr_level.html#a792f148ee0bb20432a4acefa1c2cac9a',1,'amrex::AmrLevel']]],
   ['derive_5fplot_5fvars',['derive_plot_vars',['../classamrex_1_1_amr.html#a7ff13d5d803c5302fe25c97d4cf64dca',1,'amrex::Amr']]],
