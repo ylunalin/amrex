@@ -120,6 +120,7 @@ var searchData=
   ['_7eindexedmoments',['~IndexedMoments',['../class_indexed_moments.html#a6fd6507470d9e3880dc332bd9d1ca5d1',1,'IndexedMoments']]],
   ['_7eindextm',['~IndexTM',['../class_index_t_m.html#a39abc02ff567859c98a0d9bf49517a8d',1,'IndexTM']]],
   ['_7einterpbndrydata',['~InterpBndryData',['../classamrex_1_1_interp_bndry_data.html#aba3d2785516360221c4a05c8fa56cc68',1,'amrex::InterpBndryData']]],
+  ['_7einterphook',['~InterpHook',['../classamrex_1_1_interp_hook.html#a1e26496056b32e6492b27c2b91e8d7e7',1,'amrex::InterpHook']]],
   ['_7einterpolater',['~Interpolater',['../classamrex_1_1_interpolater.html#ad53e63eaa9b2b9b140c98f73969f2164',1,'amrex::Interpolater']]],
   ['_7eintersectionif',['~IntersectionIF',['../classamrex_1_1_intersection_i_f.html#a00205bb0f3eaa6ad194dc622536578be',1,'amrex::IntersectionIF']]],
   ['_7eintvectset',['~IntVectSet',['../classamrex_1_1_int_vect_set.html#a7ab6ad00ea43c3c8999b4e972187417c',1,'amrex::IntVectSet']]],
