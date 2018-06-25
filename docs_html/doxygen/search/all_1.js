@@ -800,7 +800,7 @@ var searchData=
   ['amrothertime',['AmrOtherTime',['../classamrex_1_1_amr_level.html#a83fa691ff414eb69f75eb6ae1f61b33aaae1e38c840ac8908874d6775a2d8506d',1,'amrex::AmrLevel']]],
   ['amrpargdb',['AmrParGDB',['../classamrex_1_1_amr_par_g_d_b.html#adc2a15b8e4c8a858f2d97ec30ef478fa',1,'amrex::AmrParGDB']]],
   ['amrpargdb',['AmrParGDB',['../classamrex_1_1_amr_par_g_d_b.html',1,'amrex']]],
-  ['amrparticlecontainer',['AmrParticleContainer',['../classamrex_1_1_amr_particle_container.html#afb6c08b0613701ba29f1ee2ffbf75bc1',1,'amrex::AmrParticleContainer']]],
+  ['amrparticlecontainer',['AmrParticleContainer',['../classamrex_1_1_amr_particle_container.html#afb6c08b0613701ba29f1ee2ffbf75bc1',1,'amrex::AmrParticleContainer::AmrParticleContainer(AmrCore *amr_core)'],['../classamrex_1_1_amr_particle_container.html#a597f8bc3080648a6b4c859c59480079d',1,'amrex::AmrParticleContainer::AmrParticleContainer(const Vector&lt; Geometry &gt; &amp;geom, const Vector&lt; DistributionMapping &gt; &amp;dmap, const Vector&lt; BoxArray &gt; &amp;ba, const Vector&lt; int &gt; &amp;rr)']]],
   ['amrparticlecontainer',['AmrParticleContainer',['../classamrex_1_1_amr_particle_container.html',1,'amrex']]],
   ['amrtask',['AmrTask',['../classamrex_1_1_fab_array.html#ad8b63023f3ebd152c5cb931b975cc0a9',1,'amrex::FabArray::AmrTask()'],['../classamrex_1_1_fab_array_base.html#ad8b63023f3ebd152c5cb931b975cc0a9',1,'amrex::FabArrayBase::AmrTask()'],['../classamrex_1_1_amr.html#ad8b63023f3ebd152c5cb931b975cc0a9',1,'amrex::Amr::AmrTask()']]],
   ['amrtracerparticlecontainer',['AmrTracerParticleContainer',['../classamrex_1_1_amr_tracer_particle_container.html',1,'amrex']]],
