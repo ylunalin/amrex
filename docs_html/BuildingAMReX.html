@@ -97,7 +97,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#building-libamrex">Building libamrex</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#building-with-cmake">Building with CMake</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#customization-options">Customization options</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#importing-amrex-configuration-into-a-cmake-project">Importing AMReX configuration into a CMake project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#importing-amrex-into-your-cmake-project">Importing AMReX into your CMake project</a></li>
 </ul>
 </li>
 </ul>
@@ -537,17 +537,22 @@ they will be initialized with the value of the environmental variables <code cla
 <code class="docutils literal notranslate"><span class="pre">CMAKE_Fortran_FLAGS</span></code>/ <code class="docutils literal notranslate"><span class="pre">CMAKE_CXX_FLAGS</span></code> will be set to the AMReX default values
 defined in  <code class="docutils literal notranslate"><span class="pre">/path/to/amrex/Tools/CMake/AMReX_Compilers.cmake</span></code>.</p>
 </div>
-<div class="section" id="importing-amrex-configuration-into-a-cmake-project">
-<span id="sec-build-cmake-config"></span><h2>Importing AMReX configuration into a CMake project<a class="headerlink" href="#importing-amrex-configuration-into-a-cmake-project" title="Permalink to this headline">¶</a></h2>
-<p>In order to import the AMReX&nbsp;configuration options into your CMake build
-system, include the following line in the appropriate CMakeLists.txt file:</p>
-<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">find_package</span> <span class="p">(</span><span class="s">AMReX</span> <span class="s">CONFIG</span> <span class="s">REQUIRED</span> <span class="s">HINTS</span> <span class="s">/path/to/installdir/cmake</span> <span class="p">)</span>
+<div class="section" id="importing-amrex-into-your-cmake-project">
+<span id="sec-build-cmake-config"></span><h2>Importing AMReX into your CMake project<a class="headerlink" href="#importing-amrex-into-your-cmake-project" title="Permalink to this headline">¶</a></h2>
+<p>In order to import the AMReX library into your CMake project, you need
+to include the following line in the appropriate CMakeLists.txt file:</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">find_package</span> <span class="p">(</span><span class="s">AMReX</span> <span class="s">18</span> <span class="s">[REQUIRED]</span> <span class="s">[HINTS</span> <span class="s">/path/to/installdir/]</span> <span class="p">)</span>
 </pre></div>
 </div>
-<p>This will load AMReX-specific CMake variables containing the necessary
-information to compile and link your code to AMReX. For a list of all the
-available configuration variables, refer to the file <code class="docutils literal notranslate"><span class="pre">AMReXConfig.cmake.in</span></code>
-in <code class="docutils literal notranslate"><span class="pre">/path/to/installdir/cmake/</span></code>.</p>
+<p>In the above snippet, <code class="docutils literal notranslate"><span class="pre">18</span></code> refer to the mininum AMReX version supporting
+the import feature discussed here.
+Linking AMReX to any target defined in your CMake project is done by including
+the following line in the appropriate CMakeLists.txt file</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">target_link_libraries</span> <span class="p">(</span> <span class="s">&lt;your-target-name&gt;</span>  <span class="s">AMReX::amrex</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>The above snippet will take care of properly linking <code class="docutils literal notranslate"><span class="pre">&lt;your-target-name&gt;</span></code>
+to AMReX and to all the required transitive dependencies.</p>
 </div>
 </div>
 
