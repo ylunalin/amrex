@@ -26,6 +26,7 @@ var searchData=
   ['addstatesmallplotvar',['addStateSmallPlotVar',['../classamrex_1_1_amr.html#addec944dc521c490639b53c7eff3d1cb',1,'amrex::Amr']]],
   ['addstep',['AddStep',['../classamrex_1_1_b_l_profiler.html#ab9f774960790e14f182ca5ebfa07e2f5',1,'amrex::BLProfiler']]],
   ['addthisbd',['addThisBD',['../classamrex_1_1_fab_array_base.html#a294641949d2f4dd2161ba42a6b10d570',1,'amrex::FabArrayBase']]],
+  ['addweight',['addWeight',['../classamrex_1_1_weighted_box_list.html#a14b22dcc82d0dec90959c808afd2b82a',1,'amrex::WeightedBoxList']]],
   ['adjcell',['adjCell',['../namespaceamrex.html#ab0383aaa0f5350800829d30adad5bcf6',1,'amrex']]],
   ['adjcellbox',['adjCellBox',['../classamrex_1_1_e_b_arith.html#a10832f9a00e897c86f780a38c415d852',1,'amrex::EBArith']]],
   ['adjcellhi',['adjCellHi',['../namespaceamrex.html#a85718a9b7e787a45fc51c3de7c0f049b',1,'amrex']]],

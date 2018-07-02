@@ -39,6 +39,7 @@ var searchData=
   ['vector_3c_20amrex_3a_3avofiterator_20_3e',['Vector&lt; amrex::VoFIterator &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20amrex_3a_3avoldata_20_3e',['Vector&lt; amrex::VolData &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20amrex_3a_3avolindex_20_3e',['Vector&lt; amrex::VolIndex &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
+  ['vector_3c_20amrex_3a_3aweightedbox_20_3e',['Vector&lt; amrex::WeightedBox &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20bound_20_3e',['Vector&lt; Bound &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20char_20_2a_20_3e',['Vector&lt; char * &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20indextm_3c_20int_2c_20d_20_3e_20_3e',['Vector&lt; IndexTM&lt; int, D &gt; &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],

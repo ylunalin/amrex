@@ -180,8 +180,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1993927e22cfbb09e09004f96b63a3d9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_distribution_mapping.html#a1993927e22cfbb09e09004f96b63a3d9">operator!=</a> (const <a class="el" href="classamrex_1_1_distribution_mapping.html">DistributionMapping</a> &amp;rhs) const </td></tr>
 <tr class="memdesc:a1993927e22cfbb09e09004f96b63a3d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Are the distributions different?  <a href="#a1993927e22cfbb09e09004f96b63a3d9">More...</a><br/></td></tr>
 <tr class="separator:a1993927e22cfbb09e09004f96b63a3d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00b82d99f94e86bac8965f6e25bc17e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_distribution_mapping.html#a00b82d99f94e86bac8965f6e25bc17e8">SFCProcessorMap</a> (const <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> &amp;boxes, const std::vector&lt; long &gt; &amp;wgts, int nprocs)</td></tr>
-<tr class="separator:a00b82d99f94e86bac8965f6e25bc17e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29067924b4014a8712dacb4191834d3d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_distribution_mapping.html#a29067924b4014a8712dacb4191834d3d">SFCProcessorMap</a> (const <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> &amp;boxes, const std::vector&lt; long &gt; &amp;wgts, int nprocs, int nmax=std::numeric_limits&lt; int &gt;::<a class="el" href="namespaceamrex.html#a870c2407ed885451a76f66f8a0d7a892">max</a>(), bool sort=true)</td></tr>
+<tr class="separator:a29067924b4014a8712dacb4191834d3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab1d611f13754052ecd7ac9363042516f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_distribution_mapping.html#ab1d611f13754052ecd7ac9363042516f">KnapSackProcessorMap</a> (const std::vector&lt; long &gt; &amp;wgts, int nprocs, Real *efficiency=0, bool do_full_knapsack=true, int nmax=std::numeric_limits&lt; int &gt;::<a class="el" href="namespaceamrex.html#a870c2407ed885451a76f66f8a0d7a892">max</a>())</td></tr>
 <tr class="separator:ab1d611f13754052ecd7ac9363042516f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a295a0155d89fc1554d547fcf8392a3f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_distribution_mapping.html#a295a0155d89fc1554d547fcf8392a3f4">RoundRobinProcessorMap</a> (int nboxes, int nprocs)</td></tr>
@@ -217,8 +217,8 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a855901ec44101bce7c6a3cf89df36d9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70511fca0600a56369ce74f28cbc9d99"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classamrex_1_1_distribution_mapping.html">DistributionMapping</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_distribution_mapping.html#a70511fca0600a56369ce74f28cbc9d99">makeRoundRobin</a> (const <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;weight)</td></tr>
 <tr class="separator:a70511fca0600a56369ce74f28cbc9d99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfe74a6833c790a5d357a1dc20eda8a0"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classamrex_1_1_distribution_mapping.html">DistributionMapping</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_distribution_mapping.html#acfe74a6833c790a5d357a1dc20eda8a0">makeSFC</a> (const <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;weight, const <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> &amp;boxes)</td></tr>
-<tr class="separator:acfe74a6833c790a5d357a1dc20eda8a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad50741855664503bb852ce841f778779"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classamrex_1_1_distribution_mapping.html">DistributionMapping</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_distribution_mapping.html#ad50741855664503bb852ce841f778779">makeSFC</a> (const <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;weight, bool sort=true, int nmax=std::numeric_limits&lt; int &gt;::<a class="el" href="namespaceamrex.html#a870c2407ed885451a76f66f8a0d7a892">max</a>())</td></tr>
+<tr class="separator:ad50741855664503bb852ce841f778779"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a7d37803ec6d3baeb7922ba6ce49a34"><td class="memItemLeft" align="right" valign="top">static std::vector<br class="typebreak"/>
 &lt; std::vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_distribution_mapping.html#a8a7d37803ec6d3baeb7922ba6ce49a34">makeSFC</a> (const <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> &amp;ba)</td></tr>
 <tr class="separator:a8a7d37803ec6d3baeb7922ba6ce49a34"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -795,7 +795,7 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="acfe74a6833c790a5d357a1dc20eda8a0"></a>
+<a class="anchor" id="ad50741855664503bb852ce841f778779"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -811,8 +811,14 @@ Friends</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> &amp;&#160;</td>
-          <td class="paramname"><em>boxes</em>&#160;</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sort</em> = <code>true</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nmax</em> = <code>std::numeric_limits&lt;int&gt;::<a class="el" href="namespaceamrex.html#a870c2407ed885451a76f66f8a0d7a892">max</a>()</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1085,7 +1091,7 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a00b82d99f94e86bac8965f6e25bc17e8"></a>
+<a class="anchor" id="a29067924b4014a8712dacb4191834d3d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -1105,7 +1111,19 @@ Friends</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>nprocs</em>&#160;</td>
+          <td class="paramname"><em>nprocs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nmax</em> = <code>std::numeric_limits&lt;int&gt;::<a class="el" href="namespaceamrex.html#a870c2407ed885451a76f66f8a0d7a892">max</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sort</em> = <code>true</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
