@@ -197,7 +197,7 @@ var searchData=
   ['seventh',['seventh',['../classamrex__constants__module.html#a0b5112227b87f2cc4d60b17991780f73',1,'amrex_constants_module']]],
   ['sfc',['SFC',['../classamrex_1_1_distribution_mapping.html#ad8e078b643635f0027eb797c2d54d3b8ad783c9afd6b9c9388ebbb4498c6b39e4',1,'amrex::DistributionMapping']]],
   ['sfc_5fthreshold',['SFC_Threshold',['../classamrex_1_1_distribution_mapping.html#a63653fe42e3932487e1f5ae3665d8c2e',1,'amrex::DistributionMapping::SFC_Threshold(int n)'],['../classamrex_1_1_distribution_mapping.html#a2da18b37a31f8c679aa06df2e0f5d697',1,'amrex::DistributionMapping::SFC_Threshold()'],['../namespaceamrex.html#a3b82c3e2c727baf0805e10a006744bc0',1,'amrex::sfc_threshold()']]],
-  ['sfcprocessormap',['SFCProcessorMap',['../classamrex_1_1_distribution_mapping.html#a29067924b4014a8712dacb4191834d3d',1,'amrex::DistributionMapping']]],
+  ['sfcprocessormap',['SFCProcessorMap',['../classamrex_1_1_distribution_mapping.html#ad33d13c8fafe56d041a08c5fbc2b4f60',1,'amrex::DistributionMapping']]],
   ['shared',['shared',['../structamrex_1_1_fab_info.html#aad9bb4d1cfbd53be67289b734bf5042c',1,'amrex::FabInfo']]],
   ['shared_5fmemory',['shared_memory',['../classamrex_1_1_base_fab.html#a4e65169d29942cf3adde870d63a91834',1,'amrex::BaseFab']]],
   ['sharedmemory',['SharedMemory',['../classamrex_1_1_fab_array.html#a8a679179d1afe9e9c23a6a0f336bdb5b',1,'amrex::FabArray']]],

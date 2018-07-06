@@ -366,7 +366,7 @@ var searchData=
   ['makeplotmultifab',['makePlotMultiFab',['../classamrex_1_1_e_b_level_data_ops.html#a2d75aabb631f77f4195fae556c5d5aa5',1,'amrex::EBLevelDataOps']]],
   ['makeregular',['makeRegular',['../classamrex_1_1_irreg_node.html#aef879b1931bffc53ff9caf36d353b2d0',1,'amrex::IrregNode']]],
   ['makeroundrobin',['makeRoundRobin',['../classamrex_1_1_distribution_mapping.html#a70511fca0600a56369ce74f28cbc9d99',1,'amrex::DistributionMapping']]],
-  ['makesfc',['makeSFC',['../classamrex_1_1_distribution_mapping.html#ad50741855664503bb852ce841f778779',1,'amrex::DistributionMapping::makeSFC(const MultiFab &amp;weight, bool sort=true, int nmax=std::numeric_limits&lt; int &gt;::max())'],['../classamrex_1_1_distribution_mapping.html#a8a7d37803ec6d3baeb7922ba6ce49a34',1,'amrex::DistributionMapping::makeSFC(const BoxArray &amp;ba)']]],
+  ['makesfc',['makeSFC',['../classamrex_1_1_distribution_mapping.html#aa07e2c79e1100575a40bdb8c2b3efe03',1,'amrex::DistributionMapping::makeSFC(const MultiFab &amp;weight, bool sort=true)'],['../classamrex_1_1_distribution_mapping.html#a8a7d37803ec6d3baeb7922ba6ce49a34',1,'amrex::DistributionMapping::makeSFC(const BoxArray &amp;ba)']]],
   ['makestencils',['makeStencils',['../classamrex_1_1_agg_e_b_p_w_l_fill_patch.html#a6d2b03ccfd66ebaf424a27e5cb2cac6b',1,'amrex::AggEBPWLFillPatch']]],
   ['maketype',['MakeType',['../namespaceamrex.html#a0a36c65d0681a832330b2812f16786a6',1,'amrex']]],
   ['making_5feb_5fgeom',['MAKING_EB_GEOM',['../_a_m_re_x___notation_8_h.html#a49d12bedab6133df9f0ee85223edf6d9',1,'AMReX_Notation.H']]],
