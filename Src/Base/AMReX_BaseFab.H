@@ -92,7 +92,7 @@ namespace amrex
 */
 
 template <class T>
-class BaseFab : public Managed
+class BaseFab //: public Managed
 {
 public:
 

@@ -27,7 +27,7 @@ namespace amrex {
 * to implement scaling and translation operations.
 */
 	
-class IntVect : public Managed
+class IntVect //: public Managed
 {
     friend MPI_Datatype ParallelDescriptor::Mpi_typemap<IntVect>::type();
 public:
