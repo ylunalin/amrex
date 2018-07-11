@@ -176,7 +176,6 @@ var searchData=
   ['crseinit',['CrseInit',['../classamrex_1_1_flux_register.html#ac930be53c9ed97f2b650d00d9922d375',1,'amrex::FluxRegister::CrseInit(const MultiFab &amp;mflx, const MultiFab &amp;area, int dir, int srccomp, int destcomp, int numcomp, Real mult=-1.0, FrOp op=FluxRegister::COPY)'],['../classamrex_1_1_flux_register.html#aec1bb41bffa8b078895f0f75149cdae1',1,'amrex::FluxRegister::CrseInit(const MultiFab &amp;mflx, int dir, int srccomp, int destcomp, int numcomp, Real mult=-1.0, FrOp op=FluxRegister::COPY)']]],
   ['crselevel',['crseLevel',['../classamrex_1_1_flux_register.html#a36313cc23756585731a310c02fa98289',1,'amrex::FluxRegister']]],
   ['crseratio',['crseRatio',['../classamrex_1_1_box_array.html#ac597211790515c194b4caefb748cfcd9',1,'amrex::BoxArray']]],
-  ['crsetofine',['CrseToFine',['../classamrex_1_1_particle_container.html#a9329a87c2b53d79d901f025f95fc0e29',1,'amrex::ParticleContainer']]],
   ['cumtime',['cumTime',['../classamrex_1_1_amr.html#a0d4ebc23ce89a8404bd2034986b7f9d7',1,'amrex::Amr']]],
   ['currentnfabarrays',['CurrentNFabArrays',['../classamrex_1_1_fab_array_copy_descriptor.html#a88333fba7ee0fc09cf5c5fc722df7972',1,'amrex::FabArrayCopyDescriptor']]],
   ['curtime',['curTime',['../classamrex_1_1_state_data.html#a507991b8e94a2dcda227f976acfa3af8',1,'amrex::StateData']]],
