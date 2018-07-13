@@ -366,6 +366,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa52393dc3047539d064822ea76b80d2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_parm_parse.html#aa52393dc3047539d064822ea76b80d2d">addarr</a> (const char *name, const std::vector&lt; <a class="el" href="classamrex_1_1_box.html">Box</a> &gt; &amp;ptr)</td></tr>
 <tr class="memdesc:aa52393dc3047539d064822ea76b80d2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a key 'name' with vector of values 'ptr' to the end of the PP table.  <a href="#aa52393dc3047539d064822ea76b80d2d">More...</a><br/></td></tr>
 <tr class="separator:aa52393dc3047539d064822ea76b80d2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7be7a25f863af764185b23ec156988f3"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t N&gt; </td></tr>
+<tr class="memitem:a7be7a25f863af764185b23ec156988f3"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classamrex_1_1_parm_parse.html#a7be7a25f863af764185b23ec156988f3">get</a> (const char *name, std::array&lt; T, N &gt; &amp;ref) const </td></tr>
+<tr class="separator:a7be7a25f863af764185b23ec156988f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f7436d2b62415b221bcaf93576c8f7f"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t N&gt; </td></tr>
+<tr class="memitem:a2f7436d2b62415b221bcaf93576c8f7f"><td class="memTemplItemLeft" align="right" valign="top">int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classamrex_1_1_parm_parse.html#a2f7436d2b62415b221bcaf93576c8f7f">query</a> (const char *name, std::array&lt; T, N &gt; &amp;ref) const </td></tr>
+<tr class="separator:a2f7436d2b62415b221bcaf93576c8f7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1ea6ad78f6496479a187785066e9100"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classamrex_1_1_parm_parse.html#a328b966e328a476f04a86c758c9bc6c1">Table</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_parm_parse.html#aa1ea6ad78f6496479a187785066e9100">table</a> () const </td></tr>
 <tr class="separator:aa1ea6ad78f6496479a187785066e9100"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -1329,6 +1335,42 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Same as <a class="el" href="classamrex_1_1_parm_parse.html#af5d6f81ef2fe67ff7f2c100fac390276" title="Get the ival&#39;th value of kth occurrence of the requested name. If successful, the value is converted ...">getkth()</a> but searches for the last occurrence of name. </p>
+
+</div>
+</div>
+<a class="anchor" id="a7be7a25f863af764185b23ec156988f3"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , std::size_t N&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void amrex::ParmParse::get </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::array&lt; T, N &gt; &amp;&#160;</td>
+          <td class="paramname"><em>ref</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -2593,6 +2635,42 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Same as <a class="el" href="classamrex_1_1_parm_parse.html#a83eb7c07b692ef6123cc50ff0ffe33f0" title="Similar to getkth() but returns 0 if there is no kth occurrence of name. If successful, it returns 1 and stores the value in ref. If the kth occurrence exists, but ival&#39;th value of that occurrence does not, or if there is a type mismatch, then the program signals an error and halts. ">querykth()</a> but searches for the last occurrence of name. </p>
+
+</div>
+</div>
+<a class="anchor" id="a2f7436d2b62415b221bcaf93576c8f7f"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , std::size_t N&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int amrex::ParmParse::query </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::array&lt; T, N &gt; &amp;&#160;</td>
+          <td class="paramname"><em>ref</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
