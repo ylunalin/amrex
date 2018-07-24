@@ -1,6 +1,7 @@
 var searchData=
 [
   ['fabarray',['FabArray',['../classamrex_1_1_distribution_mapping.html#a387a5ebdcf8845ac218d335706651b06',1,'amrex::DistributionMapping']]],
+  ['fabarraybase',['FabArrayBase',['../classamrex_1_1_distribution_mapping.html#a4636f955857e2be478f7e1a6a43305ee',1,'amrex::DistributionMapping']]],
   ['fabio',['FABio',['../classamrex_1_1_f_array_box.html#a1d09202fafedb82d79c005250c3cef2c',1,'amrex::FArrayBox']]],
   ['fabsetiter',['FabSetIter',['../classamrex_1_1_fab_set.html#a04d9b65884e6bbe0e494af350ee9fe70',1,'amrex::FabSet']]],
   ['fillpatchiterator',['FillPatchIterator',['../classamrex_1_1_amr_level.html#a39d92a4048c0af0c7b1737d5c4e0c334',1,'amrex::AmrLevel::FillPatchIterator()'],['../classamrex_1_1_fill_patch_iterator_helper.html#a39d92a4048c0af0c7b1737d5c4e0c334',1,'amrex::FillPatchIteratorHelper::FillPatchIterator()']]],
