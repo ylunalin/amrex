@@ -187,18 +187,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a23fef3ef39243107d38903a067b38bc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43c257d811d31372ec9aeb183a04831b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_particle_container.html#a43c257d811d31372ec9aeb183a04831b">InitNRandomPerCell</a> (int n_per_cell, const <a class="el" href="classamrex_1_1_particle_container.html#a6edead171e873a9e37cfe2491511ba59">ParticleInitData</a> &amp;pdata)</td></tr>
 <tr class="separator:a43c257d811d31372ec9aeb183a04831b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef21242c108d63de465fbec7990400b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_particle_container.html#aef21242c108d63de465fbec7990400b5">GetParticleIDs</a> (<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; int &gt; &amp;part_ids)</td></tr>
-<tr class="separator:aef21242c108d63de465fbec7990400b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38a372be282131eae640a099fc53e6b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_particle_container.html#a38a372be282131eae640a099fc53e6b1">GetParticleCPU</a> (<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; int &gt; &amp;part_cpu)</td></tr>
-<tr class="separator:a38a372be282131eae640a099fc53e6b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af491b5bd5b0908efa9caa3382641e501"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_particle_container.html#af491b5bd5b0908efa9caa3382641e501">GetParticleLocations</a> (<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; Real &gt; &amp;part_locs)</td></tr>
-<tr class="separator:af491b5bd5b0908efa9caa3382641e501"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae619e719d77d5865fcd364763fb1983b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_particle_container.html#ae619e719d77d5865fcd364763fb1983b">GetParticleData</a> (<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; Real &gt; &amp;part_data, int start_comp, int num_comp)</td></tr>
-<tr class="separator:ae619e719d77d5865fcd364763fb1983b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28e8ef0d1555d0703e27bf41dd575b6d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_particle_container.html#a28e8ef0d1555d0703e27bf41dd575b6d">GetArrayData</a> (<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; Real &gt; &amp;part_data, int start_comp, int num_comp)</td></tr>
-<tr class="separator:a28e8ef0d1555d0703e27bf41dd575b6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abab1ab10e9acea224a75df5ec37c233b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_particle_container.html#abab1ab10e9acea224a75df5ec37c233b">SetParticleLocations</a> (<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; Real &gt; &amp;part_locs)</td></tr>
-<tr class="separator:abab1ab10e9acea224a75df5ec37c233b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af87210895f80e5c9851d5b8fa4330fd3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_particle_container.html#af87210895f80e5c9851d5b8fa4330fd3">MoveRandom</a> ()</td></tr>
 <tr class="separator:af87210895f80e5c9851d5b8fa4330fd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ff12a8b622148daa96f435bbfc5acb7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_particle_container.html#a8ff12a8b622148daa96f435bbfc5acb7">MoveRandom</a> (int level)</td></tr>
@@ -1199,40 +1187,6 @@ template&lt;int NStructReal, int NStructInt = 0, int NArrayReal = 0, int NArrayI
 
 </div>
 </div>
-<a class="anchor" id="a28e8ef0d1555d0703e27bf41dd575b6d"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int NStructReal, int NStructInt, int NArrayReal, int NArrayInt&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classamrex_1_1_particle_container.html">amrex::ParticleContainer</a>&lt; NStructReal, NStructInt, NArrayReal, NArrayInt &gt;::GetArrayData </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; Real &gt; &amp;&#160;</td>
-          <td class="paramname"><em>part_data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>start_comp</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>num_comp</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="a1a4e9af04ab8e38d218d01e1f8e6f032"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1254,94 +1208,6 @@ template&lt;int NStructReal, int NStructInt = 0, int NArrayReal = 0, int NArrayI
 <span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a38a372be282131eae640a099fc53e6b1"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int NStructReal, int NStructInt, int NArrayReal, int NArrayInt&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classamrex_1_1_particle_container.html">amrex::ParticleContainer</a>&lt; NStructReal, NStructInt, NArrayReal, NArrayInt &gt;::GetParticleCPU </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; int &gt; &amp;&#160;</td>
-          <td class="paramname"><em>part_cpu</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ae619e719d77d5865fcd364763fb1983b"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int NStructReal, int NStructInt, int NArrayReal, int NArrayInt&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classamrex_1_1_particle_container.html">amrex::ParticleContainer</a>&lt; NStructReal, NStructInt, NArrayReal, NArrayInt &gt;::GetParticleData </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; Real &gt; &amp;&#160;</td>
-          <td class="paramname"><em>part_data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>start_comp</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>num_comp</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aef21242c108d63de465fbec7990400b5"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int NStructReal, int NStructInt, int NArrayReal, int NArrayInt&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classamrex_1_1_particle_container.html">amrex::ParticleContainer</a>&lt; NStructReal, NStructInt, NArrayReal, NArrayInt &gt;::GetParticleIDs </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; int &gt; &amp;&#160;</td>
-          <td class="paramname"><em>part_ids</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="af491b5bd5b0908efa9caa3382641e501"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int NStructReal, int NStructInt, int NArrayReal, int NArrayInt&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classamrex_1_1_particle_container.html">amrex::ParticleContainer</a>&lt; NStructReal, NStructInt, NArrayReal, NArrayInt &gt;::GetParticleLocations </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; Real &gt; &amp;&#160;</td>
-          <td class="paramname"><em>part_locs</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
 </div><div class="memdoc">
 
 </div>
@@ -2824,24 +2690,6 @@ template&lt;int NStructReal, int NStructInt = 0, int NArrayReal = 0, int NArrayI
 <span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="abab1ab10e9acea224a75df5ec37c233b"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int NStructReal, int NStructInt, int NArrayReal, int NArrayInt&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classamrex_1_1_particle_container.html">amrex::ParticleContainer</a>&lt; NStructReal, NStructInt, NArrayReal, NArrayInt &gt;::SetParticleLocations </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; Real &gt; &amp;&#160;</td>
-          <td class="paramname"><em>part_locs</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
 </div><div class="memdoc">
 
 </div>
