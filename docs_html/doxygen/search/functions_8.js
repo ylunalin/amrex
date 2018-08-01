@@ -2,6 +2,7 @@ var searchData=
 [
   ['handler',['handler',['../structamrex_1_1_b_l_back_trace.html#a24b1c852ff2149fe973fad9501e2b5ec',1,'amrex::BLBackTrace']]],
   ['hasebcf',['hasEBCF',['../classamrex_1_1_e_b_fast_f_r.html#a82a57ee9d8e8463af6b89ee7546b65e0',1,'amrex::EBFastFR']]],
+  ['hasebfabfactory',['hasEBFabFactory',['../classamrex_1_1_fab_array.html#ae629111b3e08da9c193cd2682257dbaa',1,'amrex::FabArray']]],
   ['hasface',['hasFace',['../classamrex_1_1_base_i_f_f_a_b.html#ab31830065878ab44e92ab8b58ecb00ea',1,'amrex::BaseIFFAB']]],
   ['hashboxarray',['HashBoxArray',['../namespaceamrex.html#a127a5a54b39c1ac1b75483daf0350ab4',1,'amrex']]],
   ['hashdistributionmap',['HashDistributionMap',['../namespaceamrex.html#a4025063cb67ccaf858eee2f9874998e4',1,'amrex']]],
