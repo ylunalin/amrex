@@ -111,6 +111,7 @@ var searchData=
   ['regridint',['regridInt',['../classamrex_1_1_amr.html#ac6b7e80d6de43482fa71350d10279eda',1,'amrex::Amr']]],
   ['regridonly',['RegridOnly',['../classamrex_1_1_amr.html#a86f9100ac981896785004b56d5a2f3d6',1,'amrex::Amr']]],
   ['regridonrestart',['RegridOnRestart',['../classamrex_1_1_amr.html#aaf992abe83c2b9c572accc4f535eab95',1,'amrex::Amr']]],
+  ['regtest_5freduction',['regtest_reduction',['../namespaceamrex_1_1system.html#af12338a7a6375c2c45658695baac797e',1,'amrex::system']]],
   ['regular',['Regular',['../classamrex_1_1_geometry_service.html#ab6546708b1e12c188511a708769040d0a05fcc9daea14d62372a697f00b5cf4d1',1,'amrex::GeometryService::Regular()'],['../namespaceamrex.html#abd2e3d292645433cefc947725585f87aaaf37d08ae228a87dc6b265fd1019c97d',1,'amrex::regular()']]],
   ['remakecornersigns',['remakeCornerSigns',['../class_i_f_data.html#ae16ec18fd87227e7655cfdefcb73940f',1,'IFData']]],
   ['remakelevel',['RemakeLevel',['../classamrex_1_1_amr.html#abdb782c7a31d2053bed5e595105e695d',1,'amrex::Amr::RemakeLevel()'],['../classamrex_1_1_amr_core.html#a89b690a6f834d76bf96f8f1facc356c4',1,'amrex::AmrCore::RemakeLevel()']]],
