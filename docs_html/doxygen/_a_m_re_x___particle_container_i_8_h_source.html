@@ -2593,9 +2593,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l02503"></a><span class="lineno"> 2503</span>&#160;            <span class="comment">//</span></div>
 <div class="line"><a name="l02504"></a><span class="lineno"> 2504</span>&#160;            <span class="comment">// Each CPU opens the file for appending and adds its particles.</span></div>
 <div class="line"><a name="l02505"></a><span class="lineno"> 2505</span>&#160;            <span class="comment">//</span></div>
-<div class="line"><a name="l02506"></a><span class="lineno"> 2506</span>&#160;            std::ofstream File;</div>
+<div class="line"><a name="l02506"></a><span class="lineno"> 2506</span>&#160;            <a class="code" href="classamrex_1_1_vector.html">VisMF::IO_Buffer</a> io_buffer(VisMF::IO_Buffer_Size);</div>
 <div class="line"><a name="l02507"></a><span class="lineno"> 2507</span>&#160;</div>
-<div class="line"><a name="l02508"></a><span class="lineno"> 2508</span>&#160;            <a class="code" href="classamrex_1_1_vector.html">VisMF::IO_Buffer</a> io_buffer(VisMF::IO_Buffer_Size);</div>
+<div class="line"><a name="l02508"></a><span class="lineno"> 2508</span>&#160;            std::ofstream File;</div>
 <div class="line"><a name="l02509"></a><span class="lineno"> 2509</span>&#160;</div>
 <div class="line"><a name="l02510"></a><span class="lineno"> 2510</span>&#160;            File.rdbuf()-&gt;pubsetbuf(io_buffer.<a class="code" href="classamrex_1_1_vector.html#a314a950b356fb444c94b9f615ba0cd72">dataPtr</a>(), io_buffer.<a class="code" href="classamrex_1_1_vector.html#a509fc6837193e6fd97249b0c072c7830">size</a>());</div>
 <div class="line"><a name="l02511"></a><span class="lineno"> 2511</span>&#160;</div>
@@ -2733,9 +2733,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l02643"></a><span class="lineno"> 2643</span>&#160;            <span class="comment">//</span></div>
 <div class="line"><a name="l02644"></a><span class="lineno"> 2644</span>&#160;            <span class="comment">// Each CPU opens the file for appending and adds its particles.</span></div>
 <div class="line"><a name="l02645"></a><span class="lineno"> 2645</span>&#160;            <span class="comment">//</span></div>
-<div class="line"><a name="l02646"></a><span class="lineno"> 2646</span>&#160;            std::ofstream File;</div>
+<div class="line"><a name="l02646"></a><span class="lineno"> 2646</span>&#160;            <a class="code" href="classamrex_1_1_vector.html">VisMF::IO_Buffer</a> io_buffer(VisMF::IO_Buffer_Size);</div>
 <div class="line"><a name="l02647"></a><span class="lineno"> 2647</span>&#160;</div>
-<div class="line"><a name="l02648"></a><span class="lineno"> 2648</span>&#160;            <a class="code" href="classamrex_1_1_vector.html">VisMF::IO_Buffer</a> io_buffer(VisMF::IO_Buffer_Size);</div>
+<div class="line"><a name="l02648"></a><span class="lineno"> 2648</span>&#160;            std::ofstream File;</div>
 <div class="line"><a name="l02649"></a><span class="lineno"> 2649</span>&#160;</div>
 <div class="line"><a name="l02650"></a><span class="lineno"> 2650</span>&#160;            File.rdbuf()-&gt;pubsetbuf(io_buffer.<a class="code" href="classamrex_1_1_vector.html#a314a950b356fb444c94b9f615ba0cd72">dataPtr</a>(), io_buffer.<a class="code" href="classamrex_1_1_vector.html#a509fc6837193e6fd97249b0c072c7830">size</a>());</div>
 <div class="line"><a name="l02651"></a><span class="lineno"> 2651</span>&#160;</div>
