@@ -247,7 +247,7 @@ example in bash, one can set</p>
 </div>
 <p>One must set the <code class="docutils literal notranslate"><span class="pre">COMP</span></code> variable to choose a compiler. Currently the list of
 supported compilers includes gnu, cray, ibm, intel, llvm, and pgi. One must
-also set the DIM variable to either 1, 2, or 3, depending on the dimensionality
+also set the <code class="docutils literal notranslate"><span class="pre">DIM</span></code> variable to either 1, 2, or 3, depending on the dimensionality
 of the problem.</p>
 <p>Variables <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code>, <code class="docutils literal notranslate"><span class="pre">USE_MPI</span></code> and <code class="docutils literal notranslate"><span class="pre">USE_OMP</span></code> are optional with default set
 to TRUE, FALSE and FALSE, respectively.  The meaning of these variables should
@@ -332,14 +332,23 @@ non-standard names for compiler commands.</p>
 <p>For example, macOS’ Xcode ships with its own (woefully outdated) version of GCC
 (4.2.1). It is therefore commonplace to install GCC using the <a class="reference external" href="https://brew.sh">homebrew</a> package manager. This in turn installs compilers with names
 reflecting the version number. If GCC 7.3 is installed, homebrew installs it as
-<code class="docutils literal notranslate"><span class="pre">gcc-7</span></code>. AMReX can be built using <code class="docutils literal notranslate"><span class="pre">gcc-7</span></code> by using the following
+<code class="docutils literal notranslate"><span class="pre">gcc-7</span></code>. AMReX can be built using <code class="docutils literal notranslate"><span class="pre">gcc-7</span></code> without MPI by using the following
 <code class="docutils literal notranslate"><span class="pre">amrex/Tools/GNUMake/Make.local</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">CXX</span> <span class="o">=</span> g++-7
-<span class="nv">CC</span>  <span class="o">=</span> gcc-7
-<span class="nv">FC</span>  <span class="o">=</span> gfortran-7
-<span class="nv">F90</span> <span class="o">=</span> gfortran-7
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ifeq <span class="o">(</span><span class="k">$(</span>USE_MPI<span class="k">)</span>,TRUE<span class="o">)</span>
+  <span class="nv">CXX</span> <span class="o">=</span> mpicxx
+  <span class="nv">CC</span>  <span class="o">=</span> mpicc
+  <span class="nv">FC</span>  <span class="o">=</span> mpif90
+  <span class="nv">F90</span> <span class="o">=</span> mpif90
+<span class="k">else</span>
+  <span class="nv">CXX</span> <span class="o">=</span> g++-7
+  <span class="nv">CC</span>  <span class="o">=</span> gcc-7
+  <span class="nv">FC</span>  <span class="o">=</span> gfortran-7
+  <span class="nv">F90</span> <span class="o">=</span> gfortran-7
+endif
 </pre></div>
 </div>
+<p>For building with MPI, we assume <code class="docutils literal notranslate"><span class="pre">mpicxx</span></code>, <code class="docutils literal notranslate"><span class="pre">mpif90</span></code>, etc. provide
+access to the correct underlying compilers.</p>
 </div>
 </div>
 <div class="section" id="building-libamrex">
