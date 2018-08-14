@@ -850,7 +850,7 @@ call</p>
 <p>The typical usage of the returned pointer is then to pass it to a Fortran or C
 function that works on the array data (see the section&nbsp;on
 <a class="reference internal" href="#sec-basics-fortran"><span class="std std-ref">Calling Fortran or C</span></a>).  <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BaseFab</span></span></code> has several functions that set the
-array data to a constant value (e.g., 0). Two examples are as follows.</p>
+array data to a constant value. Two examples are as follows.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">setVal</span><span class="p">(</span><span class="n">T</span> <span class="n">x</span><span class="p">);</span>        <span class="c1">// Set all data to x</span>
 <span class="c1">// Set the sub-region specified by bx to value x starting from component</span>
 <span class="c1">// nstart.  ncomp is the total number of component to be set.</span>
@@ -891,7 +891,7 @@ FArrayBox.</p>
 <span class="n">fab2</span><span class="p">.</span><span class="n">saxpy</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">fab1</span><span class="p">);</span> <span class="c1">// For both components, fab2 &lt;- a * fab1 + fab2</span>
 </pre></div>
 </div>
-<p>For more complicated expressions that not supported, one can write Fortran or C
+<p>For more complicated expressions that are not supported, one can write Fortran or C
 functions for those (see the section on&nbsp;<a class="reference internal" href="#sec-basics-fortran"><span class="std std-ref">Calling Fortran or C</span></a>).  Note that
 BaseFab does provide operators for accessing the data directly in C++. For
 example, the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">saxpy</span></span></code> example above can be done with</p>
@@ -957,7 +957,7 @@ only the FAB objects owned by this process, and the process operates only on
 its local data. For operations that require data owned by other processes,
 remote communications are involved. Thus, the construction of a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FabArray</span></span></code>
 requires a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">DistributionMapping</span></span></code> (see the section on&nbsp;<a class="reference internal" href="#sec-basics-dm"><span class="std std-ref">DistributionMapping</span></a>)
-that specifies which process owns which Box. For level 2 (<em>red</em>) in in
+that specifies which process owns which Box. For level 2 (<em>red</em>) in
 <a class="reference internal" href="#fig-basics-amrgrids"><span class="std std-numref">Fig. 1</span></a>, there are two Boxes. Suppose there are two
 parallel processes, and we use a DistributionMapping that assigns one Box to
 each process.  For <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FabArray</span></span></code> on each process, it is built on a
@@ -1044,7 +1044,7 @@ face averaged variables.</p>
 <span class="n">MultiFab</span> <span class="nf">zflux</span><span class="p">(</span><span class="n">amrex</span><span class="o">::</span><span class="n">convert</span><span class="p">(</span><span class="n">ba</span><span class="p">,</span> <span class="n">IntVect</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">}),</span> <span class="n">dm</span><span class="p">,</span> <span class="n">ncomp</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Here all <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code> use the same <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">DistributionMapping</span></span></code>, but their
+<p>Here all <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFabs</span></span></code> use the same <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">DistributionMapping</span></span></code>, but their
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BoxArrays</span></span></code> have different index types. The state is cell-based, whereas
 the fluxes are on the faces. Suppose the cell based <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BoxArray</span></span></code> contains a
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span><span class="punctuation"><span class="pre">{(</span></span><span class="literal number integer"><span class="pre">8</span></span><span class="punctuation"><span class="pre">,</span></span><span class="literal number integer"><span class="pre">8</span></span><span class="punctuation"><span class="pre">,</span></span><span class="literal number integer"><span class="pre">16</span></span><span class="punctuation"><span class="pre">),</span></span> <span class="punctuation"><span class="pre">(</span></span><span class="literal number integer"><span class="pre">15</span></span><span class="punctuation"><span class="pre">,</span></span><span class="literal number integer"><span class="pre">15</span></span><span class="punctuation"><span class="pre">,</span></span><span class="literal number integer"><span class="pre">31</span></span><span class="punctuation"><span class="pre">)}</span></span></code>. The state on that <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code> is conceptually
@@ -1068,7 +1068,7 @@ operations on a <code class="code cpp c++ docutils literal notranslate"><span cl
 <span class="c1">// MultiFab mfsrc: source</span>
 <span class="c1">// int      sc   : starting component index in mfsrc for this operation</span>
 <span class="c1">// int      dc   : starting component index in mfdst for this operation</span>
-<span class="c1">// int      sc   : number of components for this operation</span>
+<span class="c1">// int      nc   : number of components for this operation</span>
 <span class="c1">// int      ng   : number of ghost cells involved in this operation</span>
 <span class="c1">//                 mfdst and mfsrc may have more ghost cells</span>
 </pre></div>
@@ -1103,7 +1103,9 @@ boundaries can be filled as well. You might have noticed that a ghost cell
 could overlap with multiple valid cells from different FArrayBoxes in the case
 of nodal index type. In that case, it is unspecified that which valid cell’s
 value is used to fill the ghost cell. It ought to be the case the values in
-those overlapping valid cells are the same up to roundoff errors.</p>
+those overlapping valid cells are the same up to roundoff errors.  If
+a ghost cell does not overlap with any valid cells, its value will not
+be modified by <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FillBoundary</span></span></code>.</p>
 <p>Another type of parallel communication is copying data from one <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code>
 to another <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code> with a different <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BoxArray</span></span></code> or the same
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BoxArray</span></span></code> with a different <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">DistributionMapping</span></span></code>. The data copy is
@@ -1123,10 +1125,12 @@ no periodic copy is performed. Like <code class="code cpp c++ docutils literal n
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Geometry</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">periodicity</span></span><span class="punctuation"><span class="pre">()</span></span></code> to provide the periodicity information. The last
 parameter is also optional and is set to <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FabArrayBase</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">COPY</span></span></code> by default.
 One could also use <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FabArrayBase</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">ADD</span></span></code>. This determines whether the
-function copies or adds data from the source to the destination. Same as
-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FillBoundary</span></span></code>, if a destination cell has multiple cells as source, it is
-unspecified that which source cell is used. This function has two variants, in
-which the periodicity and operation type are also optional.</p>
+function copies or adds data from the source to the
+destination. Similar to <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FillBoundary</span></span></code>, if a destination cell has
+multiple cells as source, it is unspecified that which source cell is used in
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FabArrayBase</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">COPY</span></span></code>, and, for <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FabArrayBase</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">ADD</span></span></code>, the multiple
+values are all added to the destination cell.  This function has two
+variants, in which the periodicity and operation type are also optional.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">mfdst</span><span class="p">.</span><span class="n">ParallelCopy</span><span class="p">(</span><span class="n">mfsrc</span><span class="p">,</span> <span class="n">period</span><span class="p">,</span> <span class="n">op</span><span class="p">);</span>  <span class="c1">// mfdst and mfsrc must have the same</span>
                                         <span class="c1">// number of components</span>
 <span class="n">mfdst</span><span class="p">.</span><span class="n">ParallelCopy</span><span class="p">(</span><span class="n">mfsrc</span><span class="p">,</span> <span class="n">compsrc</span><span class="p">,</span> <span class="n">compdst</span><span class="p">,</span> <span class="n">ncomp</span><span class="p">,</span> <span class="n">period</span><span class="p">,</span> <span class="n">op</span><span class="p">);</span>
@@ -1134,8 +1138,7 @@ which the periodicity and operation type are also optional.</p>
 </div>
 <p>Here the number of ghost cells involved is zero, and the copy is performed on
 all components if unspecified (assuming the two MultiFabs have the same number
-of components). Similar to <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FillBoundary</span></span></code>, a destination cell may have
-multiple sources and which source is used is unspecified.</p>
+of components).</p>
 </div>
 <div class="section" id="mfiter-and-tiling">
 <span id="sec-basics-mfiter"></span><h1>MFIter and Tiling<a class="headerlink" href="#mfiter-and-tiling" title="Permalink to this headline">¶</a></h1>
@@ -1168,7 +1171,7 @@ together. In this section, we will show how you can operate on the
 
     <span class="c1">// We can now pass the information to a function that does</span>
     <span class="c1">// work on the region (specified by box) of the data pointed to</span>
-    <span class="c1">// by Real* a.  The data should be viewed as a multidimensional</span>
+    <span class="c1">// by Real* a.  The data should be viewed as multidimensional</span>
     <span class="c1">// with bounds specified by abox.</span>
     <span class="c1">// Function f1 has the signature of</span>
     <span class="c1">// void f1(const int*, const int*, Real*, const int*, const int*);</span>
@@ -1392,7 +1395,7 @@ size larger than the grid size simply means tiling is disable in that
 direction. AMReX&nbsp;has a default tile size <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">IntVect</span></span><span class="punctuation"><span class="pre">{</span></span><span class="literal number integer"><span class="pre">1024000</span></span><span class="punctuation"><span class="pre">,</span></span><span class="literal number integer"><span class="pre">8</span></span><span class="punctuation"><span class="pre">,</span></span><span class="literal number integer"><span class="pre">8</span></span><span class="punctuation"><span class="pre">}</span></span></code> in 3D and
 no tiling in 2D. This is used when tile size is not explicitly set but the
 tiling flag is on. One can change the default size using <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">ParmParse</span></span></code>
-parameter <code class="docutils literal notranslate"><span class="pre">fabarray.mfiter_tile_size.</span></code></p>
+(section <a class="reference internal" href="#sec-basics-parmparse"><span class="std std-ref">ParmParse</span></a>) parameter <code class="docutils literal notranslate"><span class="pre">fabarray.mfiter_tile_size.</span></code></p>
 <span id="fig-basics-ec-comparison"></span><table border="1" class="docutils align-center" id="id4">
 <caption><span class="caption-number">Table 4 </span><span class="caption-text">Comparison of <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> with (right) and without (left) tiling, for face-centered nodal indexing.</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -1487,14 +1490,16 @@ multi-threaded codes race conditions could occur.</p>
 </table>
 <p><a class="reference internal" href="#fig-basics-growbox-comparison"><span class="std std-numref">Table 5</span></a> illustrates an example of
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">growntilebox</span></span></code>. These functions in <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> return <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code> by
-value. There are two ways of using these
-functions.</p>
+value. There are three ways of using these functions.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">const</span> <span class="n">Box</span><span class="o">&amp;</span> <span class="n">bx</span> <span class="o">=</span> <span class="n">mfi</span><span class="p">.</span><span class="n">validbox</span><span class="p">();</span>  <span class="c1">// const&amp; to temporary object is legal</span>
 
 <span class="c1">// Make a copy if Box needs to be modified later.</span>
 <span class="c1">// Compilers can optimize away the temporary object.</span>
 <span class="n">Box</span> <span class="n">bx2</span> <span class="o">=</span> <span class="n">mfi</span><span class="p">.</span><span class="n">validbox</span><span class="p">();</span>
 <span class="n">bx2</span><span class="p">.</span><span class="n">surroundingNodes</span><span class="p">();</span>
+
+<span class="n">Box</span><span class="o">&amp;&amp;</span> <span class="n">bx3</span> <span class="o">=</span> <span class="n">mfi</span><span class="p">.</span><span class="n">validbox</span><span class="p">();</span> <span class="c1">// bound to the return value</span>
+<span class="n">bx3</span><span class="p">.</span><span class="n">enclosedCells</span><span class="p">();</span>
 </pre></div>
 </div>
 <p>But <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span><span class="operator"><span class="pre">&amp;</span></span> <span class="name"><span class="pre">bx</span></span> <span class="operator"><span class="pre">=</span></span> <span class="name"><span class="pre">mfi</span></span><span class="punctuation"><span class="pre">.</span></span><span class="name"><span class="pre">validbox</span></span><span class="punctuation"><span class="pre">()</span></span></code> is not legal and will not compile.</p>
@@ -1619,6 +1624,61 @@ like below,</p>
 <span class="k">end subroutine </span><span class="n">f</span>
 </pre></div>
 </div>
+<p>There is a potential type safety issue when calling Fortran functions
+from C++.  If there is a mismatch between the function declaration on
+the C++ side and the function definition in Fortran, the compiler
+cannot catch it.  For example</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// function declaration</span>
+<span class="k">extern</span> <span class="s">&quot;C&quot;</span> <span class="p">{</span>
+    <span class="kt">void</span> <span class="n">f</span> <span class="p">(</span><span class="n">amrex_real</span><span class="o">*</span> <span class="n">x</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="n">MFIter</span> <span class="n">mfi</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span><span class="nb">true</span><span class="p">);</span> <span class="n">mfi</span><span class="p">.</span><span class="n">isValid</span><span class="p">();</span> <span class="o">++</span><span class="n">mfi</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">f</span><span class="p">(</span><span class="n">mf</span><span class="p">[</span><span class="n">mfi</span><span class="p">].</span><span class="n">dataPtr</span><span class="p">()));</span>
+<span class="p">}</span>
+
+<span class="o">!</span> <span class="n">Fortra</span> <span class="n">definition</span>
+<span class="n">subroutine</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="n">bind</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+    <span class="n">implicit</span> <span class="n">none</span>
+    <span class="n">integer</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+<span class="n">end</span> <span class="n">subroutine</span> <span class="n">f</span>
+</pre></div>
+</div>
+<p>The code above will compile without errors even though the number of
+arguments and types don’t match.</p>
+<p>To help detect this kind of issues, AMReX provides a type check tool.
+Note that it only works when GCC is used.  In the directory an AMReX
+based code is compiled, type</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">make typecheck</span>
+</pre></div>
+</div>
+<p>Extra arguments used in a usual AMReX build (e.g., USE_MPI=TRUE DIM=2)
+can be added.  When it finishes, the output may look like,</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Function my_f in main_F.H vs. Fortran procedure in f.f90</span>
+<span class="go">    number of arguments 1 does NOT match 2.</span>
+<span class="go">    arg #1: C type [&#39;double&#39;, &#39;pointer&#39;] does NOT match Fortran type (&#39;INTEGER 4&#39;, &#39;pointer&#39;, &#39;x&#39;).</span>
+<span class="go">22 functions checked, 1 error(s) found.  More details can be found in tmp_build_dir/t/3d.gnu.DEBUG.EXE/amrex_typecheck.ou.</span>
+</pre></div>
+</div>
+<p>It should be noted that Fortran by default passes argument by
+reference.  In the example output above, <code class="docutils literal notranslate"><span class="pre">pointer</span></code> in <code class="docutils literal notranslate"><span class="pre">Fortran</span> <span class="pre">type</span>
+<span class="pre">('INTEGER</span> <span class="pre">4',</span> <span class="pre">'pointer',</span> <span class="pre">'x')</span></code> means it’s a reference to argument
+(i.e., C pointer), not a Fortran pointer.</p>
+<p>The type check tool has known limitations.  For a function to be
+checked by the tool in the GNU make build system, the declaration must
+be in a header file named <code class="docutils literal notranslate"><span class="pre">*_f.H</span></code> or <code class="docutils literal notranslate"><span class="pre">*_F.H</span></code>, and the header file
+must be in the <code class="docutils literal notranslate"><span class="pre">CEXE_headers</span></code> make variable.  The headers are
+preprocessed first by cpp as C language, and is then parsed by
+pycparser (<a class="reference external" href="https://pypi.python.org/pypi/pycparser">https://pypi.python.org/pypi/pycparser</a>) that needs to be
+installed on your system.  Because pycparser is a C parser, C++ parts
+of the headers (e.g., <code class="code cpp c++ docutils literal notranslate"><span class="keyword"><span class="pre">extern</span></span> <span class="literal string"><span class="pre">“C”</span></span> <span class="punctuation"><span class="pre">{</span></span></code>) need to be hidden with
+macro <code class="code cpp c++ docutils literal notranslate"><span class="comment preproc"><span class="pre">#ifdef</span> <span class="pre">__cplusplus</span></span></code>.  Headers like <code class="docutils literal notranslate"><span class="pre">AMReX_BLFort.H</span></code> can
+be used as a C header, but most other AMReX headers cannot and should
+be hidden by <code class="code cpp c++ docutils literal notranslate"><span class="comment preproc"><span class="pre">#ifdef</span> <span class="pre">__cplusplus</span></span></code> if they are included.  More
+details can be found at <code class="docutils literal notranslate"><span class="pre">amrex/Docs/Readme.typecheck</span></code>.  Despite
+these limitations, it is recommended to use the type check tool and
+report issues to us.</p>
 </div>
 <div class="section" id="ghost-cells">
 <h1>Ghost Cells<a class="headerlink" href="#ghost-cells" title="Permalink to this headline">¶</a></h1>
