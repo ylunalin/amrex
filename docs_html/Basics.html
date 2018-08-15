@@ -116,7 +116,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#calling-fortran-or-c">Calling Fortran or C</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ghost-cells">Ghost Cells</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#memory-allocation">Memory Allocation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#abort-and-assertion">Abort and Assertion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#abort-assertion-and-backtrace">Abort, Assertion and Backtrace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#debugging">Debugging</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#boundary-conditions">Boundary Conditions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#example-heatequation-ex1-c">Example: HeatEquation_EX1_C</a></li>
 </ul>
@@ -1723,33 +1724,38 @@ AMReX,&nbsp;is that memory allocation is often very slow in multi-threaded OpenM
 parallel regions. AMReX <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex_mempool_module</span></span></code> provides a much faster
 alternative approach, in which each thread has its own memory pool. Here are
 examples of using the module.</p>
-<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">use </span><span class="n">amrex_mempool_module</span><span class="p">,</span> <span class="n">only</span> <span class="p">:</span> <span class="n">bl_allocate</span><span class="p">,</span> <span class="n">bl_deallocate</span>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">use </span><span class="n">amrex_mempool_module</span><span class="p">,</span> <span class="n">only</span> <span class="p">:</span> <span class="n">amrex_allocate</span><span class="p">,</span> <span class="n">amrex_deallocate</span>
 <span class="kt">real</span><span class="p">(</span><span class="n">amrex_real</span><span class="p">),</span> <span class="k">pointer</span><span class="p">,</span> <span class="k">contiguous</span> <span class="kd">::</span> <span class="n">a</span><span class="p">(:,:,:),</span> <span class="n">b</span><span class="p">(:,:,:,:)</span>
 <span class="kt">integer</span> <span class="kd">::</span> <span class="n">lo1</span><span class="p">,</span> <span class="n">hi1</span><span class="p">,</span> <span class="n">lo2</span><span class="p">,</span> <span class="n">hi2</span><span class="p">,</span> <span class="n">lo3</span><span class="p">,</span> <span class="n">hi3</span><span class="p">,</span> <span class="n">lo</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="n">hi</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="c">! lo1 = ...</span>
 <span class="c">! a(lo1:hi1, lo2:hi2, lo3:hi3)</span>
-<span class="k">call </span><span class="n">bl_allocate</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">lo1</span><span class="p">,</span> <span class="n">hi1</span><span class="p">,</span> <span class="n">lo2</span><span class="p">,</span> <span class="n">hi2</span><span class="p">,</span> <span class="n">lo3</span><span class="p">,</span> <span class="n">hi3</span><span class="p">)</span>
+<span class="k">call </span><span class="n">amrex_allocate</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">lo1</span><span class="p">,</span> <span class="n">hi1</span><span class="p">,</span> <span class="n">lo2</span><span class="p">,</span> <span class="n">hi2</span><span class="p">,</span> <span class="n">lo3</span><span class="p">,</span> <span class="n">hi3</span><span class="p">)</span>
 <span class="c">! b(lo(1):hi(1),lo(2):hi(2),lo(3):hi(3),lo(4):hi(4))</span>
-<span class="k">call </span><span class="n">bl_allocate</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span><span class="p">)</span>
+<span class="k">call </span><span class="n">amrex_allocate</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span><span class="p">)</span>
 <span class="c">! ......</span>
-<span class="k">call </span><span class="n">bl_deallocate</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="k">call </span><span class="n">bl_deallocate</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="k">call </span><span class="n">amrex_deallocate</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="k">call </span><span class="n">amrex_deallocate</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The downside of this is we have to use <code class="code fortran docutils literal notranslate"><span class="keyword"><span class="pre">pointer</span></span></code> instead of
 <code class="code fortran docutils literal notranslate"><span class="keyword"><span class="pre">allocatable</span></span></code>. This means we must explicitly free the memory via
-<code class="code fortran docutils literal notranslate"><span class="name"><span class="pre">bl_deallocate</span></span></code> and we need to declare the pointers as
-<code class="code fortran docutils literal notranslate"><span class="keyword"><span class="pre">contiguous</span></span></code> for performance reason.</p>
+<code class="code fortran docutils literal notranslate"><span class="name"><span class="pre">amrex_deallocate</span></span></code> and we need to declare the pointers as
+<code class="code fortran docutils literal notranslate"><span class="keyword"><span class="pre">contiguous</span></span></code> for performance reason.  Also, we often
+pass the Fortran pointer to a procedure with explicit array argument
+to get rid of the pointerness completely.</p>
 </div>
-<div class="section" id="abort-and-assertion">
-<h1>Abort and Assertion<a class="headerlink" href="#abort-and-assertion" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="abort-assertion-and-backtrace">
+<h1>Abort, Assertion and Backtrace<a class="headerlink" href="#abort-assertion-and-backtrace" title="Permalink to this headline">¶</a></h1>
 <p><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">Abort</span></span><span class="punctuation"><span class="pre">(</span></span><span class="keyword"><span class="pre">const</span></span> <span class="keyword type"><span class="pre">char</span></span> <span class="operator"><span class="pre">*</span></span> <span class="name"><span class="pre">message</span></span><span class="punctuation"><span class="pre">)</span></span></code> is used to terminate a run usually
 when something goes wrong. This function takes a message and writes it to
-stderr. Files named like Backtrace.rg_1_rl_1 (where rg_1_rl_1 means process 1)
+stderr. Files named like <code class="docutils literal notranslate"><span class="pre">Backtrace.1</span></code> (where 1 means process 1)
 are produced containing backtrace information of the call stack. In Fortran, we
 can call <code class="code fortran docutils literal notranslate"><span class="name"><span class="pre">amrex_abort</span></span></code> from the <code class="code fortran docutils literal notranslate"><span class="name"><span class="pre">amrex_error_module</span></span></code>, which
 takes a Fortran character variable with assumed size (i.e., <code class="code fortran docutils literal notranslate"><span class="name builtin"><span class="pre">len</span></span><span class="operator"><span class="pre">=*</span></span></code>)
-as a message.</p>
+as a message.  A <code class="docutils literal notranslate"><span class="pre">ParmParse</span></code> runtime boolean parameter
+<code class="docutils literal notranslate"><span class="pre">amrex.throw_handling</span></code> (which is defaulted to 0, i.e., <code class="code cpp c++ docutils literal notranslate"><span class="name builtin"><span class="pre">false</span></span></code>)
+can be set to 1 (i.e., <code class="code cpp c++ docutils literal notranslate"><span class="name builtin"><span class="pre">true</span></span></code>) so that AMReX will throw an
+exception instead of aborting.</p>
 <p><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">AMREX_ASSERT</span></span></code> is a macro that takes a Boolean expression. For debug build
 (e.g., <code class="docutils literal notranslate"><span class="pre">DEBUG=TRUE</span></code> using the GNU Make build system), if the expression at
 runtime is evaluated to false, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">Abort</span></span></code> will be called and the run
@@ -1763,7 +1769,46 @@ For example,</p>
 </div>
 <p>Here for debug build we like to assert that <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span> <span class="name"><span class="pre">mf</span></span></code> has ghost cells
 and it also has the same number of components as <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span> <span class="name"><span class="pre">mf2</span></span></code>. If we
-always want the assertion, we can use <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">AMREX_ALWAYS_ASSERT</span></span></code>.</p>
+always want the assertion, we can use <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">AMREX_ALWAYS_ASSERT</span></span></code>.  The
+assertion macros have a <code class="docutils literal notranslate"><span class="pre">_WITH_MESSAGE</span></code> variant that will print a
+message when assertion fails.  For example,</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">AMREX_ASSERT_WITH_MESSAGE</span><span class="p">(</span><span class="n">mf</span><span class="p">.</span><span class="n">boxArray</span><span class="p">()</span> <span class="o">==</span> <span class="n">mf2</span><span class="p">.</span><span class="n">boxArray</span><span class="p">(),</span>
+                          <span class="s">&quot;These two mfs must have the same BoxArray&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Backtrace files are produced by AMReX signal handler by default when
+segfault occurs or <code class="docutils literal notranslate"><span class="pre">Abort</span></code> is called.  If the application does not
+want AMReX to handle this, <code class="docutils literal notranslate"><span class="pre">ParmParse</span></code> parameter
+<cite>amrex.signal_handling=0</cite> can be used to disable it.</p>
+</div>
+<div class="section" id="debugging">
+<h1>Debugging<a class="headerlink" href="#debugging" title="Permalink to this headline">¶</a></h1>
+<p>Debugging is an art.  Everyone has their own favorite method.  Here we
+offer a few tips we have found to be useful.</p>
+<p>Compiling in debug mode (e.g., <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">DEBUG=TRUE</span></code>) and running with
+<code class="docutils literal notranslate"><span class="pre">ParmParse</span></code> parameter <code class="docutils literal notranslate"><span class="pre">amrex.fpe_trap_invalid=1</span></code> can be helpful.
+In debug mode, many compiler debugging flags are turned on and all
+<code class="docutils literal notranslate"><span class="pre">MultiFab</span></code> data are initialized to signaling NaNs.  The
+<code class="docutils literal notranslate"><span class="pre">amrex.fpe_trap_invalid</span></code> parameter will result in backtrace files
+when floating point exception occurs.  One can then examine those
+files to track down the origin of the issue.</p>
+<p>Writing a <code class="docutils literal notranslate"><span class="pre">MultiFab</span></code> to disk with</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">VisMF</span><span class="o">::</span><span class="n">Write</span><span class="p">(</span><span class="k">const</span> <span class="n">FabArray</span><span class="o">&lt;</span><span class="n">FArrayBox</span><span class="o">&gt;&amp;</span> <span class="n">mf</span><span class="p">,</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>in <code class="docutils literal notranslate"><span class="pre">AMReX_VisMF.H</span></code> and examining it with <code class="docutils literal notranslate"><span class="pre">Amrvis</span></code> (section
+<a class="reference internal" href="Visualization.html#sec-amrvis"><span class="std std-ref">Amrvis</span></a>) can be helpful as well.  In
+<code class="docutils literal notranslate"><span class="pre">AMReX_MultiFabUtil.H</span></code>, function</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">print_state</span><span class="p">(</span><span class="k">const</span> <span class="n">MultiFab</span><span class="o">&amp;</span> <span class="n">mf</span><span class="p">,</span> <span class="k">const</span> <span class="n">IntVect</span><span class="o">&amp;</span> <span class="n">cell</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">n</span><span class="o">=-</span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>can output the data for a single cell.</p>
+<p>Valgrind is one of our favorite debugging tool.  For MPI runs, one can
+tell valgrind to output to different files for different processes.
+For example,</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mpiexec -n 4 valgrind --leak-check=yes --track-origins=yes --log-file=vallog.%p ./foo.exe ...</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="boundary-conditions">
 <span id="sec-basics-boundary"></span><h1>Boundary Conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h1>
@@ -1860,43 +1905,38 @@ example).</p>
 <span class="c1">// fills interior (but not periodic domain boundary) ghost cells</span>
 <span class="n">mf</span><span class="p">.</span><span class="n">FillBoundary</span><span class="p">();</span>
 
-<span class="c1">// fills physical domain boundary ghost cells</span>
+<span class="c1">// fills physical domain boundary ghost cells for a cell-centered multifab</span>
+<span class="c1">// except for external Dirichlet</span>
 <span class="n">FillDomainBoundary</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span> <span class="n">geom</span><span class="p">,</span> <span class="n">bc</span><span class="p">);</span>
 </pre></div>
 </div>
-<p><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FillDomainBoundary</span></span><span class="punctuation"><span class="pre">()</span></span></code> is a function is in
-<code class="docutils literal notranslate"><span class="pre">amrex/Src/Base/AMReX_BCUtil.cpp</span></code>, and is essentially an interface to fortran
-subroutine <code class="code fortran docutils literal notranslate"><span class="name"><span class="pre">amrex_fab_filcc</span></span><span class="punctuation"><span class="pre">()</span></span></code> in
-<code class="docutils literal notranslate"><span class="pre">amrex/Src/Base/AMReX_filcc_mod.F90</span></code>, which ultimately calls fortran
-subroutine <code class="code fortran docutils literal notranslate"><span class="name"><span class="pre">filcc</span></span><span class="punctuation"><span class="pre">()</span></span></code> in <code class="docutils literal notranslate"><span class="pre">amrex/Src/Base/AMReX_FILCC_XD.F</span></code>. To create
-more custom boundary conditions, create a local modified copy of
-<code class="docutils literal notranslate"><span class="pre">amrex/Src/Base/AMReX_FILCC_XD.F</span></code> and put it your local source code.</p>
-<p>For multi-level codes using the <code class="docutils literal notranslate"><span class="pre">amrex/Src/AmrCore</span></code> source code, the
-functions described above still work, however additional classes need to be set
-up since the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FillPatch</span></span></code> routines call them.  In fact it is possible to
-avoid using the single-level calls directly if you fill all your grids and
-ghost cells using the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FillPatch</span></span></code> routines.  Refer to
-<code class="docutils literal notranslate"><span class="pre">amrex/Tutorials/Amr/Advection_AmrCore/</span></code> for an example.  The class
-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">PhysBCFunct</span></span></code> in <code class="docutils literal notranslate"><span class="pre">amrex/Src/Base/AMReX_PhysBCFunct.cpp</span></code> is derived from
-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">PhysBCFunctBase</span></span></code> and contains a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BCRec</span></span></code>, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Geometry</span></span></code>, and a
-pointer to a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BndryFunctBase</span></span></code> function.</p>
-<p>Note that <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">PhyBCFunct</span></span></code> is an example of how to derive from
-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">PhysBCFunctBase</span></span></code> and is not meant to be a base class.
-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">PhysBCFunctBase</span></span></code> is the base class.  PhysBCFunctBase is designed for
-users to derive and extend.  You could/should write your own class derived from
-PhysBCFuncBase.  There you can make modifications such as storing a vector of
-BCRecs for, e.g., multiple component MultiFabs.</p>
-<p>The function <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FillBoundary</span></span></code> fills physical ghost cells and has a similar
-functionality to the single-level case described above, where
-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FillDomainBoundary</span></span></code> fills the physical ghost cells. In fact you can have
-your BndryFunctBase point to the same <code class="code fortran docutils literal notranslate"><span class="name"><span class="pre">filcc</span></span></code> routines called by the
-single-level routines.</p>
+<p><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FillDomainBoundary</span></span><span class="punctuation"><span class="pre">()</span></span></code> is a function in
+<code class="docutils literal notranslate"><span class="pre">amrex/Src/Base/AMReX_BCUtil.cpp</span></code> that fills the physical domain
+boundary ghost cells with Fortran function <code class="docutils literal notranslate"><span class="pre">amrex_fab_filcc</span></code> except
+for external Dirichlet (i.e., <code class="code cpp c++ docutils literal notranslate"><span class="name label"><span class="pre">BCType</span></span><span class="punctuation"><span class="pre">:</span></span><span class="name"><span class="pre">ext_dir</span></span></code>).  The user can
+use it as a template and insert their own function for
+<code class="code cpp c++ docutils literal notranslate"><span class="name label"><span class="pre">BCType</span></span><span class="punctuation"><span class="pre">:</span></span><span class="name"><span class="pre">ext_dir</span></span></code> like below</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="n">grown_domain_box</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="n">fab_box</span><span class="p">))</span>
+<span class="p">{</span>
+    <span class="n">amrex_fab_filcc</span><span class="p">(</span><span class="n">BL_TO_FORTRAN_FAB</span><span class="p">(</span><span class="n">fab</span><span class="p">),</span>
+                    <span class="n">BL_TO_FORTRAN_BOX</span><span class="p">(</span><span class="n">domain_box</span><span class="p">),</span>
+                    <span class="n">dx</span><span class="p">,</span> <span class="n">prob_lo</span><span class="p">,</span>
+                    <span class="n">bc</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">data</span><span class="p">());</span>
+    <span class="n">user_fab_filcc</span><span class="p">(</span><span class="n">BL_TO_FORTRAN_FAB</span><span class="p">(</span><span class="n">fab</span><span class="p">),</span>
+                   <span class="n">BL_TO_FORTRAN_BOX</span><span class="p">(</span><span class="n">domain_box</span><span class="p">),</span>
+                   <span class="n">dx</span><span class="p">,</span> <span class="n">prob_lo</span><span class="p">,</span>
+                   <span class="n">bc</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">data</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="example-heatequation-ex1-c">
 <span id="sec-basics-heat1"></span><h1>Example: HeatEquation_EX1_C<a class="headerlink" href="#example-heatequation-ex1-c" title="Permalink to this headline">¶</a></h1>
-<p>The source code tree for the heat equation example is simple, as shown in
-<a class="reference internal" href="#fig-basics-heat-flowchart"><span class="std std-numref">Fig. 3</span></a>. We recommend you study <code class="docutils literal notranslate"><span class="pre">main.cpp</span></code> and
-<code class="docutils literal notranslate"><span class="pre">advance.cpp</span></code> to see some of the classes described below in action.</p>
+<p>We now present an example of solving the heat equation.  The source
+code tree for the heat equation example is simple, as shown in
+<a class="reference internal" href="#fig-basics-heat-flowchart"><span class="std std-numref">Fig. 3</span></a>. We recommend you study
+<code class="docutils literal notranslate"><span class="pre">main.cpp</span></code> and <code class="docutils literal notranslate"><span class="pre">advance.cpp</span></code> to see some of the classes described
+below in action.</p>
 <div class="figure" id="id6">
 <span id="fig-basics-heat-flowchart"></span><a class="reference internal image-reference" href="_images/flowchart2.png"><img alt="_images/flowchart2.png" src="_images/flowchart2.png" style="width: 4in;" /></a>
 <p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Diagram of the source code structure for the HeatEquation_EX1_C example.</span></p>
@@ -1923,7 +1963,7 @@ in .cpp files</li>
 </ol>
 </dd>
 <dt>amrex/Tutorials/HeatEquation_EX1_C/Exec</dt>
-<dd>This is where you build the code with make.  There is a a GNUmakefile
+<dd>This is where you build the code with make.  There is a GNUmakefile
 and inputs files, inputs_2d and inputs_3d.</dd>
 </dl>
 </div></blockquote>
