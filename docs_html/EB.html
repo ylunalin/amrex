@@ -101,7 +101,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#small-cells-and-stability">Small Cells And Stability</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#initializing-ebindexspace-the-geometric-database">Initializing EBIndexSpace, the Geometric Database</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#initializing-the-geometric-database">Initializing the Geometric Database</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#example-spherical-eb">Example: Spherical EB</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#other-basic-shapes">Other basic shapes:</a></li>
 </ul>
@@ -112,7 +112,6 @@
 <li class="toctree-l3"><a class="reference internal" href="#geometric-example-3-a-sphere-inside-a-parabola">Geometric example 3 – A Sphere Inside a Parabola</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#higher-order-geometries-and-wrappedgshop">Higher Order Geometries and WrappedGShop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ebfarraybox">EBFarrayBox</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#ebfarraybox-usage-example">EBFarrayBox Usage Example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#fortran-code-snippets">Fortran code Snippets</a><ul>
@@ -226,14 +225,14 @@ this generality comes the possibility that the process of “cutting” the cell
 results in a single <span class="math notranslate nohighlight">\((i,j,k)\)</span> cell being broken into multiple cell
 fragments.  The current release of AMReX does not support multi-valued cells,
 thus there is a practical restriction on the complexity of domains (and
-numerical algorithms) supported.  AMReX support for EB with AMR will be
-available by early 2018; EB support for multi-valued cells will follow.</p>
+numerical algorithms) supported.</p>
 <p>This chapter discusses the EB tools, data structures and algorithms currently
 supported by AMReX to enable the construction of discretizations of
 conservation law systems. The discussion will focus on general requirements
 associated with building fluxes and taking divergences of them to advance such
 systems. We also give examples of how to initialize the geometry data
-structures and access them to build the numerical difference operators.</p>
+structures and access them to build the numerical difference
+operators.  Finally we present EB support of linear solvers.</p>
 <div class="section" id="finite-volume-discretizations">
 <h2>Finite Volume Discretizations<a class="headerlink" href="#finite-volume-discretizations" title="Permalink to this headline">¶</a></h2>
 <p>Consider a system of PDEs to advance a conserved quantity <span class="math notranslate nohighlight">\(U\)</span> with fluxes
@@ -247,8 +246,8 @@ structures and access them to build the numerical difference operators.</p>
 <span class="math notranslate nohighlight">\(D^c(F)\)</span>) as follows</p>
 <div class="math notranslate nohighlight" id="equation-eqn-ebdiv">
 <span class="eqno">(3)<a class="headerlink" href="#equation-eqn-ebdiv" title="Permalink to this equation">¶</a></span>\[ D^c(F) = \frac{1}{\kappa h} \left( \sum^D_{d = 1}
-   (F_{d, \mathrm{hi}} \, A_{d, \mathrm{hi}} - F_{d, \mathrm{lo}}\, A_{d, \mathrm{lo}})
-   + F^{EB} A^{EB} \right).\]</div>
+   (F_{d, \mathrm{hi}} \, \alpha_{d, \mathrm{hi}} - F_{d, \mathrm{lo}}\, \alpha_{d, \mathrm{lo}})
+   + F^{EB} \alpha^{EB} \right).\]</div>
 <p>Geometry is discretely represented by volumes (<span class="math notranslate nohighlight">\(V = \kappa h^d\)</span>) and
 apertures (<span class="math notranslate nohighlight">\(A= \alpha h^{d-1}\)</span>), where <span class="math notranslate nohighlight">\(h\)</span> is the (uniform) mesh
 spacing at that AMR level, <span class="math notranslate nohighlight">\(\kappa\)</span> is the volume fraction and
@@ -275,10 +274,10 @@ other.</p>
 <div class="line">cut by the embedded boundary. The grey area</div>
 <div class="line">represents the region excluded from the</div>
 <div class="line">calculation. The portion of the cell faces</div>
-<div class="line">faces (labelled with A) through which fluxes flow</div>
-<div class="line">are the “uncovered” regions of the full cell</div>
-<div class="line">faces. The volume (labelled V) is the uncovered</div>
-<div class="line">region of the interior.</div>
+<div class="line">faces (labelled with A) through which fluxes</div>
+<div class="line">flow are the “uncovered” regions of the full</div>
+<div class="line">cell faces. The volume (labelled V) is the</div>
+<div class="line">uncovered region of the interior.</div>
 </div>
 </td>
 <td><div class="first last line-block">
@@ -348,14 +347,12 @@ distributed to neighbor cells.</span></p>
 </div>
 </div>
 </div>
-<div class="section" id="initializing-ebindexspace-the-geometric-database">
-<span id="sec-eb-ebinit"></span><h1>Initializing EBIndexSpace, the Geometric Database<a class="headerlink" href="#initializing-ebindexspace-the-geometric-database" title="Permalink to this headline">¶</a></h1>
-<p>In AMReX the geometric information is stored in a distributed database class,
-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBIndexSpace</span></span></code>, which must be initialized at the start of the calculation.
-The procedure for this goes as follows:</p>
+<div class="section" id="initializing-the-geometric-database">
+<span id="sec-eb-ebinit"></span><h1>Initializing the Geometric Database<a class="headerlink" href="#initializing-the-geometric-database" title="Permalink to this headline">¶</a></h1>
+<p>In AMReX the geometric information is stored in a distributed database
+class that must be initialized at the start of the calculation.  The
+procedure for this goes as follows:</p>
 <ul class="simple">
-<li>If one has an archived EBIndexSpace plt file, she can initialize the
-database by calling EBIndexSpace::read with the filename</li>
 <li>Define function of position which describes the surface and use it define a
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">GeometryShop</span></span></code>&nbsp;object – specifically, the scalar value returned by this
 function takes on a negative value inside the fluid, a positive value in the
@@ -706,19 +703,6 @@ parabola. This code creates the surface shown in <a class="reference internal" h
 <p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">: Zero surface of an implicit function made the above code.</span></p>
 </div>
 </div>
-</div>
-<div class="section" id="higher-order-geometries-and-wrappedgshop">
-<h1>Higher Order Geometries and WrappedGShop<a class="headerlink" href="#higher-order-geometries-and-wrappedgshop" title="Permalink to this headline">¶</a></h1>
-<p>If one wants more geometric information than simple volume and area fractions and centroids,
-one can generate geometric moments (m).
-.. raw:: latex
-begin{equation}
-m^{p,q,r} = int_V x^p y^q z^r dV
-end{equation}
-.. raw:: latex
-To generate this information, one should use WrappedGShop instead of GeometryShop.  The user interface
-is exactly the same.   If you use WrappedGShop to generate your moments, EBData can provide
-moments (up to third order) of every volume and every face in the domain, including the cut face.</p>
 </div>
 <div class="section" id="ebfarraybox">
 <h1>EBFarrayBox<a class="headerlink" href="#ebfarraybox" title="Permalink to this headline">¶</a></h1>

@@ -251,10 +251,20 @@ targeted relative and absolute tolerances.  The solver will stop when
 one of the targets is met.  Set the absolute tolerance to zero if one
 does not have a good value for it.  The return value of <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">solve</span></span></code>
 is the max-norm error.</p>
-<p>After the solver returns successfully, we can call the following
-functions to compute gradient <span class="math notranslate nohighlight">\(\nabla \phi\)</span>,
-fluxes <span class="math notranslate nohighlight">\(-B \nabla \phi\)</span>, and residual <span class="math notranslate nohighlight">\(f - L(\phi)\)</span>, where
-<span class="math notranslate nohighlight">\(L\)</span> is the linear operator.</p>
+<p>After the solver returns successfully, if needed, we can call</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">compResidual</span> <span class="p">(</span><span class="k">const</span> <span class="n">Vector</span><span class="o">&lt;</span><span class="n">MultiFab</span><span class="o">*&gt;&amp;</span> <span class="n">a_res</span><span class="p">,</span>
+                   <span class="k">const</span> <span class="n">Vector</span><span class="o">&lt;</span><span class="n">MultiFab</span><span class="o">*&gt;&amp;</span> <span class="n">a_sol</span><span class="p">,</span>
+                   <span class="k">const</span> <span class="n">Vector</span><span class="o">&lt;</span><span class="n">MultiFab</span> <span class="k">const</span><span class="o">*&gt;&amp;</span> <span class="n">a_rhs</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>to compute residual (i.e., <span class="math notranslate nohighlight">\(f - L(\phi)\)</span>) given the solution and
+the righ-hand side.  For cell-centered solvers, we can also call the
+following functions to compute gradient <span class="math notranslate nohighlight">\(\nabla \phi\)</span> and fluxes
+<span class="math notranslate nohighlight">\(-B \nabla \phi\)</span>.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">getGradSolution</span> <span class="p">(</span><span class="k">const</span> <span class="n">Vector</span><span class="o">&lt;</span><span class="n">Array</span><span class="o">&lt;</span><span class="n">MultiFab</span><span class="o">*</span><span class="p">,</span><span class="n">AMREX_SPACEDIM</span><span class="o">&gt;</span> <span class="o">&gt;&amp;</span> <span class="n">a_grad_sol</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">getFluxes</span>       <span class="p">(</span><span class="k">const</span> <span class="n">Vector</span><span class="o">&lt;</span><span class="n">Array</span><span class="o">&lt;</span><span class="n">MultiFab</span><span class="o">*</span><span class="p">,</span><span class="n">AMREX_SPACEDIM</span><span class="o">&gt;</span> <span class="o">&gt;&amp;</span> <span class="n">a_fluxes</span><span class="p">);</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="boundary-conditions">
 <span id="sec-linearsolver-bc"></span><h1>Boundary Conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h1>
@@ -346,7 +356,8 @@ stabilized method as the bottom solver.  <code class="code cpp c++ docutils lite
 <li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MLMG</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">BottomSolver</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">bicgstab</span></span></code>: The default.</li>
 <li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MLMG</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">BottomSolver</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">cg</span></span></code>: The conjugate gradient method.  The
 matrix must be symmetric.</li>
-<li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MLMG</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">BottomSolver</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">Hypre</span></span></code>: BoomerAMG in HYPRE.</li>
+<li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MLMG</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">BottomSolver</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">Hypre</span></span></code>: BoomerAMG in HYPRE.  Currently for
+cell-centered only.</li>
 </ul>
 </div>
 <div class="section" id="curvilinear-coordinates">
@@ -361,17 +372,17 @@ operators.</p>
 </div>
 <div class="section" id="hypre">
 <h1>HYPRE<a class="headerlink" href="#hypre" title="Permalink to this headline">¶</a></h1>
-<p>AMReX can use HYPRE BoomerAMG as a bottom solver, as we have
-mentioned.  For challenging problems, our geometry multigrid solver
-may have difficulty solving, whereas an algebraic multigrid method
-might be more robust.  We note that by default our solver always tries
-to geometrically coarsen the problem as much as possible.  However, as
-we have mentioned, we can call <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">setMaxCoarseningLevel</span></span><span class="punctuation"><span class="pre">(</span></span><span class="literal number integer"><span class="pre">0</span></span><span class="punctuation"><span class="pre">)</span></span></code> on the
-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">LPInfo</span></span></code> object passed to the constructor of a linear operator to
-disable the coarsening completely.  In that case the bottom solver is
-solving the residual correction form of the original problem.  To use
-HYPRE, one must include <code class="docutils literal notranslate"><span class="pre">amrex/Src/Extern/HYPRE</span></code> in the build
-system.</p>
+<p>AMReX can use HYPRE BoomerAMG as a bottom solver (currently for
+cell-centered problems only), as we have mentioned.  For challenging
+problems, our geometric multigrid solver may have difficulty solving,
+whereas an algebraic multigrid method might be more robust.  We note
+that by default our solver always tries to geometrically coarsen the
+problem as much as possible.  However, as we have mentioned, we can
+call <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">setMaxCoarseningLevel</span></span><span class="punctuation"><span class="pre">(</span></span><span class="literal number integer"><span class="pre">0</span></span><span class="punctuation"><span class="pre">)</span></span></code> on the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">LPInfo</span></span></code> object
+passed to the constructor of a linear operator to disable the
+coarsening completely.  In that case the bottom solver is solving the
+residual correction form of the original problem.  To use HYPRE, one
+must include <code class="docutils literal notranslate"><span class="pre">amrex/Src/Extern/HYPRE</span></code> in the build system.</p>
 </div>
 <div class="section" id="embedded-boundaries">
 <h1>Embedded Boundaries<a class="headerlink" href="#embedded-boundaries" title="Permalink to this headline">¶</a></h1>
