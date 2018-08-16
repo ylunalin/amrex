@@ -29,7 +29,7 @@
   <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Example: HeatEquation_EX3_C" href="LinearSolvers.html" />
+    <link rel="next" title="MLMG and Linear Operator Classes" href="LinearSolvers.html" />
     <link rel="prev" title="Plotfile" href="IO.html" /> 
 
   
@@ -93,7 +93,12 @@
 <li class="toctree-l1"><a class="reference internal" href="Chapter6.html">Amr Source Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Chapter6a.html">I/O (Plotfile, Checkpoint)</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Linear Solvers</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="LinearSolvers.html">Example: HeatEquation_EX3_C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LinearSolvers.html">MLMG and Linear Operator Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LinearSolvers.html#boundary-conditions">Boundary Conditions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LinearSolvers.html#parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LinearSolvers.html#curvilinear-coordinates">Curvilinear Coordinates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LinearSolvers.html#hypre">HYPRE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LinearSolvers.html#embedded-boundaries">Embedded Boundaries</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Chapter8.html">Particles</a></li>
@@ -169,27 +174,36 @@
             
   <div class="section" id="linear-solvers">
 <span id="chap-linearsolvers"></span><h1>Linear Solvers<a class="headerlink" href="#linear-solvers" title="Permalink to this headline">¶</a></h1>
-<p>In this Chapter we give an overview of the linear solvers in AMReX.
-AMReX supports two solvers where the solution, <span class="math notranslate nohighlight">\(\phi\)</span>
-is either cell-centered or nodal.
-For each case you can solve on a single level (using essentially Dirichlet conditions
-supplied from coarser levels or physical boundary conditions), or you can do a
-multilevel composite solve on a subset of AMR levels (or even all the AMR levels).</p>
-<p>The tutorial <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">/</span></span><span class="name"><span class="pre">Tutorials</span></span><span class="operator"><span class="pre">/</span></span><span class="name"><span class="pre">LinearSolvers</span></span><span class="operator"><span class="pre">/</span></span><span class="name"><span class="pre">ABecLaplacian_C</span></span></code> shows how to call the
-cell-centered solver. The tutorial <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">/</span></span><span class="name"><span class="pre">Tutorials</span></span><span class="operator"><span class="pre">/</span></span><span class="name"><span class="pre">Basic</span></span><span class="operator"><span class="pre">/</span></span><span class="name"><span class="pre">HeatEquation_EX3_C</span></span></code> shows
-how to solve the implicit heat equation using the cell-centered solver. Here an
-“ABecLaplacian” has the form</p>
-<div class="math notranslate nohighlight">
-\[(a_{coeff} A - b_{coeff} \nabla \cdot B \nabla ) \phi = RHS\]</div>
-<p>where <span class="math notranslate nohighlight">\(a_{coeff}\)</span>, <span class="math notranslate nohighlight">\(b_{coeff}\)</span> are scalars, <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>,
-and <span class="math notranslate nohighlight">\(RHS\)</span> are MultiFabs.
-For the cell-centered
-solver, <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(RHS\)</span> are cell centered, and <span class="math notranslate nohighlight">\(B\)</span> is an array of
-face-centered MultiFabs since <span class="math notranslate nohighlight">\(B \nabla \phi\)</span> lives on faces, and the
-divergence lives on cell-centers.</p>
+<p>In this Chapter we give an overview of the linear solvers in AMReX
+that solve linear systems in the canonical form</p>
+<div class="math notranslate nohighlight" id="equation-eqn-abeclap">
+<span class="eqno">(1)<a class="headerlink" href="#equation-eqn-abeclap" title="Permalink to this equation">¶</a></span>\[(\alpha A - \beta \nabla \cdot B \nabla ) \phi = f,\]</div>
+<p>where <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> are scalar constants,
+<span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are scalar fields, <span class="math notranslate nohighlight">\(\phi\)</span> is the
+unknown, and <span class="math notranslate nohighlight">\(f\)</span> is the right-hand side of the equation.  Note
+that Poisson’s equation <span class="math notranslate nohighlight">\(\nabla^2 \phi = f\)</span> is a special case
+the canonical form.  The sought solution <span class="math notranslate nohighlight">\(\phi\)</span> is at either
+cell centers or nodes.  For the cell-centered solver, <span class="math notranslate nohighlight">\(A\)</span>,
+<span class="math notranslate nohighlight">\(\phi\)</span> and <span class="math notranslate nohighlight">\(f\)</span> are represented by cell-centered MultiFabs,
+and <span class="math notranslate nohighlight">\(B\)</span> is represented by <code class="docutils literal notranslate"><span class="pre">AMREX_SPACEDIM</span></code> face type
+MultiFabs.  That is there are 1, 2 and 3 MultiFabs representing
+<span class="math notranslate nohighlight">\(B\)</span> for 1, 2 and 3D, respectively.  For the nodal solver,
+<span class="math notranslate nohighlight">\(A\)</span> is assumed to be zero, <span class="math notranslate nohighlight">\(\phi\)</span> and <span class="math notranslate nohighlight">\(f\)</span> are nodal,
+and <span class="math notranslate nohighlight">\(B\)</span> is cell-centered.  AMReX supports both single-level
+solve and composite solve on multiple AMR levels.</p>
+<p>The tutorials in <code class="docutils literal notranslate"><span class="pre">amrex/Tutorials/LinearSolvers/</span></code> show examples of
+using the solvers.  The tutorial
+<code class="docutils literal notranslate"><span class="pre">amrex/Tutorials/Basic/HeatEquation_EX3_C</span></code> shows how to solve the
+heat equation implicitly using the solver.  The tutorials also show
+how to add linear solvers into the build system.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="LinearSolvers.html">Example: HeatEquation_EX3_C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinearSolvers.html">MLMG and Linear Operator Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinearSolvers.html#boundary-conditions">Boundary Conditions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinearSolvers.html#parameters">Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinearSolvers.html#curvilinear-coordinates">Curvilinear Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinearSolvers.html#hypre">HYPRE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinearSolvers.html#embedded-boundaries">Embedded Boundaries</a></li>
 </ul>
 </div>
 </div>
@@ -202,7 +216,7 @@ divergence lives on cell-centers.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="LinearSolvers.html" class="btn btn-neutral float-right" title="Example: HeatEquation_EX3_C" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="LinearSolvers.html" class="btn btn-neutral float-right" title="MLMG and Linear Operator Classes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="IO.html" class="btn btn-neutral" title="Plotfile" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
