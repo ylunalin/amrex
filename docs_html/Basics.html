@@ -906,10 +906,10 @@ example, the <code class="code cpp c++ docutils literal notranslate"><span class
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>But this approach is generally not recommended for performance reason.
+<p>But this approach is generally not recommended for performance reasons.
 However, it can be handy for debugging.</p>
 <p><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BaseFab</span></span></code> and its derived classes are containers for data on <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code>.
-We recall that <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code> has types (see the section on&nbsp;<a class="reference internal" href="#sec-basics-box"><span class="std std-ref">Box, IntVect and IndexType</span></a>).
+Recall that <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code> has various types (see the section on&nbsp;<a class="reference internal" href="#sec-basics-box"><span class="std std-ref">Box, IntVect and IndexType</span></a>).
 The examples in this section so far use the default cell based type.  However,
 some functions will result in a runtime error if the types mismatch.  For
 example.</p>
@@ -922,7 +922,7 @@ example.</p>
 </pre></div>
 </div>
 <p>Because it typically contains a lot of data, BaseFab’s copy constructor and
-copy assignment operator are disabled for performance reason. However, it does
+copy assignment operator are disabled to prevent performance degradation. However, BaseFab does
 provide a move constructor. In addition, it also provides a constructor for
 making an alias of an existing object. Here is an example using
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code>.</p>
@@ -932,10 +932,10 @@ making an alias of an existing object. Here is an example using
 <span class="n">FArrayBox</span> <span class="nf">alias_fab</span><span class="p">(</span><span class="n">orig_fab</span><span class="p">,</span> <span class="n">amrex</span><span class="o">::</span><span class="n">make_alias</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>In the example, the alias <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code> has only two components even though
+<p>In this example, the alias <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code> has only two components even though
 the original one has four components. The alias has a sliced component view of
 the original <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code>. This is possible because of the array ordering.
-It is however not possible to slice in the real space (i.e., the first
+However, it is not possible to slice in the real space (i.e., the first
 <code class="docutils literal notranslate"><span class="pre">AMREX_SPACEDIM</span></code> dimensions).  Note that no new memory is allocated in
 constructing the alias and the alias contains a non-owning pointer. It should
 be emphasized that the alias will contain a dangling pointer after the original
@@ -946,23 +946,23 @@ be emphasized that the alias will contain a dangling pointer after the original
 <p><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FabArray</span></span><span class="operator"><span class="pre">&lt;</span></span><span class="name"><span class="pre">FAB</span></span><span class="operator"><span class="pre">&gt;</span></span></code> is a class template in AMReX_FabArray.H for a collection
 of FABs on the same AMR level associated with a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BoxArray</span></span></code> (see the
 section on&nbsp;<a class="reference internal" href="#sec-basics-ba"><span class="std std-ref">BoxArray</span></a>). The template parameter <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FAB</span></span></code> is usually
-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BaseFab</span></span><span class="operator"><span class="pre">&lt;</span></span><span class="name"><span class="pre">T</span></span><span class="operator"><span class="pre">&gt;</span></span></code> or its derived classes (e.g., <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code>). However, it
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BaseFab</span></span><span class="operator"><span class="pre">&lt;</span></span><span class="name"><span class="pre">T</span></span><span class="operator"><span class="pre">&gt;</span></span></code> or its derived classes (e.g., <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code>). However, FabArray
 can also be used to hold other data structures. To construct a FabArray, a
-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BoxArray</span></span></code> must be provided because it is intended to hold <em>grid</em> data
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BoxArray</span></span></code> must be provided because the FabArray is intended to hold <em>grid</em> data
 defined on a union of rectangular regions embedded in a uniform index space.
-For example, an FabArray object can be used to hold data for one level as in
+For example, a FabArray object can be used to hold data for one level as in
 <a class="reference internal" href="#fig-basics-amrgrids"><span class="std std-numref">Fig. 1</span></a>.</p>
 <p><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FabArray</span></span></code> is a parallel data structure that the data (i.e., FAB) are
-distributed among parallel processes. On each process, the FabArray contains
-only the FAB objects owned by this process, and the process operates only on
+distributed among parallel processes. For each process, a FabArray contains
+only the FAB objects owned by that process, and the process operates only on
 its local data. For operations that require data owned by other processes,
 remote communications are involved. Thus, the construction of a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FabArray</span></span></code>
 requires a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">DistributionMapping</span></span></code> (see the section on&nbsp;<a class="reference internal" href="#sec-basics-dm"><span class="std std-ref">DistributionMapping</span></a>)
 that specifies which process owns which Box. For level 2 (<em>red</em>) in
 <a class="reference internal" href="#fig-basics-amrgrids"><span class="std std-numref">Fig. 1</span></a>, there are two Boxes. Suppose there are two
 parallel processes, and we use a DistributionMapping that assigns one Box to
-each process.  For <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FabArray</span></span></code> on each process, it is built on a
-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BoxArray</span></span></code> with 2 Boxes, but contains only one FAB.</p>
+each process. Then the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FabArray</span></span></code> on each process is built on the
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BoxArray</span></span></code> with both Boxes, but contains only the FAB associated with its process.</p>
 <p>In AMReX, there are some specialized classes derived from <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FabArray</span></span></code>. The
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">iMultiFab</span></span></code> class in AMReX_iMultiFab.H is derived from
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FabArray</span></span><span class="operator"><span class="pre">&lt;</span></span><span class="name"><span class="pre">IArrayBox</span></span><span class="operator"><span class="pre">&gt;</span></span></code>. The most commonly used <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FabArray</span></span></code> kind class
