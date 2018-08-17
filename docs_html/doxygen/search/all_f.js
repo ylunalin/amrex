@@ -57,7 +57,7 @@ var searchData=
   ['order',['order',['../classamrex_1_1_int_descriptor.html#ab644daa5bafda0f056709b339b87e2c7',1,'amrex::IntDescriptor::order()'],['../classamrex_1_1_real_descriptor.html#adb0da1597fe482a78cf9dc474b1a9328',1,'amrex::RealDescriptor::order() const &amp;'],['../classamrex_1_1_real_descriptor.html#a2af8838acb76b2c9b75658f3856e507d',1,'amrex::RealDescriptor::order()&amp;&amp;=delete']]],
   ['orderarray',['orderarray',['../classamrex_1_1_real_descriptor.html#a15088522b061b0e6c504ea1175a783f2',1,'amrex::RealDescriptor::orderarray() const &amp;'],['../classamrex_1_1_real_descriptor.html#ad4c4f4561138aee7fcdc7bcbec68230c',1,'amrex::RealDescriptor::orderarray()&amp;&amp;=delete']]],
   ['ordered',['ordered',['../structamrex_1_1__linkedlisthead.html#a35c5b89cec101d7700d022bdc4401b6d',1,'amrex::_linkedlisthead']]],
-  ['ordering',['ordering',['../classamrex_1_1_f_array_box.html#a9dd03f8360cfc2cfdf803298308f53dd',1,'amrex::FArrayBox::ordering()'],['../classamrex_1_1_int_descriptor.html#a330214b8c0c3e224aecd2d2d95c0a839',1,'amrex::IntDescriptor::Ordering()'],['../classamrex_1_1_f_a_bio.html#adbdc54b2ed6a4fa2d0cfd19076e5cc39',1,'amrex::FABio::Ordering()']]],
+  ['ordering',['Ordering',['../classamrex_1_1_int_descriptor.html#a330214b8c0c3e224aecd2d2d95c0a839',1,'amrex::IntDescriptor::Ordering()'],['../classamrex_1_1_f_a_bio.html#adbdc54b2ed6a4fa2d0cfd19076e5cc39',1,'amrex::FABio::Ordering()'],['../classamrex_1_1_f_array_box.html#a9dd03f8360cfc2cfdf803298308f53dd',1,'amrex::FArrayBox::ordering()']]],
   ['orientation',['Orientation',['../classamrex_1_1_orientation.html',1,'amrex']]],
   ['orientation',['Orientation',['../classamrex_1_1_orientation.html#adc09a636a9e473586cdd956f78d6915b',1,'amrex::Orientation::Orientation()'],['../classamrex_1_1_orientation.html#aec2d3f5d44dd31d3f8dfcd7214636782',1,'amrex::Orientation::Orientation(int dir, Side side)']]],
   ['orientationiter',['OrientationIter',['../classamrex_1_1_orientation_iter.html',1,'amrex']]],
@@ -81,5 +81,5 @@ var searchData=
   ['ovlp_5flo',['ovlp_lo',['../_a_m_re_x___multi_fab_util___f_8_h.html#a2682c09f21867cd6f5304887d09a7203',1,'AMReX_MultiFabUtil_F.H']]],
   ['owner',['owner',['../structamrex__parmparse__module_1_1amrex__parmparse.html#ab9c4e4255bdd7cbfe4e9decb095d1bcc',1,'amrex_parmparse_module::amrex_parmparse']]],
   ['ownermask',['OwnerMask',['../classamrex_1_1_multi_fab.html#a2408f4add699045c65b4dbe0ff5390bc',1,'amrex::MultiFab']]],
-  ['ownership',['OwnerShip',['../classamrex_1_1_fab_array_base.html#a826764d64c91510906e157ae2669c9fe',1,'amrex::FabArrayBase::OwnerShip() const '],['../classamrex_1_1_fab_array_base.html#ab4d5df57a6eaa1d785d131b059b43e18',1,'amrex::FabArrayBase::ownership()']]]
+  ['ownership',['ownership',['../classamrex_1_1_fab_array_base.html#ab4d5df57a6eaa1d785d131b059b43e18',1,'amrex::FabArrayBase::ownership()'],['../classamrex_1_1_fab_array_base.html#a826764d64c91510906e157ae2669c9fe',1,'amrex::FabArrayBase::OwnerShip() const ']]]
 ];
