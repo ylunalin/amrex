@@ -104,6 +104,7 @@ var searchData=
   ['computebounds',['computeBounds',['../class_l_s_problem.html#ac534c1781612633673dbe164cb4839ed',1,'LSProblem']]],
   ['computecost',['computeCost',['../namespaceamrex_1_1load_balance_k_d.html#ad33644c42ce9b13ed99874a358d40bd4',1,'amrex::loadBalanceKD']]],
   ['computecoveredfaces',['computeCoveredFaces',['../classamrex_1_1_e_b_arith.html#a6c20d3e6f51322ae335d143456474d86',1,'amrex::EBArith']]],
+  ['computedivergence',['computeDivergence',['../namespaceamrex.html#a7b179e68f86c4a06d176f587ec95148c',1,'amrex']]],
   ['computeinitialdt',['computeInitialDt',['../classamrex_1_1_amr_level.html#a252f7123d2f0a98351bc7b39c32b3152',1,'amrex::AmrLevel']]],
   ['computemoments',['computeMoments',['../class_minimal_c_c_c_m.html#a9dba5a69de92ee267b03db6c7401f38d',1,'MinimalCCCM::computeMoments()'],['../class_minimal_c_c_c_m_3_011_01_4.html#a39bad1f1b677b451120d8f40821d8498',1,'MinimalCCCM&lt; 1 &gt;::computeMoments()']]],
   ['computemomentsrecursively',['computeMomentsRecursively',['../class_minimal_c_c_c_m.html#aaa3f2090743ea3cc7fc6ca3e91867dfc',1,'MinimalCCCM']]],
