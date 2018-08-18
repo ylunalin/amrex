@@ -134,7 +134,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_ZFILL(x) std::array&lt;amrex::Real,3&gt;{(x)[0], 0., 0.}.data()</span></div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_ARLIM_ARG(x) AMREX_ARLIM_3D(x)</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_INT_ANYD(x) AMREX_ARLIM_ANYD(x)</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_REAL_ANYD(x) ZFILL(x)</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_REAL_ANYD(x) AMREX_ZFILL(x)</span></div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_ARLIM_VAL(x) const int* x</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_BCREC_3D(x) std::array&lt;int,6&gt;{(x)[0], 0, 0, (x)[1], 0, 0}.data()</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_BCREC_ANYD(x) std::array&lt;int,6&gt;{(x)[0], 0, 0, (x)[1], 0, 0}.data()</span></div>
@@ -146,7 +146,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_ZFILL(x) std::array&lt;amrex::Real,3&gt;{(x)[0], (x)[1], 0.}.data()</span></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_ARLIM_ARG(x) AMREX_ARLIM_3D(x)</span></div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_INT_ANYD(x) AMREX_ARLIM_ANYD(x)</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_REAL_ANYD(X) ZFILL(x)</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_REAL_ANYD(X) AMREX_ZFILL(x)</span></div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_ARLIM_VAL(x) const int* x</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_BCREC_3D(x) std::array&lt;int,6&gt;{(x)[0], (x)[1], 0, (x)[2], (x)[3], 0}.data()</span></div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_BCREC_ANYD(x) std::array&lt;int,6&gt;{(x)[0], (x)[1], 0, (x)[2], (x)[3], 0}.data()</span></div>
@@ -160,7 +160,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_BCREC_ANYD(x) x</span></div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_ARLIM_ARG(x) AMREX_ARLIM_3D(x)</span></div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_INT_ANYD(x) AMREX_ARLIM_ANYD(x)</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_REAL_ANYD(x) ZFILL(x)</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_REAL_ANYD(x) AMREX_ZFILL(x)</span></div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_ARLIM_VAL(x) const int* x</span></div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor"></span></div>
