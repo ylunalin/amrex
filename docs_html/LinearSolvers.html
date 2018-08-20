@@ -199,56 +199,59 @@ below</p>
 </pre></div>
 </div>
 <p>It takes <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Vectors</span></span></code> of <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Geometry</span></span></code>, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BoxArray</span></span></code> and
-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">DistributionMapping</span></span></code>.  They are <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Vectors</span></span></code> because MLMG can
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">DistributionMapping</span></span></code>.  The arguments are <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Vectors</span></span></code> because MLMG can
 do multi-level composite solve.  If you are using it for single-level,
 you can do</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Given Geometry geom, BoxArray grids, and DistributionMapping dmap on single level</span>
 <span class="n">MLABecLaplacian</span> <span class="nf">mlabeclap</span><span class="p">({</span><span class="n">geom</span><span class="p">},</span> <span class="p">{</span><span class="n">grids</span><span class="p">},</span> <span class="p">{</span><span class="n">dmap</span><span class="p">});</span>
 </pre></div>
 </div>
-<p>to let the compiler construct <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Vectors</span></span></code> for you.  We have seen
+<p>to let the compiler construct <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Vectors</span></span></code> for you.  Recall that the
 classes <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Vector</span></span></code>, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Geometry</span></span></code>, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BoxArray</span></span></code>, and
-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">DistributionMapping</span></span></code> in chapter <a class="reference internal" href="Chapter4.html#chap-basics"><span class="std std-ref">Basics</span></a>.  There are
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">DistributionMapping</span></span></code> are defined in chapter <a class="reference internal" href="Chapter4.html#chap-basics"><span class="std std-ref">Basics</span></a>.  There are
 two new classes that are optional parameters.  <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">LPInfo</span></span></code> is a
 class for passing parameters.  <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FabFactory</span></span></code> is used in problems
 with embedded boundaries (chapter <a class="reference internal" href="Chapter10.html#chap-eb"><span class="std std-ref">Embedded Boundaries</span></a>).</p>
 <p>After the linear operator is built, we need to set up boundary
 conditions.  This will be discussed later in section
 <a class="reference internal" href="#sec-linearsolver-bc"><span class="std std-ref">Boundary Conditions</span></a>.</p>
-<p>For <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MLABecLaplacian</span></span></code>, we then need to call member functions</p>
+<p>For <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MLABecLaplacian</span></span></code>, we next need to call member functions</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">setScalars</span> <span class="p">(</span><span class="n">Real</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">Real</span> <span class="n">beta</span><span class="p">);</span>
 <span class="kt">void</span> <span class="nf">setACoeffs</span> <span class="p">(</span><span class="kt">int</span> <span class="n">amrlev</span><span class="p">,</span> <span class="k">const</span> <span class="n">MultiFab</span><span class="o">&amp;</span> <span class="n">A</span><span class="p">);</span>
 <span class="kt">void</span> <span class="nf">setBCoeffs</span> <span class="p">(</span><span class="kt">int</span> <span class="n">amrlev</span><span class="p">,</span> <span class="k">const</span> <span class="n">Array</span><span class="o">&lt;</span><span class="n">MultiFab</span> <span class="k">const</span><span class="o">*</span><span class="p">,</span><span class="n">AMREX_SPACEDIM</span><span class="o">&gt;&amp;</span> <span class="n">B</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>to set up the coefficients.  For <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MLPoisson</span></span></code>, there are no
-coefficients to set.  For <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MLNodeLaplacian</span></span></code>, one needs to call
-member function</p>
+<p>to set up the coefficients for equation <a class="reference internal" href="Chapter7.html#equation-eqn-abeclap">(1)</a>. This is unecessary for
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MLPoisson</span></span></code>, as there are no coefficients to set.  For <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MLNodeLaplacian</span></span></code>,
+one needs to call the member function</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">setSigma</span> <span class="p">(</span><span class="kt">int</span> <span class="n">amrlev</span><span class="p">,</span> <span class="k">const</span> <span class="n">MultiFab</span><span class="o">&amp;</span> <span class="n">a_sigma</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>The <code class="code cpp c++ docutils literal notranslate"><span class="keyword type"><span class="pre">int</span></span> <span class="name"><span class="pre">amrlev</span></span></code> parameter should be zero for single-level
 solves.  For multi-level solves, each level needs to be provided with
-<code class="docutils literal notranslate"><span class="pre">A</span></code> and <code class="docutils literal notranslate"><span class="pre">B</span></code>, or <code class="docutils literal notranslate"><span class="pre">Sigma</span></code>.  For composite solves, level 0 here
-means the lowest level for the solver, not necessarily the lowest
-level in the entire AMR hierarchy, because it might be doing a solve
-on AMR levels 3 to 5.</p>
-<p>After boundary conditions and coefficients are set up, the linear
+<code class="docutils literal notranslate"><span class="pre">A</span></code> and <code class="docutils literal notranslate"><span class="pre">B</span></code>, or <code class="docutils literal notranslate"><span class="pre">Sigma</span></code>.  For composite solves, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrlev</span></span></code> 0 will
+mean the lowest level for the solver, which is not necessarily the lowest
+level in the AMR hierarchy. This is so solves can be done on different sections
+of the AMR hierarchy, e.g. on AMR levels 3 to 5.</p>
+<p>After boundary conditions and coefficients are prescribed, the linear
 operator is ready for an MLMG object like below.</p>
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">MLMG</span> <span class="nf">mlmg</span><span class="p">(</span><span class="n">mlabeclaplacian</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Various parameters (section <a class="reference internal" href="#sec-linearsolver-pars"><span class="std std-ref">Parameters</span></a>) can be
-optionally set, and then we can <code class="docutils literal notranslate"><span class="pre">MLMG</span></code> member function</p>
+<dl class="docutils">
+<dt>Optional parameters can be set (see section <a class="reference internal" href="#sec-linearsolver-pars"><span class="std std-ref">Parameters</span></a>),</dt>
+<dd>and then we can use the <code class="docutils literal notranslate"><span class="pre">MLMG</span></code> member function</dd>
+</dl>
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">Real</span> <span class="nf">solve</span> <span class="p">(</span><span class="k">const</span> <span class="n">Vector</span><span class="o">&lt;</span><span class="n">MultiFab</span><span class="o">*&gt;&amp;</span> <span class="n">a_sol</span><span class="p">,</span>
             <span class="k">const</span> <span class="n">Vector</span><span class="o">&lt;</span><span class="n">MultiFab</span> <span class="k">const</span><span class="o">*&gt;&amp;</span> <span class="n">a_rhs</span><span class="p">,</span>
             <span class="n">Real</span> <span class="n">a_tol_rel</span><span class="p">,</span> <span class="n">Real</span> <span class="n">a_tol_abs</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>to solve the problem given an initial guess and a right-hand side.
-Zero is a perfectly fine initial guess.  The two <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Reals</span></span></code> are the
-targeted relative and absolute tolerances.  The solver will stop when
-one of the targets is met.  Set the absolute tolerance to zero if one
+Zero is a perfectly fine initial guess.  The two <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Reals</span></span></code> in the argument
+list are the targeted relative and absolute error tolerances.
+The solver will terminate when one of these targets is met.
+Set the absolute tolerance to zero if one
 does not have a good value for it.  The return value of <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">solve</span></span></code>
 is the max-norm error.</p>
 <p>After the solver returns successfully, if needed, we can call</p>
@@ -258,7 +261,7 @@ is the max-norm error.</p>
 </pre></div>
 </div>
 <p>to compute residual (i.e., <span class="math notranslate nohighlight">\(f - L(\phi)\)</span>) given the solution and
-the righ-hand side.  For cell-centered solvers, we can also call the
+the right-hand side.  For cell-centered solvers, we can also call the
 following functions to compute gradient <span class="math notranslate nohighlight">\(\nabla \phi\)</span> and fluxes
 <span class="math notranslate nohighlight">\(-B \nabla \phi\)</span>.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">getGradSolution</span> <span class="p">(</span><span class="k">const</span> <span class="n">Vector</span><span class="o">&lt;</span><span class="n">Array</span><span class="o">&lt;</span><span class="n">MultiFab</span><span class="o">*</span><span class="p">,</span><span class="n">AMREX_SPACEDIM</span><span class="o">&gt;</span> <span class="o">&gt;&amp;</span> <span class="n">a_grad_sol</span><span class="p">);</span>
@@ -271,7 +274,7 @@ following functions to compute gradient <span class="math notranslate nohighligh
 <p>We now discuss how to set up boundary conditions for linear operators.
 In the following, physical domain boundaries refer to the boundaries
 of the physical domain, whereas coarse/fine boundaries refer to the
-level boundaries of fine AMR levels.  The following steps must be
+boundaries between AMR levels. The following steps must be
 followed in the exact order.</p>
 <p>First we need to set physical domain boundary types via <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MLLinOp</span></span></code> member
 function</p>
@@ -288,8 +291,8 @@ the physical domain boundaries are</p>
 <li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">LinOpBCType</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">reflect_odd</span></span></code> for reflection with sign changed.</li>
 </ul>
 <p>The second step is to set up coarse/fine Dirichlet boundary
-conditions.  This step is not always needed.  But when it’s needed, it
-must be called before step 3.  This step is not needed when the
+conditions.  This step is not always needed.  But when it is, it
+must be completed before step 3. This step is not needed when the
 coarsest level in the solver covers the whole computational domain
 (e.g., the coarsest level is AMR level 0).  Note that this step is
 still needed in the case that the solver is used to do a single-level
