@@ -194,8 +194,11 @@ MFIter::~MFIter ()
 #endif
 
 #ifdef AMREX_USE_CUDA
-    for (int i = 0; i < real_reduce_list.size(); ++i)
-        amrex::The_MFIter_Arena()->free(real_device_reduce_list[i]);
+#pragma omp single
+    {
+        for (int i = 0; i < real_reduce_list.size(); ++i)
+            amrex::The_MFIter_Arena()->free(real_device_reduce_list[i]);
+    }
 #endif
 
 #ifdef AMREX_USE_DEVICE
@@ -443,9 +446,9 @@ void
 MFIter::operator++ () {
 
 #ifdef AMREX_USE_CUDA
-    if (real_reduce_list.size() == currentIndex + 1) {
-        Device::device_dtoh_memcpy_async(&real_reduce_list[currentIndex],
-                                         real_device_reduce_list[currentIndex],
+    if (reducer != MFReducer::NONE) {
+        Device::device_dtoh_memcpy_async(&real_reduce_list[currentIndex - beginIndex],
+                                         real_device_reduce_list[currentIndex - beginIndex],
                                          sizeof(Real));
     }
 #endif
@@ -468,19 +471,31 @@ Real*
 MFIter::add_reduce_value(Real* val, MFReducer r)
 {
 
-    real_reduce_val = val;
+    Real* dval;
 
-    reducer = r;
+#pragma omp critical
+    {
+        real_reduce_val = val;
 
-    Real reduce_val = *val;
-    real_reduce_list.push_back(reduce_val);
+        reducer = r;
 
-    Real* dval = static_cast<Real*>(amrex::The_MFIter_Arena()->alloc(sizeof(Real)));
-    real_device_reduce_list.push_back(dval);
+        Real reduce_val = *val;
+        if (real_reduce_list.size() < currentIndex - beginIndex + 1) {
+            real_reduce_list.resize(currentIndex - beginIndex + 1);
+            real_reduce_list[currentIndex - beginIndex] = reduce_val;
+        }
 
-    Device::device_htod_memcpy_async(real_device_reduce_list[currentIndex],
-                                     &real_reduce_list[currentIndex],
-                                     sizeof(Real));
+        if (real_device_reduce_list.size() < currentIndex - beginIndex + 1) {
+            real_device_reduce_list.resize(currentIndex - beginIndex + 1);
+            dval = static_cast<Real*>(amrex::The_MFIter_Arena()->alloc(sizeof(Real)));
+            real_device_reduce_list[currentIndex - beginIndex] = dval;
+        }
+
+        Device::device_htod_memcpy_async(real_device_reduce_list[currentIndex - beginIndex],
+                                         &real_reduce_list[currentIndex - beginIndex],
+                                         sizeof(Real));
+
+    }
 
     return dval;
 
@@ -499,28 +514,35 @@ MFIter::reduce()
 
     if (real_reduce_list.size() < length()) return;
 
+    if (reducer == MFReducer::NONE) return;
+
     Real result;
 
-    if (reducer == MFReducer::SUM) {
-        result = 0.0;
-        for (int i = 0; i < real_reduce_list.size(); ++i) {
-            result += real_reduce_list[i];
-        }
-    }
-    else if (reducer == MFReducer::MIN) {
-        result = 1.e200;
-        for (int i = 0; i < real_reduce_list.size(); ++i) {
-            result = std::min(result, real_reduce_list[i]);
-        }
-    }
-    else if (reducer == MFReducer::MAX) {
-        result = -1.e200;
-        for (int i = 0; i < real_reduce_list.size(); ++i) {
-            result = std::max(result, real_reduce_list[i]);
-        }
-    }
+#pragma omp single
+    {
 
-    *real_reduce_val = result;
+        if (reducer == MFReducer::SUM) {
+            result = 0.0;
+            for (int i = 0; i < real_reduce_list.size(); ++i) {
+                result += real_reduce_list[i];
+            }
+        }
+        else if (reducer == MFReducer::MIN) {
+            result = 1.e200;
+            for (int i = 0; i < real_reduce_list.size(); ++i) {
+                result = std::min(result, real_reduce_list[i]);
+            }
+        }
+        else if (reducer == MFReducer::MAX) {
+            result = -1.e200;
+            for (int i = 0; i < real_reduce_list.size(); ++i) {
+                result = std::max(result, real_reduce_list[i]);
+            }
+        }
+
+        *real_reduce_val = result;
+
+    }
 
 }
 #endif

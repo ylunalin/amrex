@@ -367,13 +367,6 @@ USE_DEVICE := FALSE
 
 ifeq ($(USE_CUDA),TRUE)
 
-    # The CUDA implementation is not currently threadsafe.
-    # Throw an error if the user tries to build with OpenMP and CUDA.
-
-    ifeq ($(USE_OMP),TRUE)
-        $(error The CUDA implementation is not thread-safe; do not try to use OpenMP)
-    endif
-
     ifeq ($(USE_MPI),TRUE)
       # Make sure that the C/C++ MPI
       # wrappers are calling nvcc to compile the code.

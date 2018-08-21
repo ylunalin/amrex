@@ -58,7 +58,7 @@ public:
     };
 
 #ifdef AMREX_USE_CUDA
-    enum MFReducer { SUM = 0, MAX, MIN };
+    enum MFReducer { NONE = -1, SUM = 0, MAX, MIN };
 #endif
 
     /** 
