@@ -340,28 +340,28 @@ distributed to neighbor cells.</span></p>
 </div>
 <div class="section" id="initializing-the-geometric-database">
 <span id="sec-eb-ebinit"></span><h1>Initializing the Geometric Database<a class="headerlink" href="#initializing-the-geometric-database" title="Permalink to this headline">¶</a></h1>
-<p>In AMReX the geometric information is stored in a distributed database
-class that must be initialized at the start of the calculation.  The
+<p>In AMReX geometric information is stored in a distributed database
+class that must be initialized at the start of the calculation. The
 procedure for this goes as follows:</p>
 <ul class="simple">
-<li>Define a function of position which describes the surface.  More
-specifically, the function class must have a public member function
-that takes a position and returns a negative value for a position
+<li>Define an implicit function of position which describes the surface of the
+embedded object. Specifically, the function class must have a public member function
+that takes a position and returns a negative value if that position is
 inside the fluid, a positive value in the body, and identically zero
-at the EB.</li>
+at the embedded boundary.</li>
 </ul>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">Real</span> <span class="nf">operator</span><span class="p">()</span> <span class="p">(</span><span class="k">const</span> <span class="n">Array</span><span class="o">&lt;</span><span class="n">Real</span><span class="p">,</span><span class="n">AMREX_SPACEDIM</span><span class="o">&gt;&amp;</span> <span class="n">p</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li>Make a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EB2</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">GeometryShop</span></span></code> object with the implicit function.</li>
+<li>Make a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EB2</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">GeometryShop</span></span></code> object using the implicit function.</li>
 <li>Build an <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EB2</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">IndexSpace</span></span></code> with the
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EB2</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">GeometryShop</span></span></code> object and a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Geometry</span></span></code> object that
 contains the information about the domain and the mesh.</li>
 </ul>
-<p>Here is a simple example of initialize the database with a sphere.</p>
+<p>Here is a simple example of initialize the database for an embedded sphere.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">Real</span> <span class="n">radius</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
-<span class="n">Array</span><span class="o">&lt;</span><span class="n">Real</span><span class="p">,</span><span class="n">AMREX_SPACEDIM</span><span class="o">&gt;</span> <span class="n">center</span><span class="p">{</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">};</span>
+<span class="n">Array</span><span class="o">&lt;</span><span class="n">Real</span><span class="p">,</span><span class="n">AMREX_SPACEDIM</span><span class="o">&gt;</span> <span class="n">center</span><span class="p">{</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">};</span> <span class="c1">//Center of the sphere</span>
 <span class="kt">bool</span> <span class="n">inside</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>  <span class="c1">// Is the fluid inside the sphere?</span>
 <span class="n">EB2</span><span class="o">::</span><span class="n">SphereIF</span> <span class="n">sphere</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span> <span class="n">center</span><span class="p">,</span> <span class="n">inside</span><span class="p">);</span>
 
@@ -384,15 +384,18 @@ template for their own classes.</p>
 <li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">PlaneIF</span></span></code>: Half-space plane.</li>
 <li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">SphereIF</span></span></code>: Sphere.</li>
 </ul>
-<p>AMReX also provides a number of transformation functions.</p>
+<p>AMReX also provides a number of transformation operations to apply to an object.</p>
 <ul class="simple">
-<li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">makeComplement</span></span></code>: Complement of object.</li>
+<li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">makeComplement</span></span></code>: Complement of an object. For example, a sphere with fluid on outside would</li>
+</ul>
+<p>become a sphere with fluid on the inside.</p>
+<ul class="simple">
 <li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">makeIntersection</span></span></code>: Intersection of two or more objects.</li>
-<li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">makeUnion</span></span></code>: Union of tow or more objects.</li>
-<li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Translate</span></span></code>: Translation of object.</li>
-<li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">scale</span></span></code>: Scale of object.</li>
-<li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">rotate</span></span></code>: Rotation of object.</li>
-<li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">lather</span></span></code>: Rotation of a 2D object around an axis.</li>
+<li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">makeUnion</span></span></code>: Union of two or more objects.</li>
+<li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Translate</span></span></code>: Translates an object.</li>
+<li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">scale</span></span></code>: Scales an object.</li>
+<li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">rotate</span></span></code>: Rotates an object.</li>
+<li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">lathe</span></span></code>: Creates a surface of revolution by rotating a 2D object around an axis.</li>
 </ul>
 <p>Here are some examples of using these functions.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">EB2</span><span class="o">::</span><span class="n">SphereIF</span> <span class="n">sphere1</span><span class="p">(...);</span>
@@ -431,21 +434,23 @@ template for their own classes.</p>
 </pre></div>
 </div>
 <p>Here the template parameter is a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EB2</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">GeometryShop</span></span></code>.
-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Geometry</span></span></code> (section <a class="reference internal" href="Basics.html#sec-basics-geom"><span class="std std-ref">RealBox and Geometry</span></a>) describes the
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Geometry</span></span></code> (see section <a class="reference internal" href="Basics.html#sec-basics-geom"><span class="std std-ref">RealBox and Geometry</span></a>) describes the
 rectangular problem domain and the mesh on the finest AMR level.
-Coarse level EB data are generated from coarsening the fine data.  The
+Coarse level EB data is generated from coarsening the original fine data.  The
 <code class="code cpp c++ docutils literal notranslate"><span class="keyword type"><span class="pre">int</span></span> <span class="name"><span class="pre">required_coarsening_level</span></span></code> parameter specifies the number of
-required coarsening levels.  This is usually set to <span class="math notranslate nohighlight">\(N-1\)</span>, where
+coarsening levels required.  This is usually set to <span class="math notranslate nohighlight">\(N-1\)</span>, where
 <span class="math notranslate nohighlight">\(N\)</span> is the total number of AMR levels.  The <code class="code cpp c++ docutils literal notranslate"><span class="keyword type"><span class="pre">int</span></span>
 <span class="name"><span class="pre">max_coarsening_levels</span></span></code> parameter specifies the number of coarsening
-levels AMReX should try to have.  This is usually set to a big number
-say 20 if multigrid solvers are used.  This essentially means
-coarsening as much as it can.  If there are no multigrid solvers, the
-paramter should be set to the same as
-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">required_coarsening_level</span></span></code>.  It should be noted coarsening could
+levels AMReX should try to have.  This is usually set to a big number,
+say 20 if multigrid solvers are used.  This essentially tells the build to
+coarsen as much as it can.  If there are no multigrid solvers, the
+parameter should be set to the same as
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">required_coarsening_level</span></span></code>.  It should be noted that coarsening could
 create multi-valued cells even if the fine level does not have any
-multi-valued cells.  Because multi-valued cells are not supported, it
-is a runtime error if coarsening to a required level generates
+multi-valued cells. This occurs when the embedded boundary cuts a cell
+in such a way that there is fluid on multiple sides of the boundary within
+that cell.  Because multi-valued cells are not supported, it
+will cause a runtime error if the required coarsening level generates
 multi-valued cells.</p>
 <p>The newly built <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EB2</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">IndexSpace</span></span></code> is pushed on to a stack.  Static
 function <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EB2</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">IndexSpace</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">top</span></span><span class="punctuation"><span class="pre">()</span></span></code> returns a <code class="code cpp c++ docutils literal notranslate"><span class="keyword"><span class="pre">const</span></span> <span class="operator"><span class="pre">&amp;</span></span></code> to the
