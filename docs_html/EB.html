@@ -320,7 +320,7 @@ quantities over the domain. To enforce this, we calculate <span class="math notr
 mass gained or lost by not using <span class="math notranslate nohighlight">\(D^c\)</span> directly,</p>
 <div class="math notranslate nohighlight">
 \[\delta M_{\bf i}= \kappa (1-\kappa)(D^c(F)_{\bf i}- D^{nc}(F)_{\bf i})\]</div>
-<p>This “excess material” (mass, if <span class="math notranslate nohighlight">\(U=\rho\)</span>) can be <em>redistributed</em>&nbsp;in a
+<p>This “excess material” (mass, if <span class="math notranslate nohighlight">\(U=\rho\)</span>) can be <em>redistributed</em> in a
 time-explicit fashion to neighboring cells, <span class="math notranslate nohighlight">\({\bf j}\in N_{\bf i}\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\delta M_{\bf i}= \sum_{{\bf j}\in N_{\bf i}} \delta M_{{\bf j}, {\bf i}}.\]</div>
@@ -354,16 +354,16 @@ class that must be initialized at the start of the calculation.  The
 procedure for this goes as follows:</p>
 <ul class="simple">
 <li>Define function of position which describes the surface and use it define a
-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">GeometryShop</span></span></code>&nbsp;object – specifically, the scalar value returned by this
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">GeometryShop</span></span></code> object – specifically, the scalar value returned by this
 function takes on a negative value inside the fluid, a positive value in the
 body, and identically zero at the EB.</li>
-<li>Construct an <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBIndexSpace</span></span></code>&nbsp;with the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">GeometryShop</span></span></code>&nbsp;object. This
+<li>Construct an <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBIndexSpace</span></span></code> with the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">GeometryShop</span></span></code> object. This
 will fill the underlying database of geometric information, specifically
 tailored to the actual meshes that will be used. Thus, the construction
 requires one to specify the actual mesh resolution that will be used in a
 calculation.</li>
 <li><dl class="first docutils">
-<dt>If one wants to archive the geometric data for later runs, she can</dt>
+<dt>If one wants to archive the geometric data for later runs, they can</dt>
 <dd>call EBIndexSpace::write to put the data into a file.  One must be
 cautious, however, since these plot files are not binary portable.
 An EBIndexSpace plot file generated on one machine won’t
@@ -376,8 +376,8 @@ necessarily work on another machine.</dd>
 <dt>To facilitate the generation step,</dt>
 <dd>AMReX defines a virtual class, an “implicit function”,
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BaseIF</span></span></code>, which encapsulates this functionality.  An instance
-of a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BaseIF</span></span></code>&nbsp;object is required for the construction of a
-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">GeometryShop</span></span></code>&nbsp;object.</dd>
+of a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BaseIF</span></span></code> object is required for the construction of a
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">GeometryShop</span></span></code> object.</dd>
 </dl>
 </div></blockquote>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">GeometryShop</span><span class="p">(</span><span class="k">const</span> <span class="n">BaseIF</span><span class="o">&amp;</span> <span class="n">a_localGeom</span><span class="p">)</span>
