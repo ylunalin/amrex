@@ -102,27 +102,18 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#initializing-the-geometric-database">Initializing the Geometric Database</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#example-spherical-eb">Example: Spherical EB</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#other-basic-shapes">Other basic shapes:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implicit-function">Implicit Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#eb2-geometryshop"><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EB2</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">GeometryShop</span></span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#eb2-indexspace"><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EB2</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">IndexSpace</span></span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#implicit-function-transformation-tools">Implicit Function Transformation Tools</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#multi-sphere-example">Multi-sphere example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#geometric-example-2-surface-of-revolution">Geometric example 2 – Surface of revolution</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#geometric-example-3-a-sphere-inside-a-parabola">Geometric example 3 – A Sphere Inside a Parabola</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ebfarrayboxfactory">EBFArrayBoxFactory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#eb-data">EB Data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ebcellflagfab"><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBCellFlagFab</span></span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#ebfarraybox">EBFarrayBox</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#ebfarraybox-usage-example">EBFarrayBox Usage Example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#fortran-code-snippets">Fortran code Snippets</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#the-data-is-cell-centered-even-cut-cells">The data is cell-centered, even cut cells</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#many-eb-operations-can-be-organized-as-post-processing">Many EB operations can be organized as post-processing</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#the-flag-data">The <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">flag</span></span></code> data</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#there-are-many-approaches">There are many approaches</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#linear-solvers">Linear Solvers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tutorials">Tutorials</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Chapter11.html">Visualization</a></li>
@@ -320,7 +311,7 @@ quantities over the domain. To enforce this, we calculate <span class="math notr
 mass gained or lost by not using <span class="math notranslate nohighlight">\(D^c\)</span> directly,</p>
 <div class="math notranslate nohighlight">
 \[\delta M_{\bf i}= \kappa (1-\kappa)(D^c(F)_{\bf i}- D^{nc}(F)_{\bf i})\]</div>
-<p>This “excess material” (mass, if <span class="math notranslate nohighlight">\(U=\rho\)</span>) can be <em>redistributed</em> in a
+<p>This “excess material” (mass, if <span class="math notranslate nohighlight">\(U=\rho\)</span>) can be <em>redistributed</em>&nbsp;in a
 time-explicit fashion to neighboring cells, <span class="math notranslate nohighlight">\({\bf j}\in N_{\bf i}\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\delta M_{\bf i}= \sum_{{\bf j}\in N_{\bf i}} \delta M_{{\bf j}, {\bf i}}.\]</div>
@@ -353,640 +344,295 @@ distributed to neighbor cells.</span></p>
 class that must be initialized at the start of the calculation.  The
 procedure for this goes as follows:</p>
 <ul class="simple">
-<li>Define function of position which describes the surface and use it define a
-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">GeometryShop</span></span></code> object – specifically, the scalar value returned by this
-function takes on a negative value inside the fluid, a positive value in the
-body, and identically zero at the EB.</li>
-<li>Construct an <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBIndexSpace</span></span></code> with the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">GeometryShop</span></span></code> object. This
-will fill the underlying database of geometric information, specifically
-tailored to the actual meshes that will be used. Thus, the construction
-requires one to specify the actual mesh resolution that will be used in a
-calculation.</li>
-<li><dl class="first docutils">
-<dt>If one wants to archive the geometric data for later runs, they can</dt>
-<dd>call EBIndexSpace::write to put the data into a file.  One must be
-cautious, however, since these plot files are not binary portable.
-An EBIndexSpace plot file generated on one machine won’t
-necessarily work on another machine.</dd>
-</dl>
-</li>
+<li>Define a function of position which describes the surface.  More
+specifically, the function class must have a public member function
+that takes a position and returns a negative value for a position
+inside the fluid, a positive value in the body, and identically zero
+at the EB.</li>
 </ul>
-<blockquote>
-<div><dl class="docutils">
-<dt>To facilitate the generation step,</dt>
-<dd>AMReX defines a virtual class, an “implicit function”,
-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BaseIF</span></span></code>, which encapsulates this functionality.  An instance
-of a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BaseIF</span></span></code> object is required for the construction of a
-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">GeometryShop</span></span></code> object.</dd>
-</dl>
-</div></blockquote>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">GeometryShop</span><span class="p">(</span><span class="k">const</span> <span class="n">BaseIF</span><span class="o">&amp;</span> <span class="n">a_localGeom</span><span class="p">)</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">Real</span> <span class="nf">operator</span><span class="p">()</span> <span class="p">(</span><span class="k">const</span> <span class="n">Array</span><span class="o">&lt;</span><span class="n">Real</span><span class="p">,</span><span class="n">AMREX_SPACEDIM</span><span class="o">&gt;&amp;</span> <span class="n">p</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Although the user is free to define their own instance of this class, AMReX
-provides a number of preconfigured useful ones. This are listed in the next
-section.</p>
-<div class="section" id="example-spherical-eb">
-<h2>Example: Spherical EB<a class="headerlink" href="#example-spherical-eb" title="Permalink to this headline">¶</a></h2>
-<p>The spherical implicit function, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">SphereIF</span></span></code>, derives from <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BaseIF</span></span></code>,
-and defines the function</p>
-<div class="math notranslate nohighlight">
-\[S({\bf x}) = x^2 + y^2 + z^2 - R^2,\]</div>
-<p>In this case, the solution domain is defined as the interior of a sphere of
-radius <span class="math notranslate nohighlight">\(R\)</span>. If the sign of <span class="math notranslate nohighlight">\(S\)</span> is reversed, the solution domain is
-the exterior of the sphere. The following example illustrates how to use the
-SphereIF&nbsp;class to define a GeometryShop&nbsp;object:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">nx</span> <span class="o">=</span> <span class="mi">1024</span><span class="p">;</span>
-<span class="n">Box</span> <span class="nf">domain</span><span class="p">(</span><span class="n">IntVect</span><span class="o">::</span><span class="n">Zero</span><span class="p">,</span> <span class="p">(</span><span class="n">nx</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">IntVect</span><span class="o">::</span><span class="n">Unit</span><span class="p">);</span>
-<span class="n">Real</span> <span class="n">dx</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">nx</span><span class="p">;</span>
-<span class="n">Real</span> <span class="n">radius</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span>
-<span class="n">RealVect</span> <span class="n">center</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">RealVect</span><span class="o">::</span><span class="n">Unit</span><span class="p">;</span>
-<span class="kt">bool</span> <span class="n">insideRegular</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-<span class="c1">//this is the implicit function</span>
-<span class="n">SphereIF</span> <span class="nf">sphere</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span> <span class="n">center</span><span class="p">,</span> <span class="n">insideRegular</span><span class="p">);</span>
-
-<span class="c1">//this is worker object that creates geometric information given an IF</span>
-<span class="n">GeometryShop</span> <span class="nf">workshop</span><span class="p">(</span><span class="n">sphere</span><span class="p">)</span>
-
-<span class="c1">//this is the global, distributed database being initialized</span>
-<span class="n">EBIndexSpace</span><span class="o">*</span>  <span class="n">ebis</span> <span class="o">=</span> <span class="n">AMReX_EBIS</span><span class="o">::</span><span class="n">instance</span><span class="p">();</span>
-<span class="n">ebis</span><span class="o">-&gt;</span><span class="n">define</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">RealVect</span><span class="o">::</span><span class="n">Zero</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">workshop</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>In this case, we construct an <span class="math notranslate nohighlight">\(r=0.1\)</span> sphere, centered within a unit
-cube. The mesh resolution is <span class="math notranslate nohighlight">\(1024^3\)</span>.  The <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">GeometryShop</span></span></code>&nbsp;object
-based on this sphere is then used to construct the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBIndexSpace</span></span></code>, as
-shown.</p>
-<div class="section" id="other-basic-shapes">
-<h3>Other basic shapes:<a class="headerlink" href="#other-basic-shapes" title="Permalink to this headline">¶</a></h3>
-<ul>
-<li><p class="first">Planes are made using the class <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">PlaneIF</span></span></code> which given a normal
-<span class="math notranslate nohighlight">\({\bf n}\)</span> and a center <span class="math notranslate nohighlight">\({\bf c}\)</span> gives the implicit function</p>
-<div class="math notranslate nohighlight">
-\[I({\bf x}) = \sum_{1&lt;=d&lt;=D} n_d (x_d - c_d).\]</div>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">RealVect</span> <span class="n">normal</span><span class="p">;</span>
-<span class="n">RealVect</span> <span class="n">center</span><span class="p">;</span>
-<span class="c1">// ...fill in values for normal and centre...</span>
-
-<span class="n">PlaneIF</span> <span class="nf">plane</span><span class="p">(</span><span class="n">normal</span><span class="p">,</span> <span class="n">centre</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
-<span class="n">GeometryShop</span> <span class="nf">workshop</span><span class="p">(</span><span class="n">plane</span><span class="p">)</span>
-
-<span class="n">EBIndexSpace</span><span class="o">*</span>  <span class="n">ebis</span> <span class="o">=</span> <span class="n">AMReX_EBIS</span><span class="o">::</span><span class="n">instance</span><span class="p">();</span>
-<span class="n">ebis</span><span class="o">-&gt;</span><span class="n">define</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">RealVect</span><span class="o">::</span><span class="n">Zero</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">workshop</span><span class="p">);</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">Polynomials of any form can be made using the class
-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">PolynomialIF</span></span></code>. Here is an example that makes a parabola of
-the form <span class="math notranslate nohighlight">\(I({\bf x}) = x - y^2 - z^2\)</span>.</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">Vector</span><span class="o">&lt;</span><span class="n">PolyTerm</span><span class="o">&gt;</span> <span class="n">poly</span><span class="p">;</span>
-<span class="n">PolyTerm</span> <span class="n">mono</span><span class="p">;</span>
-<span class="n">Real</span> <span class="n">coef</span><span class="p">;</span>
-<span class="n">IntVect</span> <span class="n">powers</span><span class="p">;</span>
-<span class="n">Real</span> <span class="n">amplitude</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-
-<span class="c1">// y^2 term</span>
-<span class="n">coef</span> <span class="o">=</span> <span class="n">amplitude</span><span class="p">;</span>
-<span class="n">powers</span> <span class="o">=</span> <span class="n">IntVect</span><span class="o">::</span><span class="n">Zero</span><span class="p">;</span>
-<span class="n">powers</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-
-<span class="n">mono</span><span class="p">.</span><span class="n">coef</span>   <span class="o">=</span> <span class="n">coef</span><span class="p">;</span>
-<span class="n">mono</span><span class="p">.</span><span class="n">powers</span> <span class="o">=</span> <span class="n">powers</span><span class="p">;</span>
-<span class="n">poly</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">mono</span><span class="p">);</span>
-
-<span class="c1">// z^2 term</span>
-<span class="n">coef</span> <span class="o">=</span> <span class="n">amplitude</span><span class="p">;</span>
-<span class="n">RealVect</span> <span class="n">translation</span><span class="p">;</span>
-
-<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">idir</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">idir</span> <span class="o">&lt;</span> <span class="n">SpaceDim</span><span class="p">;</span> <span class="n">idir</span><span class="o">++</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">finesize</span> <span class="o">=</span> <span class="n">finest_domain</span><span class="p">.</span><span class="n">size</span><span class="p">()[</span><span class="n">idir</span><span class="p">];</span>
-    <span class="n">translation</span><span class="p">[</span><span class="n">idir</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">finesize</span><span class="o">*</span><span class="n">fine_dx</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="n">translation</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-
-<span class="n">TransformIF</span> <span class="nf">implicit</span><span class="p">(</span><span class="n">mirror</span><span class="p">);</span>
-<span class="n">implicit</span><span class="p">.</span><span class="n">translate</span><span class="p">(</span><span class="n">translation</span><span class="p">);</span>
-<span class="n">impfunc</span><span class="p">.</span><span class="n">reset</span><span class="p">(</span><span class="n">implicit</span><span class="p">.</span><span class="n">newImplicitFunction</span><span class="p">());</span>
-
-<span class="n">powers</span> <span class="o">=</span> <span class="n">IntVect</span><span class="o">::</span><span class="n">Zero</span><span class="p">;</span>
-<span class="n">powers</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-<span class="n">mono</span><span class="p">.</span><span class="n">coef</span>   <span class="o">=</span> <span class="n">coef</span><span class="p">;</span>
-<span class="n">mono</span><span class="p">.</span><span class="n">powers</span> <span class="o">=</span> <span class="n">powers</span><span class="p">;</span>
-<span class="n">poly</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">mono</span><span class="p">);</span>
-
-<span class="c1">// x term</span>
-<span class="n">coef</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">;</span>
-<span class="n">powers</span> <span class="o">=</span> <span class="n">IntVect</span><span class="o">::</span><span class="n">Zero</span><span class="p">;</span>
-<span class="n">powers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="n">mono</span><span class="p">.</span><span class="n">coef</span>   <span class="o">=</span> <span class="n">coef</span><span class="p">;</span>
-<span class="n">mono</span><span class="p">.</span><span class="n">powers</span> <span class="o">=</span> <span class="n">powers</span><span class="p">;</span>
-
-<span class="n">poly</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">mono</span><span class="p">);</span>
-
-<span class="n">PolynomialIF</span> <span class="nf">mirror</span><span class="p">(</span><span class="n">poly</span><span class="p">,</span><span class="nb">false</span><span class="p">);</span>
-<span class="n">GeometryShop</span> <span class="nf">workshop</span><span class="p">(</span><span class="n">mirror</span><span class="p">)</span>
-<span class="n">EBIndexSpace</span><span class="o">*</span>  <span class="n">ebis</span> <span class="o">=</span> <span class="n">AMReX_EBIS</span><span class="o">::</span><span class="n">instance</span><span class="p">();</span>
-<span class="n">ebis</span><span class="o">-&gt;</span><span class="n">define</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">RealVect</span><span class="o">::</span><span class="n">Zero</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">workshop</span><span class="p">);</span>
-</pre></div>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="section" id="implicit-function-transformation-tools">
-<h2>Implicit Function Transformation Tools<a class="headerlink" href="#implicit-function-transformation-tools" title="Permalink to this headline">¶</a></h2>
-<p>More complex domains can be constructed by composing these fundamental shapes.
-AMReX contains the following classes to compose implicit functions:</p>
 <ul class="simple">
-<li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">TransformIF</span></span></code> allows for translations and rotations of an implicit function.</li>
-<li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">UnionIF</span></span></code> produces the union of two implicit functions.</li>
-<li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">IntersectionIF</span></span></code> produces the intersection of two implicit functions.</li>
-<li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">LatheIF</span></span></code> creates a 3D implicit function as the surface of
-revolution of a 2D implicit function.</li>
+<li>Make a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EB2</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">GeometryShop</span></span></code> object with the implicit function.</li>
+<li>Build an <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EB2</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">IndexSpace</span></span></code> with the
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EB2</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">GeometryShop</span></span></code> object and a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Geometry</span></span></code> object that
+contains the information about the domain and the mesh.</li>
 </ul>
+<p>Here is a simple example of initialize the database with a sphere.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">Real</span> <span class="n">radius</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+<span class="n">Array</span><span class="o">&lt;</span><span class="n">Real</span><span class="p">,</span><span class="n">AMREX_SPACEDIM</span><span class="o">&gt;</span> <span class="n">center</span><span class="p">{</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">};</span>
+<span class="kt">bool</span> <span class="n">inside</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>  <span class="c1">// Is the fluid inside the sphere?</span>
+<span class="n">EB2</span><span class="o">::</span><span class="n">SphereIF</span> <span class="n">sphere</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span> <span class="n">center</span><span class="p">,</span> <span class="n">inside</span><span class="p">);</span>
+
+<span class="k">auto</span> <span class="n">shop</span> <span class="o">=</span> <span class="n">EB2</span><span class="o">::</span><span class="n">makeShop</span><span class="p">(</span><span class="n">sphere</span><span class="p">);</span>
+
+<span class="n">Geometry</span> <span class="nf">geom</span><span class="p">(...);</span>
+<span class="n">EB2</span><span class="o">::</span><span class="n">Build</span><span class="p">(</span><span class="n">shop</span><span class="p">,</span> <span class="n">geom</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</pre></div>
 </div>
-<div class="section" id="multi-sphere-example">
-<h2>Multi-sphere example<a class="headerlink" href="#multi-sphere-example" title="Permalink to this headline">¶</a></h2>
-<p>The following example creates a geometry using multiple spheres:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Real</span><span class="o">&gt;</span>     <span class="n">radius</span><span class="p">(</span><span class="n">numSpheres</span><span class="p">);</span>
-<span class="n">vector</span><span class="o">&lt;</span><span class="n">RealVect</span><span class="o">&gt;</span> <span class="n">center</span><span class="p">(</span><span class="n">numSpheres</span><span class="p">);</span>
-<span class="c1">//...</span>
+<div class="section" id="implicit-function">
+<h2>Implicit Function<a class="headerlink" href="#implicit-function" title="Permalink to this headline">¶</a></h2>
+<p>In <code class="docutils literal notranslate"><span class="pre">amrex/Src/EB2/</span></code>, there are a number of predefined implicit
+function classes for basic shapes.  One can use these directly or as
+template for their own classes.</p>
+<ul class="simple">
+<li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">AllRegularIF</span></span></code>:  No embedded boundaries at all.</li>
+<li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BoxIF</span></span></code>: Box.</li>
+<li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">CylinderIF</span></span></code>: Cylinder.</li>
+<li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EllipsoidIF</span></span></code>: Ellipsoid.</li>
+<li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">PlaneIF</span></span></code>: Half-space plane.</li>
+<li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">SphereIF</span></span></code>: Sphere.</li>
+</ul>
+<p>AMReX also provides a number of transformation functions.</p>
+<ul class="simple">
+<li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">makeComplement</span></span></code>: Complement of object.</li>
+<li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">makeIntersection</span></span></code>: Intersection of two or more objects.</li>
+<li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">makeUnion</span></span></code>: Union of tow or more objects.</li>
+<li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Translate</span></span></code>: Translation of object.</li>
+<li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">scale</span></span></code>: Scale of object.</li>
+<li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">rotate</span></span></code>: Rotation of object.</li>
+<li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">lather</span></span></code>: Rotation of a 2D object around an axis.</li>
+</ul>
+<p>Here are some examples of using these functions.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">EB2</span><span class="o">::</span><span class="n">SphereIF</span> <span class="n">sphere1</span><span class="p">(...);</span>
+<span class="n">EB2</span><span class="o">::</span><span class="n">SphereIF</span> <span class="n">sphere2</span><span class="p">(...);</span>
+<span class="n">EB2</span><span class="o">::</span><span class="n">BoxIF</span> <span class="n">box</span><span class="p">(...);</span>
+<span class="n">EB2</span><span class="o">::</span><span class="n">CylinderIF</span> <span class="n">cylinder</span><span class="p">(...);</span>
+<span class="n">EB2</span><span class="o">::</span><span class="n">PlaneIF</span> <span class="n">plane</span><span class="p">(...);</span>
 
-<span class="c1">//create an implicit function for each sphere</span>
-<span class="n">vector</span><span class="o">&lt;</span><span class="n">BaseIF</span><span class="o">*&gt;</span>  <span class="n">spheres</span><span class="p">(</span><span class="n">numSpheres</span><span class="p">);</span>
+<span class="c1">// union of two spheres</span>
+<span class="k">auto</span> <span class="n">twospheres</span> <span class="o">=</span> <span class="n">EB2</span><span class="o">::</span><span class="n">makeUnion</span><span class="p">(</span><span class="n">sphere1</span><span class="p">,</span> <span class="n">sphere2</span><span class="p">);</span>
 
-<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">isphere</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">isphere</span> <span class="o">&lt;</span> <span class="n">numSpheres</span><span class="p">;</span> <span class="n">isphere</span><span class="o">++</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="c1">// Create sphere at each origin and translate</span>
-  <span class="n">SphereIF</span> <span class="n">sphereAtZero</span><span class="p">(</span><span class="n">radius</span><span class="p">[</span><span class="n">isphere</span><span class="p">],</span> <span class="n">RealVect</span><span class="o">::</span><span class="n">Zero</span><span class="p">,</span> <span class="nb">false</span><span class="p">);</span>
-  <span class="n">TransformIF</span><span class="o">*</span> <span class="n">movedSphere</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TransformIF</span><span class="p">(</span><span class="n">sphereAtZero</span><span class="p">);</span>
-  <span class="n">movedSphere</span><span class="o">-&gt;</span><span class="n">translate</span><span class="p">(</span><span class="n">center</span><span class="p">[</span><span class="n">isphere</span><span class="p">]);</span>
-  <span class="n">spheres</span><span class="p">[</span><span class="n">isphere</span><span class="p">]</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">BaseIF</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">movedSphere</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="c1">// Create implicit function as intersection of spheres</span>
-<span class="n">IntersectionIF</span> <span class="n">impMultisphere</span><span class="p">(</span><span class="n">spheres</span><span class="p">);</span>
+<span class="c1">// intersection of a rotated box, a plane and the union of two spheres</span>
+<span class="k">auto</span> <span class="n">box_plane</span> <span class="o">=</span> <span class="n">EB2</span><span class="o">::</span><span class="n">makeIntersection</span><span class="p">(</span><span class="n">amrex</span><span class="o">::</span><span class="n">rotate</span><span class="p">(</span><span class="n">box</span><span class="p">,...),</span>
+                                       <span class="n">plane</span><span class="p">,</span>
+                                       <span class="n">twospheres</span><span class="p">);</span>
 
-<span class="c1">// Fluid will in the complement space outside the sphere</span>
-<span class="n">ComplementIF</span> <span class="nf">sideImpMultisphere</span><span class="p">(</span><span class="n">impMultisphere</span><span class="p">,</span> <span class="nb">false</span><span class="p">);</span>
-
-<span class="c1">// Construct the geometryshop</span>
-<span class="n">GeometryShop</span> <span class="n">workshop</span><span class="p">(</span><span class="n">sideImpMultisphere</span><span class="p">)</span>
+<span class="c1">// scale a cylinder by a factor of 2 in x and y directions, and 3 in z-direction.</span>
+<span class="k">auto</span> <span class="n">scylinder</span> <span class="o">=</span> <span class="n">EB2</span><span class="o">::</span><span class="n">scale</span><span class="p">(</span><span class="n">cylinder</span><span class="p">,</span> <span class="p">{</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">});</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="geometric-example-2-surface-of-revolution">
-<h2>Geometric example 2 – Surface of revolution<a class="headerlink" href="#geometric-example-2-surface-of-revolution" title="Permalink to this headline">¶</a></h2>
-<p>Here is an example that creates a geometric construction using a surface of
-revolution of a set of polygons. This particular example only makes sense in
-three dimensions. With the right polygons, it creates the surface shown in
-<a class="reference internal" href="#fig-revolution"><span class="std std-numref">Fig. 12</span></a>.</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">/// define EBIndexSpace from the surface of revolution of a set of polygons</span>
-<span class="kt">void</span>
-<span class="nf">defineGeometry</span><span class="p">(</span><span class="k">const</span> <span class="n">Real</span><span class="o">&amp;</span> <span class="n">fine_dx</span><span class="p">,</span> <span class="k">const</span>  <span class="n">Box</span><span class="o">&amp;</span> <span class="n">finest_domain</span><span class="p">,</span> <span class="kt">int</span> <span class="n">max_grid_size</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="n">amrex</span><span class="o">::</span><span class="n">Print</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;creating geometry from polygon surfaces of revolution&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<div class="section" id="eb2-geometryshop">
+<h2><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EB2</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">GeometryShop</span></span></code><a class="headerlink" href="#eb2-geometryshop" title="Permalink to this headline">¶</a></h2>
+<p>Given an implicit function object, say <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">f</span></span></code>, we can make a
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">GeometryShop</span></span></code> object with</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">shop</span> <span class="o">=</span> <span class="n">EB2</span><span class="o">::</span><span class="n">makeShop</span><span class="p">(</span><span class="n">f</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="eb2-indexspace">
+<h2><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EB2</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">IndexSpace</span></span></code><a class="headerlink" href="#eb2-indexspace" title="Permalink to this headline">¶</a></h2>
+<p>We build <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EB2</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">IndexSpace</span></span></code> with a template function</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">G</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">EB2</span><span class="o">::</span><span class="n">Build</span> <span class="p">(</span><span class="k">const</span> <span class="n">G</span><span class="o">&amp;</span> <span class="n">gshop</span><span class="p">,</span> <span class="k">const</span> <span class="n">Geometry</span><span class="o">&amp;</span> <span class="n">geom</span><span class="p">,</span>
+                 <span class="kt">int</span> <span class="n">required_coarsening_level</span><span class="p">,</span> <span class="kt">int</span> <span class="n">max_coarsening_level</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Here the template parameter is a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EB2</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">GeometryShop</span></span></code>.
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Geometry</span></span></code> (section <a class="reference internal" href="Basics.html#sec-basics-geom"><span class="std std-ref">RealBox and Geometry</span></a>) describes the
+rectangular problem domain and the mesh on the finest AMR level.
+Coarse level EB data are generated from coarsening the fine data.  The
+<code class="code cpp c++ docutils literal notranslate"><span class="keyword type"><span class="pre">int</span></span> <span class="name"><span class="pre">required_coarsening_level</span></span></code> parameter specifies the number of
+required coarsening levels.  This is usually set to <span class="math notranslate nohighlight">\(N-1\)</span>, where
+<span class="math notranslate nohighlight">\(N\)</span> is the total number of AMR levels.  The <code class="code cpp c++ docutils literal notranslate"><span class="keyword type"><span class="pre">int</span></span>
+<span class="name"><span class="pre">max_coarsening_levels</span></span></code> parameter specifies the number of coarsening
+levels AMReX should try to have.  This is usually set to a big number
+say 20 if multigrid solvers are used.  This essentially means
+coarsening as much as it can.  If there are no multigrid solvers, the
+paramter should be set to the same as
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">required_coarsening_level</span></span></code>.  It should be noted coarsening could
+create multi-valued cells even if the fine level does not have any
+multi-valued cells.  Because multi-valued cells are not supported, it
+is a runtime error if coarsening to a required level generates
+multi-valued cells.</p>
+<p>The newly built <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EB2</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">IndexSpace</span></span></code> is pushed on to a stack.  Static
+function <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EB2</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">IndexSpace</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">top</span></span><span class="punctuation"><span class="pre">()</span></span></code> returns a <code class="code cpp c++ docutils literal notranslate"><span class="keyword"><span class="pre">const</span></span> <span class="operator"><span class="pre">&amp;</span></span></code> to the
+new <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EB2</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">IndexSpace</span></span></code> object.  We usually only need to build one
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EB2</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">IndexSpace</span></span></code> object.  However, if your application needs
+multiple <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EB2</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">IndexSpace</span></span></code> objects, you can save the pointers for
+later use.  For simplicity, we assume there is only one
+<cite>EB2::IndexSpace</cite> object for the rest of this chapter.</p>
+</div>
+</div>
+<div class="section" id="ebfarrayboxfactory">
+<h1>EBFArrayBoxFactory<a class="headerlink" href="#ebfarrayboxfactory" title="Permalink to this headline">¶</a></h1>
+<p>After the EB database is initialized, the next thing we build is
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBFArrayBoxFactory</span></span></code>.  This object provides access to the EB
+database in the format of basic AMReX objects such as <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BaseFab</span></span></code>,
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code>, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FabArray</span></span></code>, and <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code>.   We can
+construct it with</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">EBFArrayBoxFactory</span> <span class="p">(</span><span class="k">const</span> <span class="n">Geometry</span><span class="o">&amp;</span> <span class="n">a_geom</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="n">BoxArray</span><span class="o">&amp;</span> <span class="n">a_ba</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="n">DistributionMapping</span><span class="o">&amp;</span> <span class="n">a_dm</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="n">Vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">a_ngrow</span><span class="p">,</span>
+                    <span class="n">EBSupport</span> <span class="n">a_support</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">EBFArrayBoxFactory</span><span class="o">&gt;</span>
+<span class="n">makeEBFabFactory</span> <span class="p">(</span><span class="k">const</span> <span class="n">Geometry</span><span class="o">&amp;</span> <span class="n">a_geom</span><span class="p">,</span>
+                  <span class="k">const</span> <span class="n">BoxArray</span><span class="o">&amp;</span> <span class="n">a_ba</span><span class="p">,</span>
+                  <span class="k">const</span> <span class="n">DistributionMapping</span><span class="o">&amp;</span> <span class="n">a_dm</span><span class="p">,</span>
+                  <span class="k">const</span> <span class="n">Vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">a_ngrow</span><span class="p">,</span>
+                  <span class="n">EBSupport</span> <span class="n">a_support</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Argument <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Vector</span></span><span class="operator"><span class="pre">&lt;</span></span><span class="keyword type"><span class="pre">int</span></span><span class="operator"><span class="pre">&gt;</span></span> <span class="keyword"><span class="pre">const</span></span><span class="operator"><span class="pre">&amp;</span></span> <span class="name"><span class="pre">a_ngrow</span></span></code> specifies the number of
+ghost cells we need for EB data at various <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBSupport</span></span></code> levels,
+and argument <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBSupport</span></span> <span class="name"><span class="pre">a_support</span></span></code> specifies the level of support
+needed.</p>
+<ul class="simple">
+<li><code class="code cpp c++ docutils literal notranslate"><span class="name label"><span class="pre">EBSupport</span></span><span class="punctuation"><span class="pre">:</span></span><span class="name"><span class="pre">basic</span></span></code>:  basic flags for cell types</li>
+<li><code class="code cpp c++ docutils literal notranslate"><span class="name label"><span class="pre">EBSupport</span></span><span class="punctuation"><span class="pre">:</span></span><span class="name"><span class="pre">volume</span></span></code>: basic plus volume fraction and centroid</li>
+<li><code class="code cpp c++ docutils literal notranslate"><span class="name label"><span class="pre">EBSupport</span></span><span class="punctuation"><span class="pre">:</span></span><span class="name"><span class="pre">full</span></span></code>: volume plus area fraction, boundary centroid
+and face centroid</li>
+</ul>
+<p><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBFArrayBoxFactory</span></span></code> is derived from <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FabFactory</span></span><span class="operator"><span class="pre">&lt;</span></span><span class="name"><span class="pre">FArrayBox</span></span><span class="operator"><span class="pre">&gt;</span></span></code>.
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code> constructors have an optional argument <code class="code cpp c++ docutils literal notranslate"><span class="keyword"><span class="pre">const</span></span>
+<span class="name"><span class="pre">FabFactory</span></span><span class="operator"><span class="pre">&lt;</span></span><span class="name"><span class="pre">FArrayBox</span></span><span class="operator"><span class="pre">&gt;&amp;</span></span></code>.  We can use <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBFArrayBoxFactory</span></span></code> to
+build <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFabs</span></span></code> that carry EB data.  Member function of
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FabArray</span></span></code></p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">const</span> <span class="n">FabFactory</span><span class="o">&lt;</span><span class="n">FAB</span><span class="o">&gt;&amp;</span> <span class="n">Factory</span> <span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>can then be used to return a reference to the
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBFArrayBoxFactory</span></span></code> used for building the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code>.
+Using <code class="code cpp c++ docutils literal notranslate"><span class="keyword"><span class="pre">dynamic_cast</span></span></code>, we can test whether a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code> is
+built with an <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBFArrayBoxFactory</span></span></code>.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">factory</span> <span class="o">=</span> <span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">EBFArrayBoxFactory</span> <span class="k">const</span><span class="o">*&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">mf</span><span class="p">.</span><span class="n">Factory</span><span class="p">()));</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">factory</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// this is EBFArrayBoxFactory</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="c1">// regular FabFactory&lt;FArrayBox&gt;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="eb-data">
+<h1>EB Data<a class="headerlink" href="#eb-data" title="Permalink to this headline">¶</a></h1>
+<p>Through member functions of <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBFArrayBoxFactory</span></span></code>, we have access
+to the following data.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// see section on EBCellFlagFab</span>
+<span class="k">const</span> <span class="n">FabArray</span><span class="o">&lt;</span><span class="n">EBCellFlagFab</span><span class="o">&gt;&amp;</span> <span class="n">getMultiEBCellFlagFab</span> <span class="p">()</span> <span class="k">const</span><span class="p">;</span>
 
-  <span class="c1">// These  the polygons that get built around the z axis</span>
-  <span class="n">Vector</span><span class="o">&lt;</span><span class="n">Vector</span><span class="o">&lt;</span><span class="n">RealVect</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">polygons</span><span class="p">;</span>
-  <span class="c1">//....fill the polygons any way you like//</span>
+<span class="c1">// volume fraction</span>
+<span class="k">const</span> <span class="n">MultiFab</span><span class="o">&amp;</span> <span class="n">getVolFrac</span> <span class="p">()</span> <span class="k">const</span><span class="p">;</span>
 
-  <span class="c1">// Make the Vector of (convex) polygons (Vectors of points) into a union</span>
-  <span class="c1">// of convex polygons, each made from the intersection of a set of half</span>
-  <span class="c1">// planes/spaces - all represented by implicit functions.</span>
+<span class="c1">// volume centroid</span>
+<span class="k">const</span> <span class="n">MultiCutFab</span><span class="o">&amp;</span> <span class="n">getCentroid</span> <span class="p">()</span> <span class="k">const</span><span class="p">;</span>
 
-  <span class="c1">// A list of all the polygons as implicit functions</span>
-  <span class="n">Vector</span><span class="o">&lt;</span><span class="n">BaseIF</span><span class="o">*&gt;</span> <span class="n">polytopes</span><span class="p">;</span>
-  <span class="n">polytopes</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-  <span class="kt">int</span> <span class="n">numPolys</span> <span class="o">=</span> <span class="n">polygons</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
-  <span class="c1">// Process each polygon</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">p</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="n">numPolys</span><span class="p">;</span> <span class="n">p</span><span class="o">++</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="c1">// All the half planes/spaces used to make a polygon</span>
-    <span class="n">Vector</span><span class="o">&lt;</span><span class="n">BaseIF</span><span class="o">*&gt;</span> <span class="n">planes</span><span class="p">;</span>
-    <span class="n">planes</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="c1">// embedded boundary centroid</span>
+<span class="k">const</span> <span class="n">MultiCutFab</span><span class="o">&amp;</span> <span class="n">getBndryCent</span> <span class="p">()</span> <span class="k">const</span><span class="p">;</span>
 
-    <span class="c1">// Get the current polygon (as a Vector of points)</span>
-    <span class="k">const</span> <span class="n">Vector</span><span class="o">&lt;</span><span class="n">RealVect</span><span class="o">&gt;&amp;</span> <span class="n">polygon</span> <span class="o">=</span> <span class="n">polygons</span><span class="p">[</span><span class="n">p</span><span class="p">];</span>
+<span class="c1">// area fractions</span>
+<span class="n">Array</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">MultiCutFab</span><span class="o">*</span><span class="p">,</span><span class="n">AMREX_SPACEDIM</span><span class="o">&gt;</span> <span class="n">getAreaFrac</span> <span class="p">()</span> <span class="k">const</span><span class="p">;</span>
 
-    <span class="c1">// Get the number of points in the polygon</span>
-    <span class="kt">int</span> <span class="n">numPts</span> <span class="o">=</span> <span class="n">polygon</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+<span class="c1">// face centroid</span>
+<span class="n">Array</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">MultiCutFab</span><span class="o">*</span><span class="p">,</span><span class="n">AMREX_SPACEDIM</span><span class="o">&gt;</span> <span class="n">getFaceCent</span> <span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Volume fraction is in a single-component <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code>, and it is
+zero for covered cells, one for regular cells, and in between for cut
+cells.  Centroid is in a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiCutFab</span></span></code> with <code class="docutils literal notranslate"><span class="pre">AMREX_SPACEDIM</span></code>
+components.  Each component of the data is in the range of
+<span class="math notranslate nohighlight">\([-0.5,0.5]\)</span> because they are based on each cell’s local
+coordinates.  A <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiCutFab</span></span></code> is very similar to a
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code>.  Its data can be accessed with subscript operator</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">const</span> <span class="n">CutFab</span><span class="o">&amp;</span> <span class="k">operator</span><span class="p">[]</span> <span class="p">(</span><span class="k">const</span> <span class="n">MFIter</span><span class="o">&amp;</span> <span class="n">mfi</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Here <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">CutFab</span></span></code> is derived from <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code> and can be passed
+to Fortran just like <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code>.  The difference between
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiCutFab</span></span></code> and <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code> is that to save memory
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiCutFab</span></span></code> only has data on boxes that contain cut cells.  It
+is an error to call <code class="code cpp c++ docutils literal notranslate"><span class="keyword"><span class="pre">operator</span></span><span class="punctuation"><span class="pre">[]</span></span></code> if that box does not have cut
+cells.  Thus the call must be in a <code class="code cpp c++ docutils literal notranslate"><span class="keyword"><span class="pre">if</span></span></code> test block (see section
+<a class="reference internal" href="#sec-eb-flag"><span class="std std-ref">EBCellFlagFab</span></a>).  Boundary centroid is also a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiCutFab</span></span></code>
+with <code class="docutils literal notranslate"><span class="pre">AMREX_SPACEDIM</span></code> components, and it uses each cell’s local
+coordinates.  Area fractions and face centroids are returned in
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Array</span></span></code> of <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiCutFab</span></span></code> pointers.  For each direction, area
+fraction is for the face of that direction.  As for face centroids,
+there are two components for each direction and the ordering is always
+the same as the original ordering of the coordinates.  For example,
+for <span class="math notranslate nohighlight">\(y\)</span> face, the component 0 is for <span class="math notranslate nohighlight">\(x\)</span> coordinate and 1
+for <span class="math notranslate nohighlight">\(z\)</span>.  The coordinates are in each face’s local frame
+normalized to the range of <span class="math notranslate nohighlight">\([-0.5,0.5]\)</span>.</p>
+<div class="section" id="ebcellflagfab">
+<span id="sec-eb-flag"></span><h2><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBCellFlagFab</span></span></code><a class="headerlink" href="#ebcellflagfab" title="Permalink to this headline">¶</a></h2>
+<p><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBCellFlagFab</span></span></code> contains information on cell types.  We can use
+it to determine if a box contains cut cells.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">flags</span> <span class="o">=</span> <span class="n">factory</span><span class="o">-&gt;</span><span class="n">getMultiEBCellFlagFab</span><span class="p">();</span>
+<span class="n">MultiCutFab</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">centroid</span> <span class="o">=</span> <span class="n">factory</span><span class="o">-&gt;</span><span class="n">getCentroid</span><span class="p">();</span>
 
-    <span class="c1">// Process each pair of points</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="n">numPts</span><span class="p">;</span> <span class="n">n</span><span class="o">++</span><span class="p">)</span>
-    <span class="p">{</span>
-      <span class="c1">// The normal and point is space used to specify each half plane/space</span>
-      <span class="n">RealVect</span> <span class="n">normal</span><span class="p">(</span><span class="n">RealVect</span><span class="o">::</span><span class="n">Zero</span><span class="p">);</span>
-      <span class="n">RealVect</span> <span class="n">point</span><span class="p">;</span>
-
-      <span class="c1">// Set the normal remembering that the last point connects to the first</span>
-      <span class="c1">// point.</span>
-      <span class="n">normal</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">polygon</span><span class="p">[(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">numPts</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">polygon</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="mi">1</span><span class="p">]);</span>
-      <span class="n">normal</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span>  <span class="p">(</span><span class="n">polygon</span><span class="p">[(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">numPts</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">polygon</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="mi">0</span><span class="p">]);</span>
-
-      <span class="n">point</span> <span class="o">=</span> <span class="n">polygon</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
-
-      <span class="c1">// Generate the appropriate half plane/space (as an implicit function)</span>
-      <span class="n">PlaneIF</span><span class="o">*</span> <span class="n">plane</span><span class="p">;</span>
-      <span class="n">plane</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PlaneIF</span><span class="p">(</span><span class="n">normal</span><span class="p">,</span><span class="n">point</span><span class="p">,</span><span class="nb">true</span><span class="p">);</span>
-
-      <span class="c1">// Save the result</span>
-      <span class="n">planes</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">plane</span><span class="p">);</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">MFIter</span> <span class="n">mfi</span> <span class="p">...)</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="n">Box</span><span class="o">&amp;</span> <span class="n">bx</span> <span class="o">=</span> <span class="n">mfi</span><span class="p">.</span><span class="n">tilebox</span><span class="p">();</span>
+    <span class="n">FabType</span> <span class="n">t</span> <span class="o">=</span> <span class="n">flags</span><span class="p">[</span><span class="n">mfi</span><span class="p">].</span><span class="n">getType</span><span class="p">(</span><span class="n">bx</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">FabType</span><span class="o">::</span><span class="n">regular</span> <span class="o">==</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span>
+        <span class="o">!</span> <span class="n">This</span> <span class="n">box</span> <span class="n">is</span> <span class="n">regular</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">FabType</span><span class="o">::</span><span class="n">covered</span> <span class="o">==</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span>
+        <span class="o">!</span> <span class="n">This</span> <span class="n">box</span> <span class="n">is</span> <span class="n">covered</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">FabType</span><span class="o">::</span><span class="n">singlevalued</span> <span class="o">==</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span>
+        <span class="o">!</span> <span class="n">This</span> <span class="n">box</span> <span class="n">has</span> <span class="n">cut</span> <span class="n">cells</span>
+        <span class="o">!</span> <span class="n">Getting</span> <span class="n">cutfab</span> <span class="n">is</span> <span class="n">safe</span>
+        <span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">centroid_fab</span> <span class="o">=</span> <span class="n">centroid</span><span class="p">[</span><span class="n">mfi</span><span class="p">];</span>
     <span class="p">}</span>
-
-    <span class="c1">// Intersect all the half planes/spaces to create an implicit function</span>
-    <span class="c1">// that represents the polygon</span>
-    <span class="n">IntersectionIF</span><span class="o">*</span> <span class="n">polygonIF</span> <span class="o">=</span> <span class="k">new</span> <span class="n">IntersectionIF</span><span class="p">(</span><span class="n">planes</span><span class="p">);</span>
-
-    <span class="n">polytopes</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">polygonIF</span><span class="p">);</span>
-  <span class="p">}</span>
-
-  <span class="c1">//this makes the cross section the union of all the polygons (around</span>
-  <span class="c1">//z-axis, recall)</span>
-  <span class="n">UnionIF</span> <span class="n">crossSection</span><span class="p">(</span><span class="n">polytopes</span><span class="p">);</span>
-
-  <span class="c1">// In 3D rotate about the z-axis</span>
-  <span class="n">LatheIF</span> <span class="n">lathe</span><span class="p">(</span><span class="n">crossSection</span><span class="p">,</span> <span class="nb">false</span><span class="p">);</span>
-
-  <span class="c1">//we are starting around the z axis so we need to translate</span>
-  <span class="c1">//over to the center of the x-y plane</span>
-
-  <span class="n">RealVect</span> <span class="n">translation</span><span class="p">;</span>
-  <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">idir</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">idir</span> <span class="o">&lt;</span> <span class="n">SpaceDim</span><span class="p">;</span> <span class="n">idir</span><span class="o">++</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="n">translation</span><span class="p">[</span><span class="n">idir</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">finest_domain</span><span class="p">.</span><span class="n">size</span><span class="p">()[</span><span class="n">idir</span><span class="p">]</span><span class="o">*</span><span class="n">fine_dx</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="n">translation</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="n">TransformIF</span> <span class="n">implicit</span><span class="p">(</span><span class="n">lathe</span><span class="p">);</span>
-  <span class="n">implicit</span><span class="p">.</span><span class="n">translate</span><span class="p">(</span><span class="n">translation</span><span class="p">);</span>
-
-  <span class="c1">//create a workshop from translated surface of revolution</span>
-  <span class="n">GeometryShop</span> <span class="n">gshop</span><span class="p">(</span><span class="n">implicit</span><span class="p">,</span> <span class="nb">false</span><span class="p">);</span>
-  <span class="c1">//define the geometric database</span>
-  <span class="n">AMReX_EBIS</span><span class="o">::</span><span class="n">instance</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">define</span><span class="p">(</span><span class="n">finest_domain</span><span class="p">,</span> <span class="n">RealVect</span><span class="o">::</span><span class="n">Zero</span><span class="p">,</span>
-                                 <span class="n">fine_dx</span><span class="p">,</span> <span class="n">gshop</span><span class="p">,</span> <span class="n">max_grid_size</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="figure" id="id4">
-<span id="fig-revolution"></span><a class="reference internal image-reference" href="_images/revolution.png"><img alt="_images/revolution.png" src="_images/revolution.png" style="width: 50.0%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">: Zero surface of an implicit function made using a surface of revolution.</span></p>
-</div>
-</div>
-<div class="section" id="geometric-example-3-a-sphere-inside-a-parabola">
-<h2>Geometric example 3 – A Sphere Inside a Parabola<a class="headerlink" href="#geometric-example-3-a-sphere-inside-a-parabola" title="Permalink to this headline">¶</a></h2>
-<p>Here is an example that creates a geometry of a sphere contained within a
-parabola. This code creates the surface shown in <a class="reference internal" href="#fig-parabolasphere"><span class="std std-numref">Fig. 13</span></a>.</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">Vector</span><span class="o">&lt;</span><span class="n">PolyTerm</span><span class="o">&gt;</span> <span class="n">poly</span><span class="p">;</span>
+<p><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBCellFlagFab</span></span></code> is derived from <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BaseFab</span></span></code>.  Its data are
+stored in an array of 4-bytes integers, and can be used in C++ or
+passed to Fortran just like an <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">IArrayBox</span></span></code> (section
+<a class="reference internal" href="Basics.html#sec-basics-fab"><span class="std std-ref">BaseFab, FArrayBox and IArrayBox</span></a>).  AMReX provides Fortran module
+<code class="docutils literal notranslate"><span class="pre">amrex_ebcellflag_module</span></code> that has procedures for testing cell types
+and getting neighbor information.  For example</p>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">use </span><span class="n">amrex_ebcellflag_module</span><span class="p">,</span> <span class="n">only</span> <span class="p">:</span> <span class="n">is_regular_cell</span><span class="p">,</span> <span class="n">is_single_valued_cell</span><span class="p">,</span> <span class="n">is_covered_cell</span>
 
-<span class="n">PolyTerm</span> <span class="n">mono</span><span class="p">;</span>
-<span class="n">Real</span> <span class="n">coef</span><span class="p">;</span>
-<span class="n">IntVect</span> <span class="n">powers</span><span class="p">;</span>
-<span class="n">Real</span> <span class="n">amplitude</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">flags</span><span class="p">(...)</span>
 
-<span class="c1">// y^2 term</span>
-<span class="n">coef</span> <span class="o">=</span> <span class="n">amplitude</span><span class="p">;</span>
-<span class="n">powers</span> <span class="o">=</span> <span class="n">IntVect</span><span class="o">::</span><span class="n">Zero</span><span class="p">;</span>
-<span class="n">powers</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="kt">integer</span> <span class="kd">::</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span>
 
-<span class="n">mono</span><span class="p">.</span><span class="n">coef</span>   <span class="o">=</span> <span class="n">coef</span><span class="p">;</span>
-<span class="n">mono</span><span class="p">.</span><span class="n">powers</span> <span class="o">=</span> <span class="n">powers</span><span class="p">;</span>
-
-<span class="n">poly</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">mono</span><span class="p">);</span>
-
-<span class="c1">// z^2 term</span>
-<span class="n">coef</span> <span class="o">=</span> <span class="n">amplitude</span><span class="p">;</span>
-<span class="n">powers</span> <span class="o">=</span> <span class="n">IntVect</span><span class="o">::</span><span class="n">Zero</span><span class="p">;</span>
-<span class="n">powers</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-<span class="n">mono</span><span class="p">.</span><span class="n">coef</span>   <span class="o">=</span> <span class="n">coef</span><span class="p">;</span>
-<span class="n">mono</span><span class="p">.</span><span class="n">powers</span> <span class="o">=</span> <span class="n">powers</span><span class="p">;</span>
-<span class="n">poly</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">mono</span><span class="p">);</span>
-
-<span class="c1">// x term</span>
-<span class="n">coef</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">;</span>
-<span class="n">powers</span> <span class="o">=</span> <span class="n">IntVect</span><span class="o">::</span><span class="n">Zero</span><span class="p">;</span>
-<span class="n">powers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="n">mono</span><span class="p">.</span><span class="n">coef</span>   <span class="o">=</span> <span class="n">coef</span><span class="p">;</span>
-<span class="n">mono</span><span class="p">.</span><span class="n">powers</span> <span class="o">=</span> <span class="n">powers</span><span class="p">;</span>
-
-<span class="n">poly</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">mono</span><span class="p">);</span>
-
-<span class="n">PolynomialIF</span> <span class="nf">mirror</span><span class="p">(</span><span class="n">poly</span><span class="p">,</span><span class="nb">false</span><span class="p">);</span>
-<span class="n">RealVect</span> <span class="n">translation</span><span class="p">;</span>
-
-<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">idir</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">idir</span> <span class="o">&lt;</span> <span class="n">SpaceDim</span><span class="p">;</span> <span class="n">idir</span><span class="o">++</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="kt">int</span> <span class="n">finesize</span> <span class="o">=</span> <span class="n">finest_domain</span><span class="p">.</span><span class="n">size</span><span class="p">()[</span><span class="n">idir</span><span class="p">];</span>
-  <span class="n">translation</span><span class="p">[</span><span class="n">idir</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">finesize</span><span class="o">*</span><span class="n">fine_dx</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="n">RealVect</span> <span class="n">center</span> <span class="o">=</span> <span class="n">translation</span><span class="p">;</span>
-<span class="n">translation</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-
-<span class="n">TransformIF</span> <span class="nf">transform</span><span class="p">(</span><span class="n">mirror</span><span class="p">);</span>
-<span class="n">transform</span><span class="p">.</span><span class="n">translate</span><span class="p">(</span><span class="n">translation</span><span class="p">);</span>
-
-<span class="n">Real</span> <span class="n">radius</span> <span class="o">=</span> <span class="mf">0.2</span><span class="o">*</span><span class="n">center</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-<span class="n">SphereIF</span> <span class="nf">sphere</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span> <span class="n">center</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
-<span class="n">Vector</span><span class="o">&lt;</span><span class="n">BaseIF</span><span class="o">*&gt;</span> <span class="n">funcs</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-<span class="n">funcs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">transform</span><span class="p">;</span>
-<span class="n">funcs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">sphere</span><span class="p">;</span>
-<span class="n">UnionIF</span> <span class="nf">implicit</span><span class="p">(</span><span class="n">funcs</span><span class="p">);</span>
-<span class="n">impfunc</span><span class="p">.</span><span class="n">reset</span><span class="p">(</span><span class="n">implicit</span><span class="p">.</span><span class="n">newImplicitFunction</span><span class="p">());</span>
-<span class="n">GeometryShop</span> <span class="nf">gshop</span><span class="p">(</span><span class="n">impfunc</span><span class="p">,</span> <span class="nb">false</span><span class="p">);</span>
-<span class="c1">//define the geometric database</span>
-<span class="n">AMReX_EBIS</span><span class="o">::</span><span class="n">instance</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">define</span><span class="p">(</span><span class="n">finest_domain</span><span class="p">,</span> <span class="n">RealVect</span><span class="o">::</span><span class="n">Zero</span><span class="p">,</span>
-                                 <span class="n">fine_dx</span><span class="p">,</span> <span class="n">gshop</span><span class="p">,</span> <span class="n">max_grid_size</span><span class="p">);</span>
+<span class="k">do </span><span class="n">k</span> <span class="o">=</span> <span class="p">...</span>
+<span class="k">do </span><span class="n">j</span> <span class="o">=</span> <span class="p">...</span>
+<span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="p">...</span>
+   <span class="k">if</span> <span class="p">(</span><span class="n">is_covered_cell</span><span class="p">(</span><span class="n">flags</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)))</span> <span class="k">then</span>
+       <span class="c">! this is a completely covered cells</span>
+   <span class="k">else if</span> <span class="p">(</span><span class="n">is_regular_cell</span><span class="p">(</span><span class="n">flags</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)))</span> <span class="k">then</span>
+       <span class="c">! this is a regular cell</span>
+   <span class="k">else if</span> <span class="p">(</span><span class="n">is_single_valued_cell</span><span class="p">(</span><span class="n">flags</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)))</span> <span class="k">then</span>
+       <span class="c">! this is a cut cell</span>
+   <span class="k">end if</span>
+<span class="k">end do</span>
+<span class="k">end do</span>
+<span class="k">end do</span>
 </pre></div>
 </div>
-<div class="figure" id="id5">
-<span id="fig-parabolasphere"></span><a class="reference internal image-reference" href="_images/parabsphere.png"><img alt="_images/parabsphere.png" src="_images/parabsphere.png" style="width: 50.0%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">: Zero surface of an implicit function made the above code.</span></p>
 </div>
 </div>
-</div>
-<div class="section" id="ebfarraybox">
-<h1>EBFarrayBox<a class="headerlink" href="#ebfarraybox" title="Permalink to this headline">¶</a></h1>
-<p>The fundamental data structure for embedded boundary calculations is
-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBFArrayBox</span></span></code>. <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBFArrayBox</span></span></code> is an a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code> with two extra
-data members.</p>
-<ul class="simple">
-<li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBFArrayBox</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">getEBISBox</span></span></code> returns an <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBISBox</span></span></code>, a data structure
-that contains the geometric information of an <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBIndexSpace</span></span></code>&nbsp;but
-restricted to a given box.</li>
-<li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBFArrayBox</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">getEBCellFlagFab</span></span></code> is a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BaseFab</span></span><span class="operator"><span class="pre">&lt;</span></span><span class="name"><span class="pre">EBCellFlag</span></span><span class="operator"><span class="pre">&gt;</span></span></code>, where
-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBCellFlag</span></span></code> is a class which is a class with tools that compactly
-specifies local cell connectivities on a box.</li>
-</ul>
-<p>If one compiles with <code class="docutils literal notranslate"><span class="pre">AMREX_USE_EB</span> <span class="pre">=</span> <span class="pre">TRUE</span></code>, the state data managed by the
-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Amr</span></span></code> class is automatically of type <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBFArrayBox</span></span></code> (typically the
-data is exposed explicitly as a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code>, but the additional
-functionality may be accessed through a C++ type cast. The <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBCellFlagFab</span></span></code>
-can be used down in Fortran, e.g., to choose locally whether EB-specific
-operations and data are required for constructing discretizations. In the next
-section, we show examples of this workflow.</p>
-<div class="section" id="ebfarraybox-usage-example">
-<h2>EBFarrayBox Usage Example<a class="headerlink" href="#ebfarraybox-usage-example" title="Permalink to this headline">¶</a></h2>
-<p>In order to make these EB concepts more concrete, we discuss here sample code
-that appears in the AMReX tutorial, <code class="docutils literal notranslate"><span class="pre">amrex/Tutorials/EB/CNS</span></code>. This code implements a
-time-explicit second-order method of lines integrator for hyperbolic and
-parabolic transport based on a gamma-law gas EOS and constant transport
-properties. This example also demonstrates how to avoid the more
-complex/expensive EB-related logic if the tile under consideration has no cut
-cells.</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span>
-<span class="n">CNS</span><span class="o">::</span><span class="n">compute_dSdt</span> <span class="p">(</span><span class="k">const</span> <span class="n">MultiFab</span><span class="o">&amp;</span> <span class="n">S</span><span class="p">,</span> <span class="n">MultiFab</span><span class="o">&amp;</span> <span class="n">dSdt</span><span class="p">,</span> <span class="n">Real</span> <span class="n">dt</span><span class="p">,</span>
-                   <span class="n">EBFluxRegister</span><span class="o">*</span> <span class="n">fr_as_crse</span><span class="p">,</span> <span class="n">EBFluxRegister</span><span class="o">*</span> <span class="n">fr_as_fine</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">BL_PROFILE</span><span class="p">(</span><span class="s">&quot;CNS::compute_dSdt()&quot;</span><span class="p">);</span>
-
-    <span class="k">const</span> <span class="n">Real</span><span class="o">*</span> <span class="n">dx</span> <span class="o">=</span> <span class="n">geom</span><span class="p">.</span><span class="n">CellSize</span><span class="p">();</span>
-    <span class="k">const</span> <span class="kt">int</span> <span class="n">ncomp</span> <span class="o">=</span> <span class="n">dSdt</span><span class="p">.</span><span class="n">nComp</span><span class="p">();</span>
-
-<span class="cp">#ifdef _OPENMP</span>
-<span class="cp">#pragma omp parallel</span>
-<span class="cp">#endif</span>
-     <span class="p">{</span>
-        <span class="c1">//fluxes for the advance</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="n">FArrayBox</span><span class="p">,</span><span class="n">AMREX_SPACEDIM</span><span class="o">&gt;</span> <span class="n">flux</span><span class="p">;</span>
-
-        <span class="k">for</span> <span class="p">(</span><span class="n">MFIter</span> <span class="n">mfi</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">MFItInfo</span><span class="p">().</span><span class="n">EnableTiling</span><span class="p">(</span><span class="n">hydro_tile_size</span><span class="p">).</span><span class="n">SetDynamic</span><span class="p">(</span><span class="nb">true</span><span class="p">));</span>
-                        <span class="n">mfi</span><span class="p">.</span><span class="n">isValid</span><span class="p">();</span> <span class="o">++</span><span class="n">mfi</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="c1">//this tile is the subset of the box over which we are computing</span>
-            <span class="k">const</span> <span class="n">Box</span><span class="o">&amp;</span> <span class="n">bx</span> <span class="o">=</span> <span class="n">mfi</span><span class="p">.</span><span class="n">tilebox</span><span class="p">();</span>
-
-            <span class="c1">//because S was created with the EBFArrayBoxFactory, we can do this cast</span>
-            <span class="k">const</span> <span class="n">EBFArrayBox</span><span class="o">&amp;</span> <span class="n">sfab</span>
-                <span class="o">=</span> <span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">EBFArrayBox</span> <span class="k">const</span><span class="o">&amp;&gt;</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="n">mfi</span><span class="p">]);</span>
-
-            <span class="c1">//here we are getting the collection of flags so we know</span>
-            <span class="c1">//kind of grid this is and if it is an EB grid, we have</span>
-            <span class="c1">//the connectivity info</span>
-            <span class="k">const</span> <span class="n">EBCellFlagFab</span> <span class="o">&amp;</span> <span class="n">flag</span> <span class="o">=</span> <span class="n">sfab</span><span class="p">.</span><span class="n">getEBCellFlagFab</span><span class="p">();</span>
-
-            <span class="k">if</span> <span class="p">(</span><span class="n">flag</span><span class="p">.</span><span class="n">getType</span><span class="p">(</span><span class="n">bx</span><span class="p">)</span> <span class="o">==</span> <span class="n">FabType</span><span class="o">::</span><span class="n">covered</span><span class="p">)</span>
-            <span class="p">{</span>
-              <span class="c1">//this tile is covered so there are no meaningful data here</span>
-                <span class="n">dSdt</span><span class="p">[</span><span class="n">mfi</span><span class="p">].</span><span class="n">setVal</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">bx</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ncomp</span><span class="p">);</span>
-            <span class="p">}</span>
-            <span class="k">else</span>
-            <span class="p">{</span>
-              <span class="c1">//create the flux holders for this tile</span>
-              <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">idim</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">idim</span> <span class="o">&lt;</span> <span class="n">AMREX_SPACEDIM</span><span class="p">;</span> <span class="o">++</span><span class="n">idim</span><span class="p">)</span>
-              <span class="p">{</span>
-                <span class="n">flux</span><span class="p">[</span><span class="n">idim</span><span class="p">].</span><span class="n">resize</span><span class="p">(</span><span class="n">amrex</span><span class="o">::</span><span class="n">surroundingNodes</span><span class="p">(</span><span class="n">bx</span><span class="p">,</span><span class="n">idim</span><span class="p">),</span><span class="n">ncomp</span><span class="p">);</span>
-              <span class="p">}</span>
-
-              <span class="k">if</span> <span class="p">(</span><span class="n">flag</span><span class="p">.</span><span class="n">getType</span><span class="p">(</span><span class="n">amrex</span><span class="o">::</span><span class="n">grow</span><span class="p">(</span><span class="n">bx</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">==</span> <span class="n">FabType</span><span class="o">::</span><span class="n">regular</span><span class="p">)</span>
-              <span class="p">{</span>
-                <span class="c1">//this tile has no cut cells so we can just proceed</span>
-                <span class="c1">//with a (cheaper) non-eb call</span>
-
-                <span class="n">cns_compute_dudt</span><span class="p">(</span><span class="n">BL_TO_FORTRAN_BOX</span><span class="p">(</span><span class="n">bx</span><span class="p">),</span>
-                <span class="n">BL_TO_FORTRAN_ANYD</span><span class="p">(</span><span class="n">dSdt</span><span class="p">[</span><span class="n">mfi</span><span class="p">]),</span>
-                <span class="n">BL_TO_FORTRAN_ANYD</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="n">mfi</span><span class="p">]),</span>
-                <span class="n">BL_TO_FORTRAN_ANYD</span><span class="p">(</span><span class="n">flux</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
-                <span class="n">BL_TO_FORTRAN_ANYD</span><span class="p">(</span><span class="n">flux</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
-                <span class="n">BL_TO_FORTRAN_ANYD</span><span class="p">(</span><span class="n">flux</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span>
-                <span class="n">dx</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">dt</span><span class="p">);</span>
-
-              <span class="p">}</span>
-              <span class="k">else</span>
-              <span class="p">{</span>
-                <span class="c1">//this tile has cut cells so we have to send into Fortran</span>
-                <span class="c1">//EBCellFlagFAB as well as lots of geometric</span>
-                <span class="c1">//information</span>
-                <span class="c1">//the areafrac and facecent objects are member data</span>
-                <span class="c1">//filled using EBISBox</span>
-                <span class="n">cns_eb_compute_dudt</span><span class="p">(</span><span class="n">BL_TO_FORTRAN_BOX</span><span class="p">(</span><span class="n">bx</span><span class="p">),</span>
-                <span class="n">BL_TO_FORTRAN_ANYD</span><span class="p">(</span><span class="n">dSdt</span><span class="p">[</span><span class="n">mfi</span><span class="p">]),</span>
-                <span class="n">BL_TO_FORTRAN_ANYD</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="n">mfi</span><span class="p">]),</span>
-                <span class="n">BL_TO_FORTRAN_ANYD</span><span class="p">(</span><span class="n">flux</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
-                <span class="n">BL_TO_FORTRAN_ANYD</span><span class="p">(</span><span class="n">flux</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
-                <span class="n">BL_TO_FORTRAN_ANYD</span><span class="p">(</span><span class="n">flux</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span>
-                <span class="n">BL_TO_FORTRAN_ANYD</span><span class="p">(</span><span class="n">flag</span><span class="p">),</span>
-                <span class="n">BL_TO_FORTRAN_ANYD</span><span class="p">(</span><span class="n">volfrac</span><span class="p">[</span><span class="n">mfi</span><span class="p">]),</span>
-                <span class="n">BL_TO_FORTRAN_ANYD</span><span class="p">(</span><span class="n">bndrycent</span><span class="p">[</span><span class="n">mfi</span><span class="p">]),</span>
-                <span class="n">BL_TO_FORTRAN_ANYD</span><span class="p">(</span><span class="n">areafrac</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">mfi</span><span class="p">]),</span>
-                <span class="n">BL_TO_FORTRAN_ANYD</span><span class="p">(</span><span class="n">areafrac</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">mfi</span><span class="p">]),</span>
-                <span class="n">BL_TO_FORTRAN_ANYD</span><span class="p">(</span><span class="n">areafrac</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">mfi</span><span class="p">]),</span>
-                <span class="n">BL_TO_FORTRAN_ANYD</span><span class="p">(</span><span class="n">facecent</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">mfi</span><span class="p">]),</span>
-                <span class="n">BL_TO_FORTRAN_ANYD</span><span class="p">(</span><span class="n">facecent</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">mfi</span><span class="p">]),</span>
-                <span class="n">BL_TO_FORTRAN_ANYD</span><span class="p">(</span><span class="n">facecent</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">mfi</span><span class="p">]),</span>
-                <span class="n">dx</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">dt</span><span class="p">);</span>
-              <span class="p">}</span>
-            <span class="p">}</span>
-          <span class="p">}</span>
-        <span class="p">}</span>
+<div class="section" id="linear-solvers">
+<h1>Linear Solvers<a class="headerlink" href="#linear-solvers" title="Permalink to this headline">¶</a></h1>
+<p>Linear solvers for the canonical form (equation <a class="reference internal" href="Chapter7.html#equation-eqn-abeclap">(1)</a>)
+have been discussed in chapter <a class="reference internal" href="Chapter7.html#chap-linearsolvers"><span class="std std-ref">Linear Solvers</span></a>.  Currently,
+AMReX support cell-centered solver with homogeneous Neumann boundary
+condition on the EB.  Cell-centered solver with Dirichlet boundary
+condition on the EB and nodal solver are under development.</p>
+<p>To use cell-centered solver for EB, one builds linear operator
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MLEBABecLap</span></span></code> with <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBFArrayBoxFactory</span></span></code>.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">MLEBABecLap</span> <span class="p">(</span><span class="k">const</span> <span class="n">Vector</span><span class="o">&lt;</span><span class="n">Geometry</span><span class="o">&gt;&amp;</span> <span class="n">a_geom</span><span class="p">,</span>
+             <span class="k">const</span> <span class="n">Vector</span><span class="o">&lt;</span><span class="n">BoxArray</span><span class="o">&gt;&amp;</span> <span class="n">a_grids</span><span class="p">,</span>
+             <span class="k">const</span> <span class="n">Vector</span><span class="o">&lt;</span><span class="n">DistributionMapping</span><span class="o">&gt;&amp;</span> <span class="n">a_dmap</span><span class="p">,</span>
+             <span class="k">const</span> <span class="n">LPInfo</span><span class="o">&amp;</span> <span class="n">a_info</span><span class="p">,</span>
+             <span class="k">const</span> <span class="n">Vector</span><span class="o">&lt;</span><span class="n">EBFArrayBoxFactory</span> <span class="k">const</span><span class="o">*&gt;&amp;</span> <span class="n">a_factory</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>This is the main loop in the routine to advance the state. The state,
-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span> <span class="name"><span class="pre">S</span></span></code>, comes into this routine with grow cells properly filled, and
-this routine features a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code> iterator loop to step through this
-data, tile-by-tile and compute <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">dSdt</span></span></code>. Here, we see that the definition of
-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBFarrayBox</span></span> <span class="name"><span class="pre">sfab</span></span></code> incorporates the aforementioned type cast, enabling
-queries about the EB nature of the data. Of the two possiblities handled, the
-“regular” type without cut cells has a much simpler interface. The EB version
-takes all the same data, but additionally requires (dense) data to specify the
-volume and face area fractions, centroid information, and the
-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBCellFlagFab</span></span> <span class="name"><span class="pre">flag</span></span></code> structure that will be queried pointwise for the
-local cell connectivity.</p>
+<p>The usage of this EB specified class is essentially the same as
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MLABecLaplacian</span></span></code>.</p>
 </div>
-<div class="section" id="fortran-code-snippets">
-<h2>Fortran code Snippets<a class="headerlink" href="#fortran-code-snippets" title="Permalink to this headline">¶</a></h2>
-<p>Much of the code to compute these fluxes and their divergence in this example
-is too detailed to step through in this context. There are however a few
-salient features worth pointing out.</p>
-<div class="section" id="the-data-is-cell-centered-even-cut-cells">
-<h3>The data is cell-centered, even cut cells<a class="headerlink" href="#the-data-is-cell-centered-even-cut-cells" title="Permalink to this headline">¶</a></h3>
-<p>In order to simplify the construction second-order discretizations, we can base
-all the numerical operations on the assumption that all cell-based data lives
-at the center of the <em>full</em> &nbsp;cell containing the cut cells. This means that when
-we take a standard centered difference between cell data at <span class="math notranslate nohighlight">\((i,j,k)\)</span> and
-<span class="math notranslate nohighlight">\((i+1,j,k)\)</span>, e.g., we get a gradient value that is second-order and
-centered on the full face at <span class="math notranslate nohighlight">\(i+1/2\)</span>, regardless of the aperature.</p>
-</div>
-<div class="section" id="many-eb-operations-can-be-organized-as-post-processing">
-<h3>Many EB operations can be organized as post-processing<a class="headerlink" href="#many-eb-operations-can-be-organized-as-post-processing" title="Permalink to this headline">¶</a></h3>
-<p>Recall that a second-order finite-volume scheme requires that fluxes be
-centered on the face <em>centroid</em>. This can be accomplished by post-processing
-face-centered fluxes with a linear interpolation of adjacent face values. The
-resulting centroid-based fluxes are second-order, and can be used to construct
-the conservative divergence we seek. Note that this operation requires the
-location of the face centroids, and increases the grow cell requirement of the
-flux operators, as does the necessity to form the <em>hybrid divergence</em> operator
-discussed above.</p>
-</div>
-<div class="section" id="the-flag-data">
-<h3>The <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">flag</span></span></code> data<a class="headerlink" href="#the-flag-data" title="Permalink to this headline">¶</a></h3>
-<p>AMReX provides functions that query the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">flag</span></span></code> data in order to infer the
-local connectivity of cells. For example, the cell itself or its neighbors may
-be covered or cut. If cut, the data is centered at the center of the full cell.
-If covered, the data is invalid and should not be involved in the fluid
-advance. An example of such a call is:</p>
-<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">call </span><span class="n">get_neighbor_cells</span><span class="p">(</span><span class="n">cellflag</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">),</span><span class="n">nbr</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Here, for the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">flag</span></span></code> at <span class="math notranslate nohighlight">\((i,j,k)\)</span> is used to fill a local
-<span class="math notranslate nohighlight">\(3^3\)</span> array of integers with the value <span class="math notranslate nohighlight">\(1\)</span> if connected to
-<span class="math notranslate nohighlight">\((i,j,k)\)</span>, and <span class="math notranslate nohighlight">\(0\)</span> if not. Similar queries:</p>
-<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="n">is_covered_cell</span><span class="p">(</span><span class="n">cellflag</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">))</span>
-<span class="n">is_single_valued_cell</span><span class="p">(</span><span class="n">cellflag</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>can be used to gather additional detail.</p>
-<p>Below, we show a partial listing of the <code class="code fortran docutils literal notranslate"><span class="name"><span class="pre">cns_eb_compute_dudt</span></span></code> code,
-specifically after the face-centered fluxes have been computed, and showing
-part of the work necessary to interpolate them to face centroids (while
-appropriately handling covered data).</p>
-<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">do </span><span class="n">n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ncomp</span>
-
-   <span class="c">!</span>
-   <span class="c">! First, we compute conservative divergence on (lo-2,hi+2)</span>
-   <span class="c">!</span>
-   <span class="n">iwall</span> <span class="o">=</span> <span class="mi">0</span>
-   <span class="k">do       </span><span class="n">k</span> <span class="o">=</span> <span class="n">lo</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">hi</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">+</span><span class="mi">2</span>
-      <span class="k">do    </span><span class="n">j</span> <span class="o">=</span> <span class="n">lo</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">hi</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="mi">2</span>
-         <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="n">lo</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">hi</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="mi">2</span>
-            <span class="n">divc</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">fluxx</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">n</span><span class="p">)</span><span class="o">-</span><span class="n">fluxx</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">n</span><span class="p">))</span><span class="o">*</span><span class="n">dxinv</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">&amp;</span>
-                 <span class="o">+</span>        <span class="p">(</span><span class="n">fluxy</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">n</span><span class="p">)</span><span class="o">-</span><span class="n">fluxy</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">n</span><span class="p">))</span><span class="o">*</span><span class="n">dxinv</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">&amp;</span>
-                 <span class="o">+</span>        <span class="p">(</span><span class="n">fluxz</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">n</span><span class="p">)</span><span class="o">-</span><span class="n">fluxz</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">))</span><span class="o">*</span><span class="n">dxinv</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-         <span class="k">end do</span>
-
-<span class="k">         do </span><span class="n">i</span> <span class="o">=</span> <span class="n">lo</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">hi</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="mi">2</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">is_covered_cell</span><span class="p">(</span><span class="n">cellflag</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)))</span> <span class="k">then</span>
-<span class="k">               </span><span class="n">divc</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.d0</span>
-            <span class="k">else if</span> <span class="p">(</span><span class="n">is_single_valued_cell</span><span class="p">(</span><span class="n">cellflag</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)))</span> <span class="k">then</span>
-
-<span class="k">               call </span><span class="n">get_neighbor_cells</span><span class="p">(</span><span class="n">cellflag</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">),</span><span class="n">nbr</span><span class="p">)</span>
-
-               <span class="c">! x-direction lo face</span>
-               <span class="k">if</span> <span class="p">(</span><span class="n">apx</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">).</span><span class="n">lt</span><span class="p">.</span><span class="mf">1.d0</span><span class="p">)</span> <span class="k">then</span>
-<span class="k">                  if</span> <span class="p">(</span><span class="n">centx_y</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">).</span><span class="n">le</span><span class="p">.</span><span class="mf">0.d0</span><span class="p">)</span> <span class="k">then</span>
-<span class="k">                     </span><span class="n">fracy</span> <span class="o">=</span> <span class="o">-</span><span class="n">centx_y</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="n">nbr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-                     <span class="k">if</span><span class="p">(</span><span class="n">centx_z</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">).</span><span class="n">le</span><span class="p">.</span> <span class="mf">0.0d0</span><span class="p">)</span><span class="k">then</span>
-<span class="k">                        </span><span class="n">fracz</span> <span class="o">=</span> <span class="o">-</span> <span class="n">centx_z</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="n">nbr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-                        <span class="n">fxm</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.d0</span><span class="o">-</span><span class="n">fracz</span><span class="p">)</span><span class="o">*</span><span class="p">(</span>     <span class="n">fracy</span> <span class="o">*</span><span class="n">fluxx</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span>  <span class="p">,</span><span class="n">n</span><span class="p">)</span>  <span class="o">+</span> <span class="p">&amp;</span>
-                             <span class="p">&amp;</span>             <span class="p">(</span><span class="mf">1.d0</span><span class="o">-</span><span class="n">fracy</span><span class="p">)</span><span class="o">*</span><span class="n">fluxx</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span>  <span class="p">,</span><span class="n">k</span>  <span class="p">,</span><span class="n">n</span><span class="p">))</span> <span class="o">+</span> <span class="p">&amp;</span>
-                             <span class="p">&amp;</span>      <span class="n">fracz</span> <span class="o">*</span><span class="p">(</span>     <span class="n">fracy</span> <span class="o">*</span><span class="n">fluxx</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>  <span class="o">+</span> <span class="p">&amp;</span>
-                             <span class="p">&amp;</span>             <span class="p">(</span><span class="mf">1.d0</span><span class="o">-</span><span class="n">fracy</span><span class="p">)</span><span class="o">*</span><span class="n">fluxx</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span>  <span class="p">,</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
-                     <span class="k">else</span>
-<span class="k">                        </span><span class="n">fracz</span> <span class="o">=</span>  <span class="n">centx_z</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="n">nbr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-                        <span class="n">fxm</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.d0</span><span class="o">-</span><span class="n">fracz</span><span class="p">)</span><span class="o">*</span><span class="p">(</span>     <span class="n">fracy</span> <span class="o">*</span><span class="n">fluxx</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span>  <span class="p">,</span><span class="n">n</span><span class="p">)</span>  <span class="o">+</span> <span class="p">&amp;</span>
-                             <span class="p">&amp;</span>             <span class="p">(</span><span class="mf">1.d0</span><span class="o">-</span><span class="n">fracy</span><span class="p">)</span><span class="o">*</span><span class="n">fluxx</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span>  <span class="p">,</span><span class="n">k</span>  <span class="p">,</span><span class="n">n</span><span class="p">))</span> <span class="o">+</span> <span class="p">&amp;</span>
-                             <span class="p">&amp;</span>      <span class="n">fracz</span> <span class="o">*</span><span class="p">(</span>     <span class="n">fracy</span> <span class="o">*</span><span class="n">fluxx</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>  <span class="o">+</span> <span class="p">&amp;</span>
-                             <span class="p">&amp;</span>             <span class="p">(</span><span class="mf">1.d0</span><span class="o">-</span><span class="n">fracy</span><span class="p">)</span><span class="o">*</span><span class="n">fluxx</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span>  <span class="p">,</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
-                     <span class="n">endif</span>
-                  <span class="k">else</span>
-<span class="k">                     </span><span class="n">fracy</span> <span class="o">=</span> <span class="n">centx_y</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="n">nbr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-                     <span class="k">if</span><span class="p">(</span><span class="n">centx_z</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">).</span><span class="n">le</span><span class="p">.</span> <span class="mf">0.0d0</span><span class="p">)</span><span class="k">then</span>
-<span class="k">                        </span><span class="n">fracz</span> <span class="o">=</span> <span class="o">-</span><span class="n">centx_z</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="n">nbr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-                        <span class="n">fxm</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.d0</span><span class="o">-</span><span class="n">fracz</span><span class="p">)</span><span class="o">*</span><span class="p">(</span>     <span class="n">fracy</span> <span class="o">*</span><span class="n">fluxx</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span>  <span class="p">,</span><span class="n">n</span><span class="p">)</span>  <span class="o">+</span> <span class="p">&amp;</span>
-                             <span class="p">&amp;</span>             <span class="p">(</span><span class="mf">1.d0</span><span class="o">-</span><span class="n">fracy</span><span class="p">)</span><span class="o">*</span><span class="n">fluxx</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span>  <span class="p">,</span><span class="n">k</span>  <span class="p">,</span><span class="n">n</span><span class="p">))</span> <span class="o">+</span> <span class="p">&amp;</span>
-                             <span class="p">&amp;</span>      <span class="n">fracz</span> <span class="o">*</span><span class="p">(</span>     <span class="n">fracy</span> <span class="o">*</span><span class="n">fluxx</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>  <span class="o">+</span> <span class="p">&amp;</span>
-                             <span class="p">&amp;</span>             <span class="p">(</span><span class="mf">1.d0</span><span class="o">-</span><span class="n">fracy</span><span class="p">)</span><span class="o">*</span><span class="n">fluxx</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span>  <span class="p">,</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
-                     <span class="k">else</span>
-<span class="k">                        </span><span class="n">fracz</span> <span class="o">=</span> <span class="n">centx_z</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="n">nbr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-                        <span class="n">fxm</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.d0</span><span class="o">-</span><span class="n">fracz</span><span class="p">)</span><span class="o">*</span><span class="p">(</span>     <span class="n">fracy</span> <span class="o">*</span><span class="n">fluxx</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span>  <span class="p">,</span><span class="n">n</span><span class="p">)</span>  <span class="o">+</span> <span class="p">&amp;</span>
-                             <span class="p">&amp;</span>             <span class="p">(</span><span class="mf">1.d0</span><span class="o">-</span><span class="n">fracy</span><span class="p">)</span><span class="o">*</span><span class="n">fluxx</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span>  <span class="p">,</span><span class="n">k</span>  <span class="p">,</span><span class="n">n</span><span class="p">))</span> <span class="o">+</span> <span class="p">&amp;</span>
-                             <span class="p">&amp;</span>      <span class="n">fracz</span> <span class="o">*</span><span class="p">(</span>     <span class="n">fracy</span> <span class="o">*</span><span class="n">fluxx</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>  <span class="o">+</span> <span class="p">&amp;</span>
-                             <span class="p">&amp;</span>             <span class="p">(</span><span class="mf">1.d0</span><span class="o">-</span><span class="n">fracy</span><span class="p">)</span><span class="o">*</span><span class="n">fluxx</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span>  <span class="p">,</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
-                     <span class="n">endif</span>
-                  <span class="k">end if</span>
-<span class="k">               else</span>
-<span class="k">                  </span><span class="n">fxm</span> <span class="o">=</span> <span class="n">fluxx</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
-               <span class="k">end if</span>
-
-       <span class="o">&lt;</span><span class="p">.....</span> <span class="n">similar</span> <span class="n">code</span> <span class="n">for</span> <span class="n">other</span> <span class="n">fluxes</span> <span class="n">removed</span> <span class="p">....</span><span class="o">&gt;</span>
-
-               <span class="n">iwall</span> <span class="o">=</span> <span class="n">iwall</span> <span class="o">+</span> <span class="mi">1</span>
-               <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="p">.</span><span class="n">eq</span><span class="p">.</span> <span class="mi">1</span><span class="p">)</span> <span class="k">then</span>
-<span class="k">                  call </span><span class="n">compute_hyp_wallflux</span><span class="p">(</span><span class="n">divhyp</span><span class="p">(:,</span><span class="n">iwall</span><span class="p">),</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">,</span> <span class="n">q</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">qrho</span><span class="p">),</span> <span class="p">&amp;</span>
-                       <span class="n">q</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">qu</span><span class="p">),</span> <span class="n">q</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">qv</span><span class="p">),</span> <span class="n">q</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">qw</span><span class="p">),</span> <span class="n">q</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">qp</span><span class="p">),</span> <span class="p">&amp;</span>
-                       <span class="n">apx</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">),</span> <span class="n">apx</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">),</span> <span class="p">&amp;</span>
-                       <span class="n">apy</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">),</span> <span class="n">apy</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">),</span> <span class="p">&amp;</span>
-                       <span class="n">apz</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">),</span> <span class="n">apz</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
-                  <span class="k">call </span><span class="n">compute_diff_wallflux</span><span class="p">(</span><span class="n">divdiff</span><span class="p">(:,</span><span class="n">iwall</span><span class="p">),</span> <span class="n">dxinv</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">,</span> <span class="p">&amp;</span>
-                       <span class="n">q</span><span class="p">,</span> <span class="n">qlo</span><span class="p">,</span> <span class="n">qhi</span><span class="p">,</span> <span class="p">&amp;</span>
-                       <span class="n">lam</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">xi</span><span class="p">,</span> <span class="n">clo</span><span class="p">,</span> <span class="n">chi</span><span class="p">,</span> <span class="p">&amp;</span>
-                       <span class="n">bcent</span><span class="p">,</span> <span class="n">blo</span><span class="p">,</span> <span class="n">bhi</span><span class="p">,</span> <span class="p">&amp;</span>
-                       <span class="n">apx</span><span class="p">,</span> <span class="n">axlo</span><span class="p">,</span> <span class="n">axhi</span><span class="p">,</span> <span class="p">&amp;</span>
-                       <span class="n">apy</span><span class="p">,</span> <span class="n">aylo</span><span class="p">,</span> <span class="n">ayhi</span><span class="p">,</span> <span class="p">&amp;</span>
-                       <span class="n">apz</span><span class="p">,</span> <span class="n">azlo</span><span class="p">,</span> <span class="n">azhi</span><span class="p">)</span>
-               <span class="k">end if</span>
-
-<span class="k">               </span><span class="n">divwn</span> <span class="o">=</span> <span class="n">divhyp</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">iwall</span><span class="p">)</span> <span class="o">+</span> <span class="n">divdiff</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">iwall</span><span class="p">)</span>
-
-               <span class="c">! we assume dx == dy == dz</span>
-               <span class="n">divc</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span><span class="p">((</span><span class="n">apx</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="n">fxp</span> <span class="o">-</span> <span class="n">apx</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="n">fxm</span><span class="p">)</span> <span class="o">*</span> <span class="n">dxinv</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">&amp;</span>
-                    <span class="o">+</span>          <span class="p">(</span><span class="n">apy</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="n">fyp</span> <span class="o">-</span> <span class="n">apy</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="n">fym</span><span class="p">)</span> <span class="o">*</span> <span class="n">dxinv</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">&amp;</span>
-                    <span class="o">+</span>          <span class="p">(</span><span class="n">apz</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">fzp</span> <span class="o">-</span> <span class="n">apz</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="n">fzm</span><span class="p">)</span> <span class="o">*</span> <span class="n">dxinv</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">&amp;</span>
-                    <span class="o">+</span>          <span class="n">divwn</span> <span class="o">*</span> <span class="n">dxinv</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span> <span class="o">/</span> <span class="n">vfrac</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
-            <span class="k">end if</span>
-<span class="k">         end do</span>
-<span class="k">      end do</span>
-<span class="k">   end do</span>
-</pre></div>
-</div>
-<p>One can easily identify the logic and portions of the code devoted toward the
-EB corrections. Note, in particular, that diffusive fluxes into the EB need
-only be computed on cut cells.</p>
-</div>
-<div class="section" id="there-are-many-approaches">
-<h3>There are many approaches<a class="headerlink" href="#there-are-many-approaches" title="Permalink to this headline">¶</a></h3>
-<p>The “fixes” that need to occur in these EB algorithms can be managed in a
-number of ways, depending on the needs of the application and programming
-style. In this example, the geometrical data is used to fill dense data
-structures so that the sparse geometry information is available uniformally
-over the entire box.  Also, the cell types are queried point-by-point in order
-to form the appropriate stencil. Obviously then there is a performance penalty
-if many of the cells in tile are not actually cut. There is clearly a trade-off
-in such designs. Alternatively, one might build sparse data structures similar
-to those AMReX uses to manage particles, and apply the EB corrections on this
-sparse set directly. Future releases of AMReX will feature an expanded set of
-EB tutorials to demonstrate an evolving set of tools provided.</p>
-</div>
-</div>
+<div class="section" id="tutorials">
+<h1>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">amrex/Tutorials/EB/CNS</span></code> is an AMR code for solving compressible
+Navier-Stokes equations with the embedded boundary approach.</p>
 </div>
 
 
