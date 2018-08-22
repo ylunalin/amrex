@@ -386,10 +386,7 @@ template for their own classes.</p>
 </ul>
 <p>AMReX also provides a number of transformation operations to apply to an object.</p>
 <ul class="simple">
-<li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">makeComplement</span></span></code>: Complement of an object. For example, a sphere with fluid on outside would</li>
-</ul>
-<p>become a sphere with fluid on the inside.</p>
-<ul class="simple">
+<li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">makeComplement</span></span></code>: Complement of an object. E.g. a sphere with fluid on outside becomes a sphere with fluid inside.</li>
 <li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">makeIntersection</span></span></code>: Intersection of two or more objects.</li>
 <li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">makeUnion</span></span></code>: Union of two or more objects.</li>
 <li><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Translate</span></span></code>: Translates an object.</li>
@@ -518,7 +515,7 @@ built with an <code class="code cpp c++ docutils literal notranslate"><span clas
 <div class="section" id="eb-data">
 <h1>EB Data<a class="headerlink" href="#eb-data" title="Permalink to this headline">¶</a></h1>
 <p>Through member functions of <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBFArrayBoxFactory</span></span></code>, we have access
-to the following data.</p>
+to the following data:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// see section on EBCellFlagFab</span>
 <span class="k">const</span> <span class="n">FabArray</span><span class="o">&lt;</span><span class="n">EBCellFlagFab</span><span class="o">&gt;&amp;</span> <span class="n">getMultiEBCellFlagFab</span> <span class="p">()</span> <span class="k">const</span><span class="p">;</span>
 
@@ -541,9 +538,10 @@ to the following data.</p>
 <p>Volume fraction is in a single-component <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code>, and it is
 zero for covered cells, one for regular cells, and in between for cut
 cells.  Centroid is in a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiCutFab</span></span></code> with <code class="docutils literal notranslate"><span class="pre">AMREX_SPACEDIM</span></code>
-components.  Each component of the data is in the range of
-<span class="math notranslate nohighlight">\([-0.5,0.5]\)</span> because they are based on each cell’s local
-coordinates.  A <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiCutFab</span></span></code> is very similar to a
+components with each component of the data is in the range of
+<span class="math notranslate nohighlight">\([-0.5,0.5]\)</span>. The centroid is based on each cell’s local
+coordinates with respect to the embedded boundary.
+A <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiCutFab</span></span></code> is very similar to a
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code>.  Its data can be accessed with subscript operator</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">const</span> <span class="n">CutFab</span><span class="o">&amp;</span> <span class="k">operator</span><span class="p">[]</span> <span class="p">(</span><span class="k">const</span> <span class="n">MFIter</span><span class="o">&amp;</span> <span class="n">mfi</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 </pre></div>
@@ -575,22 +573,22 @@ it to determine if a box contains cut cells.</p>
     <span class="k">const</span> <span class="n">Box</span><span class="o">&amp;</span> <span class="n">bx</span> <span class="o">=</span> <span class="n">mfi</span><span class="p">.</span><span class="n">tilebox</span><span class="p">();</span>
     <span class="n">FabType</span> <span class="n">t</span> <span class="o">=</span> <span class="n">flags</span><span class="p">[</span><span class="n">mfi</span><span class="p">].</span><span class="n">getType</span><span class="p">(</span><span class="n">bx</span><span class="p">);</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">FabType</span><span class="o">::</span><span class="n">regular</span> <span class="o">==</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span>
-        <span class="o">!</span> <span class="n">This</span> <span class="n">box</span> <span class="n">is</span> <span class="n">regular</span>
+        <span class="c1">// This box is regular</span>
     <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">FabType</span><span class="o">::</span><span class="n">covered</span> <span class="o">==</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span>
-        <span class="o">!</span> <span class="n">This</span> <span class="n">box</span> <span class="n">is</span> <span class="n">covered</span>
+        <span class="c1">// This box is covered</span>
     <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">FabType</span><span class="o">::</span><span class="n">singlevalued</span> <span class="o">==</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span>
-        <span class="o">!</span> <span class="n">This</span> <span class="n">box</span> <span class="n">has</span> <span class="n">cut</span> <span class="n">cells</span>
-        <span class="o">!</span> <span class="n">Getting</span> <span class="n">cutfab</span> <span class="n">is</span> <span class="n">safe</span>
+        <span class="c1">// This box has cut cells</span>
+        <span class="c1">// Getting cutfab is safe</span>
         <span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">centroid_fab</span> <span class="o">=</span> <span class="n">centroid</span><span class="p">[</span><span class="n">mfi</span><span class="p">];</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBCellFlagFab</span></span></code> is derived from <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BaseFab</span></span></code>.  Its data are
-stored in an array of 4-bytes integers, and can be used in C++ or
+stored in an array of 32-bit integers, and can be used in C++ or
 passed to Fortran just like an <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">IArrayBox</span></span></code> (section
-<a class="reference internal" href="Basics.html#sec-basics-fab"><span class="std std-ref">BaseFab, FArrayBox and IArrayBox</span></a>).  AMReX provides Fortran module
-<code class="docutils literal notranslate"><span class="pre">amrex_ebcellflag_module</span></code> that has procedures for testing cell types
+<a class="reference internal" href="Basics.html#sec-basics-fab"><span class="std std-ref">BaseFab, FArrayBox and IArrayBox</span></a>).  AMReX provides a Fortran module called
+<code class="docutils literal notranslate"><span class="pre">amrex_ebcellflag_module</span></code>. This module contains procedures for testing cell types
 and getting neighbor information.  For example</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">use </span><span class="n">amrex_ebcellflag_module</span><span class="p">,</span> <span class="n">only</span> <span class="p">:</span> <span class="n">is_regular_cell</span><span class="p">,</span> <span class="n">is_single_valued_cell</span><span class="p">,</span> <span class="n">is_covered_cell</span>
 
