@@ -617,9 +617,9 @@ and getting neighbor information.  For example</p>
 <h1>Linear Solvers<a class="headerlink" href="#linear-solvers" title="Permalink to this headline">¶</a></h1>
 <p>Linear solvers for the canonical form (equation <a class="reference internal" href="Chapter7.html#equation-eqn-abeclap">(1)</a>)
 have been discussed in chapter <a class="reference internal" href="Chapter7.html#chap-linearsolvers"><span class="std std-ref">Linear Solvers</span></a>.  Currently,
-AMReX support cell-centered solver with homogeneous Neumann boundary
-condition on the EB.  Cell-centered solver with Dirichlet boundary
-condition on the EB and nodal solver are under development.</p>
+AMReX supports cell-centered solver with homogeneous Neumann boundary
+condition on the EB. A cell-centered solver with Dirichlet boundary
+condition on the EB and a nodal solver are under development.</p>
 <p>To use cell-centered solver for EB, one builds linear operator
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MLEBABecLap</span></span></code> with <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBFArrayBoxFactory</span></span></code>.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">MLEBABecLap</span> <span class="p">(</span><span class="k">const</span> <span class="n">Vector</span><span class="o">&lt;</span><span class="n">Geometry</span><span class="o">&gt;&amp;</span> <span class="n">a_geom</span><span class="p">,</span>
