@@ -166,9 +166,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a33bfb4aa2de7fd9202aa986262944078"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_box_array.html#a33bfb4aa2de7fd9202aa986262944078">d_numPts</a> () const </td></tr>
 <tr class="memdesc:a33bfb4aa2de7fd9202aa986262944078"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the total number of cells (in double type) contained in all boxes in the <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a>.  <a href="#a33bfb4aa2de7fd9202aa986262944078">More...</a><br/></td></tr>
 <tr class="separator:a33bfb4aa2de7fd9202aa986262944078"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a13059a561875f7723c464b95401014"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_box_array.html#a0a13059a561875f7723c464b95401014">readFrom</a> (std::istream &amp;is)</td></tr>
-<tr class="memdesc:a0a13059a561875f7723c464b95401014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> from the supplied istream. It is an error if the <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> has already been initialized. Note that the <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> in the istream must have been written using <a class="el" href="classamrex_1_1_box_array.html#a3d7bd96e3a518279a830a8e53761f5a6" title="Output this BoxArray to a checkpoint file. ">writeOn()</a>.  <a href="#a0a13059a561875f7723c464b95401014">More...</a><br/></td></tr>
-<tr class="separator:a0a13059a561875f7723c464b95401014"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4df72bcadb7bdaa2c5db57212e48853a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_box_array.html#a4df72bcadb7bdaa2c5db57212e48853a">readFrom</a> (std::istream &amp;is)</td></tr>
+<tr class="memdesc:a4df72bcadb7bdaa2c5db57212e48853a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> from the supplied istream. It is an error if the <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> has already been initialized. Note that the <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> in the istream must have been written using <a class="el" href="classamrex_1_1_box_array.html#a3d7bd96e3a518279a830a8e53761f5a6" title="Output this BoxArray to a checkpoint file. ">writeOn()</a>.  <a href="#a4df72bcadb7bdaa2c5db57212e48853a">More...</a><br/></td></tr>
+<tr class="separator:a4df72bcadb7bdaa2c5db57212e48853a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d7bd96e3a518279a830a8e53761f5a6"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_box_array.html#a3d7bd96e3a518279a830a8e53761f5a6">writeOn</a> (std::ostream &amp;) const </td></tr>
 <tr class="memdesc:a3d7bd96e3a518279a830a8e53761f5a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output this <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> to a checkpoint file.  <a href="#a3d7bd96e3a518279a830a8e53761f5a6">More...</a><br/></td></tr>
 <tr class="separator:a3d7bd96e3a518279a830a8e53761f5a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1856,12 +1856,12 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a0a13059a561875f7723c464b95401014"></a>
+<a class="anchor" id="a4df72bcadb7bdaa2c5db57212e48853a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void amrex::BoxArray::readFrom </td>
+          <td class="memname">int amrex::BoxArray::readFrom </td>
           <td>(</td>
           <td class="paramtype">std::istream &amp;&#160;</td>
           <td class="paramname"><em>is</em></td><td>)</td>
