@@ -113,6 +113,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a5556632537bbfc0c8d88666c424a7a3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeefd313bef0b68e0b94442b78afb22a4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1i_multi_fab.html#aeefd313bef0b68e0b94442b78afb22a4">iMultiFab</a> (const <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> &amp;bs, const <a class="el" href="classamrex_1_1_distribution_mapping.html">DistributionMapping</a> &amp;dm, int <a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>, int ngrow, const <a class="el" href="structamrex_1_1_m_f_info.html">MFInfo</a> &amp;info=<a class="el" href="structamrex_1_1_m_f_info.html">MFInfo</a>(), const <a class="el" href="classamrex_1_1_fab_factory.html">FabFactory</a>&lt; <a class="el" href="classamrex_1_1_i_array_box.html">IArrayBox</a> &gt; &amp;factory=<a class="el" href="classamrex_1_1_default_fab_factory.html">DefaultFabFactory</a>&lt; <a class="el" href="classamrex_1_1_i_array_box.html">IArrayBox</a> &gt;())</td></tr>
 <tr class="separator:aeefd313bef0b68e0b94442b78afb22a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac15b662883bbb087b1e7013d7869000"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1i_multi_fab.html#aac15b662883bbb087b1e7013d7869000">iMultiFab</a> (const <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> &amp;bs, const <a class="el" href="classamrex_1_1_distribution_mapping.html">DistributionMapping</a> &amp;dm, int <a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;ngrow, const <a class="el" href="structamrex_1_1_m_f_info.html">MFInfo</a> &amp;info=<a class="el" href="structamrex_1_1_m_f_info.html">MFInfo</a>(), const <a class="el" href="classamrex_1_1_fab_factory.html">FabFactory</a>&lt; <a class="el" href="classamrex_1_1_i_array_box.html">IArrayBox</a> &gt; &amp;factory=<a class="el" href="classamrex_1_1_default_fab_factory.html">DefaultFabFactory</a>&lt; <a class="el" href="classamrex_1_1_i_array_box.html">IArrayBox</a> &gt;())</td></tr>
+<tr class="separator:aac15b662883bbb087b1e7013d7869000"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a815bfdbfd6938b044ed23ac96d55a7c0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1i_multi_fab.html#a815bfdbfd6938b044ed23ac96d55a7c0">iMultiFab</a> (const <a class="el" href="classamrex_1_1i_multi_fab.html">iMultiFab</a> &amp;rhs, <a class="el" href="namespaceamrex.html#a0a36c65d0681a832330b2812f16786a6">MakeType</a> maketype, int scomp, int <a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>)</td></tr>
 <tr class="memdesc:a815bfdbfd6938b044ed23ac96d55a7c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make an alias <a class="el" href="classamrex_1_1i_multi_fab.html">iMultiFab</a>. maketype must be <a class="el" href="namespaceamrex.html#a0a36c65d0681a832330b2812f16786a6a1477998364b5f02d6ce68e3da29be1ba">amrex::make_alias</a>. scomp is the starting component of the alias and ncomp is the number of components in the new aliasing <a class="el" href="classamrex_1_1i_multi_fab.html">iMultiFab</a>.  <a href="#a815bfdbfd6938b044ed23ac96d55a7c0">More...</a><br/></td></tr>
 <tr class="separator:a815bfdbfd6938b044ed23ac96d55a7c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -695,6 +697,56 @@ Additional Inherited Members</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ngrow</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structamrex_1_1_m_f_info.html">MFInfo</a> &amp;&#160;</td>
+          <td class="paramname"><em>info</em> = <code><a class="el" href="structamrex_1_1_m_f_info.html">MFInfo</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_fab_factory.html">FabFactory</a>&lt; <a class="el" href="classamrex_1_1_i_array_box.html">IArrayBox</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>factory</em> = <code><a class="el" href="classamrex_1_1_default_fab_factory.html">DefaultFabFactory</a>&lt;<a class="el" href="classamrex_1_1_i_array_box.html">IArrayBox</a>&gt;()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aac15b662883bbb087b1e7013d7869000"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">amrex::iMultiFab::iMultiFab </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> &amp;&#160;</td>
+          <td class="paramname"><em>bs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_distribution_mapping.html">DistributionMapping</a> &amp;&#160;</td>
+          <td class="paramname"><em>dm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ncomp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;&#160;</td>
           <td class="paramname"><em>ngrow</em>, </td>
         </tr>
         <tr>
