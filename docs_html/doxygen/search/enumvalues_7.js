@@ -1,12 +1,4 @@
 var searchData=
 [
-  ['in',['in',['../classamrex_1_1_fork_join.html#a3acf0d91b32d1d08dbe32046028f1466a13b5bfe96f3e2fe411c9f66f4a582adf',1,'amrex::ForkJoin']]],
-  ['inconsistent_5fbounds',['INCONSISTENT_BOUNDS',['../class_constrained_l_s.html#a6e412b9d41a6cfeb6b166abf4995491fa70ce15c38f3680c727547395d554d95f',1,'ConstrainedLS']]],
-  ['inout',['inout',['../classamrex_1_1_fork_join.html#a3acf0d91b32d1d08dbe32046028f1466a54c9ccb45f5ee60133cca31fca024432',1,'amrex::ForkJoin']]],
-  ['interpb',['InterpB',['../namespaceamrex.html#a2f30e076962c1c148d279b63851d80dfa9d55599aaee42c677bcd175e50bebbca',1,'amrex']]],
-  ['interpe',['InterpE',['../namespaceamrex.html#a2f30e076962c1c148d279b63851d80dfaea241117e55edc2764d31a18a4740ff3',1,'amrex']]],
-  ['interval',['Interval',['../classamrex_1_1_state_descriptor.html#a8e14d2e57bdb2fbd440c8c26c8b99434a0135564ab7966e377f4b9fff395b6eb6',1,'amrex::StateDescriptor']]],
-  ['invalid',['Invalid',['../classamrex_1_1_face_stop.html#a37ec41a3856aad220e1b1ece257abba4a4724b4137f33f54b2871d5df2503b6c1',1,'amrex::FaceStop::Invalid()'],['../classamrex_1_1_side.html#ac42bd5bce68af2b361b95738f55be87caaf302b76cbbbcc2d992c77a506328d0c',1,'amrex::Side::Invalid()']]],
-  ['io_5fbuffer_5fsize',['IO_Buffer_Size',['../classamrex_1_1_vis_m_f.html#aabda29e4a41d9175464745a74072d819ac67ac04832d2bbe370aa12c6ca513e85',1,'amrex::VisMF']]],
-  ['irregular',['Irregular',['../classamrex_1_1_geometry_service.html#ab6546708b1e12c188511a708769040d0a7ebe932393c0359efe05824c86ecf2a3',1,'amrex::GeometryService']]]
+  ['knapsack',['KNAPSACK',['../classamrex_1_1_distribution_mapping.html#ad8e078b643635f0027eb797c2d54d3b8a6f5ec418bb5db591c4b5780f00cce82e',1,'amrex::DistributionMapping']]]
 ];

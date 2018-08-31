@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['direction',['Direction',['../namespaceamrex.html#a8de829410ed15dbc56e4dafc9bc6ea69',1,'amrex']]]
+  ['ebsupport',['EBSupport',['../namespaceamrex.html#a7de82761ed632e5ee0b9f912c856aebc',1,'amrex']]],
+  ['errortype',['ErrorType',['../classamrex_1_1_error_rec.html#adeca3cab9dffebf73c48525e5f94872d',1,'amrex::ErrorRec']]]
 ];

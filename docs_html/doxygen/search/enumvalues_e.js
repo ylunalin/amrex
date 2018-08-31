@@ -1,8 +1,12 @@
 var searchData=
 [
-  ['regular',['Regular',['../classamrex_1_1_geometry_service.html#ab6546708b1e12c188511a708769040d0a05fcc9daea14d62372a697f00b5cf4d1',1,'amrex::GeometryService::Regular()'],['../namespaceamrex.html#abd2e3d292645433cefc947725585f87aaaf37d08ae228a87dc6b265fd1019c97d',1,'amrex::regular()']]],
-  ['reverseorder',['ReverseOrder',['../classamrex_1_1_int_descriptor.html#a330214b8c0c3e224aecd2d2d95c0a839a4df03ba7689cd2d0b2bceb929c949b61',1,'amrex::IntDescriptor']]],
-  ['roundrobin',['ROUNDROBIN',['../classamrex_1_1_distribution_mapping.html#ad8e078b643635f0027eb797c2d54d3b8a787ff5451e57a2271607a0143b75a38d',1,'amrex::DistributionMapping']]],
-  ['rrsfc',['RRSFC',['../classamrex_1_1_distribution_mapping.html#ad8e078b643635f0027eb797c2d54d3b8a75876358b1ba6c4d337b466fc4404217',1,'amrex::DistributionMapping']]],
-  ['rz',['RZ',['../classamrex_1_1_coord_sys.html#afb633344fd17c5565ce2fff188806ebaa090e74483c754250a5e0ee448bdfe8b3',1,'amrex::CoordSys']]]
+  ['set',['SET',['../classamrex_1_1_tag_box.html#ac8c350e6c62e1f2fd736b52d1b7caffaa0a8540b96d3e93084532672dad69790c',1,'amrex::TagBox']]],
+  ['sfc',['SFC',['../classamrex_1_1_distribution_mapping.html#ad8e078b643635f0027eb797c2d54d3b8ad783c9afd6b9c9388ebbb4498c6b39e4',1,'amrex::DistributionMapping']]],
+  ['single',['single',['../classamrex_1_1_fork_join.html#a72de18d1d16fadce31b830834ffff282add5c07036f2975ff4bce568b6511d3bc',1,'amrex::ForkJoin']]],
+  ['singlevalued',['singlevalued',['../namespaceamrex.html#abd2e3d292645433cefc947725585f87aa928c4a180152a4857751871f38d5f9ef',1,'amrex']]],
+  ['skipinit',['SkipInit',['../classamrex_1_1_m_f_iter.html#af5cf94bce73f6da744dd94acc46cdf38a30a84aa6392dc4536c6761c0cf72b097',1,'amrex::MFIter']]],
+  ['special',['Special',['../classamrex_1_1_error_rec.html#adeca3cab9dffebf73c48525e5f94872dab844c3099506080d12c1145ccdafa585',1,'amrex::ErrorRec']]],
+  ['spherical',['SPHERICAL',['../classamrex_1_1_coord_sys.html#afb633344fd17c5565ce2fff188806ebaaa0c55dfafca5806f988babd974f5b158',1,'amrex::CoordSys']]],
+  ['split',['split',['../classamrex_1_1_fork_join.html#a72de18d1d16fadce31b830834ffff282aeefec303079ad17405c889e092e105b0',1,'amrex::ForkJoin']]],
+  ['standard',['Standard',['../classamrex_1_1_error_rec.html#adeca3cab9dffebf73c48525e5f94872dabd4b8573edb15206522a41ee3a5db143',1,'amrex::ErrorRec']]]
 ];
