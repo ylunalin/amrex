@@ -92,7 +92,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">AMReX_ParallelContext.H File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;<a class="el" href="_a_m_re_x___vector_8_h_source.html">AMReX_Vector.H</a>&gt;</code><br/>
+<div class="textblock"><code>#include &lt;memory&gt;</code><br/>
+<code>#include &lt;fstream&gt;</code><br/>
+<code>#include &lt;<a class="el" href="_a_m_re_x___vector_8_h_source.html">AMReX_Vector.H</a>&gt;</code><br/>
 <code>#include &lt;<a class="el" href="_a_m_re_x__ccse-mpi_8_h_source.html">AMReX_ccse-mpi.H</a>&gt;</code><br/>
 </div>
 <p><a href="_a_m_re_x___parallel_context_8_h_source.html">Go to the source code of this file.</a></p>
@@ -120,6 +122,10 @@ Functions</h2></td></tr>
 <tr class="separator:afde8286279adc58bb4ab1d30a5d02cc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7e37f99813fe7bbc27d5b7268cef5d1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_context.html#ab7e37f99813fe7bbc27d5b7268cef5d1">amrex::ParallelContext::MyProcAll</a> ()</td></tr>
 <tr class="separator:ab7e37f99813fe7bbc27d5b7268cef5d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0a6ad036d05f2df88abddb1de4f45fc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_context.html#ac0a6ad036d05f2df88abddb1de4f45fc">amrex::ParallelContext::IOProcessorNumberAll</a> ()</td></tr>
+<tr class="separator:ac0a6ad036d05f2df88abddb1de4f45fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa54c6e8be9e7978be7175ef73c4d8918"><td class="memItemLeft" align="right" valign="top">std::ofstream *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_context.html#aa54c6e8be9e7978be7175ef73c4d8918">amrex::ParallelContext::OFSPtrAll</a> ()</td></tr>
+<tr class="separator:aa54c6e8be9e7978be7175ef73c4d8918"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb1955e0ab6b3f188007ad3aa5a4ef8a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_context.html#afb1955e0ab6b3f188007ad3aa5a4ef8a">amrex::ParallelContext::CommunicatorSub</a> ()</td></tr>
 <tr class="separator:afb1955e0ab6b3f188007ad3aa5a4ef8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c4de5ee0180d4051570f1202b1b0b6a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a2e7770334e9e65834ce3c95dd0c3a50f">MPI_Group</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_context.html#a1c4de5ee0180d4051570f1202b1b0b6a">amrex::ParallelContext::GroupSub</a> ()</td></tr>
@@ -128,6 +134,10 @@ Functions</h2></td></tr>
 <tr class="separator:a1e98db9c755ff62ca57280f0d6313936"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad2c854492138fe1cbc1eed6efc4a285"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_context.html#aad2c854492138fe1cbc1eed6efc4a285">amrex::ParallelContext::MyProcSub</a> ()</td></tr>
 <tr class="separator:aad2c854492138fe1cbc1eed6efc4a285"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acca72b4c16d04bcff92076f94102c77e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_context.html#acca72b4c16d04bcff92076f94102c77e">amrex::ParallelContext::IOProcessorNumberSub</a> ()</td></tr>
+<tr class="separator:acca72b4c16d04bcff92076f94102c77e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92a26a1787cb356e40c0d1d292b60e66"><td class="memItemLeft" align="right" valign="top">std::ofstream *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_context.html#a92a26a1787cb356e40c0d1d292b60e66">amrex::ParallelContext::OFSPtrSub</a> ()</td></tr>
+<tr class="separator:a92a26a1787cb356e40c0d1d292b60e66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acca5d709a82a02af512b29314b186eba"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_context.html#acca5d709a82a02af512b29314b186eba">amrex::ParallelContext::get_inc_mpi_tag</a> ()</td></tr>
 <tr class="separator:acca5d709a82a02af512b29314b186eba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84684e4377d405d237277f4e2fbde339"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_context.html#a84684e4377d405d237277f4e2fbde339">amrex::ParallelContext::local_to_global_rank</a> (int rank)</td></tr>
@@ -140,6 +150,10 @@ Functions</h2></td></tr>
 <tr class="separator:a4bd5983e3cd4d7324ffafcadb19ffb1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09cb92f4a123081a62f72e26a4e3c2a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_context.html#a09cb92f4a123081a62f72e26a4e3c2a3">amrex::ParallelContext::push</a> (<a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a> c)</td></tr>
 <tr class="separator:a09cb92f4a123081a62f72e26a4e3c2a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c562ca41b2d74fcd48dc76cc2acb6b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_context.html#a8c562ca41b2d74fcd48dc76cc2acb6b4">amrex::ParallelContext::push</a> (<a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a> c, int id, int io_rank)</td></tr>
+<tr class="separator:a8c562ca41b2d74fcd48dc76cc2acb6b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6494464a81b93bee92095f59487324b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_context.html#af6494464a81b93bee92095f59487324b">amrex::ParallelContext::set_last_frame_ofs</a> (const std::string &amp;filename)</td></tr>
+<tr class="separator:af6494464a81b93bee92095f59487324b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6bdab1c75756fa491add5ace4c59550f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_parallel_context.html#a6bdab1c75756fa491add5ace4c59550f">amrex::ParallelContext::pop</a> ()</td></tr>
 <tr class="separator:a6bdab1c75756fa491add5ace4c59550f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>

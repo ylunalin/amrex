@@ -98,6 +98,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p><code>#include &lt;<a class="el" href="_a_m_re_x___fork_join_8_h_source.html">AMReX_ForkJoin.H</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structamrex_1_1_fork_join_1_1_component_set.html">ComponentSet</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a72de18d1d16fadce31b830834ffff282"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fork_join.html#a72de18d1d16fadce31b830834ffff282">Strategy</a> { <a class="el" href="classamrex_1_1_fork_join.html#a72de18d1d16fadce31b830834ffff282add5c07036f2975ff4bce568b6511d3bc">Strategy::single</a>, 
@@ -113,12 +118,18 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae2d0b4f06cc006f360eb5a81e6d719c2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fork_join.html#ae2d0b4f06cc006f360eb5a81e6d719c2">ForkJoin</a> (<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; int &gt; trn)</td></tr>
-<tr class="separator:ae2d0b4f06cc006f360eb5a81e6d719c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0390a77315df9f09143645cbecf24515"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fork_join.html#a0390a77315df9f09143645cbecf24515">ForkJoin</a> (const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; int &gt; &amp;task_rank_n)</td></tr>
+<tr class="separator:a0390a77315df9f09143645cbecf24515"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac9106c8fc6d9be62cf1a73f2db0e820"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fork_join.html#aac9106c8fc6d9be62cf1a73f2db0e820">ForkJoin</a> (const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; double &gt; &amp;task_rank_pct)</td></tr>
 <tr class="separator:aac9106c8fc6d9be62cf1a73f2db0e820"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d8bbf7d8eb515f4249b97829a733c33"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fork_join.html#a2d8bbf7d8eb515f4249b97829a733c33">ForkJoin</a> (int ntasks)</td></tr>
 <tr class="separator:a2d8bbf7d8eb515f4249b97829a733c33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4eaae5bd6eb7e83442d5db4529cf1443"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fork_join.html#a4eaae5bd6eb7e83442d5db4529cf1443">NTasks</a> () const </td></tr>
+<tr class="separator:a4eaae5bd6eb7e83442d5db4529cf1443"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa34da133f881a877801df750ede8e2a9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fork_join.html#aa34da133f881a877801df750ede8e2a9">MyTask</a> () const </td></tr>
+<tr class="separator:aa34da133f881a877801df750ede8e2a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a698d77b52ac90108cb6f8a02c48b1662"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fork_join.html#a698d77b52ac90108cb6f8a02c48b1662">NProcsTask</a> (int task) const </td></tr>
+<tr class="separator:a698d77b52ac90108cb6f8a02c48b1662"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66e56de654ced923e6885ebd79bd75f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fork_join.html#a66e56de654ced923e6885ebd79bd75f2">reg_mf</a> (<a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;mf, const std::string &amp;name, int idx, <a class="el" href="classamrex_1_1_fork_join.html#a72de18d1d16fadce31b830834ffff282">Strategy</a> strategy, <a class="el" href="classamrex_1_1_fork_join.html#a3acf0d91b32d1d08dbe32046028f1466">Intent</a> intent, int owner=-1)</td></tr>
 <tr class="separator:a66e56de654ced923e6885ebd79bd75f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed221768a48c51c89a5b4c2c5d0de5b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fork_join.html#aed221768a48c51c89a5b4c2c5d0de5b3">reg_mf</a> (<a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;mf, const std::string &amp;name, <a class="el" href="classamrex_1_1_fork_join.html#a72de18d1d16fadce31b830834ffff282">Strategy</a> strategy, <a class="el" href="classamrex_1_1_fork_join.html#a3acf0d91b32d1d08dbe32046028f1466">Intent</a> intent, int owner=-1)</td></tr>
@@ -131,6 +142,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a578bc53c0adb9017820643c61bdb1226"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0fe682f85964b5d7c745b1d8ca66e08"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fork_join.html#ae0fe682f85964b5d7c745b1d8ca66e08">reg_mf_vec</a> (const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> const * &gt; &amp;mfs, const std::string &amp;name, <a class="el" href="classamrex_1_1_fork_join.html#a72de18d1d16fadce31b830834ffff282">Strategy</a> strategy, <a class="el" href="classamrex_1_1_fork_join.html#a3acf0d91b32d1d08dbe32046028f1466">Intent</a> intent, int owner=-1)</td></tr>
 <tr class="separator:ae0fe682f85964b5d7c745b1d8ca66e08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd674b9f0159c359a040afa7e3ba4fe8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fork_join.html#acd674b9f0159c359a040afa7e3ba4fe8">modify_split</a> (const std::string &amp;name, int idx, <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="structamrex_1_1_fork_join_1_1_component_set.html">ComponentSet</a> &gt; comp_split)</td></tr>
+<tr class="separator:acd674b9f0159c359a040afa7e3ba4fe8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d6ce14751cb1212501bb1cdc36f57cb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fork_join.html#a7d6ce14751cb1212501bb1cdc36f57cb">get_mf</a> (const std::string &amp;name, int idx=0)</td></tr>
 <tr class="separator:a7d6ce14751cb1212501bb1cdc36f57cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e0a68a47c9455b335eff47b577a44cb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fork_join.html#a8e0a68a47c9455b335eff47b577a44cb">get_mf_vec</a> (const std::string &amp;name)</td></tr>
@@ -197,15 +210,15 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ae2d0b4f06cc006f360eb5a81e6d719c2"></a>
+<a class="anchor" id="a0390a77315df9f09143645cbecf24515"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">amrex::ForkJoin::ForkJoin </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; int &gt;&#160;</td>
-          <td class="paramname"><em>trn</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>task_rank_n</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -327,6 +340,108 @@ template&lt;class F &gt; </div>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>name</em></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="acd674b9f0159c359a040afa7e3ba4fe8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void amrex::ForkJoin::modify_split </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>idx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="structamrex_1_1_fork_join_1_1_component_set.html">ComponentSet</a> &gt;&#160;</td>
+          <td class="paramname"><em>comp_split</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa34da133f881a877801df750ede8e2a9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int amrex::ForkJoin::MyTask </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a698d77b52ac90108cb6f8a02c48b1662"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int amrex::ForkJoin::NProcsTask </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>task</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a4eaae5bd6eb7e83442d5db4529cf1443"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int amrex::ForkJoin::NTasks </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>

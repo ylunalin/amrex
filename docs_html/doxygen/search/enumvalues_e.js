@@ -8,5 +8,6 @@ var searchData=
   ['special',['Special',['../classamrex_1_1_error_rec.html#adeca3cab9dffebf73c48525e5f94872dab844c3099506080d12c1145ccdafa585',1,'amrex::ErrorRec']]],
   ['spherical',['SPHERICAL',['../classamrex_1_1_coord_sys.html#afb633344fd17c5565ce2fff188806ebaaa0c55dfafca5806f988babd974f5b158',1,'amrex::CoordSys']]],
   ['split',['split',['../classamrex_1_1_fork_join.html#a72de18d1d16fadce31b830834ffff282aeefec303079ad17405c889e092e105b0',1,'amrex::ForkJoin']]],
-  ['standard',['Standard',['../classamrex_1_1_error_rec.html#adeca3cab9dffebf73c48525e5f94872dabd4b8573edb15206522a41ee3a5db143',1,'amrex::ErrorRec']]]
+  ['standard',['Standard',['../classamrex_1_1_error_rec.html#adeca3cab9dffebf73c48525e5f94872dabd4b8573edb15206522a41ee3a5db143',1,'amrex::ErrorRec']]],
+  ['sum',['sum',['../namespaceamrex_1_1detail.html#a05ef6e98eba987410d73df1617fa569dadb62579be9a4f3141fb640a655f49f52',1,'amrex::detail']]]
 ];
