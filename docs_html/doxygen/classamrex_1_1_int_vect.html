@@ -276,8 +276,6 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a20ee38ab5419935a0bde3eb69930528e"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_int_vect.html#a20ee38ab5419935a0bde3eb69930528e">InitStatics</a> ()</td></tr>
-<tr class="separator:a20ee38ab5419935a0bde3eb69930528e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b0f88337f8df018a4a29bc878956811"><td class="memItemLeft" align="right" valign="top">static size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_int_vect.html#a7b0f88337f8df018a4a29bc878956811">linearSize</a> ()</td></tr>
 <tr class="memdesc:a7b0f88337f8df018a4a29bc878956811"><td class="mdescLeft">&#160;</td><td class="mdescRight">for serialization  <a href="#a7b0f88337f8df018a4a29bc878956811">More...</a><br/></td></tr>
 <tr class="separator:a7b0f88337f8df018a4a29bc878956811"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -303,9 +301,9 @@ Static Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a5b50f516a319513a10154ef402c2717b"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_int_vect.html#a5b50f516a319513a10154ef402c2717b">Zero</a></td></tr>
+<tr class="memitem:a5b50f516a319513a10154ef402c2717b"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_int_vect.html#a5b50f516a319513a10154ef402c2717b">Zero</a> = <a class="el" href="classamrex_1_1_int_vect.html#a2f992c8ef43cee508cbce8712b257ead">IntVect::TheZeroVector</a>()</td></tr>
 <tr class="separator:a5b50f516a319513a10154ef402c2717b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93df7e94c6d2d07ea3eb7647500bf751"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_int_vect.html#a93df7e94c6d2d07ea3eb7647500bf751">Unit</a></td></tr>
+<tr class="memitem:a93df7e94c6d2d07ea3eb7647500bf751"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_int_vect.html#a93df7e94c6d2d07ea3eb7647500bf751">Unit</a> = <a class="el" href="classamrex_1_1_int_vect.html#a369ba1c55e53b85dd152254efa21aeac">IntVect::TheUnitVector</a>()</td></tr>
 <tr class="separator:a93df7e94c6d2d07ea3eb7647500bf751"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
@@ -688,30 +686,6 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a20ee38ab5419935a0bde3eb69930528e"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int amrex::IntVect::InitStatics </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Initializes Zero and Unit. </p>
 
 </div>
 </div>
@@ -2099,7 +2073,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> amrex::IntVect::Unit</td>
+          <td class="memname">const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> amrex::IntVect::Unit = <a class="el" href="classamrex_1_1_int_vect.html#a369ba1c55e53b85dd152254efa21aeac">IntVect::TheUnitVector</a>()</td>
         </tr>
       </table>
   </td>
@@ -2120,7 +2094,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> amrex::IntVect::Zero</td>
+          <td class="memname">const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> amrex::IntVect::Zero = <a class="el" href="classamrex_1_1_int_vect.html#a2f992c8ef43cee508cbce8712b257ead">IntVect::TheZeroVector</a>()</td>
         </tr>
       </table>
   </td>

@@ -2,7 +2,6 @@ var searchData=
 [
   ['scaleif',['ScaleIF',['../classamrex_1_1_e_b2_1_1_scale_i_f.html',1,'amrex::EB2']]],
   ['sendinfo',['SendInfo',['../structamrex_1_1_b_l_pgas_1_1_send_info.html',1,'amrex::BLPgas']]],
-  ['serialtask',['SerialTask',['../classamrex_1_1_serial_task.html',1,'amrex']]],
   ['shift_5fhasher',['shift_hasher',['../classamrex_1_1_int_vect_1_1shift__hasher.html',1,'amrex::IntVect']]],
   ['shmem',['ShMem',['../structamrex_1_1_fab_array_1_1_sh_mem.html',1,'amrex::FabArray']]],
   ['sphereif',['SphereIF',['../classamrex_1_1_e_b2_1_1_sphere_i_f.html',1,'amrex::EB2']]],

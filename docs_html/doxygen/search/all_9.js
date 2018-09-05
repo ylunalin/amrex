@@ -54,7 +54,6 @@ var searchData=
   ['initpltandchk',['initPltAndChk',['../classamrex_1_1_amr.html#a210649d50f9f052bcaf38336ce97f986',1,'amrex::Amr']]],
   ['initrandom',['InitRandom',['../classamrex_1_1_particle_container.html#ab625b5a4a0f0b861281f75c797c6787d',1,'amrex::ParticleContainer::InitRandom()'],['../namespaceamrex.html#a063e0c5d4ce2c053f2ed607639481832',1,'amrex::InitRandom()']]],
   ['initrandomperbox',['InitRandomPerBox',['../classamrex_1_1_particle_container.html#a78c63ad7c9a8ec65ce136664bdc7dacf',1,'amrex::ParticleContainer']]],
-  ['initstatics',['InitStatics',['../classamrex_1_1_int_vect.html#a20ee38ab5419935a0bde3eb69930528e',1,'amrex::IntVect']]],
   ['initsubcycle',['initSubcycle',['../classamrex_1_1_amr.html#ac817c89d71bd72e6514b12b78ba3a955',1,'amrex::Amr']]],
   ['initval',['initVal',['../classamrex_1_1_f_array_box.html#a157b2eaa0dca6da7104046416721fe6d',1,'amrex::FArrayBox::initVal()'],['../classamrex_1_1_multi_fab.html#aa4f9b9a2a37baa29e7767a80f6856dcd',1,'amrex::MultiFab::initVal()'],['../classamrex_1_1_f_array_box.html#a6657471e6437a4acab5413ea8874ff39',1,'amrex::FArrayBox::initval()']]],
   ['inout',['inout',['../classamrex_1_1_fork_join.html#a3acf0d91b32d1d08dbe32046028f1466a54c9ccb45f5ee60133cca31fca024432',1,'amrex::ForkJoin']]],
