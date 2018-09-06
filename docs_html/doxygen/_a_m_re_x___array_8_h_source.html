@@ -122,20 +122,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    }</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="namespaceamrex.html#afe1faa5795f7698f79e06dedc046e5d6">   35</a></span>&#160;    std::array&lt;T*,AMREX_SPACEDIM&gt; <a class="code" href="namespaceamrex.html#a1ca1eefa55eeb6a77f1b5f5f1aa2a089">GetArrOfPtrs</a> (<span class="keyword">const</span> std::array&lt;std::unique_ptr&lt;T&gt;,AMREX_SPACEDIM&gt;&amp; a)</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="namespaceamrex.html#a5f19f82d59a0a1a6d5d68f40b5a3b1e3">   35</a></span>&#160;    std::array&lt;T const*,AMREX_SPACEDIM&gt; <a class="code" href="namespaceamrex.html#a203249f88d9dcd9f313d57720d438416">GetArrOfConstPtrs</a> (<span class="keyword">const</span> std::array&lt;T*,AMREX_SPACEDIM&gt;&amp; a)</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordflow">return</span> {<a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#a887504417652135e27c7f9f8e3c25c9f">AMREX_D_DECL</a>(a[0].<span class="keyword">get</span>(), a[1].<span class="keyword">get</span>(), a[2].<span class="keyword">get</span>())};</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;       <span class="keywordflow">return</span> {<a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#a887504417652135e27c7f9f8e3c25c9f">AMREX_D_DECL</a>(a[0], a[1], a[2])};</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    }</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="namespaceamrex.html#af1c199747508f6a0107b36d8858abbc2">   41</a></span>&#160;    std::array&lt;T const*,AMREX_SPACEDIM&gt; <a class="code" href="namespaceamrex.html#a203249f88d9dcd9f313d57720d438416">GetArrOfConstPtrs</a> (<span class="keyword">const</span> std::array&lt;std::unique_ptr&lt;T&gt;,AMREX_SPACEDIM&gt;&amp; a)</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="namespaceamrex.html#afe1faa5795f7698f79e06dedc046e5d6">   41</a></span>&#160;    std::array&lt;T*,AMREX_SPACEDIM&gt; <a class="code" href="namespaceamrex.html#a1ca1eefa55eeb6a77f1b5f5f1aa2a089">GetArrOfPtrs</a> (<span class="keyword">const</span> std::array&lt;std::unique_ptr&lt;T&gt;,AMREX_SPACEDIM&gt;&amp; a)</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">return</span> {<a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#a887504417652135e27c7f9f8e3c25c9f">AMREX_D_DECL</a>(a[0].<span class="keyword">get</span>(), a[1].<span class="keyword">get</span>(), a[2].<span class="keyword">get</span>())};</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    }</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="namespaceamrex.html#af1c199747508f6a0107b36d8858abbc2">   47</a></span>&#160;    std::array&lt;T const*,AMREX_SPACEDIM&gt; <a class="code" href="namespaceamrex.html#a203249f88d9dcd9f313d57720d438416">GetArrOfConstPtrs</a> (<span class="keyword">const</span> std::array&lt;std::unique_ptr&lt;T&gt;,AMREX_SPACEDIM&gt;&amp; a)</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">return</span> {<a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#a887504417652135e27c7f9f8e3c25c9f">AMREX_D_DECL</a>(a[0].<span class="keyword">get</span>(), a[1].<span class="keyword">get</span>(), a[2].<span class="keyword">get</span>())};</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor"></span></div>
 <div class="ttc" id="_a_m_re_x___b_lassert_8_h_html"><div class="ttname"><a href="_a_m_re_x___b_lassert_8_h.html">AMReX_BLassert.H</a></div></div>
 <div class="ttc" id="_a_m_re_x___s_p_a_c_e_8_h_html"><div class="ttname"><a href="_a_m_re_x___s_p_a_c_e_8_h.html">AMReX_SPACE.H</a></div></div>
 <div class="ttc" id="namespaceamrex_html_a203249f88d9dcd9f313d57720d438416"><div class="ttname"><a href="namespaceamrex.html#a203249f88d9dcd9f313d57720d438416">amrex::GetArrOfConstPtrs</a></div><div class="ttdeci">std::array&lt; T const *, AMREX_SPACEDIM &gt; GetArrOfConstPtrs(const std::array&lt; T, AMREX_SPACEDIM &gt; &amp;a)</div><div class="ttdef"><b>Definition:</b> AMReX_Array.H:29</div></div>
