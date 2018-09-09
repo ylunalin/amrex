@@ -479,6 +479,8 @@ Classes</h2></td></tr>
 Typedefs</h2></td></tr>
 <tr class="memitem:acd7b625566c505e27b79ff3f812f90e7"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#acd7b625566c505e27b79ff3f812f90e7">PTR_TO_VOID_FUNC</a> )(void)</td></tr>
 <tr class="separator:acd7b625566c505e27b79ff3f812f90e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac031328330e49662dde0da7bd2a770de"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ac031328330e49662dde0da7bd2a770de">ErrorHandler</a> )(const char *msg)</td></tr>
+<tr class="separator:ac031328330e49662dde0da7bd2a770de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe930d74045516fece8591f173e57007"><td class="memTemplParams" colspan="2">template&lt;class T , std::size_t N&gt; </td></tr>
 <tr class="memitem:afe930d74045516fece8591f173e57007"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#afe930d74045516fece8591f173e57007">Array</a> = std::array&lt; T, N &gt;</td></tr>
 <tr class="separator:afe930d74045516fece8591f173e57007"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -558,10 +560,10 @@ Enumerations</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:ad4158723bb78d3d5f19e396a20c0ce2d"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ad4158723bb78d3d5f19e396a20c0ce2d">Version</a> ()</td></tr>
 <tr class="separator:ad4158723bb78d3d5f19e396a20c0ce2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e5e53401911818156ab41175f8472ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a1e5e53401911818156ab41175f8472ee">Initialize</a> (<a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a> mpi_comm, std::ostream &amp;a_osout=std::cout, std::ostream &amp;a_oserr=std::cerr)</td></tr>
-<tr class="separator:a1e5e53401911818156ab41175f8472ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4bc0ca5fab7318c19066fbd23984e8c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a4bc0ca5fab7318c19066fbd23984e8c9">Initialize</a> (int &amp;argc, char **&amp;argv, bool build_parm_parse=true, <a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a> mpi_comm=<a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#ac57c1fc8484fb9b5c8359a559851107b">MPI_COMM_WORLD</a>, const std::function&lt; void()&gt; &amp;func_parm_parse={}, std::ostream &amp;a_osout=std::cout, std::ostream &amp;a_oserr=std::cerr)</td></tr>
-<tr class="separator:a4bc0ca5fab7318c19066fbd23984e8c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6af1524fbe3cd8da106c62a0707deb9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ae6af1524fbe3cd8da106c62a0707deb9">Initialize</a> (<a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a> mpi_comm, std::ostream &amp;a_osout=std::cout, std::ostream &amp;a_oserr=std::cerr, <a class="el" href="namespaceamrex.html#ac031328330e49662dde0da7bd2a770de">ErrorHandler</a> a_errhandler=nullptr)</td></tr>
+<tr class="separator:ae6af1524fbe3cd8da106c62a0707deb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcb9523b634d8e0d552e198bc4c9c746"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#abcb9523b634d8e0d552e198bc4c9c746">Initialize</a> (int &amp;argc, char **&amp;argv, bool build_parm_parse=true, <a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a> mpi_comm=<a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#ac57c1fc8484fb9b5c8359a559851107b">MPI_COMM_WORLD</a>, const std::function&lt; void()&gt; &amp;func_parm_parse={}, std::ostream &amp;a_osout=std::cout, std::ostream &amp;a_oserr=std::cerr, <a class="el" href="namespaceamrex.html#ac031328330e49662dde0da7bd2a770de">ErrorHandler</a> a_errorhandler=nullptr)</td></tr>
+<tr class="separator:abcb9523b634d8e0d552e198bc4c9c746"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a98433bd642d901d057750276875f85f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a98433bd642d901d057750276875f85f6">Finalize</a> (bool finalize_parallel=true)</td></tr>
 <tr class="separator:a98433bd642d901d057750276875f85f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec8ceac1148bd8331f3a51572068f8a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#aec8ceac1148bd8331f3a51572068f8a0">ExecOnFinalize</a> (<a class="el" href="namespaceamrex.html#acd7b625566c505e27b79ff3f812f90e7">PTR_TO_VOID_FUNC</a>)</td></tr>
@@ -588,17 +590,21 @@ Functions</h2></td></tr>
 <tr class="memdesc:ab6a2e5010fd3fcf597991b9d1a251c0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints assertion failed messages to cerr and exits via abort(). Intended for use by the <a class="el" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT()</a> macro in &lt;<a class="el" href="_a_m_re_x___b_lassert_8_h.html">AMReX_BLassert.H</a>&gt;.  <a href="#ab6a2e5010fd3fcf597991b9d1a251c0d">More...</a><br/></td></tr>
 <tr class="separator:ab6a2e5010fd3fcf597991b9d1a251c0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60941081c34a5d500140c8577e11625a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a60941081c34a5d500140c8577e11625a">OutOfMemory</a> (const char *file, int line)</td></tr>
-<tr class="memdesc:a60941081c34a5d500140c8577e11625a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints out an out-of-memory message and aborts. It is called by various BoxLib routines when a call to new fails.  <a href="#a60941081c34a5d500140c8577e11625a">More...</a><br/></td></tr>
+<tr class="memdesc:a60941081c34a5d500140c8577e11625a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints out an out-of-memory message and aborts. It is called by various routines when a call to new fails.  <a href="#a60941081c34a5d500140c8577e11625a">More...</a><br/></td></tr>
 <tr class="separator:a60941081c34a5d500140c8577e11625a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c0dc9355722e150b88c6fc71422288e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a0c0dc9355722e150b88c6fc71422288e">write_to_stderr_without_buffering</a> (const char *str)</td></tr>
 <tr class="memdesc:a0c0dc9355722e150b88c6fc71422288e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is used by <a class="el" href="namespaceamrex.html#ac0e2e23df625040ded95611ceae98352" title="Print out message to cerr and exit via amrex::Abort(). ">amrex::Error()</a>, <a class="el" href="namespaceamrex.html#aea69993eec3c9ca497cd0e47522b2ec6" title="Print out message to cerr and exit via abort(). ">amrex::Abort()</a>, and <a class="el" href="namespaceamrex.html#ab6a2e5010fd3fcf597991b9d1a251c0d" title="Prints assertion failed messages to cerr and exits via abort(). Intended for use by the BL_ASSERT() m...">amrex::Assert()</a> to ensure that when writing the message to stderr, that no additional heap-based memory is allocated.  <a href="#a0c0dc9355722e150b88c6fc71422288e">More...</a><br/></td></tr>
 <tr class="separator:a0c0dc9355722e150b88c6fc71422288e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae82a731c021b58a742101a3d5f803438"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ae82a731c021b58a742101a3d5f803438">SetErrorHandler</a> (<a class="el" href="namespaceamrex.html#ac031328330e49662dde0da7bd2a770de">ErrorHandler</a> errhandler)</td></tr>
+<tr class="separator:ae82a731c021b58a742101a3d5f803438"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add2f0f36ce80f2f3934e3a8ec2a966df"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#add2f0f36ce80f2f3934e3a8ec2a966df">OutStream</a> ()</td></tr>
 <tr class="separator:add2f0f36ce80f2f3934e3a8ec2a966df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e213ab52cdac41e691ab49370b30a34"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a1e213ab52cdac41e691ab49370b30a34">ErrorStream</a> ()</td></tr>
 <tr class="separator:a1e213ab52cdac41e691ab49370b30a34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95f0930ba986e82b33990bf2cc0423a0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a95f0930ba986e82b33990bf2cc0423a0">Verbose</a> ()</td></tr>
 <tr class="separator:a95f0930ba986e82b33990bf2cc0423a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8bc35a2ad51cd8f62e3439b33423b00"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#af8bc35a2ad51cd8f62e3439b33423b00">SetVerbose</a> (int v)</td></tr>
+<tr class="separator:af8bc35a2ad51cd8f62e3439b33423b00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d0fa7afb6bbeb5e81b5570445599fbf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a9d0fa7afb6bbeb5e81b5570445599fbf">GccPlacater</a> ()</td></tr>
 <tr class="separator:a9d0fa7afb6bbeb5e81b5570445599fbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3d1414946b992f39ca41f135f12a0d1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_arena.html">Arena</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ae3d1414946b992f39ca41f135f12a0d1">The_Arena</a> ()</td></tr>
@@ -675,10 +681,6 @@ Functions</h2></td></tr>
 <tr class="memitem:ab0383aaa0f5350800829d30adad5bcf6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ab0383aaa0f5350800829d30adad5bcf6">adjCell</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b, <a class="el" href="classamrex_1_1_orientation.html">Orientation</a> face, int len=1)</td></tr>
 <tr class="memdesc:ab0383aaa0f5350800829d30adad5bcf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Similar to adjCellLo and adjCellHi; operates on given face.  <a href="#ab0383aaa0f5350800829d30adad5bcf6">More...</a><br/></td></tr>
 <tr class="separator:ab0383aaa0f5350800829d30adad5bcf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a849a05089c0eba793a31e95426d1397a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a849a05089c0eba793a31e95426d1397a">SerializeBox</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b)</td></tr>
-<tr class="separator:a849a05089c0eba793a31e95426d1397a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad89ecad0ab53b395ee7d2327ab2202c8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ad89ecad0ab53b395ee7d2327ab2202c8">UnSerializeBox</a> (const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; int &gt; &amp;serarray)</td></tr>
-<tr class="separator:ad89ecad0ab53b395ee7d2327ab2202c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad871bc2fa6939b610a2ad14b3055627f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ad871bc2fa6939b610a2ad14b3055627f">AllGatherBoxes</a> (<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_box.html">Box</a> &gt; &amp;bxs)</td></tr>
 <tr class="separator:ad871bc2fa6939b610a2ad14b3055627f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aded67b6a8fd015f89f19f03ed9fdcb73"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#aded67b6a8fd015f89f19f03ed9fdcb73">grow</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b, int i)</td></tr>
@@ -730,8 +732,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a3a7eb17ecb8578d2adfcf1d5c0401c20"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a3a7eb17ecb8578d2adfcf1d5c0401c20">minBox</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b1, const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b2)</td></tr>
 <tr class="memdesc:a3a7eb17ecb8578d2adfcf1d5c0401c20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modify <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> to that of the minimum <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> containing both the original <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> and the argument. Both Boxes must have identical type.  <a href="#a3a7eb17ecb8578d2adfcf1d5c0401c20">More...</a><br/></td></tr>
 <tr class="separator:a3a7eb17ecb8578d2adfcf1d5c0401c20"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a404450845959fbab17d1968664f9b9c2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a404450845959fbab17d1968664f9b9c2">SerializeBoxSize</a> ()</td></tr>
-<tr class="separator:a404450845959fbab17d1968664f9b9c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada7c77f7ac84c643ea21113e4ff5f2d0"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ada7c77f7ac84c643ea21113e4ff5f2d0">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> &amp;ba)</td></tr>
 <tr class="memdesc:ada7c77f7ac84c643ea21113e4ff5f2d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> to an ostream in ASCII format.  <a href="#ada7c77f7ac84c643ea21113e4ff5f2d0">More...</a><br/></td></tr>
 <tr class="separator:ada7c77f7ac84c643ea21113e4ff5f2d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -766,12 +766,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a9e3d780b53dae76073bd07164d2e1cdb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a9e3d780b53dae76073bd07164d2e1cdb">readBoxArray</a> (<a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> &amp;ba, std::istream &amp;s, bool b)</td></tr>
 <tr class="memdesc:a9e3d780b53dae76073bd07164d2e1cdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read a <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> from a stream. If b is true, read in a special way.  <a href="#a9e3d780b53dae76073bd07164d2e1cdb">More...</a><br/></td></tr>
 <tr class="separator:a9e3d780b53dae76073bd07164d2e1cdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76f4fab9ceb58a061b21cc29e88905b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a76f4fab9ceb58a061b21cc29e88905b6">SerializeBoxArray</a> (const <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> &amp;ba)</td></tr>
-<tr class="memdesc:a76f4fab9ceb58a061b21cc29e88905b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a 1D Array of cells from all boxes in a <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a>.  <a href="#a76f4fab9ceb58a061b21cc29e88905b6">More...</a><br/></td></tr>
-<tr class="separator:a76f4fab9ceb58a061b21cc29e88905b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca59db20007ff011805104bfc0d235ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_box_array.html">BoxArray</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#aca59db20007ff011805104bfc0d235ea">UnSerializeBoxArray</a> (const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; int &gt; &amp;serarray)</td></tr>
-<tr class="memdesc:aca59db20007ff011805104bfc0d235ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> (in AMREX_SPACEDIM dimensions) from a 1D Array of cells.  <a href="#aca59db20007ff011805104bfc0d235ea">More...</a><br/></td></tr>
-<tr class="separator:aca59db20007ff011805104bfc0d235ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89eb9459b4109c4f9a9b3225abae29f8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a89eb9459b4109c4f9a9b3225abae29f8">match</a> (const <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> &amp;x, const <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> &amp;y)</td></tr>
 <tr class="memdesc:a89eb9459b4109c4f9a9b3225abae29f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Note that two BoxArrays that match are not necessarily equal.  <a href="#a89eb9459b4109c4f9a9b3225abae29f8">More...</a><br/></td></tr>
 <tr class="separator:a89eb9459b4109c4f9a9b3225abae29f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1493,6 +1487,18 @@ template&lt;class T , std::size_t N&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">typedef void(* amrex::ErrorFuncDefault)(int *tag, <a class="el" href="_a_m_re_x___array_lim_8_h.html#af53c6334de4f960ca760f7ea802e1e98">AMREX_ARLIM_P</a>(tlo), <a class="el" href="_a_m_re_x___array_lim_8_h.html#af53c6334de4f960ca760f7ea802e1e98">AMREX_ARLIM_P</a>(thi), const int *tagval, const int *clearval, amrex::Real *data, <a class="el" href="_a_m_re_x___array_lim_8_h.html#af53c6334de4f960ca760f7ea802e1e98">AMREX_ARLIM_P</a>(data_lo), <a class="el" href="_a_m_re_x___array_lim_8_h.html#af53c6334de4f960ca760f7ea802e1e98">AMREX_ARLIM_P</a>(data_hi), const int *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a54267e9174e171df90d3594f0c32e114">lo</a>, const int *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a6569fdcb051e8fff2ef4c57db6f9c642">hi</a>, const int *nvar, const int *domain_lo, const int *domain_hi, const amrex::Real *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ad5fa46517dd383f09a279b8446fc397b">dx</a>, const amrex::Real *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a2c670f4a7b523860a14120bdf4999674">xlo</a>, const amrex::Real *prob_lo, const amrex::Real *time, const int *level)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac031328330e49662dde0da7bd2a770de"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef void(* amrex::ErrorHandler)(const char *msg)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -6027,7 +6033,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a1e5e53401911818156ab41175f8472ee"></a>
+<a class="anchor" id="ae6af1524fbe3cd8da106c62a0707deb9"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -6047,7 +6053,13 @@ template&lt;class T &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>a_oserr</em> = <code>std::cerr</code>&#160;</td>
+          <td class="paramname"><em>a_oserr</em> = <code>std::cerr</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ErrorHandler&#160;</td>
+          <td class="paramname"><em>a_errhandler</em> = <code>nullptr</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -6059,7 +6071,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a4bc0ca5fab7318c19066fbd23984e8c9"></a>
+<a class="anchor" id="abcb9523b634d8e0d552e198bc4c9c746"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -6103,7 +6115,13 @@ template&lt;class T &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>a_oserr</em> = <code>std::cerr</code>&#160;</td>
+          <td class="paramname"><em>a_oserr</em> = <code>std::cerr</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ErrorHandler&#160;</td>
+          <td class="paramname"><em>a_errorhandler</em> = <code>nullptr</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -7809,34 +7827,6 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a73fb53c873d555a7a3cc7b33e88a5f33"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::ostream &amp; amrex::operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>os</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const IndexType &amp;&#160;</td>
-          <td class="paramname"><em>it</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Write an <a class="el" href="classamrex_1_1_index_type.html" title="Cell-Based or Node-Based Indices. ">IndexType</a> to an ostream in ASCII. </p>
-
-</div>
-</div>
 <a class="anchor" id="ac38f92b345723f71defea15e208ee644"></a>
 <div class="memitem">
 <div class="memproto">
@@ -7862,6 +7852,34 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>Write to an ostream in ASCII format. </p>
+
+</div>
+</div>
+<a class="anchor" id="a73fb53c873d555a7a3cc7b33e88a5f33"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream &amp; amrex::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const IndexType &amp;&#160;</td>
+          <td class="paramname"><em>it</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Write an <a class="el" href="classamrex_1_1_index_type.html" title="Cell-Based or Node-Based Indices. ">IndexType</a> to an ostream in ASCII. </p>
 
 </div>
 </div>
@@ -8614,6 +8632,32 @@ template&lt;int NReal, int NInt&gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="ae3b2b2af01369829d3b37006cd625fe2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::istream&amp; amrex::operator&gt;&gt; </td>
+          <td>(</td>
+          <td class="paramtype">std::istream &amp;&#160;</td>
+          <td class="paramname"><em>is</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IntVect &amp;&#160;</td>
+          <td class="paramname"><em>iv</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="ab982b91919e6fa7eed439d20fc794c41"></a>
 <div class="memitem">
 <div class="memproto">
@@ -8639,32 +8683,6 @@ template&lt;int NReal, int NInt&gt; </div>
 </div><div class="memdoc">
 
 <p>Read an <a class="el" href="classamrex_1_1_index_type.html" title="Cell-Based or Node-Based Indices. ">IndexType</a> from an istream. </p>
-
-</div>
-</div>
-<a class="anchor" id="ae3b2b2af01369829d3b37006cd625fe2"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::istream&amp; amrex::operator&gt;&gt; </td>
-          <td>(</td>
-          <td class="paramtype">std::istream &amp;&#160;</td>
-          <td class="paramname"><em>is</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">IntVect &amp;&#160;</td>
-          <td class="paramname"><em>iv</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
 
 </div>
 </div>
@@ -9040,8 +9058,8 @@ template&lt;int NReal, int NInt&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Prints out an out-of-memory message and aborts. It is called by various BoxLib routines when a call to new fails. </p>
-<p>Called as <a class="el" href="namespaceamrex.html#a60941081c34a5d500140c8577e11625a" title="Prints out an out-of-memory message and aborts. It is called by various BoxLib routines when a call t...">amrex::OutOfMemory</a>(<b>FILE</b>, <b>LINE</b>); </p>
+<p>Prints out an out-of-memory message and aborts. It is called by various routines when a call to new fails. </p>
+<p>Called as <a class="el" href="namespaceamrex.html#a60941081c34a5d500140c8577e11625a" title="Prints out an out-of-memory message and aborts. It is called by various routines when a call to new f...">amrex::OutOfMemory</a>(<b>FILE</b>, <b>LINE</b>); </p>
 
 </div>
 </div>
@@ -10042,63 +10060,6 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a849a05089c0eba793a31e95426d1397a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; int &gt; amrex::SerializeBox </td>
-          <td>(</td>
-          <td class="paramtype">const Box &amp;&#160;</td>
-          <td class="paramname"><em>b</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a76f4fab9ceb58a061b21cc29e88905b6"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; int &gt; amrex::SerializeBoxArray </td>
-          <td>(</td>
-          <td class="paramtype">const BoxArray &amp;&#160;</td>
-          <td class="paramname"><em>ba</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Create a 1D Array of cells from all boxes in a <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a>. </p>
-
-</div>
-</div>
-<a class="anchor" id="a404450845959fbab17d1968664f9b9c2"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int amrex::SerializeBoxSize </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="ac55f6d6246ea70d74588e5f06fd92e99"></a>
 <div class="memitem">
 <div class="memproto">
@@ -10213,6 +10174,22 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="ae82a731c021b58a742101a3d5f803438"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void amrex::SetErrorHandler </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceamrex.html#ac031328330e49662dde0da7bd2a770de">amrex::ErrorHandler</a>&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a76884405b2dc4cd3167652aa79be5606"></a>
 <div class="memitem">
 <div class="memproto">
@@ -10231,6 +10208,22 @@ template&lt;class T &gt; </div>
 <p>Changes the base part of the filename for <a class="el" href="namespaceamrex.html#a45701cae6632ec65a5eebdecc587c780" title="the stream that all output except error msgs should use ">pout()</a> files.</p>
 <p>If the file has already been used and this is a different name, close the current file and open a new one.</p>
 <p>When in parallel, changes the base name of the <a class="el" href="namespaceamrex.html#a45701cae6632ec65a5eebdecc587c780" title="the stream that all output except error msgs should use ">pout()</a> files. If <a class="el" href="namespaceamrex.html#a45701cae6632ec65a5eebdecc587c780" title="the stream that all output except error msgs should use ">pout()</a> has already been called, it closes the current output file and opens a new one (unless the name is the same, in which case it does nothing). In serial, ignores the argument and does nothing. </p>
+
+</div>
+</div>
+<a class="anchor" id="af8bc35a2ad51cd8f62e3439b33423b00"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void amrex::SetVerbose </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -10775,40 +10768,6 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>Attempt to unlink the file. Ignore any errors. </p>
-
-</div>
-</div>
-<a class="anchor" id="ad89ecad0ab53b395ee7d2327ab2202c8"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classamrex_1_1_box.html">Box</a> amrex::UnSerializeBox </td>
-          <td>(</td>
-          <td class="paramtype">const Vector&lt; int &gt; &amp;&#160;</td>
-          <td class="paramname"><em>serarray</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aca59db20007ff011805104bfc0d235ea"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> amrex::UnSerializeBoxArray </td>
-          <td>(</td>
-          <td class="paramtype">const Vector&lt; int &gt; &amp;&#160;</td>
-          <td class="paramname"><em>serarray</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Construct a <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> (in AMREX_SPACEDIM dimensions) from a 1D Array of cells. </p>
 
 </div>
 </div>

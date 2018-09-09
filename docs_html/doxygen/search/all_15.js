@@ -22,8 +22,6 @@ var searchData=
   ['unlinkfile',['UnlinkFile',['../namespaceamrex.html#a8cc0b90b2ed3e37910db70d81484fee8',1,'amrex']]],
   ['unnamed',['Unnamed',['../namespaceamrex_1_1_parallel_descriptor.html#ac6df74b4b37bb6ee58dffea68507d259',1,'amrex::ParallelDescriptor']]],
   ['unprotectednextid',['UnprotectedNextID',['../structamrex_1_1_particle.html#a008787d04da5113188a90a704f8f066a',1,'amrex::Particle']]],
-  ['unserializebox',['UnSerializeBox',['../namespaceamrex.html#ad89ecad0ab53b395ee7d2327ab2202c8',1,'amrex']]],
-  ['unserializeboxarray',['UnSerializeBoxArray',['../namespaceamrex.html#aca59db20007ff011805104bfc0d235ea',1,'amrex']]],
   ['unserializestringarray',['UnSerializeStringArray',['../namespaceamrex.html#a23045f55caabc0bec388518c4c4adecb',1,'amrex']]],
   ['unset',['unset',['../classamrex_1_1_index_type.html#a684b7ce727f49817994e1165fa0b49c8',1,'amrex::IndexType']]],
   ['update_5ffab_5fstats',['update_fab_stats',['../namespaceamrex.html#a2d23320cbd486726af914b5bdb5b6d69',1,'amrex::update_fab_stats(long n, long s, size_t szt)'],['../namespaceamrex.html#a2f4b74c08c29c8a404ca762145408f1c',1,'amrex::update_fab_stats(long n, long s, std::size_t szt)']]],
