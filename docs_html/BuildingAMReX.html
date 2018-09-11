@@ -330,10 +330,11 @@ own compile commands by setting the valiables <code class="docutils literal notr
 <code class="docutils literal notranslate"><span class="pre">F90</span></code>. This might be neccarry if your systems contains non-standard names for
 compiler commands.</p>
 <p>For example, macOS’ Xcode ships with its own (woefully outdated) version of GCC
-(4.2.1). It is therefore commonplace to install GCC using the <a class="reference external" href="https://brew.sh">homebrew</a> package manager. This in turn installs compilers with names
-reflecting the version number. If GCC 8.2 is installed, homebrew installs it as
-<code class="docutils literal notranslate"><span class="pre">gcc-8</span></code>. AMReX can be built using <code class="docutils literal notranslate"><span class="pre">gcc-8</span></code> without MPI by using the
-following <code class="docutils literal notranslate"><span class="pre">amrex/Tools/GNUMake/Make.local</span></code>:</p>
+(4.2.1). It is therefore commonplace to install GCC using the <a class="reference external" href="https://brew.sh">homebrew</a> package manager. This in turn installs compilers (using
+<code class="docutils literal notranslate"><span class="pre">brew</span> <span class="pre">install</span> <span class="pre">gcc</span></code>) with names reflecting the version number. If GCC 8.2 is
+installed, homebrew installs it as <code class="docutils literal notranslate"><span class="pre">gcc-8</span></code>. AMReX can be built using
+<code class="docutils literal notranslate"><span class="pre">gcc-8</span></code> without MPI by using the following
+<code class="docutils literal notranslate"><span class="pre">amrex/Tools/GNUMake/Make.local</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ifeq <span class="o">(</span><span class="k">$(</span>USE_MPI<span class="k">)</span>,TRUE<span class="o">)</span>
   <span class="nv">CXX</span> <span class="o">=</span> mpicxx
   <span class="nv">CC</span>  <span class="o">=</span> mpicc
