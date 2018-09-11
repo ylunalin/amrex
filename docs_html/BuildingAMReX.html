@@ -96,6 +96,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#building-libamrex">Building libamrex</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#building-with-cmake">Building with CMake</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cmake-and-macos">Cmake and macOS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#customization-options">Customization options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#importing-amrex-into-your-cmake-project">Importing AMReX into your CMake project</a></li>
 </ul>
@@ -391,6 +392,17 @@ customization of the build, as described in the subsection&nbsp;on
 <a class="reference internal" href="#sec-build-cmake-options"><span class="std std-ref">Customization options</span></a>.  Although the AMReX&nbsp;source could be used as
 build directory, we advise against doing so.  After the installation is
 complete, builddir can be removed.</p>
+<div class="section" id="cmake-and-macos">
+<h2>Cmake and macOS<a class="headerlink" href="#cmake-and-macos" title="Permalink to this headline">¶</a></h2>
+<p>You can also specify your own compiler in cmake using the
+<code class="docutils literal notranslate"><span class="pre">-DCMAKE_C_COMPILER</span></code> and <code class="docutils literal notranslate"><span class="pre">-DCMAKE_CXX_COMPILER</span></code> options. While not strictly
+necessary when using homebrew on macOS, it is highly recommended that the user
+specifies <code class="docutils literal notranslate"><span class="pre">-DCMAKE_C_COMPILER=$(which</span> <span class="pre">gcc-X)</span> <span class="pre">-DCMAKE_CXX_COMPILER=$(which</span>
+<span class="pre">g++-X)</span></code> (where X is the GCC version installed by homebrew) when using
+gfortran. This is because homebrew’s cmake defaults to the clang c/c++
+compiler. Normaly clang plays well with gfortran, but if there are some issues,
+we recommend telling cmake to use gcc for c/c++ also.</p>
+</div>
 <div class="section" id="customization-options">
 <span id="sec-build-cmake-options"></span><h2>Customization options<a class="headerlink" href="#customization-options" title="Permalink to this headline">¶</a></h2>
 <p>AMReX&nbsp;configuration settings may be specified on the command line with the
