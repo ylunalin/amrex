@@ -148,7 +148,7 @@ def abort(outfile):
 
 
 def write_probin(probin_template, param_A_files, param_B_files,
-                 namelist_name, out_file, managed=False):
+                 namelist_name, out_file, pinned=False):
 
     """ write_probin will read through the list of parameter files and
     output the new out_file """
@@ -214,7 +214,7 @@ def write_probin(probin_template, param_A_files, param_B_files,
 
                     type = pm[n].type
 
-                    if managed:
+                    if pinned:
                         if type == "real":
                             fout.write("{}real (kind=rt), allocatable, public :: {}\n".format(
                                 indent, pm[n].var, pm[n].value))
@@ -269,28 +269,28 @@ def write_probin(probin_template, param_A_files, param_B_files,
                         fout.write("\n")
 
             elif keyword in ["cudaattributesA", "cudaattributesB"]:
-                if managed:
+                if pinned:
                     if keyword == "cudaattributesA":
                         pm = paramsA
                     elif keyword == "cudaattributesB":
                         pm = paramsB
                     for pmi in pm:
-                        fout.write("{}attributes(managed) :: {}\n".format(indent, pmi.var))
+                        fout.write("{}attributes(pinned) :: {}\n".format(indent, pmi.var))
 
             elif keyword == "allocations":
-                if managed:
+                if pinned:
                     pm = paramsA + paramsB
                     for pmi in pm:
                         fout.write("{}allocate({})\n".format(indent, pmi.var))
 
             elif keyword == "initialize":
-                if managed:
+                if pinned:
                     pm = paramsA + paramsB
                     for pmi in pm:
                         fout.write("{}{} = {}\n".format(indent, pmi.var, pmi.value))
 
             elif keyword == "deallocations":
-                if managed:
+                if pinned:
                     pm = paramsA + paramsB
                     for pmi in pm:
                         fout.write("{}deallocate({})\n".format(indent, pmi.var))
@@ -393,8 +393,8 @@ if __name__ == "__main__":
     parser.add_argument('-n', type=str, help='namelist_name')
     parser.add_argument('--pa', type=str, help='param_A_files_str')
     parser.add_argument('--pb', type=str, help='param_B_files_str')
-    parser.add_argument('--managed', action='store_true',
-                        help='If supplied, use CUDA managed memory for probin variables.')
+    parser.add_argument('--pinned', action='store_true',
+                        help='If supplied, use CUDA pinned memory for probin variables.')
 
     args = parser.parse_args()
 
@@ -414,4 +414,4 @@ if __name__ == "__main__":
         param_B_files = []
 
     write_probin(probin_template, param_A_files, param_B_files,
-                 namelist_name, out_file, args.managed)
+                 namelist_name, out_file, args.pinned)
