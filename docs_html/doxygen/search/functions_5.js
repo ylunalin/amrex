@@ -40,7 +40,8 @@ var searchData=
   ['execonfinalize',['ExecOnFinalize',['../namespaceamrex.html#aec8ceac1148bd8331f3a51572068f8a0',1,'amrex']]],
   ['execoninitialize',['ExecOnInitialize',['../namespaceamrex.html#a6911748ceb0d88bf5b6bf7f3f0402e97',1,'amrex']]],
   ['exist',['Exist',['../classamrex_1_1_vis_m_f.html#ab895515b73ef0cdc6d0e06c7590f3e76',1,'amrex::VisMF']]],
-  ['exp_5fint',['exp_int',['../namespaceamrex_1_1_e_b2.html#ab8fa2b0e1884b8c393f05de3af663989',1,'amrex::EB2']]],
   ['expect',['expect',['../classamrex_1_1expect.html#a2136ece586212ef73074aaab29247505',1,'amrex::expect::expect(const std::string &amp;str_)'],['../classamrex_1_1expect.html#a29077faf3a3650e3eeb67285023d7e5e',1,'amrex::expect::expect(const char *istr_)'],['../classamrex_1_1expect.html#a76c80085267c42ef73ed0e63c65af898',1,'amrex::expect::expect(char c)']]],
-  ['extrap',['extrap',['../classamrex_1_1_state_descriptor.html#a368a6869c80cad37b4949b47cff5013f',1,'amrex::StateDescriptor']]]
+  ['extrap',['extrap',['../classamrex_1_1_state_descriptor.html#a368a6869c80cad37b4949b47cff5013f',1,'amrex::StateDescriptor']]],
+  ['extrude',['extrude',['../namespaceamrex_1_1_e_b2.html#a465223723f892e3c4bdcf8e6239d9f55',1,'amrex::EB2']]],
+  ['extrusionif',['ExtrusionIF',['../classamrex_1_1_e_b2_1_1_extrusion_i_f.html#aa230623413b7fc4ff5e42479ca962a51',1,'amrex::EB2::ExtrusionIF::ExtrusionIF(F &amp;&amp;a_f, int direction)'],['../classamrex_1_1_e_b2_1_1_extrusion_i_f.html#afde14763bb9fd21e0e03cbcaa27ae053',1,'amrex::EB2::ExtrusionIF::ExtrusionIF(F const &amp;a_f, int direction)'],['../classamrex_1_1_e_b2_1_1_extrusion_i_f.html#a652bae528078d2236e2644f54630974a',1,'amrex::EB2::ExtrusionIF::ExtrusionIF(const ExtrusionIF &amp;rhs)=default'],['../classamrex_1_1_e_b2_1_1_extrusion_i_f.html#a49964e862f3d060b0558c400898ff6d8',1,'amrex::EB2::ExtrusionIF::ExtrusionIF(ExtrusionIF &amp;&amp;rhs)=default']]]
 ];

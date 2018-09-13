@@ -130,7 +130,11 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_e_b2_1_1_cylinder_i_f.html">CylinderIF</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_e_b2_1_1_difference_i_f.html">DifferenceIF</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_e_b2_1_1_ellipsoid_i_f.html">EllipsoidIF</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_e_b2_1_1_extrusion_i_f.html">ExtrusionIF</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_e_b2_1_1_intersection_i_f.html">IntersectionIF</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -196,6 +200,17 @@ std::decay&lt; F &gt;::type &gt;&#160;</td><td class="memTemplItemRight" valign=
 &lt; typename std::decay&lt; F &gt;<br class="typebreak"/>
 ::type &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_e_b2.html#a6689939adc9cd129828b1246501c2ddc">makeComplement</a> (F &amp;&amp;f)</td></tr>
 <tr class="separator:a6689939adc9cd129828b1246501c2ddc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d7bc742e281f0aa021c859e7cd8f355"><td class="memTemplParams" colspan="2">template&lt;class F , class G &gt; </td></tr>
+<tr class="memitem:a8d7bc742e281f0aa021c859e7cd8f355"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classamrex_1_1_e_b2_1_1_difference_i_f.html">DifferenceIF</a><br class="typebreak"/>
+&lt; typename std::decay&lt; F &gt;<br class="typebreak"/>
+::type, typename std::decay&lt; G &gt;<br class="typebreak"/>
+::type &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_e_b2.html#a8d7bc742e281f0aa021c859e7cd8f355">makeDifference</a> (F &amp;&amp;f, G &amp;&amp;g)</td></tr>
+<tr class="separator:a8d7bc742e281f0aa021c859e7cd8f355"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a465223723f892e3c4bdcf8e6239d9f55"><td class="memTemplParams" colspan="2">template&lt;class F &gt; </td></tr>
+<tr class="memitem:a465223723f892e3c4bdcf8e6239d9f55"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classamrex_1_1_e_b2_1_1_extrusion_i_f.html">ExtrusionIF</a><br class="typebreak"/>
+&lt; typename std::decay&lt; F &gt;<br class="typebreak"/>
+::type &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_e_b2.html#a465223723f892e3c4bdcf8e6239d9f55">extrude</a> (F &amp;&amp;f, int direction)</td></tr>
+<tr class="separator:a465223723f892e3c4bdcf8e6239d9f55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff27a604053e5a38fd448706de6488b8"><td class="memTemplParams" colspan="2">template&lt;class... Fs&gt; </td></tr>
 <tr class="memitem:aff27a604053e5a38fd448706de6488b8"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classamrex_1_1_e_b2_1_1_intersection_i_f.html">IntersectionIF</a><br class="typebreak"/>
 &lt; typename std::decay&lt; Fs &gt;<br class="typebreak"/>
@@ -205,8 +220,6 @@ std::decay&lt; F &gt;::type &gt;&#160;</td><td class="memTemplItemRight" valign=
 <tr class="memitem:a06fb3c21b6b807e82950c9483152d4cc"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classamrex_1_1_e_b2_1_1_lathe_i_f.html">LatheIF</a>&lt; typename <br class="typebreak"/>
 std::decay&lt; F &gt;::type &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_e_b2.html#a06fb3c21b6b807e82950c9483152d4cc">lathe</a> (F &amp;&amp;f)</td></tr>
 <tr class="separator:a06fb3c21b6b807e82950c9483152d4cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8fa2b0e1884b8c393f05de3af663989"><td class="memItemLeft" align="right" valign="top">Real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_e_b2.html#ab8fa2b0e1884b8c393f05de3af663989">exp_int</a> (Real base, int exponent)</td></tr>
-<tr class="separator:ab8fa2b0e1884b8c393f05de3af663989"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69c7df6cdc64e6980f1640f9ccf70155"><td class="memTemplParams" colspan="2">template&lt;class F &gt; </td></tr>
 <tr class="memitem:a69c7df6cdc64e6980f1640f9ccf70155"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classamrex_1_1_e_b2_1_1_rotation_i_f.html">RotationIF</a>&lt; typename <br class="typebreak"/>
 std::decay&lt; F &gt;::type &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_e_b2.html#a69c7df6cdc64e6980f1640f9ccf70155">rotate</a> (F &amp;&amp;f, const Real &amp;angle, const int dir)</td></tr>
@@ -342,24 +355,23 @@ template&lt;typename G &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="ab8fa2b0e1884b8c393f05de3af663989"></a>
+<a class="anchor" id="a465223723f892e3c4bdcf8e6239d9f55"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+<div class="memtemplate">
+template&lt;class F &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">Real amrex::EB2::exp_int </td>
+          <td class="memname">constexpr <a class="el" href="classamrex_1_1_e_b2_1_1_extrusion_i_f.html">ExtrusionIF</a>&lt;typename std::decay&lt;F&gt;::type&gt; amrex::EB2::extrude </td>
           <td>(</td>
-          <td class="paramtype">Real&#160;</td>
-          <td class="paramname"><em>base</em>, </td>
+          <td class="paramtype">F &amp;&amp;&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>exponent</em>&#160;</td>
+          <td class="paramname"><em>direction</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -367,11 +379,6 @@ template&lt;typename G &gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -436,6 +443,34 @@ template&lt;class F &gt; </div>
           <td class="paramtype">F &amp;&amp;&#160;</td>
           <td class="paramname"><em>f</em></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a8d7bc742e281f0aa021c859e7cd8f355"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class F , class G &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="classamrex_1_1_e_b2_1_1_difference_i_f.html">DifferenceIF</a>&lt;typename std::decay&lt;F&gt;::type, typename std::decay&lt;G&gt;::type&gt; amrex::EB2::makeDifference </td>
+          <td>(</td>
+          <td class="paramtype">F &amp;&amp;&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">G &amp;&amp;&#160;</td>
+          <td class="paramname"><em>g</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">

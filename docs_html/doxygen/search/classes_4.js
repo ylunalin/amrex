@@ -13,5 +13,6 @@ var searchData=
   ['errorfunc2',['ErrorFunc2',['../classamrex_1_1_error_rec_1_1_error_func2.html',1,'amrex::ErrorRec']]],
   ['errorlist',['ErrorList',['../classamrex_1_1_error_list.html',1,'amrex']]],
   ['errorrec',['ErrorRec',['../classamrex_1_1_error_rec.html',1,'amrex']]],
-  ['expect',['expect',['../classamrex_1_1expect.html',1,'amrex']]]
+  ['expect',['expect',['../classamrex_1_1expect.html',1,'amrex']]],
+  ['extrusionif',['ExtrusionIF',['../classamrex_1_1_e_b2_1_1_extrusion_i_f.html',1,'amrex::EB2']]]
 ];

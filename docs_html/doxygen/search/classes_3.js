@@ -4,5 +4,6 @@ var searchData=
   ['derivelist',['DeriveList',['../classamrex_1_1_derive_list.html',1,'amrex']]],
   ['deriverec',['DeriveRec',['../classamrex_1_1_derive_rec.html',1,'amrex']]],
   ['descriptorlist',['DescriptorList',['../classamrex_1_1_descriptor_list.html',1,'amrex']]],
+  ['differenceif',['DifferenceIF',['../classamrex_1_1_e_b2_1_1_difference_i_f.html',1,'amrex::EB2']]],
   ['distributionmapping',['DistributionMapping',['../classamrex_1_1_distribution_mapping.html',1,'amrex']]]
 ];
