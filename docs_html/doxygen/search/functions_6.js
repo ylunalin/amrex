@@ -66,6 +66,7 @@ var searchData=
   ['finehaswork',['FineHasWork',['../classamrex_1_1_y_a_flux_register.html#a6bc9afa9e8dd921dd61d4211df943e57',1,'amrex::YAFluxRegister']]],
   ['finelevel',['fineLevel',['../classamrex_1_1_flux_register.html#ace37e480b63f61b9b5ac77268e7f0ccc',1,'amrex::FluxRegister']]],
   ['fineratio',['fineRatio',['../classamrex_1_1_amr_level.html#a0825becffdbef2ccddaddffc02ab7f7d',1,'amrex::AmrLevel']]],
+  ['finesetval',['FineSetVal',['../classamrex_1_1_flux_register.html#ad6af5d558f07df78e5350609f74b3532',1,'amrex::FluxRegister']]],
   ['finestlevel',['finestLevel',['../classamrex_1_1_amr_mesh.html#ac902a82d3d86fe6272a14455533794c7',1,'amrex::AmrMesh::finestLevel()'],['../classamrex_1_1_amr_par_g_d_b.html#ac72fc0f84c6f2c0ced8da0b77f73d0ce',1,'amrex::AmrParGDB::finestLevel()'],['../classamrex_1_1_par_g_d_b_base.html#ac1fa02ba52840aba7e4ef263cb1415a8',1,'amrex::ParGDBBase::finestLevel()'],['../classamrex_1_1_par_g_d_b.html#ad1ee0b22c6d8a20ded281afcbf343d4f',1,'amrex::ParGDB::finestLevel()'],['../classamrex_1_1_particle_container.html#ae28279a5f2e839b30021cf3b01d149a5',1,'amrex::ParticleContainer::finestLevel()']]],
   ['finish',['finish',['../structamrex_1_1_fab_array_1_1_copier_handle_impl.html#ac71c6f71fb965cbf7ef03f98a2e75654',1,'amrex::FabArray::CopierHandleImpl::finish()'],['../structamrex_1_1_fab_array_1_1_copier_handle.html#a3f5675e911827beb6f1529065fbfc957',1,'amrex::FabArray::CopierHandle::finish()']]],
   ['finishconstructor',['finishConstructor',['../classamrex_1_1_amr_level.html#a954293930715e389153026f726dbd960',1,'amrex::AmrLevel']]],

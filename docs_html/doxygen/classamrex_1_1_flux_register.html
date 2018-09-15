@@ -164,6 +164,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ad94d7b38278dcc1253dcd2b4d67f6f05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a471eb10b920f9dbf7fc87c5a7c02e9e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_flux_register.html#a471eb10b920f9dbf7fc87c5a7c02e9e2">FineAdd</a> (const <a class="el" href="classamrex_1_1_f_array_box.html">FArrayBox</a> &amp;flux, const <a class="el" href="classamrex_1_1_f_array_box.html">FArrayBox</a> &amp;area, int dir, int boxno, int srccomp, int destcomp, int numcomp, Real mult)</td></tr>
 <tr class="separator:a471eb10b920f9dbf7fc87c5a7c02e9e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6af5d558f07df78e5350609f74b3532"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_flux_register.html#ad6af5d558f07df78e5350609f74b3532">FineSetVal</a> (int dir, int boxno, int destcomp, int numcomp, Real val)</td></tr>
+<tr class="separator:ad6af5d558f07df78e5350609f74b3532"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b7dcde1bef78b1384644323ddc8e4e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_flux_register.html#a3b7dcde1bef78b1384644323ddc8e4e8">Reflux</a> (<a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;mf, const <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;<a class="el" href="namespaceamrex.html#a7de82761ed632e5ee0b9f912c856aebca210ab9e731c9c36c2c38db15c28a8d1c">volume</a>, Real <a class="el" href="namespaceamrex.html#a1c7e2b6764af224cffb725d95957f113">scale</a>, int srccomp, int destcomp, int numcomp, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;crse_geom)</td></tr>
 <tr class="separator:a3b7dcde1bef78b1384644323ddc8e4e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93f3ce536f756195336c930ef6c5c22b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_flux_register.html#a93f3ce536f756195336c930ef6c5c22b">Reflux</a> (<a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;mf, Real <a class="el" href="namespaceamrex.html#a1c7e2b6764af224cffb725d95957f113">scale</a>, int srccomp, int destcomp, int numcomp, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;crse_geom)</td></tr>
@@ -991,6 +993,50 @@ Additional Inherited Members</h2></td></tr>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad6af5d558f07df78e5350609f74b3532"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void amrex::FluxRegister::FineSetVal </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dir</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>boxno</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>destcomp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numcomp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Real&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
