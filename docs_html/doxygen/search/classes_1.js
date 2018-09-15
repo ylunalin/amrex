@@ -6,7 +6,6 @@ var searchData=
   ['basefab_3c_20ebcellflag_20_3e',['BaseFab&lt; EBCellFlag &gt;',['../classamrex_1_1_base_fab.html',1,'amrex']]],
   ['basefab_3c_20int_20_3e',['BaseFab&lt; int &gt;',['../classamrex_1_1_base_fab.html',1,'amrex']]],
   ['basefab_3c_20real_20_3e',['BaseFab&lt; Real &gt;',['../classamrex_1_1_base_fab.html',1,'amrex']]],
-  ['basefab_5fnd_5fmodule',['basefab_nd_module',['../classbasefab__nd__module.html',1,'']]],
   ['baseindex',['BaseIndex',['../classamrex_1_1_base_index.html',1,'amrex']]],
   ['baseumap',['BaseUmap',['../classamrex_1_1_base_umap.html',1,'amrex']]],
   ['baseumap_5fnd_5fmodule',['baseumap_nd_module',['../classbaseumap__nd__module.html',1,'']]],
