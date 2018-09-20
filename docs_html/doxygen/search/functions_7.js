@@ -18,6 +18,7 @@ var searchData=
   ['get_5fdm',['get_dm',['../classamrex_1_1_l_s_factory.html#ad40e0a02aa852ec5ed0b8e1ea53fbd1f',1,'amrex::LSFactory']]],
   ['get_5fdo_5finitval',['get_do_initval',['../classamrex_1_1_f_array_box.html#af073981013bb7c213dd103b9935f9809',1,'amrex::FArrayBox']]],
   ['get_5feb_5fba',['get_eb_ba',['../classamrex_1_1_l_s_factory.html#ad102d5b1954bd1eb6d6f69800dc61717',1,'amrex::LSFactory']]],
+  ['get_5feb_5fgeom',['get_eb_geom',['../classamrex_1_1_l_s_factory.html#a58a7b28aad71494c0f427ae7275e7d64',1,'amrex::LSFactory']]],
   ['get_5feb_5fpad',['get_eb_pad',['../classamrex_1_1_l_s_factory.html#ae87f21da6db57ac2c9419c6e09a53e61',1,'amrex::LSFactory']]],
   ['get_5feb_5fref',['get_eb_ref',['../classamrex_1_1_l_s_factory.html#a0df5623470396bdf17f7258c03e2f73c',1,'amrex::LSFactory']]],
   ['get_5fgeom',['get_geom',['../classamrex_1_1_l_s_factory.html#a7245e65e7cba937f5d0948799449a830',1,'amrex::LSFactory']]],

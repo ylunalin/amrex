@@ -20,6 +20,7 @@ var searchData=
   ['get_5fdm',['get_dm',['../classamrex_1_1_l_s_factory.html#ad40e0a02aa852ec5ed0b8e1ea53fbd1f',1,'amrex::LSFactory']]],
   ['get_5fdo_5finitval',['get_do_initval',['../classamrex_1_1_f_array_box.html#af073981013bb7c213dd103b9935f9809',1,'amrex::FArrayBox']]],
   ['get_5feb_5fba',['get_eb_ba',['../classamrex_1_1_l_s_factory.html#ad102d5b1954bd1eb6d6f69800dc61717',1,'amrex::LSFactory']]],
+  ['get_5feb_5fgeom',['get_eb_geom',['../classamrex_1_1_l_s_factory.html#a58a7b28aad71494c0f427ae7275e7d64',1,'amrex::LSFactory']]],
   ['get_5feb_5fpad',['get_eb_pad',['../classamrex_1_1_l_s_factory.html#ae87f21da6db57ac2c9419c6e09a53e61',1,'amrex::LSFactory']]],
   ['get_5feb_5fref',['get_eb_ref',['../classamrex_1_1_l_s_factory.html#a0df5623470396bdf17f7258c03e2f73c',1,'amrex::LSFactory']]],
   ['get_5fgeom',['get_geom',['../classamrex_1_1_l_s_factory.html#a7245e65e7cba937f5d0948799449a830',1,'amrex::LSFactory']]],
@@ -174,6 +175,6 @@ var searchData=
   ['growntilebox',['growntilebox',['../classamrex_1_1_m_f_iter.html#a47910f5a556870e1ba7e2e5734075cb8',1,'amrex::MFIter::growntilebox(int ng=-1000000) const '],['../classamrex_1_1_m_f_iter.html#af72042687093d0139899798b905c245b',1,'amrex::MFIter::growntilebox(const IntVect &amp;ng) const ']]],
   ['gshoplevel',['GShopLevel',['../classamrex_1_1_e_b2_1_1_g_shop_level.html',1,'amrex::EB2']]],
   ['gshoplevel',['GShopLevel',['../classamrex_1_1_e_b2_1_1_g_shop_level.html#a26ca578dcb3a145281d1e731a98165ce',1,'amrex::EB2::GShopLevel::GShopLevel(IndexSpace const *is, G const &amp;gshop, const Geometry &amp;geom, int max_grid_size)'],['../classamrex_1_1_e_b2_1_1_g_shop_level.html#a2f57dbcbe641f5390ebdb2d2400e42fe',1,'amrex::EB2::GShopLevel::GShopLevel(IndexSpace const *is, int ilev, int max_grid_size, const Geometry &amp;geom, GShopLevel&lt; G &gt; &amp;fineLevel)']]],
-  ['gshoplsfactory',['GShopLSFactory',['../classamrex_1_1_g_shop_l_s_factory.html#a8ad6e23c9b3c8fa1e3aed913ece7eaa8',1,'amrex::GShopLSFactory']]],
-  ['gshoplsfactory',['GShopLSFactory',['../classamrex_1_1_g_shop_l_s_factory.html',1,'amrex']]]
+  ['gshoplsfactory',['GShopLSFactory',['../classamrex_1_1_g_shop_l_s_factory.html',1,'amrex']]],
+  ['gshoplsfactory',['GShopLSFactory',['../classamrex_1_1_g_shop_l_s_factory.html#a8ad6e23c9b3c8fa1e3aed913ece7eaa8',1,'amrex::GShopLSFactory']]]
 ];
