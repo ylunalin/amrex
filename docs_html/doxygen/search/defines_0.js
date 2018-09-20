@@ -16,6 +16,7 @@ var searchData=
   ['amrex_5flo_5fperiodic',['AMREX_LO_PERIODIC',['../_a_m_re_x___l_o___b_c_t_y_p_e_s_8_h.html#a70e18776a02a5caf3faea16632d60a6c',1,'AMReX_LO_BCTYPES.H']]],
   ['amrex_5flo_5freflect_5fodd',['AMREX_LO_REFLECT_ODD',['../_a_m_re_x___l_o___b_c_t_y_p_e_s_8_h.html#a911e22551a8578fcc62588ad4232a1b1',1,'AMReX_LO_BCTYPES.H']]],
   ['amrex_5flo_5fsanchez_5fpomraning',['AMREX_LO_SANCHEZ_POMRANING',['../_a_m_re_x___l_o___b_c_t_y_p_e_s_8_h.html#acb24c91365aea47c8c5e66ef6a3d32be',1,'AMReX_LO_BCTYPES.H']]],
+  ['amrex_5fmfiter_5freduce_5fmax',['AMREX_MFITER_REDUCE_MAX',['../_a_m_re_x___b_l_fort_8_h.html#a802870939f4eef1cb74ec4e5804db0a5',1,'AMReX_BLFort.H']]],
   ['amrex_5fmfiter_5freduce_5fmin',['AMREX_MFITER_REDUCE_MIN',['../_a_m_re_x___b_l_fort_8_h.html#a4a91fa218319313c2d881b8331162792',1,'AMReX_BLFort.H']]],
   ['amrex_5fmfiter_5freduce_5fsum',['AMREX_MFITER_REDUCE_SUM',['../_a_m_re_x___b_l_fort_8_h.html#abd353d48d8f6a098cf31f224ed2826f8',1,'AMReX_BLFort.H']]],
   ['arlim_5fp',['ARLIM_P',['../_a_m_re_x___array_lim_8_h.html#a60a7ca6e338f0cb094a09b4eb21d97c8',1,'AMReX_ArrayLim.H']]]

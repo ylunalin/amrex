@@ -136,13 +136,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">// Define macros for doing reductions.</span></div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#if (defined(AMREX_USE_CUDA) &amp;&amp; !defined(AMREX_NO_DEVICE_LAUNCH))</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_MFITER_REDUCE_SUM(var) mfi.add_reduce_value(var, MFIter::SUM)</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_MFITER_REDUCE_MIN(var) mfi.add_reduce_value(var, MFIter::MIN)</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="_a_m_re_x___b_l_fort_8_h.html#abd353d48d8f6a098cf31f224ed2826f8">   53</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_MFITER_REDUCE_SUM(var) var</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="_a_m_re_x___b_l_fort_8_h.html#a4a91fa218319313c2d881b8331162792">   54</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_MFITER_REDUCE_MIN(var) var</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="_a_m_re_x___b_l_fort_8_h.html#abd353d48d8f6a098cf31f224ed2826f8">   49</a></span>&#160;<span class="preprocessor">#define AMREX_MFITER_REDUCE_SUM(var) var</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="_a_m_re_x___b_l_fort_8_h.html#a4a91fa218319313c2d881b8331162792">   50</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_MFITER_REDUCE_MIN(var) var</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="_a_m_re_x___b_l_fort_8_h.html#a802870939f4eef1cb74ec4e5804db0a5">   51</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_MFITER_REDUCE_MAX(var) var</span></div>
 <div class="ttc" id="_a_m_re_x___s_p_a_c_e_8_h_html"><div class="ttname"><a href="_a_m_re_x___s_p_a_c_e_8_h.html">AMReX_SPACE.H</a></div></div>
 <div class="ttc" id="_a_m_re_x___r_e_a_l_8_h_html"><div class="ttname"><a href="_a_m_re_x___r_e_a_l_8_h.html">AMReX_REAL.H</a></div></div>
 <div class="ttc" id="_a_m_re_x___array_lim_8_h_html"><div class="ttname"><a href="_a_m_re_x___array_lim_8_h.html">AMReX_ArrayLim.H</a></div></div>
