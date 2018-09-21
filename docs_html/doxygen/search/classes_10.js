@@ -10,6 +10,7 @@ var searchData=
   ['statedescriptor',['StateDescriptor',['../classamrex_1_1_state_descriptor.html',1,'amrex']]],
   ['staterange',['StateRange',['../structamrex_1_1_derive_rec_1_1_state_range.html',1,'amrex::DeriveRec']]],
   ['streamretry',['StreamRetry',['../classamrex_1_1_stream_retry.html',1,'amrex']]],
+  ['stridedptr',['StridedPtr',['../structamrex_1_1_strided_ptr.html',1,'amrex']]],
   ['structofarrays',['StructOfArrays',['../structamrex_1_1_struct_of_arrays.html',1,'amrex']]],
   ['structofarrays_3c_20narrayreal_2c_20narrayint_20_3e',['StructOfArrays&lt; NArrayReal, NArrayInt &gt;',['../structamrex_1_1_struct_of_arrays.html',1,'amrex']]]
 ];

@@ -19,6 +19,7 @@ var searchData=
   ['high',['high',['../classamrex_1_1_orientation.html#a877c697bbab9de21af4012197ba76410ae82bb2777abd5901ea82ca6721b716a8',1,'amrex::Orientation']]],
   ['hinode',['HiNode',['../classamrex_1_1_coord_sys.html#a9f4d497fb8dd8ba09f4d2c070aae3a81',1,'amrex::CoordSys::HiNode(const IntVect &amp;point, Vector&lt; Real &gt; &amp;loc) const '],['../classamrex_1_1_coord_sys.html#a7140fcb19bc78edf6559e378df23289b',1,'amrex::CoordSys::HiNode(const IntVect &amp;point, Real *loc) const ']]],
   ['hivect',['hiVect',['../classamrex_1_1_base_fab.html#a29e97495c831d1f31c04322bcb99d651',1,'amrex::BaseFab::hiVect()'],['../classamrex_1_1_box.html#af4898c87cf49c96912af790c2414842a',1,'amrex::Box::hiVect() const &amp;'],['../classamrex_1_1_box.html#ac425e940a5fe7ea7333106ffdeb50968',1,'amrex::Box::hiVect()&amp;&amp;=delete']]],
+  ['hivect3d',['hiVect3d',['../classamrex_1_1_box.html#a2e4de69649e1314953679670031ee82f',1,'amrex::Box']]],
   ['hoextrap',['HOEXTRAP',['../_a_m_re_x___b_c___t_y_p_e_s_8_h.html#ab3f2cb808193937a3651291078955292',1,'AMReX_BC_TYPES.H']]],
   ['hoextraptocc',['hoextraptocc',['../_a_m_re_x___f_i_l_c_c__2_d_8_f90.html#aceaaec1fa1ad1f14d4a3b277da4f4a3c',1,'hoextraptocc(q, q_l1, q_l2, q_h1, q_h2, domlo, domhi, dx, xlo):&#160;AMReX_FILCC_2D.F90'],['../_a_m_re_x___f_i_l_c_c__3_d_8_f90.html#a02ca9842cbb4347d6ba0a920c636fb7c',1,'hoextraptocc(q, q_l1, q_l2, q_l3, q_h1, q_h2, q_h3, domlo, domhi, dx, xlo):&#160;AMReX_FILCC_3D.F90']]],
   ['how',['How',['../classamrex_1_1_vis_m_f.html#aa50a3ce471ac0bdf8f78134f0004e156',1,'amrex::VisMF']]],

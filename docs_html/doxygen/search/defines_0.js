@@ -19,5 +19,6 @@ var searchData=
   ['amrex_5fmfiter_5freduce_5fmax',['AMREX_MFITER_REDUCE_MAX',['../_a_m_re_x___b_l_fort_8_h.html#a802870939f4eef1cb74ec4e5804db0a5',1,'AMReX_BLFort.H']]],
   ['amrex_5fmfiter_5freduce_5fmin',['AMREX_MFITER_REDUCE_MIN',['../_a_m_re_x___b_l_fort_8_h.html#a4a91fa218319313c2d881b8331162792',1,'AMReX_BLFort.H']]],
   ['amrex_5fmfiter_5freduce_5fsum',['AMREX_MFITER_REDUCE_SUM',['../_a_m_re_x___b_l_fort_8_h.html#abd353d48d8f6a098cf31f224ed2826f8',1,'AMReX_BLFort.H']]],
+  ['amrex_5frestrict',['AMREX_RESTRICT',['../_a_m_re_x___r_e_s_t_r_i_c_t_8_h.html#a97eafbdde3320b2e8981a1d1d3936f58',1,'AMReX_RESTRICT.H']]],
   ['arlim_5fp',['ARLIM_P',['../_a_m_re_x___array_lim_8_h.html#a60a7ca6e338f0cb094a09b4eb21d97c8',1,'AMReX_ArrayLim.H']]]
 ];
