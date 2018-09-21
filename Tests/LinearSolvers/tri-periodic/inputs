@@ -1,0 +1,3 @@
+amrex.fpe_trap_invalid = 1
+
+eb2.geom_type = all_regular
