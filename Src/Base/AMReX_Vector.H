@@ -9,6 +9,9 @@
 #include <AMReX_Array.H>
 #include <AMReX_TypeTraits.H>
 #endif
+#ifdef AMREX_USE_CUDA
+#include <AMReX_CudaAllocators.H>
+#endif
 
 namespace amrex {
 /**
@@ -17,7 +20,11 @@ namespace amrex {
 * DEBUG=TRUE.
 */
 
+#ifdef AMREX_USE_CUDA
+template <class T, class Allocator=CudaManagedAllocator<T> >
+#else
 template <class T, class Allocator=std::allocator<T> >
+#endif
 class Vector
     :
         public std::vector<T, Allocator>
