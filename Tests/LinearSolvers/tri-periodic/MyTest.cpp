@@ -83,18 +83,6 @@ MyTest::solve ()
     const Real tol_rel = reltol;
     const Real tol_abs = 0.0;
     mlmg.solve(amrex::GetVecOfPtrs(phi), amrex::GetVecOfConstPtrs(rhs), tol_rel, tol_abs);
-
-
-    amrex::Print() << "\n";
-    amrex::Print() << "Is All Periodic? " << Geometry::isAllPeriodic() << std::endl;
-    amrex::Print() << "grids: " << grids[0];
-    amrex::Print() << "x-direction bcoef min and max " << bcoef[0][0].min(0) << ", " << bcoef[0][0].max(0) << std::endl;
-    amrex::Print() << "y-direction bcoef min and max " << bcoef[0][1].min(0) << ", " << bcoef[0][1].max(0) << std::endl;
-    amrex::Print() << "z-direction bcoef min and max " << bcoef[0][2].min(0) << ", " << bcoef[0][2].max(0) << std::endl;
-    amrex::Print() << "acoef min and max " << acoef[0].min(0) << ", " << acoef[0].max(0) << std::endl;;
-
-    amrex::Print() << "rhs =\n" << rhs[0][0] << std::endl;
-    amrex::Print() << "phi =\n" << phi[0][0] << std::endl;
 }
 
 void
@@ -232,6 +220,11 @@ MyTest::initData ()
                 FArrayBox& fab = rhs[ilev][mfi];
                 const Box& bx = fab.box();
                 fab.ForEachIV(bx, 0, 1, [=] (Real& p, const IntVect& iv) {
+#if 1
+                        Real rx = (iv[0]+0.5)*dx[0];
+                        Real ry = (iv[1]+0.5)*dx[1];
+                        p = std::sin(rx*2.*pi + 43.5)*std::sin(ry*2.*pi + 89.);
+#else
                         if (iv == IntVect(2,2,2)) {
                             p = 1.0;
                         } else if (iv == IntVect(3,3,3)) {
@@ -239,6 +232,7 @@ MyTest::initData ()
                         } else {
                             p = 0.0;
                         }
+#endif
                     });
             }
         }
