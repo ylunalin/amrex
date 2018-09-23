@@ -633,7 +633,7 @@ TagBoxArray::coarsen (const IntVect & ratio)
     int teamsize = ParallelDescriptor::TeamSize();
     unsigned char flags = (teamsize == 1) ? 0 : MFIter::AllBoxes;
 
-#if defined(_OPENMP)
+#ifdef _OPENMP
 #pragma omp parallel if (teamsize == 1)
 #endif
     for (MFIter mfi(*this,flags); mfi.isValid(); ++mfi)
