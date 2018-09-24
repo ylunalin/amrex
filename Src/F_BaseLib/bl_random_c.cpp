@@ -4,7 +4,7 @@
 #include <limits>
 #include <cstdint>
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #include <omp.h>
 #endif
 
@@ -27,7 +27,7 @@ namespace
 	std::uint_fast32_t r;
 	std::set<std::uint_fast32_t> seeds;
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
         int tid = omp_get_thread_num();
 #else
         int tid = 0;

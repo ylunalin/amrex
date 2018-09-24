@@ -17,7 +17,7 @@
 #include <cmath>
 #include <type_traits>
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #include <omp.h>
 #endif
 
@@ -163,7 +163,7 @@ GShopLevel<G>::GShopLevel (IndexSpace const* is, G const& gshop, const Geometry&
     const Real* dxinv = geom.InvCellSize();
     const Real* problo = geom.ProbLo();
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     {

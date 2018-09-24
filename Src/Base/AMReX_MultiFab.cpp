@@ -46,7 +46,7 @@ MultiFab::Dot (const MultiFab& x, int xcomp,
 
     Real sm = 0.0;
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel if (!system::regtest_reduction) reduction(+:sm)
 #endif
     for (MFIter mfi(x,true); mfi.isValid(); ++mfi)
@@ -76,7 +76,7 @@ MultiFab::Dot (const iMultiFab& mask,
 
     Real sm = 0.0;
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel if (!system::regtest_reduction) reduction(+:sm)
 #endif
     for (MFIter mfi(x,true); mfi.isValid(); ++mfi)
@@ -115,7 +115,7 @@ MultiFab::Add (MultiFab&       dst,
     BL_ASSERT(dst.distributionMap == src.distributionMap);
     BL_ASSERT(dst.nGrowVect().allGE(nghost) && src.nGrowVect().allGE(nghost));
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     for (MFIter mfi(dst,TrueUnlessGPU); mfi.isValid(); ++mfi)
@@ -158,7 +158,7 @@ MultiFab::Copy (MultiFab&       dst,
     BL_ASSERT(dst.distributionMap == src.distributionMap);
     BL_ASSERT(dst.nGrowVect().allGE(nghost));
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     for (MFIter mfi(dst,TrueUnlessGPU); mfi.isValid(); ++mfi)
@@ -228,7 +228,7 @@ MultiFab::Subtract (MultiFab&       dst,
     BL_ASSERT(dst.distributionMap == src.distributionMap);
     BL_ASSERT(dst.nGrowVect().allGE(nghost) && src.nGrowVect().allGE(nghost));
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     for (MFIter mfi(dst,TrueUnlessGPU); mfi.isValid(); ++mfi)
@@ -271,7 +271,7 @@ MultiFab::Multiply (MultiFab&       dst,
     BL_ASSERT(dst.distributionMap == src.distributionMap);
     BL_ASSERT(dst.nGrowVect().allGE(nghost) && src.nGrowVect().allGE(nghost));
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     for (MFIter mfi(dst,TrueUnlessGPU); mfi.isValid(); ++mfi)
@@ -314,7 +314,7 @@ MultiFab::Divide (MultiFab&       dst,
     BL_ASSERT(dst.distributionMap == src.distributionMap);
     BL_ASSERT(dst.nGrowVect().allGE(nghost) && src.nGrowVect().allGE(nghost));
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     for (MFIter mfi(dst,TrueUnlessGPU); mfi.isValid(); ++mfi)
@@ -349,7 +349,7 @@ MultiFab::Saxpy (MultiFab&       dst,
     BL_ASSERT(dst.distributionMap == src.distributionMap);
     BL_ASSERT(dst.nGrow() >= nghost && src.nGrow() >= nghost);
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     for (MFIter mfi(dst,true); mfi.isValid(); ++mfi)
@@ -374,7 +374,7 @@ MultiFab::Xpay (MultiFab&       dst,
     BL_ASSERT(dst.distributionMap == src.distributionMap);
     BL_ASSERT(dst.nGrow() >= nghost && src.nGrow() >= nghost);
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     for (MFIter mfi(dst,true); mfi.isValid(); ++mfi)
@@ -404,7 +404,7 @@ MultiFab::LinComb (MultiFab&       dst,
     BL_ASSERT(dst.distributionMap == y.distributionMap);
     BL_ASSERT(dst.nGrow() >= nghost && x.nGrow() >= nghost && y.nGrow() >= nghost);
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     for (MFIter mfi(dst,true); mfi.isValid(); ++mfi)
@@ -432,7 +432,7 @@ MultiFab::AddProduct (MultiFab&       dst,
     BL_ASSERT(dst.distributionMap == src2.distributionMap);
     BL_ASSERT(dst.nGrow() >= nghost && src1.nGrow() >= nghost && src2.nGrow() >= nghost);
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     for (MFIter mfi(dst,true); mfi.isValid(); ++mfi)
@@ -634,7 +634,7 @@ MultiFab::define (const BoxArray&            bxs,
 void
 MultiFab::initVal ()
 {
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     for (MFIter mfi(*this); mfi.isValid(); ++mfi)
@@ -656,7 +656,7 @@ MultiFab::contains_nan (int scomp,
 
     bool r = false;
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel reduction(|:r)
 #endif
     for (MFIter mfi(*this,true); mfi.isValid(); ++mfi)
@@ -692,7 +692,7 @@ MultiFab::contains_inf (int scomp,
 
     bool r = false;
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel reduction(|:r)
 #endif
     for (MFIter mfi(*this,true); mfi.isValid(); ++mfi)
@@ -742,7 +742,7 @@ MultiFab::min (int comp,
 
     Real mn = std::numeric_limits<Real>::max();
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel reduction(min:mn)
 #endif
     for (MFIter mfi(*this,true); mfi.isValid(); ++mfi)
@@ -767,7 +767,7 @@ MultiFab::min (const Box& region,
 
     Real mn = std::numeric_limits<Real>::max();
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel reduction(min:mn)
 #endif
     for ( MFIter mfi(*this,true); mfi.isValid(); ++mfi)
@@ -793,7 +793,7 @@ MultiFab::max (int comp,
 
     Real mx = -std::numeric_limits<Real>::max();
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel reduction(max:mx)
 #endif
     for ( MFIter mfi(*this,true); mfi.isValid(); ++mfi)
@@ -818,7 +818,7 @@ MultiFab::max (const Box& region,
 
     Real mx = -std::numeric_limits<Real>::max();
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel reduction(max:mx)
 #endif
     for (MFIter mfi(*this,true); mfi.isValid(); ++mfi)
@@ -844,7 +844,7 @@ MultiFab::minIndex (int comp,
     Real mn = std::numeric_limits<Real>::max();
     IntVect loc;
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     {
@@ -862,7 +862,7 @@ MultiFab::minIndex (int comp,
 		priv_loc = get(mfi).minIndex(bx,comp);
 	    }
 	}
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp critical (multifab_minindex)
 #endif
 	{
@@ -909,7 +909,7 @@ MultiFab::maxIndex (int comp,
     Real mx = std::numeric_limits<Real>::lowest();
     IntVect loc;
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     {
@@ -927,7 +927,7 @@ MultiFab::maxIndex (int comp,
 		priv_loc = get(mfi).maxIndex(bx,comp);
 	    }
 	}
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp critical (multifab_maxindex)
 #endif
 	{
@@ -973,7 +973,7 @@ MultiFab::norm0 (const iMultiFab& mask, int comp, int nghost, bool local) const
 {
     Real nm0 = -std::numeric_limits<Real>::max();
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel reduction(max:nm0)
 #endif
     for (MFIter mfi(*this,true); mfi.isValid(); ++mfi)
@@ -992,7 +992,7 @@ MultiFab::norm0 (int comp, const BoxArray& ba, int nghost, bool local) const
 {
     Real nm0 = -std::numeric_limits<Real>::max();
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel reduction(max:nm0)
 #endif
     {
@@ -1020,7 +1020,7 @@ MultiFab::norm0 (int comp, int nghost, bool local) const
 {
     Real nm0 = -std::numeric_limits<Real>::max();
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel reduction(max:nm0)
 #endif
     for (MFIter mfi(*this,true); mfi.isValid(); ++mfi)
@@ -1041,18 +1041,18 @@ MultiFab::norm0 (const Vector<int>& comps, int nghost, bool local) const
     const Real rmax = std::numeric_limits<Real>::max();
     Vector<Real> nm0(n, -rmax);
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
     int nthreads = omp_get_max_threads();
 #else
     int nthreads = 1;
 #endif
     Vector<Vector<Real> > priv_nm0(nthreads, Vector<Real>(n, -rmax));
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     {
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 	int tid = omp_get_thread_num();
 #else
 	int tid = 0;
@@ -1064,7 +1064,7 @@ MultiFab::norm0 (const Vector<int>& comps, int nghost, bool local) const
 					    get(mfi).norm(mfi.growntilebox(nghost), 0, comps[i], 1));
             }
         }
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp barrier
 #pragma omp for
 #endif
@@ -1119,18 +1119,18 @@ MultiFab::norm2 (const Vector<int>& comps) const
     int n = comps.size();
     Vector<Real> nm2(n, 0.e0);
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
     int nthreads = omp_get_max_threads();
 #else
     int nthreads = 1;
 #endif
     Vector<Vector<Real> > priv_nm2(nthreads, Vector<Real>(n, 0.0));
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     {
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 	int tid = omp_get_thread_num();
 #else
 	int tid = 0;
@@ -1144,7 +1144,7 @@ MultiFab::norm2 (const Vector<int>& comps) const
 		priv_nm2[tid][i] += fab.dot(bx,comps[i],fab,bx,comps[i]);
             }
         }
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp barrier
 #pragma omp for
 #endif
@@ -1184,7 +1184,7 @@ MultiFab::norm1 (int comp, int ngrow, bool local) const
     
     Real nm1 = 0.e0;
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel if (!system::regtest_reduction) reduction(+:nm1)
 #endif
     for (MFIter mfi(*this,true); mfi.isValid(); ++mfi)
@@ -1206,18 +1206,18 @@ MultiFab::norm1 (const Vector<int>& comps, int ngrow, bool local) const
     int n = comps.size();
     Vector<Real> nm1(n, 0.e0);
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
     int nthreads = omp_get_max_threads();
 #else
     int nthreads = 1;
 #endif
     Vector<Vector<Real> > priv_nm1(nthreads, Vector<Real>(n, 0.0));
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     {
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 	int tid = omp_get_thread_num();
 #else
 	int tid = 0;
@@ -1229,7 +1229,7 @@ MultiFab::norm1 (const Vector<int>& comps, int ngrow, bool local) const
                 priv_nm1[tid][i] += get(mfi).norm(b, 1, comps[i], 1);
 	    }
         }
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp barrier
 #pragma omp for
 #endif
@@ -1251,7 +1251,7 @@ MultiFab::sum (int comp, bool local) const
 {
     Real sm = 0.e0;
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel if (!system::regtest_reduction) reduction(+:sm)
 #endif
     for (MFIter mfi(*this,true); mfi.isValid(); ++mfi)
@@ -1277,7 +1277,7 @@ MultiFab::minus (const MultiFab& mf,
     BL_ASSERT(strt_comp + num_comp - 1 < n_comp && strt_comp + num_comp - 1 < mf.n_comp);
     BL_ASSERT(nghost <= n_grow.min() && nghost <= mf.n_grow.min());
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     for (MFIter mfi(*this,true); mfi.isValid(); ++mfi)
@@ -1300,7 +1300,7 @@ MultiFab::divide (const MultiFab& mf,
     BL_ASSERT(strt_comp + num_comp - 1 < n_comp && strt_comp + num_comp - 1 < mf.n_comp);
     BL_ASSERT(nghost <= n_grow.min() && nghost <= mf.n_grow.min());
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     for (MFIter mfi(*this,true); mfi.isValid(); ++mfi)
@@ -1321,7 +1321,7 @@ MultiFab::plus (Real val,
     BL_ASSERT(comp+num_comp <= n_comp);
     BL_ASSERT(num_comp > 0);
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     for (MFIter mfi(*this,true); mfi.isValid(); ++mfi)
@@ -1341,7 +1341,7 @@ MultiFab::plus (Real       val,
     BL_ASSERT(comp+num_comp <= n_comp);
     BL_ASSERT(num_comp > 0);
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     for (MFIter mfi(*this,true); mfi.isValid(); ++mfi)
@@ -1365,7 +1365,7 @@ MultiFab::plus (const MultiFab& mf,
     BL_ASSERT(strt_comp + num_comp - 1 < n_comp && strt_comp + num_comp - 1 < mf.n_comp);
     BL_ASSERT(nghost <= n_grow.min() && nghost <= mf.n_grow.min());
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     for (MFIter mfi(*this,true); mfi.isValid(); ++mfi)
@@ -1386,7 +1386,7 @@ MultiFab::mult (Real val,
     BL_ASSERT(comp+num_comp <= n_comp);
     BL_ASSERT(num_comp > 0);
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     for (MFIter mfi(*this,true); mfi.isValid(); ++mfi)
@@ -1406,7 +1406,7 @@ MultiFab::mult (Real       val,
     BL_ASSERT(comp+num_comp <= n_comp);
     BL_ASSERT(num_comp > 0);
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     for (MFIter mfi(*this,true); mfi.isValid(); ++mfi)
@@ -1428,7 +1428,7 @@ MultiFab::invert (Real numerator,
     BL_ASSERT(comp+num_comp <= n_comp);
     BL_ASSERT(num_comp > 0);
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     for (MFIter mfi(*this,true); mfi.isValid(); ++mfi)
@@ -1448,7 +1448,7 @@ MultiFab::invert (Real       numerator,
     BL_ASSERT(comp+num_comp <= n_comp);
     BL_ASSERT(num_comp > 0);
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     for (MFIter mfi(*this,true); mfi.isValid(); ++mfi)
@@ -1468,7 +1468,7 @@ MultiFab::negate (int comp,
     BL_ASSERT(nghost >= 0 && nghost <= n_grow.min());
     BL_ASSERT(comp+num_comp <= n_comp);
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     for (MFIter mfi(*this,true); mfi.isValid(); ++mfi)
@@ -1486,7 +1486,7 @@ MultiFab::negate (const Box& region,
     BL_ASSERT(nghost >= 0 && nghost <= n_grow.min());
     BL_ASSERT(comp+num_comp <= n_comp);
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     for (MFIter mfi(*this,true); mfi.isValid(); ++mfi)
@@ -1533,7 +1533,7 @@ MultiFab::OverlapMask (const Periodicity& period) const
 
     const std::vector<IntVect>& pshifts = period.shiftIntVect();
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     {
@@ -1572,7 +1572,7 @@ MultiFab::OwnerMask (const Periodicity& period) const
 
     const std::vector<IntVect>& pshifts = period.shiftIntVect();
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     {
@@ -1645,7 +1645,7 @@ MultiFab::OverrideSync (const iMultiFab& msk, const Periodicity& period)
     
     const int ncomp = nComp();
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     for (MFIter mfi(*this,true); mfi.isValid(); ++mfi)

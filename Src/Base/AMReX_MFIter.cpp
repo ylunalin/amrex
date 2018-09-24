@@ -126,7 +126,7 @@ MFIter::MFIter (const FabArrayBase& fabarray_, const MFItInfo& info)
     num_local_tiles(nullptr)
 {
     if (dynamic) {
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp barrier
 #pragma omp single
         nextDynamicIndex = omp_get_num_threads();
@@ -215,7 +215,7 @@ MFIter::Initialize ()
 	    }
 	}
 	
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 	int nthreads = omp_get_num_threads();
 	if (nthreads > 1)
 	{
@@ -428,7 +428,7 @@ MFGhostIter::Initialize ()
 
     int tid = 0;
     int nthreads = 1;
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
     nthreads = omp_get_num_threads();
     if (nthreads > 1)
 	tid = omp_get_thread_num();

@@ -43,7 +43,7 @@
 #endif
 #endif
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #include <omp.h>
 #endif
 
@@ -235,7 +235,7 @@ amrex::Abort (const char* msg)
     } else {
        write_lib_id("Abort");
        write_to_stderr_without_buffering(msg);
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp critical (amrex_abort_omp_critical)
 #endif
        ParallelDescriptor::Abort();
@@ -531,7 +531,7 @@ amrex::Initialize (int& argc, char**& argv, bool build_parm_parse,
                        << " MPI processes\n";
 #endif
         
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 //    static_assert(_OPENMP >= 201107, "OpenMP >= 3.1 is required.");
         amrex::Print() << "OMP initialized with "
                        << omp_get_max_threads()
@@ -575,7 +575,7 @@ amrex::Finalize (bool finalize_parallel)
 	if (ParallelDescriptor::NProcs() == 1) {
 	    if (mp_tot > 0) {
                 amrex::Print() << "MemPool: " 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
                                << "min used in a thread: " << mp_min << " MB, "
                                << "max used in a thread: " << mp_max << " MB, "
 #endif

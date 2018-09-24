@@ -8,7 +8,7 @@
 #include <AMReX_BoxList.H>
 #include <AMReX_BLProfiler.H>
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #include <omp.h>
 #endif
 
@@ -363,7 +363,7 @@ BoxList::complementIn (const Box& b, const BoxArray& ba)
 	bl_mesh.maxSize(block_size);
 	const int N = bl_mesh.size();
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
         bool start_omp_parallel = !omp_in_parallel();
         const int nthreads = omp_get_max_threads();
 #else
@@ -372,7 +372,7 @@ BoxList::complementIn (const Box& b, const BoxArray& ba)
 
         if (start_omp_parallel)
         {
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
             Vector<BoxList> bl_priv(nthreads, BoxList(mytyp));
 #pragma omp parallel
             {

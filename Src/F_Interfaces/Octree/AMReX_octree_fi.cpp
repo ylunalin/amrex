@@ -5,7 +5,7 @@
 #include <AMReX_ParmParse.H>
 #include <AMReX_AmrCore.H>
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #include <omp.h>
 #endif
 
@@ -103,7 +103,7 @@ extern "C" {
     {
         const int n = leaves->size();
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel for
 #endif
         for (int i = 0; i < n; ++i) {

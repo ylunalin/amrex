@@ -5,7 +5,7 @@
 #include <AMReX_FabArray.H>
 #include <AMReX_Geometry.H>
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #include <omp.h>
 #endif
 

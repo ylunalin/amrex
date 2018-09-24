@@ -11,7 +11,7 @@
 #include <AMReX_VisMF.H>
 #include <AMReX_ParallelReduce.H>
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #include <omp.h>
 #endif
 

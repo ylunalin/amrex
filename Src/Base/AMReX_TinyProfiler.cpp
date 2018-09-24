@@ -13,7 +13,7 @@
 #include <AMReX_Utility.H>
 #include <AMReX_Print.H>
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #include <omp.h>
 #endif
 
@@ -61,7 +61,7 @@ TinyProfiler::~TinyProfiler ()
 void
 TinyProfiler::start ()
 {
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp master
 #endif
     if (stats.empty())
@@ -83,7 +83,7 @@ TinyProfiler::start ()
 void
 TinyProfiler::stop ()
 {
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp master
 #endif
     if (!stats.empty()) 

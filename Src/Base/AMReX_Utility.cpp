@@ -26,7 +26,7 @@
 #include <AMReX_BoxArray.H>
 #include <AMReX_Print.H>
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #include <omp.h>
 #endif
 
@@ -352,14 +352,14 @@ void
 amrex::InitRandom (unsigned long seed, int nprocs)
 {
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
     nthreads = omp_get_max_threads();
 #else
     nthreads = 1;
 #endif
     generators.resize(nthreads);
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
     {
         int tid = omp_get_thread_num();
@@ -379,7 +379,7 @@ void amrex::ResetRandomSeed(unsigned long seed)
 double
 amrex::RandomNormal (double mean, double stddev)
 {
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
     int tid = omp_get_thread_num();
 #else
     int tid = 0;
@@ -391,7 +391,7 @@ amrex::RandomNormal (double mean, double stddev)
 double
 amrex::Random ()
 {
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
     int tid = omp_get_thread_num();
 #else
     int tid = 0;
@@ -403,7 +403,7 @@ amrex::Random ()
 unsigned long
 amrex::Random_int(unsigned long n)
 {
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
     int tid = omp_get_thread_num();
 #else
     int tid = 0;

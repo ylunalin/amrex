@@ -1,7 +1,7 @@
 #ifndef BL_FABARRAYBASE_H_
 #define BL_FABARRAYBASE_H_
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #include <omp.h>
 #endif
 

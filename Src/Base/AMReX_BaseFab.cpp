@@ -34,7 +34,7 @@ BaseFab_Initialize()
   {
       basefab_initialized = true;
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
       {
          amrex::private_total_bytes_allocated_in_fabs     = 0;
@@ -66,7 +66,7 @@ BaseFab_Finalize()
 long 
 TotalBytesAllocatedInFabs()
 {
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
     long r=0;
 #pragma omp parallel reduction(+:r)
     {
@@ -81,7 +81,7 @@ TotalBytesAllocatedInFabs()
 long 
 TotalBytesAllocatedInFabsHWM()
 {
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
     long r=0;
 #pragma omp parallel reduction(+:r)
     {
@@ -96,7 +96,7 @@ TotalBytesAllocatedInFabsHWM()
 long 
 TotalCellsAllocatedInFabs()
 {
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
     long r=0;
 #pragma omp parallel reduction(+:r)
     {
@@ -111,7 +111,7 @@ TotalCellsAllocatedInFabs()
 long 
 TotalCellsAllocatedInFabsHWM()
 {
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
     long r=0;
 #pragma omp parallel reduction(+:r)
     {
@@ -126,7 +126,7 @@ TotalCellsAllocatedInFabsHWM()
 void 
 ResetTotalBytesAllocatedInFabsHWM()
 {
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     {

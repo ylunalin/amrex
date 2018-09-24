@@ -1,4 +1,4 @@
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #include <omp.h>
 #endif
 
@@ -54,12 +54,12 @@ void amrex_mempool_init ()
 
 	int nthreads = 1;
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 	nthreads = omp_get_max_threads();
 #endif
 
 #ifdef USE_PERILLA
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 	//Just in case Perilla thread spawns multiple OMP threads
         nthreads *= perilla::nThreads();
 #else
@@ -71,7 +71,7 @@ void amrex_mempool_init ()
 	for (int i=0; i<nthreads; ++i) {
 	    the_memory_pool[i].reset(new CArena);
 	}
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel num_threads(nthreads)
 #endif
 	{
@@ -103,12 +103,12 @@ void* amrex_mempool_alloc (size_t nbytes)
 {
   int tid=0;
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
   tid = omp_get_thread_num();
 #endif
 
 #ifdef USE_PERILLA
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
   tid = perilla::tid()*omp_get_max_threads()+tid;
 #else
   tid = perilla::tid();
@@ -121,12 +121,12 @@ void amrex_mempool_free (void* p)
 {
   int tid=0;
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
   tid = omp_get_thread_num();
 #endif
 
 #ifdef USE_PERILLA
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
   tid = perilla::tid()*omp_get_max_threads()+tid;
 #else
   tid = perilla::tid();

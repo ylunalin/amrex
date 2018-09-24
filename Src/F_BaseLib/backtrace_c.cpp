@@ -15,7 +15,7 @@
 #include <csignal>
 #include <cfenv>
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #include <omp.h>
 #endif
 
@@ -116,7 +116,7 @@ extern "C"
 	{
 	    std::ostringstream ss;
 	    ss << "Backtrace." << myproc;
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 		ss << "." << omp_get_thread_num();
 #endif
 	    errfilename = ss.str();

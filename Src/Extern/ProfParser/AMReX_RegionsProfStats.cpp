@@ -36,7 +36,7 @@ using std::pair;
 using namespace amrex;
 
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #include <omp.h>
 #endif
 

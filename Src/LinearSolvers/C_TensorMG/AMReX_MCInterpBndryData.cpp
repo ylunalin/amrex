@@ -89,7 +89,7 @@ MCInterpBndryData::setBndryValues(const MultiFab&     mf,
 
     const Real* h = geom.CellSize();
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     for (MFIter mfi(mf); mfi.isValid(); ++mfi)
@@ -170,7 +170,7 @@ MCInterpBndryData::setBndryValues (const BndryRegister& crse,
     //
     // Mask turned off if covered by fine grid.
     //
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     {

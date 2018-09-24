@@ -11,7 +11,7 @@
 #include <AMReX_MultiGrid.H>
 #include <AMReX_VisMF.H>
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #include <omp.h>
 #endif
 
@@ -750,7 +750,7 @@ BuildGramMatrix (Real*           Gg,
     //
     // First fill the upper triangle into tmp
     //
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
     const int nthreads = omp_get_max_threads();
 #else 
     const int nthreads = 1;
@@ -759,11 +759,11 @@ BuildGramMatrix (Real*           Gg,
 
     Vector<Vector<Real> > tmp(nthreads);
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     {
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 	int tid = omp_get_thread_num();
 #else
 	int tid = 0;
@@ -784,7 +784,7 @@ BuildGramMatrix (Real*           Gg,
 		tmp[tid][cnt++] = tfab.dot(bx,0,rfab,bx,mm);
 	    }
 	}
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp barrier
 #pragma omp for
 	for (int i = 0; i < Ntmp; ++i) {

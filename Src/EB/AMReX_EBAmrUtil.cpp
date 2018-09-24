@@ -4,7 +4,7 @@
 #include <AMReX_EBFArrayBox.H>
 #include <AMReX_EBCellFlag.H>
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #include <omp.h>
 #endif
 
@@ -16,7 +16,7 @@ TagCutCells (TagBoxArray& tags, const MultiFab& state)
     const char   tagval = TagBox::SET;
     const char clearval = TagBox::CLEAR;
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     for (MFIter mfi(state, true); mfi.isValid(); ++mfi)

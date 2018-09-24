@@ -8,7 +8,7 @@
 #include <AMReX_MCLO_F.H>
 #include <AMReX_MCLinOp.H>
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #include <omp.h>
 #endif
 
@@ -190,7 +190,7 @@ MCLinOp::applyBC (MultiFab& inout,
     //
     // Fill boundary cells.
     //
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     for (MFIter mfi(inout); mfi.isValid(); ++mfi)
@@ -435,7 +435,7 @@ MCLinOp::makeCoefficients (MultiFab&       cs,
     cs.define(d, DistributionMap(), nc, nGrow);
     cs.setVal(0.0);
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     for (MFIter csmfi(cs,true); csmfi.isValid(); ++csmfi)

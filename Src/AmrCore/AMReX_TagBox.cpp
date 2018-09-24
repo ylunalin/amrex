@@ -438,7 +438,7 @@ TagBoxArray::buffer (int nbuf)
     {
         BL_ASSERT(nbuf <= n_grow[0]);
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
 	for (MFIter mfi(*this); mfi.isValid(); ++mfi)
@@ -463,7 +463,7 @@ TagBoxArray::mapPeriodic (const Geometry& geom)
 
     tmp.copy(*this, geom.periodicity(), FabArrayBase::ADD);
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     for (MFIter mfi(*this); mfi.isValid(); ++mfi)
@@ -477,7 +477,7 @@ TagBoxArray::numTags () const
 {
     long ntag = 0;
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel reduction(+:ntag)
 #endif
     for (MFIter mfi(*this); mfi.isValid(); ++mfi)
@@ -497,7 +497,7 @@ TagBoxArray::collate (Vector<IntVect>& TheGlobalCollateSpace) const
 
     long count = 0;
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel reduction(+:count)
 #endif
     for (MFIter fai(*this); fai.isValid(); ++fai)
@@ -608,7 +608,7 @@ void
 TagBoxArray::setVal (const BoxArray& ba,
                      TagBox::TagVal  val)
 {
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     for (MFIter mfi(*this); mfi.isValid(); ++mfi)
@@ -633,7 +633,7 @@ TagBoxArray::coarsen (const IntVect & ratio)
     int teamsize = ParallelDescriptor::TeamSize();
     unsigned char flags = (teamsize == 1) ? 0 : MFIter::AllBoxes;
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel if (teamsize == 1)
 #endif
     for (MFIter mfi(*this,flags); mfi.isValid(); ++mfi)

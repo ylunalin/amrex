@@ -7,7 +7,7 @@
 #include <AMReX_EBFabFactory.H>
 #endif
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #include <omp.h>
 #endif
 
@@ -49,7 +49,7 @@ namespace amrex
 		sameba = false;
 	    }
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel 
 #endif
 	    for (MFIter mfi(*dmf,true); mfi.isValid(); ++mfi)
@@ -144,7 +144,7 @@ namespace amrex
 		int idummy1=0, idummy2=0;
 		bool cc = fpc.ba_crse_patch.ixType().cellCentered();
 		ignore_unused(cc);
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel if (cc)
 #endif
 		for (MFIter mfi(mf_crse_patch); mfi.isValid(); ++mfi)

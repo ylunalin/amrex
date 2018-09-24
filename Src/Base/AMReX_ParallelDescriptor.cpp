@@ -29,7 +29,7 @@
 #include <AMReX_ParmParse.H>
 #endif
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #include <omp.h>
 #endif
 

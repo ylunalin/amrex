@@ -76,7 +76,7 @@ struct BARef
 
     inline bool HasHashMap () const {
         bool r;
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp atomic read
 #endif
         r = has_hashmap;

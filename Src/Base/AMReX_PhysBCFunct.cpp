@@ -80,7 +80,7 @@ PhysBCFunct::FillBoundary (MultiFab& mf, int, int, Real time)
 	}
     }
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     for (MFIter mfi(mf); mfi.isValid(); ++mfi)

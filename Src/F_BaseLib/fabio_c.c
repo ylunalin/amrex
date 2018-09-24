@@ -797,11 +797,11 @@ fab_contains_nan (double dptr[], const int* countp, int* result)
 {
     int i;
     int rr=0;
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel reduction(+:rr)
 #endif
     {
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp for private(i)
 #endif
       for (i = 0; i < *countp; i++) {
@@ -818,11 +818,11 @@ fab_contains_inf (double dptr[], const int* countp, int* result)
 {
     int i;
     int rr=0;
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel reduction(+:rr)
 #endif
     {
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp for private(i)
 #endif
       for (i = 0; i < *countp; i++) {

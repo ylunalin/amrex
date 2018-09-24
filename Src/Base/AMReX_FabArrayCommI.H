@@ -30,7 +30,7 @@ FabArray<FAB>::FBEP_nowait (int scomp, int ncomp, const IntVect& nghost,
         // There can only be local work to do.
         //
 	int N_loc = (*TheFB.m_LocTags).size();
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel for if (FAB::isCopyOMPSafe() && TheFB.m_threadsafe_loc)
 #endif
 	for (int i=0; i<N_loc; ++i)
@@ -215,7 +215,7 @@ FabArray<FAB>::FBEP_nowait (int scomp, int ncomp, const IntVect& nghost,
     //
     if (N_snds > 0)
     {
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel for if (FAB::isCopyOMPSafe())
 #endif
 
@@ -402,7 +402,7 @@ FabArray<FAB>::FBEP_nowait (int scomp, int ncomp, const IntVect& nghost,
     if (ParallelDescriptor::TeamSize() > 1 && TheFB.m_threadsafe_loc)
     {
 #ifdef BL_USE_TEAM
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel if (FAB::isCopyOMPSafe())
 #endif
 	ParallelDescriptor::team_for(0, N_locs, [&] (int i) 
@@ -425,7 +425,7 @@ FabArray<FAB>::FBEP_nowait (int scomp, int ncomp, const IntVect& nghost,
     }
     else
     {
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel for if (FAB::isCopyOMPSafe() && TheFB.m_threadsafe_loc)
 #endif
 	for (int i=0; i<N_locs; ++i)
@@ -515,7 +515,7 @@ FabArray<FAB>::FillBoundary_finish ()
             }
 	}	
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel for if (FAB::isCopyOMPSafe() && TheFB.m_threadsafe_rcv)
 #endif
 
@@ -647,7 +647,7 @@ FabArray<FAB>::ParallelCopy (const FabArray<FAB>& src,
         // we're doing plus()s on cell-centered data.  Don't do plus()s on
         // non-cell-centered data this simplistic way.
         //
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel if (FAB::isCopyOMPSafe())
 #endif
         for (MFIter fai(*this,true); fai.isValid(); ++fai)
@@ -675,7 +675,7 @@ FabArray<FAB>::ParallelCopy (const FabArray<FAB>& src,
         // There can only be local work to do.
         //
 	int N_loc = (*thecpc.m_LocTags).size();
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel for if (FAB::isCopyOMPSafe() && thecpc.m_threadsafe_loc)
 #endif
 	for (int i=0; i<N_loc; ++i)
@@ -869,7 +869,7 @@ FabArray<FAB>::ParallelCopy (const FabArray<FAB>& src,
 	// 
 	if (N_snds > 0)
 	{
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel for if (FAB::isCopyOMPSafe())
 #endif
 	    for (int j=0; j<N_snds; ++j)
@@ -997,7 +997,7 @@ FabArray<FAB>::ParallelCopy (const FabArray<FAB>& src,
 	if (ParallelDescriptor::TeamSize() > 1 && thecpc.m_threadsafe_loc)
 	{
 #ifdef BL_USE_TEAM
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel if (FAB::isCopyOMPSafe())
 #endif
 	    ParallelDescriptor::team_for(0, N_locs, [&] (int j) 
@@ -1017,7 +1017,7 @@ FabArray<FAB>::ParallelCopy (const FabArray<FAB>& src,
 	}
 	else 
 	{
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel for if (FAB::isCopyOMPSafe() && thecpc.m_threadsafe_loc)
 #endif
 	    for (int j=0; j<N_locs; ++j)
@@ -1071,13 +1071,13 @@ FabArray<FAB>::ParallelCopy (const FabArray<FAB>& src,
                 }
 	    }
 	    
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel if (FAB::isCopyOMPSafe() && thecpc.m_threadsafe_rcv)
 #endif
 	    {
 		FAB fab;
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp for
 #endif
                 for (int k = 0; k < N_rcvs; ++k)
@@ -1202,7 +1202,7 @@ FabArray<FAB>::ParallelCopy_nowait (const FabArray<FAB>& src,
         // we're doing plus()s on cell-centered data.  Don't do plus()s on
         // non-cell-centered data this simplistic way.
         //
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel if (FAB::isCopyOMPSafe())
 #endif
         for (MFIter fai(*this,true); fai.isValid(); ++fai)
@@ -1230,7 +1230,7 @@ FabArray<FAB>::ParallelCopy_nowait (const FabArray<FAB>& src,
         // There can only be local work to do.
         //
 	int N_loc = (*thecpc.m_LocTags).size();
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel for if (FAB::isCopyOMPSafe() && thecpc.m_threadsafe_loc)
 #endif
 	for (int i=0; i<N_loc; ++i)
@@ -1374,7 +1374,7 @@ FabArray<FAB>::ParallelCopy_nowait (const FabArray<FAB>& src,
     // 
     if (N_snds > 0)
     {
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel for if (FAB::isCopyOMPSafe())
 #endif
         for (int j=0; j<N_snds; ++j)
@@ -1439,7 +1439,7 @@ FabArray<FAB>::ParallelCopy_nowait (const FabArray<FAB>& src,
     if (ParallelDescriptor::TeamSize() > 1 && thecpc.m_threadsafe_loc)
     {
 #ifdef BL_USE_TEAM
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel if (FAB::isCopyOMPSafe())
 #endif
         ParallelDescriptor::team_for(0, N_locs, [&] (int j) 
@@ -1459,7 +1459,7 @@ FabArray<FAB>::ParallelCopy_nowait (const FabArray<FAB>& src,
     }
     else 
     {
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel for if (FAB::isCopyOMPSafe() && thecpc.m_threadsafe_loc)
 #endif
         for (int j=0; j<N_locs; ++j)
@@ -1514,13 +1514,13 @@ FabArray<FAB>::CopierHandleImpl::finish ()
             }
         }
 	
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel if (FAB::isCopyOMPSafe() && thecpc.m_threadsafe_rcv)
 #endif
         {
             FAB fab;
             
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp for
 #endif
             for (int k = 0; k < N_rcvs; ++k)
@@ -1881,7 +1881,7 @@ FabArray<FAB>::Redistribute (const FabArray<FAB>& src,
 
     if (ParallelContext::NProcsSub() == 1)
     {
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
         for (MFIter fai(*this,true); fai.isValid(); ++fai)

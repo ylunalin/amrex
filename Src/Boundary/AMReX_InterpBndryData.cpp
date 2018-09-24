@@ -146,7 +146,7 @@ InterpBndryData::setBndryValues (const MultiFab& mf,
     }
 
     // TODO: tiling - wqz
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     for (MFIter mfi(mf,MFItInfo().SetDynamic(true)); mfi.isValid(); ++mfi)
@@ -230,7 +230,7 @@ InterpBndryData::BndryValuesDoIt (BndryRegister&  crse,
     {
         MultiFab foo(grids,bndry[0].DistributionMap(), 1, 0, MFInfo().SetAlloc(false), FArrayBoxFactory());
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
         {

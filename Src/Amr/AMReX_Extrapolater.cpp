@@ -2,7 +2,7 @@
 #include <AMReX_Extrapolater.H>
 #include <AMReX_iMultiFab.H>
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #include <omp.h>
 #endif
 
@@ -31,7 +31,7 @@ namespace Extrapolater
 
 	int N = mf.nComp();
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
 	for (MFIter mfi(mf); mfi.isValid(); ++mfi)

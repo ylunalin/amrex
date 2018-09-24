@@ -9,7 +9,7 @@
 #include <AMReX_MG_F.H>
 #include <AMReX_MCMultiGrid.H>
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #include <omp.h>
 #endif
 
@@ -101,7 +101,7 @@ Real
 norm_inf (const MultiFab& res, bool local = false)
 {
     Real restot = 0.0;
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel reduction(max:restot)
 #endif
     for (MFIter mfi(res,true); mfi.isValid(); ++mfi) 
@@ -509,7 +509,7 @@ MCMultiGrid::average (MultiFab&       c,
     //
     // Use Fortran function to average down (restrict) f to c.
     //
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     for (MFIter cmfi(c,true); cmfi.isValid(); ++cmfi)
@@ -533,7 +533,7 @@ MCMultiGrid::interpolate (MultiFab&       f,
     // Use fortran function to interpolate up (prolong) c to f
     // Note: returns f=f+P(c) , i.e. ADDS interp'd c to f
     //
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel
 #endif
     for (MFIter fmfi(c,true); fmfi.isValid(); ++fmfi)

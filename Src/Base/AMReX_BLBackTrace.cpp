@@ -44,7 +44,7 @@ BLBackTrace::handler(int s)
     {
 	std::ostringstream ss;
 	ss << "Backtrace." << ParallelDescriptor::MyProc();
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
  	ss << "." << omp_get_thread_num();
 #endif
 	errfilename = ss.str();
@@ -158,7 +158,7 @@ BLBTer::BLBTer(const std::string& s, const char* file, int line)
     ss << "Line " << line << ", File " << file;
     line_file = ss.str();
     
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
     if (omp_in_parallel()) {
 	std::ostringstream ss0;
 	ss0 << "Proc. " << ParallelDescriptor::MyProc()
@@ -186,7 +186,7 @@ BLBTer::BLBTer(const std::string& s, const char* file, int line)
 
 BLBTer::~BLBTer()
 {
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
     if (omp_in_parallel()) {
 	pop_bt_stack();
     }

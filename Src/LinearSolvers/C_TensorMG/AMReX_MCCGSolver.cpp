@@ -98,7 +98,7 @@ MCCGSolver::norm (const MultiFab& res)
 
     Real restot = 0.0;
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp parallel reduction(max:restot)
 #endif
     for (MFIter mfi(res,true); mfi.isValid(); ++mfi)

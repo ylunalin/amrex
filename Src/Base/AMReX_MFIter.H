@@ -9,7 +9,7 @@
 #include <AMReX_RealBox.H>
 #include <AMReX_Device.H>
 
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #include <omp.h>
 #endif
 
@@ -120,7 +120,7 @@ public:
     Box fabbox () const { return fabArray.fabbox((*index_map)[currentIndex]); }
 
     //! Increment iterator to the next tile we own.
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
     void operator++ () {
         if (dynamic) {
 #pragma omp atomic capture

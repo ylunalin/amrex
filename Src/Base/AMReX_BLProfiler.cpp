@@ -313,7 +313,7 @@ void BLProfiler::PStop() {
 
 
 void BLProfiler::start() {
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp master
 #endif
 {
@@ -348,7 +348,7 @@ void BLProfiler::start() {
 
   
 void BLProfiler::stop() {
-#ifdef _OPENMP
+#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 #pragma omp master
 #endif
 {
