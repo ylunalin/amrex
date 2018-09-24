@@ -343,6 +343,11 @@ else
     OMPSuffix	:=
 endif
 
+ifeq ($(USE_OMP_IO), TRUE)
+    OMPSuffix   := .OMP
+    CPPFLAGS    += -DAMREX_USE_OMP_IO
+endif
+
 ifeq ($(USE_ACC),TRUE)
 
   ACCSuffix := .ACC

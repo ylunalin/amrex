@@ -49,7 +49,11 @@ CFLAGS   += -c99
 
 GENERIC_PGI_FLAGS =
 
-ifeq ($(USE_OMP),TRUE)
+ifeq ($(USE_OMP),TRUE) 
+  GENERIC_PGI_FLAGS += -mp=nonuma -Minfo=mp
+endif
+
+ifeq ($(USE_OMP_IO),TRUE)
   GENERIC_PGI_FLAGS += -mp=nonuma -Minfo=mp
 endif
 

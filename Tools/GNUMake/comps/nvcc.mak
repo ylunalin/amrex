@@ -14,8 +14,14 @@ include $(AMREX_HOME)/Tools/GNUMake/comps/gnu.mak
 DEFINES := $(DEFINES)
 MANAGED := --expt-relaxed-constexpr --expt-extended-lambda
 
-CXXFLAGS := $(MANAGED) -Wno-deprecated-gpu-targets -dc -x cu --std=c++11 -ccbin=$(CXX) -Xcompiler='$(CXXFLAGS)'
-CFLAGS := $(MANAGED) -Wno-deprecated-gpu-targets -dc -x c -ccbin=$(CC) -Xcompiler='$(CFLAGS)'
+ifeq ($(USE_OMP_IO),TRUE)
+   OMP_IO_FLAGS :=-fopenmp
+else
+   OMP_IO_FLAGS :=
+endif
+
+CXXFLAGS := $(MANAGED) $(OMP_IO) -Wno-deprecated-gpu-targets -dc -x cu --std=c++11 -ccbin=$(CXX) -Xcompiler='$(CXXFLAGS) $(OMP_IO_FLAGS)'
+CFLAGS := $(MANAGED) $(OMP_IO) -Wno-deprecated-gpu-targets -dc -x c -ccbin=$(CC) -Xcompiler='$(CFLAGS) $(OMP_IO_FLAGS)'
 
 HOST_CXX := $(CXX)
 HOST_CC := $(CC)
