@@ -953,7 +953,7 @@ BoxArray::minimalBox () const
 #pragma omp parallel
 #endif
 	    {
-#ifndef _OPENMP
+#if !defined(_OPENMP) || defined(AMREX_USE_CUDA)
 		int tid = 0;
 #else
 		int tid = omp_get_thread_num();
@@ -1005,7 +1005,7 @@ BoxArray::minimalBox (int& npts_avg_box) const
 #pragma omp parallel reduction(+:npts_tot)
 #endif
 	    {
-#ifndef _OPENMP
+#if !defined(_OPENMP) && !defined(AMREX_USE_CUDA)
 		int tid = 0;
 #else
 		int tid = omp_get_thread_num();
