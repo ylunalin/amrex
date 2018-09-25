@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Compiling AMReX with CVODE (Sundials version 3.X) &mdash; amrex 18.10-dev documentation</title>
+  <title>Compiling AMReX with Sundials version 3.X &mdash; amrex 18.10-dev documentation</title>
   
 
   
@@ -101,7 +101,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="Chapter14.html">CVODE</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="CVODE.html">Compiling AMReX&nbsp;with CVODE (Cray or Sundials version 2.7)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="CVODE.html#cvode-tutorials">CVODE&nbsp;Tutorials</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Compiling AMReX&nbsp;with CVODE (Sundials version 3.X)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Compiling AMReX&nbsp;with Sundials version 3.X</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#sundials-3-x-tutorials">SUNDIALS 3.X&nbsp;Tutorials</a></li>
 </ul>
 </li>
@@ -152,7 +152,7 @@
         
           <li><a href="Chapter14.html">CVODE</a> &raquo;</li>
         
-      <li>Compiling AMReX&nbsp;with CVODE (Sundials version 3.X)</li>
+      <li>Compiling AMReX&nbsp;with Sundials version 3.X</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -171,8 +171,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="compiling-amrex-with-cvode-sundials-version-3-x">
-<h1>Compiling AMReX&nbsp;with CVODE (Sundials version 3.X)<a class="headerlink" href="#compiling-amrex-with-cvode-sundials-version-3-x" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="compiling-amrex-with-sundials-version-3-x">
+<h1>Compiling AMReX&nbsp;with Sundials version 3.X<a class="headerlink" href="#compiling-amrex-with-sundials-version-3-x" title="Permalink to this headline">¶</a></h1>
 <p>The following steps describe how to compile an AMReX&nbsp;application with
 SUNDIALS_3.X support.  On Cray systems (e.g., Cori or Edison at NERSC), Cray provides
 a system module called <code class="docutils literal notranslate"><span class="pre">cray-tpsl</span></code> (“Cray Third-Party Scientific Libraries”)
@@ -225,19 +225,25 @@ wrappers <code class="docutils literal notranslate"><span class="pre">cc</span><
 compiling the examples via the <code class="docutils literal notranslate"><span class="pre">&quot;-DEXAMPLES_ENABLE=OFF&quot;</span></code> flag.</p>
 </li>
 <li><p class="first">In the <code class="docutils literal notranslate"><span class="pre">GNUmakefile</span></code> for the &nbsp;application which uses the Fortran 2003
-interface to , add <code class="docutils literal notranslate"><span class="pre">USE_SUNDIALS3</span> <span class="pre">=</span> <span class="pre">TRUE</span></code>, which will compile the Fortran 2003
+interface to CVODE or ARKODE, add <code class="docutils literal notranslate"><span class="pre">USE_SUNDIALS3</span> <span class="pre">=</span> <span class="pre">TRUE</span></code>, which will compile the Fortran 2003
 interfaces and link the &nbsp;libraries.  Note that one must define the
 <code class="docutils literal notranslate"><span class="pre">CVODE_LIB_DIR</span></code> environment variable to point to the location where the
 libraries are installed.</p>
+</li>
+<li><p class="first">In the <code class="docutils literal notranslate"><span class="pre">GNUmakefile</span></code> for the &nbsp;application which uses the Fortran 2003
+interface to ARKODE, also add <code class="docutils literal notranslate"><span class="pre">USE_ARKODE</span> <span class="pre">=</span> <span class="pre">TRUE</span></code>. It is assumed that the
+<code class="docutils literal notranslate"><span class="pre">CVODE_LIB_DIR</span></code> environment variable points to the location where the ARKODE
+libraries are installed as well.</p>
 </li>
 </ol>
 </div>
 <div class="section" id="sundials-3-x-tutorials">
 <h1>SUNDIALS 3.X&nbsp;Tutorials<a class="headerlink" href="#sundials-3-x-tutorials" title="Permalink to this headline">¶</a></h1>
-<p>AMReX&nbsp;provides five&nbsp;tutorials in the <code class="docutils literal notranslate"><span class="pre">amrex/Tutorials/SUNDIALS3</span></code> directory.
+<p>AMReX&nbsp;provides six&nbsp;tutorials in the <code class="docutils literal notranslate"><span class="pre">amrex/Tutorials/SUNDIALS3</span></code> directory.
 <code class="docutils literal notranslate"><span class="pre">EX1</span></code> is modeled after the CVODE Tutorial <code class="docutils literal notranslate"><span class="pre">EX1</span></code> showing use with AMReX.
-The other four tutorials are based on examples provided with the interface, which
-are more closely modeled after CVODE examples.</p>
+The four <code class="docutils literal notranslate"><span class="pre">EX_ch_*</span></code> tutorials are based on examples provided with the interface, which
+are more closely modeled after CVODE examples. The <code class="docutils literal notranslate"><span class="pre">EX_ark_analytic_fp</span></code> tutorial is based
+on the <code class="docutils literal notranslate"><span class="pre">EX_cv_analytic_fp</span></code> tutorial, but uses ARKODE instead of CVODE.</p>
 <span class="target" id="sundials3"></span></div>
 
 
