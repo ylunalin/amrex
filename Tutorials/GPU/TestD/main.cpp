@@ -12,7 +12,6 @@ using namespace amrex;
 
 int main (int argc, char* argv[])
 {
-
     amrex::Initialize(argc, argv);
 
     std::cout << std::endl;
@@ -32,6 +31,7 @@ int main (int argc, char* argv[])
     }
 
 #pragma omp barrier
+    amrex::USleep(0.01*thread_id);
     std::cout << "OMP Id = " << thread_id << std::endl;
 #pragma omp barrier
 
@@ -49,7 +49,7 @@ int main (int argc, char* argv[])
       [=] AMREX_CUDA_DEVICE ()
       {
           *intvect = ZeroVector; 
-          printf("invect during = (%i,%i,%i)\n", (*intvect)[0], (*intvect)[1], (*intvect)[2]);
+          printf("intvect during = (%i,%i,%i)\n", (*intvect)[0], (*intvect)[1], (*intvect)[2]);
       });
 
       Device::synchronize();
@@ -61,6 +61,7 @@ int main (int argc, char* argv[])
 
     if (thread_id != 0)
     {
+       amrex::USleep(0.01*thread_id);
        std::cout << thread_id << ": And I helped!!" << std::endl;
     }
 
