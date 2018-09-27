@@ -43,7 +43,7 @@
 #endif
 #endif
 
-#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
+#if (defined(_OPENMP) && !defined(AMREX_USE_CUDA)) || defined(AMREX_USE_OMP_IO) 
 #include <omp.h>
 #endif
 
@@ -531,7 +531,7 @@ amrex::Initialize (int& argc, char**& argv, bool build_parm_parse,
                        << " MPI processes\n";
 #endif
         
-#if defined(_OPENMP) && !defined(AMREX_USE_CUDA)
+#if (defined(_OPENMP) && !defined(AMREX_USE_CUDA)) || defined(AMREX_USE_OMP_IO)
 //    static_assert(_OPENMP >= 201107, "OpenMP >= 3.1 is required.");
         amrex::Print() << "OMP initialized with "
                        << omp_get_max_threads()
