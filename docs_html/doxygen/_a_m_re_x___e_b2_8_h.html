@@ -96,6 +96,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;<a class="el" href="_a_m_re_x___vector_8_h_source.html">AMReX_Vector.H</a>&gt;</code><br/>
 <code>#include &lt;<a class="el" href="_a_m_re_x___e_b2___geometry_shop_8_h_source.html">AMReX_EB2_GeometryShop.H</a>&gt;</code><br/>
 <code>#include &lt;<a class="el" href="_a_m_re_x___e_b2___level_8_h_source.html">AMReX_EB2_Level.H</a>&gt;</code><br/>
+<code>#include &lt;cmath&gt;</code><br/>
 <code>#include &lt;algorithm&gt;</code><br/>
 <code>#include &lt;memory&gt;</code><br/>
 <code>#include &lt;type_traits&gt;</code><br/>
@@ -127,11 +128,11 @@ Functions</h2></td></tr>
 <tr class="separator:a44d269eae8c3bc0c9c0aff8961ed61be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd3e2ed9a69b9e53f5b68eca49ee6fe6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_e_b2.html#afd3e2ed9a69b9e53f5b68eca49ee6fe6">amrex::EB2::Finalize</a> ()</td></tr>
 <tr class="separator:afd3e2ed9a69b9e53f5b68eca49ee6fe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0e6b3b2ae121a71e587d128a9e29448"><td class="memTemplParams" colspan="2">template&lt;typename G &gt; </td></tr>
-<tr class="memitem:ad0e6b3b2ae121a71e587d128a9e29448"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_e_b2.html#ad0e6b3b2ae121a71e587d128a9e29448">amrex::EB2::Build</a> (const G &amp;gshop, const Geometry &amp;geom, int required_coarsening_level, int max_coarsening_level)</td></tr>
-<tr class="separator:ad0e6b3b2ae121a71e587d128a9e29448"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9c3e82ccf0269ad2ddfd058ab83f1a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_e_b2.html#aa9c3e82ccf0269ad2ddfd058ab83f1a1">amrex::EB2::Build</a> (const Geometry &amp;geom, int required_coarsening_level, int max_coarsening_level)</td></tr>
-<tr class="separator:aa9c3e82ccf0269ad2ddfd058ab83f1a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8530ce06d34d311dcf665910e91189bb"><td class="memTemplParams" colspan="2">template&lt;typename G &gt; </td></tr>
+<tr class="memitem:a8530ce06d34d311dcf665910e91189bb"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_e_b2.html#a8530ce06d34d311dcf665910e91189bb">amrex::EB2::Build</a> (const G &amp;gshop, const Geometry &amp;geom, int required_coarsening_level, int max_coarsening_level, int ngrow=4)</td></tr>
+<tr class="separator:a8530ce06d34d311dcf665910e91189bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d2f867ae0ec004f8b26fb0346086b1f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_e_b2.html#a6d2f867ae0ec004f8b26fb0346086b1f">amrex::EB2::Build</a> (const Geometry &amp;geom, int required_coarsening_level, int max_coarsening_level, int ngrow)</td></tr>
+<tr class="separator:a6d2f867ae0ec004f8b26fb0346086b1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24ca6e81d1f15a678a6cb8ecb82de63e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_e_b2.html#a24ca6e81d1f15a678a6cb8ecb82de63e">amrex::EB2::maxCoarseningLevel</a> (const Geometry &amp;geom)</td></tr>
 <tr class="separator:a24ca6e81d1f15a678a6cb8ecb82de63e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb02398d0c8b02dae840acf4f35b886c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_e_b2.html#acb02398d0c8b02dae840acf4f35b886c">amrex::EB2::maxCoarseningLevel</a> (IndexSpace const *ebis, const Geometry &amp;geom)</td></tr>

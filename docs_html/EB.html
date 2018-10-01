@@ -427,7 +427,9 @@ template for their own classes.</p>
 <p>We build <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EB2</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">IndexSpace</span></span></code> with a template function</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">G</span><span class="o">&gt;</span>
 <span class="kt">void</span> <span class="n">EB2</span><span class="o">::</span><span class="n">Build</span> <span class="p">(</span><span class="k">const</span> <span class="n">G</span><span class="o">&amp;</span> <span class="n">gshop</span><span class="p">,</span> <span class="k">const</span> <span class="n">Geometry</span><span class="o">&amp;</span> <span class="n">geom</span><span class="p">,</span>
-                 <span class="kt">int</span> <span class="n">required_coarsening_level</span><span class="p">,</span> <span class="kt">int</span> <span class="n">max_coarsening_level</span><span class="p">);</span>
+                 <span class="kt">int</span> <span class="n">required_coarsening_level</span><span class="p">,</span>
+                 <span class="kt">int</span> <span class="n">max_coarsening_level</span><span class="p">,</span>
+                 <span class="kt">int</span> <span class="n">ngrow</span> <span class="o">=</span> <span class="mi">4</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>Here the template parameter is a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EB2</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">GeometryShop</span></span></code>.
@@ -448,7 +450,10 @@ multi-valued cells. This occurs when the embedded boundary cuts a cell
 in such a way that there is fluid on multiple sides of the boundary within
 that cell.  Because multi-valued cells are not supported, it
 will cause a runtime error if the required coarsening level generates
-multi-valued cells.</p>
+multi-valued cells.  The optional <code class="code cpp c++ docutils literal notranslate"><span class="keyword type"><span class="pre">int</span></span> <span class="name"><span class="pre">ngrow</span></span></code> parameter specifies
+the number of ghost cells outside the domain on required levels.  For
+levels coarser than the required level, no EB data are generated for
+ghost cells outside the domain.</p>
 <p>The newly built <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EB2</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">IndexSpace</span></span></code> is pushed on to a stack.  Static
 function <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EB2</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">IndexSpace</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">top</span></span><span class="punctuation"><span class="pre">()</span></span></code> returns a <code class="code cpp c++ docutils literal notranslate"><span class="keyword"><span class="pre">const</span></span> <span class="operator"><span class="pre">&amp;</span></span></code> to the
 new <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EB2</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">IndexSpace</span></span></code> object.  We usually only need to build one
