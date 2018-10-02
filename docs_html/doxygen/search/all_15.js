@@ -9,6 +9,7 @@ var searchData=
   ['union_5fimpfunc',['union_impfunc',['../classamrex_1_1_l_s_factory.html#a4000a44d80e00c5342e8822c299b84b6',1,'amrex::LSFactory']]],
   ['unionif',['UnionIF',['../classamrex_1_1_e_b2_1_1_union_i_f.html',1,'amrex::EB2']]],
   ['uniqify',['uniqify',['../classamrex_1_1_box_array.html#ae3fba31af025b800aef97da09bc4113c',1,'amrex::BoxArray']]],
+  ['uniqueindex',['uniqueIndex',['../classamrex_1_1_m_f_iter.html#aebdbdb75152259a8dc33a976697e76e9',1,'amrex::MFIter']]],
   ['uniquerandomsubset',['UniqueRandomSubset',['../namespaceamrex.html#aa2c1209819cd8dd79499c2b9f088120e',1,'amrex']]],
   ['uniquestring',['UniqueString',['../namespaceamrex.html#aebee05e08302fb03e29f4270e933239c',1,'amrex']]],
   ['unit',['Unit',['../classamrex_1_1_int_vect.html#a93df7e94c6d2d07ea3eb7647500bf751',1,'amrex::IntVect::Unit()'],['../classamrex_1_1_real_vect.html#a6745f136d89bdb15e57c3387ca01e973',1,'amrex::RealVect::Unit()']]],

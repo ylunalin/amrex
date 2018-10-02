@@ -31,6 +31,7 @@ var searchData=
   ['state',['state',['../classamrex_1_1_amr_level.html#ac00306c6990dffb14241578a8f4aa281',1,'amrex::AmrLevel']]],
   ['state_5fplot_5fvars',['state_plot_vars',['../classamrex_1_1_amr.html#a68d5307a670be15bf2684597d9a4484a',1,'amrex::Amr']]],
   ['state_5fsmall_5fplot_5fvars',['state_small_plot_vars',['../classamrex_1_1_amr.html#a6332120c4e7b5df16dc8631e98b42d39',1,'amrex::Amr']]],
+  ['stream_5findex',['stream_index',['../classcuda__module.html#a575be834bc29ea9b917e097f25876652',1,'cuda_module']]],
   ['stream_5fmax_5ftries',['stream_max_tries',['../classamrex_1_1_amr.html#a21bfe4d69a3d61259e419781fac7e519',1,'amrex::Amr']]],
   ['sub_5fcycle',['sub_cycle',['../classamrex_1_1_amr.html#a1fa04ad61e5931bab05e515255c447d1',1,'amrex::Amr']]],
   ['subbox',['subBox',['../structamrex_1_1_fab_copy_descriptor.html#a799a901c3f374cb4499799fce9b67d2e',1,'amrex::FabCopyDescriptor']]],

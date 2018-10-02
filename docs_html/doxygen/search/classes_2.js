@@ -19,6 +19,9 @@ var searchData=
   ['copierhandleimpl',['CopierHandleImpl',['../structamrex_1_1_fab_array_1_1_copier_handle_impl.html',1,'amrex::FabArray']]],
   ['copycomtag',['CopyComTag',['../structamrex_1_1_fab_array_base_1_1_copy_com_tag.html',1,'amrex::FabArrayBase']]],
   ['cpc',['CPC',['../structamrex_1_1_fab_array_base_1_1_c_p_c.html',1,'amrex::FabArrayBase']]],
+  ['cuda_5fmodule',['cuda_module',['../classcuda__module.html',1,'']]],
+  ['cudaprofilerstart',['cudaProfilerStart',['../interfacecuda__module_1_1cuda_profiler_start.html',1,'cuda_module']]],
+  ['cudaprofilerstop',['cudaProfilerStop',['../interfacecuda__module_1_1cuda_profiler_stop.html',1,'cuda_module']]],
   ['cutfab',['CutFab',['../classamrex_1_1_cut_fab.html',1,'amrex']]],
   ['cylinderif',['CylinderIF',['../classamrex_1_1_e_b2_1_1_cylinder_i_f.html',1,'amrex::EB2']]]
 ];

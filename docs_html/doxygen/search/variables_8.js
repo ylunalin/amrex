@@ -28,6 +28,7 @@ var searchData=
   ['iobuffer',['ioBuffer',['../structamrex_1_1_vis_m_f_1_1_persistent_i_f_stream.html#a1e023351bf031aee0da7cc17272716ae',1,'amrex::VisMF::PersistentIFStream']]],
   ['ioprocessor',['ioProcessor',['../namespaceamrex_1_1_parallel_descriptor.html#a170c7ee692d457514ef07c0d6206f7e2',1,'amrex::ParallelDescriptor']]],
   ['irregular',['irregular',['../classamrex__eb2__2d__moudle.html#a18a38edaa3f70ab39583c90a9f2e0f38',1,'amrex_eb2_2d_moudle::irregular()'],['../classamrex__eb2__3d__module.html#a604ae16b7c854152376676974481095a',1,'amrex_eb2_3d_module::irregular()']]],
+  ['is_5fprogram_5frunning',['is_program_running',['../classcuda__module.html#a70f71dcbf47693339c3dc9aa27289d6d',1,'cuda_module']]],
   ['isopen',['isOpen',['../structamrex_1_1_vis_m_f_1_1_persistent_i_f_stream.html#ac1ecab1d0722305f0a0257611aeb1bde',1,'amrex::VisMF::PersistentIFStream']]],
   ['isperiodic',['isPeriodic',['../classamrex_1_1_amr.html#a47527266245319befc8538d55dac8bc3',1,'amrex::Amr']]],
   ['istr',['istr',['../_a_m_re_x_8cpp.html#aeb4d5a00f2dec5130d5810db7725dee7',1,'istr():&#160;AMReX.cpp'],['../namespaceamrex.html#af16cddc474435bd51df456e9cf7a2ba3',1,'amrex::istr()']]]

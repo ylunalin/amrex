@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['fa_5finit',['FA_init',['../classamrex_1_1_f_a__init.html',1,'amrex']]],
   ['fabarray',['FabArray',['../classamrex_1_1_fab_array.html',1,'amrex']]],
   ['fabarray_3c_20amrex_3a_3acutfab_20_3e',['FabArray&lt; amrex::CutFab &gt;',['../classamrex_1_1_fab_array.html',1,'amrex']]],
   ['fabarray_3c_20amrex_3a_3aebcellflagfab_20_3e',['FabArray&lt; amrex::EBCellFlagFab &gt;',['../classamrex_1_1_fab_array.html',1,'amrex']]],

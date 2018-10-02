@@ -21,7 +21,6 @@ var searchData=
   ['vector_3c_20amrex_3a_3aintvect_20_3e',['Vector&lt; amrex::IntVect &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20amrex_3a_3amultifab_20_3e',['Vector&lt; amrex::MultiFab &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20amrex_3a_3amultimask_20_3e',['Vector&lt; amrex::MultiMask &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
-  ['vector_3c_20amrex_3a_3aparticle_20_3e',['Vector&lt; amrex::Particle &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20amrex_3a_3astatedata_20_3e',['Vector&lt; amrex::StateData &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20amrex_3a_3avector_3c_20amrex_3a_3afabarrayid_20_3e_20_3e',['Vector&lt; amrex::Vector&lt; amrex::FabArrayId &gt; &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20amrex_3a_3avector_3c_20amrex_3a_3afarraybox_20_2a_20_3e_20_3e',['Vector&lt; amrex::Vector&lt; amrex::FArrayBox * &gt; &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
@@ -39,6 +38,7 @@ var searchData=
   ['vector_3c_20neighborcommtag_20_3e',['Vector&lt; NeighborCommTag &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20particlelevel_20_3e',['Vector&lt; ParticleLevel &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20particletileptr_20_3e',['Vector&lt; ParticleTilePtr &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
+  ['vector_3c_20particletype_20_3e',['Vector&lt; ParticleType &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20real_20_3e',['Vector&lt; Real &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20realtuple_20_3e',['Vector&lt; RealTuple &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20setbuf_5fchar_5ftype_20_3e',['Vector&lt; Setbuf_Char_Type &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
@@ -54,12 +54,12 @@ var searchData=
   ['vector_3c_20t_20_3e',['Vector&lt; T &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vectorlength',['vectorLength',['../classamrex_1_1_real_vect.html#a8ba80ab0edf2d1c397e5880e5ac25f85',1,'amrex::RealVect']]],
   ['vectsize',['vectSize',['../classamrex_1_1_b_c_rec.html#a795b53e896e81ceae67cc5952225e263',1,'amrex::BCRec']]],
-  ['verbose',['verbose',['../classamrex_1_1_amr_core.html#a7e2ab7cbc55436aa985751b80246668f',1,'amrex::AmrCore::verbose()'],['../classamrex_1_1_amr_mesh.html#a6d04a0b73b03b5a0008edc4effaeeb44',1,'amrex::AmrMesh::verbose()'],['../classamrex_1_1_amr_core.html#a6d0ad082c14a735202e4e6fa2e65b5d4',1,'amrex::AmrCore::Verbose()'],['../classamrex_1_1_amr_mesh.html#ac92b13d13b4c315b5a31e87dcecf0a4b',1,'amrex::AmrMesh::Verbose()'],['../classamrex_1_1_particle_container.html#aeed70d1b658b5fe9e82b19f53a4f4862',1,'amrex::ParticleContainer::Verbose()'],['../namespaceamrex.html#a95f0930ba986e82b33990bf2cc0423a0',1,'amrex::Verbose()'],['../namespaceamrex_1_1system.html#aba644ca5c4d0bf30d567a08a6dc0ebd1',1,'amrex::system::verbose()'],['../namespaceamrex.html#adf03962600e13b4ecd73531bd77d0cf5',1,'amrex::verbose()']]],
+  ['verbose',['Verbose',['../classamrex_1_1_amr_core.html#a6d0ad082c14a735202e4e6fa2e65b5d4',1,'amrex::AmrCore::Verbose()'],['../classamrex_1_1_amr_mesh.html#ac92b13d13b4c315b5a31e87dcecf0a4b',1,'amrex::AmrMesh::Verbose()'],['../classamrex_1_1_particle_container.html#aeed70d1b658b5fe9e82b19f53a4f4862',1,'amrex::ParticleContainer::Verbose()'],['../classcuda__module.html#a5128c4ff716d3db56920214fe17d69bb',1,'cuda_module::verbose()'],['../classamrex_1_1_amr_core.html#a7e2ab7cbc55436aa985751b80246668f',1,'amrex::AmrCore::verbose()'],['../classamrex_1_1_amr_mesh.html#a6d04a0b73b03b5a0008edc4effaeeb44',1,'amrex::AmrMesh::verbose()'],['../namespaceamrex.html#a95f0930ba986e82b33990bf2cc0423a0',1,'amrex::Verbose()'],['../namespaceamrex_1_1system.html#aba644ca5c4d0bf30d567a08a6dc0ebd1',1,'amrex::system::verbose()'],['../namespaceamrex.html#adf03962600e13b4ecd73531bd77d0cf5',1,'amrex::verbose()']]],
   ['version',['Version',['../structamrex_1_1_vis_m_f_1_1_header.html#aa4469030a55d4e3be552189f7d06b54d',1,'amrex::VisMF::Header::Version()'],['../structamrex_1_1_particle.html#abe858dc473078ebe14aaad1231e671a2',1,'amrex::Particle::Version()'],['../namespaceamrex.html#ad4158723bb78d3d5f19e396a20c0ce2d',1,'amrex::Version()']]],
   ['version_5fv1',['Version_v1',['../structamrex_1_1_vis_m_f_1_1_header.html#aa4469030a55d4e3be552189f7d06b54dad8a8b7451642ebbf0f06d98d6aec42c5',1,'amrex::VisMF::Header']]],
   ['vertex',['Vertex',['../structamrex_1_1_e_b2_1_1_vertex.html',1,'amrex::EB2']]],
   ['vertexid',['VertexID',['../namespaceamrex_1_1_e_b2.html#a853647130b0422fbb57870513c44b89b',1,'amrex::EB2']]],
   ['vismf',['VisMF',['../classamrex_1_1_vis_m_f.html#ae372e9dede4ddc3c4c271118812e9b39',1,'amrex::VisMF']]],
   ['vismf',['VisMF',['../classamrex_1_1_vis_m_f.html',1,'amrex']]],
-  ['volume',['volume',['../classamrex_1_1_box.html#ab1f8a63185d3497576cadfadf2f36dca',1,'amrex::Box::volume()'],['../classamrex_1_1_real_box.html#a9bce64bfa035f5824c45303e0e47261d',1,'amrex::RealBox::volume()'],['../classamrex_1_1_coord_sys.html#aad6b67f8c4aa070b4099d77aa0155368',1,'amrex::CoordSys::Volume(const IntVect &amp;point) const '],['../classamrex_1_1_coord_sys.html#aeb0f186559f5184778243d196fb71541',1,'amrex::CoordSys::Volume(const Real xlo[AMREX_SPACEDIM], const Real xhi[AMREX_SPACEDIM]) const '],['../namespaceamrex.html#a7de82761ed632e5ee0b9f912c856aebca210ab9e731c9c36c2c38db15c28a8d1c',1,'amrex::volume()']]]
+  ['volume',['Volume',['../classamrex_1_1_coord_sys.html#aad6b67f8c4aa070b4099d77aa0155368',1,'amrex::CoordSys::Volume(const IntVect &amp;point) const '],['../classamrex_1_1_coord_sys.html#aeb0f186559f5184778243d196fb71541',1,'amrex::CoordSys::Volume(const Real xlo[AMREX_SPACEDIM], const Real xhi[AMREX_SPACEDIM]) const '],['../classamrex_1_1_box.html#ab1f8a63185d3497576cadfadf2f36dca',1,'amrex::Box::volume()'],['../classamrex_1_1_real_box.html#a9bce64bfa035f5824c45303e0e47261d',1,'amrex::RealBox::volume()'],['../namespaceamrex.html#a7de82761ed632e5ee0b9f912c856aebca210ab9e731c9c36c2c38db15c28a8d1c',1,'amrex::volume()']]]
 ];

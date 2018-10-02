@@ -13,6 +13,7 @@ var searchData=
   ['teamsize',['TeamSize',['../namespaceamrex_1_1_parallel_descriptor.html#a3853f9b7ee9719c0de679f068dd34c5e',1,'amrex::ParallelDescriptor']]],
   ['test',['test',['../classamrex_1_1_index_type.html#a6e8a67b861406743f1ca2ea4c89fcc33',1,'amrex::IndexType::test()'],['../classamrex_1_1_parallel_descriptor_1_1_message.html#a42d6517959dbf89018b970cb1c0cf66e',1,'amrex::ParallelDescriptor::Message::test()'],['../namespaceamrex_1_1_parallel_descriptor.html#affba679357b6ad488b02adc81a353697',1,'amrex::ParallelDescriptor::Test()']]],
   ['the_5farena',['The_Arena',['../namespaceamrex.html#ae3d1414946b992f39ca41f135f12a0d1',1,'amrex']]],
+  ['the_5ffa_5farena',['The_FA_Arena',['../namespaceamrex.html#ac0bc81ab4fe0135fc65a2b5154ff25ab',1,'amrex']]],
   ['the_5fstring',['the_string',['../classamrex_1_1expect.html#a359e5d36c316ae13a0107192ff1b36fe',1,'amrex::expect']]],
   ['thecelltype',['TheCellType',['../classamrex_1_1_index_type.html#ab71a076cab945f1842c2cc6fe9f31d16',1,'amrex::IndexType']]],
   ['thecellvector',['TheCellVector',['../classamrex_1_1_int_vect.html#a378fe3ef9d634a64ebeec5b07feead97',1,'amrex::IntVect']]],
