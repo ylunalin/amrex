@@ -969,11 +969,6 @@ Functions</h2></td></tr>
 <tr class="separator:aef18b07b3544ac6a7a4ee4fc819526cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7722774dfdfaa46249b9c4180d95009f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a7722774dfdfaa46249b9c4180d95009f">average_down_nodal</a> (const <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;fine, <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;crse, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a3a6ea573223fb7730509e32b93601c15">ratio</a>, int ngcrse)</td></tr>
 <tr class="separator:a7722774dfdfaa46249b9c4180d95009f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc7da37609012f21f350a8761e2e4ff7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#acc7da37609012f21f350a8761e2e4ff7">fill_boundary</a> (<a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;mf, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;geom, bool cross=false)</td></tr>
-<tr class="memdesc:acc7da37609012f21f350a8761e2e4ff7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill <a class="el" href="classamrex_1_1_multi_fab.html" title="A collection (stored as an array) of FArrayBox objects. This class is useful for storing floating poi...">MultiFab</a> boundaries except for physical boundaries.  <a href="#acc7da37609012f21f350a8761e2e4ff7">More...</a><br/></td></tr>
-<tr class="separator:acc7da37609012f21f350a8761e2e4ff7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44cb8cdc053105d93b71824390154f57"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a44cb8cdc053105d93b71824390154f57">fill_boundary</a> (<a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;mf, int scomp, int <a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;geom, bool cross)</td></tr>
-<tr class="separator:a44cb8cdc053105d93b71824390154f57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86aba9204be4411428f3b3a75623bfe7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a86aba9204be4411428f3b3a75623bfe7">print_state</a> (const <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;mf, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;cell, const int <a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a54f6ce0fb55c5e079b66b7ac9b865843">n</a>=-1)</td></tr>
 <tr class="memdesc:a86aba9204be4411428f3b3a75623bfe7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output state data for a single zone.  <a href="#a86aba9204be4411428f3b3a75623bfe7">More...</a><br/></td></tr>
 <tr class="separator:a86aba9204be4411428f3b3a75623bfe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -4836,84 +4831,6 @@ template&lt;typename Key , typename T , class Compare &gt; </div>
 </div><div class="memdoc">
 
 <p>Output a message and abort when couldn't open the file. </p>
-
-</div>
-</div>
-<a class="anchor" id="acc7da37609012f21f350a8761e2e4ff7"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void amrex::fill_boundary </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;&#160;</td>
-          <td class="paramname"><em>mf</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;&#160;</td>
-          <td class="paramname"><em>geom</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>cross</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Fill <a class="el" href="classamrex_1_1_multi_fab.html" title="A collection (stored as an array) of FArrayBox objects. This class is useful for storing floating poi...">MultiFab</a> boundaries except for physical boundaries. </p>
-
-</div>
-</div>
-<a class="anchor" id="a44cb8cdc053105d93b71824390154f57"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void amrex::fill_boundary </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;&#160;</td>
-          <td class="paramname"><em>mf</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>scomp</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>ncomp</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;&#160;</td>
-          <td class="paramname"><em>geom</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>cross</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
 
 </div>
 </div>
