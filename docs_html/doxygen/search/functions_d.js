@@ -4,7 +4,6 @@ var searchData=
   ['make_5fbox',['make_box',['../classamrex_1_1_box_comm_helper.html#a6399bf4c2045ac13d969e8fb11dd4c87',1,'amrex::BoxCommHelper']]],
   ['make_5feb_5fgeometry',['make_eb_geometry',['../classamrex_1_1_l_s_utility.html#a7b0810e6f378fd2da9e5502c523ffe3e',1,'amrex::LSUtility']]],
   ['make_5fls_5fgeometry',['make_ls_geometry',['../classamrex_1_1_l_s_utility.html#abf52a50c13a4213202a1254029359f8c',1,'amrex::LSUtility']]],
-  ['make_5fpointer_5ftuple',['make_pointer_tuple',['../namespaceamrex_1_1detail.html#aa55b1f8602455054bce63515bd2aef69',1,'amrex::detail::make_pointer_tuple(std::array&lt; T, N &gt; &amp;arr, IndexSequence&lt; Is...&gt;)'],['../namespaceamrex_1_1detail.html#ab68ed8cbc4988fe6ac56ea8fdbf54dc5',1,'amrex::detail::make_pointer_tuple(std::array&lt; T, N &gt; &amp;arr)']]],
   ['makebasegrids',['MakeBaseGrids',['../classamrex_1_1_amr_mesh.html#a962d1689c8b7444f4b2c8a077d3f4766',1,'amrex::AmrMesh']]],
   ['makecomplement',['makeComplement',['../namespaceamrex_1_1_e_b2.html#a6689939adc9cd129828b1246501c2ddc',1,'amrex::EB2']]],
   ['makedifference',['makeDifference',['../namespaceamrex_1_1_e_b2.html#a8d7bc742e281f0aa021c859e7cd8f355',1,'amrex::EB2']]],

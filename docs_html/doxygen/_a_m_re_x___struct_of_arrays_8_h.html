@@ -86,28 +86,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
 <div class="title">AMReX_StructOfArrays.H File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;array&gt;</code><br/>
-<code>#include &lt;tuple&gt;</code><br/>
 <code>#include &lt;<a class="el" href="_a_m_re_x___r_e_a_l_8_h_source.html">AMReX_REAL.H</a>&gt;</code><br/>
 <code>#include &lt;<a class="el" href="_a_m_re_x___vector_8_h_source.html">AMReX_Vector.H</a>&gt;</code><br/>
 <code>#include &lt;<a class="el" href="_a_m_re_x___cuda_allocators_8_h_source.html">AMReX_CudaAllocators.H</a>&gt;</code><br/>
-<code>#include &lt;<a class="el" href="_a_m_re_x___index_sequence_8_h_source.html">AMReX_IndexSequence.H</a>&gt;</code><br/>
 </div>
 <p><a href="_a_m_re_x___struct_of_arrays_8_h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structamrex_1_1detail_1_1tuple__n.html">amrex::detail::tuple_n&lt; I, T &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structamrex_1_1detail_1_1tuple__n_3_010_00_01_t_01_4.html">amrex::detail::tuple_n&lt; 0, T &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structamrex_1_1_struct_of_arrays.html">amrex::StructOfArrays&lt; NReal, NInt &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -116,23 +108,6 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespaceamrex"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html">amrex</a></td></tr>
 <tr class="memdesc:namespaceamrex"><td class="mdescLeft">&#160;</td><td class="mdescRight">A Real vector in SpaceDim-dimensional space. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespaceamrex_1_1detail"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1detail.html">amrex::detail</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:a29fa04b3fbf8cd5dff6dcccd35b93b84"><td class="memTemplParams" colspan="2">template&lt;size_t I, typename T &gt; </td></tr>
-<tr class="memitem:a29fa04b3fbf8cd5dff6dcccd35b93b84"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1detail.html#a29fa04b3fbf8cd5dff6dcccd35b93b84">amrex::detail::tuple_of</a> = typename tuple_n&lt; I, T &gt;::template type&lt;&gt;</td></tr>
-<tr class="separator:a29fa04b3fbf8cd5dff6dcccd35b93b84"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:aa55b1f8602455054bce63515bd2aef69"><td class="memTemplParams" colspan="2">template&lt;size_t N, typename T , std::size_t... Is&gt; </td></tr>
-<tr class="memitem:aa55b1f8602455054bce63515bd2aef69"><td class="memTemplItemLeft" align="right" valign="top">tuple_of&lt; N, T * &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1detail.html#aa55b1f8602455054bce63515bd2aef69">amrex::detail::make_pointer_tuple</a> (std::array&lt; T, N &gt; &amp;arr, IndexSequence&lt; Is...&gt;)</td></tr>
-<tr class="separator:aa55b1f8602455054bce63515bd2aef69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab68ed8cbc4988fe6ac56ea8fdbf54dc5"><td class="memTemplParams" colspan="2">template&lt;size_t N, typename T &gt; </td></tr>
-<tr class="memitem:ab68ed8cbc4988fe6ac56ea8fdbf54dc5"><td class="memTemplItemLeft" align="right" valign="top">tuple_of&lt; N, T * &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1detail.html#ab68ed8cbc4988fe6ac56ea8fdbf54dc5">amrex::detail::make_pointer_tuple</a> (std::array&lt; T, N &gt; &amp;arr)</td></tr>
-<tr class="separator:ab68ed8cbc4988fe6ac56ea8fdbf54dc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->
