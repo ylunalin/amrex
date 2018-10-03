@@ -221,7 +221,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00203"></a><span class="lineno"><a class="line" href="classamrex_1_1_base_fab.html#a95f000f763dd71c1ff576c3bfe7e3462">  203</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classamrex_1_1_base_fab.html#a95f000f763dd71c1ff576c3bfe7e3462">nComp</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="classamrex_1_1_base_fab.html#a99b1638f6702821a6b6e63cb860d938f">nvar</a>; }</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;</div>
 <div class="line"><a name="l00206"></a><span class="lineno"><a class="line" href="classamrex_1_1_base_fab.html#ad0f3c80900a2ee790873baebfffc9dde">  206</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span>* <a class="code" href="classamrex_1_1_base_fab.html#ad0f3c80900a2ee790873baebfffc9dde">nCompPtr</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="preprocessor">#ifdef AMREX_USE_CUDA</span></div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="preprocessor">#ifdef AMREX_USE_GPU_PRAGMA</span></div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="preprocessor"></span>        <span class="keywordflow">return</span> nvar_d;</div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="preprocessor">#else</span></div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="preprocessor"></span>        <span class="keywordflow">return</span> &amp;<a class="code" href="classamrex_1_1_base_fab.html#a99b1638f6702821a6b6e63cb860d938f">nvar</a>;</div>
@@ -1172,7 +1172,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01476"></a><span class="lineno"> 1476</span>&#160;        <span class="keyword">new</span> (ptr) T;</div>
 <div class="line"><a name="l01477"></a><span class="lineno"> 1477</span>&#160;    }</div>
 <div class="line"><a name="l01478"></a><span class="lineno"> 1478</span>&#160;</div>
-<div class="line"><a name="l01479"></a><span class="lineno"> 1479</span>&#160;<span class="preprocessor">#ifdef AMREX_USE_CUDA</span></div>
+<div class="line"><a name="l01479"></a><span class="lineno"> 1479</span>&#160;<span class="preprocessor">#ifdef AMREX_USE_GPU_PRAGMA</span></div>
 <div class="line"><a name="l01480"></a><span class="lineno"> 1480</span>&#160;<span class="preprocessor"></span>    nvar_d = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span>*<span class="keyword">&gt;</span>(amrex::The_Nvar_Arena()-&gt;alloc(<span class="keyword">sizeof</span>(<span class="keywordtype">int</span>)));</div>
 <div class="line"><a name="l01481"></a><span class="lineno"> 1481</span>&#160;    *nvar_d = nvar;</div>
 <div class="line"><a name="l01482"></a><span class="lineno"> 1482</span>&#160;<span class="preprocessor">#endif</span></div>
@@ -1331,7 +1331,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01635"></a><span class="lineno"> 1635</span>&#160;        }</div>
 <div class="line"><a name="l01636"></a><span class="lineno"> 1636</span>&#160;        <a class="code" href="namespaceamrex.html#ae3d1414946b992f39ca41f135f12a0d1">amrex::The_Arena</a>()-&gt;<a class="code" href="classamrex_1_1_arena.html#a0c7e0730574c98febb6ddca2712cb515">free</a>(dptr);</div>
 <div class="line"><a name="l01637"></a><span class="lineno"> 1637</span>&#160;</div>
-<div class="line"><a name="l01638"></a><span class="lineno"> 1638</span>&#160;<span class="preprocessor">#ifdef AMREX_USE_CUDA</span></div>
+<div class="line"><a name="l01638"></a><span class="lineno"> 1638</span>&#160;<span class="preprocessor">#ifdef AMREX_USE_GPU_PRAGMA</span></div>
 <div class="line"><a name="l01639"></a><span class="lineno"> 1639</span>&#160;<span class="preprocessor"></span>            amrex::The_Nvar_Arena()-&gt;free(nvar_d);</div>
 <div class="line"><a name="l01640"></a><span class="lineno"> 1640</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l01641"></a><span class="lineno"> 1641</span>&#160;<span class="preprocessor"></span></div>
