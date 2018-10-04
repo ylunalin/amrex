@@ -323,6 +323,10 @@ Static Public Attributes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
+<tr class="memitem:afcfa4b3226447e29584bf9c609b7b405"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_particle_container.html#afcfa4b3226447e29584bf9c609b7b405">RedistributeCPU</a> (int lev_min=0, int lev_max=-1, int nGrow=0, int local=0)</td></tr>
+<tr class="separator:afcfa4b3226447e29584bf9c609b7b405"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a405049a333766dd8d8e4a8e244d4b715"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_particle_container.html#a405049a333766dd8d8e4a8e244d4b715">RedistributeGPU</a> (int lev_min=0, int lev_max=-1, int nGrow=0, int local=0)</td></tr>
+<tr class="separator:a405049a333766dd8d8e4a8e244d4b715"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70e8ce8b358ab7de7e423a5ce7d05447"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_particle_container.html#a70e8ce8b358ab7de7e423a5ce7d05447">Where</a> (const <a class="el" href="classamrex_1_1_particle_container.html#aec73ed00e2482cb245a8c6a2ac7bea8e">ParticleType</a> &amp;prt, <a class="el" href="structamrex_1_1_particle_loc_data.html">ParticleLocData</a> &amp;pld, int lev_min=0, int lev_max=-1, int nGrow=0, int local_grid=-1) const </td></tr>
 <tr class="separator:a70e8ce8b358ab7de7e423a5ce7d05447"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abbf38c48b91649ffb5da36ca3e24a01c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_particle_container.html#abbf38c48b91649ffb5da36ca3e24a01c">EnforcePeriodicWhere</a> (<a class="el" href="classamrex_1_1_particle_container.html#aec73ed00e2482cb245a8c6a2ac7bea8e">ParticleType</a> &amp;prt, <a class="el" href="structamrex_1_1_particle_loc_data.html">ParticleLocData</a> &amp;pld, int lev_min=0, int lev_max=-1, int local_grid=-1) const </td></tr>
@@ -2557,6 +2561,102 @@ template&lt;int NStructReal, int NStructInt, int NArrayReal, int NArrayInt&gt; <
           <td></td><td></td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="afcfa4b3226447e29584bf9c609b7b405"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int NStructReal, int NStructInt, int NArrayReal, int NArrayInt&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classamrex_1_1_particle_container.html">amrex::ParticleContainer</a>&lt; NStructReal, NStructInt, NArrayReal, NArrayInt &gt;::RedistributeCPU </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lev_min</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lev_max</em> = <code>-1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nGrow</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>local</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a405049a333766dd8d8e4a8e244d4b715"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int NStructReal, int NStructInt, int NArrayReal, int NArrayInt&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classamrex_1_1_particle_container.html">amrex::ParticleContainer</a>&lt; NStructReal, NStructInt, NArrayReal, NArrayInt &gt;::RedistributeGPU </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lev_min</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lev_max</em> = <code>-1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nGrow</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>local</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
