@@ -45,6 +45,7 @@ var searchData=
   ['descriptorlist',['DescriptorList',['../classamrex_1_1_descriptor_list.html',1,'amrex']]],
   ['descriptorlist',['DescriptorList',['../classamrex_1_1_state_descriptor.html#a3228f3db7c3a74f0144dbed2bf674673',1,'amrex::StateDescriptor::DescriptorList()'],['../classamrex_1_1_descriptor_list.html#a2ece4f422797e9dbedbe03087b3d17ac',1,'amrex::DescriptorList::DescriptorList()']]],
   ['destcomp',['destComp',['../structamrex_1_1_fab_array_base_1_1_fab_com_tag.html#a727cd5fc638afd570a51cec1ba21db89',1,'amrex::FabArrayBase::FabComTag::destComp()'],['../structamrex_1_1_fab_copy_descriptor.html#a164510f57c480c98b19458a1516ba6dd',1,'amrex::FabCopyDescriptor::destComp()']]],
+  ['destroy',['destroy',['../classamrex_1_1_fab_factory.html#a62e57972e3054a6f7ed1cdb9c0426c09',1,'amrex::FabFactory::destroy()'],['../classamrex_1_1_default_fab_factory.html#a1d92b6711d7c4908085808da6ac00f0d',1,'amrex::DefaultFabFactory::destroy()'],['../classamrex_1_1_e_b_f_array_box_factory.html#a25f6eca7dc8d4f2269fec54f5d20f079',1,'amrex::EBFArrayBoxFactory::destroy()']]],
   ['device',['Device',['../classamrex_1_1_device.html',1,'amrex']]],
   ['device_5fdtoh_5fmemcpy_5fasync',['device_dtoh_memcpy_async',['../classamrex_1_1_device.html#a95361b974e6ba6e447aa7b5bccf681b3',1,'amrex::Device']]],
   ['device_5ffree',['device_free',['../classamrex_1_1_device.html#a594e8dd614bbaee0d902687420229864',1,'amrex::Device']]],

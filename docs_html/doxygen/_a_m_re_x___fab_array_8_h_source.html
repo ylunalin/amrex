@@ -840,7 +840,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00859"></a><span class="lineno">  859</span>&#160;    }</div>
 <div class="line"><a name="l00860"></a><span class="lineno">  860</span>&#160;</div>
 <div class="line"><a name="l00861"></a><span class="lineno">  861</span>&#160;    <span class="keywordflow">for</span>(Iterator it = m_fabs_v.begin(); it != m_fabs_v.end(); ++it) {</div>
-<div class="line"><a name="l00862"></a><span class="lineno">  862</span>&#160;        <span class="keyword">delete</span> *it;</div>
+<div class="line"><a name="l00862"></a><span class="lineno">  862</span>&#160;        m_factory-&gt;destroy(*it);</div>
 <div class="line"><a name="l00863"></a><span class="lineno">  863</span>&#160;    }</div>
 <div class="line"><a name="l00864"></a><span class="lineno">  864</span>&#160;    m_fabs_v.clear();</div>
 <div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160;    m_factory.reset();</div>

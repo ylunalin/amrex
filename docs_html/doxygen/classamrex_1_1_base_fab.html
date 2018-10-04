@@ -122,7 +122,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8553c8f3915ded4cacfba0c490b98bc5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_base_fab.html#a8553c8f3915ded4cacfba0c490b98bc5">BaseFab</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;bx, int <a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>, T *p)</td></tr>
 <tr class="memdesc:a8553c8f3915ded4cacfba0c490b98bc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an NON-OWNING <a class="el" href="classamrex_1_1_base_fab.html" title="A Fortran Array-like Object BaseFab emulates the Fortran array concept. Useful operations can be perf...">BaseFab</a>. Thus <a class="el" href="classamrex_1_1_base_fab.html" title="A Fortran Array-like Object BaseFab emulates the Fortran array concept. Useful operations can be perf...">BaseFab</a> is not responsible for memory management. And it's caller's responsibility that p points to a chunk of memory large enough.  <a href="#a8553c8f3915ded4cacfba0c490b98bc5">More...</a><br/></td></tr>
 <tr class="separator:a8553c8f3915ded4cacfba0c490b98bc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a442cc6eaf0d47323491f0922e2266a6a"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_base_fab.html#a442cc6eaf0d47323491f0922e2266a6a">~BaseFab</a> ()</td></tr>
+<tr class="memitem:a442cc6eaf0d47323491f0922e2266a6a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_base_fab.html#a442cc6eaf0d47323491f0922e2266a6a">~BaseFab</a> ()</td></tr>
 <tr class="memdesc:a442cc6eaf0d47323491f0922e2266a6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The destructor deletes the array memory.  <a href="#a442cc6eaf0d47323491f0922e2266a6a">More...</a><br/></td></tr>
 <tr class="separator:a442cc6eaf0d47323491f0922e2266a6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b0fa577ec8190137939f503041e7bf7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_base_fab.html#a6b0fa577ec8190137939f503041e7bf7">BaseFab</a> (const <a class="el" href="classamrex_1_1_base_fab.html">BaseFab</a>&lt; T &gt; &amp;rhs)=delete</td></tr>
@@ -138,9 +138,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a48099208f15f741c739316388f61737a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_base_fab.html#a48099208f15f741c739316388f61737a">resize</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;b, int N=1)</td></tr>
 <tr class="memdesc:a48099208f15f741c739316388f61737a"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function resizes a <a class="el" href="classamrex_1_1_base_fab.html" title="A Fortran Array-like Object BaseFab emulates the Fortran array concept. Useful operations can be perf...">BaseFab</a> so it covers the <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> b with N components.  <a href="#a48099208f15f741c739316388f61737a">More...</a><br/></td></tr>
 <tr class="separator:a48099208f15f741c739316388f61737a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3348ca000bc0d1680565dcb079cbea4d"><td class="memItemLeft" align="right" valign="top">virtual long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_base_fab.html#a3348ca000bc0d1680565dcb079cbea4d">offset</a> (const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;a_iv, const int &amp;a_ivar) const </td></tr>
-<tr class="memdesc:a3348ca000bc0d1680565dcb079cbea4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">for AggStencil and its minions  <a href="#a3348ca000bc0d1680565dcb079cbea4d">More...</a><br/></td></tr>
-<tr class="separator:a3348ca000bc0d1680565dcb079cbea4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ac1c517bd0fc4554a0fefdf3399c1d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_base_fab.html#a3ac1c517bd0fc4554a0fefdf3399c1d2">clear</a> ()</td></tr>
 <tr class="memdesc:a3ac1c517bd0fc4554a0fefdf3399c1d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function returns the <a class="el" href="classamrex_1_1_base_fab.html" title="A Fortran Array-like Object BaseFab emulates the Fortran array concept. Useful operations can be perf...">BaseFab</a> to the invalid state. The memory is freed.  <a href="#a3ac1c517bd0fc4554a0fefdf3399c1d2">More...</a><br/></td></tr>
 <tr class="separator:a3ac1c517bd0fc4554a0fefdf3399c1d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -733,9 +730,6 @@ template&lt;class T&gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classamrex_1_1_base_fab.html">amrex::BaseFab</a>&lt; T &gt;::~<a class="el" href="classamrex_1_1_base_fab.html">BaseFab</a> </td>
@@ -744,11 +738,6 @@ template&lt;class T &gt; </div>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>The destructor deletes the array memory. </p>
@@ -3909,44 +3898,6 @@ template&lt;class T&gt; </div>
 </div><div class="memdoc">
 
 <p>Returns the number of points. </p>
-
-</div>
-</div>
-<a class="anchor" id="a3348ca000bc0d1680565dcb079cbea4d"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual long <a class="el" href="classamrex_1_1_base_fab.html">amrex::BaseFab</a>&lt; T &gt;::offset </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;&#160;</td>
-          <td class="paramname"><em>a_iv</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int &amp;&#160;</td>
-          <td class="paramname"><em>a_ivar</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>for AggStencil and its minions </p>
 
 </div>
 </div>
