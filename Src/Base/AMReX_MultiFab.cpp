@@ -125,6 +125,7 @@ MultiFab::Add (MultiFab&       dst,
             AMREX_BOX_L_LAUNCH(RunOn::GPU, bx,
             [=] AMREX_CUDA_DEVICE ()
             {
+               
                dstFab->plus(*srcFab, bx, bx, srccomp, dstcomp, numcomp);
             });
         }
@@ -137,9 +138,10 @@ MultiFab::Copy (MultiFab&       dst,
                 int             srccomp,
                 int             dstcomp,
                 int             numcomp,
-                int             nghost)
+                int             nghost
+                RunOn           runOn)
 {
-    Copy(dst,src,srccomp,dstcomp,numcomp,IntVect(nghost));
+    Copy(dst,src,srccomp,dstcomp,numcomp,IntVect(nghost),runOn);
 }
 
 void
@@ -148,7 +150,8 @@ MultiFab::Copy (MultiFab&       dst,
                 int             srccomp,
                 int             dstcomp,
                 int             numcomp,
-                const IntVect&  nghost)
+                const IntVect&  nghost
+                RunOn           runOn)
 {
 // don't have to BL_ASSERT(dst.boxArray() == src.boxArray());
     BL_ASSERT(dst.distributionMap == src.distributionMap);
@@ -165,7 +168,7 @@ MultiFab::Copy (MultiFab&       dst,
 
        if (bx.ok())
        {
-          AMREX_BOX_L_LAUNCH(RunOn::GPU, bx,
+          AMREX_BOX_L_LAUNCH(runOn, bx,
           [=] AMREX_CUDA_DEVICE ()
           {
              dstFab->copy(*srcFab, bx, srccomp, bx, dstcomp, numcomp);
@@ -194,8 +197,9 @@ MultiFab::Copy (MultiFab&       dst,
     //const Box& bx = BoxLib::grow(dst[f].box(),nghost);
     //const Box& bx = dst[fid].box();
 
-    if (bx.ok())
+    if (bx.ok()) {
       dst[fid].copy(src[fid], bx, srccomp, bx, dstcomp, numcomp);
+    }
 
 }
 #endif

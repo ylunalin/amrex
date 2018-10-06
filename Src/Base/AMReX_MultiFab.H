@@ -460,14 +460,16 @@ public:
                       int             srccomp,
                       int             dstcomp,
                       int             numcomp,
-                      int             nghost);
+                      int             nghost
+                      RunOn           runOn);
 
     static void Copy (MultiFab&       dst,
                       const MultiFab& src,
                       int             srccomp,
                       int             dstcomp,
                       int             numcomp,
-                      const IntVect&  nghost);
+                      const IntVect&  nghost
+                      RunOn           runOn);
 
 #ifdef USE_PERILLA
     static void Copy (MultiFab&       dst,
