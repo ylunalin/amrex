@@ -230,7 +230,8 @@ public:
     void plus (Real val,
                int  comp,
                int  num_comp,
-               int  nghost = 0);
+               int  nghost = 0,
+               RunOn runon = WhereToRunDefault());
     /**
     * \brief Identical to the previous version of plus(), with the
     * restriction that the subregion is further constrained to
@@ -240,7 +241,8 @@ public:
                const Box& region,
                int        comp,
                int        num_comp,
-               int        nghost = 0);
+               int        nghost = 0,
+               RunOn      runon = WhereToRunDefault());
     /**
     * \brief Adds the scalar value val to the value of each cell in the
     * valid region of each component of the MultiFab.  The value
@@ -248,7 +250,8 @@ public:
     * region that should be modified.
     */
     void plus (Real val,
-               int  nghost);
+               int  nghost,
+               RunOn runon = WhereToRunDefault());
     /**
     * \brief Adds the scalar value val to the value of each cell in the
     * valid region of each component of the MultiFab, that also
@@ -258,7 +261,8 @@ public:
     */
     void plus (Real       val,
                const Box& region,
-               int        nghost);
+               int        nghost,
+               RunOn      runon = WhereToRunDefault());
     /**
     * \brief Scales the value of each cell in the specified subregion of the
     * MultiFab by the scalar val (a[i] <- a[i]*val). The subregion
@@ -270,7 +274,8 @@ public:
     void mult (Real val,
                int  comp,
                int  num_comp,
-               int  nghost = 0);
+               int  nghost = 0,
+               RunOn runon = WhereToRunDefault());
     /**
     * \brief Identical to the previous version of mult(), with the
     * restriction that the subregion is further constrained to the
@@ -282,7 +287,8 @@ public:
                const Box& region,
                int        comp,
                int        num_comp,
-               int        nghost = 0);
+               int        nghost = 0,
+               RunOn      runon = WhereToRunDefault());
     /**
     * \brief Scales the value of each cell in the valid region of each
     * component of the MultiFab by the scalar val (a[i] <- a[i]*val).
@@ -290,7 +296,8 @@ public:
     * boundary region that should be modified.
     */
     void mult (Real val,
-               int  nghost = 0);
+               int  nghost = 0,
+               RunOn runon = WhereToRunDefault());
     /**
     * \brief Scales the value of each cell in the valid region of each
     * component of the MultiFab by the scalar val (a[i] <- a[i]*val),
@@ -300,7 +307,8 @@ public:
     */
     void mult (Real       val,
                const Box& region,
-               int        nghost = 0);
+               int        nghost = 0,
+               RunOn      runon = WhereToRunDefault());
     /**
     * \brief Replaces the value of each cell in the specified subregion of
     * the MultiFab with its reciprocal multiplied by the value of
@@ -394,7 +402,8 @@ public:
     void plus (const MultiFab& mf,
                int             strt_comp,
                int             num_comp,
-               int             nghost);
+               int             nghost,
+               RunOn           runon = WhereToRunDefault());
     /**
     * \brief This function subtracts the values of the cells in mf from the
     * corresponding cells of this MultiFab.  mf is required to have the
@@ -407,7 +416,8 @@ public:
     void minus (const MultiFab& mf,
                 int             strt_comp,
                 int             num_comp,
-                int             nghost);
+                int             nghost,
+                RunOn           runon = WhereToRunDefault());
     /**
     * \brief This function divides the values of the cells in mf from the
     * corresponding cells of this MultiFab.  mf is required to have the
@@ -421,7 +431,8 @@ public:
     void divide (const MultiFab& mf,
 		 int             strt_comp,
 		 int             num_comp,
-		 int             nghost);
+		 int             nghost,
+                 RunOn           runon = WhereToRunDefault());
     /**
     * \brief Returns the dot product of two MultiFabs.
     */
@@ -442,14 +453,16 @@ public:
 		     int             srccomp,
 		     int             dstcomp,
 		     int             numcomp,
-		     int             nghost);
+		     int             nghost,
+                     RunOn           runon = WhereToRunDefault());
  
     static void Add (MultiFab&       dst,
                      const MultiFab& src,
                      int             srccomp,
                      int             dstcomp,
                      int             numcomp,
-                     const IntVect&  nghost);
+                     const IntVect&  nghost,
+                     RunOn           runon = WhereToRunDefault());
     /**
     * \brief Copy from src to dst including nghost ghost cells.
     * The two MultiFabs MUST have the same underlying BoxArray.
@@ -460,16 +473,16 @@ public:
                       int             srccomp,
                       int             dstcomp,
                       int             numcomp,
-                      int             nghost
-                      RunOn           runOn);
+                      int             nghost,
+                      RunOn           runOn = WhereToRunDefault());
 
     static void Copy (MultiFab&       dst,
                       const MultiFab& src,
                       int             srccomp,
                       int             dstcomp,
                       int             numcomp,
-                      const IntVect&  nghost
-                      RunOn           runOn);
+                      const IntVect&  nghost,
+                      RunOn           runOn = WhereToRunDefault());
 
 #ifdef USE_PERILLA
     static void Copy (MultiFab&       dst,
@@ -490,14 +503,16 @@ public:
 			  int             srccomp,
 			  int             dstcomp,
 			  int             numcomp,
-			  int             nghost);
+			  int             nghost,
+                          RunOn           runon = WhereToRunDefault());
 
     static void Subtract (MultiFab&       dst,
 			  const MultiFab& src,
 			  int             srccomp,
 			  int             dstcomp,
 			  int             numcomp,
-			  const IntVect&  nghost);
+			  const IntVect&  nghost,
+                          RunOn           runon = WhereToRunDefault());
     /**
     * \brief Multiply dst by src including nghost ghost cells.
     * The two MultiFabs MUST have the same underlying BoxArray.
@@ -507,14 +522,16 @@ public:
 			  int             srccomp,
 			  int             dstcomp,
 			  int             numcomp,
-			  int             nghost);
+			  int             nghost,
+                          RunOn           runon = WhereToRunDefault());
 
     static void Multiply (MultiFab&       dst,
 			  const MultiFab& src,
 			  int             srccomp,
 			  int             dstcomp,
 			  int             numcomp,
-			  const IntVect&  nghost);
+			  const IntVect&  nghost,
+                          RunOn           runon = WhereToRunDefault());
     /**
     * \brief Divide dst by src including nghost ghost cells.
     * The two MultiFabs MUST have the same underlying BoxArray.
@@ -524,14 +541,16 @@ public:
 			int             srccomp,
 			int             dstcomp,
 			int             numcomp,
-			int             nghost);
+			int             nghost,
+                        RunOn           runon = WhereToRunDefault());
 
     static void Divide (MultiFab&       dst,
 			const MultiFab& src,
 			int             srccomp,
 			int             dstcomp,
 			int             numcomp,
-			const IntVect&  nghost);
+			const IntVect&  nghost,
+                        RunOn           runon = WhereToRunDefault());
     /**
     * \brief dst += a*src
     */

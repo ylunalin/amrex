@@ -742,6 +742,7 @@ public:
     * this FABs components (destcomp:destcomp+numcomp-1) where
     * the two FABs intersect.
     */
+    AMREX_CUDA_HOST_DEVICE
     BaseFab<T>& minus (const BaseFab<T>& src,
                        int               srccomp,
                        int               destcomp,
@@ -751,6 +752,7 @@ public:
     * of subbox and src FAB.  NOTE: subbox must be contained in
     * this FAB.
     */
+    AMREX_CUDA_HOST_DEVICE
     BaseFab<T>& minus (const BaseFab<T>& src,
                        const Box&        subbox,
                        int               srccomp,
@@ -836,6 +838,7 @@ public:
                         int numcomp=1);
 
     //! As above except specify sub-box.
+    AMREX_CUDA_HOST_DEVICE
     BaseFab<T>& divide (T          r,
                         const Box& b,
                         int        comp=0,
@@ -853,6 +856,7 @@ public:
     * this FABs components (destcomp:destcomp+numcomp-1)
     * where the two FABs intersect.
     */
+    AMREX_CUDA_HOST_DEVICE
     BaseFab<T>& divide (const BaseFab<T>& src,
                         int               srccomp,
                         int               destcomp,
@@ -862,6 +866,7 @@ public:
     * intersection of subbox and src FAB.  NOTE: subbox must be
     * contained in this FAB.
     */
+    AMREX_CUDA_HOST_DEVICE
     BaseFab<T>& divide (const BaseFab<T>& src,
                         const Box&        subbox,
                         int               srccomp,
