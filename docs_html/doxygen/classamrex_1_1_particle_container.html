@@ -327,6 +327,10 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:afcfa4b3226447e29584bf9c609b7b405"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a405049a333766dd8d8e4a8e244d4b715"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_particle_container.html#a405049a333766dd8d8e4a8e244d4b715">RedistributeGPU</a> (int lev_min=0, int lev_max=-1, int nGrow=0, int local=0)</td></tr>
 <tr class="separator:a405049a333766dd8d8e4a8e244d4b715"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69e98c5ae9055383e3b290b25b58dbe0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_particle_container.html#a69e98c5ae9055383e3b290b25b58dbe0">OKCPU</a> (int lev_min=0, int lev_max=-1, int nGrow=0) const </td></tr>
+<tr class="separator:a69e98c5ae9055383e3b290b25b58dbe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79ee48f306fd7ba69527b310f9d69aca"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_particle_container.html#a79ee48f306fd7ba69527b310f9d69aca">OKGPU</a> (int lev_min=0, int lev_max=-1, int nGrow=0) const </td></tr>
+<tr class="separator:a79ee48f306fd7ba69527b310f9d69aca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70e8ce8b358ab7de7e423a5ce7d05447"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_particle_container.html#a70e8ce8b358ab7de7e423a5ce7d05447">Where</a> (const <a class="el" href="classamrex_1_1_particle_container.html#aec73ed00e2482cb245a8c6a2ac7bea8e">ParticleType</a> &amp;prt, <a class="el" href="structamrex_1_1_particle_loc_data.html">ParticleLocData</a> &amp;pld, int lev_min=0, int lev_max=-1, int nGrow=0, int local_grid=-1) const </td></tr>
 <tr class="separator:a70e8ce8b358ab7de7e423a5ce7d05447"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abbf38c48b91649ffb5da36ca3e24a01c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_particle_container.html#abbf38c48b91649ffb5da36ca3e24a01c">EnforcePeriodicWhere</a> (<a class="el" href="classamrex_1_1_particle_container.html#aec73ed00e2482cb245a8c6a2ac7bea8e">ParticleType</a> &amp;prt, <a class="el" href="structamrex_1_1_particle_loc_data.html">ParticleLocData</a> &amp;pld, int lev_min=0, int lev_max=-1, int local_grid=-1) const </td></tr>
@@ -340,8 +344,8 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:ae05584f96f7bb0e422b3ff89c2bf8879"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa68b9885de02d650cf3626441b0c11a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_particle_container.html#aa68b9885de02d650cf3626441b0c11a1">SetParticleSize</a> ()</td></tr>
 <tr class="separator:aa68b9885de02d650cf3626441b0c11a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b6d962f95261e87064fb20f6d259c01"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_particle_container.html#a0b6d962f95261e87064fb20f6d259c01">BuildRedistributeMask</a> (int lev, int nghost=1)</td></tr>
-<tr class="separator:a0b6d962f95261e87064fb20f6d259c01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a488b5a0ac231cfdea811c579cfe7a439"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_particle_container.html#a488b5a0ac231cfdea811c579cfe7a439">BuildRedistributeMask</a> (int lev, int nghost=1) const </td></tr>
+<tr class="separator:a488b5a0ac231cfdea811c579cfe7a439"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -847,7 +851,7 @@ template&lt;int NStructReal, int NStructInt, int NArrayReal, int NArrayInt&gt; <
 
 </div>
 </div>
-<a class="anchor" id="a0b6d962f95261e87064fb20f6d259c01"></a>
+<a class="anchor" id="a488b5a0ac231cfdea811c579cfe7a439"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -871,7 +875,7 @@ template&lt;int NStructReal, int NStructInt, int NArrayReal, int NArrayInt&gt; <
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td>
+          <td></td><td> const</td>
         </tr>
       </table>
   </td>
@@ -2169,6 +2173,90 @@ template&lt;int NStructReal, int NStructInt, int NArrayReal, int NArrayInt&gt; <
           <td></td><td> const</td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a69e98c5ae9055383e3b290b25b58dbe0"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int NStructReal, int NStructInt, int NArrayReal, int NArrayInt&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classamrex_1_1_particle_container.html">amrex::ParticleContainer</a>&lt; NStructReal, NStructInt, NArrayReal, NArrayInt &gt;::OKCPU </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lev_min</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lev_max</em> = <code>-1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nGrow</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a79ee48f306fd7ba69527b310f9d69aca"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int NStructReal, int NStructInt = 0, int NArrayReal = 0, int NArrayInt = 0&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classamrex_1_1_particle_container.html">amrex::ParticleContainer</a>&lt; NStructReal, NStructInt, NArrayReal, NArrayInt &gt;::OKGPU </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lev_min</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lev_max</em> = <code>-1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nGrow</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -3677,7 +3765,7 @@ template&lt;int NStructReal, int NStructInt = 0, int NArrayReal = 0, int NArrayI
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">mutable</span><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -3807,7 +3895,7 @@ template&lt;int NStructReal, int NStructInt = 0, int NArrayReal = 0, int NArrayI
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">mutable</span><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
