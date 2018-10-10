@@ -204,6 +204,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a865aac1ae0e0fde40a0470d75eb44935"><td class="memItemLeft" align="right" valign="top">static long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_vis_m_f.html#a865aac1ae0e0fde40a0470d75eb44935">Write</a> (const <a class="el" href="classamrex_1_1_fab_array.html">FabArray</a>&lt; <a class="el" href="classamrex_1_1_f_array_box.html">FArrayBox</a> &gt; &amp;fafab, const std::string &amp;name, <a class="el" href="classamrex_1_1_vis_m_f.html#aa50a3ce471ac0bdf8f78134f0004e156">VisMF::How</a> how=<a class="el" href="classamrex_1_1_vis_m_f.html#aa50a3ce471ac0bdf8f78134f0004e156a167fa24b841257fa58af35b658f5d6c1">NFiles</a>, bool set_ghost=false)</td></tr>
 <tr class="memdesc:a865aac1ae0e0fde40a0470d75eb44935"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a <a class="el" href="classamrex_1_1_fab_array.html">FabArray&lt;FArrayBox&gt;</a> to disk in a "smart" way. Returns the total number of bytes written on this processor. If set_ghost is true, sets the ghost cells in the <a class="el" href="classamrex_1_1_fab_array.html">FabArray&lt;FArrayBox&gt;</a> to one-half the average of the min and max over the valid region of each contained FAB.  <a href="#a865aac1ae0e0fde40a0470d75eb44935">More...</a><br/></td></tr>
 <tr class="separator:a865aac1ae0e0fde40a0470d75eb44935"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f08ad07cd586ef21006e86958609655"><td class="memItemLeft" align="right" valign="top">static long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_vis_m_f.html#a8f08ad07cd586ef21006e86958609655">WriteOnlyHeader</a> (const <a class="el" href="classamrex_1_1_fab_array.html">FabArray</a>&lt; <a class="el" href="classamrex_1_1_f_array_box.html">FArrayBox</a> &gt; &amp;mf, const std::string &amp;mf_name, <a class="el" href="classamrex_1_1_vis_m_f.html#aa50a3ce471ac0bdf8f78134f0004e156">VisMF::How</a> how=<a class="el" href="classamrex_1_1_vis_m_f.html#aa50a3ce471ac0bdf8f78134f0004e156a167fa24b841257fa58af35b658f5d6c1">NFiles</a>)</td></tr>
+<tr class="memdesc:a8f08ad07cd586ef21006e86958609655"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write only the header-file corresponding to <a class="el" href="classamrex_1_1_fab_array.html">FabArray&lt;FArrayBox&gt;</a> to disk without the corresponding FAB data. This writes <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> information (which might still be needed by data post-processing tools such as yt) when the FAB data is not needed. Returns the total number of bytes written on this processor.  <a href="#a8f08ad07cd586ef21006e86958609655">More...</a><br/></td></tr>
+<tr class="separator:a8f08ad07cd586ef21006e86958609655"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4a180abf07b6a7129d8fd4f6ee0d798"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_vis_m_f.html#ad4a180abf07b6a7129d8fd4f6ee0d798">RemoveFiles</a> (const std::string &amp;name, bool verbose=false)</td></tr>
 <tr class="memdesc:ad4a180abf07b6a7129d8fd4f6ee0d798"><td class="mdescLeft">&#160;</td><td class="mdescRight">this will remove nfiles associated with name and the header  <a href="#ad4a180abf07b6a7129d8fd4f6ee0d798">More...</a><br/></td></tr>
 <tr class="separator:ad4a180abf07b6a7129d8fd4f6ee0d798"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1743,6 +1746,48 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Write a <a class="el" href="classamrex_1_1_fab_array.html">FabArray&lt;FArrayBox&gt;</a> to disk in a "smart" way. Returns the total number of bytes written on this processor. If set_ghost is true, sets the ghost cells in the <a class="el" href="classamrex_1_1_fab_array.html">FabArray&lt;FArrayBox&gt;</a> to one-half the average of the min and max over the valid region of each contained FAB. </p>
+
+</div>
+</div>
+<a class="anchor" id="a8f08ad07cd586ef21006e86958609655"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">long amrex::VisMF::WriteOnlyHeader </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_fab_array.html">FabArray</a>&lt; <a class="el" href="classamrex_1_1_f_array_box.html">FArrayBox</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>mf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>mf_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classamrex_1_1_vis_m_f.html#aa50a3ce471ac0bdf8f78134f0004e156">VisMF::How</a>&#160;</td>
+          <td class="paramname"><em>how</em> = <code><a class="el" href="classamrex_1_1_vis_m_f.html#aa50a3ce471ac0bdf8f78134f0004e156a167fa24b841257fa58af35b658f5d6c1">NFiles</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Write only the header-file corresponding to <a class="el" href="classamrex_1_1_fab_array.html">FabArray&lt;FArrayBox&gt;</a> to disk without the corresponding FAB data. This writes <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> information (which might still be needed by data post-processing tools such as yt) when the FAB data is not needed. Returns the total number of bytes written on this processor. </p>
 
 </div>
 </div>
