@@ -122,41 +122,47 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                <a class="code" href="classamrex_1_1_print.html">amrex::Print</a>() &lt;&lt; <span class="stringliteral">&quot;Allocation failed in cudaMallocManaged \n&quot;</span>;</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                <a class="code" href="namespaceamrex.html#aea69993eec3c9ca497cd0e47522b2ec6">amrex::Abort</a>();</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            }</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        }</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> deallocate(value_type* p, std::size_t)</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            cudaError_t error = cudaFree(p);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <span class="keywordflow">if</span>(error != cudaSuccess) {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                <a class="code" href="classamrex_1_1_print.html">amrex::Print</a>() &lt;&lt; <span class="stringliteral">&quot;Deallocation failed in cudaFree \n&quot;</span>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                <a class="code" href="namespaceamrex.html#aea69993eec3c9ca497cd0e47522b2ec6">amrex::Abort</a>();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            }</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        }    </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    };</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T, <span class="keyword">class</span> U&gt;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    operator==(CudaManagedAllocator&lt;T&gt; <span class="keyword">const</span>&amp;, CudaManagedAllocator&lt;U&gt; <span class="keyword">const</span>&amp;) noexcept</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T, <span class="keyword">class</span> U&gt;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    operator!=(CudaManagedAllocator&lt;T&gt; <span class="keyword">const</span>&amp; x, CudaManagedAllocator&lt;U&gt; <span class="keyword">const</span>&amp; y) noexcept</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">return</span> !(x == y);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    }</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#endif // AMREX_USE_CUDA</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;} <span class="comment">// namespace amrex</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#endif // AMREX_CUDAALLOCATORS_H_</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">int</span> device = <a class="code" href="classamrex_1_1_device.html#a64053a654c7cbd45a535e80ad15d2215">Device::deviceId</a>();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            CudaAPICheck(cudaMemAdvise(result, n*<span class="keyword">sizeof</span>(T), </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                                       cudaMemAdviseSetPreferredLocation, device));</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> deallocate(value_type* p, std::size_t)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            cudaError_t error = cudaFree(p);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <span class="keywordflow">if</span>(error != cudaSuccess) {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                <a class="code" href="classamrex_1_1_print.html">amrex::Print</a>() &lt;&lt; <span class="stringliteral">&quot;Deallocation failed in cudaFree \n&quot;</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                <a class="code" href="namespaceamrex.html#aea69993eec3c9ca497cd0e47522b2ec6">amrex::Abort</a>();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        }    </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    };</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T, <span class="keyword">class</span> U&gt;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    operator==(CudaManagedAllocator&lt;T&gt; <span class="keyword">const</span>&amp;, CudaManagedAllocator&lt;U&gt; <span class="keyword">const</span>&amp;) noexcept</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T, <span class="keyword">class</span> U&gt;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    operator!=(CudaManagedAllocator&lt;T&gt; <span class="keyword">const</span>&amp; x, CudaManagedAllocator&lt;U&gt; <span class="keyword">const</span>&amp; y) noexcept</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">return</span> !(x == y);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    }</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#endif // AMREX_USE_CUDA</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;} <span class="comment">// namespace amrex</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#endif // AMREX_CUDAALLOCATORS_H_</span></div>
 <div class="ttc" id="namespaceamrex_html_aea69993eec3c9ca497cd0e47522b2ec6"><div class="ttname"><a href="namespaceamrex.html#aea69993eec3c9ca497cd0e47522b2ec6">amrex::Abort</a></div><div class="ttdeci">void Abort(const char *msg=0)</div><div class="ttdoc">Print out message to cerr and exit via abort(). </div><div class="ttdef"><b>Definition:</b> AMReX.cpp:226</div></div>
 <div class="ttc" id="_a_m_re_x_8_h_html"><div class="ttname"><a href="_a_m_re_x_8_h.html">AMReX.H</a></div></div>
 <div class="ttc" id="_a_m_re_x___multi_fab_util___f_8_h_html_a54f6ce0fb55c5e079b66b7ac9b865843"><div class="ttname"><a href="_a_m_re_x___multi_fab_util___f_8_h.html#a54f6ce0fb55c5e079b66b7ac9b865843">n</a></div><div class="ttdeci">const int const int const const int const int &amp; n</div><div class="ttdef"><b>Definition:</b> AMReX_MultiFabUtil_F.H:77</div></div>
+<div class="ttc" id="classamrex_1_1_device_html_a64053a654c7cbd45a535e80ad15d2215"><div class="ttname"><a href="classamrex_1_1_device.html#a64053a654c7cbd45a535e80ad15d2215">amrex::Device::deviceId</a></div><div class="ttdeci">static int deviceId()</div><div class="ttdef"><b>Definition:</b> AMReX_Device.cpp:217</div></div>
 <div class="ttc" id="_a_m_re_x___print_8_h_html"><div class="ttname"><a href="_a_m_re_x___print_8_h.html">AMReX_Print.H</a></div></div>
 <div class="ttc" id="classamrex_1_1_print_html"><div class="ttname"><a href="classamrex_1_1_print.html">amrex::Print</a></div><div class="ttdoc">This class provides the user with a few print options. </div><div class="ttdef"><b>Definition:</b> AMReX_Print.H:15</div></div>
 </div><!-- fragment --></div><!-- contents -->
