@@ -188,9 +188,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        thrust::device,</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        thrust::device_ptr&lt;const ParticleType&gt;(static_cast&lt;const ParticleType*&gt;(aos().data())),</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        thrust::device_ptr&lt;const ParticleType&gt;(static_cast&lt;const ParticleType*&gt;(aos().data()) + aos.size()), </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        thrust::make_zip_iterator(thrust::make_tuple(thrust::device_ptr&lt;Real&gt;(x.data()), </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                                                     thrust::device_ptr&lt;Real&gt;(y.data()), </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                                                     thrust::device_ptr&lt;Real&gt;(z.data()))),</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        thrust::make_zip_iterator(thrust::make_tuple(<a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#a887504417652135e27c7f9f8e3c25c9f">AMREX_D_DECL</a>(thrust::device_ptr&lt;Real&gt;(x.data()), </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                                                                  thrust::device_ptr&lt;Real&gt;(y.data()), </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                                                                  thrust::device_ptr&lt;Real&gt;(z.data())))),</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        getPosition() );</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="preprocessor">#else</span></div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor"></span>    <span class="keyword">const</span> <span class="keyword">auto</span>  p     = aos.data();</div>
@@ -212,13 +212,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="preprocessor">#if AMREX_USE_CUDA</span></div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="preprocessor"></span>    thrust::transform(</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        thrust::device,</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        thrust::make_zip_iterator(thrust::make_tuple(thrust::device_ptr&lt;const Real&gt;(x.data()), </div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                                                     thrust::device_ptr&lt;const Real&gt;(y.data()), </div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                                                     thrust::device_ptr&lt;const Real&gt;(z.data()))),</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        thrust::make_zip_iterator(thrust::make_tuple(thrust::device_ptr&lt;const Real&gt;(x.data() + N), </div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                                                     thrust::device_ptr&lt;const Real&gt;(y.data() + N), </div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                                                     thrust::device_ptr&lt;const Real&gt;(z.data() + N))),</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        thrust::device_ptr&lt;ParticleType&gt;(static_cast&lt;ParticleType*&gt;(aos().data())),</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        thrust::make_zip_iterator(thrust::make_tuple(<a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#a887504417652135e27c7f9f8e3c25c9f">AMREX_D_DECL</a>(thrust::device_ptr&lt;const Real&gt;(x.data()), </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                                                                  thrust::device_ptr&lt;const Real&gt;(y.data()), </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                                                                  thrust::device_ptr&lt;const Real&gt;(z.data())))),</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        thrust::make_zip_iterator(thrust::make_tuple(<a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#a887504417652135e27c7f9f8e3c25c9f">AMREX_D_DECL</a>(thrust::device_ptr&lt;const Real&gt;(x.data() + N), </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                                                                  thrust::device_ptr&lt;const Real&gt;(y.data() + N), </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                                                                  thrust::device_ptr&lt;const Real&gt;(z.data() + N)))),</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        thrust::device_ptr&lt;ParticleType&gt;(<span class="keyword">static_cast&lt;</span><a class="code" href="classamrex_1_1_par_iter.html#ac36789b1b24cd2f881dc30a88d1840cf">ParticleType</a>*<span class="keyword">&gt;</span>(aos().data())),</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        setPosition() );</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="preprocessor">#else</span></div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="preprocessor"></span>    <span class="keyword">const</span> <span class="keyword">auto</span>  p     = aos.data();</div>
@@ -238,6 +238,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="structamrex_1_1_m_f_it_info_html_a332c314d6300d50702643ada46a2e18a"><div class="ttname"><a href="structamrex_1_1_m_f_it_info.html#a332c314d6300d50702643ada46a2e18a">amrex::MFItInfo::EnableTiling</a></div><div class="ttdeci">MFItInfo &amp; EnableTiling(const IntVect &amp;ts=FabArrayBase::mfiter_tile_size)</div><div class="ttdef"><b>Definition:</b> AMReX_MFIter.H:30</div></div>
 <div class="ttc" id="classamrex_1_1_par_iter_base_html"><div class="ttname"><a href="classamrex_1_1_par_iter_base.html">amrex::ParIterBase</a></div><div class="ttdef"><b>Definition:</b> AMReX_Particles.H:115</div></div>
 <div class="ttc" id="classamrex_1_1_par_iter_html"><div class="ttname"><a href="classamrex_1_1_par_iter.html">amrex::ParIter</a></div><div class="ttdef"><b>Definition:</b> AMReX_Particles.H:683</div></div>
+<div class="ttc" id="classamrex_1_1_par_iter_html_ac36789b1b24cd2f881dc30a88d1840cf"><div class="ttname"><a href="classamrex_1_1_par_iter.html#ac36789b1b24cd2f881dc30a88d1840cf">amrex::ParIter::ParticleType</a></div><div class="ttdeci">typename ContainerType::ParticleType ParticleType</div><div class="ttdef"><b>Definition:</b> AMReX_Particles.H:692</div></div>
 <div class="ttc" id="structamrex_1_1_m_f_it_info_html"><div class="ttname"><a href="structamrex_1_1_m_f_it_info.html">amrex::MFItInfo</a></div><div class="ttdef"><b>Definition:</b> AMReX_MFIter.H:23</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
