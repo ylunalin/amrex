@@ -1049,6 +1049,8 @@ Functions</h2></td></tr>
 <tr class="separator:aeaa559cd77a4c889c84b144f59a6e35c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab16f5968ad28ec7664abd985a11e9c20"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ab16f5968ad28ec7664abd985a11e9c20">WriteMultiLevelPlotfile</a> (const std::string &amp;plotfilename, int nlevels, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; const <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> * &gt; &amp;mf, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::string &gt; &amp;varnames, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &gt; &amp;geom, Real time, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; int &gt; &amp;level_steps, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &gt; &amp;ref_ratio, const std::string &amp;versionName, const std::string &amp;levelPrefix, const std::string &amp;mfPrefix, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::string &gt; &amp;extra_dirs)</td></tr>
 <tr class="separator:ab16f5968ad28ec7664abd985a11e9c20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab531ef1abbc53f895e920c0c3792594"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#aab531ef1abbc53f895e920c0c3792594">WriteMLMF</a> (const std::string &amp;plotfilename, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &gt; &amp;mf, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &gt; &amp;geom)</td></tr>
+<tr class="separator:aab531ef1abbc53f895e920c0c3792594"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace783f22796d80958dc5a14440a432fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ace783f22796d80958dc5a14440a432fb">WriteMultiLevelPlotfileHeaders</a> (const std::string &amp;plotfilename, int nlevels, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; const <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> * &gt; &amp;mf, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::string &gt; &amp;varnames, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &gt; &amp;geom, Real time, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; int &gt; &amp;level_steps, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &gt; &amp;ref_ratio, const std::string &amp;versionName, const std::string &amp;levelPrefix, const std::string &amp;mfPrefix, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::string &gt; &amp;extra_dirs)</td></tr>
 <tr class="separator:ace783f22796d80958dc5a14440a432fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa5343920d9b5ee1307ca697274eca84a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#aa5343920d9b5ee1307ca697274eca84a">WriteSingleLevelPlotfile</a> (const std::string &amp;plotfilename, const <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;mf, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::string &gt; &amp;varnames, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;geom, Real time, int level_step, const std::string &amp;versionName, const std::string &amp;levelPrefix, const std::string &amp;mfPrefix, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::string &gt; &amp;extra_dirs)</td></tr>
@@ -11395,6 +11397,38 @@ template&lt;typename To , typename From &gt; </div>
       </table>
 </div><div class="memdoc">
 <p>Write long data to the ostream. The arguments are a pointer to data to write, the size of the data buffer, the ostream, and an optional <a class="el" href="classamrex_1_1_int_descriptor.html">IntDescriptor</a> that describes the data format to use for writing. If no <a class="el" href="classamrex_1_1_int_descriptor.html">IntDescriptor</a> is provided, the data will be written using the native format for your machine. </p>
+
+</div>
+</div>
+<a class="anchor" id="aab531ef1abbc53f895e920c0c3792594"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void amrex::WriteMLMF </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>plotfilename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector&lt; MultiFab &gt; &amp;&#160;</td>
+          <td class="paramname"><em>mf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector&lt; Geometry &gt; &amp;&#160;</td>
+          <td class="paramname"><em>geom</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
