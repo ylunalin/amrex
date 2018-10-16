@@ -31,6 +31,7 @@ var searchData=
   ['updatebdkey',['updateBDKey',['../classamrex_1_1_fab_array_base.html#a3918d10004ca8f4494fd9e6099bdabc3',1,'amrex::FabArrayBase']]],
   ['updatebndryvalues',['updateBndryValues',['../classamrex_1_1_interp_bndry_data.html#a6801628a380e0cec5714dd9e5fe8621b',1,'amrex::InterpBndryData::updateBndryValues(BndryRegister &amp;crse, int c_start, int bnd_start, int num_comp, const IntVect &amp;ratio, int max_order=IBD_max_order_DEF)'],['../classamrex_1_1_interp_bndry_data.html#af1f588505ed7575ed35fcfddfaeb5bfc',1,'amrex::InterpBndryData::updateBndryValues(BndryRegister &amp;crse, int c_start, int bnd_start, int num_comp, int ratio, int max_order=IBD_max_order_DEF)']]],
   ['updatedistributionmaps',['UpdateDistributionMaps',['../classamrex_1_1_amr_level.html#a69fdf4e347142373696281d9269c6799',1,'amrex::AmrLevel']]],
+  ['updateinsitu',['updateInSitu',['../classamrex_1_1_amr.html#a8a6cfcdb14e8d28779382ac6406ab2ca',1,'amrex::Amr']]],
   ['updateneighbors',['updateNeighbors',['../classamrex_1_1_neighbor_particle_container.html#a274184b09d00fe3f83676b4cb1fa9900',1,'amrex::NeighborParticleContainer']]],
   ['upperindex',['UpperIndex',['../classamrex_1_1_coord_sys.html#a963f59d99a41920b77dc7464f15b09bd',1,'amrex::CoordSys']]],
   ['use_5fefficient_5fregrid',['use_efficient_regrid',['../namespaceamrex.html#af1ff4a567f8d0cdc485062507aac9742',1,'amrex']]],

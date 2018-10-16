@@ -30,6 +30,7 @@ var searchData=
   ['initialize_5fdevice',['initialize_device',['../classamrex_1_1_device.html#ac07d6c40a2ca17ebb997564acd697493',1,'amrex::Device']]],
   ['initializecommcomps',['initializeCommComps',['../classamrex_1_1_neighbor_particle_container.html#a9fc777a6611729b79c56fc8f1782c830',1,'amrex::NeighborParticleContainer']]],
   ['initializeinit',['InitializeInit',['../classamrex_1_1_amr.html#a96d263aac2bf01c26faa2e9e6247e002',1,'amrex::Amr']]],
+  ['initinsitu',['initInSitu',['../classamrex_1_1_amr.html#a983258693a263cd6121c36a664f97565',1,'amrex::Amr']]],
   ['initnrandompercell',['InitNRandomPerCell',['../classamrex_1_1_particle_container.html#a43c257d811d31372ec9aeb183a04831b',1,'amrex::ParticleContainer']]],
   ['initonepercell',['InitOnePerCell',['../classamrex_1_1_particle_container.html#a23fef3ef39243107d38903a067b38bc7',1,'amrex::ParticleContainer']]],
   ['initparams',['InitParams',['../classamrex_1_1_b_l_profiler.html#af6d5560f2938564e691ec706ef87b5f3',1,'amrex::BLProfiler::InitParams()'],['../classamrex_1_1_b_l_profiler.html#a51c6c0088e1e40e1db8ed8e165c2314f',1,'amrex::BLProfiler::InitParams(const Real ptl, const bool writeall, const bool writefabs)']]],
