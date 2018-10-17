@@ -33,7 +33,7 @@ var searchData=
   ['allgt',['allGT',['../classamrex_1_1_int_vect.html#a9dc46f46519d70dccf2e9353da83e5b6',1,'amrex::IntVect']]],
   ['allle',['allLE',['../classamrex_1_1_int_vect.html#a7ddaa1d526e3005063a660a6ef849442',1,'amrex::IntVect']]],
   ['alllt',['allLT',['../classamrex_1_1_int_vect.html#aee7b4166e20ea27706a5bcedfd0b5156',1,'amrex::IntVect']]],
-  ['alloc',['alloc',['../classamrex_1_1_arena.html#a46ce2cd5cfc039cec64548b031fbde2e',1,'amrex::Arena::alloc()'],['../classamrex_1_1_b_arena.html#a3f5a8cc7a0cb8013fe3bc8ba6270c510',1,'amrex::BArena::alloc()'],['../classamrex_1_1_c_arena.html#a693b367cdf1c9b101e67846cbfe0ad8e',1,'amrex::CArena::alloc()'],['../namespaceamrex_1_1_b_l_pgas.html#a792f3198bcb515c10dbe41077ce83ce7',1,'amrex::BLPgas::alloc()']]],
+  ['alloc',['alloc',['../classamrex_1_1_arena.html#a46ce2cd5cfc039cec64548b031fbde2e',1,'amrex::Arena::alloc()'],['../classamrex_1_1_b_arena.html#a3f5a8cc7a0cb8013fe3bc8ba6270c510',1,'amrex::BArena::alloc()'],['../classamrex_1_1_c_arena.html#ae680f4f04d598438083ac596e4117c1f',1,'amrex::CArena::alloc()'],['../namespaceamrex_1_1_b_l_pgas.html#a792f3198bcb515c10dbe41077ce83ce7',1,'amrex::BLPgas::alloc()']]],
   ['allocolddata',['allocOldData',['../classamrex_1_1_amr_level.html#a6508a7e48f0d9da16e52fe4c79917ed3',1,'amrex::AmrLevel::allocOldData()'],['../classamrex_1_1_state_data.html#ac696f694c50d2b6251f9576fabfdedcb',1,'amrex::StateData::allocOldData()']]],
   ['allprint',['AllPrint',['../classamrex_1_1_all_print.html#aea174ee088ce5e27479e1c0a7445d75a',1,'amrex::AllPrint']]],
   ['allprinttofile',['AllPrintToFile',['../classamrex_1_1_all_print_to_file.html#a591916414b23fdad473a12c3bde9f43f',1,'amrex::AllPrintToFile']]],

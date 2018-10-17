@@ -26,7 +26,7 @@ var searchData=
   ['ngrowvect',['nGrowVect',['../classamrex_1_1_fab_array_base.html#a04f6b5015129a821f4795f7d6961882d',1,'amrex::FabArrayBase::nGrowVect()'],['../classamrex_1_1_vis_m_f.html#a1428bfdbc4dae39af42809e49c030e3c',1,'amrex::VisMF::nGrowVect()']]],
   ['nitemsperbin',['NItemsPerBin',['../namespaceamrex.html#aaf97cdbc0db387b57d9641d57cce591e',1,'amrex']]],
   ['nodaltilebox',['nodaltilebox',['../classamrex_1_1_m_f_iter.html#a9c69e3a5196ec1466c349566cada2a2b',1,'amrex::MFIter']]],
-  ['node',['Node',['../classamrex_1_1_c_arena_1_1_node.html#ad942a44397791a098917bf82ffeb8242',1,'amrex::CArena::Node::Node()'],['../classamrex_1_1_c_arena_1_1_node.html#a214c8047885fdb88a44412311c28667f',1,'amrex::CArena::Node::Node(void *a_block, size_t a_size)'],['../classamrex_1_1_c_arena_1_1_node.html#a951cf13c1d96b8d505e14566f965bc57',1,'amrex::CArena::Node::Node(const Node &amp;rhs)']]],
+  ['node',['Node',['../classamrex_1_1_c_arena_1_1_node.html#ab71463467a0a00d4a9dfe983e33f390e',1,'amrex::CArena::Node']]],
   ['nodecentered',['nodeCentered',['../classamrex_1_1_index_type.html#a4baff7b4e7d6d617be2899c9d271fc6f',1,'amrex::IndexType::nodeCentered() const '],['../classamrex_1_1_index_type.html#a130fa5c03abce6bbcc70a185d1adaa64',1,'amrex::IndexType::nodeCentered(int dir) const ']]],
   ['nofabheader',['NoFabHeader',['../classamrex_1_1_vis_m_f.html#af7f852d2d1e0656e85e58dcf5ba364b1',1,'amrex::VisMF']]],
   ['nonperiodic',['NonPeriodic',['../classamrex_1_1_periodicity.html#a38c75cba56d022201b4e1970534d5823',1,'amrex::Periodicity']]],
