@@ -12,8 +12,8 @@ namespace Cuda {
 
 template <class T>
 class DeviceVector
-  :
-    public thrust::device_vector<T>
+    :
+        public thrust::device_vector<T>
 {
 public:
 
@@ -32,8 +32,8 @@ public:
 
 template <class T>
 class HostVector
-  :
-    public thrust::host_vector<T>
+    :
+        public thrust::host_vector<T>
 {
 public:
 
@@ -53,42 +53,11 @@ public:
 template <class T>
 class ManagedVector
     :
-    public thrust::device_vector<T, thrust_managed_allocator<T> >
+        public Vector<T, CudaManagedAllocator<T> >
 {
 public:
 
-    using thrust::device_vector<T, thrust_managed_allocator<T> >::device_vector;
-
-    //! get access to the underlying data pointer
-    T* data ()
-    { 
-      return thrust::raw_pointer_cast(
-       this->thrust::device_vector<T, thrust_managed_allocator<T>>::data());
-    }
-
-    //! get access to the underlying data pointer
-    const T* data () const
-    { 
-      return thrust::raw_pointer_cast(
-       this->thrust::device_vector<T, thrust_managed_allocator<T>>::data());
-    }
-
-    //! get access to the underlying data pointer
-    T* dataPtr () { return this->data(); }
-    //! get access to the underlying data pointer
-    const T* dataPtr () const { return this->data(); }
-
-    T& operator[] (std::size_t i)
-    {
-      return *thrust::raw_pointer_cast(
-      &(this->thrust::device_vector<T, thrust_managed_allocator<T>>::operator[](i)));
-    }
-
-    const T& operator[] (std::size_t i) const
-    {
-      return *thrust::raw_pointer_cast(
-      &(this->thrust::device_vector<T, thrust_managed_allocator<T>>::operator[](i)));
-    }
+    using Vector<T, CudaManagedAllocator<T> >::Vector;
     
     void assign(typename thrust::host_vector<T>::size_type count, const T& value )
     {
@@ -100,7 +69,7 @@ public:
         }
         else
         {
-	    this->thrust::device_vector<T, thrust_managed_allocator<T> >::assign(count, value);
+            this->Vector<T, CudaManagedAllocator<T> >::assign(count, value);
         }
     }
 };
