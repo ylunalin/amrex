@@ -1,6 +1,8 @@
 var searchData=
 [
   ['makeindexsequence',['makeIndexSequence',['../namespaceamrex.html#ad9f3a92c061d8ad8de35370ed5ce28b8',1,'amrex']]],
+  ['manageddevicevector',['ManagedDeviceVector',['../namespaceamrex_1_1_cuda.html#a7e4bb643564213a315b372b600df7514',1,'amrex::Cuda']]],
+  ['managedvector',['ManagedVector',['../namespaceamrex_1_1_cuda.html#a5314068a19afe6abfe5c1ced153a374d',1,'amrex::Cuda']]],
   ['mapofcopycomtagcontainers',['MapOfCopyComTagContainers',['../structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#ac93e9be5fadb2a282072412f8801a271',1,'amrex::FabArrayBase::CopyComTag::MapOfCopyComTagContainers()'],['../classamrex_1_1_fab_array_base.html#a70b58356e2e49c69d54eed3850a9c231',1,'amrex::FabArrayBase::MapOfCopyComTagContainers()']]],
   ['maxressteadyclock',['MaxResSteadyClock',['../namespaceamrex.html#ae337b46a7ca54b353861635503079536',1,'amrex']]],
   ['mpi_5fcomm',['MPI_Comm',['../_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9',1,'AMReX_ccse-mpi.H']]],

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['fa_5finit',['FA_init',['../classamrex_1_1_f_a__init.html',1,'amrex']]],
   ['fabarray',['FabArray',['../classamrex_1_1_fab_array.html',1,'amrex']]],
   ['fabarray_3c_20amrex_3a_3acutfab_20_3e',['FabArray&lt; amrex::CutFab &gt;',['../classamrex_1_1_fab_array.html',1,'amrex']]],
   ['fabarray_3c_20amrex_3a_3aebcellflagfab_20_3e',['FabArray&lt; amrex::EBCellFlagFab &gt;',['../classamrex_1_1_fab_array.html',1,'amrex']]],
@@ -38,6 +37,6 @@ var searchData=
   ['forkjoin',['ForkJoin',['../classamrex_1_1_fork_join.html',1,'amrex']]],
   ['fpc',['FPC',['../classamrex_1_1_f_p_c.html',1,'amrex']]],
   ['fpinfo',['FPinfo',['../structamrex_1_1_fab_array_base_1_1_f_pinfo.html',1,'amrex::FabArrayBase']]],
-  ['frame',['Frame',['../classamrex_1_1_parm_parse_1_1_frame.html',1,'amrex::ParmParse']]],
-  ['frame',['Frame',['../classamrex_1_1_parallel_context_1_1_frame.html',1,'amrex::ParallelContext']]]
+  ['frame',['Frame',['../classamrex_1_1_parallel_context_1_1_frame.html',1,'amrex::ParallelContext']]],
+  ['frame',['Frame',['../classamrex_1_1_parm_parse_1_1_frame.html',1,'amrex::ParmParse']]]
 ];

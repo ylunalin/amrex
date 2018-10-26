@@ -12,6 +12,7 @@ var searchData=
   ['cluster',['Cluster',['../classamrex_1_1_cluster.html',1,'amrex']]],
   ['clusterlist',['ClusterList',['../classamrex_1_1_cluster_list.html',1,'amrex']]],
   ['complementif',['ComplementIF',['../classamrex_1_1_e_b2_1_1_complement_i_f.html',1,'amrex::EB2']]],
+  ['componentbox',['ComponentBox',['../structamrex_1_1_cuda_1_1_component_box.html',1,'amrex::Cuda']]],
   ['componentset',['ComponentSet',['../structamrex_1_1_fork_join_1_1_component_set.html',1,'amrex::ForkJoin']]],
   ['const_5fiterator',['const_iterator',['../structamrex_1_1_base_umap_1_1const__iterator.html',1,'amrex::BaseUmap']]],
   ['coordsys',['CoordSys',['../classamrex_1_1_coord_sys.html',1,'amrex']]],

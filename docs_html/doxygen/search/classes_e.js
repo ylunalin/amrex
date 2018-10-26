@@ -21,6 +21,7 @@ var searchData=
   ['persistentifstream',['PersistentIFStream',['../structamrex_1_1_vis_m_f_1_1_persistent_i_f_stream.html',1,'amrex::VisMF']]],
   ['physbcfunct',['PhysBCFunct',['../classamrex_1_1_phys_b_c_funct.html',1,'amrex']]],
   ['physbcfunctbase',['PhysBCFunctBase',['../classamrex_1_1_phys_b_c_funct_base.html',1,'amrex']]],
+  ['pinned',['Pinned',['../structamrex_1_1_cuda_1_1_pinned.html',1,'amrex::Cuda']]],
   ['planeif',['PlaneIF',['../classamrex_1_1_e_b2_1_1_plane_i_f.html',1,'amrex::EB2']]],
   ['polynomialif',['PolynomialIF',['../classamrex_1_1_e_b2_1_1_polynomial_i_f.html',1,'amrex::EB2']]],
   ['polyterm',['PolyTerm',['../classamrex_1_1_e_b2_1_1_poly_term.html',1,'amrex::EB2']]],

@@ -230,10 +230,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af8fc41eb806cf2a13724a31922ab1c63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3918d10004ca8f4494fd9e6099bdabc3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array_base.html#a3918d10004ca8f4494fd9e6099bdabc3">updateBDKey</a> ()</td></tr>
 <tr class="separator:a3918d10004ca8f4494fd9e6099bdabc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4dbaa41d5ff16738f9799828caa676ba"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array_base.html#a4dbaa41d5ff16738f9799828caa676ba">IsInitialized</a> () const </td></tr>
-<tr class="separator:a4dbaa41d5ff16738f9799828caa676ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6099f6be6dc55877b885800bff15f7b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array_base.html#ae6099f6be6dc55877b885800bff15f7b">SetInitialized</a> (bool binit)</td></tr>
-<tr class="separator:ae6099f6be6dc55877b885800bff15f7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7aac9d7bfa41ac76f80543a6a8c1898"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array_base.html#ae7aac9d7bfa41ac76f80543a6a8c1898">flushFPinfo</a> (bool no_assertion=false)</td></tr>
 <tr class="separator:ae7aac9d7bfa41ac76f80543a6a8c1898"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d3dbb0a351f570080f23f75febd836d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array_base.html#a9d3dbb0a351f570080f23f75febd836d">flushCFinfo</a> (bool no_assertion=false)</td></tr>
@@ -265,6 +261,8 @@ Static Public Attributes</h2></td></tr>
 <tr class="separator:a31677ce1cdddcbc405f41bb1a4351d35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4f336f53eda93074deacddef4d22055"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array_base.html#ae4f336f53eda93074deacddef4d22055">MaxComp</a></td></tr>
 <tr class="separator:ae4f336f53eda93074deacddef4d22055"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a709c4d64804e1af085473471216bcc41"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array_base.html#a709c4d64804e1af085473471216bcc41">use_cuda_aware_mpi</a></td></tr>
+<tr class="separator:a709c4d64804e1af085473471216bcc41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70e36cc6b3a88bc821e4cadd72d3a8de"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array_base.html#a70e36cc6b3a88bc821e4cadd72d3a8de">do_async_sends</a></td></tr>
 <tr class="separator:a70e36cc6b3a88bc821e4cadd72d3a8de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec4332affa6c055da41aab70b684a064"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array_base.html#aec4332affa6c055da41aab70b684a064">comm_tile_size</a></td></tr>
@@ -308,7 +306,7 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:adaab2aa39653ad6be0ef6bb6d6565ef9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1abcd5df36dacaa8b31e6fcaaed30be3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array_base.html#a1abcd5df36dacaa8b31e6fcaaed30be3">buildTileArray</a> (const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;tilesize, <a class="el" href="structamrex_1_1_fab_array_base_1_1_tile_array.html">TileArray</a> &amp;ta) const </td></tr>
 <tr class="separator:a1abcd5df36dacaa8b31e6fcaaed30be3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5c5f9aa77f5d7c4c73fafea2dc0116e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array_base.html#aa5c5f9aa77f5d7c4c73fafea2dc0116e">flushTileArray</a> (const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;tilesize=<a class="el" href="classamrex_1_1_int_vect.html#a2f992c8ef43cee508cbce8712b257ead">IntVect::TheZeroVector</a>(), bool no_assertion=false) const </td></tr>
+<tr class="memitem:aa5c5f9aa77f5d7c4c73fafea2dc0116e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array_base.html#aa5c5f9aa77f5d7c4c73fafea2dc0116e">flushTileArray</a> (const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;tilesize=<a class="el" href="classamrex_1_1_int_vect.html#ab38845e87a0c22ba4ad836f4f091b61a">IntVect::TheZeroVector</a>(), bool no_assertion=false) const </td></tr>
 <tr class="separator:aa5c5f9aa77f5d7c4c73fafea2dc0116e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b4a0572662ad2d1a9cc30f3c6d8fd73"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structamrex_1_1_fab_array_base_1_1_f_b.html">FB</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array_base.html#a5b4a0572662ad2d1a9cc30f3c6d8fd73">getFB</a> (const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;nghost, const <a class="el" href="classamrex_1_1_periodicity.html">Periodicity</a> &amp;period, bool cross=false, bool enforce_periodicity_only=false) const </td></tr>
 <tr class="separator:a5b4a0572662ad2d1a9cc30f3c6d8fd73"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1158,7 +1156,7 @@ Friends</h2></td></tr>
           <td class="memname">void amrex::FabArrayBase::flushTileArray </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;&#160;</td>
-          <td class="paramname"><em>tilesize</em> = <code><a class="el" href="classamrex_1_1_int_vect.html#a2f992c8ef43cee508cbce8712b257ead">IntVect::TheZeroVector</a>()</code>, </td>
+          <td class="paramname"><em>tilesize</em> = <code><a class="el" href="classamrex_1_1_int_vect.html#ab38845e87a0c22ba4ad836f4f091b61a">IntVect::TheZeroVector</a>()</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1379,21 +1377,6 @@ Friends</h2></td></tr>
 <span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a4dbaa41d5ff16738f9799828caa676ba"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool amrex::FabArrayBase::IsInitialized </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
 </div><div class="memdoc">
 
 </div>
@@ -1664,22 +1647,6 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Return owenership of fabs. The concept of ownership only applies when UPC++ team is used. In that case, each fab is shared by team workers, with one taking the ownership. </p>
-
-</div>
-</div>
-<a class="anchor" id="ae6099f6be6dc55877b885800bff15f7b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void amrex::FabArrayBase::SetInitialized </td>
-          <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>binit</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
 
 </div>
 </div>
@@ -2417,6 +2384,26 @@ Friends</h2></td></tr>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a709c4d64804e1af085473471216bcc41"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int amrex::FabArrayBase::use_cuda_aware_mpi</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

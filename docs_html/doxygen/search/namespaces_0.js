@@ -1,7 +1,8 @@
 var searchData=
 [
   ['amrex',['amrex',['../namespaceamrex.html',1,'']]],
-  ['blpgas',['BLPgas',['../namespaceamrex_1_1_b_l_pgas.html',1,'amrex']]],
+  ['atomic',['Atomic',['../namespaceamrex_1_1_cuda_1_1_atomic.html',1,'amrex::Cuda']]],
+  ['cuda',['Cuda',['../namespaceamrex_1_1_cuda.html',1,'amrex']]],
   ['detail',['detail',['../namespaceamrex_1_1detail.html',1,'amrex']]],
   ['eb2',['EB2',['../namespaceamrex_1_1_e_b2.html',1,'amrex']]],
   ['extrapolater',['Extrapolater',['../namespaceamrex_1_1_extrapolater.html',1,'amrex']]],

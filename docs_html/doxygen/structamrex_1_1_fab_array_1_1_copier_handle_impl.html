@@ -126,6 +126,10 @@ Public Attributes</h2></td></tr>
 <tr class="separator:aa2952e87a2a7d35dd89b4f3f50f7ba94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11c7f4edd33c065857afad78f2485282"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structamrex_1_1_fab_array_1_1_copier_handle_impl.html#a11c7f4edd33c065857afad78f2485282">actual_n_rcvs</a></td></tr>
 <tr class="separator:a11c7f4edd33c065857afad78f2485282"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b9cbf1cf3c98c5387d47ef47e4a7461"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structamrex_1_1_fab_array_1_1_copier_handle_impl.html#a1b9cbf1cf3c98c5387d47ef47e4a7461">the_recv_data</a> = nullptr</td></tr>
+<tr class="separator:a1b9cbf1cf3c98c5387d47ef47e4a7461"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab81f0dabdce622e4ce4cadf3bcbae9e1"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structamrex_1_1_fab_array_1_1_copier_handle_impl.html#ab81f0dabdce622e4ce4cadf3bcbae9e1">the_send_data</a> = nullptr</td></tr>
+<tr class="separator:ab81f0dabdce622e4ce4cadf3bcbae9e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a0aca3da437ca6973cade030c5283d7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#a240e9d13a157e03c75e42306b13cd8d8">MPI_Request</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structamrex_1_1_fab_array_1_1_copier_handle_impl.html#a7a0aca3da437ca6973cade030c5283d7">send_reqs</a></td></tr>
 <tr class="separator:a7a0aca3da437ca6973cade030c5283d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0992523e7ad0ffac2d4ff2ee93d7efeb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; char * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structamrex_1_1_fab_array_1_1_copier_handle_impl.html#a0992523e7ad0ffac2d4ff2ee93d7efeb">send_data</a></td></tr>
@@ -410,6 +414,34 @@ template&lt;typename T&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">int <a class="el" href="classamrex_1_1_fab_array.html">amrex::FabArray</a>&lt; T &gt;::CopierHandleImpl::SeqNum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a1b9cbf1cf3c98c5387d47ef47e4a7461"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">char* <a class="el" href="classamrex_1_1_fab_array.html">amrex::FabArray</a>&lt; T &gt;::CopierHandleImpl::the_recv_data = nullptr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ab81f0dabdce622e4ce4cadf3bcbae9e1"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">char* <a class="el" href="classamrex_1_1_fab_array.html">amrex::FabArray</a>&lt; T &gt;::CopierHandleImpl::the_send_data = nullptr</td>
         </tr>
       </table>
 </div><div class="memdoc">

@@ -86,7 +86,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
 <div class="title">AMReX_TypeTraits.H File Reference</div>  </div>
 </div><!--header-->
@@ -116,7 +118,35 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespaceamrex"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html">amrex</a></td></tr>
 <tr class="memdesc:namespaceamrex"><td class="mdescLeft">&#160;</td><td class="mdescRight">A Real vector in SpaceDim-dimensional space. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:adc50ea9983407ec975c6c594c92bae5d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_m_re_x___type_traits_8_h.html#adc50ea9983407ec975c6c594c92bae5d">AMREX_IS_TRIVIALLY_COPYABLE</a>(T)&#160;&#160;&#160;std::is_trivially_copyable&lt;T&gt;::value</td></tr>
+<tr class="separator:adc50ea9983407ec975c6c594c92bae5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a8690d4c6386d001b328b07257fe628a0"><td class="memTemplParams" colspan="2">template&lt;bool B, class T  = void&gt; </td></tr>
+<tr class="memitem:a8690d4c6386d001b328b07257fe628a0"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a8690d4c6386d001b328b07257fe628a0">amrex::EnableIf_t</a> = typename std::enable_if&lt; B, T &gt;::type</td></tr>
+<tr class="separator:a8690d4c6386d001b328b07257fe628a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="adc50ea9983407ec975c6c594c92bae5d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AMREX_IS_TRIVIALLY_COPYABLE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">T</td><td>)</td>
+          <td>&#160;&#160;&#160;std::is_trivially_copyable&lt;T&gt;::value</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

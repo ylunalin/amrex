@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>AMReX: /home/travis/build/AMReX-Codes/amrex/Src/Base/AMReX_CUDA.F90 File Reference</title>
+<title>AMReX: /home/travis/build/AMReX-Codes/amrex/Src/Base/AMReX_GpuQualifiers.H Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -84,23 +84,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="summary">
-<a href="#nested-classes">Data Types</a>  </div>
   <div class="headertitle">
-<div class="title">AMReX_CUDA.F90 File Reference</div>  </div>
+<div class="title">AMReX_GpuQualifiers.H</div>  </div>
 </div><!--header-->
 <div class="contents">
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Data Types</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">module &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcuda__module.html">cuda_module</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacecuda__module_1_1cuda_profiler_start.html">cuda_module::cudaProfilerStart</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacecuda__module_1_1cuda_profiler_stop.html">cuda_module::cudaProfilerStop</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-</div><!-- contents -->
+<a href="_a_m_re_x___gpu_qualifiers_8_h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef AMREX_GPU_QUALIFIERS_H_</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_GPU_QUALIFIERS_H_</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#if defined(AMREX_USE_CUDA)</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define AMREX_GPU_HOST __host__</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_GPU_DEVICE __device__</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_GPU_GLOBAL __global__</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_GPU_HOST_DEVICE __host__ __device__</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="_a_m_re_x___gpu_qualifiers_8_h.html#af7feff7858c7b1d3557509d883c46674">   13</a></span>&#160;<span class="preprocessor">#define AMREX_GPU_HOST</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="_a_m_re_x___gpu_qualifiers_8_h.html#a4e626ebf06898d71a9e0790877f1694f">   14</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_GPU_DEVICE</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">   15</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_GPU_HOST_DEVICE</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="_a_m_re_x___gpu_qualifiers_8_h.html#a3d3f711243a9a5a973dd44a2174e1529">   16</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_GPU_GLOBAL</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

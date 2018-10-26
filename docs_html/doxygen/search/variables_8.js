@@ -1,12 +1,13 @@
 var searchData=
 [
   ['ibd_5fmax_5forder_5fdef',['IBD_max_order_DEF',['../classamrex_1_1_interp_bndry_data.html#a3c37f7ae3bebb39f7fac821540e10227',1,'amrex::InterpBndryData']]],
-  ['ic',['ic',['../classamrex_1_1_neighbor_particle_container.html#aeaa3b1bb8b6e40c8899b06779754db1d',1,'amrex::NeighborParticleContainer']]],
+  ['ic',['ic',['../structamrex_1_1_cuda_1_1_component_box.html#acf10f623e3256fb1c03773c544a18087',1,'amrex::Cuda::ComponentBox::ic()'],['../classamrex_1_1_neighbor_particle_container.html#aeaa3b1bb8b6e40c8899b06779754db1d',1,'amrex::NeighborParticleContainer::ic()']]],
   ['id',['id',['../unionamrex_1_1_particle_1_1im__t.html#a90be7512d9a3064b2b5237abb496b68b',1,'amrex::Particle::im_t']]],
   ['ieee_5fdouble',['ieee_double',['../classamrex_1_1_f_p_c.html#ad349e02b1bbbc807501d2c8de41ebef9',1,'amrex::FPC']]],
   ['ieee_5ffloat',['ieee_float',['../classamrex_1_1_f_p_c.html#a1b3e2650f0f9184f503b42a96a8ebd60',1,'amrex::FPC']]],
   ['in_5fbody',['in_body',['../classamrex_1_1_e_b2_1_1_geometry_shop.html#a2ccca64586ef1e72de9428a89cbec5c3',1,'amrex::EB2::GeometryShop']]],
   ['in_5ffluid',['in_fluid',['../classamrex_1_1_e_b2_1_1_geometry_shop.html#aeef1a9882f9d9ae0fc5754c41cfbe045',1,'amrex::EB2::GeometryShop']]],
+  ['in_5flaunch_5fregion',['in_launch_region',['../namespaceamrex_1_1_cuda.html#a504d45b67ea385825efd1f96fcb53e6a',1,'amrex::Cuda']]],
   ['index_5fmap',['index_map',['../classamrex_1_1_m_f_iter.html#ac482cbbf5ecee6f2593a3e4437623082',1,'amrex::MFIter']]],
   ['indexarray',['indexArray',['../classamrex_1_1_fab_array_base.html#a15c2b54df8386a9d38216410edce884c',1,'amrex::FabArrayBase']]],
   ['indexmap',['indexMap',['../structamrex_1_1_fab_array_base_1_1_tile_array.html#a37311b356baf90979545e588fa7f6b6f',1,'amrex::FabArrayBase::TileArray']]],
@@ -29,6 +30,7 @@ var searchData=
   ['iobuffer',['ioBuffer',['../structamrex_1_1_vis_m_f_1_1_persistent_i_f_stream.html#a1e023351bf031aee0da7cc17272716ae',1,'amrex::VisMF::PersistentIFStream']]],
   ['ioprocessor',['ioProcessor',['../namespaceamrex_1_1_parallel_descriptor.html#a170c7ee692d457514ef07c0d6206f7e2',1,'amrex::ParallelDescriptor']]],
   ['irregular',['irregular',['../classamrex__eb2__2d__moudle.html#a18a38edaa3f70ab39583c90a9f2e0f38',1,'amrex_eb2_2d_moudle::irregular()'],['../classamrex__eb2__3d__module.html#a604ae16b7c854152376676974481095a',1,'amrex_eb2_3d_module::irregular()']]],
+  ['is_5fperiodic',['is_periodic',['../structamrex_1_1_geometry_data.html#a1c153da19d61edca41192dd82233071b',1,'amrex::GeometryData']]],
   ['is_5fprogram_5frunning',['is_program_running',['../classcuda__module.html#a70f71dcbf47693339c3dc9aa27289d6d',1,'cuda_module']]],
   ['isopen',['isOpen',['../structamrex_1_1_vis_m_f_1_1_persistent_i_f_stream.html#ac1ecab1d0722305f0a0257611aeb1bde',1,'amrex::VisMF::PersistentIFStream']]],
   ['isperiodic',['isPeriodic',['../classamrex_1_1_amr.html#a47527266245319befc8538d55dac8bc3',1,'amrex::Amr']]],

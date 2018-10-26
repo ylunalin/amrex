@@ -345,8 +345,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a35b5ac9091040a386f3c6e80ee598edb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9cee2171946118a9d537329dc11b73ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array.html#a9cee2171946118a9d537329dc11b73ba">FillBoundary_nowait</a> (int scomp, int <a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;nghost, const <a class="el" href="classamrex_1_1_periodicity.html">Periodicity</a> &amp;period, bool cross=false)</td></tr>
 <tr class="separator:a9cee2171946118a9d537329dc11b73ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c51ab80e3ebd10bfd7ec574d0eb78a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array.html#a1c51ab80e3ebd10bfd7ec574d0eb78a8">FillBoundary_finish</a> ()</td></tr>
-<tr class="separator:a1c51ab80e3ebd10bfd7ec574d0eb78a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af563ab168687f1128dd1179ae838d460"><td class="memTemplParams" colspan="2">template&lt;class  = typename std::enable_if&lt;IsBaseFab&lt;FAB&gt;::value&gt;&gt; </td></tr>
+<tr class="memitem:af563ab168687f1128dd1179ae838d460"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array.html#af563ab168687f1128dd1179ae838d460">FillBoundary_finish</a> ()</td></tr>
+<tr class="separator:af563ab168687f1128dd1179ae838d460"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb282b42c0eb97cbb55037bc7bdea04a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array.html#adb282b42c0eb97cbb55037bc7bdea04a">EnforcePeriodicity</a> (const <a class="el" href="classamrex_1_1_periodicity.html">Periodicity</a> &amp;period)</td></tr>
 <tr class="memdesc:adb282b42c0eb97cbb55037bc7bdea04a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill cells outside periodic domains with their corresponding cells inside the domain. Ghost cells are treated the same as valid cells. The <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> is allowed to be overlapping.  <a href="#adb282b42c0eb97cbb55037bc7bdea04a">More...</a><br/></td></tr>
 <tr class="separator:adb282b42c0eb97cbb55037bc7bdea04a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -357,6 +358,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a542bac940ae8e28ba4511df6425972a7"><td class="memTemplParams" colspan="2">template&lt;class  = typename std::enable_if&lt;IsBaseFab&lt;FAB&gt;::value&gt;&gt; </td></tr>
 <tr class="memitem:a542bac940ae8e28ba4511df6425972a7"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array.html#a542bac940ae8e28ba4511df6425972a7">BuildMask</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;phys_domain, const <a class="el" href="classamrex_1_1_periodicity.html">Periodicity</a> &amp;period, <a class="el" href="classamrex_1_1_fab_array.html#a33f5bacc0aa27398623bc9cfa4dc3322">value_type</a> <a class="el" href="namespaceamrex.html#abd2e3d292645433cefc947725585f87aaa72ed46ebb1280e51746ce28ded53942">covered</a>, <a class="el" href="classamrex_1_1_fab_array.html#a33f5bacc0aa27398623bc9cfa4dc3322">value_type</a> notcovered, <a class="el" href="classamrex_1_1_fab_array.html#a33f5bacc0aa27398623bc9cfa4dc3322">value_type</a> physbnd, <a class="el" href="classamrex_1_1_fab_array.html#a33f5bacc0aa27398623bc9cfa4dc3322">value_type</a> interior)</td></tr>
 <tr class="separator:a542bac940ae8e28ba4511df6425972a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a934f0a570d90be173833fe23d06eb46c"><td class="memTemplParams" colspan="2">template&lt;class  = typename std::enable_if&lt;IsBaseFab&lt;FAB&gt;::value&gt;&gt; </td></tr>
+<tr class="memitem:a934f0a570d90be173833fe23d06eb46c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array.html#a934f0a570d90be173833fe23d06eb46c">FBEP_nowait</a> (int scomp, int <a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;nghost, const <a class="el" href="classamrex_1_1_periodicity.html">Periodicity</a> &amp;period, bool cross, bool enforce_periodicity_only=false)</td></tr>
+<tr class="separator:a934f0a570d90be173833fe23d06eb46c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classamrex_1_1_fab_array_base"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classamrex_1_1_fab_array_base')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classamrex_1_1_fab_array_base.html">amrex::FabArrayBase</a></td></tr>
 <tr class="memitem:acc0d46f9c8551ec9c1c6d6658103db15 inherit pub_methods_classamrex_1_1_fab_array_base"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array_base.html#acc0d46f9c8551ec9c1c6d6658103db15">FabArrayBase</a> ()</td></tr>
 <tr class="separator:acc0d46f9c8551ec9c1c6d6658103db15 inherit pub_methods_classamrex_1_1_fab_array_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -415,10 +419,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af8fc41eb806cf2a13724a31922ab1c63 inherit pub_methods_classamrex_1_1_fab_array_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3918d10004ca8f4494fd9e6099bdabc3 inherit pub_methods_classamrex_1_1_fab_array_base"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array_base.html#a3918d10004ca8f4494fd9e6099bdabc3">updateBDKey</a> ()</td></tr>
 <tr class="separator:a3918d10004ca8f4494fd9e6099bdabc3 inherit pub_methods_classamrex_1_1_fab_array_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4dbaa41d5ff16738f9799828caa676ba inherit pub_methods_classamrex_1_1_fab_array_base"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array_base.html#a4dbaa41d5ff16738f9799828caa676ba">IsInitialized</a> () const </td></tr>
-<tr class="separator:a4dbaa41d5ff16738f9799828caa676ba inherit pub_methods_classamrex_1_1_fab_array_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6099f6be6dc55877b885800bff15f7b inherit pub_methods_classamrex_1_1_fab_array_base"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array_base.html#ae6099f6be6dc55877b885800bff15f7b">SetInitialized</a> (bool binit)</td></tr>
-<tr class="separator:ae6099f6be6dc55877b885800bff15f7b inherit pub_methods_classamrex_1_1_fab_array_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7aac9d7bfa41ac76f80543a6a8c1898 inherit pub_methods_classamrex_1_1_fab_array_base"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array_base.html#ae7aac9d7bfa41ac76f80543a6a8c1898">flushFPinfo</a> (bool no_assertion=false)</td></tr>
 <tr class="separator:ae7aac9d7bfa41ac76f80543a6a8c1898 inherit pub_methods_classamrex_1_1_fab_array_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d3dbb0a351f570080f23f75febd836d inherit pub_methods_classamrex_1_1_fab_array_base"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array_base.html#a9d3dbb0a351f570080f23f75febd836d">flushCFinfo</a> (bool no_assertion=false)</td></tr>
@@ -440,8 +440,10 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a3acbfa5ddb651d940c5081bf658d03d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45e5a0e80d71edc1f5d3e6ae606fd50b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_periodicity.html">Periodicity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array.html#a45e5a0e80d71edc1f5d3e6ae606fd50b">fb_period</a></td></tr>
 <tr class="separator:a45e5a0e80d71edc1f5d3e6ae606fd50b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae79a4df4e0f77dcd78ef90a1f9c89be8"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array.html#ae79a4df4e0f77dcd78ef90a1f9c89be8">fb_the_recv_data</a></td></tr>
+<tr class="memitem:ae79a4df4e0f77dcd78ef90a1f9c89be8"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array.html#ae79a4df4e0f77dcd78ef90a1f9c89be8">fb_the_recv_data</a> = nullptr</td></tr>
 <tr class="separator:ae79a4df4e0f77dcd78ef90a1f9c89be8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a742a077372b0720e9a0a0fdb3e7b12"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array.html#a5a742a077372b0720e9a0a0fdb3e7b12">fb_the_send_data</a> = nullptr</td></tr>
+<tr class="separator:a5a742a077372b0720e9a0a0fdb3e7b12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14f26ce2e688e3763d25b924f284d1b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array.html#a14f26ce2e688e3763d25b924f284d1b1">fb_recv_from</a></td></tr>
 <tr class="separator:a14f26ce2e688e3763d25b924f284d1b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f4b315f83778346660ed20f94f9e3cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; char * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array.html#a8f4b315f83778346660ed20f94f9e3cf">fb_recv_data</a></td></tr>
@@ -473,7 +475,7 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:adaab2aa39653ad6be0ef6bb6d6565ef9 inherit pro_methods_classamrex_1_1_fab_array_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1abcd5df36dacaa8b31e6fcaaed30be3 inherit pro_methods_classamrex_1_1_fab_array_base"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array_base.html#a1abcd5df36dacaa8b31e6fcaaed30be3">buildTileArray</a> (const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;tilesize, <a class="el" href="structamrex_1_1_fab_array_base_1_1_tile_array.html">TileArray</a> &amp;ta) const </td></tr>
 <tr class="separator:a1abcd5df36dacaa8b31e6fcaaed30be3 inherit pro_methods_classamrex_1_1_fab_array_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5c5f9aa77f5d7c4c73fafea2dc0116e inherit pro_methods_classamrex_1_1_fab_array_base"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array_base.html#aa5c5f9aa77f5d7c4c73fafea2dc0116e">flushTileArray</a> (const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;tilesize=<a class="el" href="classamrex_1_1_int_vect.html#a2f992c8ef43cee508cbce8712b257ead">IntVect::TheZeroVector</a>(), bool no_assertion=false) const </td></tr>
+<tr class="memitem:aa5c5f9aa77f5d7c4c73fafea2dc0116e inherit pro_methods_classamrex_1_1_fab_array_base"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array_base.html#aa5c5f9aa77f5d7c4c73fafea2dc0116e">flushTileArray</a> (const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;tilesize=<a class="el" href="classamrex_1_1_int_vect.html#ab38845e87a0c22ba4ad836f4f091b61a">IntVect::TheZeroVector</a>(), bool no_assertion=false) const </td></tr>
 <tr class="separator:aa5c5f9aa77f5d7c4c73fafea2dc0116e inherit pro_methods_classamrex_1_1_fab_array_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b4a0572662ad2d1a9cc30f3c6d8fd73 inherit pro_methods_classamrex_1_1_fab_array_base"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structamrex_1_1_fab_array_base_1_1_f_b.html">FB</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array_base.html#a5b4a0572662ad2d1a9cc30f3c6d8fd73">getFB</a> (const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;nghost, const <a class="el" href="classamrex_1_1_periodicity.html">Periodicity</a> &amp;period, bool cross=false, bool enforce_periodicity_only=false) const </td></tr>
 <tr class="separator:a5b4a0572662ad2d1a9cc30f3c6d8fd73 inherit pro_methods_classamrex_1_1_fab_array_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -548,6 +550,8 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a31677ce1cdddcbc405f41bb1a4351d35 inherit pub_static_attribs_classamrex_1_1_fab_array_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4f336f53eda93074deacddef4d22055 inherit pub_static_attribs_classamrex_1_1_fab_array_base"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array_base.html#ae4f336f53eda93074deacddef4d22055">MaxComp</a></td></tr>
 <tr class="separator:ae4f336f53eda93074deacddef4d22055 inherit pub_static_attribs_classamrex_1_1_fab_array_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a709c4d64804e1af085473471216bcc41 inherit pub_static_attribs_classamrex_1_1_fab_array_base"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array_base.html#a709c4d64804e1af085473471216bcc41">use_cuda_aware_mpi</a></td></tr>
+<tr class="separator:a709c4d64804e1af085473471216bcc41 inherit pub_static_attribs_classamrex_1_1_fab_array_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70e36cc6b3a88bc821e4cadd72d3a8de inherit pub_static_attribs_classamrex_1_1_fab_array_base"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array_base.html#a70e36cc6b3a88bc821e4cadd72d3a8de">do_async_sends</a></td></tr>
 <tr class="separator:a70e36cc6b3a88bc821e4cadd72d3a8de inherit pub_static_attribs_classamrex_1_1_fab_array_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec4332affa6c055da41aab70b684a064 inherit pub_static_attribs_classamrex_1_1_fab_array_base"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_fab_array_base.html#aec4332affa6c055da41aab70b684a064">comm_tile_size</a></td></tr>
@@ -1718,6 +1722,60 @@ template&lt;typename T&gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="a934f0a570d90be173833fe23d06eb46c"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<div class="memtemplate">
+template&lt;class  = typename std::enable_if&lt;IsBaseFab&lt;FAB&gt;::value&gt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classamrex_1_1_fab_array.html">amrex::FabArray</a>&lt; T &gt;::FBEP_nowait </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>scomp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ncomp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;&#160;</td>
+          <td class="paramname"><em>nghost</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_periodicity.html">Periodicity</a> &amp;&#160;</td>
+          <td class="paramname"><em>period</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>cross</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>enforce_periodicity_only</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="ae2a65f54013f600fa7dab70c171f098f"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1888,11 +1946,13 @@ template&lt;class FAB &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a1c51ab80e3ebd10bfd7ec574d0eb78a8"></a>
+<a class="anchor" id="af563ab168687f1128dd1179ae838d460"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T&gt; </div>
+<div class="memtemplate">
+template&lt;class  = typename std::enable_if&lt;IsBaseFab&lt;FAB&gt;::value&gt;&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="classamrex_1_1_fab_array.html">amrex::FabArray</a>&lt; T &gt;::FillBoundary_finish </td>
@@ -3268,7 +3328,7 @@ template&lt;class &gt; </div>
 <div class="memtemplate">
 template&lt;class FAB &gt; </div>
 <div class="memtemplate">
-template&lt;class &gt; </div>
+template&lt;class FOO &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="classamrex_1_1_fab_array.html">amrex::FabArray</a>&lt; FAB &gt;::setVal </td>
@@ -3360,7 +3420,7 @@ template&lt;class &gt; </div>
 <div class="memtemplate">
 template&lt;class FAB &gt; </div>
 <div class="memtemplate">
-template&lt;class &gt; </div>
+template&lt;class FOO &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="classamrex_1_1_fab_array.html">amrex::FabArray</a>&lt; FAB &gt;::setVal </td>
@@ -3864,7 +3924,21 @@ template&lt;typename T&gt; </div>
 template&lt;typename T&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">char* <a class="el" href="classamrex_1_1_fab_array.html">amrex::FabArray</a>&lt; T &gt;::fb_the_recv_data</td>
+          <td class="memname">char* <a class="el" href="classamrex_1_1_fab_array.html">amrex::FabArray</a>&lt; T &gt;::fb_the_recv_data = nullptr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a5a742a077372b0720e9a0a0fdb3e7b12"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">char* <a class="el" href="classamrex_1_1_fab_array.html">amrex::FabArray</a>&lt; T &gt;::fb_the_send_data = nullptr</td>
         </tr>
       </table>
 </div><div class="memdoc">

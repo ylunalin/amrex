@@ -31,7 +31,6 @@ var searchData=
   ['vector_3c_20neighborcommtag_20_3e',['Vector&lt; NeighborCommTag &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20particlelevel_20_3e',['Vector&lt; ParticleLevel &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20particletileptr_20_3e',['Vector&lt; ParticleTilePtr &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
-  ['vector_3c_20particletype_20_3e',['Vector&lt; ParticleType &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20real_20_3e',['Vector&lt; Real &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20realtuple_20_3e',['Vector&lt; RealTuple &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20setbuf_5fchar_5ftype_20_3e',['Vector&lt; Setbuf_Char_Type &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
