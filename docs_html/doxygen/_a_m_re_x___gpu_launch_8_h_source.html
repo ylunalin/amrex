@@ -93,13 +93,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_a_m_re_x___cuda_launch_8_h.html">AMReX_CudaLaunch.H</a>&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="_a_m_re_x___gpu_launch_8_h.html#af539b9361cc6f15a4b475b1d55dcb443">    6</a></span>&#160;<span class="preprocessor">#define AMREX_GPU_LAUNCH_HOST_DEVICE_LAMBDA(...) AMREX_CUDA_LAUNCH_HOST_DEVICE_LAMBDA(__VA_ARGS__)</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="_a_m_re_x___gpu_launch_8_h.html#ab283fb36db2b2eed182b8b5fab874e14">    7</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_GPU_LAUNCH_DEVICE_LAMBDA(...) AMREX_CUDA_LAUNCH_DEVICE_LAMBDA(__VA_ARGS__)</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">    6</a></span>&#160;<span class="preprocessor">#define AMREX_LAUNCH_HOST_DEVICE_LAMBDA(...) AMREX_CUDA_LAUNCH_HOST_DEVICE_LAMBDA_RANGE(__VA_ARGS__)</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="_a_m_re_x___gpu_launch_8_h.html#a224e4236496017e5f5cbcec29e94c379">    7</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_LAUNCH_DEVICE_LAMBDA(...) AMREX_CUDA_LAUNCH_DEVICE_LAMBDA_RANGE(__VA_ARGS__)</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="_a_m_re_x___gpu_launch_8_h.html#aa3fc32828f5fe956bf0239400ca86cb3">    9</a></span>&#160;<span class="preprocessor">#define AMREX_GPU_LAUNCH_HOST_DEVICE(...) AMREX_CUDA_LAUNCH_HOST_DEVICE(__VA_ARGS__)</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="_a_m_re_x___gpu_launch_8_h.html#a254e3cf72e5a88b3460963056a9c3277">   10</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_GPU_LAUNCH_DEVICE(...) AMREX_CUDA_LAUNCH_DEVICE(__VA_ARGS__)</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="_a_m_re_x___cuda_launch_8_h_html"><div class="ttname"><a href="_a_m_re_x___cuda_launch_8_h.html">AMReX_CudaLaunch.H</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

@@ -121,7 +121,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="comment">//</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="comment">// There can only be local work to do.</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="comment">//</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">int</span> N_loc = (*TheFB.<a class="code" href="structamrex_1_1_fab_array_base_1_1_f_b.html#a3f5b0c61b1728075cc863da0b911a1c6">m_LocTags</a>).size();</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">int</span> N_loc = (*TheFB.<a class="code" href="structamrex_1_1_fab_array_base_1_1_f_b.html#a3f5b0c61b1728075cc863da0b911a1c6">m_LocTags</a>).<a class="code" href="namespaceamrex_1_1_cuda_1_1range__detail.html#a70a6981c4f03b2a3f5f1cb76d0ceea2f">size</a>();</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordtype">bool</span> is_thread_safe = FAB::isCopyOMPSafe() &amp;&amp; TheFB.<a class="code" href="structamrex_1_1_fab_array_base_1_1_f_b.html#a9d77e63093b304f72f307d292d987082">m_threadsafe_loc</a>;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#ifdef _OPENMP</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#pragma omp parallel if (is_thread_safe &amp;&amp; Gpu::notInLaunchRegion())</span></div>
@@ -137,7 +137,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keyword">const</span> FAB* sfab = &amp;(<span class="keyword">get</span>(tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#aa03667cd08814ea67d8fc2170a93a07c">srcIndex</a>));</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                  FAB* dfab = &amp;(<span class="keyword">get</span>(tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#abc0d662cdc63c3e99f4c114dc3ac266f">dstIndex</a>));</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#af539b9361cc6f15a4b475b1d55dcb443">AMREX_GPU_LAUNCH_HOST_DEVICE_LAMBDA</a>(tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#aa4ad873f80c114d0041fd4c30d9fbe94">dbox</a>, tbx,</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">AMREX_LAUNCH_HOST_DEVICE_LAMBDA</a>(tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#aa4ad873f80c114d0041fd4c30d9fbe94">dbox</a>, tbx,</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            {</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <a class="code" href="classamrex_1_1_box.html">Box</a> sbx = tbx + (tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#a1c8df51daf5ac3a9d20522cfdb6ab004">sbox</a>.<a class="code" href="classamrex_1_1_box.html#a3d158e349af4334aa02f2dfc4fc87d0d">smallEnd</a>() - tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#aa4ad873f80c114d0041fd4c30d9fbe94">dbox</a>.<a class="code" href="classamrex_1_1_box.html#a3d158e349af4334aa02f2dfc4fc87d0d">smallEnd</a>());</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                dfab-&gt;copy(*sfab, sbx, scomp, tbx, scomp, ncomp);</div>
@@ -261,7 +261,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j&lt;N_snds; ++j)</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        {</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;            pre_reqs[j] = <a class="code" href="namespaceamrex_1_1_parallel_descriptor.html#a0903eb5194f11fcf386f79e6ff3c02f7">ParallelDescriptor::Asend</a></div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                (indv_send_size[j].data(), indv_send_size[j].size(),</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                (indv_send_size[j].data(), indv_send_size[j].<a class="code" href="namespaceamrex_1_1_cuda_1_1range__detail.html#a70a6981c4f03b2a3f5f1cb76d0ceea2f">size</a>(),</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                 <a class="code" href="namespaceamrex_1_1_parallel_context.html#a60c8ba6a67754c2b46d8b1ad78cb26b2">ParallelContext::global_to_local_rank</a>(send_rank[j]),</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                 preSeqNum,</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                 <a class="code" href="namespaceamrex_1_1_parallel_context.html#afb1955e0ab6b3f188007ad3aa5a4ef8a">ParallelContext::CommunicatorSub</a>()).<a class="code" href="classamrex_1_1_parallel_descriptor_1_1_message.html#a57999afb8ef13d17fc24750bdae6cd00">req</a>();</div>
@@ -317,7 +317,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;                    <span class="keyword">const</span> Box&amp; bx = tag.sbox;</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;                    <span class="keyword">const</span> FAB* sfab = &amp;(<span class="keyword">get</span>(tag.srcIndex));</div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;                    <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#af539b9361cc6f15a4b475b1d55dcb443">AMREX_GPU_LAUNCH_HOST_DEVICE_LAMBDA</a>(bx, tbx,</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;                    <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">AMREX_LAUNCH_HOST_DEVICE_LAMBDA</a>(bx, tbx,</div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;                    {</div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;                        <span class="keywordtype">char</span>* p = dptr + <span class="keyword">sizeof</span>(value_type)*<a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>*bx.index(tbx.smallEnd());</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;                        sfab-&gt;copyToMem(tbx, scomp, <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>, p);</div>
@@ -419,7 +419,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;            <span class="keyword">const</span> FAB* sfab = &amp;(<span class="keyword">get</span>(tag.srcIndex));</div>
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;                  FAB* dfab = &amp;(<span class="keyword">get</span>(tag.dstIndex));</div>
 <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;            <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#af539b9361cc6f15a4b475b1d55dcb443">AMREX_GPU_LAUNCH_HOST_DEVICE_LAMBDA</a>(tag.dbox, tbx,</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;            <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">AMREX_LAUNCH_HOST_DEVICE_LAMBDA</a>(tag.dbox, tbx,</div>
 <div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;            {</div>
 <div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;                Box sbx = tbx + (tag.sbox.smallEnd() - tag.dbox.smallEnd());</div>
 <div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;                dfab-&gt;copy(*sfab, sbx, scomp, tbx, scomp, <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>);</div>
@@ -449,7 +449,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;                <span class="keyword">const</span> FAB* sfab = &amp;(<span class="keyword">get</span>(tag.srcIndex));</div>
 <div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;                      FAB* dfab = &amp;(<span class="keyword">get</span>(tag.dstIndex));</div>
 <div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;                <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#af539b9361cc6f15a4b475b1d55dcb443">AMREX_GPU_LAUNCH_HOST_DEVICE_LAMBDA</a>(tag.dbox, tbx,</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;                <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">AMREX_LAUNCH_HOST_DEVICE_LAMBDA</a>(tag.dbox, tbx,</div>
 <div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;                {</div>
 <div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;                    Box sbx = tbx + (tag.sbox.smallEnd() - tag.dbox.smallEnd());</div>
 <div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;                    dfab-&gt;copy(*sfab, sbx, scomp, tbx, scomp, <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>);</div>
@@ -530,7 +530,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;                    <span class="keyword">const</span> <span class="keywordtype">int</span> scomp = fb_scomp;</div>
 <div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;                    <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a> = fb_ncomp;</div>
 <div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;</div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;                    <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#af539b9361cc6f15a4b475b1d55dcb443">AMREX_GPU_LAUNCH_HOST_DEVICE_LAMBDA</a>(bx, tbx,</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;                    <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">AMREX_LAUNCH_HOST_DEVICE_LAMBDA</a>(bx, tbx,</div>
 <div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;                    {</div>
 <div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;                        <span class="keyword">const</span> <span class="keywordtype">char</span>* p = dptr + <span class="keyword">sizeof</span>(<a class="code" href="classamrex_1_1_fab_array.html#a33f5bacc0aa27398623bc9cfa4dc3322">value_type</a>)*ncomp*bx.<a class="code" href="classamrex_1_1_box.html#adb5b38cf98ec633ea3b8a3c6ffd27056">index</a>(tbx.smallEnd());</div>
 <div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;                        dfab-&gt;copyFromMem(tbx, scomp, ncomp, p);</div>
@@ -585,7 +585,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;{</div>
 <div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;    <a class="code" href="_a_m_re_x___b_l_profiler_8_h.html#a548fbd9b2cd72a927f463003f4adb0b1">BL_PROFILE</a>(<span class="stringliteral">&quot;FabArray::ParallelCopy()&quot;</span>);</div>
 <div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;</div>
-<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;    <span class="keywordflow">if</span> (size() == 0 || src.<a class="code" href="classamrex_1_1_fab_array_base.html#aeadcc8b1b71512821a778b9c17ff92a5">size</a>() == 0) <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="namespaceamrex_1_1_cuda_1_1range__detail.html#a70a6981c4f03b2a3f5f1cb76d0ceea2f">size</a>() == 0 || src.<a class="code" href="classamrex_1_1_fab_array_base.html#aeadcc8b1b71512821a778b9c17ff92a5">size</a>() == 0) <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;</div>
 <div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;    <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(op == FabArrayBase::COPY || op == FabArrayBase::ADD);</div>
 <div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;    <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(boxArray().ixType() == src.<a class="code" href="classamrex_1_1_fab_array_base.html#af3cc07aae7bfab423fa9c30bba2efd59">boxArray</a>().<a class="code" href="classamrex_1_1_box_array.html#ab0def4ab9990fbe6880e98067e27acd5">ixType</a>());</div>
@@ -615,12 +615,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;                      FAB* dfab = &amp;(<span class="keyword">get</span>(fai));</div>
 <div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;        <span class="comment">// avoid self copy or plus</span></div>
 <div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;        <span class="keywordflow">if</span> (op == FabArrayBase::COPY) {</div>
-<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;                    <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#af539b9361cc6f15a4b475b1d55dcb443">AMREX_GPU_LAUNCH_HOST_DEVICE_LAMBDA</a>(bx, tbx,</div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;                    <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">AMREX_LAUNCH_HOST_DEVICE_LAMBDA</a>(bx, tbx,</div>
 <div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;                    {</div>
 <div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;                        dfab-&gt;copy(*sfab, tbx, scomp, tbx, dcomp, ncomp);</div>
 <div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;                    });</div>
 <div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;                    <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#af539b9361cc6f15a4b475b1d55dcb443">AMREX_GPU_LAUNCH_HOST_DEVICE_LAMBDA</a>(bx, tbx,</div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;                    <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">AMREX_LAUNCH_HOST_DEVICE_LAMBDA</a>(bx, tbx,</div>
 <div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;                    {</div>
 <div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;                        dfab-&gt;plus(*sfab, tbx, tbx, scomp, dcomp, ncomp);</div>
 <div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;                    });</div>
@@ -638,8 +638,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;        <span class="comment">//</span></div>
 <div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;        <span class="comment">// There can only be local work to do.</span></div>
 <div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;        <span class="comment">//</span></div>
-<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;    <span class="keywordtype">int</span> N_loc = (*thecpc.m_LocTags).size();</div>
-<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;        <span class="keywordtype">bool</span> is_thread_safe = FAB::isCopyOMPSafe() &amp;&amp; thecpc.<a class="code" href="structamrex_1_1_fab_array_base_1_1_c_p_c.html#addb3c2428b13f33918b669b3860b7bc5">m_threadsafe_loc</a>;</div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;    <span class="keywordtype">int</span> N_loc = (*thecpc.m_LocTags).<a class="code" href="namespaceamrex_1_1_cuda_1_1range__detail.html#a70a6981c4f03b2a3f5f1cb76d0ceea2f">size</a>();</div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;        <span class="keywordtype">bool</span> is_thread_safe = FAB::isCopyOMPSafe() &amp;&amp; thecpc.m_threadsafe_loc;</div>
 <div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;<span class="preprocessor">#ifdef _OPENMP</span></div>
 <div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#pragma omp parallel if (is_thread_safe &amp;&amp; Gpu::notInLaunchRegion())</span></div>
 <div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
@@ -652,13 +652,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;                      FAB* dfab = &amp;(<span class="keyword">get</span>(tag.dstIndex));</div>
 <div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;        <span class="comment">// avoid self copy or plus</span></div>
 <div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;        <span class="keywordflow">if</span> (op == FabArrayBase::COPY) {</div>
-<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;                    <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#af539b9361cc6f15a4b475b1d55dcb443">AMREX_GPU_LAUNCH_HOST_DEVICE_LAMBDA</a>(tag.sbox, tbx,</div>
+<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;                    <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">AMREX_LAUNCH_HOST_DEVICE_LAMBDA</a>(tag.sbox, tbx,</div>
 <div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;                    {</div>
 <div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;                        Box dbx = tbx + (tag.dbox.smallEnd() - tag.sbox.smallEnd());</div>
 <div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;                        dfab-&gt;copy(*sfab, tbx, scomp, dbx, dcomp, ncomp);</div>
 <div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;                    });</div>
 <div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;                    <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#af539b9361cc6f15a4b475b1d55dcb443">AMREX_GPU_LAUNCH_HOST_DEVICE_LAMBDA</a>(tag.sbox, tbx,</div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;                    <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">AMREX_LAUNCH_HOST_DEVICE_LAMBDA</a>(tag.sbox, tbx,</div>
 <div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;                    {</div>
 <div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;                        Box dbx = tbx + (tag.dbox.smallEnd() - tag.sbox.smallEnd());</div>
 <div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;                        dfab-&gt;plus(*sfab, tbx, dbx, scomp, dcomp, ncomp);</div>
@@ -797,7 +797,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j&lt;N_snds; ++j)</div>
 <div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;            {</div>
 <div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;                pre_reqs[j] = <a class="code" href="namespaceamrex_1_1_parallel_descriptor.html#a0903eb5194f11fcf386f79e6ff3c02f7">ParallelDescriptor::Asend</a></div>
-<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;                    (indv_send_size[j].data(), indv_send_size[j].size(),</div>
+<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;                    (indv_send_size[j].data(), indv_send_size[j].<a class="code" href="namespaceamrex_1_1_cuda_1_1range__detail.html#a70a6981c4f03b2a3f5f1cb76d0ceea2f">size</a>(),</div>
 <div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;                     <a class="code" href="namespaceamrex_1_1_parallel_context.html#a60c8ba6a67754c2b46d8b1ad78cb26b2">ParallelContext::global_to_local_rank</a>(send_rank[j]),</div>
 <div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;                     preSeqNum,</div>
 <div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;                     <a class="code" href="namespaceamrex_1_1_parallel_context.html#afb1955e0ab6b3f188007ad3aa5a4ef8a">ParallelContext::CommunicatorSub</a>()).<a class="code" href="classamrex_1_1_parallel_descriptor_1_1_message.html#a57999afb8ef13d17fc24750bdae6cd00">req</a>();</div>
@@ -854,7 +854,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;                        <span class="keyword">const</span> Box&amp; bx = tag.sbox;</div>
 <div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;                        <span class="keyword">const</span> FAB* sfab = &amp;(src[tag.srcIndex]);</div>
 <div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;</div>
-<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;                        <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#af539b9361cc6f15a4b475b1d55dcb443">AMREX_GPU_LAUNCH_HOST_DEVICE_LAMBDA</a>(bx, tbx,</div>
+<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;                        <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">AMREX_LAUNCH_HOST_DEVICE_LAMBDA</a>(bx, tbx,</div>
 <div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;                        {</div>
 <div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;                            <span class="keywordtype">char</span>* p = dptr + <span class="keyword">sizeof</span>(value_type)*NC*bx.index(tbx.smallEnd());</div>
 <div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;                            sfab-&gt;copyToMem(tbx, SC, NC, p);</div>
@@ -966,13 +966,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;                          FAB* dfab = &amp;(<span class="keyword">get</span>(tag.dstIndex));</div>
 <div class="line"><a name="l00877"></a><span class="lineno">  877</span>&#160;</div>
 <div class="line"><a name="l00878"></a><span class="lineno">  878</span>&#160;            <span class="keywordflow">if</span> (op == FabArrayBase::COPY) {</div>
-<div class="line"><a name="l00879"></a><span class="lineno">  879</span>&#160;                        <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#af539b9361cc6f15a4b475b1d55dcb443">AMREX_GPU_LAUNCH_HOST_DEVICE_LAMBDA</a>(tag.sbox, tbx,</div>
+<div class="line"><a name="l00879"></a><span class="lineno">  879</span>&#160;                        <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">AMREX_LAUNCH_HOST_DEVICE_LAMBDA</a>(tag.sbox, tbx,</div>
 <div class="line"><a name="l00880"></a><span class="lineno">  880</span>&#160;                        {</div>
 <div class="line"><a name="l00881"></a><span class="lineno">  881</span>&#160;                            Box dbx = tbx + (tag.dbox.smallEnd() - tag.sbox.smallEnd());</div>
 <div class="line"><a name="l00882"></a><span class="lineno">  882</span>&#160;                            dfab-&gt;copy(*sfab, tbx, SC, dbx, DC, NC);</div>
 <div class="line"><a name="l00883"></a><span class="lineno">  883</span>&#160;                        });</div>
 <div class="line"><a name="l00884"></a><span class="lineno">  884</span>&#160;            } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00885"></a><span class="lineno">  885</span>&#160;                        <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#af539b9361cc6f15a4b475b1d55dcb443">AMREX_GPU_LAUNCH_HOST_DEVICE_LAMBDA</a>(tag.sbox, tbx,</div>
+<div class="line"><a name="l00885"></a><span class="lineno">  885</span>&#160;                        <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">AMREX_LAUNCH_HOST_DEVICE_LAMBDA</a>(tag.sbox, tbx,</div>
 <div class="line"><a name="l00886"></a><span class="lineno">  886</span>&#160;                        {</div>
 <div class="line"><a name="l00887"></a><span class="lineno">  887</span>&#160;                            Box dbx = tbx + (tag.dbox.smallEnd() - tag.sbox.smallEnd());</div>
 <div class="line"><a name="l00888"></a><span class="lineno">  888</span>&#160;                            dfab-&gt;plus(*sfab, tbx, dbx, SC, DC, NC);</div>
@@ -1001,13 +1001,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00911"></a><span class="lineno">  911</span>&#160;                          FAB* dfab = &amp;(<span class="keyword">get</span>(tag.dstIndex));</div>
 <div class="line"><a name="l00912"></a><span class="lineno">  912</span>&#160;</div>
 <div class="line"><a name="l00913"></a><span class="lineno">  913</span>&#160;            <span class="keywordflow">if</span> (op == FabArrayBase::COPY) {</div>
-<div class="line"><a name="l00914"></a><span class="lineno">  914</span>&#160;                        <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#af539b9361cc6f15a4b475b1d55dcb443">AMREX_GPU_LAUNCH_HOST_DEVICE_LAMBDA</a>(tag.sbox, tbx,</div>
+<div class="line"><a name="l00914"></a><span class="lineno">  914</span>&#160;                        <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">AMREX_LAUNCH_HOST_DEVICE_LAMBDA</a>(tag.sbox, tbx,</div>
 <div class="line"><a name="l00915"></a><span class="lineno">  915</span>&#160;                        {</div>
 <div class="line"><a name="l00916"></a><span class="lineno">  916</span>&#160;                            Box dbx = tbx + (tag.dbox.smallEnd() - tag.sbox.smallEnd());</div>
 <div class="line"><a name="l00917"></a><span class="lineno">  917</span>&#160;                            dfab-&gt;copy(*sfab, tbx, SC, dbx, DC, NC);</div>
 <div class="line"><a name="l00918"></a><span class="lineno">  918</span>&#160;                        });</div>
 <div class="line"><a name="l00919"></a><span class="lineno">  919</span>&#160;            } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00920"></a><span class="lineno">  920</span>&#160;                        <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#af539b9361cc6f15a4b475b1d55dcb443">AMREX_GPU_LAUNCH_HOST_DEVICE_LAMBDA</a>(tag.sbox, tbx,</div>
+<div class="line"><a name="l00920"></a><span class="lineno">  920</span>&#160;                        <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">AMREX_LAUNCH_HOST_DEVICE_LAMBDA</a>(tag.sbox, tbx,</div>
 <div class="line"><a name="l00921"></a><span class="lineno">  921</span>&#160;                        {</div>
 <div class="line"><a name="l00922"></a><span class="lineno">  922</span>&#160;                            Box dbx = tbx + (tag.dbox.smallEnd() - tag.sbox.smallEnd());</div>
 <div class="line"><a name="l00923"></a><span class="lineno">  923</span>&#160;                            dfab-&gt;plus(*sfab, tbx, dbx, SC, DC, NC);</div>
@@ -1066,7 +1066,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00976"></a><span class="lineno">  976</span>&#160;                        FAB* dfab = &amp;(<span class="keyword">get</span>(tag.dstIndex));</div>
 <div class="line"><a name="l00977"></a><span class="lineno">  977</span>&#160;                        <span class="keywordflow">if</span> (op == FabArrayBase::COPY)</div>
 <div class="line"><a name="l00978"></a><span class="lineno">  978</span>&#160;                        {</div>
-<div class="line"><a name="l00979"></a><span class="lineno">  979</span>&#160;                            <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#af539b9361cc6f15a4b475b1d55dcb443">AMREX_GPU_LAUNCH_HOST_DEVICE_LAMBDA</a>(bx, tbx,</div>
+<div class="line"><a name="l00979"></a><span class="lineno">  979</span>&#160;                            <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">AMREX_LAUNCH_HOST_DEVICE_LAMBDA</a>(bx, tbx,</div>
 <div class="line"><a name="l00980"></a><span class="lineno">  980</span>&#160;                            {</div>
 <div class="line"><a name="l00981"></a><span class="lineno">  981</span>&#160;                                <span class="keyword">const</span> <span class="keywordtype">char</span>* p = dptr + <span class="keyword">sizeof</span>(value_type)*NC*bx.index(tbx.smallEnd());</div>
 <div class="line"><a name="l00982"></a><span class="lineno">  982</span>&#160;                                dfab-&gt;copyFromMem(tbx,DC,NC,p);</div>
@@ -1074,7 +1074,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00984"></a><span class="lineno">  984</span>&#160;                        }</div>
 <div class="line"><a name="l00985"></a><span class="lineno">  985</span>&#160;                        <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00986"></a><span class="lineno">  986</span>&#160;                        {</div>
-<div class="line"><a name="l00987"></a><span class="lineno">  987</span>&#160;                            <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#af539b9361cc6f15a4b475b1d55dcb443">AMREX_GPU_LAUNCH_HOST_DEVICE_LAMBDA</a>(bx, tbx,</div>
+<div class="line"><a name="l00987"></a><span class="lineno">  987</span>&#160;                            <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">AMREX_LAUNCH_HOST_DEVICE_LAMBDA</a>(bx, tbx,</div>
 <div class="line"><a name="l00988"></a><span class="lineno">  988</span>&#160;                            {</div>
 <div class="line"><a name="l00989"></a><span class="lineno">  989</span>&#160;                                <span class="keyword">const</span> <span class="keywordtype">char</span>* p = dptr + <span class="keyword">sizeof</span>(value_type)*NC*bx.index(tbx.smallEnd());</div>
 <div class="line"><a name="l00990"></a><span class="lineno">  990</span>&#160;                                dfab-&gt;addFromMem(tbx, DC, NC, p);</div>
@@ -1145,7 +1145,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01055"></a><span class="lineno"> 1055</span>&#160;{</div>
 <div class="line"><a name="l01056"></a><span class="lineno"> 1056</span>&#160;    <a class="code" href="_a_m_re_x___b_l_profiler_8_h.html#a548fbd9b2cd72a927f463003f4adb0b1">BL_PROFILE</a>(<span class="stringliteral">&quot;FabArray::ParallelCopy_nowait()&quot;</span>);</div>
 <div class="line"><a name="l01057"></a><span class="lineno"> 1057</span>&#160;</div>
-<div class="line"><a name="l01058"></a><span class="lineno"> 1058</span>&#160;    <span class="keywordflow">if</span> (size() == 0 || src.<a class="code" href="classamrex_1_1_fab_array_base.html#aeadcc8b1b71512821a778b9c17ff92a5">size</a>() == 0) <span class="keywordflow">return</span> CopierHandle();</div>
+<div class="line"><a name="l01058"></a><span class="lineno"> 1058</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="namespaceamrex_1_1_cuda_1_1range__detail.html#a70a6981c4f03b2a3f5f1cb76d0ceea2f">size</a>() == 0 || src.<a class="code" href="classamrex_1_1_fab_array_base.html#aeadcc8b1b71512821a778b9c17ff92a5">size</a>() == 0) <span class="keywordflow">return</span> CopierHandle();</div>
 <div class="line"><a name="l01059"></a><span class="lineno"> 1059</span>&#160;</div>
 <div class="line"><a name="l01060"></a><span class="lineno"> 1060</span>&#160;    <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(op == FabArrayBase::COPY || op == FabArrayBase::ADD);</div>
 <div class="line"><a name="l01061"></a><span class="lineno"> 1061</span>&#160;    <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(boxArray().ixType() == src.<a class="code" href="classamrex_1_1_fab_array_base.html#af3cc07aae7bfab423fa9c30bba2efd59">boxArray</a>().<a class="code" href="classamrex_1_1_box_array.html#ab0def4ab9990fbe6880e98067e27acd5">ixType</a>());</div>
@@ -1175,12 +1175,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01085"></a><span class="lineno"> 1085</span>&#160;                <span class="keyword">const</span> FAB* sfab = &amp;(src[fai]);</div>
 <div class="line"><a name="l01086"></a><span class="lineno"> 1086</span>&#160;                      FAB* dfab = &amp;(<span class="keyword">get</span>(fai));</div>
 <div class="line"><a name="l01087"></a><span class="lineno"> 1087</span>&#160;        <span class="keywordflow">if</span> (op == FabArrayBase::COPY) {</div>
-<div class="line"><a name="l01088"></a><span class="lineno"> 1088</span>&#160;                    <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#af539b9361cc6f15a4b475b1d55dcb443">AMREX_GPU_LAUNCH_HOST_DEVICE_LAMBDA</a>(bx, tbx,</div>
+<div class="line"><a name="l01088"></a><span class="lineno"> 1088</span>&#160;                    <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">AMREX_LAUNCH_HOST_DEVICE_LAMBDA</a>(bx, tbx,</div>
 <div class="line"><a name="l01089"></a><span class="lineno"> 1089</span>&#160;                    {</div>
 <div class="line"><a name="l01090"></a><span class="lineno"> 1090</span>&#160;                        dfab-&gt;copy(*sfab, tbx, scomp, tbx, dcomp, ncomp);</div>
 <div class="line"><a name="l01091"></a><span class="lineno"> 1091</span>&#160;                    });</div>
 <div class="line"><a name="l01092"></a><span class="lineno"> 1092</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l01093"></a><span class="lineno"> 1093</span>&#160;                    <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#af539b9361cc6f15a4b475b1d55dcb443">AMREX_GPU_LAUNCH_HOST_DEVICE_LAMBDA</a>(bx, tbx,</div>
+<div class="line"><a name="l01093"></a><span class="lineno"> 1093</span>&#160;                    <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">AMREX_LAUNCH_HOST_DEVICE_LAMBDA</a>(bx, tbx,</div>
 <div class="line"><a name="l01094"></a><span class="lineno"> 1094</span>&#160;                    {</div>
 <div class="line"><a name="l01095"></a><span class="lineno"> 1095</span>&#160;                        dfab-&gt;plus(*sfab, tbx, tbx, scomp, dcomp, ncomp);</div>
 <div class="line"><a name="l01096"></a><span class="lineno"> 1096</span>&#160;                    });</div>
@@ -1198,7 +1198,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01108"></a><span class="lineno"> 1108</span>&#160;        <span class="comment">//</span></div>
 <div class="line"><a name="l01109"></a><span class="lineno"> 1109</span>&#160;        <span class="comment">// There can only be local work to do.</span></div>
 <div class="line"><a name="l01110"></a><span class="lineno"> 1110</span>&#160;        <span class="comment">//</span></div>
-<div class="line"><a name="l01111"></a><span class="lineno"> 1111</span>&#160;    <span class="keywordtype">int</span> N_loc = (*thecpc.<a class="code" href="structamrex_1_1_fab_array_base_1_1_c_p_c.html#a81bf78da77ae53d44dd1a5bb8f05d999">m_LocTags</a>).size();</div>
+<div class="line"><a name="l01111"></a><span class="lineno"> 1111</span>&#160;    <span class="keywordtype">int</span> N_loc = (*thecpc.<a class="code" href="structamrex_1_1_fab_array_base_1_1_c_p_c.html#a81bf78da77ae53d44dd1a5bb8f05d999">m_LocTags</a>).<a class="code" href="namespaceamrex_1_1_cuda_1_1range__detail.html#a70a6981c4f03b2a3f5f1cb76d0ceea2f">size</a>();</div>
 <div class="line"><a name="l01112"></a><span class="lineno"> 1112</span>&#160;        <span class="keywordtype">bool</span> is_thread_safe = FAB::isCopyOMPSafe() &amp;&amp; thecpc.<a class="code" href="structamrex_1_1_fab_array_base_1_1_c_p_c.html#addb3c2428b13f33918b669b3860b7bc5">m_threadsafe_loc</a>;</div>
 <div class="line"><a name="l01113"></a><span class="lineno"> 1113</span>&#160;<span class="preprocessor">#ifdef _OPENMP</span></div>
 <div class="line"><a name="l01114"></a><span class="lineno"> 1114</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#pragma omp parallel if (is_thread_safe &amp;&amp; Gpu::notInLaunchRegion())</span></div>
@@ -1212,13 +1212,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01122"></a><span class="lineno"> 1122</span>&#160;                <span class="keyword">const</span> FAB* sfab = &amp;(src[tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#aa03667cd08814ea67d8fc2170a93a07c">srcIndex</a>]);</div>
 <div class="line"><a name="l01123"></a><span class="lineno"> 1123</span>&#160;                      FAB* dfab = &amp;(<span class="keyword">get</span>(tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#abc0d662cdc63c3e99f4c114dc3ac266f">dstIndex</a>));</div>
 <div class="line"><a name="l01124"></a><span class="lineno"> 1124</span>&#160;        <span class="keywordflow">if</span> (op == FabArrayBase::COPY) {</div>
-<div class="line"><a name="l01125"></a><span class="lineno"> 1125</span>&#160;                    <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#af539b9361cc6f15a4b475b1d55dcb443">AMREX_GPU_LAUNCH_HOST_DEVICE_LAMBDA</a>(tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#a1c8df51daf5ac3a9d20522cfdb6ab004">sbox</a>, tbx,</div>
+<div class="line"><a name="l01125"></a><span class="lineno"> 1125</span>&#160;                    <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">AMREX_LAUNCH_HOST_DEVICE_LAMBDA</a>(tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#a1c8df51daf5ac3a9d20522cfdb6ab004">sbox</a>, tbx,</div>
 <div class="line"><a name="l01126"></a><span class="lineno"> 1126</span>&#160;                    {</div>
 <div class="line"><a name="l01127"></a><span class="lineno"> 1127</span>&#160;                        <a class="code" href="classamrex_1_1_box.html">Box</a> dbx = tbx + (tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#aa4ad873f80c114d0041fd4c30d9fbe94">dbox</a>.<a class="code" href="classamrex_1_1_box.html#a3d158e349af4334aa02f2dfc4fc87d0d">smallEnd</a>() - tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#a1c8df51daf5ac3a9d20522cfdb6ab004">sbox</a>.<a class="code" href="classamrex_1_1_box.html#a3d158e349af4334aa02f2dfc4fc87d0d">smallEnd</a>());</div>
 <div class="line"><a name="l01128"></a><span class="lineno"> 1128</span>&#160;                        dfab-&gt;copy(*sfab, tbx, scomp, dbx, dcomp, ncomp);</div>
 <div class="line"><a name="l01129"></a><span class="lineno"> 1129</span>&#160;                    });</div>
 <div class="line"><a name="l01130"></a><span class="lineno"> 1130</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l01131"></a><span class="lineno"> 1131</span>&#160;                    <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#af539b9361cc6f15a4b475b1d55dcb443">AMREX_GPU_LAUNCH_HOST_DEVICE_LAMBDA</a>(tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#a1c8df51daf5ac3a9d20522cfdb6ab004">sbox</a>, tbx,</div>
+<div class="line"><a name="l01131"></a><span class="lineno"> 1131</span>&#160;                    <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">AMREX_LAUNCH_HOST_DEVICE_LAMBDA</a>(tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#a1c8df51daf5ac3a9d20522cfdb6ab004">sbox</a>, tbx,</div>
 <div class="line"><a name="l01132"></a><span class="lineno"> 1132</span>&#160;                    {</div>
 <div class="line"><a name="l01133"></a><span class="lineno"> 1133</span>&#160;                        <a class="code" href="classamrex_1_1_box.html">Box</a> dbx = tbx + (tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#aa4ad873f80c114d0041fd4c30d9fbe94">dbox</a>.<a class="code" href="classamrex_1_1_box.html#a3d158e349af4334aa02f2dfc4fc87d0d">smallEnd</a>() - tag.<a class="code" href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#a1c8df51daf5ac3a9d20522cfdb6ab004">sbox</a>.<a class="code" href="classamrex_1_1_box.html#a3d158e349af4334aa02f2dfc4fc87d0d">smallEnd</a>());</div>
 <div class="line"><a name="l01134"></a><span class="lineno"> 1134</span>&#160;                        dfab-&gt;plus(*sfab, tbx, dbx, scomp, dcomp, ncomp);</div>
@@ -1343,7 +1343,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01253"></a><span class="lineno"> 1253</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j&lt;N_snds; ++j)</div>
 <div class="line"><a name="l01254"></a><span class="lineno"> 1254</span>&#160;        {</div>
 <div class="line"><a name="l01255"></a><span class="lineno"> 1255</span>&#160;            pre_reqs[j] = <a class="code" href="namespaceamrex_1_1_parallel_descriptor.html#a0903eb5194f11fcf386f79e6ff3c02f7">ParallelDescriptor::Asend</a></div>
-<div class="line"><a name="l01256"></a><span class="lineno"> 1256</span>&#160;                (indv_send_size[j].data(), indv_send_size[j].size(),</div>
+<div class="line"><a name="l01256"></a><span class="lineno"> 1256</span>&#160;                (indv_send_size[j].data(), indv_send_size[j].<a class="code" href="namespaceamrex_1_1_cuda_1_1range__detail.html#a70a6981c4f03b2a3f5f1cb76d0ceea2f">size</a>(),</div>
 <div class="line"><a name="l01257"></a><span class="lineno"> 1257</span>&#160;                 <a class="code" href="namespaceamrex_1_1_parallel_context.html#a60c8ba6a67754c2b46d8b1ad78cb26b2">ParallelContext::global_to_local_rank</a>(send_rank[j]),</div>
 <div class="line"><a name="l01258"></a><span class="lineno"> 1258</span>&#160;                 preSeqNum,</div>
 <div class="line"><a name="l01259"></a><span class="lineno"> 1259</span>&#160;                 <a class="code" href="namespaceamrex_1_1_parallel_context.html#afb1955e0ab6b3f188007ad3aa5a4ef8a">ParallelContext::CommunicatorSub</a>()).<a class="code" href="classamrex_1_1_parallel_descriptor_1_1_message.html#a57999afb8ef13d17fc24750bdae6cd00">req</a>();</div>
@@ -1381,7 +1381,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01291"></a><span class="lineno"> 1291</span>&#160;                    <span class="keyword">const</span> Box&amp; bx = tag.sbox;</div>
 <div class="line"><a name="l01292"></a><span class="lineno"> 1292</span>&#160;                    <span class="keyword">const</span> FAB* sfab = &amp;(src[tag.srcIndex]);</div>
 <div class="line"><a name="l01293"></a><span class="lineno"> 1293</span>&#160;</div>
-<div class="line"><a name="l01294"></a><span class="lineno"> 1294</span>&#160;                    <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#af539b9361cc6f15a4b475b1d55dcb443">AMREX_GPU_LAUNCH_HOST_DEVICE_LAMBDA</a>(bx, tbx,</div>
+<div class="line"><a name="l01294"></a><span class="lineno"> 1294</span>&#160;                    <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">AMREX_LAUNCH_HOST_DEVICE_LAMBDA</a>(bx, tbx,</div>
 <div class="line"><a name="l01295"></a><span class="lineno"> 1295</span>&#160;                    {</div>
 <div class="line"><a name="l01296"></a><span class="lineno"> 1296</span>&#160;                        <span class="keywordtype">char</span>* p = dptr + <span class="keyword">sizeof</span>(value_type)*ncomp*bx.index(tbx.smallEnd());</div>
 <div class="line"><a name="l01297"></a><span class="lineno"> 1297</span>&#160;                        sfab-&gt;copyToMem(tbx, scomp, ncomp, p);</div>
@@ -1451,13 +1451,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01361"></a><span class="lineno"> 1361</span>&#160;                      FAB* dfab = &amp;(<span class="keyword">get</span>(tag.dstIndex));</div>
 <div class="line"><a name="l01362"></a><span class="lineno"> 1362</span>&#160;</div>
 <div class="line"><a name="l01363"></a><span class="lineno"> 1363</span>&#160;                <span class="keywordflow">if</span> (op == FabArrayBase::COPY) {</div>
-<div class="line"><a name="l01364"></a><span class="lineno"> 1364</span>&#160;                    <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#af539b9361cc6f15a4b475b1d55dcb443">AMREX_GPU_LAUNCH_HOST_DEVICE_LAMBDA</a>(tag.sbox, tbx,</div>
+<div class="line"><a name="l01364"></a><span class="lineno"> 1364</span>&#160;                    <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">AMREX_LAUNCH_HOST_DEVICE_LAMBDA</a>(tag.sbox, tbx,</div>
 <div class="line"><a name="l01365"></a><span class="lineno"> 1365</span>&#160;                    {</div>
 <div class="line"><a name="l01366"></a><span class="lineno"> 1366</span>&#160;                        Box dbx = tbx + (tag.dbox.smallEnd() - tag.sbox.smallEnd());</div>
 <div class="line"><a name="l01367"></a><span class="lineno"> 1367</span>&#160;                        dfab-&gt;copy(*sfab, tbx, scomp, dbx, dcomp, ncomp);</div>
 <div class="line"><a name="l01368"></a><span class="lineno"> 1368</span>&#160;                    });</div>
 <div class="line"><a name="l01369"></a><span class="lineno"> 1369</span>&#160;                } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l01370"></a><span class="lineno"> 1370</span>&#160;                    <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#af539b9361cc6f15a4b475b1d55dcb443">AMREX_GPU_LAUNCH_HOST_DEVICE_LAMBDA</a>(tag.sbox, tbx,</div>
+<div class="line"><a name="l01370"></a><span class="lineno"> 1370</span>&#160;                    <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">AMREX_LAUNCH_HOST_DEVICE_LAMBDA</a>(tag.sbox, tbx,</div>
 <div class="line"><a name="l01371"></a><span class="lineno"> 1371</span>&#160;                    {</div>
 <div class="line"><a name="l01372"></a><span class="lineno"> 1372</span>&#160;                        Box dbx = tbx + (tag.dbox.smallEnd() - tag.sbox.smallEnd());</div>
 <div class="line"><a name="l01373"></a><span class="lineno"> 1373</span>&#160;                        dfab-&gt;plus(*sfab, tbx, dbx, scomp, dcomp, ncomp);</div>
@@ -1487,13 +1487,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01397"></a><span class="lineno"> 1397</span>&#160;                      FAB* dfab = &amp;(<span class="keyword">get</span>(tag.dstIndex));</div>
 <div class="line"><a name="l01398"></a><span class="lineno"> 1398</span>&#160;</div>
 <div class="line"><a name="l01399"></a><span class="lineno"> 1399</span>&#160;                <span class="keywordflow">if</span> (op == FabArrayBase::COPY) {</div>
-<div class="line"><a name="l01400"></a><span class="lineno"> 1400</span>&#160;                    <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#af539b9361cc6f15a4b475b1d55dcb443">AMREX_GPU_LAUNCH_HOST_DEVICE_LAMBDA</a>(tag.sbox, tbx,</div>
+<div class="line"><a name="l01400"></a><span class="lineno"> 1400</span>&#160;                    <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">AMREX_LAUNCH_HOST_DEVICE_LAMBDA</a>(tag.sbox, tbx,</div>
 <div class="line"><a name="l01401"></a><span class="lineno"> 1401</span>&#160;                    {</div>
 <div class="line"><a name="l01402"></a><span class="lineno"> 1402</span>&#160;                        Box dbx = tbx + (tag.dbox.smallEnd() - tag.sbox.smallEnd());</div>
 <div class="line"><a name="l01403"></a><span class="lineno"> 1403</span>&#160;                        dfab-&gt;copy(*sfab, tbx, scomp, dbx, dcomp, ncomp);</div>
 <div class="line"><a name="l01404"></a><span class="lineno"> 1404</span>&#160;                    });</div>
 <div class="line"><a name="l01405"></a><span class="lineno"> 1405</span>&#160;                } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l01406"></a><span class="lineno"> 1406</span>&#160;                    <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#af539b9361cc6f15a4b475b1d55dcb443">AMREX_GPU_LAUNCH_HOST_DEVICE_LAMBDA</a>(tag.sbox, tbx,</div>
+<div class="line"><a name="l01406"></a><span class="lineno"> 1406</span>&#160;                    <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">AMREX_LAUNCH_HOST_DEVICE_LAMBDA</a>(tag.sbox, tbx,</div>
 <div class="line"><a name="l01407"></a><span class="lineno"> 1407</span>&#160;                    {</div>
 <div class="line"><a name="l01408"></a><span class="lineno"> 1408</span>&#160;                        Box dbx = tbx + (tag.dbox.smallEnd() - tag.sbox.smallEnd());</div>
 <div class="line"><a name="l01409"></a><span class="lineno"> 1409</span>&#160;                        dfab-&gt;plus(*sfab, tbx, dbx, scomp, dcomp, ncomp);</div>
@@ -1557,7 +1557,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01467"></a><span class="lineno"> 1467</span>&#160;                    FAB* dfab = &amp;(dstfa[tag.dstIndex]);</div>
 <div class="line"><a name="l01468"></a><span class="lineno"> 1468</span>&#160;                    <span class="keywordflow">if</span> (op == FabArrayBase::COPY)</div>
 <div class="line"><a name="l01469"></a><span class="lineno"> 1469</span>&#160;                    {</div>
-<div class="line"><a name="l01470"></a><span class="lineno"> 1470</span>&#160;                        <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#af539b9361cc6f15a4b475b1d55dcb443">AMREX_GPU_LAUNCH_HOST_DEVICE_LAMBDA</a>(bx, tbx,</div>
+<div class="line"><a name="l01470"></a><span class="lineno"> 1470</span>&#160;                        <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">AMREX_LAUNCH_HOST_DEVICE_LAMBDA</a>(bx, tbx,</div>
 <div class="line"><a name="l01471"></a><span class="lineno"> 1471</span>&#160;                        {</div>
 <div class="line"><a name="l01472"></a><span class="lineno"> 1472</span>&#160;                            <span class="keyword">const</span> <span class="keywordtype">char</span>* p = dptr + <span class="keyword">sizeof</span>(value_type)*ncomp*bx.index(tbx.smallEnd());</div>
 <div class="line"><a name="l01473"></a><span class="lineno"> 1473</span>&#160;                            dfab-&gt;copyFromMem(tbx, dcomp, ncomp, p);</div>
@@ -1565,7 +1565,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01475"></a><span class="lineno"> 1475</span>&#160;                    }</div>
 <div class="line"><a name="l01476"></a><span class="lineno"> 1476</span>&#160;                    <span class="keywordflow">else</span></div>
 <div class="line"><a name="l01477"></a><span class="lineno"> 1477</span>&#160;                    {</div>
-<div class="line"><a name="l01478"></a><span class="lineno"> 1478</span>&#160;                        <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#af539b9361cc6f15a4b475b1d55dcb443">AMREX_GPU_LAUNCH_HOST_DEVICE_LAMBDA</a>(bx, tbx,</div>
+<div class="line"><a name="l01478"></a><span class="lineno"> 1478</span>&#160;                        <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">AMREX_LAUNCH_HOST_DEVICE_LAMBDA</a>(bx, tbx,</div>
 <div class="line"><a name="l01479"></a><span class="lineno"> 1479</span>&#160;                        {</div>
 <div class="line"><a name="l01480"></a><span class="lineno"> 1480</span>&#160;                            <span class="keyword">const</span> <span class="keywordtype">char</span>* p = dptr + <span class="keyword">sizeof</span>(value_type)*ncomp*bx.index(tbx.smallEnd());</div>
 <div class="line"><a name="l01481"></a><span class="lineno"> 1481</span>&#160;                            dfab-&gt;addFromMem(tbx, dcomp, ncomp, p);</div>
@@ -1618,7 +1618,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01528"></a><span class="lineno"> 1528</span>&#160;</div>
 <div class="line"><a name="l01529"></a><span class="lineno"> 1529</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="namespaceamrex_1_1_parallel_context.html#a1e98db9c755ff62ca57280f0d6313936">ParallelContext::NProcsSub</a>() == 1)</div>
 <div class="line"><a name="l01530"></a><span class="lineno"> 1530</span>&#160;    {</div>
-<div class="line"><a name="l01531"></a><span class="lineno"> 1531</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0, N = size(); j &lt; N; ++j)</div>
+<div class="line"><a name="l01531"></a><span class="lineno"> 1531</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0, N = <a class="code" href="namespaceamrex_1_1_cuda_1_1range__detail.html#a70a6981c4f03b2a3f5f1cb76d0ceea2f">size</a>(); j &lt; N; ++j)</div>
 <div class="line"><a name="l01532"></a><span class="lineno"> 1532</span>&#160;        {</div>
 <div class="line"><a name="l01533"></a><span class="lineno"> 1533</span>&#160;        <span class="keyword">const</span> Box&amp; bx = <a class="code" href="namespaceamrex.html#a3ab74a1b499759c2a4418335e66aac00">amrex::grow</a>(boxarray[j],nghost);</div>
 <div class="line"><a name="l01534"></a><span class="lineno"> 1534</span>&#160;        <span class="keyword">const</span> Box&amp; destbox = bx &amp; subbox;</div>
@@ -1869,7 +1869,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01779"></a><span class="lineno"> 1779</span>&#160;            <span class="keyword">const</span> <a class="code" href="classamrex_1_1_box.html">Box</a>&amp; bx = fai.growntilebox(nghost);</div>
 <div class="line"><a name="l01780"></a><span class="lineno"> 1780</span>&#160;            <span class="keyword">const</span> FAB* sfab = &amp;(src[fai]);</div>
 <div class="line"><a name="l01781"></a><span class="lineno"> 1781</span>&#160;                  FAB* dfab = &amp;(<span class="keyword">get</span>(fai));</div>
-<div class="line"><a name="l01782"></a><span class="lineno"> 1782</span>&#160;            <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#af539b9361cc6f15a4b475b1d55dcb443">AMREX_GPU_LAUNCH_HOST_DEVICE_LAMBDA</a>(bx, tbx,</div>
+<div class="line"><a name="l01782"></a><span class="lineno"> 1782</span>&#160;            <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">AMREX_LAUNCH_HOST_DEVICE_LAMBDA</a>(bx, tbx,</div>
 <div class="line"><a name="l01783"></a><span class="lineno"> 1783</span>&#160;            {</div>
 <div class="line"><a name="l01784"></a><span class="lineno"> 1784</span>&#160;                dfab-&gt;copy(*sfab, tbx, scomp, tbx, dcomp, ncomp);</div>
 <div class="line"><a name="l01785"></a><span class="lineno"> 1785</span>&#160;            });</div>
@@ -1899,7 +1899,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="namespaceamrex_1_1_parallel_descriptor_html_ab581b8dba6006dbb3457d925c4b0f244"><div class="ttname"><a href="namespaceamrex_1_1_parallel_descriptor.html#ab581b8dba6006dbb3457d925c4b0f244">amrex::ParallelDescriptor::Waitall</a></div><div class="ttdeci">void Waitall(Vector&lt; MPI_Request &gt; &amp;reqs, Vector&lt; MPI_Status &gt; &amp;status)</div><div class="ttdef"><b>Definition:</b> AMReX_ParallelDescriptor.cpp:1812</div></div>
 <div class="ttc" id="namespaceamrex_1_1_parallel_descriptor_html_af5ed8a597f21464e9f2803f0e2afc0be"><div class="ttname"><a href="namespaceamrex_1_1_parallel_descriptor.html#af5ed8a597f21464e9f2803f0e2afc0be">amrex::ParallelDescriptor::Arecv</a></div><div class="ttdeci">Message Arecv(T *, size_t n, int pid, int tag)</div><div class="ttdef"><b>Definition:</b> AMReX_ParallelDescriptor.H:1049</div></div>
 <div class="ttc" id="classamrex_1_1_int_vect_html"><div class="ttname"><a href="classamrex_1_1_int_vect.html">amrex::IntVect</a></div><div class="ttdef"><b>Definition:</b> AMReX_IntVect.H:30</div></div>
-<div class="ttc" id="_a_m_re_x___gpu_launch_8_h_html_af539b9361cc6f15a4b475b1d55dcb443"><div class="ttname"><a href="_a_m_re_x___gpu_launch_8_h.html#af539b9361cc6f15a4b475b1d55dcb443">AMREX_GPU_LAUNCH_HOST_DEVICE_LAMBDA</a></div><div class="ttdeci">#define AMREX_GPU_LAUNCH_HOST_DEVICE_LAMBDA(...)</div><div class="ttdef"><b>Definition:</b> AMReX_GpuLaunch.H:6</div></div>
 <div class="ttc" id="_a_m_re_x___b_lassert_8_h_html_a53ebc8b227de416f458800faa44c619e"><div class="ttname"><a href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a></div><div class="ttdeci">#define BL_ASSERT(EX)</div><div class="ttdef"><b>Definition:</b> AMReX_BLassert.H:38</div></div>
 <div class="ttc" id="namespaceamrex_html_aea69993eec3c9ca497cd0e47522b2ec6"><div class="ttname"><a href="namespaceamrex.html#aea69993eec3c9ca497cd0e47522b2ec6">amrex::Abort</a></div><div class="ttdeci">AMREX_GPU_HOST_DEVICE void Abort(const char *msg=0)</div><div class="ttdoc">Print out message to cerr and exit via abort(). </div><div class="ttdef"><b>Definition:</b> AMReX.cpp:234</div></div>
 <div class="ttc" id="classamrex_1_1_fab_array_base_html_aeadcc8b1b71512821a778b9c17ff92a5"><div class="ttname"><a href="classamrex_1_1_fab_array_base.html#aeadcc8b1b71512821a778b9c17ff92a5">amrex::FabArrayBase::size</a></div><div class="ttdeci">int size() const </div><div class="ttdoc">Return the number of FABs in the FabArray. </div><div class="ttdef"><b>Definition:</b> AMReX_FabArrayBase.H:93</div></div>
@@ -1924,12 +1923,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classamrex_1_1_arena_html_a46ce2cd5cfc039cec64548b031fbde2e"><div class="ttname"><a href="classamrex_1_1_arena.html#a46ce2cd5cfc039cec64548b031fbde2e">amrex::Arena::alloc</a></div><div class="ttdeci">virtual void * alloc(std::size_t sz)=0</div></div>
 <div class="ttc" id="namespaceamrex_1_1_parallel_descriptor_html_a610003b1a92f316356dd84be39f9a9b0"><div class="ttname"><a href="namespaceamrex_1_1_parallel_descriptor.html#a610003b1a92f316356dd84be39f9a9b0">amrex::ParallelDescriptor::SeqNum</a></div><div class="ttdeci">int SeqNum()</div><div class="ttdoc">Returns sequential message sequence numbers, usually used as tags for send/recv. </div><div class="ttdef"><b>Definition:</b> AMReX_ParallelDescriptor.H:477</div></div>
 <div class="ttc" id="classamrex_1_1_periodicity_html_a9a1539019255de794ec99902c6f85306"><div class="ttname"><a href="classamrex_1_1_periodicity.html#a9a1539019255de794ec99902c6f85306">amrex::Periodicity::isAnyPeriodic</a></div><div class="ttdeci">bool isAnyPeriodic() const </div><div class="ttdef"><b>Definition:</b> AMReX_Periodicity.H:21</div></div>
+<div class="ttc" id="namespaceamrex_1_1_cuda_1_1range__detail_html_a70a6981c4f03b2a3f5f1cb76d0ceea2f"><div class="ttname"><a href="namespaceamrex_1_1_cuda_1_1range__detail.html#a70a6981c4f03b2a3f5f1cb76d0ceea2f">amrex::Cuda::range_detail::size</a></div><div class="ttdeci">AMREX_GPU_HOST_DEVICE long size(T const &amp;b)</div><div class="ttdef"><b>Definition:</b> AMReX_CudaRange.H:17</div></div>
 <div class="ttc" id="namespaceamrex_1_1_parallel_descriptor_html_ae38ab120916cc34186f31beb0e56a397"><div class="ttname"><a href="namespaceamrex_1_1_parallel_descriptor.html#ae38ab120916cc34186f31beb0e56a397">amrex::ParallelDescriptor::MyTeam</a></div><div class="ttdeci">const ProcessTeam &amp; MyTeam()</div><div class="ttdef"><b>Definition:</b> AMReX_ParallelDescriptor.H:277</div></div>
 <div class="ttc" id="structamrex_1_1_fab_array_base_1_1_copy_com_tag_html_abc0d662cdc63c3e99f4c114dc3ac266f"><div class="ttname"><a href="structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#abc0d662cdc63c3e99f4c114dc3ac266f">amrex::FabArrayBase::CopyComTag::dstIndex</a></div><div class="ttdeci">int dstIndex</div><div class="ttdef"><b>Definition:</b> AMReX_FabArrayBase.H:159</div></div>
 <div class="ttc" id="namespaceamrex_1_1_parallel_descriptor_html_a3deabb4447125ee364f9ca1c5a07c1e4"><div class="ttname"><a href="namespaceamrex_1_1_parallel_descriptor.html#a3deabb4447125ee364f9ca1c5a07c1e4">amrex::ParallelDescriptor::MyProc</a></div><div class="ttdeci">int MyProc()</div><div class="ttdoc">return the rank number local to the current Parallel Context </div><div class="ttdef"><b>Definition:</b> AMReX_ParallelDescriptor.H:112</div></div>
 <div class="ttc" id="structamrex_1_1_fab_array_base_1_1_c_p_c_html"><div class="ttname"><a href="structamrex_1_1_fab_array_base_1_1_c_p_c.html">amrex::FabArrayBase::CPC</a></div><div class="ttdef"><b>Definition:</b> AMReX_FabArrayBase.H:498</div></div>
 <div class="ttc" id="classamrex_1_1_box_html_a3d158e349af4334aa02f2dfc4fc87d0d"><div class="ttname"><a href="classamrex_1_1_box.html#a3d158e349af4334aa02f2dfc4fc87d0d">amrex::Box::smallEnd</a></div><div class="ttdeci">AMREX_GPU_HOST_DEVICE const IntVect &amp; smallEnd() const &amp;</div><div class="ttdoc">Get the smallend of the box. </div><div class="ttdef"><b>Definition:</b> AMReX_Box.H:94</div></div>
 <div class="ttc" id="classamrex_1_1_vector_html"><div class="ttname"><a href="classamrex_1_1_vector.html">amrex::Vector</a></div><div class="ttdoc">This class is a thin wrapper around std::vector. Unlike vector, Vector::operator[] provides bound che...</div><div class="ttdef"><b>Definition:</b> AMReX_Vector.H:29</div></div>
+<div class="ttc" id="_a_m_re_x___gpu_launch_8_h_html_a20fce791cf3cebcb24e689bb5da837c0"><div class="ttname"><a href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">AMREX_LAUNCH_HOST_DEVICE_LAMBDA</a></div><div class="ttdeci">#define AMREX_LAUNCH_HOST_DEVICE_LAMBDA(...)</div><div class="ttdef"><b>Definition:</b> AMReX_GpuLaunch.H:6</div></div>
 <div class="ttc" id="_a_m_re_x___multi_fab_util___f_8_h_html_ae7f492c36edb37372dc71617ff955fc7"><div class="ttname"><a href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a></div><div class="ttdeci">const int const int const const int const int const int &amp; ncomp</div><div class="ttdef"><b>Definition:</b> AMReX_MultiFabUtil_F.H:77</div></div>
 <div class="ttc" id="namespaceamrex_1_1_parallel_descriptor_html_a3853f9b7ee9719c0de679f068dd34c5e"><div class="ttname"><a href="namespaceamrex_1_1_parallel_descriptor.html#a3853f9b7ee9719c0de679f068dd34c5e">amrex::ParallelDescriptor::TeamSize</a></div><div class="ttdeci">int TeamSize()</div><div class="ttdef"><b>Definition:</b> AMReX_ParallelDescriptor.H:222</div></div>
 <div class="ttc" id="_a_m_re_x__ccse-mpi_8_h_html_a2e7770334e9e65834ce3c95dd0c3a50f"><div class="ttname"><a href="_a_m_re_x__ccse-mpi_8_h.html#a2e7770334e9e65834ce3c95dd0c3a50f">MPI_Group</a></div><div class="ttdeci">int MPI_Group</div><div class="ttdef"><b>Definition:</b> AMReX_ccse-mpi.H:44</div></div>
