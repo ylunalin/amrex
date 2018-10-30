@@ -310,7 +310,8 @@ go out of scope at the end of the function.</p>
 </div>
 <div class="section" id="instrumenting-fortran90-code">
 <h1>Instrumenting Fortran90 Code<a class="headerlink" href="#instrumenting-fortran90-code" title="Permalink to this headline">¶</a></h1>
-<p>Fortran90 functions can also be instrumented with the following calls:</p>
+<p>When using the full profiler, Fortran90 functions can also be instrumented
+with the following calls:</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">call </span><span class="n">bl_proffortfuncstart</span><span class="p">(</span><span class="s2">&quot;my_function&quot;</span><span class="p">)</span>
 <span class="p">...</span>
 <span class="k">call </span><span class="n">bl_proffortfuncstop</span><span class="p">(</span><span class="s2">&quot;my_function&quot;</span><span class="p">)</span>
@@ -334,6 +335,9 @@ unless you rename it with <code class="docutils literal notranslate"><span class
 where <code class="docutils literal notranslate"><span class="pre">fname</span></code> is a std::string and <code class="docutils literal notranslate"><span class="pre">int</span></code> is the integer <code class="docutils literal notranslate"><span class="pre">n</span></code>
 in the <code class="docutils literal notranslate"><span class="pre">bl_proffortfuncstart_int/bl_proffortfuncstop_int</span></code> calls.
 <code class="docutils literal notranslate"><span class="pre">BL_PROFILE_CHANGE_FORT_INT_NAME</span></code> should be called in <code class="docutils literal notranslate"><span class="pre">main()</span></code>.</p>
+<p>Be aware: Fortran functions cannot be profiled when using the Tiny Profiler.
+You will need to turn on the full profiler to recieve the results from
+fortran instrumentation.</p>
 </div>
 <div class="section" id="sample-output-from-tiny-profile">
 <span id="sec-sample-tiny"></span><h1>Sample Output From Tiny Profile<a class="headerlink" href="#sample-output-from-tiny-profile" title="Permalink to this headline">¶</a></h1>
