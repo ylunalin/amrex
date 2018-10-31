@@ -13,6 +13,7 @@ var searchData=
   ['recv_5ffrom',['recv_from',['../structamrex_1_1_fab_array_1_1_copier_handle_impl.html#ab544d27f2bc8814c6cdb9a67280b187c',1,'amrex::FabArray::CopierHandleImpl']]],
   ['recv_5freqs',['recv_reqs',['../structamrex_1_1_fab_array_1_1_copier_handle_impl.html#a0d3572c2dc94ba44c1c2cf2e4835ad26',1,'amrex::FabArray::CopierHandleImpl']]],
   ['recv_5fsize',['recv_size',['../structamrex_1_1_fab_array_1_1_copier_handle_impl.html#a9cf544daf8d14fd425de87465e419d45',1,'amrex::FabArray::CopierHandleImpl']]],
+  ['redistribute_5fmask_5fnghost',['redistribute_mask_nghost',['../classamrex_1_1_particle_container.html#afa4f544ea8b970dfc267cd965468cc81',1,'amrex::ParticleContainer']]],
   ['redistribute_5fmask_5fptr',['redistribute_mask_ptr',['../classamrex_1_1_particle_container.html#ad155f9c3e0ced8900ebda12d45bab1dd',1,'amrex::ParticleContainer']]],
   ['reduction_5fqueue',['reduction_queue',['../namespaceamrex_1_1_lazy.html#aaf84a070bebdd187b4edacd264604b5f',1,'amrex::Lazy']]],
   ['ref_5fratio',['ref_ratio',['../classamrex_1_1_amr_mesh.html#a7e3c7fc2f5598fdd4132536724933f2a',1,'amrex::AmrMesh']]],
