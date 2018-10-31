@@ -321,7 +321,6 @@ var searchData=
   ['amrex_5frealbox_2eh',['AMReX_RealBox.H',['../_a_m_re_x___real_box_8_h.html',1,'']]],
   ['amrex_5frealvect_2ecpp',['AMReX_RealVect.cpp',['../_a_m_re_x___real_vect_8cpp.html',1,'']]],
   ['amrex_5frealvect_2eh',['AMReX_RealVect.H',['../_a_m_re_x___real_vect_8_h.html',1,'']]],
-  ['amrex_5fredistributestrategy_2eh',['AMReX_RedistributeStrategy.H',['../_a_m_re_x___redistribute_strategy_8_h.html',1,'']]],
   ['amrex_5frestrict_2eh',['AMReX_RESTRICT.H',['../_a_m_re_x___r_e_s_t_r_i_c_t_8_h.html',1,'']]],
   ['amrex_5fspace_2eh',['AMReX_SPACE.H',['../_a_m_re_x___s_p_a_c_e_8_h.html',1,'']]],
   ['amrex_5fstatedata_2ecpp',['AMReX_StateData.cpp',['../_a_m_re_x___state_data_8cpp.html',1,'']]],

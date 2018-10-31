@@ -99,8 +99,6 @@ var searchData=
   ['_7epp_5fentry',['~PP_entry',['../structamrex_1_1_parm_parse_1_1_p_p__entry.html#a121320682d99b6520847915da1206ee2',1,'amrex::ParmParse::PP_entry']]],
   ['_7eprint',['~Print',['../classamrex_1_1_print.html#a3f708f9025b6a26a4e955258b8738a59',1,'amrex::Print']]],
   ['_7eprinttofile',['~PrintToFile',['../classamrex_1_1_print_to_file.html#ab0074866efd97004b924c7bfbf67a569',1,'amrex::PrintToFile']]],
-  ['_7eredistributestrategybase',['~RedistributeStrategyBase',['../classamrex_1_1_redistribute_strategy_base.html#aa046eb228edcfdd9d0aa4e492a2472e7',1,'amrex::RedistributeStrategyBase']]],
-  ['_7eredistributestrategycpu',['~RedistributeStrategyCPU',['../classamrex_1_1_redistribute_strategy_c_p_u.html#a6f1ca00421c7bbe2130cf5fa2445b88b',1,'amrex::RedistributeStrategyCPU']]],
   ['_7erotationif',['~RotationIF',['../classamrex_1_1_e_b2_1_1_rotation_i_f.html#abc8caa41e51f94ae95526ef52d334bd2',1,'amrex::EB2::RotationIF']]],
   ['_7escaleif',['~ScaleIF',['../classamrex_1_1_e_b2_1_1_scale_i_f.html#a115069e4e830961ca8ef6424c3205d64',1,'amrex::EB2::ScaleIF']]],
   ['_7eshmem',['~ShMem',['../structamrex_1_1_fab_array_1_1_sh_mem.html#a0b135b9122578a59c61450c1ac02a505',1,'amrex::FabArray::ShMem']]],
