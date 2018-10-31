@@ -61,6 +61,7 @@ var searchData=
   ['getbndryarea',['getBndryArea',['../classamrex_1_1_e_b_data_collection.html#af4129dabdddec8c6b451d139fb7a68d7',1,'amrex::EBDataCollection::getBndryArea()'],['../classamrex_1_1_e_b_f_array_box_factory.html#aafe92a73f5433e28da867e9449ef8c53',1,'amrex::EBFArrayBoxFactory::getBndryArea()']]],
   ['getbndrycells',['GetBndryCells',['../namespaceamrex.html#a719e505b04b336141e1a9a6ab52ecbcd',1,'amrex']]],
   ['getbndrycent',['getBndryCent',['../classamrex_1_1_e_b_data_collection.html#ae0c65ea56e1786133cdc726f58bf05a5',1,'amrex::EBDataCollection::getBndryCent()'],['../classamrex_1_1_e_b_f_array_box_factory.html#a0a90a77c3e304a37eb6887a0ba355bbc',1,'amrex::EBFArrayBoxFactory::getBndryCent()']]],
+  ['getbndrynormal',['getBndryNormal',['../classamrex_1_1_e_b_data_collection.html#a95563a11b221620ae5fb14891817207f',1,'amrex::EBDataCollection::getBndryNormal()'],['../classamrex_1_1_e_b_f_array_box_factory.html#ac5f1b76f5c6d8eaed0616434870cfa42',1,'amrex::EBFArrayBoxFactory::getBndryNormal()']]],
   ['getboxes',['GetBoxes',['../classamrex_1_1_k_d_tree.html#ab84f4ec77a8fc678e6668dffbd2dc550',1,'amrex::KDTree']]],
   ['getboxtype',['getBoxType',['../classamrex_1_1_e_b2_1_1_geometry_shop.html#a3e4f4a6084c791ad6aa95e9b838a8c34',1,'amrex::EB2::GeometryShop']]],
   ['getcellcenteredbox',['getCellCenteredBox',['../classamrex_1_1_box_array.html#a4228497f6d40fc8198c5bd26b5dbaeb4',1,'amrex::BoxArray']]],

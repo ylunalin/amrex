@@ -65,6 +65,7 @@ var searchData=
   ['getbndryarea',['getBndryArea',['../classamrex_1_1_e_b_data_collection.html#af4129dabdddec8c6b451d139fb7a68d7',1,'amrex::EBDataCollection::getBndryArea()'],['../classamrex_1_1_e_b_f_array_box_factory.html#aafe92a73f5433e28da867e9449ef8c53',1,'amrex::EBFArrayBoxFactory::getBndryArea()']]],
   ['getbndrycells',['GetBndryCells',['../namespaceamrex.html#a719e505b04b336141e1a9a6ab52ecbcd',1,'amrex']]],
   ['getbndrycent',['getBndryCent',['../classamrex_1_1_e_b_data_collection.html#ae0c65ea56e1786133cdc726f58bf05a5',1,'amrex::EBDataCollection::getBndryCent()'],['../classamrex_1_1_e_b_f_array_box_factory.html#a0a90a77c3e304a37eb6887a0ba355bbc',1,'amrex::EBFArrayBoxFactory::getBndryCent()']]],
+  ['getbndrynormal',['getBndryNormal',['../classamrex_1_1_e_b_data_collection.html#a95563a11b221620ae5fb14891817207f',1,'amrex::EBDataCollection::getBndryNormal()'],['../classamrex_1_1_e_b_f_array_box_factory.html#ac5f1b76f5c6d8eaed0616434870cfa42',1,'amrex::EBFArrayBoxFactory::getBndryNormal()']]],
   ['getboxes',['GetBoxes',['../classamrex_1_1_k_d_tree.html#ab84f4ec77a8fc678e6668dffbd2dc550',1,'amrex::KDTree']]],
   ['getboxtype',['getBoxType',['../classamrex_1_1_e_b2_1_1_geometry_shop.html#a3e4f4a6084c791ad6aa95e9b838a8c34',1,'amrex::EB2::GeometryShop']]],
   ['getcellcenteredbox',['getCellCenteredBox',['../classamrex_1_1_box_array.html#a4228497f6d40fc8198c5bd26b5dbaeb4',1,'amrex::BoxArray']]],
@@ -203,6 +204,6 @@ var searchData=
   ['growperiodicdomain',['growPeriodicDomain',['../classamrex_1_1_geometry.html#aaf24865f29323c8118e04574b0bc822d',1,'amrex::Geometry']]],
   ['gshoplevel',['GShopLevel',['../classamrex_1_1_e_b2_1_1_g_shop_level.html',1,'amrex::EB2']]],
   ['gshoplevel',['GShopLevel',['../classamrex_1_1_e_b2_1_1_g_shop_level.html#a241ee617ade093d9c8eaba7961e65d04',1,'amrex::EB2::GShopLevel::GShopLevel(IndexSpace const *is, G const &amp;gshop, const Geometry &amp;geom, int max_grid_size, int ngrow)'],['../classamrex_1_1_e_b2_1_1_g_shop_level.html#a4c79b3b07e6bd33f132fa7030dd7d5ca',1,'amrex::EB2::GShopLevel::GShopLevel(IndexSpace const *is, int ilev, int max_grid_size, int ngrow, const Geometry &amp;geom, GShopLevel&lt; G &gt; &amp;fineLevel)']]],
-  ['gshoplsfactory',['GShopLSFactory',['../classamrex_1_1_g_shop_l_s_factory.html#a8ad6e23c9b3c8fa1e3aed913ece7eaa8',1,'amrex::GShopLSFactory']]],
-  ['gshoplsfactory',['GShopLSFactory',['../classamrex_1_1_g_shop_l_s_factory.html',1,'amrex']]]
+  ['gshoplsfactory',['GShopLSFactory',['../classamrex_1_1_g_shop_l_s_factory.html',1,'amrex']]],
+  ['gshoplsfactory',['GShopLSFactory',['../classamrex_1_1_g_shop_l_s_factory.html#a8ad6e23c9b3c8fa1e3aed913ece7eaa8',1,'amrex::GShopLSFactory']]]
 ];
