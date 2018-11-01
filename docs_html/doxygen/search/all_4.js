@@ -14,7 +14,7 @@ var searchData=
   ['dcomp',['dcomp',['../structamrex_1_1_fab_array_1_1_copier_handle_impl.html#a82debb09eb89417bf0a60eaaa86d9ba6',1,'amrex::FabArray::CopierHandleImpl']]],
   ['debug',['Debug',['../namespaceamrex_1_1system.html#aeb34e12844e5d37ee8582e569d702c95',1,'amrex::system']]],
   ['def_5fclimits',['DEF_CLIMITS',['../_a_m_re_x___interp_bndry_data_8cpp.html#ad8e0b5fe209d59aa1f12967b14035faf',1,'AMReX_InterpBndryData.cpp']]],
-  ['def_5flimits',['DEF_LIMITS',['../_a_m_re_x___coord_sys_8cpp.html#a560e33d3eba8a528b757e7e1377cfb4f',1,'DEF_LIMITS():&#160;AMReX_CoordSys.cpp'],['../_a_m_re_x___interp_bndry_data_8cpp.html#a560e33d3eba8a528b757e7e1377cfb4f',1,'DEF_LIMITS():&#160;AMReX_InterpBndryData.cpp']]],
+  ['def_5flimits',['DEF_LIMITS',['../_a_m_re_x___interp_bndry_data_8cpp.html#a560e33d3eba8a528b757e7e1377cfb4f',1,'AMReX_InterpBndryData.cpp']]],
   ['defaultfabfactory',['DefaultFabFactory',['../classamrex_1_1_default_fab_factory.html',1,'amrex']]],
   ['defaulthunksize',['DefaultHunkSize',['../classamrex_1_1_c_arena.html#a10adc62608b67926d034077109597b14a73f4c71472036baf157528f4435be5d2',1,'amrex::CArena']]],
   ['defbaselevel',['defBaseLevel',['../classamrex_1_1_amr.html#ae05b2fdc32475c82226b591968dae641',1,'amrex::Amr']]],

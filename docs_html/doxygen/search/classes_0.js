@@ -8,7 +8,6 @@ var searchData=
   ['amrex_5fallocate',['amrex_allocate',['../interfaceamrex__mempool__module_1_1amrex__allocate.html',1,'amrex_mempool_module']]],
   ['amrex_5fbc_5ftypes_5fmodule',['amrex_bc_types_module',['../classamrex__bc__types__module.html',1,'']]],
   ['amrex_5fconstants_5fmodule',['amrex_constants_module',['../classamrex__constants__module.html',1,'']]],
-  ['amrex_5fcoordsys_5fmodule',['amrex_coordsys_module',['../classamrex__coordsys__module.html',1,'']]],
   ['amrex_5fdeallocate',['amrex_deallocate',['../interfaceamrex__mempool__module_1_1amrex__deallocate.html',1,'amrex_mempool_module']]],
   ['amrex_5feb2_5f2d_5fmoudle',['amrex_eb2_2d_moudle',['../classamrex__eb2__2d__moudle.html',1,'']]],
   ['amrex_5feb2_5f3d_5fmodule',['amrex_eb2_3d_module',['../classamrex__eb2__3d__module.html',1,'']]],

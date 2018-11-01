@@ -95,7 +95,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="textblock"><code>#include &lt;iostream&gt;</code><br/>
 <code>#include &lt;limits&gt;</code><br/>
 <code>#include &lt;<a class="el" href="_a_m_re_x___coord_sys_8_h_source.html">AMReX_CoordSys.H</a>&gt;</code><br/>
-<code>#include &lt;<a class="el" href="_a_m_re_x___c_o_o_r_d_s_y_s___f_8_h_source.html">AMReX_COORDSYS_F.H</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="_a_m_re_x___c_o_o_r_d_s_y_s___c_8_h_source.html">AMReX_COORDSYS_C.H</a>&gt;</code><br/>
 <code>#include &lt;<a class="el" href="_a_m_re_x___f_array_box_8_h_source.html">AMReX_FArrayBox.H</a>&gt;</code><br/>
 <code>#include &lt;<a class="el" href="_a_m_re_x___parallel_descriptor_8_h_source.html">AMReX_ParallelDescriptor.H</a>&gt;</code><br/>
 </div><table class="memberdecls">
@@ -107,8 +107,6 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a560e33d3eba8a528b757e7e1377cfb4f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_m_re_x___coord_sys_8cpp.html#a560e33d3eba8a528b757e7e1377cfb4f">DEF_LIMITS</a>(fab, fabdat, fablo, fabhi)</td></tr>
-<tr class="separator:a560e33d3eba8a528b757e7e1377cfb4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93b4a56e5a8af340d43839230b94843c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_m_re_x___coord_sys_8cpp.html#a93b4a56e5a8af340d43839230b94843c">BL_IGNORE_MAX</a>&#160;&#160;&#160;100000</td></tr>
 <tr class="separator:a93b4a56e5a8af340d43839230b94843c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -130,47 +128,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a class="anchor" id="a560e33d3eba8a528b757e7e1377cfb4f"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DEF_LIMITS</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">fab, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">fabdat, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">fablo, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">fabhi&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><span class="keyword">const</span> <span class="keywordtype">int</span>* fablo = (fab).loVect();           \</div>
-<div class="line">const <span class="keywordtype">int</span>* fabhi = (fab).hiVect();           \</div>
-<div class="line">Real* fabdat = (fab).dataPtr();</div>
-</div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->
