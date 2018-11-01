@@ -325,10 +325,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af2dbf84d1a6978b473b3fb946857eb96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ea53c2be944c417f4a4c3a4a95a1e87"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_base_fab.html#a8ea53c2be944c417f4a4c3a4a95a1e87">minIndex</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;subbox, int comp=0) const </td></tr>
 <tr class="separator:a8ea53c2be944c417f4a4c3a4a95a1e87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e2148dee13798af1afc2152e1b8ee31"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_base_fab.html#a6e2148dee13798af1afc2152e1b8ee31">minIndex</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;subbox, Real &amp;min_val, <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;min_idx, int comp=0) const </td></tr>
+<tr class="separator:a6e2148dee13798af1afc2152e1b8ee31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf85012a8d7c64d43bc12dbc3c6ef49a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_base_fab.html#abf85012a8d7c64d43bc12dbc3c6ef49a">maxIndex</a> (int comp=0) const </td></tr>
 <tr class="separator:abf85012a8d7c64d43bc12dbc3c6ef49a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a79ba13f81a34cf3332a9b7f6300487e4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_base_fab.html#a79ba13f81a34cf3332a9b7f6300487e4">maxIndex</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;subbox, int comp=0) const </td></tr>
 <tr class="separator:a79ba13f81a34cf3332a9b7f6300487e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac63e7e301acd908e6e24e67576f740d7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_base_fab.html#ac63e7e301acd908e6e24e67576f740d7">maxIndex</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;subbox, Real &amp;max_value, <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;max_index, int comp=0) const </td></tr>
+<tr class="separator:ac63e7e301acd908e6e24e67576f740d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a806c5dba218e6098909c519df0958505"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_base_fab.html#a806c5dba218e6098909c519df0958505">maskLT</a> (<a class="el" href="classamrex_1_1_base_fab.html">BaseFab</a>&lt; int &gt; &amp;mask, T val, int comp=0) const </td></tr>
 <tr class="memdesc:a806c5dba218e6098909c519df0958505"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute mask array with value of 1 in cells where <a class="el" href="classamrex_1_1_base_fab.html" title="A Fortran Array-like Object BaseFab emulates the Fortran array concept. Useful operations can be perf...">BaseFab</a> has value less than val, 0 otherwise. mask is resized by this function. The number of cells marked with 1 returned.  <a href="#a806c5dba218e6098909c519df0958505">More...</a><br/></td></tr>
 <tr class="separator:a806c5dba218e6098909c519df0958505"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -3546,6 +3550,47 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="ac63e7e301acd908e6e24e67576f740d7"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classamrex_1_1_base_fab.html">amrex::BaseFab</a>&lt; T &gt;::maxIndex </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;&#160;</td>
+          <td class="paramname"><em>subbox</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Real &amp;&#160;</td>
+          <td class="paramname"><em>max_value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;&#160;</td>
+          <td class="paramname"><em>max_index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>comp</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>return maximum value and location to allow efficient looping over multiple boxes. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a2db88d1b32acaa339b3cf130dcc065e1"></a>
 <div class="memitem">
 <div class="memproto">
@@ -3639,6 +3684,47 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>location of minimum value in given component in given subbox. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a6e2148dee13798af1afc2152e1b8ee31"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classamrex_1_1_base_fab.html">amrex::BaseFab</a>&lt; T &gt;::minIndex </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;&#160;</td>
+          <td class="paramname"><em>subbox</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Real &amp;&#160;</td>
+          <td class="paramname"><em>min_val</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;&#160;</td>
+          <td class="paramname"><em>min_idx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>comp</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>return mininum value and location to allow efficient looping over multiple boxes. </dd></dl>
 
 </div>
 </div>
