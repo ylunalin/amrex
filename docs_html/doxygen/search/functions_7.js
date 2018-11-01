@@ -136,6 +136,7 @@ var searchData=
   ['getthreadcomponentbox',['getThreadComponentBox',['../namespaceamrex_1_1_cuda.html#aa317e8512668c92fbc03c7c458e7c367',1,'amrex::Cuda']]],
   ['getthreadindex',['getThreadIndex',['../namespaceamrex_1_1_cuda.html#a1e581701bbd14e29a4df47dd55db3e52',1,'amrex::Cuda']]],
   ['gettilearray',['getTileArray',['../classamrex_1_1_fab_array_base.html#ab8548585b1a018f9d0a85cd43a719fe8',1,'amrex::FabArrayBase']]],
+  ['gettileindex',['getTileIndex',['../namespaceamrex.html#a680ccf73211338c29c896c0a5b4d18b7',1,'amrex']]],
   ['gettype',['getType',['../classamrex_1_1_f_array_box.html#a5a643f505df41e88fa583b58a10e3ea5',1,'amrex::FArrayBox::getType()'],['../classamrex_1_1_state_descriptor.html#a9d88bb111091222de08f189a5fd50b82',1,'amrex::StateDescriptor::getType()'],['../classamrex_1_1_e_b_cell_flag_fab.html#aa9b28f5eb6e3088c1d3d2fe88d3b709f',1,'amrex::EBCellFlagFab::getType() const '],['../classamrex_1_1_e_b_cell_flag_fab.html#ad3bf43260f051d0975859f2ade47871b',1,'amrex::EBCellFlagFab::getType(const Box &amp;bx) const ']]],
   ['getusedynamicsetselection',['GetUseDynamicSetSelection',['../classamrex_1_1_vis_m_f.html#a20746ef0d6ef7d8491c815e2a954d13c',1,'amrex::VisMF']]],
   ['getusepersistentifstreams',['GetUsePersistentIFStreams',['../classamrex_1_1_vis_m_f.html#a92c8f7a70093675fe29a9b3cfbe8e10f',1,'amrex::VisMF']]],
