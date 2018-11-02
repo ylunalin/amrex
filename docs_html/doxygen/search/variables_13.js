@@ -15,7 +15,7 @@ var searchData=
   ['tilearray',['tileArray',['../structamrex_1_1_fab_array_base_1_1_tile_array.html#ae96f9cf0f9ad68ea664c018a6a4baa78',1,'amrex::FabArrayBase::TileArray']]],
   ['tilesize',['tilesize',['../structamrex_1_1_m_f_it_info.html#a8926b61d823e5a23f6bbf00814afba13',1,'amrex::MFItInfo']]],
   ['toproc',['toProc',['../structamrex_1_1_fab_array_base_1_1_fab_com_tag.html#a198cef4a2b826e76ca0cb0f01b926193',1,'amrex::FabArrayBase::FabComTag']]],
-  ['truesize',['truesize',['../classamrex_1_1_base_fab.html#aa86e53b5d3afdae2606ab0be640bb022',1,'amrex::BaseFab']]],
+  ['truesize',['truesize',['../structamrex_1_1_base_fab_data.html#a377f301bd074d9ac12b092167603d64b',1,'amrex::BaseFabData']]],
   ['twelfth',['twelfth',['../classamrex__constants__module.html#a92ecbb61cf990c72d4d745f36c45eb2b',1,'amrex_constants_module']]],
   ['twelve',['twelve',['../classamrex__constants__module.html#a2d60ccfaa43dc70158dc8aac415b1a52',1,'amrex_constants_module']]],
   ['two',['two',['../classamrex__constants__module.html#a3b52f9631247ee9d89ef856418d73e7e',1,'amrex_constants_module']]],

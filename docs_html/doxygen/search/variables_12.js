@@ -10,7 +10,7 @@ var searchData=
   ['seventh',['seventh',['../classamrex__constants__module.html#a0b5112227b87f2cc4d60b17991780f73',1,'amrex_constants_module']]],
   ['sfc_5fthreshold',['sfc_threshold',['../namespaceamrex.html#a3b82c3e2c727baf0805e10a006744bc0',1,'amrex']]],
   ['shared',['shared',['../structamrex_1_1_fab_info.html#aad9bb4d1cfbd53be67289b734bf5042c',1,'amrex::FabInfo']]],
-  ['shared_5fmemory',['shared_memory',['../classamrex_1_1_base_fab.html#a4e65169d29942cf3adde870d63a91834',1,'amrex::BaseFab']]],
+  ['shared_5fmemory',['shared_memory',['../structamrex_1_1_base_fab_data.html#a5894675ed07e11741a736c438bc03a02',1,'amrex::BaseFabData']]],
   ['shmem',['shmem',['../classamrex_1_1_fab_array.html#a84256a0cda83887e0760dd21f0195936',1,'amrex::FabArray']]],
   ['signal_5fhandling',['signal_handling',['../namespaceamrex_1_1system.html#a795aa5887c4cdd0f1af9818d45442826',1,'amrex::system']]],
   ['single_5fvalued',['single_valued',['../classamrex__ebcellflag__module.html#a34d542ffa101be3b08b45ad08a1aa41e',1,'amrex_ebcellflag_module']]],

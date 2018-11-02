@@ -30,5 +30,5 @@ var searchData=
   ['procthatneedsdata',['procThatNeedsData',['../structamrex_1_1_fab_array_base_1_1_fab_com_tag.html#a6ad0d4aaa97b3aeba9ad7663cc974563',1,'amrex::FabArrayBase::FabComTag']]],
   ['protected_5finterp',['protected_interp',['../namespaceamrex.html#aec5e350e7334dcbe6776eb60a1b77160',1,'amrex']]],
   ['pstr',['pstr',['../structamrex_1_1_vis_m_f_1_1_persistent_i_f_stream.html#ac1215d1effdf6c549d4d06a61004880d',1,'amrex::VisMF::PersistentIFStream']]],
-  ['ptr_5fowner',['ptr_owner',['../classamrex_1_1_base_fab.html#acf3b50d012730dd3521fb2be517573b9',1,'amrex::BaseFab']]]
+  ['ptr_5fowner',['ptr_owner',['../structamrex_1_1_base_fab_data.html#a16e2d3ceee6c7fd51947348985ba86f8',1,'amrex::BaseFabData']]]
 ];

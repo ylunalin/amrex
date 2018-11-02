@@ -15,6 +15,7 @@ var searchData=
   ['amrex_5fcuda_5flaunch_5fhost_5fdevice_5flambda_5fbox',['AMREX_CUDA_LAUNCH_HOST_DEVICE_LAMBDA_BOX',['../_a_m_re_x___cuda_launch_8_h.html#ad758a0aa0e589ff611167ff4f541ef84',1,'AMReX_CudaLaunch.H']]],
   ['amrex_5fcuda_5flaunch_5fhost_5fdevice_5flambda_5frange',['AMREX_CUDA_LAUNCH_HOST_DEVICE_LAMBDA_RANGE',['../_a_m_re_x___cuda_launch_8_h.html#a63b6307fc787b22847883e7e92b78f18',1,'AMReX_CudaLaunch.H']]],
   ['amrex_5fcuda_5flaunch_5fhost_5fdevice_5fxyz',['AMREX_CUDA_LAUNCH_HOST_DEVICE_XYZ',['../_a_m_re_x___cuda_launch_8_h.html#add8f4ad74da3f0738313e315052eaee2',1,'AMReX_CudaLaunch.H']]],
+  ['amrex_5fcuda_5fmax_5fthreads',['AMREX_CUDA_MAX_THREADS',['../_a_m_re_x___cuda_device_8cpp.html#ae7503904ccdd61a1acfca789d487ed62',1,'AMReX_CudaDevice.cpp']]],
   ['amrex_5fcuda_5fncells_5fper_5fthread',['AMREX_CUDA_NCELLS_PER_THREAD',['../_a_m_re_x___cuda_launch_8_h.html#a50d3c1b5aefe758658ea98bb16b433c8',1,'AMReX_CudaLaunch.H']]],
   ['amrex_5fcuda_5fwarp_5fsize',['AMREX_CUDA_WARP_SIZE',['../_a_m_re_x___cuda_launch_8_h.html#af9b9b6a3b6253b425fb57bafb812dff3',1,'AMReX_CudaLaunch.H']]],
   ['amrex_5fcuda_5fy_5fstride',['AMREX_CUDA_Y_STRIDE',['../_a_m_re_x___cuda_launch_8_h.html#a45a9c9b334efe017556083fcfff10dc9',1,'AMReX_CudaLaunch.H']]],
