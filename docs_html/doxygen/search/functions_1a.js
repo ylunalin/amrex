@@ -8,7 +8,7 @@ var searchData=
   ['_7eamrparticlecontainer',['~AmrParticleContainer',['../classamrex_1_1_amr_particle_container.html#aeef741ce3e4fd839fdf17033875e55d7',1,'amrex::AmrParticleContainer']]],
   ['_7eamrtracerparticlecontainer',['~AmrTracerParticleContainer',['../classamrex_1_1_amr_tracer_particle_container.html#a949e9845cea415781da33b68212f9709',1,'amrex::AmrTracerParticleContainer']]],
   ['_7earena',['~Arena',['../classamrex_1_1_arena.html#a515142557e6b630fbad746e3c33776e5',1,'amrex::Arena']]],
-  ['_7ebasefab',['~BaseFab',['../classamrex_1_1_base_fab.html#a15e0299b1a2faf50066d553279a048c5',1,'amrex::BaseFab']]],
+  ['_7ebasefab',['~BaseFab',['../classamrex_1_1_base_fab.html#a442cc6eaf0d47323491f0922e2266a6a',1,'amrex::BaseFab']]],
   ['_7ebaseindex',['~BaseIndex',['../classamrex_1_1_base_index.html#a66503e8ecebfb3d52c0a543061af0e1e',1,'amrex::BaseIndex']]],
   ['_7ebaseumap',['~BaseUmap',['../classamrex_1_1_base_umap.html#a66dce96b470d563ad6f46b9054733106',1,'amrex::BaseUmap']]],
   ['_7ebndrydata',['~BndryData',['../classamrex_1_1_bndry_data.html#ad6ebc5a788a82c41a8b1bffc8e589440',1,'amrex::BndryData']]],
