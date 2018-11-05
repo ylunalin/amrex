@@ -19,6 +19,5 @@ var searchData=
   ['system',['system',['../namespaceamrex_1_1system.html',1,'amrex']]],
   ['type',['Type',['../namespaceamrex_1_1_e_b2_1_1_type.html',1,'amrex::EB2']]],
   ['uif_5fdetail',['UIF_detail',['../namespaceamrex_1_1_e_b2_1_1_u_i_f__detail.html',1,'amrex::EB2']]],
-  ['util',['util',['../namespaceamrex_1_1_parallel_descriptor_1_1util.html',1,'amrex::ParallelDescriptor']]],
-  ['utility',['utility',['../namespaceamrex_1_1utility.html',1,'amrex']]]
+  ['util',['util',['../namespaceamrex_1_1_parallel_descriptor_1_1util.html',1,'amrex::ParallelDescriptor']]]
 ];
