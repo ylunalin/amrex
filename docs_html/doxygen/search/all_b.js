@@ -8,6 +8,6 @@ var searchData=
   ['keytableptr',['keyTablePtr',['../classamrex_1_1_base_umap.html#a338b21ba6abefea8cab9cb9f257929fb',1,'amrex::BaseUmap::keyTablePtr()'],['../classamrex_1_1_base_umap.html#a1a4952f4e66416d51654e2263dadfa7f',1,'amrex::BaseUmap::keyTablePtr(int n=0) const ']]],
   ['knapsack',['KNAPSACK',['../classamrex_1_1_distribution_mapping.html#ad8e078b643635f0027eb797c2d54d3b8a6f5ec418bb5db591c4b5780f00cce82e',1,'amrex::DistributionMapping']]],
   ['knapsackprocessormap',['KnapSackProcessorMap',['../classamrex_1_1_distribution_mapping.html#ab1d611f13754052ecd7ac9363042516f',1,'amrex::DistributionMapping']]],
-  ['kstride',['kstride',['../structamrex_1_1_strided_ptr.html#a4da08a5b95a05275f78c0915125d965c',1,'amrex::StridedPtr']]],
+  ['kstride',['kstride',['../structamrex_1_1_strided_ptr.html#a80c59a7bd4e4f29b01a1d5808754231b',1,'amrex::StridedPtr::kstride()'],['../structamrex_1_1_fab_view.html#ab9eac22ef393a546ed08c73cdbf1e2a3',1,'amrex::FabView::kstride()']]],
   ['kt_5fsize',['kt_size',['../classamrex_1_1_base_umap.html#ad620fcee1e1d1d1dafaad74468416138',1,'amrex::BaseUmap']]]
 ];

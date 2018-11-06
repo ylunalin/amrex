@@ -243,6 +243,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:adb5b38cf98ec633ea3b8a3c6ffd27056"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_box.html#adb5b38cf98ec633ea3b8a3c6ffd27056">index</a> (const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;v) const </td></tr>
 <tr class="memdesc:adb5b38cf98ec633ea3b8a3c6ffd27056"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns offset of point from smallend; i.e. index(smallend) -&gt; 0, bigend would return <a class="el" href="classamrex_1_1_box.html#a4841f399ff456e0dbc5f83372587f1b2" title="Returns the number of points contained in the Box, else abort()s if the number cannot be represented ...">numPts()</a>-1. Is used in accessing <a class="el" href="classamrex_1_1_f_array_box.html" title="A Fortran Array of REALs. ">FArrayBox</a>.  <a href="#adb5b38cf98ec633ea3b8a3c6ffd27056">More...</a><br/></td></tr>
 <tr class="separator:adb5b38cf98ec633ea3b8a3c6ffd27056"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59ae73f04547b7289fc1adf6eb27a2fe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_box.html#a59ae73f04547b7289fc1adf6eb27a2fe">atOffset</a> (long offset) const </td></tr>
+<tr class="memdesc:a59ae73f04547b7289fc1adf6eb27a2fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given the offset, compute <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a>.  <a href="#a59ae73f04547b7289fc1adf6eb27a2fe">More...</a><br/></td></tr>
+<tr class="separator:a59ae73f04547b7289fc1adf6eb27a2fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ce96fcc58f8286105cd45aa38441256"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <a class="el" href="namespaceamrex.html#a317082290117984ef29e149750e2c7a8">GpuArray</a><br class="typebreak"/>
+&lt; int, 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_box.html#a8ce96fcc58f8286105cd45aa38441256">atOffset3d</a> (long offset) const </td></tr>
+<tr class="separator:a8ce96fcc58f8286105cd45aa38441256"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac45c93bf4185e2c22ed9107d798f2031"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_box.html#ac45c93bf4185e2c22ed9107d798f2031">setSmall</a> (const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;sm)</td></tr>
 <tr class="memdesc:ac45c93bf4185e2c22ed9107d798f2031"><td class="mdescLeft">&#160;</td><td class="mdescRight">Redefine the small end of the <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a>.  <a href="#ac45c93bf4185e2c22ed9107d798f2031">More...</a><br/></td></tr>
 <tr class="separator:ac45c93bf4185e2c22ed9107d798f2031"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -375,6 +381,15 @@ Friends</h2></td></tr>
 <tr class="separator:af5c898c7b3635a504124819032a025fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adccd37eeac931837d637545e8eba842e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#affc17fe964f9f670fb06e09d6134b4ff">MPI_Datatype</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_box.html#adccd37eeac931837d637545e8eba842e">ParallelDescriptor::Mpi_typemap</a> ()</td></tr>
 <tr class="separator:adccd37eeac931837d637545e8eba842e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c7c02dee219a303ea47990736bf2b43"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> friend <br class="typebreak"/>
+<a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> <a class="el" href="structamrex_1_1_dim3.html">Dim3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_box.html#a1c7c02dee219a303ea47990736bf2b43">lbound</a> (<a class="el" href="classamrex_1_1_box.html">Box</a> const &amp;box)</td></tr>
+<tr class="separator:a1c7c02dee219a303ea47990736bf2b43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad33815a9511a74d78a32285348f4d2e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> friend <br class="typebreak"/>
+<a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> <a class="el" href="structamrex_1_1_dim3.html">Dim3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_box.html#aad33815a9511a74d78a32285348f4d2e">ubound</a> (<a class="el" href="classamrex_1_1_box.html">Box</a> const &amp;box)</td></tr>
+<tr class="separator:aad33815a9511a74d78a32285348f4d2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a638dfffa0445c0b2a8a9e1c8b24d96cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> friend <br class="typebreak"/>
+<a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> <a class="el" href="structamrex_1_1_dim3.html">Dim3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_box.html#a638dfffa0445c0b2a8a9e1c8b24d96cf">length</a> (<a class="el" href="classamrex_1_1_box.html">Box</a> const &amp;box)</td></tr>
+<tr class="separator:a638dfffa0445c0b2a8a9e1c8b24d96cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A Rectangular Domain on an Integer Lattice. </p>
@@ -559,6 +574,56 @@ Friends</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a59ae73f04547b7289fc1adf6eb27a2fe"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> amrex::Box::atOffset </td>
+          <td>(</td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>offset</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Given the offset, compute <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="a8ce96fcc58f8286105cd45aa38441256"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceamrex.html#a317082290117984ef29e149750e2c7a8">GpuArray</a>&lt; int, 3 &gt; amrex::Box::atOffset3d </td>
+          <td>(</td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>offset</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="ad0a914fc5c880221f418c96fee5a3586"></a>
 <div class="memitem">
 <div class="memproto">
@@ -2847,6 +2912,54 @@ Friends</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a1c7c02dee219a303ea47990736bf2b43"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> friend <a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> <a class="el" href="structamrex_1_1_dim3.html">Dim3</a> lbound </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classamrex_1_1_box.html">Box</a> const &amp;&#160;</td>
+          <td class="paramname"><em>box</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a638dfffa0445c0b2a8a9e1c8b24d96cf"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> friend <a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> <a class="el" href="structamrex_1_1_dim3.html">Dim3</a> length </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classamrex_1_1_box.html">Box</a> const &amp;&#160;</td>
+          <td class="paramname"><em>box</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="adccd37eeac931837d637545e8eba842e"></a>
 <div class="memitem">
 <div class="memproto">
@@ -2858,6 +2971,30 @@ Friends</h2></td></tr>
           <td class="memname"><a class="el" href="_a_m_re_x__ccse-mpi_8_h.html#affc17fe964f9f670fb06e09d6134b4ff">MPI_Datatype</a> <a class="el" href="structamrex_1_1_parallel_descriptor_1_1_mpi__typemap.html">ParallelDescriptor::Mpi_typemap</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aad33815a9511a74d78a32285348f4d2e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> friend <a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> <a class="el" href="structamrex_1_1_dim3.html">Dim3</a> ubound </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classamrex_1_1_box.html">Box</a> const &amp;&#160;</td>
+          <td class="paramname"><em>box</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
