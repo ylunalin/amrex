@@ -374,6 +374,8 @@ const * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="separator:a25f1cddaa4e6967ed317c075facf9179"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9a67bcdbfa3cb4078d7c66cb6dacda5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_base_fab.html#ac9a67bcdbfa3cb4078d7c66cb6dacda5">max</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;subbox, int comp=0) const </td></tr>
 <tr class="separator:ac9a67bcdbfa3cb4078d7c66cb6dacda5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8732403a88b24873910607885ca5e3cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_base_fab.html#a8732403a88b24873910607885ca5e3cf">indexFromValue</a> (Real value, const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;subbox, int comp=0) const </td></tr>
+<tr class="separator:a8732403a88b24873910607885ca5e3cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f390ded7efa45cca2ff2d2735ad40e5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_base_fab.html#a6f390ded7efa45cca2ff2d2735ad40e5">minIndex</a> (int comp=0) const </td></tr>
 <tr class="separator:a6f390ded7efa45cca2ff2d2735ad40e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adbeda4c344771e34b0ee4a58424a6d90"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_base_fab.html#adbeda4c344771e34b0ee4a58424a6d90">minIndex</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;subbox, int comp=0) const </td></tr>
@@ -2680,6 +2682,41 @@ template&lt;class T&gt; </div>
 
 <p>Returns the upper corner of the domain. </p>
 <p>Instead of returning them in the form of INTVECTs, as in smallEnd and bigEnd, it returns the values as a pointer to an array of constant integers. This is useful when interfacing to Fortran subroutines. </p>
+
+</div>
+</div>
+<a class="anchor" id="a8732403a88b24873910607885ca5e3cf"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> <a class="el" href="classamrex_1_1_base_fab.html">amrex::BaseFab</a>&lt; T &gt;::indexFromValue </td>
+          <td>(</td>
+          <td class="paramtype">Real&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;&#160;</td>
+          <td class="paramname"><em>subbox</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>comp</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>location of a cell containing the specified value given subbox. Returns <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> outside box if value not present. </dd></dl>
 
 </div>
 </div>
