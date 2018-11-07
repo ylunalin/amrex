@@ -114,6 +114,7 @@ var searchData=
   ['amrex_5feb2_5fif_5frotation_2eh',['AMReX_EB2_IF_Rotation.H',['../_a_m_re_x___e_b2___i_f___rotation_8_h.html',1,'']]],
   ['amrex_5feb2_5fif_5fscale_2eh',['AMReX_EB2_IF_Scale.H',['../_a_m_re_x___e_b2___i_f___scale_8_h.html',1,'']]],
   ['amrex_5feb2_5fif_5fsphere_2eh',['AMReX_EB2_IF_Sphere.H',['../_a_m_re_x___e_b2___i_f___sphere_8_h.html',1,'']]],
+  ['amrex_5feb2_5fif_5ftorus_2eh',['AMReX_EB2_IF_Torus.H',['../_a_m_re_x___e_b2___i_f___torus_8_h.html',1,'']]],
   ['amrex_5feb2_5fif_5ftranslation_2eh',['AMReX_EB2_IF_Translation.H',['../_a_m_re_x___e_b2___i_f___translation_8_h.html',1,'']]],
   ['amrex_5feb2_5fif_5funion_2eh',['AMReX_EB2_IF_Union.H',['../_a_m_re_x___e_b2___i_f___union_8_h.html',1,'']]],
   ['amrex_5feb2_5findexspacei_2eh',['AMReX_EB2_IndexSpaceI.H',['../_a_m_re_x___e_b2___index_space_i_8_h.html',1,'']]],

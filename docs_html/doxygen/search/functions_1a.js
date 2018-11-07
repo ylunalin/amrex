@@ -111,6 +111,7 @@ var searchData=
   ['_7etagboxarray',['~TagBoxArray',['../classamrex_1_1_tag_box_array.html#aa39754ad9270741af7aa6f6278cf8229',1,'amrex::TagBoxArray']]],
   ['_7etinyprofiler',['~TinyProfiler',['../classamrex_1_1_tiny_profiler.html#ac86f51f4e2e72d2b045260f22d50475d',1,'amrex::TinyProfiler']]],
   ['_7etinyprofileregion',['~TinyProfileRegion',['../classamrex_1_1_tiny_profile_region.html#a529634d28a0589df7b0e0fd5f7294834',1,'amrex::TinyProfileRegion']]],
+  ['_7etorusif',['~TorusIF',['../classamrex_1_1_e_b2_1_1_torus_i_f.html#a5510d2586434c0feb2a72da85f8970dc',1,'amrex::EB2::TorusIF']]],
   ['_7etracerparticlecontainer',['~TracerParticleContainer',['../classamrex_1_1_tracer_particle_container.html#ae0d245e958caa5df6c59bfd50ca6b83f',1,'amrex::TracerParticleContainer']]],
   ['_7etranslationif',['~TranslationIF',['../classamrex_1_1_e_b2_1_1_translation_i_f.html#a672b2fc30985bdac7928c16bd931a0e6',1,'amrex::EB2::TranslationIF']]],
   ['_7evismf',['~VisMF',['../classamrex_1_1_vis_m_f.html#adae69cdb339309e76cfb37486e60ffe4',1,'amrex::VisMF']]]
