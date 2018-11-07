@@ -548,6 +548,21 @@ below.</p>
 <td>&#160;</td>
 <td>user-defined</td>
 </tr>
+<tr class="row-even"><td>ENABLE_3D_NODAL_MGML</td>
+<td>Enable 3D nodal projection</td>
+<td>OFF</td>
+<td>ON,OFF</td>
+</tr>
+<tr class="row-odd"><td>ALGOIM_INSTALL_DIR</td>
+<td>Path to Algoim installation directory</td>
+<td>&#160;</td>
+<td>user-defined</td>
+</tr>
+<tr class="row-even"><td>BLITZ_INSTALL_DIR</td>
+<td>Path to Blitz installation directory</td>
+<td>&#160;</td>
+<td>user-defined</td>
+</tr>
 </tbody>
 </table>
 <p>The option <code class="docutils literal notranslate"><span class="pre">ENABLE_LINEAR_SOLVERS=ON</span></code> triggers the inclusion of C++-based
@@ -564,6 +579,11 @@ they will be initialized with the value of the environmental variables <code cla
 <code class="docutils literal notranslate"><span class="pre">CXXFLAGS</span></code>. If <code class="docutils literal notranslate"><span class="pre">FFLAGS</span></code>/ <code class="docutils literal notranslate"><span class="pre">CXXFLAGS</span></code> are not defined in the environment,
 <code class="docutils literal notranslate"><span class="pre">CMAKE_Fortran_FLAGS</span></code>/ <code class="docutils literal notranslate"><span class="pre">CMAKE_CXX_FLAGS</span></code> will be set to the AMReX default values
 defined in  <code class="docutils literal notranslate"><span class="pre">/path/to/amrex/Tools/CMake/AMReX_Compilers.cmake</span></code>.</p>
+<p>The option <code class="docutils literal notranslate"><span class="pre">ENABLE_3D_NODAL_MGML</span></code> enables AMReX 3D nodal projection. This option requires
+two external libraries: Blitz and Algoim. The user can provide the location of
+both libraries via <code class="docutils literal notranslate"><span class="pre">BLITZ_INSTALL_DIR</span></code> and <code class="docutils literal notranslate"><span class="pre">ALGOIM_INSTALL_DIR</span></code>. However, if one or both of these
+options is not provided, AMReX will download and build Blitz and/or Algoim automatically.
+It should be noted that AMReX 2D nodal projection does not require the use of external libraries.</p>
 </div>
 <div class="section" id="importing-amrex-into-your-cmake-project">
 <span id="sec-build-cmake-config"></span><h2>Importing AMReX into your CMake project<a class="headerlink" href="#importing-amrex-into-your-cmake-project" title="Permalink to this headline">¶</a></h2>
