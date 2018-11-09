@@ -43,7 +43,7 @@ var searchData=
   ['cfinfo',['CFinfo',['../structamrex_1_1_fab_array_base_1_1_c_finfo.html#a2ad23c41fccd032693997df69c0bce0d',1,'amrex::FabArrayBase::CFinfo']]],
   ['cfinfocache',['CFinfoCache',['../classamrex_1_1_fab_array_base.html#ab93444c8298b6446b699b33cf6c9247b',1,'amrex::FabArrayBase']]],
   ['cfinfocacheiter',['CFinfoCacheIter',['../classamrex_1_1_fab_array_base.html#ae15d8b6b473748103771433c507773ad',1,'amrex::FabArrayBase']]],
-  ['charvector',['CharVector',['../classamrex_1_1_neighbor_particle_container.html#a88f2efbef221c289da35b08d28342113',1,'amrex::NeighborParticleContainer::CharVector()'],['../classamrex_1_1_particle_container.html#a3d8a82738e731377cd4c172b7aefac5f',1,'amrex::ParticleContainer::CharVector()']]],
+  ['charvector',['CharVector',['../classamrex_1_1_particle_container.html#a3d8a82738e731377cd4c172b7aefac5f',1,'amrex::ParticleContainer']]],
   ['check',['Check',['../classamrex_1_1_vis_m_f.html#ae12f838572701049902254dfb46eb650',1,'amrex::VisMF']]],
   ['check_5ffile_5froot',['check_file_root',['../classamrex_1_1_amr.html#a006c720b7d8ecf6e603785ab0b82bced',1,'amrex::Amr']]],
   ['check_5ffor_5ferrors',['check_for_errors',['../classamrex_1_1_cuda_1_1_device.html#abec84dee1dc85788e1b3d1f780df48aa',1,'amrex::Cuda::Device']]],
