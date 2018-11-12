@@ -558,464 +558,465 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;    RegionGraph*                      m_rg_crse_patch;</div>
 <div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;    std::list&lt;RegionGraph*&gt;       regionList;</div>
 <div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;    std::list&lt;MultiFab*&gt;          mfList;</div>
-<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;</div>
+<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;    std::list&lt;StateDataPhysBCFunct*&gt;  stateDataList;</div>
 <div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;</div>
 <div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;</div>
-<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;    MultiFab*                         m_mf_crse_patch;</div>
-<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;    <span class="keyword">const</span> FabArrayBase::FPinfo*       m_fpc;</div>
-<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;    MultiFab*                         dmf;</div>
-<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;    MultiFab*                         dmff;</div>
-<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;    Vector&lt;MultiFab*&gt;                 smf;</div>
-<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;    Geometry*                         geom;</div>
-<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;    StateDataPhysBCFunct*             physbcf;</div>
-<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;    <span class="keywordtype">bool</span>                              isProperlyNested;</div>
-<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;    Vector&lt;MultiFab*&gt;                 smf_crse;</div>
-<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;    Vector&lt;Real&gt;                      stime_crse;</div>
-<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;    StateDataPhysBCFunct*             physbcf_crse;</div>
-<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;    Geometry*                         geom_crse;</div>
-<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;    Vector&lt;MultiFab*&gt;                 smf_fine;</div>
-<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;    Vector&lt;Real&gt;                      stime_fine;</div>
-<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;    StateDataPhysBCFunct*             physbcf_fine;</div>
-<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;    Geometry*                         geom_fine;</div>
-<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;</div>
-<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;    Vector&lt;Real&gt;                 stime;</div>
-<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;    <span class="keywordtype">void</span> FillFromLevel0Push (Real time, <span class="keywordtype">int</span> <a class="code" href="classamrex_1_1_m_f_iter.html#a4d0d4d533f7d916b28e2223f9d4e4f07">index</a>, <span class="keywordtype">int</span> scomp, <span class="keywordtype">int</span> dcomp, <span class="keywordtype">int</span> <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>, <span class="keywordtype">int</span> f);</div>
-<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;    <span class="keywordtype">void</span> FillFromLevel0PushOnly (Real time, <span class="keywordtype">int</span> <a class="code" href="classamrex_1_1_m_f_iter.html#a4d0d4d533f7d916b28e2223f9d4e4f07">index</a>, <span class="keywordtype">int</span> scomp, <span class="keywordtype">int</span> dcomp, <span class="keywordtype">int</span> <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>, <span class="keywordtype">int</span> f, <span class="keywordtype">bool</span> singleT);</div>
-<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;    <span class="keywordtype">void</span> FillFromLevel0Pull (Real time, <span class="keywordtype">int</span> <a class="code" href="classamrex_1_1_m_f_iter.html#a4d0d4d533f7d916b28e2223f9d4e4f07">index</a>, <span class="keywordtype">int</span> scomp, <span class="keywordtype">int</span> dcomp, <span class="keywordtype">int</span> <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>, <span class="keywordtype">int</span> f, <span class="keywordtype">bool</span> singleT);</div>
-<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;    <span class="keywordtype">void</span> FillFromTwoLevelsPushOnly (Real time, <span class="keywordtype">int</span> <a class="code" href="classamrex_1_1_m_f_iter.html#a4d0d4d533f7d916b28e2223f9d4e4f07">index</a>, <span class="keywordtype">int</span> scomp, <span class="keywordtype">int</span> dcomp, <span class="keywordtype">int</span> <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>, <span class="keywordtype">int</span> f, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> pushLevel, <span class="keywordtype">bool</span> singleT);</div>
-<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;    <span class="keywordtype">void</span> FillFromTwoLevelsPush (Real time, <span class="keywordtype">int</span> <a class="code" href="classamrex_1_1_m_f_iter.html#a4d0d4d533f7d916b28e2223f9d4e4f07">index</a>, <span class="keywordtype">int</span> scomp, <span class="keywordtype">int</span> dcomp, <span class="keywordtype">int</span> <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>, <span class="keywordtype">int</span> f, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> pushLevel, <span class="keywordtype">bool</span> singleT);</div>
-<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;    <span class="keywordtype">void</span> FillFromTwoLevelsPull (Real time, <span class="keywordtype">int</span> <a class="code" href="classamrex_1_1_m_f_iter.html#a4d0d4d533f7d916b28e2223f9d4e4f07">index</a>, <span class="keywordtype">int</span> scomp, <span class="keywordtype">int</span> dcomp, <span class="keywordtype">int</span> <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>, <span class="keywordtype">int</span> f, <span class="keywordtype">bool</span> singleT);</div>
-<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;    <span class="keywordtype">void</span> FillPatchTwoLevelsPush (Amr&amp; amr, MultiFab&amp; mf, Real time,</div>
-<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;                                 Vector&lt;MultiFab*&gt;&amp; cmf, Vector&lt;Real&gt;&amp; ct,</div>
-<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;                                 Vector&lt;MultiFab*&gt;&amp; fmf, Vector&lt;Real&gt;&amp; ft,</div>
-<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;                                 RegionGraph* destGraph, RegionGraph* csrcGraph, RegionGraph* fsrcGraph, <span class="keywordtype">int</span> f,</div>
-<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;                                 FillPatchIterator* fpIter,</div>
-<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;                                 MultiFab *dmf,</div>
-<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;                                 MultiFab *dmff,</div>
-<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;                                 <span class="keywordtype">int</span> scomp, <span class="keywordtype">int</span> dcomp, <span class="keywordtype">int</span> <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
-<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;                                 <span class="keyword">const</span> Geometry&amp; cgeom, <span class="keyword">const</span> Geometry&amp; fgeom,</div>
-<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;                                 StateDataPhysBCFunct&amp; cbc, StateDataPhysBCFunct&amp; fbc,</div>
-<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;                                 <span class="keyword">const</span> IntVect&amp; <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#a3a6ea573223fb7730509e32b93601c15">ratio</a>,</div>
-<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;                                 Interpolater* mapper, <span class="keyword">const</span> Vector&lt;BCRec&gt;&amp; bcs, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> pushLevel, <span class="keywordtype">bool</span> singleT);</div>
-<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;</div>
-<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;    <span class="keywordtype">void</span> FillPatchTwoLevelsPull (MultiFab&amp; mf, Real time,</div>
-<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;                                 Vector&lt;MultiFab*&gt;&amp; cmf, Vector&lt;Real&gt;&amp; ct,</div>
-<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;                                 Vector&lt;MultiFab*&gt;&amp; fmf, Vector&lt;Real&gt;&amp; ft,</div>
-<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;                                 RegionGraph* destGraph, RegionGraph* csrcGraph, RegionGraph* fsrcGraph, <span class="keywordtype">int</span> f,</div>
-<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;                                 FillPatchIterator* fpIter,</div>
-<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;                                 <span class="keywordtype">int</span> scomp, <span class="keywordtype">int</span> dcomp, <span class="keywordtype">int</span> <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
-<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;                                 <span class="keyword">const</span> Geometry&amp; cgeom, <span class="keyword">const</span> Geometry&amp; fgeom,</div>
-<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;                                 StateDataPhysBCFunct&amp; cbc, StateDataPhysBCFunct&amp; fbc,</div>
-<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;                                 <span class="keyword">const</span> IntVect&amp; <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#a3a6ea573223fb7730509e32b93601c15">ratio</a>,</div>
-<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;                                 Interpolater* mapper, <span class="keyword">const</span> Vector&lt;BCRec&gt;&amp; bcs, <span class="keywordtype">bool</span> singleT);</div>
-<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;</div>
-<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;    <span class="keywordtype">void</span> FillPatchSingleLevelPush (Amr&amp; amr, MultiFab&amp; mf, Real time,</div>
-<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;                                   Vector&lt;MultiFab*&gt;&amp; smf, Vector&lt;Real&gt;&amp; stime,</div>
-<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;                                   RegionGraph* destGraph, RegionGraph* srcGraph, <span class="keywordtype">int</span> f,</div>
-<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;                                   MultiFab *dmf,</div>
-<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;                                   <span class="keywordtype">int</span> scomp, <span class="keywordtype">int</span> dcomp, <span class="keywordtype">int</span> <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
-<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;                                   <span class="keyword">const</span> Geometry&amp; geom, StateDataPhysBCFunct&amp; physbcf, <span class="keywordtype">bool</span> singleT);</div>
-<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;    <span class="keywordtype">void</span> FillPatchSingleLevelPull (MultiFab&amp; mf, Real time,</div>
-<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;                                   Vector&lt;MultiFab*&gt;&amp; smf, Vector&lt;Real&gt;&amp; stime,</div>
-<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;                                   RegionGraph* destGraph, RegionGraph* srcGraph, <span class="keywordtype">int</span> f,</div>
-<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;                                   <span class="keywordtype">int</span> scomp, <span class="keywordtype">int</span> dcomp, <span class="keywordtype">int</span> <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
-<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;                                   <span class="keyword">const</span> Geometry&amp; geom, StateDataPhysBCFunct&amp; physbcf, <span class="keywordtype">bool</span> singleT);</div>
-<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;</div>
-<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;<span class="preprocessor"></span>};</div>
-<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;</div>
-<div class="line"><a name="l00700"></a><span class="lineno"><a class="line" href="classamrex_1_1_fill_patch_iterator_helper.html">  700</a></span>&#160;<span class="keyword">class </span><a class="code" href="classamrex_1_1_fill_patch_iterator_helper.html">FillPatchIteratorHelper</a></div>
-<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;{</div>
-<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;</div>
-<div class="line"><a name="l00704"></a><span class="lineno"><a class="line" href="classamrex_1_1_fill_patch_iterator_helper.html#a39d92a4048c0af0c7b1737d5c4e0c334">  704</a></span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classamrex_1_1_fill_patch_iterator.html">FillPatchIterator</a>;</div>
-<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;</div>
-<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;    <a class="code" href="classamrex_1_1_fill_patch_iterator_helper.html">FillPatchIteratorHelper</a> (<a class="code" href="classamrex_1_1_amr_level.html">AmrLevel</a>&amp; amrlevel,</div>
-<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;                             <a class="code" href="classamrex_1_1_multi_fab.html">MultiFab</a>&amp; leveldata);</div>
-<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;</div>
-<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;    <a class="code" href="classamrex_1_1_fill_patch_iterator_helper.html">FillPatchIteratorHelper</a> (<a class="code" href="classamrex_1_1_amr_level.html">AmrLevel</a>&amp;     amrlevel,</div>
-<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;                             <a class="code" href="classamrex_1_1_multi_fab.html">MultiFab</a>&amp;     leveldata,</div>
-<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;                             <span class="keywordtype">int</span>           boxGrow,</div>
-<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;                             Real          time,</div>
-<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;                             <span class="keywordtype">int</span>           state_indx,</div>
-<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;                             <span class="keywordtype">int</span>           scomp,</div>
-<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;                             <span class="keywordtype">int</span>           <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
-<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;                             <a class="code" href="classamrex_1_1_interpolater.html">Interpolater</a>* mapper);</div>
-<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;</div>
-<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classamrex_1_1_fill_patch_iterator_helper.html#af634eccf2d0d201220687d5b8bfe50fd">Initialize</a> (<span class="keywordtype">int</span>           boxGrow,</div>
-<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;                     Real          time,</div>
-<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;                     <span class="keywordtype">int</span>           state_indx,</div>
-<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;                     <span class="keywordtype">int</span>           scomp,</div>
-<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;                     <span class="keywordtype">int</span>           <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
-<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;                     <a class="code" href="classamrex_1_1_interpolater.html">Interpolater</a>* mapper);</div>
-<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;</div>
-<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;    <a class="code" href="classamrex_1_1_fill_patch_iterator_helper.html#ab0e6743c4dbe5632040213a1c6616510">~FillPatchIteratorHelper</a> ();</div>
-<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;</div>
-<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classamrex_1_1_fill_patch_iterator_helper.html#a9cf2d33e663f0311539a96633ff7560d">fill</a> (<a class="code" href="classamrex_1_1_f_array_box.html">FArrayBox</a>&amp; fab, <span class="keywordtype">int</span> dcomp, <span class="keywordtype">int</span> idx);</div>
-<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;</div>
-<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;    <span class="comment">// Disallowed.</span></div>
-<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;    <a class="code" href="classamrex_1_1_fill_patch_iterator_helper.html">FillPatchIteratorHelper</a> ();</div>
-<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;    <a class="code" href="classamrex_1_1_fill_patch_iterator_helper.html">FillPatchIteratorHelper</a> (<span class="keyword">const</span> <a class="code" href="classamrex_1_1_fill_patch_iterator_helper.html">FillPatchIteratorHelper</a>&amp; rhs);</div>
-<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;    <a class="code" href="classamrex_1_1_fill_patch_iterator_helper.html">FillPatchIteratorHelper</a>&amp; operator= (<span class="keyword">const</span> <a class="code" href="classamrex_1_1_fill_patch_iterator_helper.html">FillPatchIteratorHelper</a>&amp; rhs);</div>
-<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;    <span class="comment">// The data.</span></div>
-<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;    <a class="code" href="classamrex_1_1_amr_level.html">AmrLevel</a>&amp;                  m_amrlevel;</div>
-<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;    <a class="code" href="classamrex_1_1_multi_fab.html">MultiFab</a>&amp;                  m_leveldata;</div>
-<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;    <a class="code" href="classamrex_1_1_multi_fab_copy_descriptor.html">MultiFabCopyDescriptor</a>     m_mfcd;</div>
-<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;    <a class="code" href="classamrex_1_1_vector.html">Vector&lt; Vector&lt;MultiFabId&gt;</a> &gt; m_mfid;     <span class="comment">// [level][oldnew]</span></div>
-<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;    <a class="code" href="classamrex_1_1_interpolater.html">Interpolater</a>*              m_map;</div>
-<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;    std::map&lt;int,Box&gt;          m_ba;</div>
-<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;    Real                       m_time;</div>
-<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;    <span class="keywordtype">int</span>                        m_growsize;</div>
-<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;    <span class="keywordtype">int</span>                        m_index;</div>
-<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;    <span class="keywordtype">int</span>                        m_scomp;</div>
-<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;    <span class="keywordtype">int</span>                        m_ncomp;</div>
-<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;    <span class="keywordtype">bool</span>                       m_FixUpCorners;</div>
-<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;</div>
-<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;    std::map&lt; int,Vector&lt; Vector&lt;Box&gt; &gt; &gt;                m_fbox; <span class="comment">// [grid][level][validregion]</span></div>
-<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;    std::map&lt; int,Vector&lt; Vector&lt;Box&gt; &gt; &gt;                m_cbox; <span class="comment">// [grid][level][fillablesubbox]</span></div>
-<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;    std::map&lt; int,Vector&lt; Vector&lt; Vector&lt;FillBoxId&gt; &gt; &gt; &gt; m_fbid; <span class="comment">// [grid][level][fillablesubbox][oldnew]</span></div>
-<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;};</div>
-<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;</div>
+<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;</div>
+<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;    MultiFab*                         m_mf_crse_patch;</div>
+<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;    <span class="keyword">const</span> FabArrayBase::FPinfo*       m_fpc;</div>
+<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;    MultiFab*                         dmf;</div>
+<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;    MultiFab*                         dmff;</div>
+<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;    Vector&lt;MultiFab*&gt;                 smf;</div>
+<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;    Geometry*                         geom;</div>
+<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;    StateDataPhysBCFunct*             physbcf;</div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;    <span class="keywordtype">bool</span>                              isProperlyNested;</div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;    Vector&lt;MultiFab*&gt;                 smf_crse;</div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;    Vector&lt;Real&gt;                      stime_crse;</div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;    StateDataPhysBCFunct*             physbcf_crse;</div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;    Geometry*                         geom_crse;</div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;    Vector&lt;MultiFab*&gt;                 smf_fine;</div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;    Vector&lt;Real&gt;                      stime_fine;</div>
+<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;    StateDataPhysBCFunct*             physbcf_fine;</div>
+<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;    Geometry*                         geom_fine;</div>
+<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;</div>
+<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;    Vector&lt;Real&gt;                 stime;</div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;    <span class="keywordtype">void</span> FillFromLevel0Push (Real time, <span class="keywordtype">int</span> <a class="code" href="classamrex_1_1_m_f_iter.html#a4d0d4d533f7d916b28e2223f9d4e4f07">index</a>, <span class="keywordtype">int</span> scomp, <span class="keywordtype">int</span> dcomp, <span class="keywordtype">int</span> <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>, <span class="keywordtype">int</span> f);</div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;    <span class="keywordtype">void</span> FillFromLevel0PushOnly (Real time, <span class="keywordtype">int</span> <a class="code" href="classamrex_1_1_m_f_iter.html#a4d0d4d533f7d916b28e2223f9d4e4f07">index</a>, <span class="keywordtype">int</span> scomp, <span class="keywordtype">int</span> dcomp, <span class="keywordtype">int</span> <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>, <span class="keywordtype">int</span> f, <span class="keywordtype">bool</span> singleT);</div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;    <span class="keywordtype">void</span> FillFromLevel0Pull (Real time, <span class="keywordtype">int</span> <a class="code" href="classamrex_1_1_m_f_iter.html#a4d0d4d533f7d916b28e2223f9d4e4f07">index</a>, <span class="keywordtype">int</span> scomp, <span class="keywordtype">int</span> dcomp, <span class="keywordtype">int</span> <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>, <span class="keywordtype">int</span> f, <span class="keywordtype">bool</span> singleT);</div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;    <span class="keywordtype">void</span> FillFromTwoLevelsPushOnly (Real time, <span class="keywordtype">int</span> <a class="code" href="classamrex_1_1_m_f_iter.html#a4d0d4d533f7d916b28e2223f9d4e4f07">index</a>, <span class="keywordtype">int</span> scomp, <span class="keywordtype">int</span> dcomp, <span class="keywordtype">int</span> <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>, <span class="keywordtype">int</span> f, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> pushLevel, <span class="keywordtype">bool</span> singleT);</div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;    <span class="keywordtype">void</span> FillFromTwoLevelsPush (Real time, <span class="keywordtype">int</span> <a class="code" href="classamrex_1_1_m_f_iter.html#a4d0d4d533f7d916b28e2223f9d4e4f07">index</a>, <span class="keywordtype">int</span> scomp, <span class="keywordtype">int</span> dcomp, <span class="keywordtype">int</span> <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>, <span class="keywordtype">int</span> f, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> pushLevel, <span class="keywordtype">bool</span> singleT);</div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;    <span class="keywordtype">void</span> FillFromTwoLevelsPull (Real time, <span class="keywordtype">int</span> <a class="code" href="classamrex_1_1_m_f_iter.html#a4d0d4d533f7d916b28e2223f9d4e4f07">index</a>, <span class="keywordtype">int</span> scomp, <span class="keywordtype">int</span> dcomp, <span class="keywordtype">int</span> <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>, <span class="keywordtype">int</span> f, <span class="keywordtype">bool</span> singleT);</div>
+<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;    <span class="keywordtype">void</span> FillPatchTwoLevelsPush (Amr&amp; amr, MultiFab&amp; mf, Real time,</div>
+<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;                                 Vector&lt;MultiFab*&gt;&amp; cmf, Vector&lt;Real&gt;&amp; ct,</div>
+<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;                                 Vector&lt;MultiFab*&gt;&amp; fmf, Vector&lt;Real&gt;&amp; ft,</div>
+<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;                                 RegionGraph* destGraph, RegionGraph* csrcGraph, RegionGraph* fsrcGraph, <span class="keywordtype">int</span> f,</div>
+<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;                                 FillPatchIterator* fpIter,</div>
+<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;                                 MultiFab *dmf,</div>
+<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;                                 MultiFab *dmff,</div>
+<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;                                 <span class="keywordtype">int</span> scomp, <span class="keywordtype">int</span> dcomp, <span class="keywordtype">int</span> <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
+<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;                                 <span class="keyword">const</span> Geometry&amp; cgeom, <span class="keyword">const</span> Geometry&amp; fgeom,</div>
+<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;                                 StateDataPhysBCFunct&amp; cbc, StateDataPhysBCFunct&amp; fbc,</div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;                                 <span class="keyword">const</span> IntVect&amp; <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#a3a6ea573223fb7730509e32b93601c15">ratio</a>,</div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;                                 Interpolater* mapper, <span class="keyword">const</span> Vector&lt;BCRec&gt;&amp; bcs, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> pushLevel, <span class="keywordtype">bool</span> singleT);</div>
+<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;</div>
+<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;    <span class="keywordtype">void</span> FillPatchTwoLevelsPull (MultiFab&amp; mf, Real time,</div>
+<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;                                 Vector&lt;MultiFab*&gt;&amp; cmf, Vector&lt;Real&gt;&amp; ct,</div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;                                 Vector&lt;MultiFab*&gt;&amp; fmf, Vector&lt;Real&gt;&amp; ft,</div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;                                 RegionGraph* destGraph, RegionGraph* csrcGraph, RegionGraph* fsrcGraph, <span class="keywordtype">int</span> f,</div>
+<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;                                 FillPatchIterator* fpIter,</div>
+<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;                                 <span class="keywordtype">int</span> scomp, <span class="keywordtype">int</span> dcomp, <span class="keywordtype">int</span> <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
+<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;                                 <span class="keyword">const</span> Geometry&amp; cgeom, <span class="keyword">const</span> Geometry&amp; fgeom,</div>
+<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;                                 StateDataPhysBCFunct&amp; cbc, StateDataPhysBCFunct&amp; fbc,</div>
+<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;                                 <span class="keyword">const</span> IntVect&amp; <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#a3a6ea573223fb7730509e32b93601c15">ratio</a>,</div>
+<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;                                 Interpolater* mapper, <span class="keyword">const</span> Vector&lt;BCRec&gt;&amp; bcs, <span class="keywordtype">bool</span> singleT);</div>
+<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;</div>
+<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;    <span class="keywordtype">void</span> FillPatchSingleLevelPush (Amr&amp; amr, MultiFab&amp; mf, Real time,</div>
+<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;                                   Vector&lt;MultiFab*&gt;&amp; smf, Vector&lt;Real&gt;&amp; stime,</div>
+<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;                                   RegionGraph* destGraph, RegionGraph* srcGraph, <span class="keywordtype">int</span> f,</div>
+<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;                                   MultiFab *dmf,</div>
+<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;                                   <span class="keywordtype">int</span> scomp, <span class="keywordtype">int</span> dcomp, <span class="keywordtype">int</span> <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
+<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;                                   <span class="keyword">const</span> Geometry&amp; geom, StateDataPhysBCFunct&amp; physbcf, <span class="keywordtype">bool</span> singleT);</div>
+<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;    <span class="keywordtype">void</span> FillPatchSingleLevelPull (MultiFab&amp; mf, Real time,</div>
+<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;                                   Vector&lt;MultiFab*&gt;&amp; smf, Vector&lt;Real&gt;&amp; stime,</div>
+<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;                                   RegionGraph* destGraph, RegionGraph* srcGraph, <span class="keywordtype">int</span> f,</div>
+<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;                                   <span class="keywordtype">int</span> scomp, <span class="keywordtype">int</span> dcomp, <span class="keywordtype">int</span> <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
+<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;                                   <span class="keyword">const</span> Geometry&amp; geom, StateDataPhysBCFunct&amp; physbcf, <span class="keywordtype">bool</span> singleT);</div>
+<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;</div>
+<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;<span class="preprocessor"></span>};</div>
+<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;</div>
+<div class="line"><a name="l00701"></a><span class="lineno"><a class="line" href="classamrex_1_1_fill_patch_iterator_helper.html">  701</a></span>&#160;<span class="keyword">class </span><a class="code" href="classamrex_1_1_fill_patch_iterator_helper.html">FillPatchIteratorHelper</a></div>
+<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;{</div>
+<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;</div>
+<div class="line"><a name="l00705"></a><span class="lineno"><a class="line" href="classamrex_1_1_fill_patch_iterator_helper.html#a39d92a4048c0af0c7b1737d5c4e0c334">  705</a></span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classamrex_1_1_fill_patch_iterator.html">FillPatchIterator</a>;</div>
+<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;</div>
+<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;    <a class="code" href="classamrex_1_1_fill_patch_iterator_helper.html">FillPatchIteratorHelper</a> (<a class="code" href="classamrex_1_1_amr_level.html">AmrLevel</a>&amp; amrlevel,</div>
+<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;                             <a class="code" href="classamrex_1_1_multi_fab.html">MultiFab</a>&amp; leveldata);</div>
+<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;</div>
+<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;    <a class="code" href="classamrex_1_1_fill_patch_iterator_helper.html">FillPatchIteratorHelper</a> (<a class="code" href="classamrex_1_1_amr_level.html">AmrLevel</a>&amp;     amrlevel,</div>
+<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;                             <a class="code" href="classamrex_1_1_multi_fab.html">MultiFab</a>&amp;     leveldata,</div>
+<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;                             <span class="keywordtype">int</span>           boxGrow,</div>
+<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;                             Real          time,</div>
+<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;                             <span class="keywordtype">int</span>           state_indx,</div>
+<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;                             <span class="keywordtype">int</span>           scomp,</div>
+<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;                             <span class="keywordtype">int</span>           <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
+<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;                             <a class="code" href="classamrex_1_1_interpolater.html">Interpolater</a>* mapper);</div>
+<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;</div>
+<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classamrex_1_1_fill_patch_iterator_helper.html#af634eccf2d0d201220687d5b8bfe50fd">Initialize</a> (<span class="keywordtype">int</span>           boxGrow,</div>
+<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;                     Real          time,</div>
+<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;                     <span class="keywordtype">int</span>           state_indx,</div>
+<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;                     <span class="keywordtype">int</span>           scomp,</div>
+<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;                     <span class="keywordtype">int</span>           <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
+<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;                     <a class="code" href="classamrex_1_1_interpolater.html">Interpolater</a>* mapper);</div>
+<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;</div>
+<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;    <a class="code" href="classamrex_1_1_fill_patch_iterator_helper.html#ab0e6743c4dbe5632040213a1c6616510">~FillPatchIteratorHelper</a> ();</div>
+<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;</div>
+<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classamrex_1_1_fill_patch_iterator_helper.html#a9cf2d33e663f0311539a96633ff7560d">fill</a> (<a class="code" href="classamrex_1_1_f_array_box.html">FArrayBox</a>&amp; fab, <span class="keywordtype">int</span> dcomp, <span class="keywordtype">int</span> idx);</div>
+<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;</div>
+<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;    <span class="comment">// Disallowed.</span></div>
+<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;    <a class="code" href="classamrex_1_1_fill_patch_iterator_helper.html">FillPatchIteratorHelper</a> ();</div>
+<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;    <a class="code" href="classamrex_1_1_fill_patch_iterator_helper.html">FillPatchIteratorHelper</a> (<span class="keyword">const</span> <a class="code" href="classamrex_1_1_fill_patch_iterator_helper.html">FillPatchIteratorHelper</a>&amp; rhs);</div>
+<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;    <a class="code" href="classamrex_1_1_fill_patch_iterator_helper.html">FillPatchIteratorHelper</a>&amp; operator= (<span class="keyword">const</span> <a class="code" href="classamrex_1_1_fill_patch_iterator_helper.html">FillPatchIteratorHelper</a>&amp; rhs);</div>
+<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;    <span class="comment">// The data.</span></div>
+<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;    <a class="code" href="classamrex_1_1_amr_level.html">AmrLevel</a>&amp;                  m_amrlevel;</div>
+<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;    <a class="code" href="classamrex_1_1_multi_fab.html">MultiFab</a>&amp;                  m_leveldata;</div>
+<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;    <a class="code" href="classamrex_1_1_multi_fab_copy_descriptor.html">MultiFabCopyDescriptor</a>     m_mfcd;</div>
+<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;    <a class="code" href="classamrex_1_1_vector.html">Vector&lt; Vector&lt;MultiFabId&gt;</a> &gt; m_mfid;     <span class="comment">// [level][oldnew]</span></div>
+<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;    <a class="code" href="classamrex_1_1_interpolater.html">Interpolater</a>*              m_map;</div>
+<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;    std::map&lt;int,Box&gt;          m_ba;</div>
+<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;    Real                       m_time;</div>
+<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;    <span class="keywordtype">int</span>                        m_growsize;</div>
+<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;    <span class="keywordtype">int</span>                        m_index;</div>
+<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;    <span class="keywordtype">int</span>                        m_scomp;</div>
+<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;    <span class="keywordtype">int</span>                        m_ncomp;</div>
+<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;    <span class="keywordtype">bool</span>                       m_FixUpCorners;</div>
+<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;</div>
+<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;    std::map&lt; int,Vector&lt; Vector&lt;Box&gt; &gt; &gt;                m_fbox; <span class="comment">// [grid][level][validregion]</span></div>
+<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;    std::map&lt; int,Vector&lt; Vector&lt;Box&gt; &gt; &gt;                m_cbox; <span class="comment">// [grid][level][fillablesubbox]</span></div>
+<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;    std::map&lt; int,Vector&lt; Vector&lt; Vector&lt;FillBoxId&gt; &gt; &gt; &gt; m_fbid; <span class="comment">// [grid][level][fillablesubbox][oldnew]</span></div>
+<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;};</div>
 <div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;</div>
-<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;<span class="preprocessor">#ifdef USE_PERILLA</span></div>
-<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;<span class="preprocessor"></span><span class="keyword">class </span>AsyncFillPatchIterator</div>
-<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;    :</div>
-<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;    <span class="keyword">public</span> <a class="code" href="classamrex_1_1_m_f_iter.html">MFIter</a></div>
-<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;{</div>
-<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;</div>
-<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classamrex_1_1_amr_level.html">AmrLevel</a>;</div>
-<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;  <span class="keyword">friend</span> <span class="keyword">class </span>RGIter;</div>
-<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;</div>
-<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;    AsyncFillPatchIterator (<a class="code" href="classamrex_1_1_amr_level.html">AmrLevel</a>&amp; amrlevel,</div>
-<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;                            <a class="code" href="classamrex_1_1_multi_fab.html">MultiFab</a>&amp; leveldata,</div>
-<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;                            <span class="keywordtype">int</span>       boxGrow,</div>
-<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;                            Real      time,</div>
-<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;                            <span class="keywordtype">int</span>       state_indx,</div>
-<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;                            <span class="keywordtype">int</span>       scomp,</div>
-<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;                            <span class="keywordtype">int</span>       <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
-<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;                            <span class="keywordtype">int</span> iter);</div>
-<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;</div>
-<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;    <span class="keywordtype">void</span> initFillPatch(<span class="keywordtype">int</span> boxGrow,</div>
-<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;                       <span class="keywordtype">int</span> time,</div>
-<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;                       <span class="keywordtype">int</span> index,</div>
-<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;                       <span class="keywordtype">int</span> scomp,</div>
-<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;                       <span class="keywordtype">int</span> <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
-<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;                       <span class="keywordtype">int</span> iter);</div>
-<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;</div>
-<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span>  initialSend(<a class="code" href="classamrex_1_1_vector.html">amrex::Vector&lt;amrex::AsyncFillPatchIterator*&gt;</a> afpi,</div>
-<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;                             <a class="code" href="classamrex_1_1_vector.html">amrex::Vector&lt;amrex::AsyncFillPatchIterator*&gt;</a> upper_afpi,</div>
-<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;                             <span class="keywordtype">int</span>  boxGrow,</div>
-<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;                             Real time,</div>
-<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;                             <span class="keywordtype">int</span>  state_indx,</div>
-<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;                             <span class="keywordtype">int</span>  scomp,</div>
-<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;                             <span class="keywordtype">int</span>  <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
-<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;                             <span class="keywordtype">int</span>  iter);</div>
-<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;</div>
-<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;    <span class="keywordtype">void</span> PushOnly (<span class="keywordtype">int</span>  boxGrow,</div>
-<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;                   Real time,</div>
-<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;                   <span class="keywordtype">int</span>  state_indx,</div>
-<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;                   <span class="keywordtype">int</span>  scomp,</div>
-<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;                   <span class="keywordtype">int</span>  <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
-<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;                   <span class="keywordtype">int</span> f,</div>
-<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;                   <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> pushLevel,</div>
-<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;                   <span class="keywordtype">bool</span> singleT=<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;</div>
-<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;    <span class="keywordtype">void</span> SendIntraLevel (RGIter&amp; rgi,</div>
-<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;                         <span class="keywordtype">int</span>  boxGrow,</div>
-<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;                         Real time,</div>
-<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;                         <span class="keywordtype">int</span>  state_indx,</div>
-<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;                         <span class="keywordtype">int</span>  scomp,</div>
-<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;                         <span class="keywordtype">int</span>  <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
-<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;                         <span class="keywordtype">int</span>  iter,</div>
-<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;                         <span class="keywordtype">int</span> f,</div>
-<div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160;                         <span class="keywordtype">bool</span> singleT=<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;</div>
-<div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;    <span class="keywordtype">void</span> SendIntraLevel (RGIter* rgi,</div>
-<div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160;                         <span class="keywordtype">int</span>  boxGrow,</div>
-<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160;                         Real time,</div>
-<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;                         <span class="keywordtype">int</span>  state_indx,</div>
-<div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;                         <span class="keywordtype">int</span>  scomp,</div>
-<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;                         <span class="keywordtype">int</span>  <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
-<div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;                         <span class="keywordtype">int</span>  iter,</div>
-<div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;                         <span class="keywordtype">int</span> f,</div>
-<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;                         <span class="keywordtype">bool</span> singleT=<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;</div>
-<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;    <span class="keywordtype">void</span> SendInterLevel (RGIter&amp; rgi,</div>
-<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;                         <span class="keywordtype">int</span>  boxGrow,</div>
-<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;                         Real time,</div>
-<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;                         <span class="keywordtype">int</span>  state_indx,</div>
-<div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;                         <span class="keywordtype">int</span>  scomp,</div>
-<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;                         <span class="keywordtype">int</span>  <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
-<div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160;                         <span class="keywordtype">int</span>  iter,</div>
-<div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160;                         <span class="keywordtype">int</span> f,</div>
-<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;                         <span class="keywordtype">bool</span> singleT=<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160;</div>
-<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;    <span class="keywordtype">void</span> SendInterLevel (RGIter* rgi,</div>
-<div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;                         <span class="keywordtype">int</span>  boxGrow,</div>
-<div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;                         Real time,</div>
-<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;                         <span class="keywordtype">int</span>  state_indx,</div>
-<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;                         <span class="keywordtype">int</span>  scomp,</div>
-<div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160;                         <span class="keywordtype">int</span>  <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
-<div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;                         <span class="keywordtype">int</span>  iter,</div>
-<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;                         <span class="keywordtype">int</span> f,</div>
-<div class="line"><a name="l00841"></a><span class="lineno">  841</span>&#160;                         <span class="keywordtype">bool</span> singleT=<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00842"></a><span class="lineno">  842</span>&#160;</div>
-<div class="line"><a name="l00843"></a><span class="lineno">  843</span>&#160;    <span class="keywordtype">void</span> Receive (RGIter&amp; rgi,</div>
-<div class="line"><a name="l00844"></a><span class="lineno">  844</span>&#160;                   <span class="keywordtype">int</span>  boxGrow,</div>
-<div class="line"><a name="l00845"></a><span class="lineno">  845</span>&#160;                   Real time,</div>
-<div class="line"><a name="l00846"></a><span class="lineno">  846</span>&#160;                   <span class="keywordtype">int</span>  state_indx,</div>
-<div class="line"><a name="l00847"></a><span class="lineno">  847</span>&#160;                   <span class="keywordtype">int</span>  scomp,</div>
-<div class="line"><a name="l00848"></a><span class="lineno">  848</span>&#160;                   <span class="keywordtype">int</span>  <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
-<div class="line"><a name="l00849"></a><span class="lineno">  849</span>&#160;                   <span class="keywordtype">int</span> f,</div>
-<div class="line"><a name="l00850"></a><span class="lineno">  850</span>&#160;                   <span class="keywordtype">bool</span> singleT=<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00851"></a><span class="lineno">  851</span>&#160;</div>
-<div class="line"><a name="l00852"></a><span class="lineno">  852</span>&#160;    <span class="keywordtype">void</span> Receive (RGIter* rgi,</div>
-<div class="line"><a name="l00853"></a><span class="lineno">  853</span>&#160;                   <span class="keywordtype">int</span>  boxGrow,</div>
-<div class="line"><a name="l00854"></a><span class="lineno">  854</span>&#160;                   Real time,</div>
-<div class="line"><a name="l00855"></a><span class="lineno">  855</span>&#160;                   <span class="keywordtype">int</span>  state_indx,</div>
-<div class="line"><a name="l00856"></a><span class="lineno">  856</span>&#160;                   <span class="keywordtype">int</span>  scomp,</div>
-<div class="line"><a name="l00857"></a><span class="lineno">  857</span>&#160;                   <span class="keywordtype">int</span>  <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
-<div class="line"><a name="l00858"></a><span class="lineno">  858</span>&#160;                   <span class="keywordtype">int</span> f,</div>
-<div class="line"><a name="l00859"></a><span class="lineno">  859</span>&#160;                   <span class="keywordtype">bool</span> singleT=<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00860"></a><span class="lineno">  860</span>&#160;</div>
-<div class="line"><a name="l00861"></a><span class="lineno">  861</span>&#160;    <span class="keywordtype">void</span> Receive (RGIter&amp; rgi,</div>
-<div class="line"><a name="l00862"></a><span class="lineno">  862</span>&#160;                  <a class="code" href="classamrex_1_1_multi_fab.html">MultiFab</a>&amp; dest,</div>
-<div class="line"><a name="l00863"></a><span class="lineno">  863</span>&#160;                  <span class="keywordtype">int</span>  boxGrow,</div>
-<div class="line"><a name="l00864"></a><span class="lineno">  864</span>&#160;                  Real time,</div>
-<div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160;                  <span class="keywordtype">int</span>  state_indx,</div>
-<div class="line"><a name="l00866"></a><span class="lineno">  866</span>&#160;                  <span class="keywordtype">int</span>  scomp,</div>
-<div class="line"><a name="l00867"></a><span class="lineno">  867</span>&#160;                  <span class="keywordtype">int</span>  <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
-<div class="line"><a name="l00868"></a><span class="lineno">  868</span>&#160;                  <span class="keywordtype">int</span> f,</div>
-<div class="line"><a name="l00869"></a><span class="lineno">  869</span>&#160;                  <span class="keywordtype">bool</span> singleT=<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00870"></a><span class="lineno">  870</span>&#160;</div>
-<div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;    <span class="keywordtype">void</span> Receive (RGIter* rgi,</div>
-<div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;                  <a class="code" href="classamrex_1_1_multi_fab.html">MultiFab</a>&amp; dest,</div>
-<div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160;                  <span class="keywordtype">int</span>  boxGrow,</div>
-<div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;                  <span class="keyword">const</span> Real time,</div>
-<div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160;                  <span class="keywordtype">int</span>  state_indx,</div>
-<div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;                  <span class="keywordtype">int</span>  scomp,</div>
-<div class="line"><a name="l00877"></a><span class="lineno">  877</span>&#160;                  <span class="keywordtype">int</span>  <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
-<div class="line"><a name="l00878"></a><span class="lineno">  878</span>&#160;                  <span class="keywordtype">int</span> f,</div>
-<div class="line"><a name="l00879"></a><span class="lineno">  879</span>&#160;                  <span class="keywordtype">bool</span> singleT=<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00880"></a><span class="lineno">  880</span>&#160;</div>
-<div class="line"><a name="l00881"></a><span class="lineno">  881</span>&#160;    <span class="keywordtype">void</span> PullOnly (<span class="keywordtype">int</span>  boxGrow,</div>
-<div class="line"><a name="l00882"></a><span class="lineno">  882</span>&#160;                   Real time,</div>
-<div class="line"><a name="l00883"></a><span class="lineno">  883</span>&#160;                   <span class="keywordtype">int</span>  state_indx,</div>
-<div class="line"><a name="l00884"></a><span class="lineno">  884</span>&#160;                   <span class="keywordtype">int</span>  scomp,</div>
-<div class="line"><a name="l00885"></a><span class="lineno">  885</span>&#160;                   <span class="keywordtype">int</span>  <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
-<div class="line"><a name="l00886"></a><span class="lineno">  886</span>&#160;                   <span class="keywordtype">int</span> f,</div>
-<div class="line"><a name="l00887"></a><span class="lineno">  887</span>&#160;                   <span class="keywordtype">bool</span> singleT=<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00888"></a><span class="lineno">  888</span>&#160;</div>
-<div class="line"><a name="l00889"></a><span class="lineno">  889</span>&#160;    <span class="keywordtype">void</span> PullOnly (<a class="code" href="classamrex_1_1_multi_fab.html">MultiFab</a>&amp; dest,</div>
-<div class="line"><a name="l00890"></a><span class="lineno">  890</span>&#160;                   <span class="keywordtype">int</span>  boxGrow,</div>
-<div class="line"><a name="l00891"></a><span class="lineno">  891</span>&#160;                   Real time,</div>
-<div class="line"><a name="l00892"></a><span class="lineno">  892</span>&#160;                   <span class="keywordtype">int</span>  state_indx,</div>
-<div class="line"><a name="l00893"></a><span class="lineno">  893</span>&#160;                   <span class="keywordtype">int</span>  scomp,</div>
-<div class="line"><a name="l00894"></a><span class="lineno">  894</span>&#160;                   <span class="keywordtype">int</span>  <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
-<div class="line"><a name="l00895"></a><span class="lineno">  895</span>&#160;                   <span class="keywordtype">int</span> f,</div>
-<div class="line"><a name="l00896"></a><span class="lineno">  896</span>&#160;                   <span class="keywordtype">bool</span> singleT=<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00897"></a><span class="lineno">  897</span>&#160;</div>
-<div class="line"><a name="l00898"></a><span class="lineno">  898</span>&#160;    <span class="keywordtype">void</span> FillPatchTwoLevelsPush (<a class="code" href="classamrex_1_1_amr.html">Amr</a>&amp; amr, <a class="code" href="classamrex_1_1_multi_fab.html">MultiFab</a>&amp; mf, Real time,</div>
-<div class="line"><a name="l00899"></a><span class="lineno">  899</span>&#160;                                 <a class="code" href="classamrex_1_1_vector.html">Vector&lt;MultiFab*&gt;</a>&amp; cmf, <a class="code" href="classamrex_1_1_vector.html">Vector&lt;Real&gt;</a>&amp; ct,</div>
-<div class="line"><a name="l00900"></a><span class="lineno">  900</span>&#160;                                 <a class="code" href="classamrex_1_1_vector.html">Vector&lt;MultiFab*&gt;</a>&amp; fmf, <a class="code" href="classamrex_1_1_vector.html">Vector&lt;Real&gt;</a>&amp; ft,</div>
-<div class="line"><a name="l00901"></a><span class="lineno">  901</span>&#160;                                 RegionGraph* destGraph, RegionGraph* csrcGraph, RegionGraph* fsrcGraph, <span class="keywordtype">int</span> f,</div>
-<div class="line"><a name="l00902"></a><span class="lineno">  902</span>&#160;                                 AsyncFillPatchIterator* fpIter,</div>
-<div class="line"><a name="l00903"></a><span class="lineno">  903</span>&#160;                                 <a class="code" href="classamrex_1_1_multi_fab.html">MultiFab</a> *dmf,</div>
-<div class="line"><a name="l00904"></a><span class="lineno">  904</span>&#160;                                 <a class="code" href="classamrex_1_1_multi_fab.html">MultiFab</a> *dmff,</div>
-<div class="line"><a name="l00905"></a><span class="lineno">  905</span>&#160;                                 <span class="keywordtype">int</span> scomp, <span class="keywordtype">int</span> dcomp, <span class="keywordtype">int</span> <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
-<div class="line"><a name="l00906"></a><span class="lineno">  906</span>&#160;                                 <span class="keyword">const</span> <a class="code" href="classamrex_1_1_geometry.html">Geometry</a>&amp; cgeom, <span class="keyword">const</span> <a class="code" href="classamrex_1_1_geometry.html">Geometry</a>&amp; fgeom,</div>
-<div class="line"><a name="l00907"></a><span class="lineno">  907</span>&#160;                                 <a class="code" href="classamrex_1_1_state_data_phys_b_c_funct.html">StateDataPhysBCFunct</a>&amp; cbc, <a class="code" href="classamrex_1_1_state_data_phys_b_c_funct.html">StateDataPhysBCFunct</a>&amp; fbc,</div>
-<div class="line"><a name="l00908"></a><span class="lineno">  908</span>&#160;                                 <span class="keyword">const</span> <a class="code" href="classamrex_1_1_int_vect.html">IntVect</a>&amp; <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#a3a6ea573223fb7730509e32b93601c15">ratio</a>,</div>
-<div class="line"><a name="l00909"></a><span class="lineno">  909</span>&#160;                                 <a class="code" href="classamrex_1_1_interpolater.html">Interpolater</a>* mapper, <span class="keyword">const</span> <a class="code" href="classamrex_1_1_vector.html">Vector&lt;BCRec&gt;</a>&amp; bcs, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> pushLevel, <span class="keywordtype">bool</span> singleT);</div>
-<div class="line"><a name="l00910"></a><span class="lineno">  910</span>&#160;</div>
-<div class="line"><a name="l00911"></a><span class="lineno">  911</span>&#160;    <span class="keywordtype">void</span> FillPatchTwoLevelsPull (<a class="code" href="classamrex_1_1_multi_fab.html">MultiFab</a>&amp; mf, Real time,</div>
-<div class="line"><a name="l00912"></a><span class="lineno">  912</span>&#160;                                 <a class="code" href="classamrex_1_1_vector.html">Vector&lt;MultiFab*&gt;</a>&amp; cmf, <a class="code" href="classamrex_1_1_vector.html">Vector&lt;Real&gt;</a>&amp; ct,</div>
-<div class="line"><a name="l00913"></a><span class="lineno">  913</span>&#160;                                 <a class="code" href="classamrex_1_1_vector.html">Vector&lt;MultiFab*&gt;</a>&amp; fmf, <a class="code" href="classamrex_1_1_vector.html">Vector&lt;Real&gt;</a>&amp; ft,</div>
-<div class="line"><a name="l00914"></a><span class="lineno">  914</span>&#160;                                 RegionGraph* destGraph, RegionGraph* csrcGraph, RegionGraph* fsrcGraph, <span class="keywordtype">int</span> f,</div>
-<div class="line"><a name="l00915"></a><span class="lineno">  915</span>&#160;                                 AsyncFillPatchIterator* fpIter,</div>
-<div class="line"><a name="l00916"></a><span class="lineno">  916</span>&#160;                                 <span class="keywordtype">int</span> scomp, <span class="keywordtype">int</span> dcomp, <span class="keywordtype">int</span> <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
-<div class="line"><a name="l00917"></a><span class="lineno">  917</span>&#160;                                 <span class="keyword">const</span> <a class="code" href="classamrex_1_1_geometry.html">Geometry</a>&amp; cgeom, <span class="keyword">const</span> <a class="code" href="classamrex_1_1_geometry.html">Geometry</a>&amp; fgeom,</div>
-<div class="line"><a name="l00918"></a><span class="lineno">  918</span>&#160;                                 <a class="code" href="classamrex_1_1_state_data_phys_b_c_funct.html">StateDataPhysBCFunct</a>&amp; cbc, <a class="code" href="classamrex_1_1_state_data_phys_b_c_funct.html">StateDataPhysBCFunct</a>&amp; fbc,</div>
-<div class="line"><a name="l00919"></a><span class="lineno">  919</span>&#160;                                 <span class="keyword">const</span> <a class="code" href="classamrex_1_1_int_vect.html">IntVect</a>&amp; <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#a3a6ea573223fb7730509e32b93601c15">ratio</a>,</div>
-<div class="line"><a name="l00920"></a><span class="lineno">  920</span>&#160;                                 <a class="code" href="classamrex_1_1_interpolater.html">Interpolater</a>* mapper, <span class="keyword">const</span> <a class="code" href="classamrex_1_1_vector.html">Vector&lt;BCRec&gt;</a>&amp; bcs, <span class="keywordtype">bool</span> singleT);</div>
-<div class="line"><a name="l00921"></a><span class="lineno">  921</span>&#160;</div>
-<div class="line"><a name="l00922"></a><span class="lineno">  922</span>&#160;    <span class="keywordtype">void</span> FillPatchSingleLevelPush (<a class="code" href="classamrex_1_1_amr.html">Amr</a>&amp; amr, <a class="code" href="classamrex_1_1_multi_fab.html">MultiFab</a>&amp; mf, Real time,</div>
-<div class="line"><a name="l00923"></a><span class="lineno">  923</span>&#160;                                   <a class="code" href="classamrex_1_1_vector.html">Vector&lt;MultiFab*&gt;</a>&amp; smf, <span class="keyword">const</span> <a class="code" href="classamrex_1_1_vector.html">Vector&lt;Real&gt;</a>&amp; stime,</div>
-<div class="line"><a name="l00924"></a><span class="lineno">  924</span>&#160;                                   RegionGraph* destGraph, RegionGraph* srcGraph, <span class="keywordtype">int</span> f,</div>
-<div class="line"><a name="l00925"></a><span class="lineno">  925</span>&#160;                                   <a class="code" href="classamrex_1_1_multi_fab.html">MultiFab</a> *dmf,</div>
-<div class="line"><a name="l00926"></a><span class="lineno">  926</span>&#160;                                   <span class="keywordtype">int</span> scomp, <span class="keywordtype">int</span> dcomp, <span class="keywordtype">int</span> <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
-<div class="line"><a name="l00927"></a><span class="lineno">  927</span>&#160;                                   <span class="keyword">const</span> <a class="code" href="classamrex_1_1_geometry.html">Geometry</a>&amp; geom, <a class="code" href="classamrex_1_1_state_data_phys_b_c_funct.html">StateDataPhysBCFunct</a>&amp; physbcf, <span class="keywordtype">bool</span> singleT);</div>
-<div class="line"><a name="l00928"></a><span class="lineno">  928</span>&#160;    <span class="keywordtype">void</span> FillPatchSingleLevelPull (<a class="code" href="classamrex_1_1_multi_fab.html">MultiFab</a>&amp; mf, Real time,</div>
-<div class="line"><a name="l00929"></a><span class="lineno">  929</span>&#160;                                   <a class="code" href="classamrex_1_1_vector.html">Vector&lt;MultiFab*&gt;</a>&amp; smf, <span class="keyword">const</span> <a class="code" href="classamrex_1_1_vector.html">Vector&lt;Real&gt;</a>&amp; stime,</div>
-<div class="line"><a name="l00930"></a><span class="lineno">  930</span>&#160;                                   RegionGraph* destGraph, RegionGraph* srcGraph, <span class="keywordtype">int</span> f,</div>
-<div class="line"><a name="l00931"></a><span class="lineno">  931</span>&#160;                                   <span class="keywordtype">int</span> scomp, <span class="keywordtype">int</span> dcomp, <span class="keywordtype">int</span> <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
-<div class="line"><a name="l00932"></a><span class="lineno">  932</span>&#160;                                   <span class="keyword">const</span> <a class="code" href="classamrex_1_1_geometry.html">Geometry</a>&amp; geom, <a class="code" href="classamrex_1_1_state_data_phys_b_c_funct.html">StateDataPhysBCFunct</a>&amp; physbcf, <span class="keywordtype">bool</span> singleT);</div>
-<div class="line"><a name="l00933"></a><span class="lineno">  933</span>&#160;</div>
-<div class="line"><a name="l00934"></a><span class="lineno">  934</span>&#160;    <span class="keywordtype">void</span> FillFromTwoLevelsPush (Real time,</div>
-<div class="line"><a name="l00935"></a><span class="lineno">  935</span>&#160;                                <span class="keywordtype">int</span> index,</div>
-<div class="line"><a name="l00936"></a><span class="lineno">  936</span>&#160;                                <span class="keywordtype">int</span> scomp,</div>
-<div class="line"><a name="l00937"></a><span class="lineno">  937</span>&#160;                                <span class="keywordtype">int</span> dcomp,</div>
-<div class="line"><a name="l00938"></a><span class="lineno">  938</span>&#160;                                <span class="keywordtype">int</span> <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
-<div class="line"><a name="l00939"></a><span class="lineno">  939</span>&#160;                                <span class="keywordtype">int</span> f,</div>
-<div class="line"><a name="l00940"></a><span class="lineno">  940</span>&#160;                                <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> pushLevel,</div>
-<div class="line"><a name="l00941"></a><span class="lineno">  941</span>&#160;                                <span class="keywordtype">bool</span> singleT);</div>
-<div class="line"><a name="l00942"></a><span class="lineno">  942</span>&#160;    <span class="keywordtype">void</span> FillFromTwoLevelsPull (Real time,</div>
-<div class="line"><a name="l00943"></a><span class="lineno">  943</span>&#160;                                <span class="keywordtype">int</span> index,</div>
-<div class="line"><a name="l00944"></a><span class="lineno">  944</span>&#160;                                <span class="keywordtype">int</span> scomp,</div>
-<div class="line"><a name="l00945"></a><span class="lineno">  945</span>&#160;                                <span class="keywordtype">int</span> dcomp,</div>
-<div class="line"><a name="l00946"></a><span class="lineno">  946</span>&#160;                                <span class="keywordtype">int</span> <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
-<div class="line"><a name="l00947"></a><span class="lineno">  947</span>&#160;                                <span class="keywordtype">int</span> f,</div>
-<div class="line"><a name="l00948"></a><span class="lineno">  948</span>&#160;                                <span class="keywordtype">bool</span> singleT);</div>
-<div class="line"><a name="l00949"></a><span class="lineno">  949</span>&#160;</div>
-<div class="line"><a name="l00950"></a><span class="lineno">  950</span>&#160;    <span class="keywordtype">void</span> FillFromTwoLevelsPull (<a class="code" href="classamrex_1_1_multi_fab.html">MultiFab</a>&amp; dest,</div>
-<div class="line"><a name="l00951"></a><span class="lineno">  951</span>&#160;                                Real time,</div>
-<div class="line"><a name="l00952"></a><span class="lineno">  952</span>&#160;                                <span class="keywordtype">int</span> index,</div>
-<div class="line"><a name="l00953"></a><span class="lineno">  953</span>&#160;                                <span class="keywordtype">int</span> scomp,</div>
-<div class="line"><a name="l00954"></a><span class="lineno">  954</span>&#160;                                <span class="keywordtype">int</span> dcomp,</div>
-<div class="line"><a name="l00955"></a><span class="lineno">  955</span>&#160;                                <span class="keywordtype">int</span> <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
-<div class="line"><a name="l00956"></a><span class="lineno">  956</span>&#160;                                <span class="keywordtype">int</span> f,</div>
-<div class="line"><a name="l00957"></a><span class="lineno">  957</span>&#160;                                <span class="keywordtype">bool</span> singleT);</div>
-<div class="line"><a name="l00958"></a><span class="lineno">  958</span>&#160;</div>
-<div class="line"><a name="l00959"></a><span class="lineno">  959</span>&#160;    ~AsyncFillPatchIterator (){};</div>
-<div class="line"><a name="l00960"></a><span class="lineno">  960</span>&#160;</div>
-<div class="line"><a name="l00961"></a><span class="lineno">  961</span>&#160;    FArrayBox&amp; operator() () { <span class="keywordflow">return</span> m_fabs[<a class="code" href="classamrex_1_1_m_f_iter.html#a4d0d4d533f7d916b28e2223f9d4e4f07">MFIter::index</a>()]; }</div>
-<div class="line"><a name="l00962"></a><span class="lineno">  962</span>&#160;</div>
-<div class="line"><a name="l00963"></a><span class="lineno">  963</span>&#160;    Box UngrownBox ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="classamrex_1_1_m_f_iter.html#a3b646c3a8d9530997d5804769c47b335">MFIter::validbox</a>(); }</div>
-<div class="line"><a name="l00964"></a><span class="lineno">  964</span>&#160;</div>
-<div class="line"><a name="l00965"></a><span class="lineno">  965</span>&#160;    MultiFab&amp; get_mf() { <span class="keywordflow">return</span> m_fabs; }</div>
-<div class="line"><a name="l00966"></a><span class="lineno">  966</span>&#160;</div>
-<div class="line"><a name="l00967"></a><span class="lineno">  967</span>&#160;  <span class="comment">//  protected:</span></div>
-<div class="line"><a name="l00968"></a><span class="lineno">  968</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00969"></a><span class="lineno">  969</span>&#160;    <span class="comment">// Disallowed.</span></div>
-<div class="line"><a name="l00970"></a><span class="lineno">  970</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00971"></a><span class="lineno">  971</span>&#160;    AsyncFillPatchIterator ();</div>
-<div class="line"><a name="l00972"></a><span class="lineno">  972</span>&#160;    AsyncFillPatchIterator (<span class="keyword">const</span> AsyncFillPatchIterator&amp; rhs);</div>
-<div class="line"><a name="l00973"></a><span class="lineno">  973</span>&#160;    AsyncFillPatchIterator&amp; operator= (<span class="keyword">const</span> AsyncFillPatchIterator&amp; rhs);</div>
-<div class="line"><a name="l00974"></a><span class="lineno">  974</span>&#160;</div>
-<div class="line"><a name="l00975"></a><span class="lineno">  975</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00976"></a><span class="lineno">  976</span>&#160;    <span class="comment">// The data.</span></div>
-<div class="line"><a name="l00977"></a><span class="lineno">  977</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00978"></a><span class="lineno">  978</span>&#160;    AmrLevel&amp;                         m_amrlevel;</div>
-<div class="line"><a name="l00979"></a><span class="lineno">  979</span>&#160;    MultiFab&amp;                         m_leveldata;</div>
-<div class="line"><a name="l00980"></a><span class="lineno">  980</span>&#160;    std::vector&lt; std::pair&lt;int,int&gt; &gt; m_range;</div>
-<div class="line"><a name="l00981"></a><span class="lineno">  981</span>&#160;    MultiFab                          m_fabs;</div>
-<div class="line"><a name="l00982"></a><span class="lineno">  982</span>&#160;    <span class="keywordtype">int</span>                               m_ncomp;</div>
-<div class="line"><a name="l00983"></a><span class="lineno">  983</span>&#160;</div>
-<div class="line"><a name="l00984"></a><span class="lineno">  984</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00985"></a><span class="lineno">  985</span>&#160;    <span class="keywordtype">bool</span>                              isProperlyNested;</div>
-<div class="line"><a name="l00986"></a><span class="lineno">  986</span>&#160;</div>
-<div class="line"><a name="l00987"></a><span class="lineno">  987</span>&#160;    <a class="code" href="classamrex_1_1_vector.html">amrex::Vector&lt;MultiFab*&gt;</a>                  smf;</div>
-<div class="line"><a name="l00988"></a><span class="lineno">  988</span>&#160;    <a class="code" href="classamrex_1_1_vector.html">amrex::Vector&lt;Real&gt;</a>                       stime;</div>
-<div class="line"><a name="l00989"></a><span class="lineno">  989</span>&#160;    StateDataPhysBCFunct*             physbcf;</div>
-<div class="line"><a name="l00990"></a><span class="lineno">  990</span>&#160;    Geometry*                         geom;</div>
-<div class="line"><a name="l00991"></a><span class="lineno">  991</span>&#160;</div>
+<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;</div>
+<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;<span class="preprocessor">#ifdef USE_PERILLA</span></div>
+<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;<span class="preprocessor"></span><span class="keyword">class </span>AsyncFillPatchIterator</div>
+<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;    :</div>
+<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;    <span class="keyword">public</span> <a class="code" href="classamrex_1_1_m_f_iter.html">MFIter</a></div>
+<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;{</div>
+<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;</div>
+<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classamrex_1_1_amr_level.html">AmrLevel</a>;</div>
+<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;  <span class="keyword">friend</span> <span class="keyword">class </span>RGIter;</div>
+<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;</div>
+<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;    AsyncFillPatchIterator (<a class="code" href="classamrex_1_1_amr_level.html">AmrLevel</a>&amp; amrlevel,</div>
+<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;                            <a class="code" href="classamrex_1_1_multi_fab.html">MultiFab</a>&amp; leveldata,</div>
+<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;                            <span class="keywordtype">int</span>       boxGrow,</div>
+<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;                            Real      time,</div>
+<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;                            <span class="keywordtype">int</span>       state_indx,</div>
+<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;                            <span class="keywordtype">int</span>       scomp,</div>
+<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;                            <span class="keywordtype">int</span>       <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
+<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;                            <span class="keywordtype">int</span> iter);</div>
+<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;</div>
+<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;    <span class="keywordtype">void</span> initFillPatch(<span class="keywordtype">int</span> boxGrow,</div>
+<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;                       <span class="keywordtype">int</span> time,</div>
+<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;                       <span class="keywordtype">int</span> index,</div>
+<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;                       <span class="keywordtype">int</span> scomp,</div>
+<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;                       <span class="keywordtype">int</span> <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
+<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;                       <span class="keywordtype">int</span> iter);</div>
+<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;</div>
+<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span>  initialSend(<a class="code" href="classamrex_1_1_vector.html">amrex::Vector&lt;amrex::AsyncFillPatchIterator*&gt;</a> afpi,</div>
+<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;                             <a class="code" href="classamrex_1_1_vector.html">amrex::Vector&lt;amrex::AsyncFillPatchIterator*&gt;</a> upper_afpi,</div>
+<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;                             <span class="keywordtype">int</span>  boxGrow,</div>
+<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;                             Real time,</div>
+<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;                             <span class="keywordtype">int</span>  state_indx,</div>
+<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;                             <span class="keywordtype">int</span>  scomp,</div>
+<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;                             <span class="keywordtype">int</span>  <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
+<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;                             <span class="keywordtype">int</span>  iter);</div>
+<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;</div>
+<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;    <span class="keywordtype">void</span> PushOnly (<span class="keywordtype">int</span>  boxGrow,</div>
+<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;                   Real time,</div>
+<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;                   <span class="keywordtype">int</span>  state_indx,</div>
+<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;                   <span class="keywordtype">int</span>  scomp,</div>
+<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;                   <span class="keywordtype">int</span>  <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
+<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;                   <span class="keywordtype">int</span> f,</div>
+<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;                   <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> pushLevel,</div>
+<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;                   <span class="keywordtype">bool</span> singleT=<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;</div>
+<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;    <span class="keywordtype">void</span> SendIntraLevel (RGIter&amp; rgi,</div>
+<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;                         <span class="keywordtype">int</span>  boxGrow,</div>
+<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;                         Real time,</div>
+<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;                         <span class="keywordtype">int</span>  state_indx,</div>
+<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;                         <span class="keywordtype">int</span>  scomp,</div>
+<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;                         <span class="keywordtype">int</span>  <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
+<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;                         <span class="keywordtype">int</span>  iter,</div>
+<div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160;                         <span class="keywordtype">int</span> f,</div>
+<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;                         <span class="keywordtype">bool</span> singleT=<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;</div>
+<div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160;    <span class="keywordtype">void</span> SendIntraLevel (RGIter* rgi,</div>
+<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160;                         <span class="keywordtype">int</span>  boxGrow,</div>
+<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;                         Real time,</div>
+<div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;                         <span class="keywordtype">int</span>  state_indx,</div>
+<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;                         <span class="keywordtype">int</span>  scomp,</div>
+<div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;                         <span class="keywordtype">int</span>  <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
+<div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;                         <span class="keywordtype">int</span>  iter,</div>
+<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;                         <span class="keywordtype">int</span> f,</div>
+<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;                         <span class="keywordtype">bool</span> singleT=<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;</div>
+<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;    <span class="keywordtype">void</span> SendInterLevel (RGIter&amp; rgi,</div>
+<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;                         <span class="keywordtype">int</span>  boxGrow,</div>
+<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;                         Real time,</div>
+<div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;                         <span class="keywordtype">int</span>  state_indx,</div>
+<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;                         <span class="keywordtype">int</span>  scomp,</div>
+<div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160;                         <span class="keywordtype">int</span>  <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
+<div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160;                         <span class="keywordtype">int</span>  iter,</div>
+<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;                         <span class="keywordtype">int</span> f,</div>
+<div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160;                         <span class="keywordtype">bool</span> singleT=<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;</div>
+<div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;    <span class="keywordtype">void</span> SendInterLevel (RGIter* rgi,</div>
+<div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;                         <span class="keywordtype">int</span>  boxGrow,</div>
+<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;                         Real time,</div>
+<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;                         <span class="keywordtype">int</span>  state_indx,</div>
+<div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160;                         <span class="keywordtype">int</span>  scomp,</div>
+<div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;                         <span class="keywordtype">int</span>  <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
+<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;                         <span class="keywordtype">int</span>  iter,</div>
+<div class="line"><a name="l00841"></a><span class="lineno">  841</span>&#160;                         <span class="keywordtype">int</span> f,</div>
+<div class="line"><a name="l00842"></a><span class="lineno">  842</span>&#160;                         <span class="keywordtype">bool</span> singleT=<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00843"></a><span class="lineno">  843</span>&#160;</div>
+<div class="line"><a name="l00844"></a><span class="lineno">  844</span>&#160;    <span class="keywordtype">void</span> Receive (RGIter&amp; rgi,</div>
+<div class="line"><a name="l00845"></a><span class="lineno">  845</span>&#160;                   <span class="keywordtype">int</span>  boxGrow,</div>
+<div class="line"><a name="l00846"></a><span class="lineno">  846</span>&#160;                   Real time,</div>
+<div class="line"><a name="l00847"></a><span class="lineno">  847</span>&#160;                   <span class="keywordtype">int</span>  state_indx,</div>
+<div class="line"><a name="l00848"></a><span class="lineno">  848</span>&#160;                   <span class="keywordtype">int</span>  scomp,</div>
+<div class="line"><a name="l00849"></a><span class="lineno">  849</span>&#160;                   <span class="keywordtype">int</span>  <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
+<div class="line"><a name="l00850"></a><span class="lineno">  850</span>&#160;                   <span class="keywordtype">int</span> f,</div>
+<div class="line"><a name="l00851"></a><span class="lineno">  851</span>&#160;                   <span class="keywordtype">bool</span> singleT=<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00852"></a><span class="lineno">  852</span>&#160;</div>
+<div class="line"><a name="l00853"></a><span class="lineno">  853</span>&#160;    <span class="keywordtype">void</span> Receive (RGIter* rgi,</div>
+<div class="line"><a name="l00854"></a><span class="lineno">  854</span>&#160;                   <span class="keywordtype">int</span>  boxGrow,</div>
+<div class="line"><a name="l00855"></a><span class="lineno">  855</span>&#160;                   Real time,</div>
+<div class="line"><a name="l00856"></a><span class="lineno">  856</span>&#160;                   <span class="keywordtype">int</span>  state_indx,</div>
+<div class="line"><a name="l00857"></a><span class="lineno">  857</span>&#160;                   <span class="keywordtype">int</span>  scomp,</div>
+<div class="line"><a name="l00858"></a><span class="lineno">  858</span>&#160;                   <span class="keywordtype">int</span>  <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
+<div class="line"><a name="l00859"></a><span class="lineno">  859</span>&#160;                   <span class="keywordtype">int</span> f,</div>
+<div class="line"><a name="l00860"></a><span class="lineno">  860</span>&#160;                   <span class="keywordtype">bool</span> singleT=<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00861"></a><span class="lineno">  861</span>&#160;</div>
+<div class="line"><a name="l00862"></a><span class="lineno">  862</span>&#160;    <span class="keywordtype">void</span> Receive (RGIter&amp; rgi,</div>
+<div class="line"><a name="l00863"></a><span class="lineno">  863</span>&#160;                  <a class="code" href="classamrex_1_1_multi_fab.html">MultiFab</a>&amp; dest,</div>
+<div class="line"><a name="l00864"></a><span class="lineno">  864</span>&#160;                  <span class="keywordtype">int</span>  boxGrow,</div>
+<div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160;                  Real time,</div>
+<div class="line"><a name="l00866"></a><span class="lineno">  866</span>&#160;                  <span class="keywordtype">int</span>  state_indx,</div>
+<div class="line"><a name="l00867"></a><span class="lineno">  867</span>&#160;                  <span class="keywordtype">int</span>  scomp,</div>
+<div class="line"><a name="l00868"></a><span class="lineno">  868</span>&#160;                  <span class="keywordtype">int</span>  <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
+<div class="line"><a name="l00869"></a><span class="lineno">  869</span>&#160;                  <span class="keywordtype">int</span> f,</div>
+<div class="line"><a name="l00870"></a><span class="lineno">  870</span>&#160;                  <span class="keywordtype">bool</span> singleT=<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;</div>
+<div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;    <span class="keywordtype">void</span> Receive (RGIter* rgi,</div>
+<div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160;                  <a class="code" href="classamrex_1_1_multi_fab.html">MultiFab</a>&amp; dest,</div>
+<div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;                  <span class="keywordtype">int</span>  boxGrow,</div>
+<div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160;                  <span class="keyword">const</span> Real time,</div>
+<div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;                  <span class="keywordtype">int</span>  state_indx,</div>
+<div class="line"><a name="l00877"></a><span class="lineno">  877</span>&#160;                  <span class="keywordtype">int</span>  scomp,</div>
+<div class="line"><a name="l00878"></a><span class="lineno">  878</span>&#160;                  <span class="keywordtype">int</span>  <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
+<div class="line"><a name="l00879"></a><span class="lineno">  879</span>&#160;                  <span class="keywordtype">int</span> f,</div>
+<div class="line"><a name="l00880"></a><span class="lineno">  880</span>&#160;                  <span class="keywordtype">bool</span> singleT=<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00881"></a><span class="lineno">  881</span>&#160;</div>
+<div class="line"><a name="l00882"></a><span class="lineno">  882</span>&#160;    <span class="keywordtype">void</span> PullOnly (<span class="keywordtype">int</span>  boxGrow,</div>
+<div class="line"><a name="l00883"></a><span class="lineno">  883</span>&#160;                   Real time,</div>
+<div class="line"><a name="l00884"></a><span class="lineno">  884</span>&#160;                   <span class="keywordtype">int</span>  state_indx,</div>
+<div class="line"><a name="l00885"></a><span class="lineno">  885</span>&#160;                   <span class="keywordtype">int</span>  scomp,</div>
+<div class="line"><a name="l00886"></a><span class="lineno">  886</span>&#160;                   <span class="keywordtype">int</span>  <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
+<div class="line"><a name="l00887"></a><span class="lineno">  887</span>&#160;                   <span class="keywordtype">int</span> f,</div>
+<div class="line"><a name="l00888"></a><span class="lineno">  888</span>&#160;                   <span class="keywordtype">bool</span> singleT=<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00889"></a><span class="lineno">  889</span>&#160;</div>
+<div class="line"><a name="l00890"></a><span class="lineno">  890</span>&#160;    <span class="keywordtype">void</span> PullOnly (<a class="code" href="classamrex_1_1_multi_fab.html">MultiFab</a>&amp; dest,</div>
+<div class="line"><a name="l00891"></a><span class="lineno">  891</span>&#160;                   <span class="keywordtype">int</span>  boxGrow,</div>
+<div class="line"><a name="l00892"></a><span class="lineno">  892</span>&#160;                   Real time,</div>
+<div class="line"><a name="l00893"></a><span class="lineno">  893</span>&#160;                   <span class="keywordtype">int</span>  state_indx,</div>
+<div class="line"><a name="l00894"></a><span class="lineno">  894</span>&#160;                   <span class="keywordtype">int</span>  scomp,</div>
+<div class="line"><a name="l00895"></a><span class="lineno">  895</span>&#160;                   <span class="keywordtype">int</span>  <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
+<div class="line"><a name="l00896"></a><span class="lineno">  896</span>&#160;                   <span class="keywordtype">int</span> f,</div>
+<div class="line"><a name="l00897"></a><span class="lineno">  897</span>&#160;                   <span class="keywordtype">bool</span> singleT=<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00898"></a><span class="lineno">  898</span>&#160;</div>
+<div class="line"><a name="l00899"></a><span class="lineno">  899</span>&#160;    <span class="keywordtype">void</span> FillPatchTwoLevelsPush (<a class="code" href="classamrex_1_1_amr.html">Amr</a>&amp; amr, <a class="code" href="classamrex_1_1_multi_fab.html">MultiFab</a>&amp; mf, Real time,</div>
+<div class="line"><a name="l00900"></a><span class="lineno">  900</span>&#160;                                 <a class="code" href="classamrex_1_1_vector.html">Vector&lt;MultiFab*&gt;</a>&amp; cmf, <a class="code" href="classamrex_1_1_vector.html">Vector&lt;Real&gt;</a>&amp; ct,</div>
+<div class="line"><a name="l00901"></a><span class="lineno">  901</span>&#160;                                 <a class="code" href="classamrex_1_1_vector.html">Vector&lt;MultiFab*&gt;</a>&amp; fmf, <a class="code" href="classamrex_1_1_vector.html">Vector&lt;Real&gt;</a>&amp; ft,</div>
+<div class="line"><a name="l00902"></a><span class="lineno">  902</span>&#160;                                 RegionGraph* destGraph, RegionGraph* csrcGraph, RegionGraph* fsrcGraph, <span class="keywordtype">int</span> f,</div>
+<div class="line"><a name="l00903"></a><span class="lineno">  903</span>&#160;                                 AsyncFillPatchIterator* fpIter,</div>
+<div class="line"><a name="l00904"></a><span class="lineno">  904</span>&#160;                                 <a class="code" href="classamrex_1_1_multi_fab.html">MultiFab</a> *dmf,</div>
+<div class="line"><a name="l00905"></a><span class="lineno">  905</span>&#160;                                 <a class="code" href="classamrex_1_1_multi_fab.html">MultiFab</a> *dmff,</div>
+<div class="line"><a name="l00906"></a><span class="lineno">  906</span>&#160;                                 <span class="keywordtype">int</span> scomp, <span class="keywordtype">int</span> dcomp, <span class="keywordtype">int</span> <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
+<div class="line"><a name="l00907"></a><span class="lineno">  907</span>&#160;                                 <span class="keyword">const</span> <a class="code" href="classamrex_1_1_geometry.html">Geometry</a>&amp; cgeom, <span class="keyword">const</span> <a class="code" href="classamrex_1_1_geometry.html">Geometry</a>&amp; fgeom,</div>
+<div class="line"><a name="l00908"></a><span class="lineno">  908</span>&#160;                                 <a class="code" href="classamrex_1_1_state_data_phys_b_c_funct.html">StateDataPhysBCFunct</a>&amp; cbc, <a class="code" href="classamrex_1_1_state_data_phys_b_c_funct.html">StateDataPhysBCFunct</a>&amp; fbc,</div>
+<div class="line"><a name="l00909"></a><span class="lineno">  909</span>&#160;                                 <span class="keyword">const</span> <a class="code" href="classamrex_1_1_int_vect.html">IntVect</a>&amp; <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#a3a6ea573223fb7730509e32b93601c15">ratio</a>,</div>
+<div class="line"><a name="l00910"></a><span class="lineno">  910</span>&#160;                                 <a class="code" href="classamrex_1_1_interpolater.html">Interpolater</a>* mapper, <span class="keyword">const</span> <a class="code" href="classamrex_1_1_vector.html">Vector&lt;BCRec&gt;</a>&amp; bcs, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> pushLevel, <span class="keywordtype">bool</span> singleT);</div>
+<div class="line"><a name="l00911"></a><span class="lineno">  911</span>&#160;</div>
+<div class="line"><a name="l00912"></a><span class="lineno">  912</span>&#160;    <span class="keywordtype">void</span> FillPatchTwoLevelsPull (<a class="code" href="classamrex_1_1_multi_fab.html">MultiFab</a>&amp; mf, Real time,</div>
+<div class="line"><a name="l00913"></a><span class="lineno">  913</span>&#160;                                 <a class="code" href="classamrex_1_1_vector.html">Vector&lt;MultiFab*&gt;</a>&amp; cmf, <a class="code" href="classamrex_1_1_vector.html">Vector&lt;Real&gt;</a>&amp; ct,</div>
+<div class="line"><a name="l00914"></a><span class="lineno">  914</span>&#160;                                 <a class="code" href="classamrex_1_1_vector.html">Vector&lt;MultiFab*&gt;</a>&amp; fmf, <a class="code" href="classamrex_1_1_vector.html">Vector&lt;Real&gt;</a>&amp; ft,</div>
+<div class="line"><a name="l00915"></a><span class="lineno">  915</span>&#160;                                 RegionGraph* destGraph, RegionGraph* csrcGraph, RegionGraph* fsrcGraph, <span class="keywordtype">int</span> f,</div>
+<div class="line"><a name="l00916"></a><span class="lineno">  916</span>&#160;                                 AsyncFillPatchIterator* fpIter,</div>
+<div class="line"><a name="l00917"></a><span class="lineno">  917</span>&#160;                                 <span class="keywordtype">int</span> scomp, <span class="keywordtype">int</span> dcomp, <span class="keywordtype">int</span> <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
+<div class="line"><a name="l00918"></a><span class="lineno">  918</span>&#160;                                 <span class="keyword">const</span> <a class="code" href="classamrex_1_1_geometry.html">Geometry</a>&amp; cgeom, <span class="keyword">const</span> <a class="code" href="classamrex_1_1_geometry.html">Geometry</a>&amp; fgeom,</div>
+<div class="line"><a name="l00919"></a><span class="lineno">  919</span>&#160;                                 <a class="code" href="classamrex_1_1_state_data_phys_b_c_funct.html">StateDataPhysBCFunct</a>&amp; cbc, <a class="code" href="classamrex_1_1_state_data_phys_b_c_funct.html">StateDataPhysBCFunct</a>&amp; fbc,</div>
+<div class="line"><a name="l00920"></a><span class="lineno">  920</span>&#160;                                 <span class="keyword">const</span> <a class="code" href="classamrex_1_1_int_vect.html">IntVect</a>&amp; <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#a3a6ea573223fb7730509e32b93601c15">ratio</a>,</div>
+<div class="line"><a name="l00921"></a><span class="lineno">  921</span>&#160;                                 <a class="code" href="classamrex_1_1_interpolater.html">Interpolater</a>* mapper, <span class="keyword">const</span> <a class="code" href="classamrex_1_1_vector.html">Vector&lt;BCRec&gt;</a>&amp; bcs, <span class="keywordtype">bool</span> singleT);</div>
+<div class="line"><a name="l00922"></a><span class="lineno">  922</span>&#160;</div>
+<div class="line"><a name="l00923"></a><span class="lineno">  923</span>&#160;    <span class="keywordtype">void</span> FillPatchSingleLevelPush (<a class="code" href="classamrex_1_1_amr.html">Amr</a>&amp; amr, <a class="code" href="classamrex_1_1_multi_fab.html">MultiFab</a>&amp; mf, Real time,</div>
+<div class="line"><a name="l00924"></a><span class="lineno">  924</span>&#160;                                   <a class="code" href="classamrex_1_1_vector.html">Vector&lt;MultiFab*&gt;</a>&amp; smf, <span class="keyword">const</span> <a class="code" href="classamrex_1_1_vector.html">Vector&lt;Real&gt;</a>&amp; stime,</div>
+<div class="line"><a name="l00925"></a><span class="lineno">  925</span>&#160;                                   RegionGraph* destGraph, RegionGraph* srcGraph, <span class="keywordtype">int</span> f,</div>
+<div class="line"><a name="l00926"></a><span class="lineno">  926</span>&#160;                                   <a class="code" href="classamrex_1_1_multi_fab.html">MultiFab</a> *dmf,</div>
+<div class="line"><a name="l00927"></a><span class="lineno">  927</span>&#160;                                   <span class="keywordtype">int</span> scomp, <span class="keywordtype">int</span> dcomp, <span class="keywordtype">int</span> <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
+<div class="line"><a name="l00928"></a><span class="lineno">  928</span>&#160;                                   <span class="keyword">const</span> <a class="code" href="classamrex_1_1_geometry.html">Geometry</a>&amp; geom, <a class="code" href="classamrex_1_1_state_data_phys_b_c_funct.html">StateDataPhysBCFunct</a>&amp; physbcf, <span class="keywordtype">bool</span> singleT);</div>
+<div class="line"><a name="l00929"></a><span class="lineno">  929</span>&#160;    <span class="keywordtype">void</span> FillPatchSingleLevelPull (<a class="code" href="classamrex_1_1_multi_fab.html">MultiFab</a>&amp; mf, Real time,</div>
+<div class="line"><a name="l00930"></a><span class="lineno">  930</span>&#160;                                   <a class="code" href="classamrex_1_1_vector.html">Vector&lt;MultiFab*&gt;</a>&amp; smf, <span class="keyword">const</span> <a class="code" href="classamrex_1_1_vector.html">Vector&lt;Real&gt;</a>&amp; stime,</div>
+<div class="line"><a name="l00931"></a><span class="lineno">  931</span>&#160;                                   RegionGraph* destGraph, RegionGraph* srcGraph, <span class="keywordtype">int</span> f,</div>
+<div class="line"><a name="l00932"></a><span class="lineno">  932</span>&#160;                                   <span class="keywordtype">int</span> scomp, <span class="keywordtype">int</span> dcomp, <span class="keywordtype">int</span> <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
+<div class="line"><a name="l00933"></a><span class="lineno">  933</span>&#160;                                   <span class="keyword">const</span> <a class="code" href="classamrex_1_1_geometry.html">Geometry</a>&amp; geom, <a class="code" href="classamrex_1_1_state_data_phys_b_c_funct.html">StateDataPhysBCFunct</a>&amp; physbcf, <span class="keywordtype">bool</span> singleT);</div>
+<div class="line"><a name="l00934"></a><span class="lineno">  934</span>&#160;</div>
+<div class="line"><a name="l00935"></a><span class="lineno">  935</span>&#160;    <span class="keywordtype">void</span> FillFromTwoLevelsPush (Real time,</div>
+<div class="line"><a name="l00936"></a><span class="lineno">  936</span>&#160;                                <span class="keywordtype">int</span> index,</div>
+<div class="line"><a name="l00937"></a><span class="lineno">  937</span>&#160;                                <span class="keywordtype">int</span> scomp,</div>
+<div class="line"><a name="l00938"></a><span class="lineno">  938</span>&#160;                                <span class="keywordtype">int</span> dcomp,</div>
+<div class="line"><a name="l00939"></a><span class="lineno">  939</span>&#160;                                <span class="keywordtype">int</span> <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
+<div class="line"><a name="l00940"></a><span class="lineno">  940</span>&#160;                                <span class="keywordtype">int</span> f,</div>
+<div class="line"><a name="l00941"></a><span class="lineno">  941</span>&#160;                                <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> pushLevel,</div>
+<div class="line"><a name="l00942"></a><span class="lineno">  942</span>&#160;                                <span class="keywordtype">bool</span> singleT);</div>
+<div class="line"><a name="l00943"></a><span class="lineno">  943</span>&#160;    <span class="keywordtype">void</span> FillFromTwoLevelsPull (Real time,</div>
+<div class="line"><a name="l00944"></a><span class="lineno">  944</span>&#160;                                <span class="keywordtype">int</span> index,</div>
+<div class="line"><a name="l00945"></a><span class="lineno">  945</span>&#160;                                <span class="keywordtype">int</span> scomp,</div>
+<div class="line"><a name="l00946"></a><span class="lineno">  946</span>&#160;                                <span class="keywordtype">int</span> dcomp,</div>
+<div class="line"><a name="l00947"></a><span class="lineno">  947</span>&#160;                                <span class="keywordtype">int</span> <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
+<div class="line"><a name="l00948"></a><span class="lineno">  948</span>&#160;                                <span class="keywordtype">int</span> f,</div>
+<div class="line"><a name="l00949"></a><span class="lineno">  949</span>&#160;                                <span class="keywordtype">bool</span> singleT);</div>
+<div class="line"><a name="l00950"></a><span class="lineno">  950</span>&#160;</div>
+<div class="line"><a name="l00951"></a><span class="lineno">  951</span>&#160;    <span class="keywordtype">void</span> FillFromTwoLevelsPull (<a class="code" href="classamrex_1_1_multi_fab.html">MultiFab</a>&amp; dest,</div>
+<div class="line"><a name="l00952"></a><span class="lineno">  952</span>&#160;                                Real time,</div>
+<div class="line"><a name="l00953"></a><span class="lineno">  953</span>&#160;                                <span class="keywordtype">int</span> index,</div>
+<div class="line"><a name="l00954"></a><span class="lineno">  954</span>&#160;                                <span class="keywordtype">int</span> scomp,</div>
+<div class="line"><a name="l00955"></a><span class="lineno">  955</span>&#160;                                <span class="keywordtype">int</span> dcomp,</div>
+<div class="line"><a name="l00956"></a><span class="lineno">  956</span>&#160;                                <span class="keywordtype">int</span> <a class="code" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>,</div>
+<div class="line"><a name="l00957"></a><span class="lineno">  957</span>&#160;                                <span class="keywordtype">int</span> f,</div>
+<div class="line"><a name="l00958"></a><span class="lineno">  958</span>&#160;                                <span class="keywordtype">bool</span> singleT);</div>
+<div class="line"><a name="l00959"></a><span class="lineno">  959</span>&#160;</div>
+<div class="line"><a name="l00960"></a><span class="lineno">  960</span>&#160;    ~AsyncFillPatchIterator (){};</div>
+<div class="line"><a name="l00961"></a><span class="lineno">  961</span>&#160;</div>
+<div class="line"><a name="l00962"></a><span class="lineno">  962</span>&#160;    FArrayBox&amp; operator() () { <span class="keywordflow">return</span> m_fabs[<a class="code" href="classamrex_1_1_m_f_iter.html#a4d0d4d533f7d916b28e2223f9d4e4f07">MFIter::index</a>()]; }</div>
+<div class="line"><a name="l00963"></a><span class="lineno">  963</span>&#160;</div>
+<div class="line"><a name="l00964"></a><span class="lineno">  964</span>&#160;    Box UngrownBox ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="classamrex_1_1_m_f_iter.html#a3b646c3a8d9530997d5804769c47b335">MFIter::validbox</a>(); }</div>
+<div class="line"><a name="l00965"></a><span class="lineno">  965</span>&#160;</div>
+<div class="line"><a name="l00966"></a><span class="lineno">  966</span>&#160;    MultiFab&amp; get_mf() { <span class="keywordflow">return</span> m_fabs; }</div>
+<div class="line"><a name="l00967"></a><span class="lineno">  967</span>&#160;</div>
+<div class="line"><a name="l00968"></a><span class="lineno">  968</span>&#160;  <span class="comment">//  protected:</span></div>
+<div class="line"><a name="l00969"></a><span class="lineno">  969</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00970"></a><span class="lineno">  970</span>&#160;    <span class="comment">// Disallowed.</span></div>
+<div class="line"><a name="l00971"></a><span class="lineno">  971</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00972"></a><span class="lineno">  972</span>&#160;    AsyncFillPatchIterator ();</div>
+<div class="line"><a name="l00973"></a><span class="lineno">  973</span>&#160;    AsyncFillPatchIterator (<span class="keyword">const</span> AsyncFillPatchIterator&amp; rhs);</div>
+<div class="line"><a name="l00974"></a><span class="lineno">  974</span>&#160;    AsyncFillPatchIterator&amp; operator= (<span class="keyword">const</span> AsyncFillPatchIterator&amp; rhs);</div>
+<div class="line"><a name="l00975"></a><span class="lineno">  975</span>&#160;</div>
+<div class="line"><a name="l00976"></a><span class="lineno">  976</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00977"></a><span class="lineno">  977</span>&#160;    <span class="comment">// The data.</span></div>
+<div class="line"><a name="l00978"></a><span class="lineno">  978</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00979"></a><span class="lineno">  979</span>&#160;    AmrLevel&amp;                         m_amrlevel;</div>
+<div class="line"><a name="l00980"></a><span class="lineno">  980</span>&#160;    MultiFab&amp;                         m_leveldata;</div>
+<div class="line"><a name="l00981"></a><span class="lineno">  981</span>&#160;    std::vector&lt; std::pair&lt;int,int&gt; &gt; m_range;</div>
+<div class="line"><a name="l00982"></a><span class="lineno">  982</span>&#160;    MultiFab                          m_fabs;</div>
+<div class="line"><a name="l00983"></a><span class="lineno">  983</span>&#160;    <span class="keywordtype">int</span>                               m_ncomp;</div>
+<div class="line"><a name="l00984"></a><span class="lineno">  984</span>&#160;</div>
+<div class="line"><a name="l00985"></a><span class="lineno">  985</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00986"></a><span class="lineno">  986</span>&#160;    <span class="keywordtype">bool</span>                              isProperlyNested;</div>
+<div class="line"><a name="l00987"></a><span class="lineno">  987</span>&#160;</div>
+<div class="line"><a name="l00988"></a><span class="lineno">  988</span>&#160;    <a class="code" href="classamrex_1_1_vector.html">amrex::Vector&lt;MultiFab*&gt;</a>                  smf;</div>
+<div class="line"><a name="l00989"></a><span class="lineno">  989</span>&#160;    <a class="code" href="classamrex_1_1_vector.html">amrex::Vector&lt;Real&gt;</a>                       stime;</div>
+<div class="line"><a name="l00990"></a><span class="lineno">  990</span>&#160;    StateDataPhysBCFunct*             physbcf;</div>
+<div class="line"><a name="l00991"></a><span class="lineno">  991</span>&#160;    Geometry*                         geom;</div>
 <div class="line"><a name="l00992"></a><span class="lineno">  992</span>&#160;</div>
-<div class="line"><a name="l00993"></a><span class="lineno">  993</span>&#160;    <a class="code" href="classamrex_1_1_vector.html">amrex::Vector&lt;MultiFab*&gt;</a>                  smf_crse;</div>
-<div class="line"><a name="l00994"></a><span class="lineno">  994</span>&#160;    <a class="code" href="classamrex_1_1_vector.html">amrex::Vector&lt;Real&gt;</a>                       stime_crse;</div>
-<div class="line"><a name="l00995"></a><span class="lineno">  995</span>&#160;    StateDataPhysBCFunct*             physbcf_crse;</div>
-<div class="line"><a name="l00996"></a><span class="lineno">  996</span>&#160;    Geometry*                         geom_crse;</div>
-<div class="line"><a name="l00997"></a><span class="lineno">  997</span>&#160;</div>
-<div class="line"><a name="l00998"></a><span class="lineno">  998</span>&#160;    <a class="code" href="classamrex_1_1_vector.html">amrex::Vector&lt;MultiFab*&gt;</a>                  smf_fine;</div>
-<div class="line"><a name="l00999"></a><span class="lineno">  999</span>&#160;    <a class="code" href="classamrex_1_1_vector.html">amrex::Vector&lt;Real&gt;</a>                       stime_fine;</div>
-<div class="line"><a name="l01000"></a><span class="lineno"> 1000</span>&#160;    StateDataPhysBCFunct*             physbcf_fine;</div>
-<div class="line"><a name="l01001"></a><span class="lineno"> 1001</span>&#160;    Geometry*                         geom_fine;</div>
-<div class="line"><a name="l01002"></a><span class="lineno"> 1002</span>&#160;</div>
+<div class="line"><a name="l00993"></a><span class="lineno">  993</span>&#160;</div>
+<div class="line"><a name="l00994"></a><span class="lineno">  994</span>&#160;    <a class="code" href="classamrex_1_1_vector.html">amrex::Vector&lt;MultiFab*&gt;</a>                  smf_crse;</div>
+<div class="line"><a name="l00995"></a><span class="lineno">  995</span>&#160;    <a class="code" href="classamrex_1_1_vector.html">amrex::Vector&lt;Real&gt;</a>                       stime_crse;</div>
+<div class="line"><a name="l00996"></a><span class="lineno">  996</span>&#160;    StateDataPhysBCFunct*             physbcf_crse;</div>
+<div class="line"><a name="l00997"></a><span class="lineno">  997</span>&#160;    Geometry*                         geom_crse;</div>
+<div class="line"><a name="l00998"></a><span class="lineno">  998</span>&#160;</div>
+<div class="line"><a name="l00999"></a><span class="lineno">  999</span>&#160;    <a class="code" href="classamrex_1_1_vector.html">amrex::Vector&lt;MultiFab*&gt;</a>                  smf_fine;</div>
+<div class="line"><a name="l01000"></a><span class="lineno"> 1000</span>&#160;    <a class="code" href="classamrex_1_1_vector.html">amrex::Vector&lt;Real&gt;</a>                       stime_fine;</div>
+<div class="line"><a name="l01001"></a><span class="lineno"> 1001</span>&#160;    StateDataPhysBCFunct*             physbcf_fine;</div>
+<div class="line"><a name="l01002"></a><span class="lineno"> 1002</span>&#160;    Geometry*                         geom_fine;</div>
 <div class="line"><a name="l01003"></a><span class="lineno"> 1003</span>&#160;</div>
-<div class="line"><a name="l01004"></a><span class="lineno"> 1004</span>&#160;    RegionGraph*                      destGraph;</div>
-<div class="line"><a name="l01005"></a><span class="lineno"> 1005</span>&#160;    RegionGraph*                      csrcGraph;</div>
-<div class="line"><a name="l01006"></a><span class="lineno"> 1006</span>&#160;    RegionGraph*                      fsrcGraph;</div>
-<div class="line"><a name="l01007"></a><span class="lineno"> 1007</span>&#160;</div>
-<div class="line"><a name="l01008"></a><span class="lineno"> 1008</span>&#160;    MultiFab*                         m_mf_crse_patch;</div>
-<div class="line"><a name="l01009"></a><span class="lineno"> 1009</span>&#160;    RegionGraph*                      m_rg_crse_patch;</div>
-<div class="line"><a name="l01010"></a><span class="lineno"> 1010</span>&#160;    <span class="keyword">const</span> FabArrayBase::FPinfo*       m_fpc;</div>
-<div class="line"><a name="l01011"></a><span class="lineno"> 1011</span>&#160;</div>
-<div class="line"><a name="l01012"></a><span class="lineno"> 1012</span>&#160;  <span class="comment">//PArray&lt;MultiFab&gt;                  raii;</span></div>
-<div class="line"><a name="l01013"></a><span class="lineno"> 1013</span>&#160;    MultiFab*                         dmf;</div>
-<div class="line"><a name="l01014"></a><span class="lineno"> 1014</span>&#160;    MultiFab*                         dmff;</div>
-<div class="line"><a name="l01015"></a><span class="lineno"> 1015</span>&#160;</div>
+<div class="line"><a name="l01004"></a><span class="lineno"> 1004</span>&#160;</div>
+<div class="line"><a name="l01005"></a><span class="lineno"> 1005</span>&#160;    RegionGraph*                      destGraph;</div>
+<div class="line"><a name="l01006"></a><span class="lineno"> 1006</span>&#160;    RegionGraph*                      csrcGraph;</div>
+<div class="line"><a name="l01007"></a><span class="lineno"> 1007</span>&#160;    RegionGraph*                      fsrcGraph;</div>
+<div class="line"><a name="l01008"></a><span class="lineno"> 1008</span>&#160;</div>
+<div class="line"><a name="l01009"></a><span class="lineno"> 1009</span>&#160;    MultiFab*                         m_mf_crse_patch;</div>
+<div class="line"><a name="l01010"></a><span class="lineno"> 1010</span>&#160;    RegionGraph*                      m_rg_crse_patch;</div>
+<div class="line"><a name="l01011"></a><span class="lineno"> 1011</span>&#160;    <span class="keyword">const</span> FabArrayBase::FPinfo*       m_fpc;</div>
+<div class="line"><a name="l01012"></a><span class="lineno"> 1012</span>&#160;</div>
+<div class="line"><a name="l01013"></a><span class="lineno"> 1013</span>&#160;  <span class="comment">//PArray&lt;MultiFab&gt;                  raii;</span></div>
+<div class="line"><a name="l01014"></a><span class="lineno"> 1014</span>&#160;    MultiFab*                         dmf;</div>
+<div class="line"><a name="l01015"></a><span class="lineno"> 1015</span>&#160;    MultiFab*                         dmff;</div>
 <div class="line"><a name="l01016"></a><span class="lineno"> 1016</span>&#160;</div>
-<div class="line"><a name="l01017"></a><span class="lineno"> 1017</span>&#160;    <span class="keywordtype">void</span> completeRegionGraphs()</div>
-<div class="line"><a name="l01018"></a><span class="lineno"> 1018</span>&#160;    { </div>
-<div class="line"><a name="l01019"></a><span class="lineno"> 1019</span>&#160;      <span class="comment">//std::cout &lt;&lt; &quot;Completing RGs &quot;;</span></div>
-<div class="line"><a name="l01020"></a><span class="lineno"> 1020</span>&#160;      </div>
-<div class="line"><a name="l01021"></a><span class="lineno"> 1021</span>&#160;      <span class="keywordflow">if</span>(destGraph != NULL)</div>
-<div class="line"><a name="l01022"></a><span class="lineno"> 1022</span>&#160;        { </div>
-<div class="line"><a name="l01023"></a><span class="lineno"> 1023</span>&#160;          <span class="comment">//std::cout &lt;&lt; destGraph-&gt;graphID &lt;&lt; &quot; &quot;;</span></div>
-<div class="line"><a name="l01024"></a><span class="lineno"> 1024</span>&#160;           destGraph-&gt;finalizeRegionGraph();</div>
-<div class="line"><a name="l01025"></a><span class="lineno"> 1025</span>&#160;        }</div>
-<div class="line"><a name="l01026"></a><span class="lineno"> 1026</span>&#160;      <span class="keywordflow">if</span>(csrcGraph != NULL)</div>
-<div class="line"><a name="l01027"></a><span class="lineno"> 1027</span>&#160;        { </div>
-<div class="line"><a name="l01028"></a><span class="lineno"> 1028</span>&#160;          <span class="comment">//std::cout &lt;&lt; csrcGraph-&gt;graphID &lt;&lt; &quot; &quot;;</span></div>
-<div class="line"><a name="l01029"></a><span class="lineno"> 1029</span>&#160;          csrcGraph-&gt;finalizeRegionGraph();</div>
-<div class="line"><a name="l01030"></a><span class="lineno"> 1030</span>&#160;        }</div>
-<div class="line"><a name="l01031"></a><span class="lineno"> 1031</span>&#160;      <span class="keywordflow">if</span>(fsrcGraph != NULL)</div>
-<div class="line"><a name="l01032"></a><span class="lineno"> 1032</span>&#160;        { </div>
-<div class="line"><a name="l01033"></a><span class="lineno"> 1033</span>&#160;          <span class="comment">//std::cout &lt;&lt; fsrcGraph-&gt;graphID &lt;&lt; &quot; &quot;;</span></div>
-<div class="line"><a name="l01034"></a><span class="lineno"> 1034</span>&#160;          fsrcGraph-&gt;finalizeRegionGraph();</div>
-<div class="line"><a name="l01035"></a><span class="lineno"> 1035</span>&#160;        }</div>
-<div class="line"><a name="l01036"></a><span class="lineno"> 1036</span>&#160;      <span class="keywordflow">if</span>(m_rg_crse_patch != NULL)</div>
-<div class="line"><a name="l01037"></a><span class="lineno"> 1037</span>&#160;        { </div>
-<div class="line"><a name="l01038"></a><span class="lineno"> 1038</span>&#160;          <span class="comment">//std::cout &lt;&lt; m_rg_crse_patch-&gt;graphID &lt;&lt; &quot; &quot;;</span></div>
-<div class="line"><a name="l01039"></a><span class="lineno"> 1039</span>&#160;          m_rg_crse_patch-&gt;finalizeRegionGraph();</div>
-<div class="line"><a name="l01040"></a><span class="lineno"> 1040</span>&#160;        }</div>
-<div class="line"><a name="l01041"></a><span class="lineno"> 1041</span>&#160;      <span class="comment">//std::cout &lt;&lt;&quot; by tg &quot; &lt;&lt; tg &lt;&lt; std::endl;</span></div>
-<div class="line"><a name="l01042"></a><span class="lineno"> 1042</span>&#160;    }</div>
-<div class="line"><a name="l01043"></a><span class="lineno"> 1043</span>&#160;</div>
-<div class="line"><a name="l01044"></a><span class="lineno"> 1044</span>&#160;    <span class="keywordtype">void</span> Reset()</div>
-<div class="line"><a name="l01045"></a><span class="lineno"> 1045</span>&#160;    {</div>
-<div class="line"><a name="l01046"></a><span class="lineno"> 1046</span>&#160;      <span class="comment">//std::cout &lt;&lt; &quot;Resetting RGs &quot;;</span></div>
-<div class="line"><a name="l01047"></a><span class="lineno"> 1047</span>&#160;      <span class="keywordflow">if</span>(destGraph != NULL)</div>
-<div class="line"><a name="l01048"></a><span class="lineno"> 1048</span>&#160;        {</div>
-<div class="line"><a name="l01049"></a><span class="lineno"> 1049</span>&#160;          <span class="comment">//std::cout &lt;&lt; destGraph-&gt;graphID &lt;&lt; &quot; &quot;;</span></div>
-<div class="line"><a name="l01050"></a><span class="lineno"> 1050</span>&#160;           destGraph-&gt;Reset();</div>
-<div class="line"><a name="l01051"></a><span class="lineno"> 1051</span>&#160;        }</div>
-<div class="line"><a name="l01052"></a><span class="lineno"> 1052</span>&#160;      <span class="keywordflow">if</span>(csrcGraph != NULL)</div>
-<div class="line"><a name="l01053"></a><span class="lineno"> 1053</span>&#160;        {</div>
-<div class="line"><a name="l01054"></a><span class="lineno"> 1054</span>&#160;          <span class="comment">//std::cout &lt;&lt; csrcGraph-&gt;graphID &lt;&lt; &quot; &quot;;</span></div>
-<div class="line"><a name="l01055"></a><span class="lineno"> 1055</span>&#160;          csrcGraph-&gt;Reset();</div>
-<div class="line"><a name="l01056"></a><span class="lineno"> 1056</span>&#160;        }</div>
-<div class="line"><a name="l01057"></a><span class="lineno"> 1057</span>&#160;      <span class="keywordflow">if</span>(fsrcGraph != NULL)</div>
-<div class="line"><a name="l01058"></a><span class="lineno"> 1058</span>&#160;        {</div>
-<div class="line"><a name="l01059"></a><span class="lineno"> 1059</span>&#160;          <span class="comment">//std::cout &lt;&lt; fsrcGraph-&gt;graphID &lt;&lt; &quot; &quot;;</span></div>
-<div class="line"><a name="l01060"></a><span class="lineno"> 1060</span>&#160;          fsrcGraph-&gt;Reset();</div>
-<div class="line"><a name="l01061"></a><span class="lineno"> 1061</span>&#160;        }</div>
-<div class="line"><a name="l01062"></a><span class="lineno"> 1062</span>&#160;      <span class="keywordflow">if</span>(m_rg_crse_patch != NULL)</div>
-<div class="line"><a name="l01063"></a><span class="lineno"> 1063</span>&#160;        {</div>
-<div class="line"><a name="l01064"></a><span class="lineno"> 1064</span>&#160;          <span class="comment">//std::cout &lt;&lt; m_rg_crse_patch-&gt;graphID &lt;&lt; &quot; &quot;;</span></div>
-<div class="line"><a name="l01065"></a><span class="lineno"> 1065</span>&#160;          m_rg_crse_patch-&gt;Reset();</div>
-<div class="line"><a name="l01066"></a><span class="lineno"> 1066</span>&#160;        }</div>
-<div class="line"><a name="l01067"></a><span class="lineno"> 1067</span>&#160;      <span class="comment">//std::cout &lt;&lt;&quot; by tg &quot; &lt;&lt; tg &lt;&lt; std::endl;</span></div>
-<div class="line"><a name="l01068"></a><span class="lineno"> 1068</span>&#160;    }</div>
-<div class="line"><a name="l01069"></a><span class="lineno"> 1069</span>&#160;</div>
-<div class="line"><a name="l01070"></a><span class="lineno"> 1070</span>&#160;  <span class="comment">// Variables for optimization calls of two level push/pulll</span></div>
-<div class="line"><a name="l01071"></a><span class="lineno"> 1071</span>&#160;</div>
-<div class="line"><a name="l01072"></a><span class="lineno"> 1072</span>&#160;};</div>
-<div class="line"><a name="l01073"></a><span class="lineno"> 1073</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l01074"></a><span class="lineno"> 1074</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l01075"></a><span class="lineno"> 1075</span>&#160;</div>
-<div class="line"><a name="l01076"></a><span class="lineno"> 1076</span>&#160;}</div>
-<div class="line"><a name="l01077"></a><span class="lineno"> 1077</span>&#160;</div>
-<div class="line"><a name="l01078"></a><span class="lineno"> 1078</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/*_AmrLevel_H_*/</span><span class="preprocessor"></span></div>
-<div class="ttc" id="classamrex_1_1_amr_level_html_aa1a00039cf415f21002bec0bc15342ac"><div class="ttname"><a href="classamrex_1_1_amr_level.html#aa1a00039cf415f21002bec0bc15342ac">amrex::AmrLevel::okToRegrid</a></div><div class="ttdeci">virtual int okToRegrid()</div><div class="ttdoc">Should I regrid with this level as base level? This test is only evaluated if regrid_int &gt; 0 and leve...</div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:1873</div></div>
+<div class="line"><a name="l01017"></a><span class="lineno"> 1017</span>&#160;</div>
+<div class="line"><a name="l01018"></a><span class="lineno"> 1018</span>&#160;    <span class="keywordtype">void</span> completeRegionGraphs()</div>
+<div class="line"><a name="l01019"></a><span class="lineno"> 1019</span>&#160;    { </div>
+<div class="line"><a name="l01020"></a><span class="lineno"> 1020</span>&#160;      <span class="comment">//std::cout &lt;&lt; &quot;Completing RGs &quot;;</span></div>
+<div class="line"><a name="l01021"></a><span class="lineno"> 1021</span>&#160;      </div>
+<div class="line"><a name="l01022"></a><span class="lineno"> 1022</span>&#160;      <span class="keywordflow">if</span>(destGraph != NULL)</div>
+<div class="line"><a name="l01023"></a><span class="lineno"> 1023</span>&#160;        { </div>
+<div class="line"><a name="l01024"></a><span class="lineno"> 1024</span>&#160;          <span class="comment">//std::cout &lt;&lt; destGraph-&gt;graphID &lt;&lt; &quot; &quot;;</span></div>
+<div class="line"><a name="l01025"></a><span class="lineno"> 1025</span>&#160;           destGraph-&gt;finalizeRegionGraph();</div>
+<div class="line"><a name="l01026"></a><span class="lineno"> 1026</span>&#160;        }</div>
+<div class="line"><a name="l01027"></a><span class="lineno"> 1027</span>&#160;      <span class="keywordflow">if</span>(csrcGraph != NULL)</div>
+<div class="line"><a name="l01028"></a><span class="lineno"> 1028</span>&#160;        { </div>
+<div class="line"><a name="l01029"></a><span class="lineno"> 1029</span>&#160;          <span class="comment">//std::cout &lt;&lt; csrcGraph-&gt;graphID &lt;&lt; &quot; &quot;;</span></div>
+<div class="line"><a name="l01030"></a><span class="lineno"> 1030</span>&#160;          csrcGraph-&gt;finalizeRegionGraph();</div>
+<div class="line"><a name="l01031"></a><span class="lineno"> 1031</span>&#160;        }</div>
+<div class="line"><a name="l01032"></a><span class="lineno"> 1032</span>&#160;      <span class="keywordflow">if</span>(fsrcGraph != NULL)</div>
+<div class="line"><a name="l01033"></a><span class="lineno"> 1033</span>&#160;        { </div>
+<div class="line"><a name="l01034"></a><span class="lineno"> 1034</span>&#160;          <span class="comment">//std::cout &lt;&lt; fsrcGraph-&gt;graphID &lt;&lt; &quot; &quot;;</span></div>
+<div class="line"><a name="l01035"></a><span class="lineno"> 1035</span>&#160;          fsrcGraph-&gt;finalizeRegionGraph();</div>
+<div class="line"><a name="l01036"></a><span class="lineno"> 1036</span>&#160;        }</div>
+<div class="line"><a name="l01037"></a><span class="lineno"> 1037</span>&#160;      <span class="keywordflow">if</span>(m_rg_crse_patch != NULL)</div>
+<div class="line"><a name="l01038"></a><span class="lineno"> 1038</span>&#160;        { </div>
+<div class="line"><a name="l01039"></a><span class="lineno"> 1039</span>&#160;          <span class="comment">//std::cout &lt;&lt; m_rg_crse_patch-&gt;graphID &lt;&lt; &quot; &quot;;</span></div>
+<div class="line"><a name="l01040"></a><span class="lineno"> 1040</span>&#160;          m_rg_crse_patch-&gt;finalizeRegionGraph();</div>
+<div class="line"><a name="l01041"></a><span class="lineno"> 1041</span>&#160;        }</div>
+<div class="line"><a name="l01042"></a><span class="lineno"> 1042</span>&#160;      <span class="comment">//std::cout &lt;&lt;&quot; by tg &quot; &lt;&lt; tg &lt;&lt; std::endl;</span></div>
+<div class="line"><a name="l01043"></a><span class="lineno"> 1043</span>&#160;    }</div>
+<div class="line"><a name="l01044"></a><span class="lineno"> 1044</span>&#160;</div>
+<div class="line"><a name="l01045"></a><span class="lineno"> 1045</span>&#160;    <span class="keywordtype">void</span> Reset()</div>
+<div class="line"><a name="l01046"></a><span class="lineno"> 1046</span>&#160;    {</div>
+<div class="line"><a name="l01047"></a><span class="lineno"> 1047</span>&#160;      <span class="comment">//std::cout &lt;&lt; &quot;Resetting RGs &quot;;</span></div>
+<div class="line"><a name="l01048"></a><span class="lineno"> 1048</span>&#160;      <span class="keywordflow">if</span>(destGraph != NULL)</div>
+<div class="line"><a name="l01049"></a><span class="lineno"> 1049</span>&#160;        {</div>
+<div class="line"><a name="l01050"></a><span class="lineno"> 1050</span>&#160;          <span class="comment">//std::cout &lt;&lt; destGraph-&gt;graphID &lt;&lt; &quot; &quot;;</span></div>
+<div class="line"><a name="l01051"></a><span class="lineno"> 1051</span>&#160;           destGraph-&gt;Reset();</div>
+<div class="line"><a name="l01052"></a><span class="lineno"> 1052</span>&#160;        }</div>
+<div class="line"><a name="l01053"></a><span class="lineno"> 1053</span>&#160;      <span class="keywordflow">if</span>(csrcGraph != NULL)</div>
+<div class="line"><a name="l01054"></a><span class="lineno"> 1054</span>&#160;        {</div>
+<div class="line"><a name="l01055"></a><span class="lineno"> 1055</span>&#160;          <span class="comment">//std::cout &lt;&lt; csrcGraph-&gt;graphID &lt;&lt; &quot; &quot;;</span></div>
+<div class="line"><a name="l01056"></a><span class="lineno"> 1056</span>&#160;          csrcGraph-&gt;Reset();</div>
+<div class="line"><a name="l01057"></a><span class="lineno"> 1057</span>&#160;        }</div>
+<div class="line"><a name="l01058"></a><span class="lineno"> 1058</span>&#160;      <span class="keywordflow">if</span>(fsrcGraph != NULL)</div>
+<div class="line"><a name="l01059"></a><span class="lineno"> 1059</span>&#160;        {</div>
+<div class="line"><a name="l01060"></a><span class="lineno"> 1060</span>&#160;          <span class="comment">//std::cout &lt;&lt; fsrcGraph-&gt;graphID &lt;&lt; &quot; &quot;;</span></div>
+<div class="line"><a name="l01061"></a><span class="lineno"> 1061</span>&#160;          fsrcGraph-&gt;Reset();</div>
+<div class="line"><a name="l01062"></a><span class="lineno"> 1062</span>&#160;        }</div>
+<div class="line"><a name="l01063"></a><span class="lineno"> 1063</span>&#160;      <span class="keywordflow">if</span>(m_rg_crse_patch != NULL)</div>
+<div class="line"><a name="l01064"></a><span class="lineno"> 1064</span>&#160;        {</div>
+<div class="line"><a name="l01065"></a><span class="lineno"> 1065</span>&#160;          <span class="comment">//std::cout &lt;&lt; m_rg_crse_patch-&gt;graphID &lt;&lt; &quot; &quot;;</span></div>
+<div class="line"><a name="l01066"></a><span class="lineno"> 1066</span>&#160;          m_rg_crse_patch-&gt;Reset();</div>
+<div class="line"><a name="l01067"></a><span class="lineno"> 1067</span>&#160;        }</div>
+<div class="line"><a name="l01068"></a><span class="lineno"> 1068</span>&#160;      <span class="comment">//std::cout &lt;&lt;&quot; by tg &quot; &lt;&lt; tg &lt;&lt; std::endl;</span></div>
+<div class="line"><a name="l01069"></a><span class="lineno"> 1069</span>&#160;    }</div>
+<div class="line"><a name="l01070"></a><span class="lineno"> 1070</span>&#160;</div>
+<div class="line"><a name="l01071"></a><span class="lineno"> 1071</span>&#160;  <span class="comment">// Variables for optimization calls of two level push/pulll</span></div>
+<div class="line"><a name="l01072"></a><span class="lineno"> 1072</span>&#160;</div>
+<div class="line"><a name="l01073"></a><span class="lineno"> 1073</span>&#160;};</div>
+<div class="line"><a name="l01074"></a><span class="lineno"> 1074</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l01075"></a><span class="lineno"> 1075</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l01076"></a><span class="lineno"> 1076</span>&#160;</div>
+<div class="line"><a name="l01077"></a><span class="lineno"> 1077</span>&#160;}</div>
+<div class="line"><a name="l01078"></a><span class="lineno"> 1078</span>&#160;</div>
+<div class="line"><a name="l01079"></a><span class="lineno"> 1079</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/*_AmrLevel_H_*/</span><span class="preprocessor"></span></div>
+<div class="ttc" id="classamrex_1_1_amr_level_html_aa1a00039cf415f21002bec0bc15342ac"><div class="ttname"><a href="classamrex_1_1_amr_level.html#aa1a00039cf415f21002bec0bc15342ac">amrex::AmrLevel::okToRegrid</a></div><div class="ttdeci">virtual int okToRegrid()</div><div class="ttdoc">Should I regrid with this level as base level? This test is only evaluated if regrid_int &gt; 0 and leve...</div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:1879</div></div>
 <div class="ttc" id="_a_m_re_x___derive_8_h_html"><div class="ttname"><a href="_a_m_re_x___derive_8_h.html">AMReX_Derive.H</a></div></div>
-<div class="ttc" id="classamrex_1_1_amr_level_html_a5a419d28aa15b927e16741f3f6e35bb2"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a5a419d28aa15b927e16741f3f6e35bb2">amrex::AmrLevel::getAreaNotToTag</a></div><div class="ttdeci">const BoxArray &amp; getAreaNotToTag()</div><div class="ttdoc">Get the area not to tag. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:2044</div></div>
+<div class="ttc" id="classamrex_1_1_amr_level_html_a5a419d28aa15b927e16741f3f6e35bb2"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a5a419d28aa15b927e16741f3f6e35bb2">amrex::AmrLevel::getAreaNotToTag</a></div><div class="ttdeci">const BoxArray &amp; getAreaNotToTag()</div><div class="ttdoc">Get the area not to tag. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:2050</div></div>
 <div class="ttc" id="classamrex_1_1_fill_patch_iterator_helper_html_a9cf2d33e663f0311539a96633ff7560d"><div class="ttname"><a href="classamrex_1_1_fill_patch_iterator_helper.html#a9cf2d33e663f0311539a96633ff7560d">amrex::FillPatchIteratorHelper::fill</a></div><div class="ttdeci">void fill(FArrayBox &amp;fab, int dcomp, int idx)</div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:1181</div></div>
-<div class="ttc" id="classamrex_1_1_amr_level_html_a55c1a2d0040ba28bf022fb293113a5f2"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a55c1a2d0040ba28bf022fb293113a5f2">amrex::AmrLevel::FillPatch</a></div><div class="ttdeci">static void FillPatch(AmrLevel &amp;amrlevel, MultiFab &amp;leveldata, int boxGrow, Real time, int index, int scomp, int ncomp, int dcomp=0)</div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:2096</div></div>
+<div class="ttc" id="classamrex_1_1_amr_level_html_a55c1a2d0040ba28bf022fb293113a5f2"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a55c1a2d0040ba28bf022fb293113a5f2">amrex::AmrLevel::FillPatch</a></div><div class="ttdeci">static void FillPatch(AmrLevel &amp;amrlevel, MultiFab &amp;leveldata, int boxGrow, Real time, int index, int scomp, int ncomp, int dcomp=0)</div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:2102</div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_ab280e7294f07d7b30a28351aaef63cb8"><div class="ttname"><a href="classamrex_1_1_amr_level.html#ab280e7294f07d7b30a28351aaef63cb8">amrex::AmrLevel::get_new_data</a></div><div class="ttdeci">MultiFab &amp; get_new_data(int state_indx)</div><div class="ttdoc">State data at new time. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.H:319</div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_a7b2a7b336f2f0a2817a16709b6c063cf"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a7b2a7b336f2f0a2817a16709b6c063cf">amrex::AmrLevel::DistributionMap</a></div><div class="ttdeci">const DistributionMapping &amp; DistributionMap() const </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.H:244</div></div>
-<div class="ttc" id="classamrex_1_1_amr_level_html_a8023d9fbf7106fe39977f43d1b07460e"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a8023d9fbf7106fe39977f43d1b07460e">amrex::AmrLevel::setPlotVariables</a></div><div class="ttdeci">virtual void setPlotVariables()</div><div class="ttdoc">Modify list of variables to be plotted. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:1879</div></div>
+<div class="ttc" id="classamrex_1_1_amr_level_html_a8023d9fbf7106fe39977f43d1b07460e"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a8023d9fbf7106fe39977f43d1b07460e">amrex::AmrLevel::setPlotVariables</a></div><div class="ttdeci">virtual void setPlotVariables()</div><div class="ttdoc">Modify list of variables to be plotted. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:1885</div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_aac3f74f8caafcc7b7cf0d3b33480e5d7"><div class="ttname"><a href="classamrex_1_1_amr_level.html#aac3f74f8caafcc7b7cf0d3b33480e5d7">amrex::AmrLevel::writePlotFile</a></div><div class="ttdeci">virtual void writePlotFile(const std::string &amp;dir, std::ostream &amp;os, VisMF::How how=VisMF::NFiles)</div><div class="ttdoc">Write plot file stuff to specified directory. This is a pure virtual function and hence MUST be imple...</div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:145</div></div>
 <div class="ttc" id="classamrex_1_1_fill_patch_iterator_html"><div class="ttname"><a href="classamrex_1_1_fill_patch_iterator.html">amrex::FillPatchIterator</a></div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.H:469</div></div>
 <div class="ttc" id="_a_m_re_x___vis_m_f_8_h_html"><div class="ttname"><a href="_a_m_re_x___vis_m_f_8_h.html">AMReX_VisMF.H</a></div></div>
 <div class="ttc" id="classamrex_1_1_descriptor_list_html"><div class="ttname"><a href="classamrex_1_1_descriptor_list.html">amrex::DescriptorList</a></div><div class="ttdef"><b>Definition:</b> AMReX_StateDescriptor.H:280</div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_a83fa691ff414eb69f75eb6ae1f61b33aa26c31c2a7f0ffe418eca566dd60dcf9a"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a83fa691ff414eb69f75eb6ae1f61b33aa26c31c2a7f0ffe418eca566dd60dcf9a">amrex::AmrLevel::Amr1QtrTime</a></div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.H:53</div></div>
-<div class="ttc" id="classamrex_1_1_amr_level_html_a1e1839662b5a9c5a40a3333dbe758be9"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a1e1839662b5a9c5a40a3333dbe758be9">amrex::AmrLevel::which_time</a></div><div class="ttdeci">TimeLevel which_time(int state_indx, Real time) const </div><div class="ttdoc">Returns one the TimeLevel enums. Asserts that time is between AmrOldTime and AmrNewTime. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:1991</div></div>
+<div class="ttc" id="classamrex_1_1_amr_level_html_a1e1839662b5a9c5a40a3333dbe758be9"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a1e1839662b5a9c5a40a3333dbe758be9">amrex::AmrLevel::which_time</a></div><div class="ttdeci">TimeLevel which_time(int state_indx, Real time) const </div><div class="ttdoc">Returns one the TimeLevel enums. Asserts that time is between AmrOldTime and AmrNewTime. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:1997</div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_a927fcab36269e38dd04e605f0232cffe"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a927fcab36269e38dd04e605f0232cffe">amrex::AmrLevel::AsyncFillPatchIterator</a></div><div class="ttdeci">friend class AsyncFillPatchIterator</div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.H:46</div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_a0aa73b17e9be18d811a21128c8c2f5f9"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a0aa73b17e9be18d811a21128c8c2f5f9">amrex::AmrLevel::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdoc">Reset data to initial time by swapping new and old time data. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:525</div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_a8d52ecdd688997fd2d94260979c0205f"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a8d52ecdd688997fd2d94260979c0205f">amrex::AmrLevel::thePlotFileType</a></div><div class="ttdeci">virtual std::string thePlotFileType() const </div><div class="ttdoc">A string written as the first item in writePlotFile() at level zero. It is so we can distinguish betw...</div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.H:77</div></div>
@@ -1030,14 +1031,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classamrex_1_1_int_vect_html"><div class="ttname"><a href="classamrex_1_1_int_vect.html">amrex::IntVect</a></div><div class="ttdef"><b>Definition:</b> AMReX_IntVect.H:34</div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_a83fa691ff414eb69f75eb6ae1f61b33aabebff412ae8d5766104330cb143e91c9"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a83fa691ff414eb69f75eb6ae1f61b33aabebff412ae8d5766104330cb143e91c9">amrex::AmrLevel::AmrHalfTime</a></div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.H:51</div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_a512443a06a9bee5a9c911326c65e1370"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a512443a06a9bee5a9c911326c65e1370">amrex::AmrLevel::m_AreaToTag</a></div><div class="ttdeci">Box m_AreaToTag</div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.H:450</div></div>
-<div class="ttc" id="classamrex_1_1_amr_level_html_a962f9d201153832198014fba04698410"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a962f9d201153832198014fba04698410">amrex::AmrLevel::CreateLevelDirectory</a></div><div class="ttdeci">virtual void CreateLevelDirectory(const std::string &amp;dir)</div><div class="ttdoc">Create the Level_ directory for checkpoint and plot files. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:2146</div></div>
+<div class="ttc" id="classamrex_1_1_amr_level_html_a962f9d201153832198014fba04698410"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a962f9d201153832198014fba04698410">amrex::AmrLevel::CreateLevelDirectory</a></div><div class="ttdeci">virtual void CreateLevelDirectory(const std::string &amp;dir)</div><div class="ttdoc">Create the Level_ directory for checkpoint and plot files. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:2152</div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_ab0ab7555be82910d8100d7bc3aa55d1d"><div class="ttname"><a href="classamrex_1_1_amr_level.html#ab0ab7555be82910d8100d7bc3aa55d1d">amrex::AmrLevel::dmap</a></div><div class="ttdeci">DistributionMapping dmap</div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.H:441</div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_a950ba9dcfc4ab027644c9ce9613ec615"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a950ba9dcfc4ab027644c9ce9613ec615">amrex::AmrLevel::getEdgeBoxArray</a></div><div class="ttdeci">const BoxArray &amp; getEdgeBoxArray(int dir) const </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:556</div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_a2ca2263f59a50956ec37ce72a4a02767"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a2ca2263f59a50956ec37ce72a4a02767">amrex::AmrLevel::computeNewDt</a></div><div class="ttdeci">virtual void computeNewDt(int finest_level, int sub_cycle, Vector&lt; int &gt; &amp;n_cycle, const Vector&lt; IntVect &gt; &amp;ref_ratio, Vector&lt; Real &gt; &amp;dt_min, Vector&lt; Real &gt; &amp;dt_level, Real stop_time, int post_regrid_flag)=0</div><div class="ttdoc">Compute the next time step. This is a pure virtual function and hence MUST be implemented by derived ...</div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_a5d15ca0da28ca003355c6f45b5cb1cdd"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a5d15ca0da28ca003355c6f45b5cb1cdd">amrex::AmrLevel::okToContinue</a></div><div class="ttdeci">virtual int okToContinue()</div><div class="ttdoc">Is it ok to continue the calculation? </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.H:202</div></div>
 <div class="ttc" id="_a_m_re_x___amr_8_h_html"><div class="ttname"><a href="_a_m_re_x___amr_8_h.html">AMReX_Amr.H</a></div></div>
-<div class="ttc" id="classamrex_1_1_amr_level_html_a2972b42fa723220283b8275fcd7a8be8"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a2972b42fa723220283b8275fcd7a8be8">amrex::AmrLevel::writeSmallPlotNow</a></div><div class="ttdeci">virtual bool writeSmallPlotNow()</div><div class="ttdoc">Does the AmrLevel want Amr to write a small plotfile now? </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:2039</div></div>
-<div class="ttc" id="classamrex_1_1_amr_level_html_a03b21d394e621b009b473c427b4769d0"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a03b21d394e621b009b473c427b4769d0">amrex::AmrLevel::estimateWork</a></div><div class="ttdeci">virtual Real estimateWork()</div><div class="ttdoc">Estimate the amount of work required to advance Just this level based on the number of cells...</div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:2027</div></div>
+<div class="ttc" id="classamrex_1_1_amr_level_html_a2972b42fa723220283b8275fcd7a8be8"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a2972b42fa723220283b8275fcd7a8be8">amrex::AmrLevel::writeSmallPlotNow</a></div><div class="ttdeci">virtual bool writeSmallPlotNow()</div><div class="ttdoc">Does the AmrLevel want Amr to write a small plotfile now? </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:2045</div></div>
+<div class="ttc" id="classamrex_1_1_amr_level_html_a03b21d394e621b009b473c427b4769d0"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a03b21d394e621b009b473c427b4769d0">amrex::AmrLevel::estimateWork</a></div><div class="ttdeci">virtual Real estimateWork()</div><div class="ttdoc">Estimate the amount of work required to advance Just this level based on the number of cells...</div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:2033</div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_a12cef912681535eb3929e79625aff338"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a12cef912681535eb3929e79625aff338">amrex::AmrLevel::Geom</a></div><div class="ttdeci">const Geometry &amp; Geom() const </div><div class="ttdoc">Returns the geometry object. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.H:256</div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_a7a90e201ef6ef11f2c42fc9a0de76939"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a7a90e201ef6ef11f2c42fc9a0de76939">amrex::AmrLevel::levelDirectoryCreated</a></div><div class="ttdeci">bool levelDirectoryCreated</div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.H:454</div></div>
 <div class="ttc" id="classamrex_1_1_fill_patch_iterator_helper_html_af634eccf2d0d201220687d5b8bfe50fd"><div class="ttname"><a href="classamrex_1_1_fill_patch_iterator_helper.html#af634eccf2d0d201220687d5b8bfe50fd">amrex::FillPatchIteratorHelper::Initialize</a></div><div class="ttdeci">void Initialize(int boxGrow, Real time, int state_indx, int scomp, int ncomp, Interpolater *mapper)</div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:659</div></div>
@@ -1046,7 +1047,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classamrex_1_1_amr_level_html_abe82841aac412b6335912b1bd98da33b"><div class="ttname"><a href="classamrex_1_1_amr_level.html#abe82841aac412b6335912b1bd98da33b">amrex::AmrLevel::get_data</a></div><div class="ttdeci">MultiFab &amp; get_data(int state_indx, Real time)</div><div class="ttdoc">Get state data at specified index and time. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:534</div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_ae6c24e645074589f76ff10eb4c37c8a1"><div class="ttname"><a href="classamrex_1_1_amr_level.html#ae6c24e645074589f76ff10eb4c37c8a1">amrex::AmrLevel::init</a></div><div class="ttdeci">virtual void init()=0</div></div>
 <div class="ttc" id="classamrex_1_1_m_f_graph_html"><div class="ttname"><a href="classamrex_1_1_m_f_graph.html">amrex::MFGraph</a></div><div class="ttdef"><b>Definition:</b> AMReX_FabArray.H:111</div></div>
-<div class="ttc" id="classamrex_1_1_amr_level_html_adf299b915ff9411e6684762c72da84bc"><div class="ttname"><a href="classamrex_1_1_amr_level.html#adf299b915ff9411e6684762c72da84bc">amrex::AmrLevel::setSmallPlotVariables</a></div><div class="ttdeci">virtual void setSmallPlotVariables()</div><div class="ttdoc">Modify list of variables to be plotted. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:1937</div></div>
+<div class="ttc" id="classamrex_1_1_amr_level_html_adf299b915ff9411e6684762c72da84bc"><div class="ttname"><a href="classamrex_1_1_amr_level.html#adf299b915ff9411e6684762c72da84bc">amrex::AmrLevel::setSmallPlotVariables</a></div><div class="ttdeci">virtual void setSmallPlotVariables()</div><div class="ttdoc">Modify list of variables to be plotted. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:1943</div></div>
 <div class="ttc" id="classamrex_1_1_m_f_iter_html_a3b646c3a8d9530997d5804769c47b335"><div class="ttname"><a href="classamrex_1_1_m_f_iter.html#a3b646c3a8d9530997d5804769c47b335">amrex::MFIter::validbox</a></div><div class="ttdeci">Box validbox() const </div><div class="ttdoc">Return the valid Box in which the current tile resides. </div><div class="ttdef"><b>Definition:</b> AMReX_MFIter.H:125</div></div>
 <div class="ttc" id="_a_m_re_x___interpolater_8_h_html"><div class="ttname"><a href="_a_m_re_x___interpolater_8_h.html">AMReX_Interpolater.H</a></div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_a169bef0169afefe32db1d994d2600c69"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a169bef0169afefe32db1d994d2600c69">amrex::AmrLevel::checkPoint</a></div><div class="ttdeci">virtual void checkPoint(const std::string &amp;dir, std::ostream &amp;os, VisMF::How how=VisMF::NFiles, bool dump_old=true)</div><div class="ttdoc">Write current state to checkpoint file. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:439</div></div>
@@ -1069,7 +1070,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classamrex_1_1_amr_level_html_a56805171637298d888a0e5215bab4e82"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a56805171637298d888a0e5215bab4e82">amrex::AmrLevel::removeOldData</a></div><div class="ttdeci">virtual void removeOldData()</div><div class="ttdoc">Delete old-time data. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:516</div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_aa11acf69e2d0372e204cfea5934658f6"><div class="ttname"><a href="classamrex_1_1_amr_level.html#aa11acf69e2d0372e204cfea5934658f6">amrex::AmrLevel::m_AreaNotToTag</a></div><div class="ttdeci">BoxArray m_AreaNotToTag</div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.H:449</div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_a1c91cb169c86fd95b76b5742687ad949"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a1c91cb169c86fd95b76b5742687ad949">amrex::AmrLevel::WorkEstType</a></div><div class="ttdeci">virtual int WorkEstType()</div><div class="ttdoc">Which state data type is for work estimates? -1 means none. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.H:367</div></div>
-<div class="ttc" id="classamrex_1_1_amr_level_html_a13fac03f8f84f602aea857521063b4b0"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a13fac03f8f84f602aea857521063b4b0">amrex::AmrLevel::getBCArray</a></div><div class="ttdeci">Vector&lt; int &gt; getBCArray(int State_Type, int gridno, int scomp, int ncomp)</div><div class="ttdoc">Boundary condition access function. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:1852</div></div>
+<div class="ttc" id="classamrex_1_1_amr_level_html_a13fac03f8f84f602aea857521063b4b0"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a13fac03f8f84f602aea857521063b4b0">amrex::AmrLevel::getBCArray</a></div><div class="ttdeci">Vector&lt; int &gt; getBCArray(int State_Type, int gridno, int scomp, int ncomp)</div><div class="ttdoc">Boundary condition access function. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:1858</div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_acaf1b5936e81691794578618126d813d"><div class="ttname"><a href="classamrex_1_1_amr_level.html#acaf1b5936e81691794578618126d813d">amrex::AmrLevel::isStateVariable</a></div><div class="ttdeci">static bool isStateVariable(const std::string &amp;name, int &amp;state_indx, int &amp;ncomp)</div><div class="ttdoc">Is name a state variable? </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:415</div></div>
 <div class="ttc" id="classamrex_1_1_distribution_mapping_html"><div class="ttname"><a href="classamrex_1_1_distribution_mapping.html">amrex::DistributionMapping</a></div><div class="ttdoc">Calculates the distribution of FABs to MPI processes. </div><div class="ttdef"><b>Definition:</b> AMReX_DistributionMapping.H:38</div></div>
 <div class="ttc" id="_a_m_re_x___multi_fab_8_h_html"><div class="ttname"><a href="_a_m_re_x___multi_fab_8_h.html">AMReX_MultiFab.H</a></div></div>
@@ -1087,7 +1088,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classamrex_1_1_amr_level_html_a6560cdb555b4af1f6d5b525e1b25e4eb"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a6560cdb555b4af1f6d5b525e1b25e4eb">amrex::AmrLevel::set_state_in_checkpoint</a></div><div class="ttdeci">virtual void set_state_in_checkpoint(Vector&lt; int &gt; &amp;state_in_checkpoint)</div><div class="ttdoc">Old checkpoint may have different number of states than the new source code. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:395</div></div>
 <div class="ttc" id="classamrex_1_1_derive_list_html"><div class="ttname"><a href="classamrex_1_1_derive_list.html">amrex::DeriveList</a></div><div class="ttdef"><b>Definition:</b> AMReX_Derive.H:232</div></div>
 <div class="ttc" id="classamrex_1_1_fill_patch_iterator_html_ade3e9c0f92befd31e9f3991e09e56ea4"><div class="ttname"><a href="classamrex_1_1_fill_patch_iterator.html#ade3e9c0f92befd31e9f3991e09e56ea4">amrex::FillPatchIterator::AmrLevel</a></div><div class="ttdeci">friend class AmrLevel</div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.H:475</div></div>
-<div class="ttc" id="classamrex_1_1_amr_level_html_a1de622e094b4e64e2491a82a3acefc1d"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a1de622e094b4e64e2491a82a3acefc1d">amrex::AmrLevel::writePlotNow</a></div><div class="ttdeci">virtual bool writePlotNow()</div><div class="ttdoc">Does the AmrLevel want Amr to write a plotfile now? </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:2033</div></div>
+<div class="ttc" id="classamrex_1_1_amr_level_html_a1de622e094b4e64e2491a82a3acefc1d"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a1de622e094b4e64e2491a82a3acefc1d">amrex::AmrLevel::writePlotNow</a></div><div class="ttdeci">virtual bool writePlotNow()</div><div class="ttdoc">Does the AmrLevel want Amr to write a plotfile now? </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:2039</div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_a83fa691ff414eb69f75eb6ae1f61b33a"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a83fa691ff414eb69f75eb6ae1f61b33a">amrex::AmrLevel::TimeLevel</a></div><div class="ttdeci">TimeLevel</div><div class="ttdoc">What time are we at? </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.H:50</div></div>
 <div class="ttc" id="classamrex_1_1_m_f_iter_html_a4d0d4d533f7d916b28e2223f9d4e4f07"><div class="ttname"><a href="classamrex_1_1_m_f_iter.html#a4d0d4d533f7d916b28e2223f9d4e4f07">amrex::MFIter::index</a></div><div class="ttdeci">int index() const </div><div class="ttdoc">The index into the underlying BoxArray of the current FAB. </div><div class="ttdef"><b>Definition:</b> AMReX_MFIter.H:150</div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_a83fa691ff414eb69f75eb6ae1f61b33aa42553bff8bf17dc01b76ff8e44f3d902"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a83fa691ff414eb69f75eb6ae1f61b33aa42553bff8bf17dc01b76ff8e44f3d902">amrex::AmrLevel::AmrOldTime</a></div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.H:50</div></div>
@@ -1105,7 +1106,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classamrex_1_1_amr_level_html_a9d73d0e950d7f442e047fabe4d93e217"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a9d73d0e950d7f442e047fabe4d93e217">amrex::AmrLevel::get_new_data</a></div><div class="ttdeci">const MultiFab &amp; get_new_data(int state_indx) const </div><div class="ttdoc">State data at new time. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.H:321</div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_a5b311a4d4139cce9025d1c41d28586b1"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a5b311a4d4139cce9025d1c41d28586b1">amrex::AmrLevel::setTimeLevel</a></div><div class="ttdeci">virtual void setTimeLevel(Real time, Real dt_old, Real dt_new)</div><div class="ttdoc">Set the time levels of state data. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:404</div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_a0bfcce48a9fe973256d07dd1bb4d24c8"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a0bfcce48a9fe973256d07dd1bb4d24c8">amrex::AmrLevel::AmrLevel</a></div><div class="ttdeci">AmrLevel()</div><div class="ttdoc">The constructors – for derived classes. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:76</div></div>
-<div class="ttc" id="classamrex_1_1_fill_patch_iterator_helper_html"><div class="ttname"><a href="classamrex_1_1_fill_patch_iterator_helper.html">amrex::FillPatchIteratorHelper</a></div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.H:700</div></div>
+<div class="ttc" id="classamrex_1_1_fill_patch_iterator_helper_html"><div class="ttname"><a href="classamrex_1_1_fill_patch_iterator_helper.html">amrex::FillPatchIteratorHelper</a></div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.H:701</div></div>
 <div class="ttc" id="_a_m_re_x___state_descriptor_8_h_html"><div class="ttname"><a href="_a_m_re_x___state_descriptor_8_h.html">AMReX_StateDescriptor.H</a></div></div>
 <div class="ttc" id="classamrex_1_1_fill_patch_iterator_html_af62d2ed31b36cd235ae68b0edd95a51a"><div class="ttname"><a href="classamrex_1_1_fill_patch_iterator.html#af62d2ed31b36cd235ae68b0edd95a51a">amrex::FillPatchIterator::operator()</a></div><div class="ttdeci">FArrayBox &amp; operator()()</div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.H:496</div></div>
 <div class="ttc" id="classamrex_1_1_fill_patch_iterator_html_a8b28e83d795edcadebe049e773b4a136"><div class="ttname"><a href="classamrex_1_1_fill_patch_iterator.html#a8b28e83d795edcadebe049e773b4a136">amrex::FillPatchIterator::UngrownBox</a></div><div class="ttdeci">Box UngrownBox() const </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.H:498</div></div>
@@ -1119,28 +1120,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="_a_m_re_x___distribution_mapping_8_h_html"><div class="ttname"><a href="_a_m_re_x___distribution_mapping_8_h.html">AMReX_DistributionMapping.H</a></div></div>
 <div class="ttc" id="classamrex_1_1_box_array_html_a8631008cf4785c0d4eb02da299ee2600"><div class="ttname"><a href="classamrex_1_1_box_array.html#a8631008cf4785c0d4eb02da299ee2600">amrex::BoxArray::size</a></div><div class="ttdeci">long size() const </div><div class="ttdoc">Return the number of boxes in the BoxArray. </div><div class="ttdef"><b>Definition:</b> AMReX_BoxArray.H:262</div></div>
 <div class="ttc" id="_a_m_re_x___state_data_8_h_html"><div class="ttname"><a href="_a_m_re_x___state_data_8_h.html">AMReX_StateData.H</a></div></div>
-<div class="ttc" id="classamrex_1_1_amr_level_html_aa72cce79d9f341c7f9a11addfcaec95f"><div class="ttname"><a href="classamrex_1_1_amr_level.html#aa72cce79d9f341c7f9a11addfcaec95f">amrex::AmrLevel::FillPatchAdd</a></div><div class="ttdeci">static void FillPatchAdd(AmrLevel &amp;amrlevel, MultiFab &amp;leveldata, int boxGrow, Real time, int index, int scomp, int ncomp, int dcomp=0)</div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:2113</div></div>
+<div class="ttc" id="classamrex_1_1_amr_level_html_aa72cce79d9f341c7f9a11addfcaec95f"><div class="ttname"><a href="classamrex_1_1_amr_level.html#aa72cce79d9f341c7f9a11addfcaec95f">amrex::AmrLevel::FillPatchAdd</a></div><div class="ttdeci">static void FillPatchAdd(AmrLevel &amp;amrlevel, MultiFab &amp;leveldata, int boxGrow, Real time, int index, int scomp, int ncomp, int dcomp=0)</div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:2119</div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_aa5bcc0602fbd0198b743f3391c7a227c"><div class="ttname"><a href="classamrex_1_1_amr_level.html#aa5bcc0602fbd0198b743f3391c7a227c">amrex::AmrLevel::set_preferred_boundary_values</a></div><div class="ttdeci">virtual void set_preferred_boundary_values(MultiFab &amp;S, int state_index, int scomp, int dcomp, int ncomp, Real time) const </div><div class="ttdoc">Hack to allow override of (non-fine-fine) fillpatched boundary data. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:57</div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_ac96bd5573c5f63e798aa682a7d5756ae"><div class="ttname"><a href="classamrex_1_1_amr_level.html#ac96bd5573c5f63e798aa682a7d5756ae">amrex::AmrLevel::FlushFPICache</a></div><div class="ttdeci">static void FlushFPICache()</div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_a75c6f30a5526b2d5dbbb24646f71dc8b"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a75c6f30a5526b2d5dbbb24646f71dc8b">amrex::AmrLevel::errorEst</a></div><div class="ttdeci">virtual void errorEst(TagBoxArray &amp;tb, int clearval, int tagval, Real time, int n_error_buf=0, int ngrow=0)=0</div><div class="ttdoc">Error estimation for regridding. This is a pure virtual function and hence MUST be implemented by der...</div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_ae4fe2cf22c0b5afa7b61c0763aff8c9b"><div class="ttname"><a href="classamrex_1_1_amr_level.html#ae4fe2cf22c0b5afa7b61c0763aff8c9b">amrex::AmrLevel::Level</a></div><div class="ttdeci">int Level() const </div><div class="ttdoc">Returns this AmrLevel. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.H:238</div></div>
-<div class="ttc" id="classamrex_1_1_amr_level_html_a8f5d9741b9f2b73d0ffe50b7d4f8aeff"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a8f5d9741b9f2b73d0ffe50b7d4f8aeff">amrex::AmrLevel::setAreaNotToTag</a></div><div class="ttdeci">void setAreaNotToTag(BoxArray &amp;ba)</div><div class="ttdoc">Set the area not to tag. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:2054</div></div>
+<div class="ttc" id="classamrex_1_1_amr_level_html_a8f5d9741b9f2b73d0ffe50b7d4f8aeff"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a8f5d9741b9f2b73d0ffe50b7d4f8aeff">amrex::AmrLevel::setAreaNotToTag</a></div><div class="ttdeci">void setAreaNotToTag(BoxArray &amp;ba)</div><div class="ttdoc">Set the area not to tag. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:2060</div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_a5ffc98d138f381698b2a61fc6cb2ce01"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a5ffc98d138f381698b2a61fc6cb2ce01">amrex::AmrLevel::grids</a></div><div class="ttdeci">BoxArray grids</div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.H:440</div></div>
-<div class="ttc" id="classamrex_1_1_amr_level_html_a7cec3a532b1d9bc6f36417ecb33b4287"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a7cec3a532b1d9bc6f36417ecb33b4287">amrex::AmrLevel::LevelDirectoryNames</a></div><div class="ttdeci">void LevelDirectoryNames(const std::string &amp;dir, std::string &amp;LevelDir, std::string &amp;FullPath)</div><div class="ttdoc">Get the level directory names. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:2130</div></div>
+<div class="ttc" id="classamrex_1_1_amr_level_html_a7cec3a532b1d9bc6f36417ecb33b4287"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a7cec3a532b1d9bc6f36417ecb33b4287">amrex::AmrLevel::LevelDirectoryNames</a></div><div class="ttdeci">void LevelDirectoryNames(const std::string &amp;dir, std::string &amp;LevelDir, std::string &amp;FullPath)</div><div class="ttdoc">Get the level directory names. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:2136</div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_a109f988dd098fdb2a6b854a742015397"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a109f988dd098fdb2a6b854a742015397">amrex::AmrLevel::fine_ratio</a></div><div class="ttdeci">IntVect fine_ratio</div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.H:444</div></div>
 <div class="ttc" id="_a_m_re_x___e_b_support_8_h_html"><div class="ttname"><a href="_a_m_re_x___e_b_support_8_h.html">AMReX_EBSupport.H</a></div></div>
 <div class="ttc" id="classamrex_1_1_box_array_html"><div class="ttname"><a href="classamrex_1_1_box_array.html">amrex::BoxArray</a></div><div class="ttdef"><b>Definition:</b> AMReX_BoxArray.H:210</div></div>
-<div class="ttc" id="classamrex_1_1_amr_level_html_ac3c7ade82a9bc4d91ae21e8a7b359178"><div class="ttname"><a href="classamrex_1_1_amr_level.html#ac3c7ade82a9bc4d91ae21e8a7b359178">amrex::AmrLevel::FillCoarsePatch</a></div><div class="ttdeci">void FillCoarsePatch(MultiFab &amp;dest, int dcomp, Real time, int state_idx, int scomp, int ncomp, int nghost=0)</div><div class="ttdoc">Interpolate from coarse level to the valid area in dest. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:1448</div></div>
+<div class="ttc" id="classamrex_1_1_amr_level_html_ac3c7ade82a9bc4d91ae21e8a7b359178"><div class="ttname"><a href="classamrex_1_1_amr_level.html#ac3c7ade82a9bc4d91ae21e8a7b359178">amrex::AmrLevel::FillCoarsePatch</a></div><div class="ttdeci">void FillCoarsePatch(MultiFab &amp;dest, int dcomp, Real time, int state_idx, int scomp, int ncomp, int nghost=0)</div><div class="ttdoc">Interpolate from coarse level to the valid area in dest. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:1454</div></div>
 <div class="ttc" id="_a_m_re_x___b_c_rec_8_h_html"><div class="ttname"><a href="_a_m_re_x___b_c_rec_8_h.html">AMReX_BCRec.H</a></div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_a793430bb1749761161877c0d18dddc4f"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a793430bb1749761161877c0d18dddc4f">amrex::AmrLevel::get_desc_lst</a></div><div class="ttdeci">static const DescriptorList &amp; get_desc_lst()</div><div class="ttdoc">Returns list of Descriptors. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.H:323</div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_a9ef7971fd5d7dd152886c202feb7d806"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a9ef7971fd5d7dd152886c202feb7d806">amrex::AmrLevel::post_step_regrid</a></div><div class="ttdeci">int post_step_regrid</div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.H:452</div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_a3c19c93fa3ce20420a484d9280ce2632"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a3c19c93fa3ce20420a484d9280ce2632">amrex::AmrLevel::getNodalBoxArray</a></div><div class="ttdeci">const BoxArray &amp; getNodalBoxArray() const </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:567</div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_a83fa691ff414eb69f75eb6ae1f61b33aa9e86be887aaeac42a556e1f493337472"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a83fa691ff414eb69f75eb6ae1f61b33aa9e86be887aaeac42a556e1f493337472">amrex::AmrLevel::AmrNewTime</a></div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.H:52</div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_a024eee0459227e95a521789724a889c8"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a024eee0459227e95a521789724a889c8">amrex::AmrLevel::get_old_data</a></div><div class="ttdeci">MultiFab &amp; get_old_data(int state_indx)</div><div class="ttdoc">State data at old time. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.H:315</div></div>
-<div class="ttc" id="classamrex_1_1_amr_level_html_a2d67ff78f28ebc3850bda9ca476b7f9c"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a2d67ff78f28ebc3850bda9ca476b7f9c">amrex::AmrLevel::derive</a></div><div class="ttdeci">virtual std::unique_ptr&lt; MultiFab &gt; derive(const std::string &amp;name, Real time, int ngrow)</div><div class="ttdoc">Returns a MultiFab containing the derived data for this level. The user is responsible for deleting t...</div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:1560</div></div>
+<div class="ttc" id="classamrex_1_1_amr_level_html_a2d67ff78f28ebc3850bda9ca476b7f9c"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a2d67ff78f28ebc3850bda9ca476b7f9c">amrex::AmrLevel::derive</a></div><div class="ttdeci">virtual std::unique_ptr&lt; MultiFab &gt; derive(const std::string &amp;name, Real time, int ngrow)</div><div class="ttdoc">Returns a MultiFab containing the derived data for this level. The user is responsible for deleting t...</div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:1566</div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_a3958f19527fb2eb83de947addb745862"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a3958f19527fb2eb83de947addb745862">amrex::AmrLevel::SetLevelDirectoryCreated</a></div><div class="ttdeci">void SetLevelDirectoryCreated(bool ldc)</div><div class="ttdoc">Set if the Level_ directory was created or to clear the value. CreateLevelDirectory sets levelDirecto...</div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.H:68</div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_a2cd4b72bfd25b2c90aaa5b2e0badbdfe"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a2cd4b72bfd25b2c90aaa5b2e0badbdfe">amrex::AmrLevel::numGrids</a></div><div class="ttdeci">int numGrids() const </div><div class="ttdoc">Number of grids at this level. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.H:248</div></div>
-<div class="ttc" id="classamrex_1_1_amr_level_html_a7a6ce272412a601c03330e55de170ea8"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a7a6ce272412a601c03330e55de170ea8">amrex::AmrLevel::constructAreaNotToTag</a></div><div class="ttdeci">void constructAreaNotToTag()</div><div class="ttdoc">Constuct the area not to tag. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:2059</div></div>
+<div class="ttc" id="classamrex_1_1_amr_level_html_a7a6ce272412a601c03330e55de170ea8"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a7a6ce272412a601c03330e55de170ea8">amrex::AmrLevel::constructAreaNotToTag</a></div><div class="ttdeci">void constructAreaNotToTag()</div><div class="ttdoc">Constuct the area not to tag. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:2065</div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_a3d2006342bf56a903fa3b1db8564869a"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a3d2006342bf56a903fa3b1db8564869a">amrex::AmrLevel::Domain</a></div><div class="ttdeci">const Box &amp; Domain() const </div><div class="ttdoc">Returns the indices defining physical domain. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.H:252</div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_ae27e1d507ec7a6314a7bb5ec7d2fc2cb"><div class="ttname"><a href="classamrex_1_1_amr_level.html#ae27e1d507ec7a6314a7bb5ec7d2fc2cb">amrex::AmrLevel::countCells</a></div><div class="ttdeci">long countCells() const </div><div class="ttdoc">Returns number of cells on level. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:433</div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_a5322ce60c983bb72e78414052d9331db"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a5322ce60c983bb72e78414052d9331db">amrex::AmrLevel::get_state_data</a></div><div class="ttdeci">StateData &amp; get_state_data(int state_indx)</div><div class="ttdoc">State data object. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.H:313</div></div>
@@ -1148,7 +1149,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classamrex_1_1_amr_level_html_a15535c7cc1f73df2cc3b0b720d8ab5a4"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a15535c7cc1f73df2cc3b0b720d8ab5a4">amrex::AmrLevel::level</a></div><div class="ttdeci">int level</div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.H:438</div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_aaf556b8ae524800e555c29ba55dbc59e"><div class="ttname"><a href="classamrex_1_1_amr_level.html#aaf556b8ae524800e555c29ba55dbc59e">amrex::AmrLevel::Factory</a></div><div class="ttdeci">const FabFactory&lt; FArrayBox &gt; &amp; Factory() const </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.H:246</div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_a2f324e3977de1beef5d204c04be51f4a"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a2f324e3977de1beef5d204c04be51f4a">amrex::AmrLevel::setPhysBoundaryValues</a></div><div class="ttdeci">virtual void setPhysBoundaryValues(FArrayBox &amp;dest, int state_indx, Real time, int dest_comp, int src_comp, int num_comp)</div><div class="ttdoc">Function to set physical boundary conditions. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:577</div></div>
-<div class="ttc" id="classamrex_1_1_amr_level_html_a30b10ac136d1f65033bca65ac9c87922"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a30b10ac136d1f65033bca65ac9c87922">amrex::AmrLevel::getAreaToTag</a></div><div class="ttdeci">const Box &amp; getAreaToTag()</div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:2049</div></div>
+<div class="ttc" id="classamrex_1_1_amr_level_html_a30b10ac136d1f65033bca65ac9c87922"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a30b10ac136d1f65033bca65ac9c87922">amrex::AmrLevel::getAreaToTag</a></div><div class="ttdeci">const Box &amp; getAreaToTag()</div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:2055</div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_aa859d511ae880653d0d405b4484fdc37"><div class="ttname"><a href="classamrex_1_1_amr_level.html#aa859d511ae880653d0d405b4484fdc37">amrex::AmrLevel::get_old_data</a></div><div class="ttdeci">const MultiFab &amp; get_old_data(int state_indx) const </div><div class="ttdoc">State data at old time. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.H:317</div></div>
 <div class="ttc" id="classamrex_1_1_amr_level_html_a6f026bc206ee8ba0b85cd3bf3ede7474"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a6f026bc206ee8ba0b85cd3bf3ede7474">amrex::AmrLevel::setPostStepRegrid</a></div><div class="ttdeci">void setPostStepRegrid(int new_val)</div><div class="ttdoc">Sets a new value for the post-timestep regrid trigger. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.H:329</div></div>
 <div class="ttc" id="classamrex_1_1_state_data_phys_b_c_funct_html"><div class="ttname"><a href="classamrex_1_1_state_data_phys_b_c_funct.html">amrex::StateDataPhysBCFunct</a></div><div class="ttdef"><b>Definition:</b> AMReX_StateData.H:324</div></div>
@@ -1157,7 +1158,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classamrex_1_1_m_f_iter_html_addaa9305a4ee5dda972e835164b70e29"><div class="ttname"><a href="classamrex_1_1_m_f_iter.html#addaa9305a4ee5dda972e835164b70e29">amrex::MFIter::Initialize</a></div><div class="ttdeci">void Initialize()</div><div class="ttdef"><b>Definition:</b> AMReX_MFIter.cpp:201</div></div>
 <div class="ttc" id="classamrex_1_1_fab_factory_html"><div class="ttname"><a href="classamrex_1_1_fab_factory.html">amrex::FabFactory&lt; FArrayBox &gt;</a></div></div>
 <div class="ttc" id="_a_m_re_x___multi_fab_util___f_8_h_html_a3a6ea573223fb7730509e32b93601c15"><div class="ttname"><a href="_a_m_re_x___multi_fab_util___f_8_h.html#a3a6ea573223fb7730509e32b93601c15">ratio</a></div><div class="ttdeci">const int const int const const int * ratio</div><div class="ttdef"><b>Definition:</b> AMReX_MultiFabUtil_F.H:77</div></div>
-<div class="ttc" id="classamrex_1_1_amr_level_html_a69fdf4e347142373696281d9269c6799"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a69fdf4e347142373696281d9269c6799">amrex::AmrLevel::UpdateDistributionMaps</a></div><div class="ttdeci">void UpdateDistributionMaps(DistributionMapping &amp;dmap)</div><div class="ttdoc">Update the distribution maps in StateData based on the size of the map. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:1835</div></div>
+<div class="ttc" id="classamrex_1_1_amr_level_html_a69fdf4e347142373696281d9269c6799"><div class="ttname"><a href="classamrex_1_1_amr_level.html#a69fdf4e347142373696281d9269c6799">amrex::AmrLevel::UpdateDistributionMaps</a></div><div class="ttdeci">void UpdateDistributionMaps(DistributionMapping &amp;dmap)</div><div class="ttdoc">Update the distribution maps in StateData based on the size of the map. </div><div class="ttdef"><b>Definition:</b> AMReX_AmrLevel.cpp:1841</div></div>
 <div class="ttc" id="classamrex_1_1_f_array_box_html"><div class="ttname"><a href="classamrex_1_1_f_array_box.html">amrex::FArrayBox</a></div><div class="ttdoc">A Fortran Array of REALs. </div><div class="ttdef"><b>Definition:</b> AMReX_FArrayBox.H:196</div></div>
 <div class="ttc" id="_a_m_re_x___geometry_8_h_html"><div class="ttname"><a href="_a_m_re_x___geometry_8_h.html">AMReX_Geometry.H</a></div></div>
 <div class="ttc" id="_a_m_re_x___e_b_interpolater_8_h_html"><div class="ttname"><a href="_a_m_re_x___e_b_interpolater_8_h.html">AMReX_EBInterpolater.H</a></div></div>
