@@ -36,7 +36,6 @@ var searchData=
   ['norm2',['norm2',['../classamrex_1_1i_multi_fab.html#a2e97f34c381a957b9de6dcbe2b210bc0',1,'amrex::iMultiFab::norm2()'],['../classamrex_1_1_multi_fab.html#ae7ad8f115d7f89e866413bfe798826b2',1,'amrex::MultiFab::norm2(int comp=0) const '],['../classamrex_1_1_multi_fab.html#a20b5622b4b362c4d87a3eb9792141203',1,'amrex::MultiFab::norm2(int comp, const Periodicity &amp;period) const '],['../classamrex_1_1_multi_fab.html#adaef39801223db5b7d179f4ddeebf529',1,'amrex::MultiFab::norm2(const Vector&lt; int &gt; &amp;comps) const ']]],
   ['normalize',['normalize',['../classamrex_1_1_box.html#ab9002120b75895970884d153853e3b06',1,'amrex::Box']]],
   ['norminfmask',['norminfmask',['../classamrex_1_1_base_fab.html#a7c575e550822c9bbb02b234938b81949',1,'amrex::BaseFab']]],
-  ['notinlaunchregion',['notInLaunchRegion',['../namespaceamrex_1_1_cuda.html#aded9dbf9ef64a19a37bea89a6769724b',1,'amrex::Cuda']]],
   ['nprocs',['NProcs',['../classamrex_1_1_parallel_context_1_1_frame.html#ab36fffbc6aa6cb3e2f1fed1ae263a3ab',1,'amrex::ParallelContext::Frame::NProcs()'],['../namespaceamrex_1_1_parallel_descriptor.html#a0455b3ad4f2a4c13b57d33e4c6325dca',1,'amrex::ParallelDescriptor::NProcs()']]],
   ['nprocsall',['NProcsAll',['../namespaceamrex_1_1_parallel_context.html#afde8286279adc58bb4ab1d30a5d02cc7',1,'amrex::ParallelContext']]],
   ['nprocssub',['NProcsSub',['../namespaceamrex_1_1_parallel_context.html#a1e98db9c755ff62ca57280f0d6313936',1,'amrex::ParallelContext']]],

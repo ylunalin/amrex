@@ -130,6 +130,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:abcda9d9ec7aa00c58e7db564dd2b23c3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_c_arena.html#abcda9d9ec7aa00c58e7db564dd2b23c3">CArena</a> (std::size_t hunk_size=0)</td></tr>
 <tr class="memdesc:abcda9d9ec7aa00c58e7db564dd2b23c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a coalescing memory manager. hunk_size is the minimum size of hunks of memory to allocate from the heap. If hunk_size == 0 we use DefaultHunkSize as specified below.  <a href="#abcda9d9ec7aa00c58e7db564dd2b23c3">More...</a><br/></td></tr>
 <tr class="separator:abcda9d9ec7aa00c58e7db564dd2b23c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1dc0400df161a7395380b6156678918a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_c_arena.html#a1dc0400df161a7395380b6156678918a">CArena</a> (const <a class="el" href="classamrex_1_1_c_arena.html">CArena</a> &amp;rhs)=delete</td></tr>
+<tr class="separator:a1dc0400df161a7395380b6156678918a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae491fc24a9163b864bc798acc7518852"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_c_arena.html">CArena</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_c_arena.html#ae491fc24a9163b864bc798acc7518852">operator=</a> (const <a class="el" href="classamrex_1_1_c_arena.html">CArena</a> &amp;rhs)=delete</td></tr>
+<tr class="separator:ae491fc24a9163b864bc798acc7518852"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abca549bb11a9efb8b05dca10c32aab81"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_c_arena.html#abca549bb11a9efb8b05dca10c32aab81">~CArena</a> () override</td></tr>
 <tr class="memdesc:abca549bb11a9efb8b05dca10c32aab81"><td class="mdescLeft">&#160;</td><td class="mdescRight">The destructor.  <a href="#abca549bb11a9efb8b05dca10c32aab81">More...</a><br/></td></tr>
 <tr class="separator:abca549bb11a9efb8b05dca10c32aab81"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -169,6 +173,8 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a7ec2fcdaa0d06d1fceb739d0e1661751"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_c_arena.html#a7ec2fcdaa0d06d1fceb739d0e1661751">m_used</a></td></tr>
 <tr class="memdesc:a7ec2fcdaa0d06d1fceb739d0e1661751"><td class="mdescLeft">&#160;</td><td class="mdescRight">The amount of heap space currently allocated.  <a href="#a7ec2fcdaa0d06d1fceb739d0e1661751">More...</a><br/></td></tr>
 <tr class="separator:a7ec2fcdaa0d06d1fceb739d0e1661751"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a445be9f2ccca25ca4d2c8db026400136"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_c_arena.html#a445be9f2ccca25ca4d2c8db026400136">carena_mutex</a></td></tr>
+<tr class="separator:a445be9f2ccca25ca4d2c8db026400136"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -244,6 +250,30 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Construct a coalescing memory manager. hunk_size is the minimum size of hunks of memory to allocate from the heap. If hunk_size == 0 we use DefaultHunkSize as specified below. </p>
+
+</div>
+</div>
+<a class="anchor" id="a1dc0400df161a7395380b6156678918a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">amrex::CArena::CArena </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_c_arena.html">CArena</a> &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -346,7 +376,51 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ae491fc24a9163b864bc798acc7518852"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classamrex_1_1_c_arena.html">CArena</a>&amp; amrex::CArena::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_c_arena.html">CArena</a> &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a445be9f2ccca25ca4d2c8db026400136"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::mutex amrex::CArena::carena_mutex</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="ae4df71ed6e581bb88793c7c009cb4660"></a>
 <div class="memitem">
 <div class="memproto">

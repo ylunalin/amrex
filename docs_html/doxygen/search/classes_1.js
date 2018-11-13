@@ -18,7 +18,7 @@ var searchData=
   ['blprofiler',['BLProfiler',['../classamrex_1_1_b_l_profiler.html',1,'amrex']]],
   ['bndrydata',['BndryData',['../classamrex_1_1_bndry_data.html',1,'amrex']]],
   ['bndryfunc',['BndryFunc',['../classamrex_1_1_state_descriptor_1_1_bndry_func.html',1,'amrex::StateDescriptor']]],
-  ['bndryfunctbase',['BndryFunctBase',['../classamrex_1_1_bndry_funct_base.html',1,'amrex']]],
+  ['bndryfuncarray',['BndryFuncArray',['../classamrex_1_1_bndry_func_array.html',1,'amrex']]],
   ['bndryregister',['BndryRegister',['../classamrex_1_1_bndry_register.html',1,'amrex']]],
   ['boundcond',['BoundCond',['../classamrex_1_1_bound_cond.html',1,'amrex']]],
   ['box',['Box',['../classamrex_1_1_box.html',1,'amrex']]],

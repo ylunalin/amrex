@@ -3,6 +3,7 @@ var searchData=
   ['c_5fsys',['c_sys',['../classamrex_1_1_coord_sys.html#a7d23e22bdc876c2b6f832f29f7b48c35',1,'amrex::CoordSys']]],
   ['cachedataallocated',['cacheDataAllocated',['../structamrex_1_1_fab_copy_descriptor.html#a405adb5266b8deb2c2e18cea095eee45',1,'amrex::FabCopyDescriptor']]],
   ['call_5faddr2line',['call_addr2line',['../namespaceamrex_1_1system.html#a1ed2a732c93fe26dfa4fbb63c2a698eb',1,'amrex::system']]],
+  ['carena_5fmutex',['carena_mutex',['../classamrex_1_1_c_arena.html#a445be9f2ccca25ca4d2c8db026400136',1,'amrex::CArena']]],
   ['cdata_5fsize',['cdata_size',['../classamrex_1_1_neighbor_particle_container.html#a1e5039db78995c9f1e60c816780c91ab',1,'amrex::NeighborParticleContainer']]],
   ['cell_5fbilinear_5finterp',['cell_bilinear_interp',['../namespaceamrex.html#a5fa0044ab8f93865e1fc48bb78a6e5e8',1,'amrex']]],
   ['cell_5fcons_5finterp',['cell_cons_interp',['../namespaceamrex.html#a5a7cd403bb1a4e3a44a90722f83f40f5',1,'amrex']]],

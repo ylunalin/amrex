@@ -7,7 +7,6 @@ var searchData=
   ['ieee_5ffloat',['ieee_float',['../classamrex_1_1_f_p_c.html#a1b3e2650f0f9184f503b42a96a8ebd60',1,'amrex::FPC']]],
   ['in_5fbody',['in_body',['../classamrex_1_1_e_b2_1_1_geometry_shop.html#a2ccca64586ef1e72de9428a89cbec5c3',1,'amrex::EB2::GeometryShop']]],
   ['in_5ffluid',['in_fluid',['../classamrex_1_1_e_b2_1_1_geometry_shop.html#aeef1a9882f9d9ae0fc5754c41cfbe045',1,'amrex::EB2::GeometryShop']]],
-  ['in_5flaunch_5fregion',['in_launch_region',['../namespaceamrex_1_1_cuda.html#a504d45b67ea385825efd1f96fcb53e6a',1,'amrex::Cuda']]],
   ['index_5fmap',['index_map',['../classamrex_1_1_m_f_iter.html#ac482cbbf5ecee6f2593a3e4437623082',1,'amrex::MFIter']]],
   ['indexarray',['indexArray',['../classamrex_1_1_fab_array_base.html#a15c2b54df8386a9d38216410edce884c',1,'amrex::FabArrayBase']]],
   ['indexmap',['indexMap',['../structamrex_1_1_fab_array_base_1_1_tile_array.html#a37311b356baf90979545e588fa7f6b6f',1,'amrex::FabArrayBase::TileArray']]],

@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['f_5fuser',['f_user',['../classamrex_1_1_cpu_bndry_func_fab.html#a44a9eb954199def1d1965689f79c0801',1,'amrex::CpuBndryFuncFab']]],
   ['fabarray',['fabArray',['../classamrex_1_1_m_f_iter.html#a198baf9d7f4a208f217569a0c6f02183',1,'amrex::MFIter']]],
   ['fabarrayid',['fabArrayId',['../structamrex_1_1_fab_array_base_1_1_fab_com_tag.html#a5c3201e1c74a8355f405987ac3c77678',1,'amrex::FabArrayBase::FabComTag']]],
   ['fabindex',['fabIndex',['../structamrex_1_1_fab_array_base_1_1_fab_com_tag.html#aabd9d1aff4b684e0fc769347637226a5',1,'amrex::FabArrayBase::FabComTag']]],

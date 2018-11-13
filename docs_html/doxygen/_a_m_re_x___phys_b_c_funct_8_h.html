@@ -96,16 +96,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;<a class="el" href="_a_m_re_x___geometry_8_h_source.html">AMReX_Geometry.H</a>&gt;</code><br/>
 <code>#include &lt;<a class="el" href="_a_m_re_x___multi_fab_8_h_source.html">AMReX_MultiFab.H</a>&gt;</code><br/>
 <code>#include &lt;<a class="el" href="_a_m_re_x___array_lim_8_h_source.html">AMReX_ArrayLim.H</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="_a_m_re_x___fil_c_c___c_8_h_source.html">AMReX_FilCC_C.H</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="_a_m_re_x___type_traits_8_h_source.html">AMReX_TypeTraits.H</a>&gt;</code><br/>
 </div>
 <p><a href="_a_m_re_x___phys_b_c_funct_8_h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_bndry_funct_base.html">amrex::BndryFunctBase</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_bndry_func_array.html">amrex::BndryFuncArray</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_gpu_bndry_func_fab.html">amrex::GpuBndryFuncFab&lt; F &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_cpu_bndry_func_fab.html">amrex::CpuBndryFuncFab</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_phys_b_c_funct_base.html">amrex::PhysBCFunctBase</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_phys_b_c_funct.html">amrex::PhysBCFunct</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_phys_b_c_funct.html">amrex::PhysBCFunct&lt; F &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -120,6 +126,8 @@ Typedefs</h2></td></tr>
 <tr class="separator:af4644e325d68829f48fa9f707a27d38d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac7b3adaf83de740cb8bfebcaa309fd6b"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ac7b3adaf83de740cb8bfebcaa309fd6b">amrex::BndryFunc3DDefault</a> )(Real *data, const int *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a54267e9174e171df90d3594f0c32e114">lo</a>, const int *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a6569fdcb051e8fff2ef4c57db6f9c642">hi</a>, const int *dom_lo, const int *dom_hi, const Real *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ad5fa46517dd383f09a279b8446fc397b">dx</a>, const Real *grd_lo, const Real *time, const int *bc)</td></tr>
 <tr class="separator:ac7b3adaf83de740cb8bfebcaa309fd6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b83115bb69e82995702c0d9d9b6f143"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a4b83115bb69e82995702c0d9d9b6f143">amrex::UserFillBox</a> )(Box const &amp;bx, FArrayBox &amp;dest, const int dcomp, const int numcomp, GeometryData const &amp;geom, const Real time, const BCRec *bcr, const int bcomp, const int orig_comp)</td></tr>
+<tr class="separator:a4b83115bb69e82995702c0d9d9b6f143"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->

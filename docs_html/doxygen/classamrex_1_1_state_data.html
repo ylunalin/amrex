@@ -90,6 +90,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="classamrex_1_1_state_data-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">amrex::StateData Class Reference</div>  </div>
@@ -152,6 +153,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a64b6d97172a5fa5f54ecaed8181bbe28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ca9ba16e42a6ffe8e9bcbabf51d25db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_state_data.html#a7ca9ba16e42a6ffe8e9bcbabf51d25db">FillBoundary</a> (<a class="el" href="classamrex_1_1_f_array_box.html">FArrayBox</a> &amp;dest, Real time, const Real *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ad5fa46517dd383f09a279b8446fc397b">dx</a>, const <a class="el" href="classamrex_1_1_real_box.html">RealBox</a> &amp;prob_domain, int dest_comp, int src_comp, int num_comp=1)</td></tr>
 <tr class="separator:a7ca9ba16e42a6ffe8e9bcbabf51d25db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a593e4c97974095398a43d0132ef3a868"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_state_data.html#a593e4c97974095398a43d0132ef3a868">FillBoundary</a> (<a class="el" href="classamrex_1_1_box.html">Box</a> const &amp;bx, <a class="el" href="classamrex_1_1_f_array_box.html">FArrayBox</a> &amp;dest, Real time, <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> const &amp;geom, int dest_comp, int src_comp, int num_comp)</td></tr>
+<tr class="separator:a593e4c97974095398a43d0132ef3a868"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83d7bc0a021a283efce9b4f500315540"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_state_data.html#a83d7bc0a021a283efce9b4f500315540">checkPoint</a> (const std::string &amp;name, const std::string &amp;fullpathname, std::ostream &amp;os, <a class="el" href="classamrex_1_1_vis_m_f.html#aa50a3ce471ac0bdf8f78134f0004e156">VisMF::How</a> how, bool dump_old=true)</td></tr>
 <tr class="separator:a83d7bc0a021a283efce9b4f500315540"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1a00caa21e6aadb0d1916138824a3f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_state_data.html#aa1a00caa21e6aadb0d1916138824a3f5">restart</a> (std::istream &amp;is, const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;p_domain, const <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> &amp;grds, const <a class="el" href="classamrex_1_1_distribution_mapping.html">DistributionMapping</a> &amp;dm, const <a class="el" href="classamrex_1_1_fab_factory.html">FabFactory</a>&lt; <a class="el" href="classamrex_1_1_f_array_box.html">FArrayBox</a> &gt; &amp;factroy, const <a class="el" href="classamrex_1_1_state_descriptor.html">StateDescriptor</a> &amp;d, const std::string &amp;restart_file)</td></tr>
@@ -206,6 +209,11 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:ad627f2819f507158b90f5f2570b1d182"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ae8938d03e0425949acee6bfdf003af"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_state_data.html#a0ae8938d03e0425949acee6bfdf003af">SetFAHeaderMapPtr</a> (std::map&lt; std::string, <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; char &gt; &gt; *fahmp)</td></tr>
 <tr class="separator:a0ae8938d03e0425949acee6bfdf003af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a51a3670e2ed07485744ef6462ebfd6ce"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_state_data.html#a51a3670e2ed07485744ef6462ebfd6ce">StateDataPhysBCFunct</a></td></tr>
+<tr class="separator:a51a3670e2ed07485744ef6462ebfd6ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a947b62feb1753b7ebe6c604066b1d494"></a>
@@ -696,6 +704,62 @@ Static Public Member Functions</h2></td></tr>
           <td></td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>num_comp</em> = <code>1</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a593e4c97974095398a43d0132ef3a868"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void amrex::StateData::FillBoundary </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classamrex_1_1_box.html">Box</a> const &amp;&#160;</td>
+          <td class="paramname"><em>bx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classamrex_1_1_f_array_box.html">FArrayBox</a> &amp;&#160;</td>
+          <td class="paramname"><em>dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Real&#160;</td>
+          <td class="paramname"><em>time</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classamrex_1_1_geometry.html">Geometry</a> const &amp;&#160;</td>
+          <td class="paramname"><em>geom</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dest_comp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>src_comp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>num_comp</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1545,6 +1609,27 @@ Static Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a class="anchor" id="a51a3670e2ed07485744ef6462ebfd6ce"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="classamrex_1_1_state_data_phys_b_c_funct.html">StateDataPhysBCFunct</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>

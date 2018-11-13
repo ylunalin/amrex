@@ -178,6 +178,7 @@ var searchData=
   ['gpu_5fstop_5fprofiler',['gpu_stop_profiler',['../classcuda__module.html#a389706078030b9bef8e42296c9e78b85',1,'cuda_module']]],
   ['gpu_5fstream_5fsynchronize',['gpu_stream_synchronize',['../classcuda__module.html#a4bef69d4a57bddc32cf7bed51d59c8b2',1,'cuda_module']]],
   ['gpu_5fsynchronize',['gpu_synchronize',['../classcuda__module.html#a92a52a179ca94deb41149cff7aaf9d65',1,'cuda_module']]],
+  ['gpubndryfuncfab',['GpuBndryFuncFab',['../classamrex_1_1_gpu_bndry_func_fab.html#a62075f3a31adb0b72fa9c09d17ee7e5a',1,'amrex::GpuBndryFuncFab::GpuBndryFuncFab()=default'],['../classamrex_1_1_gpu_bndry_func_fab.html#aea0999bc3f58f248b8ebab6da8148478',1,'amrex::GpuBndryFuncFab::GpuBndryFuncFab(F a_f)']]],
   ['grid_5fplaces',['grid_places',['../classamrex_1_1_amr.html#a90155667257e3c51890f716ade65c5e7',1,'amrex::Amr']]],
   ['grideff',['gridEff',['../classamrex_1_1_amr_mesh.html#a2c08ef5c6a3bd4da664288e1f7fa1759',1,'amrex::AmrMesh']]],
   ['groupall',['GroupAll',['../namespaceamrex_1_1_parallel_context.html#ac6aad5f4fece7da10c4a0aec721b2aa9',1,'amrex::ParallelContext']]],

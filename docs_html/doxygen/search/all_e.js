@@ -78,7 +78,6 @@ var searchData=
   ['noslipwall',['NoSlipWall',['../_a_m_re_x___b_c___t_y_p_e_s_8_h.html#ac2dab611e4ed2408bce31896fd83a9d4',1,'AMReX_BC_TYPES.H']]],
   ['not_5fcovered',['not_covered',['../classamrex_1_1_bndry_data.html#a4d31afbfcfb31a6229877bb9ad880fb9a54f598ca1ea830b90bd86719dd843014',1,'amrex::BndryData']]],
   ['noteambarrier',['NoTeamBarrier',['../classamrex_1_1_m_f_iter.html#af5cf94bce73f6da744dd94acc46cdf38af1e51da50b24860035a3665786fe9d14',1,'amrex::MFIter']]],
-  ['notinlaunchregion',['notInLaunchRegion',['../namespaceamrex_1_1_cuda.html#aded9dbf9ef64a19a37bea89a6769724b',1,'amrex::Cuda']]],
   ['noutfilesprepost',['nOutFilesPrePost',['../classamrex_1_1_particle_container.html#ace382ba1157b559d2ef5ff00fbca36e2',1,'amrex::ParticleContainer']]],
   ['nparticlesatlevelprepost',['nParticlesAtLevelPrePost',['../classamrex_1_1_particle_container.html#a6e7c1ff537295e739af9e43819ba4636',1,'amrex::ParticleContainer']]],
   ['nparticlesprepost',['nparticlesPrePost',['../classamrex_1_1_particle_container.html#aa1d938ace39436b8ce17da3ac8e371a3',1,'amrex::ParticleContainer']]],

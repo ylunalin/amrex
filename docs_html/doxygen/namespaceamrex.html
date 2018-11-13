@@ -283,7 +283,11 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_periodicity.html">Periodicity</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This provides length of period for periodic domains. 0 means it is not periodic in that direction. It is also assumed that the periodic domain starts with index 0.  <a href="classamrex_1_1_periodicity.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_bndry_funct_base.html">BndryFunctBase</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_bndry_func_array.html">BndryFuncArray</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_gpu_bndry_func_fab.html">GpuBndryFuncFab</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_cpu_bndry_func_fab.html">CpuBndryFuncFab</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_phys_b_c_funct_base.html">PhysBCFunctBase</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -516,6 +520,8 @@ Typedefs</h2></td></tr>
 <tr class="separator:af4644e325d68829f48fa9f707a27d38d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac7b3adaf83de740cb8bfebcaa309fd6b"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ac7b3adaf83de740cb8bfebcaa309fd6b">BndryFunc3DDefault</a> )(Real *data, const int *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a54267e9174e171df90d3594f0c32e114">lo</a>, const int *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a6569fdcb051e8fff2ef4c57db6f9c642">hi</a>, const int *dom_lo, const int *dom_hi, const Real *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ad5fa46517dd383f09a279b8446fc397b">dx</a>, const Real *grd_lo, const Real *time, const int *bc)</td></tr>
 <tr class="separator:ac7b3adaf83de740cb8bfebcaa309fd6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b83115bb69e82995702c0d9d9b6f143"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a4b83115bb69e82995702c0d9d9b6f143">UserFillBox</a> )(<a class="el" href="classamrex_1_1_box.html">Box</a> const &amp;bx, <a class="el" href="classamrex_1_1_f_array_box.html">FArrayBox</a> &amp;dest, const int dcomp, const int numcomp, <a class="el" href="structamrex_1_1_geometry_data.html">GeometryData</a> const &amp;geom, const Real time, const <a class="el" href="classamrex_1_1_b_c_rec.html">BCRec</a> *bcr, const int bcomp, const int orig_comp)</td></tr>
+<tr class="separator:a4b83115bb69e82995702c0d9d9b6f143"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a62563da3fe4e55c8bba5b5e1aadf2495"><td class="memTemplParams" colspan="2">template&lt;class T , std::size_t N&gt; </td></tr>
 <tr class="memitem:a62563da3fe4e55c8bba5b5e1aadf2495"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a62563da3fe4e55c8bba5b5e1aadf2495">Tuple</a> = std::array&lt; T, N &gt;</td></tr>
 <tr class="separator:a62563da3fe4e55c8bba5b5e1aadf2495"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -528,6 +534,8 @@ Typedefs</h2></td></tr>
 <tr class="separator:acb100c3971f39188ccaa96c07517ee1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a368140c12d35a8d5d1a7ab35b85978fe"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a368140c12d35a8d5d1a7ab35b85978fe">DeriveFunc3D</a> )(amrex::Real *data, const int *dlo, const int *dhi, const int *nvar, const amrex::Real *compdat, const int *clo, const int *chi, const int *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>, const int *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a54267e9174e171df90d3594f0c32e114">lo</a>, const int *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a6569fdcb051e8fff2ef4c57db6f9c642">hi</a>, const int *domain_lo, const int *domain_hi, const amrex::Real *delta, const amrex::Real *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a2c670f4a7b523860a14120bdf4999674">xlo</a>, const amrex::Real *time, const amrex::Real *dt, const int *bcrec, const int *level, const int *grid_no)</td></tr>
 <tr class="separator:a368140c12d35a8d5d1a7ab35b85978fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81806287575f9a30fe5c74b51c240f04"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a81806287575f9a30fe5c74b51c240f04">BndryFuncFabDefault</a> )(<a class="el" href="classamrex_1_1_box.html">Box</a> const &amp;bx, <a class="el" href="classamrex_1_1_f_array_box.html">FArrayBox</a> &amp;data, const int dcomp, const int numcomp, <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> const &amp;geom, const Real time, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_b_c_rec.html">BCRec</a> &gt; &amp;bcr, const int bcomp, const int scomp)</td></tr>
+<tr class="separator:a81806287575f9a30fe5c74b51c240f04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3e7c460d73db960317e8d874dba4a9a"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#af3e7c460d73db960317e8d874dba4a9a">ErrorFuncDefault</a> )(int *tag, <a class="el" href="_a_m_re_x___array_lim_8_h.html#af53c6334de4f960ca760f7ea802e1e98">AMREX_ARLIM_P</a>(tlo), <a class="el" href="_a_m_re_x___array_lim_8_h.html#af53c6334de4f960ca760f7ea802e1e98">AMREX_ARLIM_P</a>(thi), const int *tagval, const int *clearval, amrex::Real *data, <a class="el" href="_a_m_re_x___array_lim_8_h.html#af53c6334de4f960ca760f7ea802e1e98">AMREX_ARLIM_P</a>(data_lo), <a class="el" href="_a_m_re_x___array_lim_8_h.html#af53c6334de4f960ca760f7ea802e1e98">AMREX_ARLIM_P</a>(data_hi), const int *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a54267e9174e171df90d3594f0c32e114">lo</a>, const int *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a6569fdcb051e8fff2ef4c57db6f9c642">hi</a>, const int *nvar, const int *domain_lo, const int *domain_hi, const amrex::Real *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ad5fa46517dd383f09a279b8446fc397b">dx</a>, const amrex::Real *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a2c670f4a7b523860a14120bdf4999674">xlo</a>, const amrex::Real *prob_lo, const amrex::Real *time, const int *level)</td></tr>
 <tr class="separator:af3e7c460d73db960317e8d874dba4a9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9fb3f17754e739fee71084bce31899f"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#aa9fb3f17754e739fee71084bce31899f">ErrorFunc2Default</a> )(int *tag, <a class="el" href="_a_m_re_x___array_lim_8_h.html#af53c6334de4f960ca760f7ea802e1e98">AMREX_ARLIM_P</a>(tlo), <a class="el" href="_a_m_re_x___array_lim_8_h.html#af53c6334de4f960ca760f7ea802e1e98">AMREX_ARLIM_P</a>(thi), const int *tagval, const int *clearval, amrex::Real *data, <a class="el" href="_a_m_re_x___array_lim_8_h.html#af53c6334de4f960ca760f7ea802e1e98">AMREX_ARLIM_P</a>(data_lo), <a class="el" href="_a_m_re_x___array_lim_8_h.html#af53c6334de4f960ca760f7ea802e1e98">AMREX_ARLIM_P</a>(data_hi), const int *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a54267e9174e171df90d3594f0c32e114">lo</a>, const int *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a6569fdcb051e8fff2ef4c57db6f9c642">hi</a>, const int *nvar, const int *domain_lo, const int *domain_hi, const amrex::Real *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ad5fa46517dd383f09a279b8446fc397b">dx</a>, const int *level, const amrex::Real *avg)</td></tr>
@@ -676,9 +684,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a29c802e46ab63fd307f16df2ce478081"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a29c802e46ab63fd307f16df2ce478081">setBC</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;bx, const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;domain, int src_comp, int dest_comp, int <a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_b_c_rec.html">BCRec</a> &gt; &amp;bc_dom, <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_b_c_rec.html">BCRec</a> &gt; &amp;bcr)</td></tr>
 <tr class="memdesc:a29c802e46ab63fd307f16df2ce478081"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for setting array of BCs.  <a href="#a29c802e46ab63fd307f16df2ce478081">More...</a><br/></td></tr>
 <tr class="separator:a29c802e46ab63fd307f16df2ce478081"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afcf37f29c9699be86ea1f3726e6d42be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#afcf37f29c9699be86ea1f3726e6d42be">setBC</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;bx, const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;domain, const <a class="el" href="classamrex_1_1_b_c_rec.html">BCRec</a> &amp;bc_dom, <a class="el" href="classamrex_1_1_b_c_rec.html">BCRec</a> &amp;bcr)</td></tr>
-<tr class="memdesc:afcf37f29c9699be86ea1f3726e6d42be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for setting a BC.  <a href="#afcf37f29c9699be86ea1f3726e6d42be">More...</a><br/></td></tr>
-<tr class="separator:afcf37f29c9699be86ea1f3726e6d42be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43d86ad00b5530008454b8ef974895d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a43d86ad00b5530008454b8ef974895d8">setBC</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;bx, const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;domain, const <a class="el" href="classamrex_1_1_b_c_rec.html">BCRec</a> &amp;bc_dom, <a class="el" href="classamrex_1_1_b_c_rec.html">BCRec</a> &amp;bcr)</td></tr>
+<tr class="memdesc:a43d86ad00b5530008454b8ef974895d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for setting a BC.  <a href="#a43d86ad00b5530008454b8ef974895d8">More...</a><br/></td></tr>
+<tr class="separator:a43d86ad00b5530008454b8ef974895d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a539c997273a93fdaabfc2a131c4425cf"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a539c997273a93fdaabfc2a131c4425cf">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="classamrex_1_1_b_c_rec.html">BCRec</a> &amp;b)</td></tr>
 <tr class="separator:a539c997273a93fdaabfc2a131c4425cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b7407c69f5df5cb424eccddb336331b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a0b7407c69f5df5cb424eccddb336331b">FillDomainBoundary</a> (<a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;phi, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;geom, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_b_c_rec.html">BCRec</a> &gt; &amp;bc)</td></tr>
@@ -926,6 +934,8 @@ Functions</h2></td></tr>
 <tr class="separator:a6013bb90a6872541127823fe4e6d8d93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ff574ad6dd00e11abbe7b34c9233e0b"><td class="memItemLeft" align="right" valign="top">std::istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a9ff574ad6dd00e11abbe7b34c9233e0b">operator&gt;&gt;</a> (std::istream &amp;is, <a class="el" href="classamrex_1_1_f_array_box.html">FArrayBox</a> &amp;f)</td></tr>
 <tr class="separator:a9ff574ad6dd00e11abbe7b34c9233e0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2da263606d6e874fdce31e2521f1bced"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#a4e626ebf06898d71a9e0790877f1694f">AMREX_GPU_DEVICE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a2da263606d6e874fdce31e2521f1bced">filcc_cell</a> (const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;iv, <a class="el" href="classamrex_1_1_f_array_box.html">FArrayBox</a> &amp;dest_fab, const int dcomp, const int numcomp, <a class="el" href="structamrex_1_1_geometry_data.html">GeometryData</a> const &amp;geom, const Real time, const <a class="el" href="classamrex_1_1_b_c_rec.html">BCRec</a> *bcr, const int bcomp, const int orig_comp)</td></tr>
+<tr class="separator:a2da263606d6e874fdce31e2521f1bced"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad287398c706f3a1775e0954b73e5c779"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ad287398c706f3a1775e0954b73e5c779">operator&lt;&lt;</a> (std::ostream &amp;, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;)</td></tr>
 <tr class="memdesc:ad287398c706f3a1775e0954b73e5c779"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nice ASCII output.  <a href="#ad287398c706f3a1775e0954b73e5c779">More...</a><br/></td></tr>
 <tr class="separator:ad287398c706f3a1775e0954b73e5c779"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1353,16 +1363,12 @@ Functions</h2></td></tr>
 <tr class="separator:ab1b1f90152c1c5636d634b475056389e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a913d4d8f55e1995cc13187a4a8683271"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a913d4d8f55e1995cc13187a4a8683271">ProperlyNested</a> (const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a3a6ea573223fb7730509e32b93601c15">ratio</a>, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;blocking_factor, int ngrow, const <a class="el" href="classamrex_1_1_index_type.html">IndexType</a> &amp;boxType, <a class="el" href="classamrex_1_1_interpolater.html">Interpolater</a> *mapper)</td></tr>
 <tr class="separator:a913d4d8f55e1995cc13187a4a8683271"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97a9186d0580fcecc9b9fe65e384e46d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a97a9186d0580fcecc9b9fe65e384e46d">FillPatchSingleLevel</a> (<a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;mf, Real time, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> * &gt; &amp;smf, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; Real &gt; &amp;stime, int scomp, int dcomp, int <a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;geom, <a class="el" href="classamrex_1_1_phys_b_c_funct_base.html">PhysBCFunctBase</a> &amp;physbcf)</td></tr>
-<tr class="separator:a97a9186d0580fcecc9b9fe65e384e46d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a835a69a0316624cf9a8ef36977e4983d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a835a69a0316624cf9a8ef36977e4983d">FillPatchTwoLevels</a> (<a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;mf, Real time, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> * &gt; &amp;cmf, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; Real &gt; &amp;ct, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> * &gt; &amp;fmf, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; Real &gt; &amp;ft, int scomp, int dcomp, int <a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;cgeom, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;fgeom, <a class="el" href="classamrex_1_1_phys_b_c_funct_base.html">PhysBCFunctBase</a> &amp;cbc, <a class="el" href="classamrex_1_1_phys_b_c_funct_base.html">PhysBCFunctBase</a> &amp;fbc, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a3a6ea573223fb7730509e32b93601c15">ratio</a>, <a class="el" href="classamrex_1_1_interpolater.html">Interpolater</a> *mapper, const <a class="el" href="classamrex_1_1_b_c_rec.html">BCRec</a> &amp;bcs, const <a class="el" href="classamrex_1_1_interp_hook.html">InterpHook</a> &amp;pre_interp, const <a class="el" href="classamrex_1_1_interp_hook.html">InterpHook</a> &amp;post_interp)</td></tr>
-<tr class="separator:a835a69a0316624cf9a8ef36977e4983d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afeb6b5bfebfc6f9aa4956a171283402c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#afeb6b5bfebfc6f9aa4956a171283402c">FillPatchTwoLevels</a> (<a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;mf, Real time, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> * &gt; &amp;cmf, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; Real &gt; &amp;ct, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> * &gt; &amp;fmf, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; Real &gt; &amp;ft, int scomp, int dcomp, int <a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;cgeom, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;fgeom, <a class="el" href="classamrex_1_1_phys_b_c_funct_base.html">PhysBCFunctBase</a> &amp;cbc, <a class="el" href="classamrex_1_1_phys_b_c_funct_base.html">PhysBCFunctBase</a> &amp;fbc, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a3a6ea573223fb7730509e32b93601c15">ratio</a>, <a class="el" href="classamrex_1_1_interpolater.html">Interpolater</a> *mapper, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_b_c_rec.html">BCRec</a> &gt; &amp;bcs, const <a class="el" href="classamrex_1_1_interp_hook.html">InterpHook</a> &amp;pre_interp, const <a class="el" href="classamrex_1_1_interp_hook.html">InterpHook</a> &amp;post_interp)</td></tr>
-<tr class="separator:afeb6b5bfebfc6f9aa4956a171283402c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abfd9b2679ef3f46a240b0ac994c1dff5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#abfd9b2679ef3f46a240b0ac994c1dff5">InterpFromCoarseLevel</a> (<a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;mf, Real time, const <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;cmf, int scomp, int dcomp, int <a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;cgeom, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;fgeom, <a class="el" href="classamrex_1_1_phys_b_c_funct_base.html">PhysBCFunctBase</a> &amp;cbc, <a class="el" href="classamrex_1_1_phys_b_c_funct_base.html">PhysBCFunctBase</a> &amp;fbc, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a3a6ea573223fb7730509e32b93601c15">ratio</a>, <a class="el" href="classamrex_1_1_interpolater.html">Interpolater</a> *mapper, const <a class="el" href="classamrex_1_1_b_c_rec.html">BCRec</a> &amp;bcs, const <a class="el" href="classamrex_1_1_interp_hook.html">InterpHook</a> &amp;pre_interp, const <a class="el" href="classamrex_1_1_interp_hook.html">InterpHook</a> &amp;post_interp)</td></tr>
-<tr class="separator:abfd9b2679ef3f46a240b0ac994c1dff5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ea0decc02623a60b4c48712b6d01950"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a3ea0decc02623a60b4c48712b6d01950">InterpFromCoarseLevel</a> (<a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;mf, Real time, const <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;cmf, int scomp, int dcomp, int <a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;cgeom, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;fgeom, <a class="el" href="classamrex_1_1_phys_b_c_funct_base.html">PhysBCFunctBase</a> &amp;cbc, <a class="el" href="classamrex_1_1_phys_b_c_funct_base.html">PhysBCFunctBase</a> &amp;fbc, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a3a6ea573223fb7730509e32b93601c15">ratio</a>, <a class="el" href="classamrex_1_1_interpolater.html">Interpolater</a> *mapper, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_b_c_rec.html">BCRec</a> &gt; &amp;bcs, const <a class="el" href="classamrex_1_1_interp_hook.html">InterpHook</a> &amp;pre_interp, const <a class="el" href="classamrex_1_1_interp_hook.html">InterpHook</a> &amp;post_interp)</td></tr>
-<tr class="separator:a3ea0decc02623a60b4c48712b6d01950"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a10ec11fd10345c8863b88a5188b38b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a9a10ec11fd10345c8863b88a5188b38b">FillPatchSingleLevel</a> (<a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;mf, Real time, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> * &gt; &amp;smf, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; Real &gt; &amp;stime, int scomp, int dcomp, int <a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;geom, <a class="el" href="classamrex_1_1_phys_b_c_funct_base.html">PhysBCFunctBase</a> &amp;physbcf, int bcfcomp)</td></tr>
+<tr class="separator:a9a10ec11fd10345c8863b88a5188b38b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b250e0f2c6f2f0537764b81e8a0a148"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a8b250e0f2c6f2f0537764b81e8a0a148">FillPatchTwoLevels</a> (<a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;mf, Real time, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> * &gt; &amp;cmf, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; Real &gt; &amp;ct, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> * &gt; &amp;fmf, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; Real &gt; &amp;ft, int scomp, int dcomp, int <a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;cgeom, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;fgeom, <a class="el" href="classamrex_1_1_phys_b_c_funct_base.html">PhysBCFunctBase</a> &amp;cbc, int cbccomp, <a class="el" href="classamrex_1_1_phys_b_c_funct_base.html">PhysBCFunctBase</a> &amp;fbc, int fbccomp, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a3a6ea573223fb7730509e32b93601c15">ratio</a>, <a class="el" href="classamrex_1_1_interpolater.html">Interpolater</a> *mapper, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_b_c_rec.html">BCRec</a> &gt; &amp;bcs, int bcscomp, const <a class="el" href="classamrex_1_1_interp_hook.html">InterpHook</a> &amp;pre_interp, const <a class="el" href="classamrex_1_1_interp_hook.html">InterpHook</a> &amp;post_interp)</td></tr>
+<tr class="separator:a8b250e0f2c6f2f0537764b81e8a0a148"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69d6f6444b4d19e5e0bb84a8aafcce02"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a69d6f6444b4d19e5e0bb84a8aafcce02">InterpFromCoarseLevel</a> (<a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;mf, Real time, const <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;cmf, int scomp, int dcomp, int <a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;cgeom, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;fgeom, <a class="el" href="classamrex_1_1_phys_b_c_funct_base.html">PhysBCFunctBase</a> &amp;cbc, int cbccomp, <a class="el" href="classamrex_1_1_phys_b_c_funct_base.html">PhysBCFunctBase</a> &amp;fbc, int fbccomp, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a3a6ea573223fb7730509e32b93601c15">ratio</a>, <a class="el" href="classamrex_1_1_interpolater.html">Interpolater</a> *mapper, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_b_c_rec.html">BCRec</a> &gt; &amp;bcs, int bcscomp, const <a class="el" href="classamrex_1_1_interp_hook.html">InterpHook</a> &amp;pre_interp, const <a class="el" href="classamrex_1_1_interp_hook.html">InterpHook</a> &amp;post_interp)</td></tr>
+<tr class="separator:a69d6f6444b4d19e5e0bb84a8aafcce02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80131498da357021b50429cddbe075fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a80131498da357021b50429cddbe075fe">InterpCrseFineBndryEMfield</a> (<a class="el" href="namespaceamrex.html#a2f30e076962c1c148d279b63851d80df">InterpEM_t</a> interp_type, const std::array&lt; <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a>, AMREX_SPACEDIM &gt; &amp;crse, std::array&lt; <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a>, AMREX_SPACEDIM &gt; &amp;fine, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;cgeom, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;fgeom, int ref_ratio)</td></tr>
 <tr class="separator:a80131498da357021b50429cddbe075fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7fa6139d4587e4a3e090e936d4f96b1f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a7fa6139d4587e4a3e090e936d4f96b1f">InterpCrseFineBndryBfield</a> (const std::array&lt; <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a>, AMREX_SPACEDIM &gt; &amp;crse, std::array&lt; <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a>, AMREX_SPACEDIM &gt; &amp;fine, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;cgeom, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;fgeom, int ref_ratio)</td></tr>
@@ -1528,6 +1534,18 @@ template&lt;class T , std::size_t N&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">typedef void(* amrex::BndryFuncDefault)(Real *data, <a class="el" href="_a_m_re_x___array_lim_8_h.html#af53c6334de4f960ca760f7ea802e1e98">AMREX_ARLIM_P</a>(<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a54267e9174e171df90d3594f0c32e114">lo</a>), <a class="el" href="_a_m_re_x___array_lim_8_h.html#af53c6334de4f960ca760f7ea802e1e98">AMREX_ARLIM_P</a>(<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a6569fdcb051e8fff2ef4c57db6f9c642">hi</a>), const int *dom_lo, const int *dom_hi, const Real *<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ad5fa46517dd383f09a279b8446fc397b">dx</a>, const Real *grd_lo, const Real *time, const int *bc)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a81806287575f9a30fe5c74b51c240f04"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef void(* amrex::BndryFuncFabDefault)(<a class="el" href="classamrex_1_1_box.html">Box</a> const &amp;bx, <a class="el" href="classamrex_1_1_f_array_box.html">FArrayBox</a> &amp;data, const int dcomp, const int numcomp, <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> const &amp;geom, const Real time, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_b_c_rec.html">BCRec</a> &gt; &amp;bcr, const int bcomp, const int scomp)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1778,6 +1796,18 @@ template&lt;class T , std::size_t N&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="namespaceamrex.html#a62563da3fe4e55c8bba5b5e1aadf2495">amrex::Tuple</a> = typedef std::array&lt;T,N&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a4b83115bb69e82995702c0d9d9b6f143"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef void(* amrex::UserFillBox)(<a class="el" href="classamrex_1_1_box.html">Box</a> const &amp;bx, <a class="el" href="classamrex_1_1_f_array_box.html">FArrayBox</a> &amp;dest, const int dcomp, const int numcomp, <a class="el" href="structamrex_1_1_geometry_data.html">GeometryData</a> const &amp;geom, const Real time, const <a class="el" href="classamrex_1_1_b_c_rec.html">BCRec</a> *bcr, const int bcomp, const int orig_comp)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -5596,6 +5626,74 @@ template&lt;class L , class... Lambdas&gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="a2da263606d6e874fdce31e2521f1bced"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#a4e626ebf06898d71a9e0790877f1694f">AMREX_GPU_DEVICE</a> void amrex::filcc_cell </td>
+          <td>(</td>
+          <td class="paramtype">const IntVect &amp;&#160;</td>
+          <td class="paramname"><em>iv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FArrayBox &amp;&#160;</td>
+          <td class="paramname"><em>dest_fab</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>dcomp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>numcomp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GeometryData const &amp;&#160;</td>
+          <td class="paramname"><em>geom</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Real&#160;</td>
+          <td class="paramname"><em>time</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const BCRec *&#160;</td>
+          <td class="paramname"><em>bcr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>bcomp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>orig_comp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a51791a9a04ee140c71cee50d3615ed35"></a>
 <div class="memitem">
 <div class="memproto">
@@ -5700,7 +5798,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a97a9186d0580fcecc9b9fe65e384e46d"></a>
+<a class="anchor" id="a9a10ec11fd10345c8863b88a5188b38b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -5756,7 +5854,13 @@ template&lt;class T &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">PhysBCFunctBase &amp;&#160;</td>
-          <td class="paramname"><em>physbcf</em>&#160;</td>
+          <td class="paramname"><em>physbcf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>bcfcomp</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -5768,7 +5872,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a835a69a0316624cf9a8ef36977e4983d"></a>
+<a class="anchor" id="a8b250e0f2c6f2f0537764b81e8a0a148"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -5847,130 +5951,20 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>cbccomp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">PhysBCFunctBase &amp;&#160;</td>
           <td class="paramname"><em>fbc</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const IntVect &amp;&#160;</td>
-          <td class="paramname"><em>ratio</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Interpolater *&#160;</td>
-          <td class="paramname"><em>mapper</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const BCRec &amp;&#160;</td>
-          <td class="paramname"><em>bcs</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const InterpHook &amp;&#160;</td>
-          <td class="paramname"><em>pre_interp</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const InterpHook &amp;&#160;</td>
-          <td class="paramname"><em>post_interp</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="afeb6b5bfebfc6f9aa4956a171283402c"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void amrex::FillPatchTwoLevels </td>
-          <td>(</td>
-          <td class="paramtype">MultiFab &amp;&#160;</td>
-          <td class="paramname"><em>mf</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Real&#160;</td>
-          <td class="paramname"><em>time</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Vector&lt; MultiFab * &gt; &amp;&#160;</td>
-          <td class="paramname"><em>cmf</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Vector&lt; Real &gt; &amp;&#160;</td>
-          <td class="paramname"><em>ct</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Vector&lt; MultiFab * &gt; &amp;&#160;</td>
-          <td class="paramname"><em>fmf</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Vector&lt; Real &gt; &amp;&#160;</td>
-          <td class="paramname"><em>ft</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>scomp</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>dcomp</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>ncomp</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Geometry &amp;&#160;</td>
-          <td class="paramname"><em>cgeom</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Geometry &amp;&#160;</td>
-          <td class="paramname"><em>fgeom</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">PhysBCFunctBase &amp;&#160;</td>
-          <td class="paramname"><em>cbc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">PhysBCFunctBase &amp;&#160;</td>
-          <td class="paramname"><em>fbc</em>, </td>
+          <td class="paramname"><em>fbccomp</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -5989,6 +5983,12 @@ template&lt;class T &gt; </div>
           <td></td>
           <td class="paramtype">const Vector&lt; BCRec &gt; &amp;&#160;</td>
           <td class="paramname"><em>bcs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>bcscomp</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -7198,7 +7198,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="abfd9b2679ef3f46a240b0ac994c1dff5"></a>
+<a class="anchor" id="a69d6f6444b4d19e5e0bb84a8aafcce02"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -7259,112 +7259,20 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>cbccomp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">PhysBCFunctBase &amp;&#160;</td>
           <td class="paramname"><em>fbc</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const IntVect &amp;&#160;</td>
-          <td class="paramname"><em>ratio</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Interpolater *&#160;</td>
-          <td class="paramname"><em>mapper</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const BCRec &amp;&#160;</td>
-          <td class="paramname"><em>bcs</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const InterpHook &amp;&#160;</td>
-          <td class="paramname"><em>pre_interp</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const InterpHook &amp;&#160;</td>
-          <td class="paramname"><em>post_interp</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a3ea0decc02623a60b4c48712b6d01950"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void amrex::InterpFromCoarseLevel </td>
-          <td>(</td>
-          <td class="paramtype">MultiFab &amp;&#160;</td>
-          <td class="paramname"><em>mf</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Real&#160;</td>
-          <td class="paramname"><em>time</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const MultiFab &amp;&#160;</td>
-          <td class="paramname"><em>cmf</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>scomp</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>dcomp</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>ncomp</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Geometry &amp;&#160;</td>
-          <td class="paramname"><em>cgeom</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Geometry &amp;&#160;</td>
-          <td class="paramname"><em>fgeom</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">PhysBCFunctBase &amp;&#160;</td>
-          <td class="paramname"><em>cbc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">PhysBCFunctBase &amp;&#160;</td>
-          <td class="paramname"><em>fbc</em>, </td>
+          <td class="paramname"><em>fbccomp</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -7383,6 +7291,12 @@ template&lt;class T &gt; </div>
           <td></td>
           <td class="paramtype">const Vector&lt; BCRec &gt; &amp;&#160;</td>
           <td class="paramname"><em>bcs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>bcscomp</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -8982,6 +8896,32 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="a539c997273a93fdaabfc2a131c4425cf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream&amp; amrex::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const BCRec &amp;&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="aa5072512d923dfa8035766d4a2127415"></a>
 <div class="memitem">
 <div class="memproto">
@@ -9033,32 +8973,6 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>Write a FabOnDisk to an ostream in ASCII. </p>
-
-</div>
-</div>
-<a class="anchor" id="a539c997273a93fdaabfc2a131c4425cf"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::ostream&amp; amrex::operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>os</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const BCRec &amp;&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
 
 </div>
 </div>
@@ -11101,12 +11015,12 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="afcf37f29c9699be86ea1f3726e6d42be"></a>
+<a class="anchor" id="a43d86ad00b5530008454b8ef974895d8"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void amrex::setBC </td>
+          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> void amrex::setBC </td>
           <td>(</td>
           <td class="paramtype">const Box &amp;&#160;</td>
           <td class="paramname"><em>bx</em>, </td>

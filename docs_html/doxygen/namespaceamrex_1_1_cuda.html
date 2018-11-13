@@ -88,8 +88,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">amrex::Cuda Namespace Reference</div>  </div>
 </div><!--header-->
@@ -104,11 +103,13 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_cuda_1_1_async_array.html">AsyncArray</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_cuda_1_1_async_fab.html">AsyncFab</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_cuda_1_1_async_fab_impl.html">AsyncFabImpl</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_cuda_1_1_device.html">Device</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_cuda_1_1_device_fab.html">DeviceFab</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_cuda_1_1_device_fab_impl.html">DeviceFabImpl</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structamrex_1_1_cuda_1_1_component_box.html">ComponentBox</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -169,17 +170,6 @@ Functions</h2></td></tr>
 <tr class="memitem:adf64d4cdc46012f121145f5cdc498823"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr class="memitem:adf64d4cdc46012f121145f5cdc498823"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_cuda.html#adf64d4cdc46012f121145f5cdc498823">isinf</a> (T m)</td></tr>
 <tr class="separator:adf64d4cdc46012f121145f5cdc498823"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aedbd7e6cdf64e7b85da7b63623a881c0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_cuda.html#aedbd7e6cdf64e7b85da7b63623a881c0">inLaunchRegion</a> ()</td></tr>
-<tr class="separator:aedbd7e6cdf64e7b85da7b63623a881c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aded9dbf9ef64a19a37bea89a6769724b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_cuda.html#aded9dbf9ef64a19a37bea89a6769724b">notInLaunchRegion</a> ()</td></tr>
-<tr class="separator:aded9dbf9ef64a19a37bea89a6769724b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2bf5973e977d87ddacb7eef8a3dec26a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_cuda.html#a2bf5973e977d87ddacb7eef8a3dec26a">setLaunchRegion</a> (bool launch)</td></tr>
-<tr class="separator:a2bf5973e977d87ddacb7eef8a3dec26a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a504d45b67ea385825efd1f96fcb53e6a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_cuda.html#a504d45b67ea385825efd1f96fcb53e6a">in_launch_region</a> = false</td></tr>
-<tr class="separator:a504d45b67ea385825efd1f96fcb53e6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a class="anchor" id="a7f12f082e7e48f63e8a21bcde83b9b06"></a>
@@ -347,29 +337,6 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="aedbd7e6cdf64e7b85da7b63623a881c0"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool amrex::Cuda::inLaunchRegion </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="ab5bd767d9309ff1fd9b1dccb4c5ce09d"></a>
 <div class="memitem">
 <div class="memproto">
@@ -502,29 +469,6 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="aded9dbf9ef64a19a37bea89a6769724b"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool amrex::Cuda::notInLaunchRegion </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="ac68f37e6280919c47ff3432e6e7e0f14"></a>
 <div class="memitem">
 <div class="memproto">
@@ -539,30 +483,6 @@ template&lt;typename T &gt; </div>
           <td></td>
         </tr>
       </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a2bf5973e977d87ddacb7eef8a3dec26a"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool amrex::Cuda::setLaunchRegion </td>
-          <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>launch</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -595,19 +515,6 @@ template&lt;class InIter , class OutIter &gt; </div>
           <td></td>
           <td>)</td>
           <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a class="anchor" id="a504d45b67ea385825efd1f96fcb53e6a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool amrex::Cuda::in_launch_region = false</td>
         </tr>
       </table>
 </div><div class="memdoc">
