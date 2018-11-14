@@ -14,6 +14,8 @@ var searchData=
   ['checkpoint_5ffiles_5foutput',['checkpoint_files_output',['../namespaceamrex.html#a15554a13b4b666cd9c7771d2f6c50f7e',1,'amrex']]],
   ['checkpoint_5fnfiles',['checkpoint_nfiles',['../namespaceamrex.html#ac03d4bd20c1a39f7e2d14086558bb511',1,'amrex']]],
   ['checkpoint_5fon_5frestart',['checkpoint_on_restart',['../namespaceamrex.html#a9819d0b6f03d68de014c21d81400ab15',1,'amrex']]],
+  ['chk_5ffile',['chk_file',['../classamrex_1_1_l_s_core_base.html#aff9d9cdf797536dec02c65a05e76ad7e',1,'amrex::LSCoreBase']]],
+  ['chk_5fint',['chk_int',['../classamrex_1_1_l_s_core_base.html#a9ff86ee64b8ce1f3e7e783bfb3ef26b3',1,'amrex::LSCoreBase']]],
   ['coef',['coef',['../classamrex_1_1_e_b2_1_1_poly_term.html#a6dc84f6fbab25f3b4c48b9bea8dd15bc',1,'amrex::EB2::PolyTerm']]],
   ['comm',['comm',['../classamrex_1_1_parallel_context_1_1_frame.html#a00076c4be0a8a1fa1a56d8d9c3fdfa2f',1,'amrex::ParallelContext::Frame']]],
   ['comm_5ftile_5fsize',['comm_tile_size',['../classamrex_1_1_fab_array_base.html#aec4332affa6c055da41aab70b684a064',1,'amrex::FabArrayBase']]],

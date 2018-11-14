@@ -467,6 +467,10 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_l_s_utility.html">LSUtility</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_l_s_core.html">LSCore</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_l_s_core_base.html">LSCoreBase</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_e_b_cell_flag.html">EBCellFlag</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_e_b_cell_flag_fab.html">EBCellFlagFab</a></td></tr>
@@ -1382,6 +1386,8 @@ Functions</h2></td></tr>
 <tr class="separator:ab612cdff7b506fd2884de82a842e95b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a680ccf73211338c29c896c0a5b4d18b7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a680ccf73211338c29c896c0a5b4d18b7">getTileIndex</a> (const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;iv, const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;box, const bool a_do_tiling, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;a_tile_size, <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;tbx)</td></tr>
 <tr class="separator:a680ccf73211338c29c896c0a5b4d18b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3d0b55f537815a445e708f01eede78d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#af3d0b55f537815a445e708f01eede78d">FillEBNormals</a> (<a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;normals, const <a class="el" href="classamrex_1_1_e_b_f_array_box_factory.html">EBFArrayBoxFactory</a> &amp;eb_factory, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;geom)</td></tr>
+<tr class="separator:af3d0b55f537815a445e708f01eede78d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca824ed9a83373a83533e948d2175dee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#aca824ed9a83373a83533e948d2175dee">TagCutCells</a> (<a class="el" href="classamrex_1_1_tag_box_array.html">TagBoxArray</a> &amp;tags, const <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;state)</td></tr>
 <tr class="separator:aca824ed9a83373a83533e948d2175dee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac45d936bf5764d4fc75c7d483c93afaa"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ac45d936bf5764d4fc75c7d483c93afaa">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="classamrex_1_1_e_b_cell_flag.html">EBCellFlag</a> &amp;flag)</td></tr>
@@ -5751,6 +5757,38 @@ template&lt;class L , class... Lambdas&gt; </div>
           <td></td>
           <td class="paramtype">const Vector&lt; BCRec &gt; &amp;&#160;</td>
           <td class="paramname"><em>bc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af3d0b55f537815a445e708f01eede78d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void amrex::FillEBNormals </td>
+          <td>(</td>
+          <td class="paramtype">MultiFab &amp;&#160;</td>
+          <td class="paramname"><em>normals</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const EBFArrayBoxFactory &amp;&#160;</td>
+          <td class="paramname"><em>eb_factory</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Geometry &amp;&#160;</td>
+          <td class="paramname"><em>geom</em>&#160;</td>
         </tr>
         <tr>
           <td></td>

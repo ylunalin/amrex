@@ -199,14 +199,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordflow">return</span> r;</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="preprocessor">#else</span></div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="preprocessor">#endif  </span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="preprocessor"></span>    }</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
 <div class="line"><a name="l00129"></a><span class="lineno"><a class="line" href="structamrex_1_1_parallel_descriptor_1_1_process_team.html">  129</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structamrex_1_1_parallel_descriptor_1_1_process_team.html">ProcessTeam</a></div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    {</div>
 <div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="structamrex_1_1_parallel_descriptor_1_1_process_team.html#aa8f4a38d26a8eb15889375e241e82ac6">  131</a></span>&#160;    <span class="keyword">typedef</span> <a class="code" href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a> <a class="code" href="structamrex_1_1_parallel_descriptor_1_1_process_team.html#aa8f4a38d26a8eb15889375e241e82ac6">team_t</a>;</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
-<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="structamrex_1_1_parallel_descriptor_1_1_process_team.html#a7169f6f568193c1a2e7a6ac4d2d9161c">  134</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="structamrex_1_1_parallel_descriptor_1_1_process_team.html#a7169f6f568193c1a2e7a6ac4d2d9161c">Barrier</a> ()<span class="keyword"> const </span>{ </div>
+<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="structamrex_1_1_parallel_descriptor_1_1_process_team.html#a7169f6f568193c1a2e7a6ac4d2d9161c">  134</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="structamrex_1_1_parallel_descriptor_1_1_process_team.html#a7169f6f568193c1a2e7a6ac4d2d9161c">Barrier</a> ()<span class="keyword"> const </span>{</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="structamrex_1_1_parallel_descriptor_1_1_process_team.html#a3a15d388a4307d1a6af319e8244b7d1e">m_size</a> &gt; 1) {</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="preprocessor">#if defined(BL_USE_MPI3)</span></div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="preprocessor"></span>        MPI_Barrier(<a class="code" href="structamrex_1_1_parallel_descriptor_1_1_process_team.html#a69bbcf1d147ce2786b6c5c4f166b2b1e">m_team_comm</a>);</div>
@@ -240,7 +240,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        }</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="preprocessor"></span>    }</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    </div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;</div>
 <div class="line"><a name="l00171"></a><span class="lineno"><a class="line" href="structamrex_1_1_parallel_descriptor_1_1_process_team.html#a8cab7b73b28f179e99ef34db0cda2e01">  171</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="structamrex_1_1_parallel_descriptor_1_1_process_team.html#aa8f4a38d26a8eb15889375e241e82ac6">team_t</a>&amp; <span class="keyword">get</span>() <span class="keyword">const</span> {</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="structamrex_1_1_parallel_descriptor_1_1_process_team.html#a69bbcf1d147ce2786b6c5c4f166b2b1e">m_team_comm</a>;</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    }</div>
@@ -332,8 +332,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="keywordflow">return</span> (rank &gt;= 0) ? (rank / <a class="code" href="namespaceamrex_1_1_parallel_descriptor.html#a9a80b6d86037c06fed7ef5fb0d2a8d28">m_Team</a>.<a class="code" href="structamrex_1_1_parallel_descriptor_1_1_process_team.html#a3a15d388a4307d1a6af319e8244b7d1e">m_size</a>) : <a class="code" href="_a_m_re_x__ccse-mpi_8_h.html#af7dcaf76f6b9b428d64f80155365e1df">MPI_PROC_NULL</a>;</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    }</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l00272"></a><span class="lineno"><a class="line" href="namespaceamrex_1_1_parallel_descriptor.html#a979a22fc5814d711e8e1e3b8118c41c9">  272</a></span>&#160;    <a class="code" href="namespaceamrex_1_1_parallel_descriptor.html#a979a22fc5814d711e8e1e3b8118c41c9">doTeamReduce</a> () </div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    { </div>
+<div class="line"><a name="l00272"></a><span class="lineno"><a class="line" href="namespaceamrex_1_1_parallel_descriptor.html#a979a22fc5814d711e8e1e3b8118c41c9">  272</a></span>&#160;    <a class="code" href="namespaceamrex_1_1_parallel_descriptor.html#a979a22fc5814d711e8e1e3b8118c41c9">doTeamReduce</a> ()</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    {</div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespaceamrex_1_1_parallel_descriptor.html#a9a80b6d86037c06fed7ef5fb0d2a8d28">m_Team</a>.<a class="code" href="structamrex_1_1_parallel_descriptor_1_1_process_team.html#a5de8f1503fd9c3d7fac5aad2558a3a8b">m_do_team_reduce</a>;</div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    }</div>
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    <span class="keyword">inline</span> <span class="keyword">const</span> ProcessTeam&amp;</div>
@@ -379,9 +379,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;        } <span class="keywordflow">else</span> {           <span class="comment">// get nr items</span></div>
 <div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;        rb += tid * nr + nlft;</div>
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;        re = rb + nr;</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;        }       </div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;        }</div>
 <div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    }</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;<span class="preprocessor">#endif  </span></div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    <span class="keywordflow">return</span> std::make_pair(rb,re);</div>
 <div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    }</div>
@@ -951,7 +951,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00920"></a><span class="lineno">  920</span>&#160;</div>
 <div class="line"><a name="l00921"></a><span class="lineno">  921</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
 <div class="line"><a name="l00922"></a><span class="lineno">  922</span>&#160;<span class="keywordtype">void</span></div>
-<div class="line"><a name="l00923"></a><span class="lineno">  923</span>&#160;<a class="code" href="namespaceamrex_1_1_parallel_descriptor.html#a211110d15cfcd5d09168c6d415476ce6">ParallelDescriptor::Gatherv</a> (<span class="keyword">const</span> T* send, <span class="keywordtype">int</span> sc, </div>
+<div class="line"><a name="l00923"></a><span class="lineno">  923</span>&#160;<a class="code" href="namespaceamrex_1_1_parallel_descriptor.html#a211110d15cfcd5d09168c6d415476ce6">ParallelDescriptor::Gatherv</a> (<span class="keyword">const</span> T* send, <span class="keywordtype">int</span> sc,</div>
 <div class="line"><a name="l00924"></a><span class="lineno">  924</span>&#160;                 T* recv, <span class="keyword">const</span> std::vector&lt;int&gt;&amp; rc, <span class="keyword">const</span> std::vector&lt;int&gt;&amp; disp,</div>
 <div class="line"><a name="l00925"></a><span class="lineno">  925</span>&#160;                 <span class="keywordtype">int</span> root)</div>
 <div class="line"><a name="l00926"></a><span class="lineno">  926</span>&#160;{</div>
@@ -967,7 +967,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00936"></a><span class="lineno">  936</span>&#160;</div>
 <div class="line"><a name="l00937"></a><span class="lineno">  937</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
 <div class="line"><a name="l00938"></a><span class="lineno">  938</span>&#160;<span class="keywordtype">void</span></div>
-<div class="line"><a name="l00939"></a><span class="lineno">  939</span>&#160;<a class="code" href="namespaceamrex_1_1_parallel_descriptor.html#a211110d15cfcd5d09168c6d415476ce6">ParallelDescriptor::Gatherv</a> (<span class="keyword">const</span> T* send, <span class="keywordtype">long</span> sc, </div>
+<div class="line"><a name="l00939"></a><span class="lineno">  939</span>&#160;<a class="code" href="namespaceamrex_1_1_parallel_descriptor.html#a211110d15cfcd5d09168c6d415476ce6">ParallelDescriptor::Gatherv</a> (<span class="keyword">const</span> T* send, <span class="keywordtype">long</span> sc,</div>
 <div class="line"><a name="l00940"></a><span class="lineno">  940</span>&#160;                 T* recv, <span class="keyword">const</span> std::vector&lt;long&gt;&amp; rc, <span class="keyword">const</span> std::vector&lt;long&gt;&amp; disp,</div>
 <div class="line"><a name="l00941"></a><span class="lineno">  941</span>&#160;                 <span class="keywordtype">int</span> root)</div>
 <div class="line"><a name="l00942"></a><span class="lineno">  942</span>&#160;{</div>

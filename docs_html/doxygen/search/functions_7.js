@@ -162,6 +162,7 @@ var searchData=
   ['getzlo',['getZLo',['../structamrex_1_1_e_b2_1_1_neighbor.html#a091168a91400ed86a841bc831b713759',1,'amrex::EB2::Neighbor']]],
   ['gfab',['GFab',['../classamrex_1_1_e_b2_1_1_g_fab.html#aa8d516e6b8844b78816ade68a2c86165',1,'amrex::EB2::GFab']]],
   ['global_5fto_5flocal_5frank',['global_to_local_rank',['../classamrex_1_1_parallel_context_1_1_frame.html#ab51f20c0cdf0ceeef52a84d239329d12',1,'amrex::ParallelContext::Frame::global_to_local_rank(int *local, const int *global, std::size_t n) const '],['../classamrex_1_1_parallel_context_1_1_frame.html#aafcaed4564c00717e056bbe7d54c2f47',1,'amrex::ParallelContext::Frame::global_to_local_rank(int grank) const '],['../namespaceamrex_1_1_parallel_context.html#a60c8ba6a67754c2b46d8b1ad78cb26b2',1,'amrex::ParallelContext::global_to_local_rank(int rank)'],['../namespaceamrex_1_1_parallel_context.html#a4bd5983e3cd4d7324ffafcadb19ffb1c',1,'amrex::ParallelContext::global_to_local_rank(int *local, const int *global, int n)']]],
+  ['gotonextline',['GotoNextLine',['../classamrex_1_1_l_s_core_base.html#a52d93140b73361a60846a4827cea4d43',1,'amrex::LSCoreBase']]],
   ['gpu_5fdtoh_5fmemcpy_5fasync',['gpu_dtoh_memcpy_async',['../classcuda__module.html#a39f392d231fa8f1727f266c5b74a2e3a',1,'cuda_module']]],
   ['gpu_5fdtoh_5fmemprefetch_5fasync',['gpu_dtoh_memprefetch_async',['../classcuda__module.html#a6b2f006c0b9049d7de411fc4825a5f7d',1,'cuda_module']]],
   ['gpu_5ferror',['gpu_error',['../classcuda__module.html#a3b5d5be9ad342137700f0cc8ddc3c103',1,'cuda_module']]],

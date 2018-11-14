@@ -1,7 +1,9 @@
 var searchData=
 [
   ['eb_5fcell_5fcons_5finterp',['eb_cell_cons_interp',['../namespaceamrex.html#a4e29548e6877049e5a34ef4512bd7263',1,'amrex']]],
+  ['eb_5flevels',['eb_levels',['../classamrex_1_1_l_s_core_base.html#ac9b4a932760260d7ac531bda2e2cd160',1,'amrex::LSCoreBase']]],
   ['eb_5flincc_5finterp',['eb_lincc_interp',['../namespaceamrex.html#a9c0be24427378d764043ecb9428022b4',1,'amrex']]],
+  ['eb_5fpad',['eb_pad',['../classamrex_1_1_l_s_core_base.html#a49940ec34f953688df11638398e69978',1,'amrex::LSCoreBase']]],
   ['eight',['eight',['../classamrex__constants__module.html#a6d0e20a18c5f695168cf590f87a460a4',1,'amrex_constants_module']]],
   ['eighth',['eighth',['../classamrex__constants__module.html#a4f8d71c1b1d316bbf6505f7a9511d24d',1,'amrex_constants_module']]],
   ['eleven',['eleven',['../classamrex__constants__module.html#ad701c896075f8435c6d10def6629fe76',1,'amrex_constants_module']]],

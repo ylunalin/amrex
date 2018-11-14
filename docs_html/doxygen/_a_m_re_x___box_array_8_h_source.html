@@ -141,7 +141,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    explicit BARef (std::istream&amp; is);</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    BARef (const BARef&amp; rhs);</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    BARef&amp; operator= (const BARef&amp; rhs) = delete;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    ~BARef ();</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> define (const Box&amp; bx);</div>
@@ -171,14 +171,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="comment">// Box hash stuff.</span></div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="comment">//</span></div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keyword">mutable</span> Box bbox;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keyword">mutable</span> IntVect crsn;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keyword">typedef</span> std::unordered_map&lt; IntVect, std::vector&lt;int&gt;, IntVect::shift_hasher &gt; HashType;</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="comment">//using HashType = std::map&lt; IntVect,std::vector&lt;int&gt; &gt;;</span></div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keyword">mutable</span> HashType hash;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keyword">mutable</span> <span class="keywordtype">bool</span> has_hashmap = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span>  numboxarrays;</div>
@@ -187,7 +187,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">long</span> total_box_bytes_hwm;</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">long</span> total_hash_bytes;</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">long</span> total_hash_bytes_hwm;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="namespaceamrex.html#ae6af1524fbe3cd8da106c62a0707deb9">Initialize</a> ();</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="namespaceamrex.html#a98433bd642d901d057750276875f85f6">Finalize</a> ();</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="namespaceamrex.html#a4f43e2df85d0db8585e437a05c9c6a81">initialized</a>;</div>
@@ -304,7 +304,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <a class="code" href="classamrex_1_1_box_array.html">BoxArray</a>&amp; <a class="code" href="classamrex_1_1_box_array.html#a6af808cb8cf129f013f0336fafa57a5c">operator= </a>(<span class="keyword">const</span> <a class="code" href="classamrex_1_1_box_array.html">BoxArray</a>&amp; rhs);</div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;</div>
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    <a class="code" href="classamrex_1_1_box_array.html#ad666fe6cebd7a6cefb1914ecc807c08d">BoxArray</a> (<a class="code" href="classamrex_1_1_box_array.html">BoxArray</a>&amp;&amp; rhs) noexcept;</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    </div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;</div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    <a class="code" href="classamrex_1_1_box_array.html#ad472c978f36dd5443cddf48ae5504420">~BoxArray</a> ();</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classamrex_1_1_box_array.html#a55d69deebe4b1ae84fc259bfd4d045f2">define</a> (<span class="keyword">const</span> <a class="code" href="classamrex_1_1_box.html">Box</a>&amp; bx);</div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classamrex_1_1_box_array.html#a55d69deebe4b1ae84fc259bfd4d045f2">define</a> (<span class="keyword">const</span> <a class="code" href="classamrex_1_1_box_list.html">BoxList</a>&amp; bl);</div>
@@ -419,12 +419,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;</div>
 <div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;    std::vector&lt; std::pair&lt;int,Box&gt; &gt; <a class="code" href="classamrex_1_1_box_array.html#aa18b2101c3312c7dad9a6692249fbeaa">intersections</a> (<span class="keyword">const</span> <a class="code" href="classamrex_1_1_box.html">Box</a>&amp; bx, <span class="keywordtype">bool</span> first_only, <span class="keyword">const</span> <a class="code" href="classamrex_1_1_int_vect.html">IntVect</a>&amp; ng) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;</div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classamrex_1_1_box_array.html#aa18b2101c3312c7dad9a6692249fbeaa">intersections</a> (<span class="keyword">const</span> <a class="code" href="classamrex_1_1_box.html">Box</a>&amp; bx, std::vector&lt; std::pair&lt;int,Box&gt; &gt;&amp; isects) <span class="keyword">const</span>; </div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classamrex_1_1_box_array.html#aa18b2101c3312c7dad9a6692249fbeaa">intersections</a> (<span class="keyword">const</span> <a class="code" href="classamrex_1_1_box.html">Box</a>&amp; bx, std::vector&lt; std::pair&lt;int,Box&gt; &gt;&amp; isects) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;</div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classamrex_1_1_box_array.html#aa18b2101c3312c7dad9a6692249fbeaa">intersections</a> (<span class="keyword">const</span> <a class="code" href="classamrex_1_1_box.html">Box</a>&amp; bx, std::vector&lt; std::pair&lt;int,Box&gt; &gt;&amp; isects, </div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classamrex_1_1_box_array.html#aa18b2101c3312c7dad9a6692249fbeaa">intersections</a> (<span class="keyword">const</span> <a class="code" href="classamrex_1_1_box.html">Box</a>&amp; bx, std::vector&lt; std::pair&lt;int,Box&gt; &gt;&amp; isects,</div>
 <div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;            <span class="keywordtype">bool</span> first_only, <span class="keywordtype">int</span> ng) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;</div>
-<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classamrex_1_1_box_array.html#aa18b2101c3312c7dad9a6692249fbeaa">intersections</a> (<span class="keyword">const</span> <a class="code" href="classamrex_1_1_box.html">Box</a>&amp; bx, std::vector&lt; std::pair&lt;int,Box&gt; &gt;&amp; isects, </div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classamrex_1_1_box_array.html#aa18b2101c3312c7dad9a6692249fbeaa">intersections</a> (<span class="keyword">const</span> <a class="code" href="classamrex_1_1_box.html">Box</a>&amp; bx, std::vector&lt; std::pair&lt;int,Box&gt; &gt;&amp; isects,</div>
 <div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;            <span class="keywordtype">bool</span> first_only, <span class="keyword">const</span> <a class="code" href="classamrex_1_1_int_vect.html">IntVect</a>&amp; ng) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;</div>
 <div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;    <a class="code" href="classamrex_1_1_box_list.html">BoxList</a> <a class="code" href="classamrex_1_1_box_array.html#ab3b22d3a396645e254efa7808df0f979">complementIn</a> (<span class="keyword">const</span> <a class="code" href="classamrex_1_1_box.html">Box</a>&amp; b) <span class="keyword">const</span>;</div>
@@ -473,7 +473,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;    <a class="code" href="classamrex_1_1_int_vect.html">IntVect</a>   m_crse_ratio;</div>
 <div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;    <span class="keywordtype">bool</span>      m_simple;</div>
 <div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;</div>
-<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;    std::shared_ptr&lt;BARef&gt; m_ref;    </div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;    std::shared_ptr&lt;BARef&gt; m_ref;</div>
 <div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;};</div>
 <div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;</div>
 <div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;std::ostream&amp; <a class="code" href="namespaceamrex.html#a539c997273a93fdaabfc2a131c4425cf">operator&lt;&lt; </a>(std::ostream&amp; os, <span class="keyword">const</span> <a class="code" href="classamrex_1_1_box_array.html">BoxArray</a>&amp; ba);</div>

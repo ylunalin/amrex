@@ -115,8 +115,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">    * \brief The default constructor.  For safety, the constructed Box is  </span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">    * invalid and may be tested for validity with ok(). </span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">    * \brief The default constructor.  For safety, the constructed Box is</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">    * invalid and may be tested for validity with ok().</span></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">    * DO NOT CHANGE THIS BEHAVIOR!</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">    */</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a></div>
@@ -262,17 +262,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;</div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <a class="code" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a></div>
 <div class="line"><a name="l00211"></a><span class="lineno"><a class="line" href="classamrex_1_1_box.html#a1b0a7e3f8af02e2087a1c2806d127b3a">  211</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classamrex_1_1_box.html#a1b0a7e3f8af02e2087a1c2806d127b3a">contains</a> (<span class="keyword">const</span> <a class="code" href="classamrex_1_1_box.html">Box</a>&amp; b)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="keyword">    </span>{ </div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(<a class="code" href="classamrex_1_1_box.html#a7482d173cce099fd6108f6776c586df9">sameType</a>(b)); </div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(<a class="code" href="classamrex_1_1_box.html#a7482d173cce099fd6108f6776c586df9">sameType</a>(b));</div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="keywordflow">return</span> b.smallend.<a class="code" href="classamrex_1_1_int_vect.html#a36812c9cd1c29311196ca5eccf222558">allGE</a>(smallend) &amp;&amp; b.bigend.<a class="code" href="classamrex_1_1_int_vect.html#a5a851e81ef90fe5b9c3b23aca70a893d">allLE</a>(bigend);</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    } </div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    }</div>
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;</div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <a class="code" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a></div>
 <div class="line"><a name="l00219"></a><span class="lineno"><a class="line" href="classamrex_1_1_box.html#afc13c6ab05ac8a1516e6eff40036edd6">  219</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classamrex_1_1_box.html#afc13c6ab05ac8a1516e6eff40036edd6">strictly_contains</a> (<span class="keyword">const</span> <a class="code" href="classamrex_1_1_int_vect.html">IntVect</a>&amp; p)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> p.<a class="code" href="classamrex_1_1_int_vect.html#a5751246c22a498901b82fbad822b7578">allGT</a>(smallend) &amp;&amp; p.<a class="code" href="classamrex_1_1_int_vect.html#ac88362c0bd70efd498edddfe1eaf5536">allLT</a>(bigend); }</div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;</div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <a class="code" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a></div>
-<div class="line"><a name="l00226"></a><span class="lineno"><a class="line" href="classamrex_1_1_box.html#afd4700b326a9f80fc1d4575601fa550e">  226</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classamrex_1_1_box.html#afd4700b326a9f80fc1d4575601fa550e">strictly_contains</a> (<span class="keyword">const</span> <a class="code" href="classamrex_1_1_box.html">Box</a>&amp; b)<span class="keyword"> const </span></div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="keyword">    </span>{ </div>
+<div class="line"><a name="l00226"></a><span class="lineno"><a class="line" href="classamrex_1_1_box.html#afd4700b326a9f80fc1d4575601fa550e">  226</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classamrex_1_1_box.html#afd4700b326a9f80fc1d4575601fa550e">strictly_contains</a> (<span class="keyword">const</span> <a class="code" href="classamrex_1_1_box.html">Box</a>&amp; b)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="keyword">    </span>{</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(<a class="code" href="classamrex_1_1_box.html#a7482d173cce099fd6108f6776c586df9">sameType</a>(b));</div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="keywordflow">return</span> b.smallend.<a class="code" href="classamrex_1_1_int_vect.html#a5751246c22a498901b82fbad822b7578">allGT</a>(smallend) &amp;&amp; b.bigend.<a class="code" href="classamrex_1_1_int_vect.html#ac88362c0bd70efd498edddfe1eaf5536">allLT</a>(bigend);</div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    }</div>
@@ -336,7 +336,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;</div>
 <div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    <a class="code" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a></div>
 <div class="line"><a name="l00316"></a><span class="lineno"><a class="line" href="classamrex_1_1_box.html#ad0445d29c5299bd1698cda5155276436">  316</a></span>&#160;    <span class="keywordtype">long</span> <a class="code" href="classamrex_1_1_box.html#ad0445d29c5299bd1698cda5155276436">volume</a> ()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;        <span class="keywordflow">return</span> AMREX_D_TERM( static_cast&lt;long&gt;(<a class="code" href="classamrex_1_1_box.html#a57c44fd57a2dd7e00171a2ed3c50727e">length</a>(0)-btype[0]), </div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;        <span class="keywordflow">return</span> AMREX_D_TERM( static_cast&lt;long&gt;(<a class="code" href="classamrex_1_1_box.html#a57c44fd57a2dd7e00171a2ed3c50727e">length</a>(0)-btype[0]),</div>
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;                            *static_cast&lt;long&gt;(<a class="code" href="classamrex_1_1_box.html#a57c44fd57a2dd7e00171a2ed3c50727e">length</a>(1)-btype[1]),</div>
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;                            *static_cast&lt;long&gt;(<a class="code" href="classamrex_1_1_box.html#a57c44fd57a2dd7e00171a2ed3c50727e">length</a>(2)-btype[2]));</div>
 <div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    }</div>
@@ -580,7 +580,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;    <span class="keywordflow">if</span> (ref_ratio != 1)</div>
 <div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;    {</div>
 <div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;        smallend.<a class="code" href="classamrex_1_1_int_vect.html#a7c11173ccb3f7dfb69a1ec0f6257f4a8">coarsen</a>(ref_ratio);</div>
-<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;        </div>
+<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;</div>
 <div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;        <span class="keywordflow">if</span> (btype.<a class="code" href="classamrex_1_1_index_type.html#a5f92956e5d5e12efd48a9d4dbd6143a5">any</a>())</div>
 <div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;        {</div>
 <div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;            <a class="code" href="classamrex_1_1_int_vect.html">IntVect</a> off(0);</div>
@@ -736,7 +736,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00847"></a><span class="lineno">  847</span>&#160;}</div>
 <div class="line"><a name="l00848"></a><span class="lineno">  848</span>&#160;</div>
 <div class="line"><a name="l00849"></a><span class="lineno">  849</span>&#160;<span class="keyword">inline</span></div>
-<div class="line"><a name="l00850"></a><span class="lineno">  850</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l00850"></a><span class="lineno">  850</span>&#160;<span class="keywordtype">void</span></div>
 <div class="line"><a name="l00851"></a><span class="lineno"><a class="line" href="classamrex_1_1_box.html#ac072472c78205d4b29a5c01f6755a28c">  851</a></span>&#160;<a class="code" href="classamrex_1_1_box.html#ac072472c78205d4b29a5c01f6755a28c">Box::linearOut</a>(<span class="keywordtype">void</span>* a_buffer )<span class="keyword"> const</span></div>
 <div class="line"><a name="l00852"></a><span class="lineno">  852</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00853"></a><span class="lineno">  853</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* buf = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*) a_buffer;</div>
@@ -749,7 +749,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00860"></a><span class="lineno">  860</span>&#160;}</div>
 <div class="line"><a name="l00861"></a><span class="lineno">  861</span>&#160;</div>
 <div class="line"><a name="l00862"></a><span class="lineno">  862</span>&#160;<span class="keyword">inline</span></div>
-<div class="line"><a name="l00863"></a><span class="lineno">  863</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l00863"></a><span class="lineno">  863</span>&#160;<span class="keywordtype">void</span></div>
 <div class="line"><a name="l00864"></a><span class="lineno"><a class="line" href="classamrex_1_1_box.html#ae89644ece3ff4c7e38131871d2cfa676">  864</a></span>&#160;<a class="code" href="classamrex_1_1_box.html#ae89644ece3ff4c7e38131871d2cfa676">Box::linearIn</a>(<span class="keywordtype">void</span>* a_buffer )</div>
 <div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160;{</div>
 <div class="line"><a name="l00866"></a><span class="lineno">  866</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* buf = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*) a_buffer;</div>
@@ -759,7 +759,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00870"></a><span class="lineno">  870</span>&#160;    buf += ivlo.<a class="code" href="classamrex_1_1_int_vect.html#a7b0f88337f8df018a4a29bc878956811">linearSize</a>();</div>
 <div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;    ivhi.<a class="code" href="classamrex_1_1_int_vect.html#ab0dca81820945ea3828a16e95e9bfec4">linearIn</a>(buf);</div>
 <div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;    buf += ivhi.<a class="code" href="classamrex_1_1_int_vect.html#a7b0f88337f8df018a4a29bc878956811">linearSize</a>();</div>
-<div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160;    </div>
+<div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160;</div>
 <div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;    *<span class="keyword">this</span> = <a class="code" href="classamrex_1_1_box.html#a40c700ed97002ff6a85bf8bc93feab46">Box</a>(ivlo, ivhi);</div>
 <div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160;}</div>
 <div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;</div>

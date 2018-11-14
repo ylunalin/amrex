@@ -144,7 +144,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
 <div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classamrex_1_1_e_b2_1_1_level.html#a78d18e7305fc629af5fcc398889eb49d">   55</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="classamrex_1_1_geometry.html">Geometry</a>&amp; <a class="code" href="classamrex_1_1_e_b2_1_1_level.html#a78d18e7305fc629af5fcc398889eb49d">Geom</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="classamrex_1_1_e_b2_1_1_level.html#a41f3157550d8422c88471518b5ede26c">m_geom</a>; }</div>
 <div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classamrex_1_1_e_b2_1_1_level.html#ae2ae13ff109bdbd4d8c3b94c35a445b2">   56</a></span>&#160;    <a class="code" href="classamrex_1_1_e_b2_1_1_index_space.html">IndexSpace</a> <span class="keyword">const</span>* <a class="code" href="classamrex_1_1_e_b2_1_1_level.html#ae2ae13ff109bdbd4d8c3b94c35a445b2">getEBIndexSpace</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="classamrex_1_1_e_b2_1_1_level.html#a4e89aa75cb75a863666efa8df2f74e9b">m_parent</a>; }</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="classamrex_1_1_e_b2_1_1_level.html#ac843646825df5f720267a7c641204301">Level</a> (<a class="code" href="classamrex_1_1_e_b2_1_1_level.html">Level</a> &amp;&amp; rhs) = <span class="keywordflow">default</span>;</div>
@@ -152,7 +152,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="classamrex_1_1_e_b2_1_1_level.html#ac843646825df5f720267a7c641204301">Level</a> (<a class="code" href="classamrex_1_1_e_b2_1_1_level.html">Level</a> <span class="keyword">const</span>&amp; rhs) = <span class="keyword">delete</span>;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="classamrex_1_1_e_b2_1_1_level.html">Level</a>&amp; <a class="code" href="classamrex_1_1_e_b2_1_1_level.html#abae36260177c7e79251005e56d741d5c">operator=</a>(<a class="code" href="classamrex_1_1_e_b2_1_1_level.html">Level</a> <span class="keyword">const</span>&amp; rhs) = <span class="keyword">delete</span>;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="classamrex_1_1_e_b2_1_1_level.html">Level</a>&amp; <a class="code" href="classamrex_1_1_e_b2_1_1_level.html#abae36260177c7e79251005e56d741d5c">operator=</a>(<a class="code" href="classamrex_1_1_e_b2_1_1_level.html">Level</a> &amp;&amp; rhs) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classamrex_1_1_e_b2_1_1_level.html#a8244e442a7b8e9f14056fa883f557c9c">coarsenFromFine</a> (<a class="code" href="classamrex_1_1_e_b2_1_1_level.html">Level</a>&amp; fineLevel, <span class="keywordtype">bool</span> fill_boundary);</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classamrex_1_1_e_b2_1_1_level.html#adbbdc98f272b71363491d9a348e1f92a">buildCellFlag</a> ();</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classamrex_1_1_e_b2_1_1_level.html#a894bdfe209a8eaf60408caa1b32adee6">fillLevelSet</a> (<a class="code" href="classamrex_1_1_multi_fab.html">MultiFab</a>&amp; levelset, <span class="keyword">const</span> <a class="code" href="classamrex_1_1_geometry.html">Geometry</a>&amp; geom) <span class="keyword">const</span>;</div>
@@ -275,19 +275,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="preprocessor"></span>    {</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        <a class="code" href="namespaceamrex.html#afe930d74045516fece8591f173e57007">Array&lt;BaseFab&lt;Real&gt;</a>, AMREX_SPACEDIM&gt; intercept;</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        <a class="code" href="namespaceamrex.html#afe930d74045516fece8591f173e57007">Array&lt;BaseFab&lt;Real&gt;</a>, AMREX_SPACEDIM&gt; M2;</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        </div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        <span class="keywordflow">for</span> (<a class="code" href="classamrex_1_1_m_f_iter.html">MFIter</a> mfi(<a class="code" href="classamrex_1_1_e_b2_1_1_level.html#a1313168a355b46b2d03060c450036477">m_mgf</a>); mfi.<a class="code" href="classamrex_1_1_m_f_iter.html#ad1cb993a973d541776b06c959d1ae3cd">isValid</a>(); ++mfi)</div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        {</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;            <span class="keyword">auto</span>&amp; gfab = <a class="code" href="classamrex_1_1_e_b2_1_1_level.html#a1313168a355b46b2d03060c450036477">m_mgf</a>[mfi];</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;            <span class="keyword">const</span> <a class="code" href="classamrex_1_1_box.html">Box</a>&amp; vbx = gfab.validbox();</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;            </div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;            <span class="keyword">auto</span>&amp; levelset = gfab.getLevelSet();</div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;            gshop.fillFab(levelset, geom);</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;            </div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;            <span class="keyword">auto</span>&amp; cellflag = <a class="code" href="classamrex_1_1_e_b2_1_1_level.html#a2e1c74b0f09c3f6a15a7024dd30be4ef">m_cellflag</a>[mfi];</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;            </div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;            gfab.buildTypes(cellflag);</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;            </div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="preprocessor">#if (AMREX_SPACEDIM == 3)</span></div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="preprocessor"></span>            <span class="keyword">auto</span>&amp; facetype = gfab.getFaceType();</div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;            <span class="keyword">auto</span>&amp; edgetype = gfab.getEdgeType();</div>
@@ -310,13 +310,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;                <span class="keyword">const</span> <a class="code" href="classamrex_1_1_box.html">Box</a>&amp; b = facetype[idim].box();</div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;                M2[idim].resize(b,3);</div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;            }</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;            </div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;</div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;            <span class="comment">// regular by default</span></div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> idim = 0; idim &lt; AMREX_SPACEDIM; ++idim) {</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;                <a class="code" href="classamrex_1_1_e_b2_1_1_level.html#a26945ad6833c8275b375cec03a60cad0">m_areafrac</a>[idim][mfi].setVal(1.0);</div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;                <a class="code" href="classamrex_1_1_e_b2_1_1_level.html#a2e965cf11727327d842176406b65ac14">m_facecent</a>[idim][mfi].setVal(0.0);</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;            }</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;            </div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;</div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;            amrex_eb2_build_faces(BL_TO_FORTRAN_BOX(vbx),</div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;                                  BL_TO_FORTRAN_ANYD(cellflag),</div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;                                  BL_TO_FORTRAN_ANYD(facetype[0]),</div>
@@ -339,7 +339,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;                                  BL_TO_FORTRAN_ANYD(M2[1]),</div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;                                  BL_TO_FORTRAN_ANYD(M2[2]),</div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;                                  dx, dxinv, problo);</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;            </div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;</div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;            <span class="comment">// regular by default</span></div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;            <a class="code" href="classamrex_1_1_e_b2_1_1_level.html#a0fd8fbb0ff5ceb71c27249153f70a53f">m_volfrac</a>[mfi].<a class="code" href="classamrex_1_1_fab_array.html#a3fc4027ae0c1e980eaa6c0114da3b81c">setVal</a>(1.0);</div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;            <a class="code" href="classamrex_1_1_e_b2_1_1_level.html#a280b2239887942a0dfdc9802abe88e12">m_centroid</a>[mfi].<a class="code" href="classamrex_1_1_fab_array.html#a3fc4027ae0c1e980eaa6c0114da3b81c">setVal</a>(0.0);</div>
@@ -366,7 +366,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;                                  BL_TO_FORTRAN_ANYD(<a class="code" href="classamrex_1_1_e_b2_1_1_level.html#a03eaf98bf7542beafaf696e05c431d5a">m_bndryarea</a>[mfi]),</div>
 <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;                                  BL_TO_FORTRAN_ANYD(<a class="code" href="classamrex_1_1_e_b2_1_1_level.html#a904a42dc11ddb39db9a497fa7093a0dc">m_bndrycent</a>[mfi]),</div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;                                  BL_TO_FORTRAN_ANYD(<a class="code" href="classamrex_1_1_e_b2_1_1_level.html#a863477aadc907e1abeb83c666168ccc4">m_bndrynorm</a>[mfi]));</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;            </div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;</div>
 <div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;<span class="preprocessor">#elif (AMREX_SPACEDIM == 2)</span></div>
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;<span class="preprocessor"></span>            <span class="keyword">auto</span>&amp; facetype = gfab.getFaceType();</div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> idim = 0; idim &lt; AMREX_SPACEDIM; ++idim)</div>
@@ -409,7 +409,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;            <a class="code" href="classamrex_1_1_e_b2_1_1_level.html#a03eaf98bf7542beafaf696e05c431d5a">m_bndryarea</a>[mfi].<a class="code" href="classamrex_1_1_fab_array.html#a3fc4027ae0c1e980eaa6c0114da3b81c">setVal</a>(0.0);</div>
 <div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;            <a class="code" href="classamrex_1_1_e_b2_1_1_level.html#a904a42dc11ddb39db9a497fa7093a0dc">m_bndrycent</a>[mfi].<a class="code" href="classamrex_1_1_fab_array.html#a3fc4027ae0c1e980eaa6c0114da3b81c">setVal</a>(-1.0);</div>
 <div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;            <a class="code" href="classamrex_1_1_e_b2_1_1_level.html#a863477aadc907e1abeb83c666168ccc4">m_bndrynorm</a>[mfi].<a class="code" href="classamrex_1_1_fab_array.html#a3fc4027ae0c1e980eaa6c0114da3b81c">setVal</a>(0.0);</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;            </div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;</div>
 <div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;            amrex_eb2_build_cells(BL_TO_FORTRAN_BOX(vbx),</div>
 <div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;                                  BL_TO_FORTRAN_ANYD(cellflag),</div>
 <div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;                                  BL_TO_FORTRAN_ANYD(facetype[0]),</div>

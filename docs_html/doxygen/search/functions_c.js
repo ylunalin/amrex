@@ -38,5 +38,7 @@ var searchData=
   ['lovect',['loVect',['../classamrex_1_1_base_fab.html#a582b36096b45c17409a7e3cd727d1685',1,'amrex::BaseFab::loVect()'],['../classamrex_1_1_box.html#adb5a060e446eb4fe2b24326427b8e7e9',1,'amrex::Box::loVect() const &amp;'],['../classamrex_1_1_box.html#ad69c0f3432a2fb8366038b84e579ea23',1,'amrex::Box::loVect()&amp;&amp;=delete']]],
   ['lovect3d',['loVect3d',['../classamrex_1_1_box.html#a1790ff90d391364b968803806ccba123',1,'amrex::Box']]],
   ['lowerindex',['LowerIndex',['../classamrex_1_1_coord_sys.html#a770125c3000b060dd95b440100b56526',1,'amrex::CoordSys']]],
+  ['lscore',['LSCore',['../classamrex_1_1_l_s_core.html#a379b94f8d6ab5f8b03f6525aaf53065e',1,'amrex::LSCore']]],
+  ['lscorebase',['LSCoreBase',['../classamrex_1_1_l_s_core_base.html#a0c1af368aa2e2d6c9796c76935a26abf',1,'amrex::LSCoreBase']]],
   ['lsfactory',['LSFactory',['../classamrex_1_1_l_s_factory.html#a39603def4ceefde1896c82f23e1c8b20',1,'amrex::LSFactory::LSFactory(int lev, int ls_ref, int eb_ref, int ls_pad, int eb_pad, const BoxArray &amp;ba, const Geometry &amp;geom, const DistributionMapping &amp;dm)'],['../classamrex_1_1_l_s_factory.html#ad9ad3dc591ddac2f290c4d86a906edd2',1,'amrex::LSFactory::LSFactory(const LSFactory &amp;other)']]]
 ];

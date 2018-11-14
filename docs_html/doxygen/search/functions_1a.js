@@ -76,6 +76,8 @@ var searchData=
   ['_7elatheif',['~LatheIF',['../classamrex_1_1_e_b2_1_1_lathe_i_f.html#ad6ff8a0ff53f64ca7051a5a9391632c7',1,'amrex::EB2::LatheIF']]],
   ['_7elayoutdata',['~LayoutData',['../classamrex_1_1_layout_data.html#a9214bb32356bf3443aa0383b54bbb195',1,'amrex::LayoutData']]],
   ['_7elevelbld',['~LevelBld',['../classamrex_1_1_level_bld.html#a1a908a0759bb7d6a1607f344b677ea58',1,'amrex::LevelBld']]],
+  ['_7elscore',['~LSCore',['../classamrex_1_1_l_s_core.html#a7b0bede3b4532ae3338420be247f9523',1,'amrex::LSCore']]],
+  ['_7elscorebase',['~LSCoreBase',['../classamrex_1_1_l_s_core_base.html#aba665f12e440d33638b089be84666a06',1,'amrex::LSCoreBase']]],
   ['_7elsfactory',['~LSFactory',['../classamrex_1_1_l_s_factory.html#ad13a040aa276a564826241c2df6206fe',1,'amrex::LSFactory']]],
   ['_7emacbndry',['~MacBndry',['../classamrex_1_1_mac_bndry.html#a02591b27ce31d10c67b00ed2c9281684',1,'amrex::MacBndry']]],
   ['_7emanageddata',['~ManagedData',['../structamrex_1_1_cuda_1_1_managed_data.html#af48a8ce01b9daf5cc9456a26a0f11c2d',1,'amrex::Cuda::ManagedData']]],
