@@ -30,7 +30,6 @@ var searchData=
   ['ioprocessor',['ioProcessor',['../namespaceamrex_1_1_parallel_descriptor.html#a170c7ee692d457514ef07c0d6206f7e2',1,'amrex::ParallelDescriptor']]],
   ['irregular',['irregular',['../classamrex__eb2__2d__moudle.html#a18a38edaa3f70ab39583c90a9f2e0f38',1,'amrex_eb2_2d_moudle::irregular()'],['../classamrex__eb2__3d__module.html#a604ae16b7c854152376676974481095a',1,'amrex_eb2_3d_module::irregular()']]],
   ['is_5fperiodic',['is_periodic',['../structamrex_1_1_geometry_data.html#a1c153da19d61edca41192dd82233071b',1,'amrex::GeometryData']]],
-  ['is_5fprogram_5frunning',['is_program_running',['../classcuda__module.html#a70f71dcbf47693339c3dc9aa27289d6d',1,'cuda_module']]],
   ['isopen',['isOpen',['../structamrex_1_1_vis_m_f_1_1_persistent_i_f_stream.html#ac1ecab1d0722305f0a0257611aeb1bde',1,'amrex::VisMF::PersistentIFStream']]],
   ['isperiodic',['isPeriodic',['../classamrex_1_1_amr.html#a47527266245319befc8538d55dac8bc3',1,'amrex::Amr']]],
   ['istep',['istep',['../classamrex_1_1_l_s_core_base.html#a1fff10bbc0b6bf5c1c9a5ebf1442b805',1,'amrex::LSCoreBase']]],

@@ -85,8 +85,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Macros</a>  </div>
   <div class="headertitle">
 <div class="title">AMReX_CudaDevice.cpp File Reference</div>  </div>
 </div><!--header-->
@@ -99,17 +99,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;<a class="el" href="_a_m_re_x___parm_parse_8_h_source.html">AMReX_ParmParse.H</a>&gt;</code><br/>
 <code>#include &lt;<a class="el" href="_a_m_re_x___print_8_h_source.html">AMReX_Print.H</a>&gt;</code><br/>
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespaceamrex"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html">amrex</a></td></tr>
+<tr class="memdesc:namespaceamrex"><td class="mdescLeft">&#160;</td><td class="mdescRight">A Real vector in SpaceDim-dimensional space. <br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespaceamrex_1_1_cuda"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_cuda.html">amrex::Cuda</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:ae7503904ccdd61a1acfca789d487ed62"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_m_re_x___cuda_device_8cpp.html#ae7503904ccdd61a1acfca789d487ed62">AMREX_CUDA_MAX_THREADS</a>&#160;&#160;&#160;256</td></tr>
 <tr class="separator:ae7503904ccdd61a1acfca789d487ed62"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a02caa94a68fab08ab9c95f552a5a93bc"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_m_re_x___cuda_device_8cpp.html#a02caa94a68fab08ab9c95f552a5a93bc">amrex_gpu_malloc</a> (std::size_t size)</td></tr>
-<tr class="separator:a02caa94a68fab08ab9c95f552a5a93bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4883e1cd9cbb830e362e947ab63ed0a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_m_re_x___cuda_device_8cpp.html#a4883e1cd9cbb830e362e947ab63ed0a0">amrex_gpu_free</a> (void *p)</td></tr>
-<tr class="separator:a4883e1cd9cbb830e362e947ab63ed0a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a class="anchor" id="ae7503904ccdd61a1acfca789d487ed62"></a>
@@ -118,39 +119,6 @@ Functions</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">#define AMREX_CUDA_MAX_THREADS&#160;&#160;&#160;256</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a4883e1cd9cbb830e362e947ab63ed0a0"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void amrex_gpu_free </td>
-          <td>(</td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>p</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a02caa94a68fab08ab9c95f552a5a93bc"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void* amrex_gpu_malloc </td>
-          <td>(</td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>size</em></td><td>)</td>
-          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">

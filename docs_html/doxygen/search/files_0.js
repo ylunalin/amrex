@@ -2,6 +2,7 @@ var searchData=
 [
   ['amrex_2ecpp',['AMReX.cpp',['../_a_m_re_x_8cpp.html',1,'']]],
   ['amrex_2eh',['AMReX.H',['../_a_m_re_x_8_h.html',1,'']]],
+  ['amrex_5facc_5fmod_2ef90',['AMReX_acc_mod.F90',['../_a_m_re_x__acc__mod_8_f90.html',1,'']]],
   ['amrex_5famr_2ecpp',['AMReX_Amr.cpp',['../_a_m_re_x___amr_8cpp.html',1,'']]],
   ['amrex_5famr_2eh',['AMReX_Amr.H',['../_a_m_re_x___amr_8_h.html',1,'']]],
   ['amrex_5famrcore_2ecpp',['AMReX_AmrCore.cpp',['../_a_m_re_x___amr_core_8cpp.html',1,'']]],
@@ -83,7 +84,6 @@ var searchData=
   ['amrex_5fcudacontainers_2eh',['AMReX_CudaContainers.H',['../_a_m_re_x___cuda_containers_8_h.html',1,'']]],
   ['amrex_5fcudadevice_2ecpp',['AMReX_CudaDevice.cpp',['../_a_m_re_x___cuda_device_8cpp.html',1,'']]],
   ['amrex_5fcudadevice_2eh',['AMReX_CudaDevice.H',['../_a_m_re_x___cuda_device_8_h.html',1,'']]],
-  ['amrex_5fcudafort_2ef90',['AMReX_CudaFort.F90',['../_a_m_re_x___cuda_fort_8_f90.html',1,'']]],
   ['amrex_5fcudalaunch_2ecpp',['AMReX_CudaLaunch.cpp',['../_a_m_re_x___cuda_launch_8cpp.html',1,'']]],
   ['amrex_5fcudalaunch_2eh',['AMReX_CudaLaunch.H',['../_a_m_re_x___cuda_launch_8_h.html',1,'']]],
   ['amrex_5fcudamemory_2eh',['AMReX_CudaMemory.H',['../_a_m_re_x___cuda_memory_8_h.html',1,'']]],
@@ -228,6 +228,7 @@ var searchData=
   ['amrex_5fgpu_2eh',['AMReX_Gpu.H',['../_a_m_re_x___gpu_8_h.html',1,'']]],
   ['amrex_5fgpucontrol_2ecpp',['AMReX_GpuControl.cpp',['../_a_m_re_x___gpu_control_8cpp.html',1,'']]],
   ['amrex_5fgpucontrol_2eh',['AMReX_GpuControl.H',['../_a_m_re_x___gpu_control_8_h.html',1,'']]],
+  ['amrex_5fgpuerror_2eh',['AMReX_GpuError.H',['../_a_m_re_x___gpu_error_8_h.html',1,'']]],
   ['amrex_5fgpulaunch_2eh',['AMReX_GpuLaunch.H',['../_a_m_re_x___gpu_launch_8_h.html',1,'']]],
   ['amrex_5fgpuqualifiers_2eh',['AMReX_GpuQualifiers.H',['../_a_m_re_x___gpu_qualifiers_8_h.html',1,'']]],
   ['amrex_5fiarraybox_2ecpp',['AMReX_IArrayBox.cpp',['../_a_m_re_x___i_array_box_8cpp.html',1,'']]],

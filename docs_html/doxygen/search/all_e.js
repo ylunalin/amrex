@@ -101,7 +101,6 @@ var searchData=
   ['num_5fsnds',['num_snds',['../classamrex_1_1_neighbor_particle_container.html#a0223bc2e3edebb49c92f6565ba28dd4e',1,'amrex::NeighborParticleContainer']]],
   ['numberofparticlesatlevel',['NumberOfParticlesAtLevel',['../classamrex_1_1_particle_container.html#a146d49935caceb1a2816c8fb608930ea',1,'amrex::ParticleContainer']]],
   ['numberofparticlesingrid',['NumberOfParticlesInGrid',['../classamrex_1_1_particle_container.html#a71bc723a5da99ad7d6cc8ec96f7981b0',1,'amrex::ParticleContainer']]],
-  ['numblocks',['numblocks',['../classcuda__module.html#a78bb98b60e4e80fbd2f9bada0cbcdf29',1,'cuda_module']]],
   ['numbytes',['numBytes',['../classamrex_1_1_int_descriptor.html#a1c1e96ec68c0fe88921cc8e5ed321e39',1,'amrex::IntDescriptor::numBytes()'],['../classamrex_1_1_real_descriptor.html#a1afcb82f317a052c3d0ed300328d938d',1,'amrex::RealDescriptor::numBytes()']]],
   ['numdatalogs',['NumDataLogs',['../classamrex_1_1_amr.html#a83eb74ba9a4cd5a567729224d043e940',1,'amrex::Amr']]],
   ['numderiv',['NUMDERIV',['../_a_m_re_x___i_n_t_e_r_p_b_n_d_r_y_d_a_t_a__1_d_8_f90.html#ad8fdc184d6f1cef563d422c5bfa5d2e6',1,'NUMDERIV():&#160;AMReX_INTERPBNDRYDATA_1D.F90'],['../_a_m_re_x___i_n_t_e_r_p_b_n_d_r_y_d_a_t_a__2_d_8_f90.html#ad8fdc184d6f1cef563d422c5bfa5d2e6',1,'NUMDERIV():&#160;AMReX_INTERPBNDRYDATA_2D.F90'],['../_a_m_re_x___i_n_t_e_r_p_b_n_d_r_y_d_a_t_a__3_d_8_f90.html#ad8fdc184d6f1cef563d422c5bfa5d2e6',1,'NUMDERIV():&#160;AMReX_INTERPBNDRYDATA_3D.F90']]],
@@ -117,8 +116,6 @@ var searchData=
   ['numstates',['numStates',['../classamrex_1_1_amr_level.html#a4df6731d78a56c7b54ddc55877650d14',1,'amrex::AmrLevel']]],
   ['numtag',['numTag',['../classamrex_1_1_cluster.html#ae5a63154b89efabb280d13af57e6c876',1,'amrex::Cluster::numTag() const '],['../classamrex_1_1_cluster.html#a383ec11003c6d469426d879bb5284cd2',1,'amrex::Cluster::numTag(const Box &amp;b) const ']]],
   ['numtags',['numTags',['../classamrex_1_1_tag_box.html#ab971786f48ba6f99853f6bc5436c4a77',1,'amrex::TagBox::numTags(const Box &amp;bx) const '],['../classamrex_1_1_tag_box.html#a563c5e63a40fc5df9572498abb58acf1',1,'amrex::TagBox::numTags() const '],['../classamrex_1_1_tag_box_array.html#a9d3995c4c36f88292bdcfa45c2ec09e9',1,'amrex::TagBoxArray::numTags()']]],
-  ['numthreads',['numthreads',['../classcuda__module.html#a2c425c1eaed876cce0596ec256e0120a',1,'cuda_module']]],
-  ['numthreadsmin',['numthreadsmin',['../classcuda__module.html#a3ebf720bc68d7f71d0f92be84b4e0509',1,'cuda_module']]],
   ['nuse',['nuse',['../structamrex_1_1_fab_array_base_1_1_cache_stats.html#ab1660586b93a1c418a659ac9d836e833',1,'amrex::FabArrayBase::CacheStats::nuse()'],['../structamrex_1_1_fab_array_base_1_1_tile_array.html#a0a2af2655e0205f6bf46bf2876d4f229',1,'amrex::FabArrayBase::TileArray::nuse()']]],
   ['nvar',['nvar',['../structamrex_1_1_base_fab_data.html#a9e0d16aba820042ba77a256b3e342bc5',1,'amrex::BaseFabData::nvar()'],['../classamrex_1_1_base_umap.html#afff9dd7123b0033209dc8e53723c9ce6',1,'amrex::BaseUmap::nvar()']]]
 ];
