@@ -29,7 +29,7 @@ var searchData=
   ['planeif',['PlaneIF',['../classamrex_1_1_e_b2_1_1_plane_i_f.html#acd11423cba9d7c283e96167dedd124d5',1,'amrex::EB2::PlaneIF::PlaneIF(const RealArray &amp;a_point, const RealArray &amp;a_normal, bool a_inside=true)'],['../classamrex_1_1_e_b2_1_1_plane_i_f.html#ae26e8d74379f167d515bb7af573941f0',1,'amrex::EB2::PlaneIF::PlaneIF(const PlaneIF &amp;rhs) noexcept=default'],['../classamrex_1_1_e_b2_1_1_plane_i_f.html#a1714128d8d5122b4346d5d38128c523f',1,'amrex::EB2::PlaneIF::PlaneIF(PlaneIF &amp;&amp;rhs) noexcept=default']]],
   ['plot_5ffiles_5foutput',['Plot_Files_Output',['../classamrex_1_1_amr.html#aa9af5d2dcba7539444e0334b84ed7504',1,'amrex::Amr']]],
   ['plot_5fheaderversion',['plot_headerversion',['../namespaceamrex.html#a5d5710eb4e8adfefe7b93086718fe07b',1,'amrex']]],
-  ['plotfilemf',['PlotFileMF',['../classamrex_1_1_l_s_core_base.html#a2c66996f94546f18649ecde71582ad6b',1,'amrex::LSCoreBase']]],
+  ['plotfilemf',['PlotFileMF',['../classamrex_1_1_l_s_core_base.html#af777c924269670878cf0ec226b69e768',1,'amrex::LSCoreBase']]],
   ['plotfilename',['PlotFileName',['../classamrex_1_1_l_s_core_base.html#aeedfe5ae1a68e0648089c69b8c60a185',1,'amrex::LSCoreBase']]],
   ['plotfilevarnames',['PlotFileVarNames',['../classamrex_1_1_l_s_core_base.html#a4cf5ec26160d97c61722a2c726ef2474',1,'amrex::LSCoreBase']]],
   ['plotint',['plotInt',['../classamrex_1_1_amr.html#a4fa82432f1953ac1fb50ba3873471065',1,'amrex::Amr']]],

@@ -71,7 +71,7 @@ var searchData=
   ['plot_5fnfiles',['plot_nfiles',['../namespaceamrex.html#aee4d1d20e920bfb1eceeb7db0a36be0f',1,'amrex']]],
   ['plot_5fper',['plot_per',['../classamrex_1_1_amr.html#af097e0455a9da7e8e6a9dc131d1b96f2',1,'amrex::Amr']]],
   ['plotfile_5fon_5frestart',['plotfile_on_restart',['../namespaceamrex.html#a8e6b05f30acfc8c62599db29b80f0458',1,'amrex']]],
-  ['plotfilemf',['PlotFileMF',['../classamrex_1_1_l_s_core_base.html#a2c66996f94546f18649ecde71582ad6b',1,'amrex::LSCoreBase']]],
+  ['plotfilemf',['PlotFileMF',['../classamrex_1_1_l_s_core_base.html#af777c924269670878cf0ec226b69e768',1,'amrex::LSCoreBase']]],
   ['plotfilename',['PlotFileName',['../classamrex_1_1_l_s_core_base.html#aeedfe5ae1a68e0648089c69b8c60a185',1,'amrex::LSCoreBase']]],
   ['plotfilevarnames',['PlotFileVarNames',['../classamrex_1_1_l_s_core_base.html#a4cf5ec26160d97c61722a2c726ef2474',1,'amrex::LSCoreBase']]],
   ['plotint',['plotInt',['../classamrex_1_1_amr.html#a4fa82432f1953ac1fb50ba3873471065',1,'amrex::Amr']]],

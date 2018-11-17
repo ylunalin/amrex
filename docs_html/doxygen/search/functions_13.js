@@ -120,6 +120,7 @@ var searchData=
   ['setsparsefpp',['SetSparseFPP',['../classamrex_1_1_n_files_iter.html#a4502510b5b15f7e87226e43367e1923a',1,'amrex::NFilesIter']]],
   ['setstarttime',['setStartTime',['../classamrex_1_1_amr.html#a07fe0804330cca0ac34ca455e30e928b',1,'amrex::Amr']]],
   ['setstreamindex',['setStreamIndex',['../classamrex_1_1_cuda_1_1_device.html#a50d2b76ea6a1cf99afe785ac54c4eaa4',1,'amrex::Cuda::Device']]],
+  ['settagleves',['SetTagLeves',['../classamrex_1_1_l_s_core_base.html#ad4f920e1e1b84a7c4b309d867bd592b0',1,'amrex::LSCoreBase']]],
   ['settimelevel',['setTimeLevel',['../classamrex_1_1_amr_level.html#a5b311a4d4139cce9025d1c41d28586b1',1,'amrex::AmrLevel::setTimeLevel()'],['../classamrex_1_1_state_data.html#aa828fea0bc5b7fe08079dada98fbef0b',1,'amrex::StateData::setTimeLevel()']]],
   ['settype',['setType',['../classamrex_1_1_box.html#a01bfd9e88c202cb907354cdec26547eb',1,'amrex::Box::setType()'],['../classamrex_1_1_index_type.html#a117c8cb06a25f9e378ceac7e599884a3',1,'amrex::IndexType::setType()'],['../classamrex_1_1_e_b_cell_flag_fab.html#ae51058e108a9ae622b2af20a8f7ce9ce',1,'amrex::EBCellFlagFab::setType()']]],
   ['setup',['Setup',['../classamrex_1_1_geometry.html#ab8e39778598a7ec2c22bb3bb4b3b65f3',1,'amrex::Geometry']]],
