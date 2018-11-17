@@ -55,6 +55,7 @@ var searchData=
   ['loadbalance_5fmax_5ffac',['loadbalance_max_fac',['../classamrex_1_1_amr.html#ada948dc3a7c2301b9aab5f9b9f65507f',1,'amrex::Amr']]],
   ['loadbalance_5fwith_5fworkestimates',['loadbalance_with_workestimates',['../classamrex_1_1_amr.html#a6019d262d557fc37c9706c05a6cc5794',1,'amrex::Amr']]],
   ['loadbalancelevel0',['LoadBalanceLevel0',['../classamrex_1_1_amr.html#ab35e0719d1321112010ff20228ad1acc',1,'amrex::Amr']]],
+  ['loadtaglevels',['LoadTagLevels',['../classamrex_1_1_l_s_core_base.html#a46e21b1a3e14075db9b6959ecdb9f72b',1,'amrex::LSCoreBase']]],
   ['local_5findex_5fmap',['local_index_map',['../classamrex_1_1_m_f_iter.html#a8a8cdb1fbae0dace9fcc0dc622c3409d',1,'amrex::MFIter']]],
   ['local_5fneighbor_5fsizes',['local_neighbor_sizes',['../classamrex_1_1_neighbor_particle_container.html#ae194c4492756dcb54d25fe60a11155fa',1,'amrex::NeighborParticleContainer']]],
   ['local_5fneighbors',['local_neighbors',['../classamrex_1_1_neighbor_particle_container.html#adfb06a7914ba86c456a40d81fbcbf464',1,'amrex::NeighborParticleContainer']]],
@@ -76,11 +77,11 @@ var searchData=
   ['low',['low',['../classamrex_1_1_orientation.html#a877c697bbab9de21af4012197ba76410a20ab23ed836ba1667dddbd915ff85255',1,'amrex::Orientation']]],
   ['lowerindex',['LowerIndex',['../classamrex_1_1_coord_sys.html#a770125c3000b060dd95b440100b56526',1,'amrex::CoordSys']]],
   ['ls_5ffactory',['ls_factory',['../classamrex_1_1_l_s_core_base.html#a1f4cff404c7fed0de6bdf3bceac89ef0',1,'amrex::LSCoreBase']]],
-  ['lscore',['LSCore',['../classamrex_1_1_l_s_core.html',1,'amrex']]],
   ['lscore',['LSCore',['../classamrex_1_1_l_s_core.html#aca5d00daf9c5c2258765ab50f8c12da4',1,'amrex::LSCore::LSCore(EB2::GeometryShop&lt; F &gt; gshop)'],['../classamrex_1_1_l_s_core.html#a7db20b5b0b1b653997ed74c2d5fc806e',1,'amrex::LSCore::LSCore(EB2::GeometryShop&lt; F &gt; a_gshop, const RealBox *rb, int max_level_in, const Vector&lt; int &gt; &amp;n_cell_in, int coord=-1)']]],
-  ['lscorebase',['LSCoreBase',['../classamrex_1_1_l_s_core_base.html',1,'amrex']]],
+  ['lscore',['LSCore',['../classamrex_1_1_l_s_core.html',1,'amrex']]],
   ['lscorebase',['LSCoreBase',['../classamrex_1_1_l_s_core_base.html#a0c1af368aa2e2d6c9796c76935a26abf',1,'amrex::LSCoreBase::LSCoreBase()'],['../classamrex_1_1_l_s_core_base.html#a60418dd08d5d8a8229db489e3ecbf663',1,'amrex::LSCoreBase::LSCoreBase(const RealBox *rb, int max_level_in, const Vector&lt; int &gt; &amp;n_cell_in, int coord=-1)']]],
-  ['lsfactory',['LSFactory',['../classamrex_1_1_l_s_factory.html#a39603def4ceefde1896c82f23e1c8b20',1,'amrex::LSFactory::LSFactory(int lev, int ls_ref, int eb_ref, int ls_pad, int eb_pad, const BoxArray &amp;ba, const Geometry &amp;geom, const DistributionMapping &amp;dm)'],['../classamrex_1_1_l_s_factory.html#ad9ad3dc591ddac2f290c4d86a906edd2',1,'amrex::LSFactory::LSFactory(const LSFactory &amp;other)']]],
+  ['lscorebase',['LSCoreBase',['../classamrex_1_1_l_s_core_base.html',1,'amrex']]],
   ['lsfactory',['LSFactory',['../classamrex_1_1_l_s_factory.html',1,'amrex']]],
+  ['lsfactory',['LSFactory',['../classamrex_1_1_l_s_factory.html#a39603def4ceefde1896c82f23e1c8b20',1,'amrex::LSFactory::LSFactory(int lev, int ls_ref, int eb_ref, int ls_pad, int eb_pad, const BoxArray &amp;ba, const Geometry &amp;geom, const DistributionMapping &amp;dm)'],['../classamrex_1_1_l_s_factory.html#ad9ad3dc591ddac2f290c4d86a906edd2',1,'amrex::LSFactory::LSFactory(const LSFactory &amp;other)']]],
   ['lsutility',['LSUtility',['../classamrex_1_1_l_s_utility.html',1,'amrex']]]
 ];

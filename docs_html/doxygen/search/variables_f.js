@@ -5,6 +5,8 @@ var searchData=
   ['particlerealdescriptor',['ParticleRealDescriptor',['../classamrex_1_1_particle_container.html#a3745cc53b964fc08052fe340d1fd42b2',1,'amrex::ParticleContainer']]],
   ['pc_5finterp',['pc_interp',['../namespaceamrex.html#add23b3df81e9353cea327552654d630b',1,'amrex']]],
   ['pdata_5fsize',['pdata_size',['../classamrex_1_1_neighbor_particle_container.html#a683d4fcc37d9b1553f64124f5d6adafe',1,'amrex::NeighborParticleContainer']]],
+  ['phierr',['phierr',['../classamrex_1_1_l_s_core_base.html#a51160f59f8c2e5aa56f7b24632ac3f1a',1,'amrex::LSCoreBase']]],
+  ['phierr_5fset',['phierr_set',['../classamrex_1_1_l_s_core_base.html#afffa96e3c5577c0fef27219fd5cfd813',1,'amrex::LSCoreBase']]],
   ['physbnd',['physbnd',['../namespaceamrex_1_1_extrapolater.html#a38f2083124f56b276e74ec1112306ed1',1,'amrex::Extrapolater']]],
   ['plot_5ffile',['plot_file',['../classamrex_1_1_l_s_core_base.html#abe97849a2a60e1d3d785044180f393b9',1,'amrex::LSCoreBase']]],
   ['plot_5ffile_5froot',['plot_file_root',['../classamrex_1_1_amr.html#a6d91b6937dfb14b4b4777f640971b072',1,'amrex::Amr']]],

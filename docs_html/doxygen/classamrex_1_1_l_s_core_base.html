@@ -120,8 +120,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aba665f12e440d33638b089be84666a06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca9595818dc7d60780b09b364ef71c18"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_l_s_core_base.html#aca9595818dc7d60780b09b364ef71c18">InitData</a> ()</td></tr>
 <tr class="separator:aca9595818dc7d60780b09b364ef71c18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4f920e1e1b84a7c4b309d867bd592b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_l_s_core_base.html#ad4f920e1e1b84a7c4b309d867bd592b0">SetTagLeves</a> ()</td></tr>
-<tr class="separator:ad4f920e1e1b84a7c4b309d867bd592b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa76187fd7b5f9535bfd5049112e809d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_l_s_core_base.html#aa76187fd7b5f9535bfd5049112e809d8">InitData</a> (const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; Real &gt; &amp;m_phierr)</td></tr>
+<tr class="separator:aa76187fd7b5f9535bfd5049112e809d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a574e843e2855d44d8ee72fb55d8965ba"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_l_s_core_base.html#a574e843e2855d44d8ee72fb55d8965ba">MakeNewLevelFromCoarse</a> (int lev, Real time, const <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> &amp;ba, const <a class="el" href="classamrex_1_1_distribution_mapping.html">DistributionMapping</a> &amp;dm) override</td></tr>
 <tr class="memdesc:a574e843e2855d44d8ee72fb55d8965ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make a new level using provided <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> and <a class="el" href="classamrex_1_1_distribution_mapping.html" title="Calculates the distribution of FABs to MPI processes. ">DistributionMapping</a> and fill with interpolated coarse level data.  <a href="#a574e843e2855d44d8ee72fb55d8965ba">More...</a><br/></td></tr>
 <tr class="separator:a574e843e2855d44d8ee72fb55d8965ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -280,6 +280,12 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
+<tr class="memitem:ad56df754af5ff9aa2c9a7445ec35a7f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_l_s_core_base.html#ad56df754af5ff9aa2c9a7445ec35a7f9">Init</a> ()</td></tr>
+<tr class="separator:ad56df754af5ff9aa2c9a7445ec35a7f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46e21b1a3e14075db9b6959ecdb9f72b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_l_s_core_base.html#a46e21b1a3e14075db9b6959ecdb9f72b">LoadTagLevels</a> ()</td></tr>
+<tr class="separator:a46e21b1a3e14075db9b6959ecdb9f72b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fed6ab0db7c3ca0f8f1a3d077b4364a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_l_s_core_base.html#a6fed6ab0db7c3ca0f8f1a3d077b4364a">SetTagLevels</a> (const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; Real &gt; &amp;<a class="el" href="classamrex_1_1_l_s_core_base.html#a51160f59f8c2e5aa56f7b24632ac3f1a">phierr</a>)</td></tr>
+<tr class="separator:a6fed6ab0db7c3ca0f8f1a3d077b4364a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad30eaa3ec2dd8ad3de93c4bfbea572dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_l_s_core_base.html#ad30eaa3ec2dd8ad3de93c4bfbea572dc">ReadParameters</a> ()</td></tr>
 <tr class="separator:ad30eaa3ec2dd8ad3de93c4bfbea572dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad8a07c96169fd40c96a6b076b2743de0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_l_s_core_base.html#ad8a07c96169fd40c96a6b076b2743de0">AverageDown</a> ()</td></tr>
@@ -330,6 +336,10 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a1d8e97ef9f32164ac040646e71ceea1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae564241bee9d2cc16d8f812b7a78096c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_b_c_rec.html">BCRec</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_l_s_core_base.html#ae564241bee9d2cc16d8f812b7a78096c">bcs</a></td></tr>
 <tr class="separator:ae564241bee9d2cc16d8f812b7a78096c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afffa96e3c5577c0fef27219fd5cfd813"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_l_s_core_base.html#afffa96e3c5577c0fef27219fd5cfd813">phierr_set</a> = false</td></tr>
+<tr class="separator:afffa96e3c5577c0fef27219fd5cfd813"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51160f59f8c2e5aa56f7b24632ac3f1a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; Real &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_l_s_core_base.html#a51160f59f8c2e5aa56f7b24632ac3f1a">phierr</a></td></tr>
+<tr class="separator:a51160f59f8c2e5aa56f7b24632ac3f1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa206bdb1903bb394742e18267dcbfc11"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_l_s_core_base.html#aa206bdb1903bb394742e18267dcbfc11">restart_chkfile</a> = &quot;&quot;</td></tr>
 <tr class="separator:aa206bdb1903bb394742e18267dcbfc11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe97849a2a60e1d3d785044180f393b9"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_l_s_core_base.html#abe97849a2a60e1d3d785044180f393b9">plot_file</a> {&quot;ls_plt&quot;}</td></tr>
@@ -759,6 +769,29 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ad56df754af5ff9aa2c9a7445ec35a7f9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void amrex::LSCoreBase::Init </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="aca9595818dc7d60780b09b364ef71c18"></a>
 <div class="memitem">
 <div class="memproto">
@@ -770,6 +803,45 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa76187fd7b5f9535bfd5049112e809d8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void amrex::LSCoreBase::InitData </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; Real &gt; &amp;&#160;</td>
+          <td class="paramname"><em>m_phierr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a46e21b1a3e14075db9b6959ecdb9f72b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void amrex::LSCoreBase::LoadTagLevels </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -1041,17 +1113,26 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ad4f920e1e1b84a7c4b309d867bd592b0"></a>
+<a class="anchor" id="a6fed6ab0db7c3ca0f8f1a3d077b4364a"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void amrex::LSCoreBase::SetTagLeves </td>
+          <td class="memname">void amrex::LSCoreBase::SetTagLevels </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; Real &gt; &amp;&#160;</td>
+          <td class="paramname"><em>phierr</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -1236,6 +1317,46 @@ Additional Inherited Members</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">int amrex::LSCoreBase::max_eb_pad</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a51160f59f8c2e5aa56f7b24632ac3f1a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt;Real&gt; amrex::LSCoreBase::phierr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="afffa96e3c5577c0fef27219fd5cfd813"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool amrex::LSCoreBase::phierr_set = false</td>
         </tr>
       </table>
   </td>
