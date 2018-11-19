@@ -27,10 +27,6 @@ var searchData=
   ['descriptor',['descriptor',['../classamrex_1_1_state_data.html#ab6861e88a7bb19198c653ff60fc3f1eb',1,'amrex::StateData']]],
   ['descriptorlist',['DescriptorList',['../classamrex_1_1_descriptor_list.html#a2ece4f422797e9dbedbe03087b3d17ac',1,'amrex::DescriptorList']]],
   ['destroy',['destroy',['../classamrex_1_1_fab_factory.html#a62e57972e3054a6f7ed1cdb9c0426c09',1,'amrex::FabFactory::destroy()'],['../classamrex_1_1_default_fab_factory.html#a1d92b6711d7c4908085808da6ac00f0d',1,'amrex::DefaultFabFactory::destroy()'],['../classamrex_1_1_e_b_f_array_box_factory.html#a25f6eca7dc8d4f2269fec54f5d20f079',1,'amrex::EBFArrayBoxFactory::destroy()']]],
-  ['device_5fdtoh_5fmemcpy',['device_dtoh_memcpy',['../classamrex_1_1_cuda_1_1_device.html#aa4b133baae1f06eb3ddd965677a48f88',1,'amrex::Cuda::Device']]],
-  ['device_5fdtoh_5fmemcpy_5fasync',['device_dtoh_memcpy_async',['../classamrex_1_1_cuda_1_1_device.html#a2c2212a8abd8350f53d2fe71cd3edec6',1,'amrex::Cuda::Device']]],
-  ['device_5fhtod_5fmemcpy',['device_htod_memcpy',['../classamrex_1_1_cuda_1_1_device.html#aa9c198d2c0f0a0f544958bc3951acddb',1,'amrex::Cuda::Device']]],
-  ['device_5fhtod_5fmemcpy_5fasync',['device_htod_memcpy_async',['../classamrex_1_1_cuda_1_1_device.html#ad73cafb723c7c19b0aebd96214628d34',1,'amrex::Cuda::Device']]],
   ['deviceid',['deviceId',['../classamrex_1_1_cuda_1_1_device.html#a5d1a49d9a1c39215c0808b4d31d90cab',1,'amrex::Cuda::Device']]],
   ['deviceptr',['devicePtr',['../structamrex_1_1_cuda_1_1_managed_data.html#a4f540be2c074ef475140a2a6e32fc506',1,'amrex::Cuda::ManagedData::devicePtr()&amp;'],['../structamrex_1_1_cuda_1_1_managed_data.html#a09ee98b54242a9aa7974375b7a221dbd',1,'amrex::Cuda::ManagedData::devicePtr() const &amp;']]],
   ['devicescalar',['DeviceScalar',['../structamrex_1_1_cuda_1_1_device_scalar.html#abada96e6e1ad35b5275f39c6148a7e42',1,'amrex::Cuda::DeviceScalar::DeviceScalar(DeviceScalar const &amp;)=delete'],['../structamrex_1_1_cuda_1_1_device_scalar.html#af0348d37b8670af5c38b1b16bd458ee3',1,'amrex::Cuda::DeviceScalar::DeviceScalar(DeviceScalar &amp;&amp;)=delete'],['../structamrex_1_1_cuda_1_1_device_scalar.html#a78eaf74e8bd7a454469db80e64aabdd2',1,'amrex::Cuda::DeviceScalar::DeviceScalar(T init_val)']]],
@@ -58,6 +54,8 @@ var searchData=
   ['dotproduct',['dotProduct',['../classamrex_1_1_real_vect.html#ae1f260aa04f608e6fc0a1ec23e9080cd',1,'amrex::RealVect']]],
   ['dtlevel',['dtLevel',['../classamrex_1_1_amr.html#ac32a1d50a09a38a1d3917e7194bc2105',1,'amrex::Amr::dtLevel(int level) const '],['../classamrex_1_1_amr.html#a70345cdca51e2d3a695be3f1823099b7',1,'amrex::Amr::dtLevel() const ']]],
   ['dtmin',['dtMin',['../classamrex_1_1_amr.html#af3ad71051cf56a3ca3ade96fbf004900',1,'amrex::Amr']]],
+  ['dtoh_5fmemcpy',['dtoh_memcpy',['../classamrex_1_1_cuda_1_1_device.html#a0e6bc646ae21a48a7cb43fbc3170838d',1,'amrex::Cuda::Device']]],
+  ['dtoh_5fmemcpy_5fasync',['dtoh_memcpy_async',['../classamrex_1_1_cuda_1_1_device.html#ac898c35932d0b8532dff84b8e8bd12b4',1,'amrex::Cuda::Device']]],
   ['dumpnames',['dumpNames',['../classamrex_1_1_state_descriptor.html#a50c0aa090e4cf73ef8e8c57dda6b8929',1,'amrex::StateDescriptor']]],
   ['dumptable',['dumpTable',['../classamrex_1_1_parm_parse.html#ad5376a2e65027c356b38efbef3180c28',1,'amrex::ParmParse']]]
 ];

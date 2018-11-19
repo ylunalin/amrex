@@ -88,6 +88,7 @@ var searchData=
   ['amrex_5fcudalaunch_2eh',['AMReX_CudaLaunch.H',['../_a_m_re_x___cuda_launch_8_h.html',1,'']]],
   ['amrex_5fcudamemory_2eh',['AMReX_CudaMemory.H',['../_a_m_re_x___cuda_memory_8_h.html',1,'']]],
   ['amrex_5fcudarange_2eh',['AMReX_CudaRange.H',['../_a_m_re_x___cuda_range_8_h.html',1,'']]],
+  ['amrex_5fcudareduce_2eh',['AMReX_CudaReduce.H',['../_a_m_re_x___cuda_reduce_8_h.html',1,'']]],
   ['amrex_5fcudautility_2ecpp',['AMReX_CudaUtility.cpp',['../_a_m_re_x___cuda_utility_8cpp.html',1,'']]],
   ['amrex_5fcudautility_2eh',['AMReX_CudaUtility.H',['../_a_m_re_x___cuda_utility_8_h.html',1,'']]],
   ['amrex_5fderive_2ecpp',['AMReX_Derive.cpp',['../_a_m_re_x___derive_8cpp.html',1,'']]],

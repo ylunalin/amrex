@@ -27,6 +27,8 @@ var searchData=
   ['hostvalue',['hostValue',['../structamrex_1_1_cuda_1_1_managed_data.html#a0a138bbe2603de6d5624387fc6cf946d',1,'amrex::Cuda::ManagedData']]],
   ['hostvector',['HostVector',['../namespaceamrex_1_1_cuda.html#adcb14c2960a046890c80ce8039d80e59',1,'amrex::Cuda']]],
   ['how',['How',['../classamrex_1_1_vis_m_f.html#aa50a3ce471ac0bdf8f78134f0004e156',1,'amrex::VisMF']]],
+  ['htod_5fmemcpy',['htod_memcpy',['../classamrex_1_1_cuda_1_1_device.html#a3e270a7a5fc84a5ad082b50b63f259ab',1,'amrex::Cuda::Device']]],
+  ['htod_5fmemcpy_5fasync',['htod_memcpy_async',['../classamrex_1_1_cuda_1_1_device.html#a43700da05e86a1d8fa4111882b1ecc39',1,'amrex::Cuda::Device']]],
   ['hwm_5fbuilds',['hwm_builds',['../structamrex_1_1_mem_profiler_1_1_n_builds_info.html#ac85d7c7f2a90d5d1025386987ad4aaa5',1,'amrex::MemProfiler::NBuildsInfo']]],
   ['hwm_5fbytes',['hwm_bytes',['../structamrex_1_1_mem_profiler_1_1_mem_info.html#a0986f22c847ee689a532d882351b7ee0',1,'amrex::MemProfiler::MemInfo']]]
 ];
