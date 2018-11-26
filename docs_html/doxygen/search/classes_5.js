@@ -15,6 +15,7 @@ var searchData=
   ['fabarraystats',['FabArrayStats',['../structamrex_1_1_fab_array_base_1_1_fab_array_stats.html',1,'amrex::FabArrayBase']]],
   ['fabcomtag',['FabComTag',['../structamrex_1_1_fab_array_base_1_1_fab_com_tag.html',1,'amrex::FabArrayBase']]],
   ['fabcopydescriptor',['FabCopyDescriptor',['../structamrex_1_1_fab_copy_descriptor.html',1,'amrex']]],
+  ['fabcopytag',['FabCopyTag',['../struct_fab_copy_tag.html',1,'']]],
   ['fabfactory',['FabFactory',['../classamrex_1_1_fab_factory.html',1,'amrex']]],
   ['fabfactory_3c_20farraybox_20_3e',['FabFactory&lt; FArrayBox &gt;',['../classamrex_1_1_fab_factory.html',1,'amrex']]],
   ['fabinfo',['FabInfo',['../structamrex_1_1_fab_info.html',1,'amrex']]],

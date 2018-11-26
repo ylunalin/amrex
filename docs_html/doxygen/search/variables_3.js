@@ -4,7 +4,7 @@ var searchData=
   ['data_5fkey_5ftuple_5fmap',['data_key_tuple_map',['../classamrex_1_1_base_umap.html#ac76f08b25e30b916da1c13f2e3cc87da',1,'amrex::BaseUmap']]],
   ['datalog',['datalog',['../classamrex_1_1_amr.html#a34d4fd7a519716a0155f261ba210bd85',1,'amrex::Amr']]],
   ['datalogname',['datalogname',['../classamrex_1_1_amr.html#a2cbd53ff9ac71cac5e52e7311de0b2b8',1,'amrex::Amr']]],
-  ['dbox',['dbox',['../structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#aa4ad873f80c114d0041fd4c30d9fbe94',1,'amrex::FabArrayBase::CopyComTag']]],
+  ['dbox',['dbox',['../structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#aa4ad873f80c114d0041fd4c30d9fbe94',1,'amrex::FabArrayBase::CopyComTag::dbox()'],['../struct_fab_copy_tag.html#aaac656d064476485e334474094eff3a3',1,'FabCopyTag::dbox()'],['../struct_void_copy_tag.html#a73fdda6261848fe3d30b2066e9c9eb20',1,'VoidCopyTag::dbox()']]],
   ['dcomp',['dcomp',['../structamrex_1_1_fab_array_1_1_copier_handle_impl.html#a82debb09eb89417bf0a60eaaa86d9ba6',1,'amrex::FabArray::CopierHandleImpl']]],
   ['debug',['Debug',['../namespaceamrex_1_1system.html#aeb34e12844e5d37ee8582e569d702c95',1,'amrex::system']]],
   ['define_5ffunction_5fcalled',['define_function_called',['../classamrex_1_1_fab_array.html#a14fe629ee5ee2c06799be911b3da3800',1,'amrex::FabArray']]],

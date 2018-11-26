@@ -8,6 +8,7 @@ var searchData=
   ['seven',['seven',['../classamrex__constants__module.html#adcf19334126a0c0621bb1a5d277f513e',1,'amrex_constants_module']]],
   ['seven12th',['seven12th',['../classamrex__constants__module.html#a9da77625a7b0670eb8278879579f82f4',1,'amrex_constants_module']]],
   ['seventh',['seventh',['../classamrex__constants__module.html#a0b5112227b87f2cc4d60b17991780f73',1,'amrex_constants_module']]],
+  ['sfab',['sfab',['../struct_fab_copy_tag.html#a4ff330a96d834decbe692af33b5ef290',1,'FabCopyTag']]],
   ['sfc_5fthreshold',['sfc_threshold',['../namespaceamrex.html#a3b82c3e2c727baf0805e10a006744bc0',1,'amrex']]],
   ['shared',['shared',['../structamrex_1_1_fab_info.html#aad9bb4d1cfbd53be67289b734bf5042c',1,'amrex::FabInfo']]],
   ['shared_5fmemory',['shared_memory',['../structamrex_1_1_base_fab_data.html#a5894675ed07e11741a736c438bc03a02',1,'amrex::BaseFabData']]],

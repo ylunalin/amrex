@@ -47,5 +47,6 @@ var searchData=
   ['vector_3c_20std_3a_3aunique_5fptr_3c_20std_3a_3afstream_20_3e_20_3e',['Vector&lt; std::unique_ptr&lt; std::fstream &gt; &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20t_20_3e',['Vector&lt; T &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vertex',['Vertex',['../structamrex_1_1_e_b2_1_1_vertex.html',1,'amrex::EB2']]],
-  ['vismf',['VisMF',['../classamrex_1_1_vis_m_f.html',1,'amrex']]]
+  ['vismf',['VisMF',['../classamrex_1_1_vis_m_f.html',1,'amrex']]],
+  ['voidcopytag',['VoidCopyTag',['../struct_void_copy_tag.html',1,'']]]
 ];

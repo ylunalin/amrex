@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['offset',['offset',['../classamrex_1_1_coord_sys.html#ac98571898c246591a5ae1dfd30d72829',1,'amrex::CoordSys']]],
+  ['offset',['offset',['../classamrex_1_1_coord_sys.html#ac98571898c246591a5ae1dfd30d72829',1,'amrex::CoordSys::offset()'],['../struct_fab_copy_tag.html#a30af4dfb43cdc8e01b8bc8b19a2dd695',1,'FabCopyTag::offset()']]],
   ['ok',['ok',['../classamrex_1_1_coord_sys.html#abee8e858b3ca22a33388275e0a2cfcbf',1,'amrex::CoordSys']]],
   ['on_5fboundary',['on_boundary',['../classamrex_1_1_e_b2_1_1_geometry_shop.html#abe16618c667f86c9cd4fa0a4c23b512a',1,'amrex::EB2::GeometryShop']]],
   ['one',['one',['../classamrex__constants__module.html#ac1e62f94cf48ab5f9c7203871884b89d',1,'amrex_constants_module']]],
