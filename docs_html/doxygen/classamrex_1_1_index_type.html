@@ -121,73 +121,92 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3348ef23ffc96f652002009ed5e38554"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#a3348ef23ffc96f652002009ed5e38554">IndexType</a> (<a class="el" href="namespaceamrex.html#a8de829410ed15dbc56e4dafc9bc6ea69a68b0c60ae4f5670ee8d0ad5dda84d0fd">AMREX_D_DECL</a>(<a class="el" href="classamrex_1_1_index_type.html#a4bbe4fdc07aa019c3a4a6839cdafccce">CellIndex</a> i, <a class="el" href="classamrex_1_1_index_type.html#a4bbe4fdc07aa019c3a4a6839cdafccce">CellIndex</a> j, <a class="el" href="classamrex_1_1_index_type.html#a4bbe4fdc07aa019c3a4a6839cdafccce">CellIndex</a> k))</td></tr>
 <tr class="memdesc:a3348ef23ffc96f652002009ed5e38554"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct an <a class="el" href="classamrex_1_1_index_type.html" title="Cell-Based or Node-Based Indices. ">IndexType</a> given an explicit CellIndex for each direction. AMREX_D_DECL is a macro that sets the constructor to take AMREX_SPACEDIM arguments.  <a href="#a3348ef23ffc96f652002009ed5e38554">More...</a><br/></td></tr>
 <tr class="separator:a3348ef23ffc96f652002009ed5e38554"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac43f104cec0e095bd4bfe94973c95bf5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#ac43f104cec0e095bd4bfe94973c95bf5">set</a> (int dir)</td></tr>
-<tr class="memdesc:ac43f104cec0e095bd4bfe94973c95bf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set <a class="el" href="classamrex_1_1_index_type.html" title="Cell-Based or Node-Based Indices. ">IndexType</a> to be NODE based in direction dir.  <a href="#ac43f104cec0e095bd4bfe94973c95bf5">More...</a><br/></td></tr>
-<tr class="separator:ac43f104cec0e095bd4bfe94973c95bf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d749844c34ed78fdd7767bce46690e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#a8d749844c34ed78fdd7767bce46690e7">unset</a> (int dir)</td></tr>
-<tr class="memdesc:a8d749844c34ed78fdd7767bce46690e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set <a class="el" href="classamrex_1_1_index_type.html" title="Cell-Based or Node-Based Indices. ">IndexType</a> to be CELL based in direction dir.  <a href="#a8d749844c34ed78fdd7767bce46690e7">More...</a><br/></td></tr>
-<tr class="separator:a8d749844c34ed78fdd7767bce46690e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8dc5444a25f5f10b3778568d4fb681d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#aa8dc5444a25f5f10b3778568d4fb681d">test</a> (int dir) const </td></tr>
-<tr class="memdesc:aa8dc5444a25f5f10b3778568d4fb681d"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if <a class="el" href="classamrex_1_1_index_type.html" title="Cell-Based or Node-Based Indices. ">IndexType</a> is NODE based in direction dir.  <a href="#aa8dc5444a25f5f10b3778568d4fb681d">More...</a><br/></td></tr>
-<tr class="separator:aa8dc5444a25f5f10b3778568d4fb681d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99c89b27a9062aa57c414d09d3c60ac4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#a99c89b27a9062aa57c414d09d3c60ac4">setall</a> ()</td></tr>
-<tr class="memdesc:a99c89b27a9062aa57c414d09d3c60ac4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set NODE based in all directions.  <a href="#a99c89b27a9062aa57c414d09d3c60ac4">More...</a><br/></td></tr>
-<tr class="separator:a99c89b27a9062aa57c414d09d3c60ac4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85d9b03d056cb796a8049b64f791a07b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#a85d9b03d056cb796a8049b64f791a07b">clear</a> ()</td></tr>
-<tr class="memdesc:a85d9b03d056cb796a8049b64f791a07b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set CELL based in all directions.  <a href="#a85d9b03d056cb796a8049b64f791a07b">More...</a><br/></td></tr>
-<tr class="separator:a85d9b03d056cb796a8049b64f791a07b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f92956e5d5e12efd48a9d4dbd6143a5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#a5f92956e5d5e12efd48a9d4dbd6143a5">any</a> () const </td></tr>
-<tr class="memdesc:a5f92956e5d5e12efd48a9d4dbd6143a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if this <a class="el" href="classamrex_1_1_index_type.html" title="Cell-Based or Node-Based Indices. ">IndexType</a> is NODE based in any direction.  <a href="#a5f92956e5d5e12efd48a9d4dbd6143a5">More...</a><br/></td></tr>
-<tr class="separator:a5f92956e5d5e12efd48a9d4dbd6143a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a654eb6cc86da72aedfc0e23938f3c715"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#a654eb6cc86da72aedfc0e23938f3c715">ok</a> () const </td></tr>
-<tr class="memdesc:a654eb6cc86da72aedfc0e23938f3c715"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if <a class="el" href="classamrex_1_1_index_type.html" title="Cell-Based or Node-Based Indices. ">IndexType</a> is valid.  <a href="#a654eb6cc86da72aedfc0e23938f3c715">More...</a><br/></td></tr>
-<tr class="separator:a654eb6cc86da72aedfc0e23938f3c715"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb8420d413bab75b204f08a8d58695e9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#adb8420d413bab75b204f08a8d58695e9">flip</a> (int i)</td></tr>
-<tr class="memdesc:adb8420d413bab75b204f08a8d58695e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change from CELL to NODE or NODE to CELL in direction dir.  <a href="#adb8420d413bab75b204f08a8d58695e9">More...</a><br/></td></tr>
-<tr class="separator:adb8420d413bab75b204f08a8d58695e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa75d76a2ba242a96b9060dc88a319806"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#aa75d76a2ba242a96b9060dc88a319806">operator==</a> (const <a class="el" href="classamrex_1_1_index_type.html">IndexType</a> &amp;t) const </td></tr>
-<tr class="memdesc:aa75d76a2ba242a96b9060dc88a319806"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if IndexTypes are identical.  <a href="#aa75d76a2ba242a96b9060dc88a319806">More...</a><br/></td></tr>
-<tr class="separator:aa75d76a2ba242a96b9060dc88a319806"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0c3defdaa40f1765c194ecd443689cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#ae0c3defdaa40f1765c194ecd443689cd">operator!=</a> (const <a class="el" href="classamrex_1_1_index_type.html">IndexType</a> &amp;t) const </td></tr>
-<tr class="memdesc:ae0c3defdaa40f1765c194ecd443689cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if IndexTypes are not identical.  <a href="#ae0c3defdaa40f1765c194ecd443689cd">More...</a><br/></td></tr>
-<tr class="separator:ae0c3defdaa40f1765c194ecd443689cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaeca2aea22844b17fff75af9d779cad5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#aaeca2aea22844b17fff75af9d779cad5">operator&lt;</a> (const <a class="el" href="classamrex_1_1_index_type.html">IndexType</a> &amp;t) const </td></tr>
-<tr class="separator:aaeca2aea22844b17fff75af9d779cad5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3043a1174c5987659e4fda4fa1886643"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#a3043a1174c5987659e4fda4fa1886643">cellCentered</a> () const </td></tr>
-<tr class="memdesc:a3043a1174c5987659e4fda4fa1886643"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if the <a class="el" href="classamrex_1_1_index_type.html" title="Cell-Based or Node-Based Indices. ">IndexType</a> is CELL based in all directions.  <a href="#a3043a1174c5987659e4fda4fa1886643">More...</a><br/></td></tr>
-<tr class="separator:a3043a1174c5987659e4fda4fa1886643"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a354272899f62c252d5ee387e4cceb77b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#a354272899f62c252d5ee387e4cceb77b">cellCentered</a> (int dir) const </td></tr>
-<tr class="memdesc:a354272899f62c252d5ee387e4cceb77b"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if the <a class="el" href="classamrex_1_1_index_type.html" title="Cell-Based or Node-Based Indices. ">IndexType</a> is CELL based in dir-direction.  <a href="#a354272899f62c252d5ee387e4cceb77b">More...</a><br/></td></tr>
-<tr class="separator:a354272899f62c252d5ee387e4cceb77b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2190dd69f6f4c0c97d224863bc4c219a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#a2190dd69f6f4c0c97d224863bc4c219a">nodeCentered</a> () const </td></tr>
-<tr class="memdesc:a2190dd69f6f4c0c97d224863bc4c219a"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if the <a class="el" href="classamrex_1_1_index_type.html" title="Cell-Based or Node-Based Indices. ">IndexType</a> is NODE based in all directions.  <a href="#a2190dd69f6f4c0c97d224863bc4c219a">More...</a><br/></td></tr>
-<tr class="separator:a2190dd69f6f4c0c97d224863bc4c219a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81a046fd4bd5c3398982c63471f31f8a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#a81a046fd4bd5c3398982c63471f31f8a">nodeCentered</a> (int dir) const </td></tr>
-<tr class="memdesc:a81a046fd4bd5c3398982c63471f31f8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if the <a class="el" href="classamrex_1_1_index_type.html" title="Cell-Based or Node-Based Indices. ">IndexType</a> is NODE based in dir-direction.  <a href="#a81a046fd4bd5c3398982c63471f31f8a">More...</a><br/></td></tr>
-<tr class="separator:a81a046fd4bd5c3398982c63471f31f8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a117c8cb06a25f9e378ceac7e599884a3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#a117c8cb06a25f9e378ceac7e599884a3">setType</a> (int dir, <a class="el" href="classamrex_1_1_index_type.html#a4bbe4fdc07aa019c3a4a6839cdafccce">CellIndex</a> t)</td></tr>
-<tr class="memdesc:a117c8cb06a25f9e378ceac7e599884a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set <a class="el" href="classamrex_1_1_index_type.html" title="Cell-Based or Node-Based Indices. ">IndexType</a> to CellIndex type t in direction dir.  <a href="#a117c8cb06a25f9e378ceac7e599884a3">More...</a><br/></td></tr>
-<tr class="separator:a117c8cb06a25f9e378ceac7e599884a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad23715f0346488f6570668bd8bf4e4d0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <a class="el" href="classamrex_1_1_index_type.html#a4bbe4fdc07aa019c3a4a6839cdafccce">CellIndex</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#ad23715f0346488f6570668bd8bf4e4d0">ixType</a> (int dir) const </td></tr>
-<tr class="memdesc:ad23715f0346488f6570668bd8bf4e4d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the CellIndex in direction dir.  <a href="#ad23715f0346488f6570668bd8bf4e4d0">More...</a><br/></td></tr>
-<tr class="separator:ad23715f0346488f6570668bd8bf4e4d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aedffbc7a116759d2385149e9894e92f2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#aedffbc7a116759d2385149e9894e92f2">operator[]</a> (int dir) const </td></tr>
-<tr class="memdesc:aedffbc7a116759d2385149e9894e92f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return an integer representing the <a class="el" href="classamrex_1_1_index_type.html" title="Cell-Based or Node-Based Indices. ">IndexType</a> in direction dir.  <a href="#aedffbc7a116759d2385149e9894e92f2">More...</a><br/></td></tr>
-<tr class="separator:aedffbc7a116759d2385149e9894e92f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab30e2eb333990d4b7affdafeebec1011"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#ab30e2eb333990d4b7affdafeebec1011">ixType</a> () const </td></tr>
-<tr class="memdesc:ab30e2eb333990d4b7affdafeebec1011"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill an <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> of size AMREX_SPACEDIM with IndexTypes.  <a href="#ab30e2eb333990d4b7affdafeebec1011">More...</a><br/></td></tr>
-<tr class="separator:ab30e2eb333990d4b7affdafeebec1011"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad04d7012b2416e6d72ee39ce304b0d84"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <br class="typebreak"/>
+<a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#ad04d7012b2416e6d72ee39ce304b0d84">set</a> (int dir)</td></tr>
+<tr class="memdesc:ad04d7012b2416e6d72ee39ce304b0d84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set <a class="el" href="classamrex_1_1_index_type.html" title="Cell-Based or Node-Based Indices. ">IndexType</a> to be NODE based in direction dir.  <a href="#ad04d7012b2416e6d72ee39ce304b0d84">More...</a><br/></td></tr>
+<tr class="separator:ad04d7012b2416e6d72ee39ce304b0d84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a433c12809b4a6cb2f83469c4c08ce5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <br class="typebreak"/>
+<a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#a7a433c12809b4a6cb2f83469c4c08ce5">unset</a> (int dir)</td></tr>
+<tr class="memdesc:a7a433c12809b4a6cb2f83469c4c08ce5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set <a class="el" href="classamrex_1_1_index_type.html" title="Cell-Based or Node-Based Indices. ">IndexType</a> to be CELL based in direction dir.  <a href="#a7a433c12809b4a6cb2f83469c4c08ce5">More...</a><br/></td></tr>
+<tr class="separator:a7a433c12809b4a6cb2f83469c4c08ce5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc7641b606102756d237b836bf9c8d6c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <br class="typebreak"/>
+<a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#acc7641b606102756d237b836bf9c8d6c">test</a> (int dir) const </td></tr>
+<tr class="memdesc:acc7641b606102756d237b836bf9c8d6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if <a class="el" href="classamrex_1_1_index_type.html" title="Cell-Based or Node-Based Indices. ">IndexType</a> is NODE based in direction dir.  <a href="#acc7641b606102756d237b836bf9c8d6c">More...</a><br/></td></tr>
+<tr class="separator:acc7641b606102756d237b836bf9c8d6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9254844dbb97828c090c20a6d3a1d7a1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <br class="typebreak"/>
+<a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#a9254844dbb97828c090c20a6d3a1d7a1">setall</a> ()</td></tr>
+<tr class="memdesc:a9254844dbb97828c090c20a6d3a1d7a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set NODE based in all directions.  <a href="#a9254844dbb97828c090c20a6d3a1d7a1">More...</a><br/></td></tr>
+<tr class="separator:a9254844dbb97828c090c20a6d3a1d7a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37cd77d0f40cc926b0a63727f9680354"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <br class="typebreak"/>
+<a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#a37cd77d0f40cc926b0a63727f9680354">clear</a> ()</td></tr>
+<tr class="memdesc:a37cd77d0f40cc926b0a63727f9680354"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set CELL based in all directions.  <a href="#a37cd77d0f40cc926b0a63727f9680354">More...</a><br/></td></tr>
+<tr class="separator:a37cd77d0f40cc926b0a63727f9680354"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1063db9c3037d1b5a4e748dbe40b0191"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <br class="typebreak"/>
+<a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#a1063db9c3037d1b5a4e748dbe40b0191">any</a> () const </td></tr>
+<tr class="memdesc:a1063db9c3037d1b5a4e748dbe40b0191"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if this <a class="el" href="classamrex_1_1_index_type.html" title="Cell-Based or Node-Based Indices. ">IndexType</a> is NODE based in any direction.  <a href="#a1063db9c3037d1b5a4e748dbe40b0191">More...</a><br/></td></tr>
+<tr class="separator:a1063db9c3037d1b5a4e748dbe40b0191"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9ea07369cdeb1a0abf394f947f591bd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <br class="typebreak"/>
+<a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#ae9ea07369cdeb1a0abf394f947f591bd">ok</a> () const </td></tr>
+<tr class="memdesc:ae9ea07369cdeb1a0abf394f947f591bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if <a class="el" href="classamrex_1_1_index_type.html" title="Cell-Based or Node-Based Indices. ">IndexType</a> is valid.  <a href="#ae9ea07369cdeb1a0abf394f947f591bd">More...</a><br/></td></tr>
+<tr class="separator:ae9ea07369cdeb1a0abf394f947f591bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a11e79726167e1b5aa9d0186da25954"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <br class="typebreak"/>
+<a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#a6a11e79726167e1b5aa9d0186da25954">flip</a> (int i)</td></tr>
+<tr class="memdesc:a6a11e79726167e1b5aa9d0186da25954"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change from CELL to NODE or NODE to CELL in direction dir.  <a href="#a6a11e79726167e1b5aa9d0186da25954">More...</a><br/></td></tr>
+<tr class="separator:a6a11e79726167e1b5aa9d0186da25954"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15c3c1a30896a68f55423e1724bdc8c9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <br class="typebreak"/>
+<a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#a15c3c1a30896a68f55423e1724bdc8c9">operator==</a> (const <a class="el" href="classamrex_1_1_index_type.html">IndexType</a> &amp;t) const </td></tr>
+<tr class="memdesc:a15c3c1a30896a68f55423e1724bdc8c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if IndexTypes are identical.  <a href="#a15c3c1a30896a68f55423e1724bdc8c9">More...</a><br/></td></tr>
+<tr class="separator:a15c3c1a30896a68f55423e1724bdc8c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e427a5dca485ceca9d69813cc8e59e0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <br class="typebreak"/>
+<a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#a8e427a5dca485ceca9d69813cc8e59e0">operator!=</a> (const <a class="el" href="classamrex_1_1_index_type.html">IndexType</a> &amp;t) const </td></tr>
+<tr class="memdesc:a8e427a5dca485ceca9d69813cc8e59e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if IndexTypes are not identical.  <a href="#a8e427a5dca485ceca9d69813cc8e59e0">More...</a><br/></td></tr>
+<tr class="separator:a8e427a5dca485ceca9d69813cc8e59e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a606895ed8bb8b09fb3e4e326537fe65d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <br class="typebreak"/>
+<a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#a606895ed8bb8b09fb3e4e326537fe65d">operator&lt;</a> (const <a class="el" href="classamrex_1_1_index_type.html">IndexType</a> &amp;t) const </td></tr>
+<tr class="separator:a606895ed8bb8b09fb3e4e326537fe65d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7bab3c141ccbc4cc9956cb3ffd84268"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <br class="typebreak"/>
+<a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#aa7bab3c141ccbc4cc9956cb3ffd84268">cellCentered</a> () const </td></tr>
+<tr class="memdesc:aa7bab3c141ccbc4cc9956cb3ffd84268"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if the <a class="el" href="classamrex_1_1_index_type.html" title="Cell-Based or Node-Based Indices. ">IndexType</a> is CELL based in all directions.  <a href="#aa7bab3c141ccbc4cc9956cb3ffd84268">More...</a><br/></td></tr>
+<tr class="separator:aa7bab3c141ccbc4cc9956cb3ffd84268"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2350daecb6ce0f058f04edb7b73ff1ec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <br class="typebreak"/>
+<a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#a2350daecb6ce0f058f04edb7b73ff1ec">cellCentered</a> (int dir) const </td></tr>
+<tr class="memdesc:a2350daecb6ce0f058f04edb7b73ff1ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if the <a class="el" href="classamrex_1_1_index_type.html" title="Cell-Based or Node-Based Indices. ">IndexType</a> is CELL based in dir-direction.  <a href="#a2350daecb6ce0f058f04edb7b73ff1ec">More...</a><br/></td></tr>
+<tr class="separator:a2350daecb6ce0f058f04edb7b73ff1ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72ea91060d3675333fcbf346827ef387"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <br class="typebreak"/>
+<a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#a72ea91060d3675333fcbf346827ef387">nodeCentered</a> () const </td></tr>
+<tr class="memdesc:a72ea91060d3675333fcbf346827ef387"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if the <a class="el" href="classamrex_1_1_index_type.html" title="Cell-Based or Node-Based Indices. ">IndexType</a> is NODE based in all directions.  <a href="#a72ea91060d3675333fcbf346827ef387">More...</a><br/></td></tr>
+<tr class="separator:a72ea91060d3675333fcbf346827ef387"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78a920fcfae4f14f393ace915b8c8ca5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <br class="typebreak"/>
+<a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#a78a920fcfae4f14f393ace915b8c8ca5">nodeCentered</a> (int dir) const </td></tr>
+<tr class="memdesc:a78a920fcfae4f14f393ace915b8c8ca5"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if the <a class="el" href="classamrex_1_1_index_type.html" title="Cell-Based or Node-Based Indices. ">IndexType</a> is NODE based in dir-direction.  <a href="#a78a920fcfae4f14f393ace915b8c8ca5">More...</a><br/></td></tr>
+<tr class="separator:a78a920fcfae4f14f393ace915b8c8ca5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33712c5b814a98ae6daebea22e89bec9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <br class="typebreak"/>
+<a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#a33712c5b814a98ae6daebea22e89bec9">setType</a> (int dir, <a class="el" href="classamrex_1_1_index_type.html#a4bbe4fdc07aa019c3a4a6839cdafccce">CellIndex</a> t)</td></tr>
+<tr class="memdesc:a33712c5b814a98ae6daebea22e89bec9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set <a class="el" href="classamrex_1_1_index_type.html" title="Cell-Based or Node-Based Indices. ">IndexType</a> to CellIndex type t in direction dir.  <a href="#a33712c5b814a98ae6daebea22e89bec9">More...</a><br/></td></tr>
+<tr class="separator:a33712c5b814a98ae6daebea22e89bec9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1187bb4a28eb8893611de955c936ae7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <br class="typebreak"/>
+<a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> <a class="el" href="classamrex_1_1_index_type.html#a4bbe4fdc07aa019c3a4a6839cdafccce">CellIndex</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#ab1187bb4a28eb8893611de955c936ae7">ixType</a> (int dir) const </td></tr>
+<tr class="memdesc:ab1187bb4a28eb8893611de955c936ae7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the CellIndex in direction dir.  <a href="#ab1187bb4a28eb8893611de955c936ae7">More...</a><br/></td></tr>
+<tr class="separator:ab1187bb4a28eb8893611de955c936ae7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac265c0f8145656efa896978d0b16e27e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <br class="typebreak"/>
+<a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#ac265c0f8145656efa896978d0b16e27e">operator[]</a> (int dir) const </td></tr>
+<tr class="memdesc:ac265c0f8145656efa896978d0b16e27e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return an integer representing the <a class="el" href="classamrex_1_1_index_type.html" title="Cell-Based or Node-Based Indices. ">IndexType</a> in direction dir.  <a href="#ac265c0f8145656efa896978d0b16e27e">More...</a><br/></td></tr>
+<tr class="separator:ac265c0f8145656efa896978d0b16e27e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefd0dfaf2fc43638d21fee8959ec9ed5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <br class="typebreak"/>
+<a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#aefd0dfaf2fc43638d21fee8959ec9ed5">ixType</a> () const </td></tr>
+<tr class="memdesc:aefd0dfaf2fc43638d21fee8959ec9ed5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill an <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> of size AMREX_SPACEDIM with IndexTypes.  <a href="#aefd0dfaf2fc43638d21fee8959ec9ed5">More...</a><br/></td></tr>
+<tr class="separator:aefd0dfaf2fc43638d21fee8959ec9ed5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ac0ee475e45c3baa504c84230dc828904"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <br class="typebreak"/>
-<a class="el" href="classamrex_1_1_index_type.html">IndexType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#ac0ee475e45c3baa504c84230dc828904">TheCellType</a> ()</td></tr>
-<tr class="memdesc:ac0ee475e45c3baa504c84230dc828904"><td class="mdescLeft">&#160;</td><td class="mdescRight">This static member function returns an <a class="el" href="classamrex_1_1_index_type.html" title="Cell-Based or Node-Based Indices. ">IndexType</a> object of value <a class="el" href="classamrex_1_1_index_type.html#a4bbe4fdc07aa019c3a4a6839cdafcccea287ace89f7ffd266daab1798b3d48aa1">IndexType::CELL</a>. It is provided as a convenience to our users when defining a <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> all of whose faces should be of type <a class="el" href="classamrex_1_1_index_type.html#a4bbe4fdc07aa019c3a4a6839cdafcccea287ace89f7ffd266daab1798b3d48aa1">IndexType::CELL</a>.  <a href="#ac0ee475e45c3baa504c84230dc828904">More...</a><br/></td></tr>
-<tr class="separator:ac0ee475e45c3baa504c84230dc828904"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b89968cca67cb2a3d3eac0be0c85a23"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <br class="typebreak"/>
-<a class="el" href="classamrex_1_1_index_type.html">IndexType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#a9b89968cca67cb2a3d3eac0be0c85a23">TheNodeType</a> ()</td></tr>
-<tr class="memdesc:a9b89968cca67cb2a3d3eac0be0c85a23"><td class="mdescLeft">&#160;</td><td class="mdescRight">This static member function returns an <a class="el" href="classamrex_1_1_index_type.html" title="Cell-Based or Node-Based Indices. ">IndexType</a> object of value <a class="el" href="classamrex_1_1_index_type.html#a4bbe4fdc07aa019c3a4a6839cdafcccea410f04417a9413c9d3d862e84300eb05">IndexType::NODE</a>. It is provided as a convenience to our users when defining a <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> all of whose faces should be of type <a class="el" href="classamrex_1_1_index_type.html#a4bbe4fdc07aa019c3a4a6839cdafcccea410f04417a9413c9d3d862e84300eb05">IndexType::NODE</a>.  <a href="#a9b89968cca67cb2a3d3eac0be0c85a23">More...</a><br/></td></tr>
-<tr class="separator:a9b89968cca67cb2a3d3eac0be0c85a23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad101566a39c966a8994a9077976cfc2d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> static <br class="typebreak"/>
+<a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> <a class="el" href="classamrex_1_1_index_type.html">IndexType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#ad101566a39c966a8994a9077976cfc2d">TheCellType</a> ()</td></tr>
+<tr class="memdesc:ad101566a39c966a8994a9077976cfc2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">This static member function returns an <a class="el" href="classamrex_1_1_index_type.html" title="Cell-Based or Node-Based Indices. ">IndexType</a> object of value <a class="el" href="classamrex_1_1_index_type.html#a4bbe4fdc07aa019c3a4a6839cdafcccea287ace89f7ffd266daab1798b3d48aa1">IndexType::CELL</a>. It is provided as a convenience to our users when defining a <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> all of whose faces should be of type <a class="el" href="classamrex_1_1_index_type.html#a4bbe4fdc07aa019c3a4a6839cdafcccea287ace89f7ffd266daab1798b3d48aa1">IndexType::CELL</a>.  <a href="#ad101566a39c966a8994a9077976cfc2d">More...</a><br/></td></tr>
+<tr class="separator:ad101566a39c966a8994a9077976cfc2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad3bbfde1a791772db66f85843aaa1b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> static <br class="typebreak"/>
+<a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> <a class="el" href="classamrex_1_1_index_type.html">IndexType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_index_type.html#aad3bbfde1a791772db66f85843aaa1b1">TheNodeType</a> ()</td></tr>
+<tr class="memdesc:aad3bbfde1a791772db66f85843aaa1b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">This static member function returns an <a class="el" href="classamrex_1_1_index_type.html" title="Cell-Based or Node-Based Indices. ">IndexType</a> object of value <a class="el" href="classamrex_1_1_index_type.html#a4bbe4fdc07aa019c3a4a6839cdafcccea410f04417a9413c9d3d862e84300eb05">IndexType::NODE</a>. It is provided as a convenience to our users when defining a <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> all of whose faces should be of type <a class="el" href="classamrex_1_1_index_type.html#a4bbe4fdc07aa019c3a4a6839cdafcccea410f04417a9413c9d3d862e84300eb05">IndexType::NODE</a>.  <a href="#aad3bbfde1a791772db66f85843aaa1b1">More...</a><br/></td></tr>
+<tr class="separator:aad3bbfde1a791772db66f85843aaa1b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -297,7 +316,7 @@ Friends</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a5f92956e5d5e12efd48a9d4dbd6143a5"></a>
+<a class="anchor" id="a1063db9c3037d1b5a4e748dbe40b0191"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -305,7 +324,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> bool amrex::IndexType::any </td>
+          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> bool amrex::IndexType::any </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -322,7 +341,7 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a3043a1174c5987659e4fda4fa1886643"></a>
+<a class="anchor" id="aa7bab3c141ccbc4cc9956cb3ffd84268"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -330,7 +349,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> bool amrex::IndexType::cellCentered </td>
+          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> bool amrex::IndexType::cellCentered </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -347,7 +366,7 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a354272899f62c252d5ee387e4cceb77b"></a>
+<a class="anchor" id="a2350daecb6ce0f058f04edb7b73ff1ec"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -355,7 +374,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> bool amrex::IndexType::cellCentered </td>
+          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> bool amrex::IndexType::cellCentered </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>dir</em></td><td>)</td>
@@ -373,7 +392,7 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a85d9b03d056cb796a8049b64f791a07b"></a>
+<a class="anchor" id="a37cd77d0f40cc926b0a63727f9680354"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -381,7 +400,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> void amrex::IndexType::clear </td>
+          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> void amrex::IndexType::clear </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -398,7 +417,7 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="adb8420d413bab75b204f08a8d58695e9"></a>
+<a class="anchor" id="a6a11e79726167e1b5aa9d0186da25954"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -406,7 +425,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> void amrex::IndexType::flip </td>
+          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> void amrex::IndexType::flip </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>i</em></td><td>)</td>
@@ -424,7 +443,7 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ad23715f0346488f6570668bd8bf4e4d0"></a>
+<a class="anchor" id="ab1187bb4a28eb8893611de955c936ae7"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -432,7 +451,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <a class="el" href="classamrex_1_1_index_type.html#a4bbe4fdc07aa019c3a4a6839cdafccce">CellIndex</a> amrex::IndexType::ixType </td>
+          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> <a class="el" href="classamrex_1_1_index_type.html#a4bbe4fdc07aa019c3a4a6839cdafccce">CellIndex</a> amrex::IndexType::ixType </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>dir</em></td><td>)</td>
@@ -450,7 +469,7 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ab30e2eb333990d4b7affdafeebec1011"></a>
+<a class="anchor" id="aefd0dfaf2fc43638d21fee8959ec9ed5"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -458,7 +477,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> amrex::IndexType::ixType </td>
+          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> amrex::IndexType::ixType </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -475,7 +494,7 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a2190dd69f6f4c0c97d224863bc4c219a"></a>
+<a class="anchor" id="a72ea91060d3675333fcbf346827ef387"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -483,7 +502,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> bool amrex::IndexType::nodeCentered </td>
+          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> bool amrex::IndexType::nodeCentered </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -500,7 +519,7 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a81a046fd4bd5c3398982c63471f31f8a"></a>
+<a class="anchor" id="a78a920fcfae4f14f393ace915b8c8ca5"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -508,7 +527,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> bool amrex::IndexType::nodeCentered </td>
+          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> bool amrex::IndexType::nodeCentered </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>dir</em></td><td>)</td>
@@ -526,7 +545,7 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a654eb6cc86da72aedfc0e23938f3c715"></a>
+<a class="anchor" id="ae9ea07369cdeb1a0abf394f947f591bd"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -534,7 +553,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> bool amrex::IndexType::ok </td>
+          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> bool amrex::IndexType::ok </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -551,7 +570,7 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ae0c3defdaa40f1765c194ecd443689cd"></a>
+<a class="anchor" id="a8e427a5dca485ceca9d69813cc8e59e0"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -559,7 +578,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> bool amrex::IndexType::operator!= </td>
+          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> bool amrex::IndexType::operator!= </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classamrex_1_1_index_type.html">IndexType</a> &amp;&#160;</td>
           <td class="paramname"><em>t</em></td><td>)</td>
@@ -577,7 +596,7 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aaeca2aea22844b17fff75af9d779cad5"></a>
+<a class="anchor" id="a606895ed8bb8b09fb3e4e326537fe65d"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -585,7 +604,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> bool amrex::IndexType::operator&lt; </td>
+          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> bool amrex::IndexType::operator&lt; </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classamrex_1_1_index_type.html">IndexType</a> &amp;&#160;</td>
           <td class="paramname"><em>t</em></td><td>)</td>
@@ -601,7 +620,7 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aa75d76a2ba242a96b9060dc88a319806"></a>
+<a class="anchor" id="a15c3c1a30896a68f55423e1724bdc8c9"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -609,7 +628,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> bool amrex::IndexType::operator== </td>
+          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> bool amrex::IndexType::operator== </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classamrex_1_1_index_type.html">IndexType</a> &amp;&#160;</td>
           <td class="paramname"><em>t</em></td><td>)</td>
@@ -627,7 +646,7 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aedffbc7a116759d2385149e9894e92f2"></a>
+<a class="anchor" id="ac265c0f8145656efa896978d0b16e27e"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -635,7 +654,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> int amrex::IndexType::operator[] </td>
+          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> int amrex::IndexType::operator[] </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>dir</em></td><td>)</td>
@@ -653,7 +672,7 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ac43f104cec0e095bd4bfe94973c95bf5"></a>
+<a class="anchor" id="ad04d7012b2416e6d72ee39ce304b0d84"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -661,7 +680,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> void amrex::IndexType::set </td>
+          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> void amrex::IndexType::set </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>dir</em></td><td>)</td>
@@ -679,7 +698,7 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a99c89b27a9062aa57c414d09d3c60ac4"></a>
+<a class="anchor" id="a9254844dbb97828c090c20a6d3a1d7a1"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -687,7 +706,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> void amrex::IndexType::setall </td>
+          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> void amrex::IndexType::setall </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -704,7 +723,7 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a117c8cb06a25f9e378ceac7e599884a3"></a>
+<a class="anchor" id="a33712c5b814a98ae6daebea22e89bec9"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -712,7 +731,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> void amrex::IndexType::setType </td>
+          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> void amrex::IndexType::setType </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>dir</em>, </td>
@@ -740,7 +759,7 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aa8dc5444a25f5f10b3778568d4fb681d"></a>
+<a class="anchor" id="acc7641b606102756d237b836bf9c8d6c"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -748,7 +767,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> bool amrex::IndexType::test </td>
+          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> bool amrex::IndexType::test </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>dir</em></td><td>)</td>
@@ -766,7 +785,7 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ac0ee475e45c3baa504c84230dc828904"></a>
+<a class="anchor" id="ad101566a39c966a8994a9077976cfc2d"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -774,7 +793,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <a class="el" href="classamrex_1_1_index_type.html">IndexType</a> amrex::IndexType::TheCellType </td>
+          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> static <a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> <a class="el" href="classamrex_1_1_index_type.html">IndexType</a> amrex::IndexType::TheCellType </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -791,7 +810,7 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a9b89968cca67cb2a3d3eac0be0c85a23"></a>
+<a class="anchor" id="aad3bbfde1a791772db66f85843aaa1b1"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -799,7 +818,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <a class="el" href="classamrex_1_1_index_type.html">IndexType</a> amrex::IndexType::TheNodeType </td>
+          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> static <a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> <a class="el" href="classamrex_1_1_index_type.html">IndexType</a> amrex::IndexType::TheNodeType </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -816,7 +835,7 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a8d749844c34ed78fdd7767bce46690e7"></a>
+<a class="anchor" id="a7a433c12809b4a6cb2f83469c4c08ce5"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -824,7 +843,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> void amrex::IndexType::unset </td>
+          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> void amrex::IndexType::unset </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>dir</em></td><td>)</td>

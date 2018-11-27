@@ -75,7 +75,7 @@ var searchData=
   ['finish',['finish',['../structamrex_1_1_fab_array_1_1_copier_handle_impl.html#ac71c6f71fb965cbf7ef03f98a2e75654',1,'amrex::FabArray::CopierHandleImpl::finish()'],['../structamrex_1_1_fab_array_1_1_copier_handle.html#a3f5675e911827beb6f1529065fbfc957',1,'amrex::FabArray::CopierHandle::finish()']]],
   ['finishconstructor',['finishConstructor',['../classamrex_1_1_amr_level.html#a954293930715e389153026f726dbd960',1,'amrex::AmrLevel']]],
   ['firstorderextrap',['FirstOrderExtrap',['../namespaceamrex_1_1_extrapolater.html#ad0a63d588f868c546dfbbc818dec9273',1,'amrex::Extrapolater']]],
-  ['flip',['flip',['../classamrex_1_1_index_type.html#adb8420d413bab75b204f08a8d58695e9',1,'amrex::IndexType::flip()'],['../classamrex_1_1_orientation.html#a6a235bf7e7a6fd92b57dc499e2545c18',1,'amrex::Orientation::flip()']]],
+  ['flip',['flip',['../classamrex_1_1_index_type.html#a6a11e79726167e1b5aa9d0186da25954',1,'amrex::IndexType::flip()'],['../classamrex_1_1_orientation.html#a6a235bf7e7a6fd92b57dc499e2545c18',1,'amrex::Orientation::flip()']]],
   ['flushcfinfo',['flushCFinfo',['../classamrex_1_1_fab_array_base.html#a9d3dbb0a351f570080f23f75febd836d',1,'amrex::FabArrayBase']]],
   ['flushcpc',['flushCPC',['../classamrex_1_1_fab_array_base.html#a937cce5d85fb91c1bddad5f9f3c0adc4',1,'amrex::FabArrayBase']]],
   ['flushcpcache',['flushCPCache',['../classamrex_1_1_fab_array_base.html#a3212be804b64d0f051f907c75fbad3d6',1,'amrex::FabArrayBase']]],

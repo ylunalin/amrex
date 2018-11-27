@@ -27,7 +27,7 @@ var searchData=
   ['nitemsperbin',['NItemsPerBin',['../namespaceamrex.html#aaf97cdbc0db387b57d9641d57cce591e',1,'amrex']]],
   ['nodaltilebox',['nodaltilebox',['../classamrex_1_1_m_f_iter.html#a9c69e3a5196ec1466c349566cada2a2b',1,'amrex::MFIter']]],
   ['node',['Node',['../classamrex_1_1_c_arena_1_1_node.html#ab71463467a0a00d4a9dfe983e33f390e',1,'amrex::CArena::Node']]],
-  ['nodecentered',['nodeCentered',['../classamrex_1_1_index_type.html#a2190dd69f6f4c0c97d224863bc4c219a',1,'amrex::IndexType::nodeCentered() const '],['../classamrex_1_1_index_type.html#a81a046fd4bd5c3398982c63471f31f8a',1,'amrex::IndexType::nodeCentered(int dir) const ']]],
+  ['nodecentered',['nodeCentered',['../classamrex_1_1_index_type.html#a72ea91060d3675333fcbf346827ef387',1,'amrex::IndexType::nodeCentered() const '],['../classamrex_1_1_index_type.html#a78a920fcfae4f14f393ace915b8c8ca5',1,'amrex::IndexType::nodeCentered(int dir) const ']]],
   ['nofabheader',['NoFabHeader',['../classamrex_1_1_vis_m_f.html#af7f852d2d1e0656e85e58dcf5ba364b1',1,'amrex::VisMF']]],
   ['nonperiodic',['NonPeriodic',['../classamrex_1_1_periodicity.html#a38c75cba56d022201b4e1970534d5823',1,'amrex::Periodicity']]],
   ['norm',['norm',['../classamrex_1_1_base_fab.html#a60df68f01bc5eae4c30b9145bbc6e0d2',1,'amrex::BaseFab::norm(int p, int scomp=0, int ncomp=1) const '],['../classamrex_1_1_base_fab.html#a0a11df916edd44ec4a2ff3042fbb6d29',1,'amrex::BaseFab::norm(const Box &amp;subbox, int p, int scomp=0, int ncomp=1) const ']]],

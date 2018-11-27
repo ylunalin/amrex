@@ -25,7 +25,7 @@ var searchData=
   ['unnamed',['Unnamed',['../namespaceamrex_1_1_parallel_descriptor.html#ac6df74b4b37bb6ee58dffea68507d259',1,'amrex::ParallelDescriptor']]],
   ['unprotectednextid',['UnprotectedNextID',['../structamrex_1_1_particle.html#a008787d04da5113188a90a704f8f066a',1,'amrex::Particle']]],
   ['unserializestringarray',['UnSerializeStringArray',['../namespaceamrex.html#a23045f55caabc0bec388518c4c4adecb',1,'amrex']]],
-  ['unset',['unset',['../classamrex_1_1_index_type.html#a8d749844c34ed78fdd7767bce46690e7',1,'amrex::IndexType']]],
+  ['unset',['unset',['../classamrex_1_1_index_type.html#a7a433c12809b4a6cb2f83469c4c08ce5',1,'amrex::IndexType']]],
   ['update_5ffab_5fstats',['update_fab_stats',['../namespaceamrex.html#a2d23320cbd486726af914b5bdb5b6d69',1,'amrex::update_fab_stats(long n, long s, size_t szt)'],['../namespaceamrex.html#a2f4b74c08c29c8a404ca762145408f1c',1,'amrex::update_fab_stats(long n, long s, std::size_t szt)']]],
   ['update_5fintersection',['update_intersection',['../classamrex_1_1_l_s_factory.html#ad3b2e8d4113b8f53401740f699392bc8',1,'amrex::LSFactory']]],
   ['update_5funion',['update_union',['../classamrex_1_1_l_s_factory.html#a56a3c53cd24fb95f428b3d0fd497bbc3',1,'amrex::LSFactory']]],
