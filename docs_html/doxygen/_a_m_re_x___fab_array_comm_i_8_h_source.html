@@ -1900,7 +1900,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01810"></a><span class="lineno"> 1810</span>&#160;                    <span class="keyword">auto</span> <span class="keyword">const</span>&amp; cctc = *recv_cctc[k];</div>
 <div class="line"><a name="l01811"></a><span class="lineno"> 1811</span>&#160;                    <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>&amp; tag : cctc)</div>
 <div class="line"><a name="l01812"></a><span class="lineno"> 1812</span>&#160;                    {</div>
-<div class="line"><a name="l01813"></a><span class="lineno"> 1813</span>&#160;                        FAB* dfab = &amp;(<span class="keyword">get</span>(tag.dstIndex));</div>
+<div class="line"><a name="l01813"></a><span class="lineno"> 1813</span>&#160;                        FAB* dfab = &amp;(dstfa[tag.dstIndex]);</div>
 <div class="line"><a name="l01814"></a><span class="lineno"> 1814</span>&#160;                        <span class="keywordflow">if</span> (op == FabArrayBase::COPY)</div>
 <div class="line"><a name="l01815"></a><span class="lineno"> 1815</span>&#160;                        {</div>
 <div class="line"><a name="l01816"></a><span class="lineno"> 1816</span>&#160;                            dfab-&gt;copyFromMem(tag.dbox,dcomp,ncomp,dptr);</div>
