@@ -114,6 +114,8 @@ var searchData=
   ['getmffileinstreams',['GetMFFileInStreams',['../classamrex_1_1_vis_m_f.html#a738d789073dd1072ac3a0c640429574c',1,'amrex::VisMF']]],
   ['getmindigits',['GetMinDigits',['../classamrex_1_1_n_files_iter.html#a3d957684f758d55f7060078a5f49b08f',1,'amrex::NFilesIter']]],
   ['getmultiebcellflagfab',['getMultiEBCellFlagFab',['../classamrex_1_1_e_b_data_collection.html#a76fef0286bf4b518c4e0a03723b182ac',1,'amrex::EBDataCollection::getMultiEBCellFlagFab()'],['../classamrex_1_1_e_b_f_array_box_factory.html#a6f80f3dc8e8d612d2ff36b585087d771',1,'amrex::EBFArrayBoxFactory::getMultiEBCellFlagFab()']]],
+  ['getneighborlist',['GetNeighborList',['../classamrex_1_1_neighbor_particle_container.html#ab57403660719dbda8f2002c09e37a858',1,'amrex::NeighborParticleContainer::GetNeighborList(int lev, int grid, int tile)'],['../classamrex_1_1_neighbor_particle_container.html#ab2a705db9e8bcf7a5be6a7c697421771',1,'amrex::NeighborParticleContainer::GetNeighborList(int lev, int grid, int tile) const ']]],
+  ['getneighbors',['GetNeighbors',['../classamrex_1_1_neighbor_particle_container.html#aa2a2b46f097c98884103c3a7046e64f3',1,'amrex::NeighborParticleContainer::GetNeighbors(int lev, int grid, int tile)'],['../classamrex_1_1_neighbor_particle_container.html#ae7d8a862326a9c892d628a23e1573ce2',1,'amrex::NeighborParticleContainer::GetNeighbors(int lev, int grid, int tile) const ']]],
   ['getnodalboxarray',['getNodalBoxArray',['../classamrex_1_1_amr_level.html#a3c19c93fa3ce20420a484d9280ce2632',1,'amrex::AmrLevel']]],
   ['getnoutfiles',['GetNOutFiles',['../classamrex_1_1_vis_m_f.html#a73b516dcb8729a411f75eaa5d7fc1b54',1,'amrex::VisMF']]],
   ['getnumvofs',['getNumVoFs',['../classamrex_1_1_e_b_cell_flag.html#aa2a549c0477d3dec2e236847e8b416a3',1,'amrex::EBCellFlag']]],
@@ -167,8 +169,8 @@ var searchData=
   ['globalblockid',['globalBlockId',['../structamrex_1_1_cuda_1_1_grid_size.html#af40d27208ced351b08696bbaca3ec3e7',1,'amrex::Cuda::GridSize']]],
   ['gotonextline',['GotoNextLine',['../classamrex_1_1_l_s_core_base.html#a52d93140b73361a60846a4827cea4d43',1,'amrex::LSCoreBase']]],
   ['gpuarray',['GpuArray',['../namespaceamrex.html#a317082290117984ef29e149750e2c7a8',1,'amrex']]],
-  ['gpubndryfuncfab',['GpuBndryFuncFab',['../classamrex_1_1_gpu_bndry_func_fab.html#a62075f3a31adb0b72fa9c09d17ee7e5a',1,'amrex::GpuBndryFuncFab::GpuBndryFuncFab()=default'],['../classamrex_1_1_gpu_bndry_func_fab.html#aea0999bc3f58f248b8ebab6da8148478',1,'amrex::GpuBndryFuncFab::GpuBndryFuncFab(F a_f)']]],
   ['gpubndryfuncfab',['GpuBndryFuncFab',['../classamrex_1_1_gpu_bndry_func_fab.html',1,'amrex']]],
+  ['gpubndryfuncfab',['GpuBndryFuncFab',['../classamrex_1_1_gpu_bndry_func_fab.html#a62075f3a31adb0b72fa9c09d17ee7e5a',1,'amrex::GpuBndryFuncFab::GpuBndryFuncFab()=default'],['../classamrex_1_1_gpu_bndry_func_fab.html#aea0999bc3f58f248b8ebab6da8148478',1,'amrex::GpuBndryFuncFab::GpuBndryFuncFab(F a_f)']]],
   ['graph',['Graph',['../namespaceamrex_1_1_e_b2.html#a0838e8d3d2f11703bb21ebb6bddbb1b1',1,'amrex::EB2']]],
   ['grid_5feff',['grid_eff',['../classamrex_1_1_amr_mesh.html#ae75a2551575e5fd697ab4dc8754541ad',1,'amrex::AmrMesh']]],
   ['grid_5fplaces',['grid_places',['../classamrex_1_1_amr.html#a90155667257e3c51890f716ade65c5e7',1,'amrex::Amr']]],
@@ -191,6 +193,6 @@ var searchData=
   ['growperiodicdomain',['growPeriodicDomain',['../classamrex_1_1_geometry.html#aaf24865f29323c8118e04574b0bc822d',1,'amrex::Geometry']]],
   ['gshoplevel',['GShopLevel',['../classamrex_1_1_e_b2_1_1_g_shop_level.html',1,'amrex::EB2']]],
   ['gshoplevel',['GShopLevel',['../classamrex_1_1_e_b2_1_1_g_shop_level.html#a241ee617ade093d9c8eaba7961e65d04',1,'amrex::EB2::GShopLevel::GShopLevel(IndexSpace const *is, G const &amp;gshop, const Geometry &amp;geom, int max_grid_size, int ngrow)'],['../classamrex_1_1_e_b2_1_1_g_shop_level.html#a4c79b3b07e6bd33f132fa7030dd7d5ca',1,'amrex::EB2::GShopLevel::GShopLevel(IndexSpace const *is, int ilev, int max_grid_size, int ngrow, const Geometry &amp;geom, GShopLevel&lt; G &gt; &amp;fineLevel)']]],
-  ['gshoplsfactory',['GShopLSFactory',['../classamrex_1_1_g_shop_l_s_factory.html',1,'amrex']]],
-  ['gshoplsfactory',['GShopLSFactory',['../classamrex_1_1_g_shop_l_s_factory.html#a8ad6e23c9b3c8fa1e3aed913ece7eaa8',1,'amrex::GShopLSFactory']]]
+  ['gshoplsfactory',['GShopLSFactory',['../classamrex_1_1_g_shop_l_s_factory.html#a8ad6e23c9b3c8fa1e3aed913ece7eaa8',1,'amrex::GShopLSFactory']]],
+  ['gshoplsfactory',['GShopLSFactory',['../classamrex_1_1_g_shop_l_s_factory.html',1,'amrex']]]
 ];
