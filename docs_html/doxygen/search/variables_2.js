@@ -23,7 +23,7 @@ var searchData=
   ['communicate_5freal_5fcomp',['communicate_real_comp',['../classamrex_1_1_particle_container.html#ab9f454ac348d292cb7834eb189d45f76',1,'amrex::ParticleContainer']]],
   ['compare_5fwith_5fch_5feb',['compare_with_ch_eb',['../namespaceamrex_1_1_e_b2.html#af9f8eda7d77f8705392a61722d28737f',1,'amrex::EB2']]],
   ['compute_5fnew_5fdt_5fon_5fregrid',['compute_new_dt_on_regrid',['../namespaceamrex.html#a3effddc12a2d9eb3c02491feacfd59c4',1,'amrex']]],
-  ['coord_5ftype',['coord_type',['../_a_m_re_x___multi_fab_util___f_8_h.html#a63e1674d943c5df695b5e07fc53168bb',1,'AMReX_MultiFabUtil_F.H']]],
+  ['coord',['coord',['../structamrex_1_1_geometry_data.html#a68d36ab01dbd0848e0f3e43ef59b74cb',1,'amrex::GeometryData']]],
   ['copyfromindex',['copyFromIndex',['../structamrex_1_1_fab_copy_descriptor.html#a339ecf32165d5528efe85cd26bdcb9ff',1,'amrex::FabCopyDescriptor']]],
   ['copyfromproc',['copyFromProc',['../structamrex_1_1_fab_copy_descriptor.html#aee8abd3f91100c694b40a498142c1891',1,'amrex::FabCopyDescriptor']]],
   ['countprepost',['countPrePost',['../classamrex_1_1_particle_container.html#a20f76f3abbc086a48f21791a386aaf8a',1,'amrex::ParticleContainer']]],

@@ -102,6 +102,6 @@ var searchData=
   ['dumpnames',['dumpNames',['../classamrex_1_1_state_descriptor.html#a50c0aa090e4cf73ef8e8c57dda6b8929',1,'amrex::StateDescriptor']]],
   ['dumptable',['dumpTable',['../classamrex_1_1_parm_parse.html#ad5376a2e65027c356b38efbef3180c28',1,'amrex::ParmParse']]],
   ['duplicate',['duplicate',['../classamrex_1_1_fork_join.html#a72de18d1d16fadce31b830834ffff282a24f1b0a79473250c195c7fb84e393392',1,'amrex::ForkJoin']]],
-  ['dx',['dx',['../classamrex_1_1_coord_sys.html#a178c38de0cae8e587e4c34541db7f45b',1,'amrex::CoordSys::dx()'],['../structamrex_1_1_geometry_data.html#a6ae1008fee5d826e469209d098776573',1,'amrex::GeometryData::dx()'],['../_a_m_re_x___multi_fab_util___f_8_h.html#ad5fa46517dd383f09a279b8446fc397b',1,'dx():&#160;AMReX_MultiFabUtil_F.H']]],
+  ['dx',['dx',['../classamrex_1_1_coord_sys.html#a178c38de0cae8e587e4c34541db7f45b',1,'amrex::CoordSys::dx()'],['../structamrex_1_1_geometry_data.html#a6ae1008fee5d826e469209d098776573',1,'amrex::GeometryData::dx()']]],
   ['dynamic',['dynamic',['../structamrex_1_1_m_f_it_info.html#af8c9a28c98c151eb32f0352334376536',1,'amrex::MFItInfo::dynamic()'],['../classamrex_1_1_m_f_iter.html#a16fa2d144bcc71d665056de5938c4b32',1,'amrex::MFIter::dynamic()']]]
 ];
