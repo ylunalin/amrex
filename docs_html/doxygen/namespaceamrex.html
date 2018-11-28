@@ -1123,6 +1123,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a6ca286511a003d2770dba9c37ab53c94"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a6ca286511a003d2770dba9c37ab53c94">ToMultiFab</a> (const <a class="el" href="classamrex_1_1i_multi_fab.html">iMultiFab</a> &amp;imf)</td></tr>
 <tr class="memdesc:a6ca286511a003d2770dba9c37ab53c94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert <a class="el" href="classamrex_1_1i_multi_fab.html">iMultiFab</a> to <a class="el" href="classamrex_1_1_multi_fab.html" title="A collection (stored as an array) of FArrayBox objects. This class is useful for storing floating poi...">MultiFab</a>.  <a href="#a6ca286511a003d2770dba9c37ab53c94">More...</a><br/></td></tr>
 <tr class="separator:a6ca286511a003d2770dba9c37ab53c94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e1e9cb035ab3904dac7c511d1f63325"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_fab_array.html">FabArray</a>&lt; <a class="el" href="classamrex_1_1_base_fab.html">BaseFab</a>&lt; long &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a4e1e9cb035ab3904dac7c511d1f63325">ToLongMultiFab</a> (const <a class="el" href="classamrex_1_1i_multi_fab.html">iMultiFab</a> &amp;imf)</td></tr>
+<tr class="memdesc:a4e1e9cb035ab3904dac7c511d1f63325"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert <a class="el" href="classamrex_1_1i_multi_fab.html">iMultiFab</a> to long.  <a href="#a4e1e9cb035ab3904dac7c511d1f63325">More...</a><br/></td></tr>
+<tr class="separator:a4e1e9cb035ab3904dac7c511d1f63325"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a836bc84e72369e2bdfb7cfe4d1d38ed0"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a836bc84e72369e2bdfb7cfe4d1d38ed0">get_slice_data</a> (int dir, Real coord, const <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;cc, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;geom, int fstart, int <a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>, bool interpolate=false)</td></tr>
 <tr class="memdesc:a836bc84e72369e2bdfb7cfe4d1d38ed0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract a slice from the given cell-centered <a class="el" href="classamrex_1_1_multi_fab.html" title="A collection (stored as an array) of FArrayBox objects. This class is useful for storing floating poi...">MultiFab</a> at coordinate "coord" along direction "dir".  <a href="#a836bc84e72369e2bdfb7cfe4d1d38ed0">More...</a><br/></td></tr>
 <tr class="separator:a836bc84e72369e2bdfb7cfe4d1d38ed0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1154,6 +1157,8 @@ Functions</h2></td></tr>
 <tr class="separator:a792619504d0ae8a0ae86723869c370e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83f373d082300f2f69e4e37f2e11fe96"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a83f373d082300f2f69e4e37f2e11fe96">amrex_int_to_real</a> (<a class="el" href="classamrex_1_1_box.html">Box</a> const &amp;bx, <a class="el" href="classamrex_1_1_f_array_box.html">FArrayBox</a> &amp;rfab, <a class="el" href="classamrex_1_1_i_array_box.html">IArrayBox</a> const &amp;ifab, int rcomp, int icomp, int <a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>)</td></tr>
 <tr class="separator:a83f373d082300f2f69e4e37f2e11fe96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a329db19fa548a95dd39d04e764eb4bcc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a329db19fa548a95dd39d04e764eb4bcc">amrex_int_to_long</a> (<a class="el" href="classamrex_1_1_box.html">Box</a> const &amp;bx, <a class="el" href="classamrex_1_1_base_fab.html">BaseFab</a>&lt; long &gt; &amp;rfab, <a class="el" href="classamrex_1_1_i_array_box.html">IArrayBox</a> const &amp;ifab, int rcomp, int icomp, int <a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>)</td></tr>
+<tr class="separator:a329db19fa548a95dd39d04e764eb4bcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb2d78f47ea5994f10113d82b65acef4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#afb2d78f47ea5994f10113d82b65acef4">amrex_fill_slice_interp</a> (<a class="el" href="classamrex_1_1_box.html">Box</a> const &amp;bx, <a class="el" href="classamrex_1_1_f_array_box.html">FArrayBox</a> &amp;slicefab, <a class="el" href="classamrex_1_1_f_array_box.html">FArrayBox</a> const &amp;fullfab, int scomp, int fcomp, int <a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#ae7f492c36edb37372dc71617ff955fc7">ncomp</a>, int dir, Real coord, <a class="el" href="structamrex_1_1_geometry_data.html">GeometryData</a> const &amp;gd)</td></tr>
 <tr class="separator:afb2d78f47ea5994f10113d82b65acef4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa672cac60990918cdcb2aea35f63e4ae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#aa672cac60990918cdcb2aea35f63e4ae">amrex_avg_eg_to_cc</a> (<a class="el" href="classamrex_1_1_box.html">Box</a> const &amp;bx, <a class="el" href="classamrex_1_1_f_array_box.html">FArrayBox</a> &amp;ccfab, AMREX_D_DECL(<a class="el" href="classamrex_1_1_f_array_box.html">FArrayBox</a> const &amp;exfab, <a class="el" href="classamrex_1_1_f_array_box.html">FArrayBox</a> const &amp;eyfab, <a class="el" href="classamrex_1_1_f_array_box.html">FArrayBox</a> const &amp;ezfab), int cccomp)</td></tr>
@@ -2686,44 +2691,6 @@ template&lt;class T , std::size_t N&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="aa672cac60990918cdcb2aea35f63e4ae"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> void amrex::amrex_avg_eg_to_cc </td>
-          <td>(</td>
-          <td class="paramtype">Box const &amp;&#160;</td>
-          <td class="paramname"><em>bx</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">FArrayBox &amp;&#160;</td>
-          <td class="paramname"><em>ccfab</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="_a_m_re_x___particle_container_i_8_h.html#ab1c311773815d6a8c0a99f307bca90a7">AMREX_D_DECL</a>(FArrayBox const &amp;exfab, FArrayBox const &amp;eyfab, FArrayBox const &amp;ezfab)&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>cccomp</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="a6a388b93617c3080d326109d2711f2db"></a>
 <div class="memitem">
 <div class="memproto">
@@ -2757,6 +2724,44 @@ template&lt;class T , std::size_t N&gt; </div>
           <td></td>
           <td class="paramtype">FArrayBox const &amp;&#160;</td>
           <td class="paramname"><em>ezfab</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>cccomp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa672cac60990918cdcb2aea35f63e4ae"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> void amrex::amrex_avg_eg_to_cc </td>
+          <td>(</td>
+          <td class="paramtype">Box const &amp;&#160;</td>
+          <td class="paramname"><em>bx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FArrayBox &amp;&#160;</td>
+          <td class="paramname"><em>ccfab</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_a_m_re_x___particle_container_i_8_h.html#ab1c311773815d6a8c0a99f307bca90a7">AMREX_D_DECL</a>(FArrayBox const &amp;exfab, FArrayBox const &amp;eyfab, FArrayBox const &amp;ezfab)&#160;</td>
+          <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -3075,6 +3080,56 @@ template&lt;class T , std::size_t N&gt; </div>
           <td></td>
           <td class="paramtype">GeometryData const &amp;&#160;</td>
           <td class="paramname"><em>gd</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a329db19fa548a95dd39d04e764eb4bcc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> void amrex::amrex_int_to_long </td>
+          <td>(</td>
+          <td class="paramtype">Box const &amp;&#160;</td>
+          <td class="paramname"><em>bx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">BaseFab&lt; long &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rfab</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IArrayBox const &amp;&#160;</td>
+          <td class="paramname"><em>ifab</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>rcomp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>icomp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ncomp</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -9624,34 +9679,6 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="ac38f92b345723f71defea15e208ee644"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::ostream &amp; amrex::operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>os</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Orientation &amp;&#160;</td>
-          <td class="paramname"><em>o</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Write to an ostream in ASCII format. </p>
-
-</div>
-</div>
 <a class="anchor" id="a73fb53c873d555a7a3cc7b33e88a5f33"></a>
 <div class="memitem">
 <div class="memproto">
@@ -9677,6 +9704,34 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>Write an <a class="el" href="classamrex_1_1_index_type.html" title="Cell-Based or Node-Based Indices. ">IndexType</a> to an ostream in ASCII. </p>
+
+</div>
+</div>
+<a class="anchor" id="ac38f92b345723f71defea15e208ee644"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream &amp; amrex::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Orientation &amp;&#160;</td>
+          <td class="paramname"><em>o</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Write to an ostream in ASCII format. </p>
 
 </div>
 </div>
@@ -9890,6 +9945,32 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="a99b5e66ea694e5ca5a50ee2c335e8678"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream &amp; amrex::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const ParmParse::PP_entry &amp;&#160;</td>
+          <td class="paramname"><em>pp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="af58b88f2bf12a834f4885dcf327fbeba"></a>
 <div class="memitem">
 <div class="memproto">
@@ -9915,32 +9996,6 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>Write a FabOnDisk to an ostream in ASCII. </p>
-
-</div>
-</div>
-<a class="anchor" id="a99b5e66ea694e5ca5a50ee2c335e8678"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::ostream &amp; amrex::operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>os</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const ParmParse::PP_entry &amp;&#160;</td>
-          <td class="paramname"><em>pp</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
 
 </div>
 </div>
@@ -12944,6 +12999,24 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>Splits "instr" into separate pieces based on "separators". </p>
+
+</div>
+</div>
+<a class="anchor" id="a4e1e9cb035ab3904dac7c511d1f63325"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classamrex_1_1_fab_array.html">FabArray</a>&lt; <a class="el" href="classamrex_1_1_base_fab.html">BaseFab</a>&lt; long &gt; &gt; amrex::ToLongMultiFab </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1i_multi_fab.html">iMultiFab</a> &amp;&#160;</td>
+          <td class="paramname"><em>imf</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convert <a class="el" href="classamrex_1_1i_multi_fab.html">iMultiFab</a> to long. </p>
 
 </div>
 </div>
