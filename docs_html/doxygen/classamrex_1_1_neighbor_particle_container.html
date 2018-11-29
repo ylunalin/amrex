@@ -156,6 +156,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aec6aa68d7cccf38bf8f2ece89e2e47ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee22d011a8f857aed34e87c077080b96"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_neighbor_particle_container.html#aee22d011a8f857aed34e87c077080b96">NeighborParticleContainer</a> (const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;geom, const <a class="el" href="classamrex_1_1_distribution_mapping.html">DistributionMapping</a> &amp;dmap, const <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> &amp;ba, int nneighbor)</td></tr>
 <tr class="separator:aee22d011a8f857aed34e87c077080b96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41dfa9de47f0e68d1eebecd862aeedbe"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_neighbor_particle_container.html#a41dfa9de47f0e68d1eebecd862aeedbe">NeighborParticleContainer</a> (const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &gt; &amp;geom, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_distribution_mapping.html">DistributionMapping</a> &gt; &amp;dmap, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> &gt; &amp;ba, const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; int &gt; &amp;rr, int nneighbor)</td></tr>
+<tr class="separator:a41dfa9de47f0e68d1eebecd862aeedbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adbf6915c6877b366e0bda3e6f268eb30"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_neighbor_particle_container.html#adbf6915c6877b366e0bda3e6f268eb30">Regrid</a> (const <a class="el" href="classamrex_1_1_distribution_mapping.html">DistributionMapping</a> &amp;dmap, const <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> &amp;ba)</td></tr>
 <tr class="separator:adbf6915c6877b366e0bda3e6f268eb30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee1b7c1708cd7d226db64b05d590d1fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_neighbor_particle_container.html#aee1b7c1708cd7d226db64b05d590d1fd">Regrid</a> (const <a class="el" href="classamrex_1_1_distribution_mapping.html">DistributionMapping</a> &amp;dmap, const <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> &amp;ba, const int lev)</td></tr>
@@ -649,6 +651,52 @@ template&lt;int NStructReal, int NStructInt&gt; </div>
           <td></td>
           <td class="paramtype">const <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> &amp;&#160;</td>
           <td class="paramname"><em>ba</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nneighbor</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a41dfa9de47f0e68d1eebecd862aeedbe"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int NStructReal, int NStructInt&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classamrex_1_1_neighbor_particle_container.html">amrex::NeighborParticleContainer</a>&lt; NStructReal, NStructInt &gt;::<a class="el" href="classamrex_1_1_neighbor_particle_container.html">NeighborParticleContainer</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>geom</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_distribution_mapping.html">DistributionMapping</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>dmap</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>ba</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rr</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>

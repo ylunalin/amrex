@@ -5,7 +5,6 @@ var searchData=
   ['union_5febf',['union_ebf',['../classamrex_1_1_l_s_factory.html#a8112b1f03db1ce9c1db4f4af70c1b800',1,'amrex::LSFactory']]],
   ['union_5fimpfunc',['union_impfunc',['../classamrex_1_1_l_s_factory.html#a4000a44d80e00c5342e8822c299b84b6',1,'amrex::LSFactory']]],
   ['uniqify',['uniqify',['../classamrex_1_1_box_array.html#ae3fba31af025b800aef97da09bc4113c',1,'amrex::BoxArray']]],
-  ['uniqueindex',['uniqueIndex',['../classamrex_1_1_m_f_iter.html#aebdbdb75152259a8dc33a976697e76e9',1,'amrex::MFIter']]],
   ['uniquerandomsubset',['UniqueRandomSubset',['../namespaceamrex.html#aa2c1209819cd8dd79499c2b9f088120e',1,'amrex']]],
   ['uniquestring',['UniqueString',['../namespaceamrex.html#aebee05e08302fb03e29f4270e933239c',1,'amrex']]],
   ['unit_5fadvance',['unit_advance',['../classamrex__io__module.html#aac1da49324f1aed83f2bd024ec43aa5e',1,'amrex_io_module']]],
