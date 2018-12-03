@@ -26,7 +26,7 @@ var searchData=
   ['updatedevice',['updateDevice',['../structamrex_1_1_cuda_1_1_managed_data.html#a9d67bc64e67301d06c465e3ec852dc83',1,'amrex::Cuda::ManagedData']]],
   ['updatedistributionmaps',['UpdateDistributionMaps',['../classamrex_1_1_amr_level.html#a69fdf4e347142373696281d9269c6799',1,'amrex::AmrLevel']]],
   ['updateinsitu',['updateInSitu',['../classamrex_1_1_amr.html#a8a6cfcdb14e8d28779382ac6406ab2ca',1,'amrex::Amr']]],
-  ['updateneighbors',['updateNeighbors',['../classamrex_1_1_neighbor_particle_container.html#a274184b09d00fe3f83676b4cb1fa9900',1,'amrex::NeighborParticleContainer']]],
+  ['updateneighbors',['updateNeighbors',['../classamrex_1_1_neighbor_particle_container.html#a8a376cb2270fcaff181f9792f2932f6e',1,'amrex::NeighborParticleContainer']]],
   ['upperindex',['UpperIndex',['../classamrex_1_1_coord_sys.html#a963f59d99a41920b77dc7464f15b09bd',1,'amrex::CoordSys']]],
   ['useeb2',['useEB2',['../namespaceamrex_1_1_e_b2.html#ad7f55d0b557cb48b84323df22a77d9d0',1,'amrex::EB2']]],
   ['usefixedcoarsegrids',['useFixedCoarseGrids',['../classamrex_1_1_amr_mesh.html#ae2cad7cb8252ec6d3512afc904a9e7e9',1,'amrex::AmrMesh']]],

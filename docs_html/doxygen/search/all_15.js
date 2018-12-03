@@ -33,7 +33,7 @@ var searchData=
   ['updatedevice',['updateDevice',['../structamrex_1_1_cuda_1_1_managed_data.html#a9d67bc64e67301d06c465e3ec852dc83',1,'amrex::Cuda::ManagedData']]],
   ['updatedistributionmaps',['UpdateDistributionMaps',['../classamrex_1_1_amr_level.html#a69fdf4e347142373696281d9269c6799',1,'amrex::AmrLevel']]],
   ['updateinsitu',['updateInSitu',['../classamrex_1_1_amr.html#a8a6cfcdb14e8d28779382ac6406ab2ca',1,'amrex::Amr']]],
-  ['updateneighbors',['updateNeighbors',['../classamrex_1_1_neighbor_particle_container.html#a274184b09d00fe3f83676b4cb1fa9900',1,'amrex::NeighborParticleContainer']]],
+  ['updateneighbors',['updateNeighbors',['../classamrex_1_1_neighbor_particle_container.html#a8a376cb2270fcaff181f9792f2932f6e',1,'amrex::NeighborParticleContainer']]],
   ['upperindex',['UpperIndex',['../classamrex_1_1_coord_sys.html#a963f59d99a41920b77dc7464f15b09bd',1,'amrex::CoordSys']]],
   ['use_5fcuda_5faware_5fmpi',['use_cuda_aware_mpi',['../classamrex_1_1_fab_array_base.html#a709c4d64804e1af085473471216bcc41',1,'amrex::FabArrayBase']]],
   ['use_5fefficient_5fregrid',['use_efficient_regrid',['../namespaceamrex.html#af1ff4a567f8d0cdc485062507aac9742',1,'amrex']]],

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['cacheneighborinfo',['cacheNeighborInfo',['../classamrex_1_1_neighbor_particle_container.html#a06cc902ba86e3cd428260a699b372885',1,'amrex::NeighborParticleContainer']]],
+  ['cacheneighborinfo',['cacheNeighborInfo',['../classamrex_1_1_neighbor_particle_container.html#a497db0eca21eb270f545e60f034aeb6a',1,'amrex::NeighborParticleContainer']]],
   ['cachestats',['CacheStats',['../structamrex_1_1_fab_array_base_1_1_cache_stats.html#a133fda6931b3c51c21e4328a0f1580cf',1,'amrex::FabArrayBase::CacheStats']]],
   ['calc_5ffacet_5fedge',['calc_facet_edge',['../classamrex__eb__geometry__module.html#ab12c44201cf38143f032d3793d8f038b',1,'amrex_eb_geometry_module']]],
   ['calccommsize',['calcCommSize',['../classamrex_1_1_neighbor_particle_container.html#a9fea3b7765226c9483a81c772e3cfcd0',1,'amrex::NeighborParticleContainer']]],
@@ -52,7 +52,7 @@ var searchData=
   ['clearfabarrayheadernames',['ClearFabArrayHeaderNames',['../classamrex_1_1_state_data.html#ad627f2819f507158b90f5f2570b1d182',1,'amrex::StateData']]],
   ['clearinternalborders',['ClearInternalBorders',['../classamrex_1_1_flux_register.html#ab1a936eb5769156da6cb7d2dac23b4d3',1,'amrex::FluxRegister']]],
   ['clearlevel',['ClearLevel',['../classamrex_1_1_amr.html#aa6eb6fb4a1f7526f03d3e87bc8d8f240',1,'amrex::Amr::ClearLevel()'],['../classamrex_1_1_amr_core.html#a26c39ed62cd9f3383f3936f1fcdb65b3',1,'amrex::AmrCore::ClearLevel()'],['../classamrex_1_1_l_s_core.html#adbe3f83c44927912f413aff8c03c3671',1,'amrex::LSCore::ClearLevel()'],['../classamrex_1_1_l_s_core_base.html#aabe20a1818e92d5a4e976a07be8fec4e',1,'amrex::LSCoreBase::ClearLevel()']]],
-  ['clearneighbors',['clearNeighbors',['../classamrex_1_1_neighbor_particle_container.html#ad0c5dbf474effadf3759270b6766d5ef',1,'amrex::NeighborParticleContainer']]],
+  ['clearneighbors',['clearNeighbors',['../classamrex_1_1_neighbor_particle_container.html#a287e510b67bfbb6bd4d500e5281e3329',1,'amrex::NeighborParticleContainer']]],
   ['clearparticleboxarray',['ClearParticleBoxArray',['../classamrex_1_1_amr_par_g_d_b.html#a76c8a601849fe4005080010ce009b5eb',1,'amrex::AmrParGDB::ClearParticleBoxArray()'],['../classamrex_1_1_par_g_d_b_base.html#ad10177b9dd49f6d6366c9b0ce55164e2',1,'amrex::ParGDBBase::ClearParticleBoxArray()'],['../classamrex_1_1_par_g_d_b.html#a0656f7acb43f91674ce45588308925b2',1,'amrex::ParGDB::ClearParticleBoxArray()']]],
   ['clearparticledistributionmap',['ClearParticleDistributionMap',['../classamrex_1_1_amr_par_g_d_b.html#aa94ab21d3a8be444b383d06bd5794bf1',1,'amrex::AmrParGDB::ClearParticleDistributionMap()'],['../classamrex_1_1_par_g_d_b_base.html#a95b12fc3e2198540e1cd7bda9d78053f',1,'amrex::ParGDBBase::ClearParticleDistributionMap()'],['../classamrex_1_1_par_g_d_b.html#ac06e5f474bc58ad864334b847936a252',1,'amrex::ParGDB::ClearParticleDistributionMap()']]],
   ['clearstateplotvarlist',['clearStatePlotVarList',['../classamrex_1_1_amr.html#a369a6509a5b72f33560a79a590de7ca0',1,'amrex::Amr']]],
