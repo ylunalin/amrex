@@ -8,5 +8,6 @@ var searchData=
   ['devicescalar',['DeviceScalar',['../structamrex_1_1_cuda_1_1_device_scalar.html',1,'amrex::Cuda']]],
   ['differenceif',['DifferenceIF',['../classamrex_1_1_e_b2_1_1_difference_i_f.html',1,'amrex::EB2']]],
   ['dim3',['Dim3',['../structamrex_1_1_dim3.html',1,'amrex']]],
+  ['distfcnelement2d',['distFcnElement2d',['../classamrex_1_1dist_fcn_element2d.html',1,'amrex']]],
   ['distributionmapping',['DistributionMapping',['../classamrex_1_1_distribution_mapping.html',1,'amrex']]]
 ];

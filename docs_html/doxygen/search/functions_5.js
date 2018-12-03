@@ -37,6 +37,7 @@ var searchData=
   ['errorstring',['ErrorString',['../namespaceamrex_1_1_parallel_descriptor.html#a568bbd4bb8f719b9c0ba1950c10678ef',1,'amrex::ParallelDescriptor']]],
   ['errtype',['errType',['../classamrex_1_1_error_rec.html#a898ec3d06f5951b29bce3a2f7c01fa27',1,'amrex::ErrorRec']]],
   ['estimatework',['estimateWork',['../classamrex_1_1_amr_level.html#a03b21d394e621b009b473c427b4769d0',1,'amrex::AmrLevel']]],
+  ['eval',['eval',['../classamrex_1_1_spline_dist_fcn_element2d.html#a493cd6a2680c5f51c76ca5cafdc357a3',1,'amrex::SplineDistFcnElement2d']]],
   ['evalreduction',['EvalReduction',['../namespaceamrex_1_1_lazy.html#a0a2dd2d6e19976b8eaebb9d81a65718a',1,'amrex::Lazy']]],
   ['execonfinalize',['ExecOnFinalize',['../namespaceamrex.html#aec8ceac1148bd8331f3a51572068f8a0',1,'amrex']]],
   ['execoninitialize',['ExecOnInitialize',['../namespaceamrex.html#a6911748ceb0d88bf5b6bf7f3f0402e97',1,'amrex']]],

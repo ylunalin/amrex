@@ -11,6 +11,7 @@ var searchData=
   ['vector_3c_20amrex_3a_3abcrec_20_3e',['Vector&lt; amrex::BCRec &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20amrex_3a_3abox_20_3e',['Vector&lt; amrex::Box &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20amrex_3a_3aboxarray_20_3e',['Vector&lt; amrex::BoxArray &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
+  ['vector_3c_20amrex_3a_3adistfcnelement2d_20_2a_20_3e',['Vector&lt; amrex::distFcnElement2d * &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20amrex_3a_3adistributionmapping_20_3e',['Vector&lt; amrex::DistributionMapping &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20amrex_3a_3aeb2_3a_3aedge_20_3e',['Vector&lt; amrex::EB2::Edge &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20amrex_3a_3aeb2_3a_3agshoplevel_3c_20g_20_3e_20_3e',['Vector&lt; amrex::EB2::GShopLevel&lt; G &gt; &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
@@ -65,8 +66,8 @@ var searchData=
   ['vertex',['Vertex',['../structamrex_1_1_e_b2_1_1_vertex.html',1,'amrex::EB2']]],
   ['vertexid',['VertexID',['../namespaceamrex_1_1_e_b2.html#a853647130b0422fbb57870513c44b89b',1,'amrex::EB2']]],
   ['view',['view',['../classamrex_1_1_base_fab.html#adb83a0a0efd9f91065640bffc6602fd3',1,'amrex::BaseFab::view(int n=0) const '],['../classamrex_1_1_base_fab.html#a85450e927863704ad95d9ab6ab13b480',1,'amrex::BaseFab::view(int n=0)'],['../classamrex_1_1_base_fab.html#ae75c0ad8b4862d9fbce715efd30f5005',1,'amrex::BaseFab::view(const IntVect &amp;iv, int n=0) const '],['../classamrex_1_1_base_fab.html#a68b0f0227347810c6b7fedf4501d2cb4',1,'amrex::BaseFab::view(const IntVect &amp;iv, int n=0)'],['../classamrex_1_1_base_fab.html#a6e90de9f8d56481df053d29029df888e',1,'amrex::BaseFab::view(const Box &amp;subbox, int n=0) const '],['../classamrex_1_1_base_fab.html#a3bff54f389fb13d944ad648324ee992d',1,'amrex::BaseFab::view(const Box &amp;subbox, int n=0)'],['../classamrex_1_1_base_fab.html#a3146d1723be65c885c1c4bcf62f3885f',1,'amrex::BaseFab::view(const GpuArray&lt; int, 3 &gt; &amp;slo, int n=0) const '],['../classamrex_1_1_base_fab.html#a282a64425bfd1ae84ae566c3665288b8',1,'amrex::BaseFab::view(const GpuArray&lt; int, 3 &gt; &amp;slo, int n=0)'],['../classamrex_1_1_base_fab.html#aa208e737dbe2096b16238c636e4dbb39',1,'amrex::BaseFab::view(const Dim3 &amp;slo, int n=0) const '],['../classamrex_1_1_base_fab.html#afc531098eeb898ce3a8f2343615dff7c',1,'amrex::BaseFab::view(const Dim3 &amp;slo, int n=0)']]],
-  ['vismf',['VisMF',['../classamrex_1_1_vis_m_f.html#ae372e9dede4ddc3c4c271118812e9b39',1,'amrex::VisMF']]],
   ['vismf',['VisMF',['../classamrex_1_1_vis_m_f.html',1,'amrex']]],
+  ['vismf',['VisMF',['../classamrex_1_1_vis_m_f.html#ae372e9dede4ddc3c4c271118812e9b39',1,'amrex::VisMF']]],
   ['voidcopytag',['VoidCopyTag',['../struct_void_copy_tag.html',1,'']]],
   ['volume',['volume',['../classamrex_1_1_box.html#ad0445d29c5299bd1698cda5155276436',1,'amrex::Box::volume()'],['../classamrex_1_1_real_box.html#a9bce64bfa035f5824c45303e0e47261d',1,'amrex::RealBox::volume()'],['../classamrex_1_1_coord_sys.html#aad6b67f8c4aa070b4099d77aa0155368',1,'amrex::CoordSys::Volume(const IntVect &amp;point) const '],['../classamrex_1_1_coord_sys.html#aeb0f186559f5184778243d196fb71541',1,'amrex::CoordSys::Volume(const Real xlo[AMREX_SPACEDIM], const Real xhi[AMREX_SPACEDIM]) const '],['../namespaceamrex.html#a7de82761ed632e5ee0b9f912c856aebca210ab9e731c9c36c2c38db15c28a8d1c',1,'amrex::volume()']]]
 ];

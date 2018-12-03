@@ -4,6 +4,7 @@ var searchData=
   ['vector_3c_20amrex_3a_3abcrec_20_3e',['Vector&lt; amrex::BCRec &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20amrex_3a_3abox_20_3e',['Vector&lt; amrex::Box &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20amrex_3a_3aboxarray_20_3e',['Vector&lt; amrex::BoxArray &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
+  ['vector_3c_20amrex_3a_3adistfcnelement2d_20_2a_20_3e',['Vector&lt; amrex::distFcnElement2d * &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20amrex_3a_3adistributionmapping_20_3e',['Vector&lt; amrex::DistributionMapping &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20amrex_3a_3aeb2_3a_3aedge_20_3e',['Vector&lt; amrex::EB2::Edge &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20amrex_3a_3aeb2_3a_3agshoplevel_3c_20g_20_3e_20_3e',['Vector&lt; amrex::EB2::GShopLevel&lt; G &gt; &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],

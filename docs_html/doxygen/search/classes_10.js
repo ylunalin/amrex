@@ -4,6 +4,8 @@ var searchData=
   ['shift_5fhasher',['shift_hasher',['../classamrex_1_1_int_vect_1_1shift__hasher.html',1,'amrex::IntVect']]],
   ['shmem',['ShMem',['../structamrex_1_1_fab_array_1_1_sh_mem.html',1,'amrex::FabArray']]],
   ['sphereif',['SphereIF',['../classamrex_1_1_e_b2_1_1_sphere_i_f.html',1,'amrex::EB2']]],
+  ['splinedistfcnelement2d',['SplineDistFcnElement2d',['../classamrex_1_1_spline_dist_fcn_element2d.html',1,'amrex']]],
+  ['splineif',['SplineIF',['../classamrex_1_1_e_b2_1_1_spline_i_f.html',1,'amrex::EB2']]],
   ['statedata',['StateData',['../classamrex_1_1_state_data.html',1,'amrex']]],
   ['statedataphysbcfunct',['StateDataPhysBCFunct',['../classamrex_1_1_state_data_phys_b_c_funct.html',1,'amrex']]],
   ['statedescriptor',['StateDescriptor',['../classamrex_1_1_state_descriptor.html',1,'amrex']]],
