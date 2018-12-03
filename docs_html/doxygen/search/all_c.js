@@ -26,6 +26,7 @@ var searchData=
   ['level_5fbeing_5fadvanced',['level_being_advanced',['../classamrex_1_1_amr.html#a7a981d11295d5da48cb4fdaf7c7addf3',1,'amrex::Amr']]],
   ['level_5fcount',['level_count',['../classamrex_1_1_amr.html#a1a1d9a33774055f267ad5297b2846ecc',1,'amrex::Amr']]],
   ['level_5fset',['level_set',['../classamrex_1_1_l_s_core_base.html#a120eaa256d41fb7834e7cd1e009dc151',1,'amrex::LSCoreBase']]],
+  ['level_5fset_5fvalid',['level_set_valid',['../classamrex_1_1_l_s_core_base.html#ae753489d344207e275cb87c774c9a167',1,'amrex::LSCoreBase']]],
   ['level_5fsteps',['level_steps',['../classamrex_1_1_amr.html#a38fbd17db8a050b5bf3302427b9285ea',1,'amrex::Amr']]],
   ['levelbld',['LevelBld',['../classamrex_1_1_level_bld.html',1,'amrex']]],
   ['levelbld',['levelbld',['../classamrex_1_1_amr.html#a99ffc00c495183894b2ee7e11a79685e',1,'amrex::Amr']]],
@@ -81,7 +82,7 @@ var searchData=
   ['lscore',['LSCore',['../classamrex_1_1_l_s_core.html',1,'amrex']]],
   ['lscorebase',['LSCoreBase',['../classamrex_1_1_l_s_core_base.html#a0c1af368aa2e2d6c9796c76935a26abf',1,'amrex::LSCoreBase::LSCoreBase()'],['../classamrex_1_1_l_s_core_base.html#a60418dd08d5d8a8229db489e3ecbf663',1,'amrex::LSCoreBase::LSCoreBase(const RealBox *rb, int max_level_in, const Vector&lt; int &gt; &amp;n_cell_in, int coord=-1)']]],
   ['lscorebase',['LSCoreBase',['../classamrex_1_1_l_s_core_base.html',1,'amrex']]],
-  ['lsfactory',['LSFactory',['../classamrex_1_1_l_s_factory.html',1,'amrex']]],
   ['lsfactory',['LSFactory',['../classamrex_1_1_l_s_factory.html#a39603def4ceefde1896c82f23e1c8b20',1,'amrex::LSFactory::LSFactory(int lev, int ls_ref, int eb_ref, int ls_pad, int eb_pad, const BoxArray &amp;ba, const Geometry &amp;geom, const DistributionMapping &amp;dm)'],['../classamrex_1_1_l_s_factory.html#ad9ad3dc591ddac2f290c4d86a906edd2',1,'amrex::LSFactory::LSFactory(const LSFactory &amp;other)']]],
+  ['lsfactory',['LSFactory',['../classamrex_1_1_l_s_factory.html',1,'amrex']]],
   ['lsutility',['LSUtility',['../classamrex_1_1_l_s_utility.html',1,'amrex']]]
 ];

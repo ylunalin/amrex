@@ -7,6 +7,7 @@ var searchData=
   ['level',['level',['../classamrex_1_1_amr_level.html#a15535c7cc1f73df2cc3b0b720d8ab5a4',1,'amrex::AmrLevel']]],
   ['level_5fcount',['level_count',['../classamrex_1_1_amr.html#a1a1d9a33774055f267ad5297b2846ecc',1,'amrex::Amr']]],
   ['level_5fset',['level_set',['../classamrex_1_1_l_s_core_base.html#a120eaa256d41fb7834e7cd1e009dc151',1,'amrex::LSCoreBase']]],
+  ['level_5fset_5fvalid',['level_set_valid',['../classamrex_1_1_l_s_core_base.html#ae753489d344207e275cb87c774c9a167',1,'amrex::LSCoreBase']]],
   ['level_5fsteps',['level_steps',['../classamrex_1_1_amr.html#a38fbd17db8a050b5bf3302427b9285ea',1,'amrex::Amr']]],
   ['levelbld',['levelbld',['../classamrex_1_1_amr.html#a99ffc00c495183894b2ee7e11a79685e',1,'amrex::Amr']]],
   ['leveldirectoriescreated',['levelDirectoriesCreated',['../classamrex_1_1_particle_container.html#a03b2c956029810b305eea345617ad6f7',1,'amrex::ParticleContainer']]],

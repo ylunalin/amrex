@@ -10,6 +10,7 @@ var searchData=
   ['vector_3c_20amrex_3a_3aeb2_3a_3apolyterm_20_3e',['Vector&lt; amrex::EB2::PolyTerm &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20amrex_3a_3aforkjoin_3a_3acomponentset_20_3e',['Vector&lt; amrex::ForkJoin::ComponentSet &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20amrex_3a_3ageometry_20_3e',['Vector&lt; amrex::Geometry &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
+  ['vector_3c_20amrex_3a_3aimultifab_20_3e',['Vector&lt; amrex::iMultiFab &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20amrex_3a_3ainterpolater_20_2a_20_3e',['Vector&lt; amrex::Interpolater * &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20amrex_3a_3aintvect_20_3e',['Vector&lt; amrex::IntVect &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20amrex_3a_3amultifab_20_3e',['Vector&lt; amrex::MultiFab &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
