@@ -27,6 +27,7 @@ var searchData=
   ['amrex_5fdevice_5flaunchable_5fstrided',['AMREX_DEVICE_LAUNCHABLE_STRIDED',['../_a_m_re_x___b_l_fort_8_h.html#a084ade7de3577dda5d361184403fa036',1,'AMReX_BLFort.H']]],
   ['amrex_5ffort_5flaunch',['AMREX_FORT_LAUNCH',['../_a_m_re_x___b_l_fort_8_h.html#acfc68d72bfb2c480dc1fcffefb751a42',1,'AMReX_BLFort.H']]],
   ['amrex_5ffort_5flaunchable',['AMREX_FORT_LAUNCHABLE',['../_a_m_re_x___b_l_fort_8_h.html#a6d79db1edf1129dd74b3a38a58e4e312',1,'AMReX_BLFort.H']]],
+  ['amrex_5fget_5fmacro',['AMREX_GET_MACRO',['../_a_m_re_x___gpu_launch_8_h.html#ac8ec1cc313d4dad0d4c5bbe4bae0862a',1,'AMReX_GpuLaunch.H']]],
   ['amrex_5fgpu_5fdevice',['AMREX_GPU_DEVICE',['../_a_m_re_x___gpu_qualifiers_8_h.html#a4e626ebf06898d71a9e0790877f1694f',1,'AMReX_GpuQualifiers.H']]],
   ['amrex_5fgpu_5ferror_5fcheck',['AMREX_GPU_ERROR_CHECK',['../_a_m_re_x___gpu_error_8_h.html#aff2d29ad26ba217734430c3d36f42dd1',1,'AMReX_GpuError.H']]],
   ['amrex_5fgpu_5fglobal',['AMREX_GPU_GLOBAL',['../_a_m_re_x___gpu_qualifiers_8_h.html#a3d3f711243a9a5a973dd44a2174e1529',1,'AMReX_GpuQualifiers.H']]],
@@ -52,5 +53,6 @@ var searchData=
   ['amrex_5fmfiter_5freduce_5fsum',['AMREX_MFITER_REDUCE_SUM',['../_a_m_re_x___b_l_fort_8_h.html#abd353d48d8f6a098cf31f224ed2826f8',1,'AMReX_BLFort.H']]],
   ['amrex_5fpragma_5fsimd',['AMREX_PRAGMA_SIMD',['../_a_m_re_x___extension_8_h.html#a8c414106ab987031039a0ad05bb2519b',1,'AMReX_Extension.H']]],
   ['amrex_5frestrict',['AMREX_RESTRICT',['../_a_m_re_x___extension_8_h.html#a97eafbdde3320b2e8981a1d1d3936f58',1,'AMReX_Extension.H']]],
+  ['amrex_5fwrong_5fnum_5f_5fargs',['AMREX_WRONG_NUM__ARGS',['../_a_m_re_x___gpu_launch_8_h.html#af60b25f402a4c205939f78352069b8ed',1,'AMReX_GpuLaunch.H']]],
   ['arlim_5fp',['ARLIM_P',['../_a_m_re_x___array_lim_8_h.html#a60a7ca6e338f0cb094a09b4eb21d97c8',1,'AMReX_ArrayLim.H']]]
 ];

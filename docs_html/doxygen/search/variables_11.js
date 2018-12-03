@@ -1,7 +1,6 @@
 var searchData=
 [
   ['ranktoread',['rankToRead',['../structamrex_1_1_vis_m_f_1_1_fab_read_link.html#a6064cc4034c3d95989892cac82c68fea',1,'amrex::VisMF::FabReadLink']]],
-  ['ratio',['ratio',['../_a_m_re_x___multi_fab_util___f_8_h.html#a3a6ea573223fb7730509e32b93601c15',1,'AMReX_MultiFabUtil_F.H']]],
   ['rc',['rc',['../classamrex_1_1_neighbor_particle_container.html#acd7839ccee6f7b170fed84bc50d15a1f',1,'amrex::NeighborParticleContainer']]],
   ['rcvs',['rcvs',['../classamrex_1_1_neighbor_particle_container.html#ae5be3724b0998c84cf7268a6a20ca2a4',1,'amrex::NeighborParticleContainer']]],
   ['real_5farray_5fdata',['real_array_data',['../structamrex_1_1_particle_init_type.html#a96a2835e24e73f8f83bac5d4b898ab1a',1,'amrex::ParticleInitType']]],

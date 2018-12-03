@@ -8,8 +8,6 @@ var searchData=
   ['ordering',['ordering',['../classamrex_1_1_f_array_box.html#a9dd03f8360cfc2cfdf803298308f53dd',1,'amrex::FArrayBox']]],
   ['oserr',['oserr',['../namespaceamrex_1_1system.html#a7ad609f085f43ffe0ff1bce4d12efb8f',1,'amrex::system']]],
   ['osout',['osout',['../namespaceamrex_1_1system.html#a1a68bc2cdaf82ef2e9fa229a3ca8c978',1,'amrex::system']]],
-  ['ovlp_5fhi',['ovlp_hi',['../_a_m_re_x___multi_fab_util___f_8_h.html#a9ea947a508c6b3101402a9ea8e0d89cc',1,'AMReX_MultiFabUtil_F.H']]],
-  ['ovlp_5flo',['ovlp_lo',['../_a_m_re_x___multi_fab_util___f_8_h.html#a2682c09f21867cd6f5304887d09a7203',1,'AMReX_MultiFabUtil_F.H']]],
   ['owner',['owner',['../structamrex__parmparse__module_1_1amrex__parmparse.html#ab9c4e4255bdd7cbfe4e9decb095d1bcc',1,'amrex_parmparse_module::amrex_parmparse']]],
   ['ownership',['ownership',['../classamrex_1_1_fab_array_base.html#ab4d5df57a6eaa1d785d131b059b43e18',1,'amrex::FabArrayBase']]]
 ];

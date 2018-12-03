@@ -93,11 +93,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
-<tr class="memitem:a510d793e9c880d72616ced3c67adc86c"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_m_re_x___k_d_tree__1d_8_f90.html#a510d793e9c880d72616ced3c67adc86c">amrex_compute_best_partition</a> (cost, clo, chi, <a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a54267e9174e171df90d3594f0c32e114">lo</a>, <a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a6569fdcb051e8fff2ef4c57db6f9c642">hi</a>, total_cost, dir, cost_left, cost_right, split)</td></tr>
+<tr class="memitem:a510d793e9c880d72616ced3c67adc86c"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_m_re_x___k_d_tree__1d_8_f90.html#a510d793e9c880d72616ced3c67adc86c">amrex_compute_best_partition</a> (cost, clo, chi, lo, hi, total_cost, dir, cost_left, cost_right, split)</td></tr>
 <tr class="separator:a510d793e9c880d72616ced3c67adc86c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe5b385a9500bd7565df84587fd32a47"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_m_re_x___k_d_tree__1d_8_f90.html#abe5b385a9500bd7565df84587fd32a47">amrex_compute_cost</a> (pcounts, cost, <a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a54267e9174e171df90d3594f0c32e114">lo</a>, <a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a6569fdcb051e8fff2ef4c57db6f9c642">hi</a>, cell_weight)</td></tr>
+<tr class="memitem:abe5b385a9500bd7565df84587fd32a47"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_m_re_x___k_d_tree__1d_8_f90.html#abe5b385a9500bd7565df84587fd32a47">amrex_compute_cost</a> (pcounts, cost, lo, hi, cell_weight)</td></tr>
 <tr class="separator:abe5b385a9500bd7565df84587fd32a47"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa1864b949cf8b4101c269d75394dfcc7"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_m_re_x___k_d_tree__1d_8_f90.html#aa1864b949cf8b4101c269d75394dfcc7">amrex_set_box_cost</a> (cost, clo, chi, <a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a54267e9174e171df90d3594f0c32e114">lo</a>, <a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a6569fdcb051e8fff2ef4c57db6f9c642">hi</a>, box_cost)</td></tr>
+<tr class="memitem:aa1864b949cf8b4101c269d75394dfcc7"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_m_re_x___k_d_tree__1d_8_f90.html#aa1864b949cf8b4101c269d75394dfcc7">amrex_set_box_cost</a> (cost, clo, chi, lo, hi, box_cost)</td></tr>
 <tr class="separator:aa1864b949cf8b4101c269d75394dfcc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function/Subroutine Documentation</h2>
@@ -182,13 +182,13 @@ Functions/Subroutines</h2></td></tr>
         <tr>
           <td class="memname">subroutine amrex_compute_cost </td>
           <td>(</td>
-          <td class="paramtype">real(<a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a>), dimension(<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a54267e9174e171df90d3594f0c32e114">lo</a>(1):<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a6569fdcb051e8fff2ef4c57db6f9c642">hi</a>(1))&#160;</td>
+          <td class="paramtype">real(<a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a>), dimension(lo(1):hi(1))&#160;</td>
           <td class="paramname"><em>pcounts</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a>), dimension(<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a54267e9174e171df90d3594f0c32e114">lo</a>(1):<a class="el" href="_a_m_re_x___multi_fab_util___f_8_h.html#a6569fdcb051e8fff2ef4c57db6f9c642">hi</a>(1))&#160;</td>
+          <td class="paramtype">real(<a class="el" href="_a_m_re_x___r_e_a_l_8_h.html#a9c34e09baf6d4d1b12637402203f9e9e">amrex_real</a>), dimension(lo(1):hi(1))&#160;</td>
           <td class="paramname"><em>cost</em>, </td>
         </tr>
         <tr>
