@@ -29,7 +29,7 @@
   <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="I/O (Plotfile, Checkpoint)" href="Chapter6a.html" />
+    <link rel="next" title="FillPatch Iterator" href="AsyncIter.html" />
     <link rel="prev" title="Amr Class" href="AmrLevel.html" /> 
 
   
@@ -91,7 +91,9 @@
 <li class="toctree-l1"><a class="reference internal" href="Chapter4.html">Basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Chapter5.html">AmrCore Source Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Chapter6.html">Amr Source Code</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Amr Task</a><ul class="simple">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Amr Task</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="AsyncIter.html">FillPatch Iterator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AsyncIter.html#regiongraph-iterator">RegionGraph Iterator</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Chapter6a.html">I/O (Plotfile, Checkpoint)</a></li>
@@ -168,19 +170,15 @@
            <div itemprop="articleBody">
             
   <div class="section" id="amr-task">
-<span id="chap-amrtask"></span><h1>Amr Task<a class="headerlink" href="#amr-task" title="Permalink to this headline">¶</a></h1>
+<span id="chap-asynciter"></span><h1>Amr Task<a class="headerlink" href="#amr-task" title="Permalink to this headline">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">amrex/Src/AmrTask</span></code> implements a runtime system that can execute the workload within each coarse time step in an asynchronous fashion, thereby overlapping communication with computation.
 The runtime is defined in class RTS, which is a black box to the application developer.
 Currently there are 3 implementations for RTS, located in <code class="docutils literal notranslate"><span class="pre">amrex/Src/AmrTask/rts_impls</span></code>: MPI+Omp, MPI+Pthreads, and UPCXX+Pthreads.
 The programmer can choose one of these backends to compile with their application without changing the application source code.
-The following code snippet shows the main function of a typical AMR application running asynchronously under the control of the runtime system.
-The programmer first needs to use the namespace <a href="#id1"><span class="problematic" id="id2">:cpp:`perilla`</span></a>, which covers all the C++ classes for the runtime system.
-To execute an AMR program (i.e. object of the Amr class), the programmer can simply create an object of RTS and pass the program object into the <a href="#id3"><span class="problematic" id="id4">:cpp:`Iterate`</span></a> method.
-The runtime system will iteratively execute coarse time steps until the program completes.
-In order to overlap communication with computation, the runtime requires enough task parallelism.
-To quickly create task-level parallelism that the runtime can exploit, the application can use asynchronous grid iterators that we develop in AMReX.
-The API is very simple, and the asynchronous code is very similar to the original code using the synchronous multifab iterator (MFIter) previously mentioned in chapter Basics.
-We begin with showing how RTS executes functions in an Amr coarse time step.</p>
+The following code snippet shows the main function of a typical AMReX application running asynchronously under the control of the runtime system.
+The programmer first needs to use the namespace <code class="docutils literal notranslate"><span class="pre">perilla</span></code>, which covers all the C++ classes for the runtime system.
+To execute an AMR program (i.e. object of the Amr class), the programmer can simply create an object of RTS and pass the program object into the <code class="docutils literal notranslate"><span class="pre">Iterate</span></code> method.
+The runtime system will iteratively execute coarse time steps until the program completes.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">perilla</span><span class="p">;</span>
 <span class="kt">int</span> <span class="nf">main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
 <span class="p">{</span>
@@ -195,18 +193,45 @@ We begin with showing how RTS executes functions in an Amr coarse time step.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>The runtime system schedules AMR workload in a coarse time step as follows.
-At the beginning of the program, the runtime extracts the metadata needed for establising data dependencies of task dependency graphs represented the application.
-Everytime the AMR grid hierarchy changes when a few or all AMR levels regrid, the runtime re-extracts the metadata to correct the task depdenendy graphs.
+<p>In order to overlap communication with computation, the runtime system requires a sufficient amount of task parallelism.
+Fortunately, there are plenty of opportunities to identify tasks in an AMReX program, including data parallel tasks (same workload on different data partitions) and control parallel tasks (different types of workload).
+To quickly create task parallelism that the runtime can exploit, the application can use asynchronous iterators that we develop in AMReX for interfacing between this AMR library and the runtime system.
+The API is very simple, and the asynchronous code is very similar to the original code using the synchronous multifab iterator (MFIter) described earlier in chapter Basics.</p>
+<p>Before presenting the API of asynchronous iterators, we show how RTS executes generic task-based workload in an AMR coarse time step.
+The input to the runtime is an AMR program containing task graphs.
+Each task of a graph performs some computations on an FArrayBox (FAB).
+The code snippet below queries runnable tasks of a task dependency graph named regionGraph.
+Note that each task dependency graph is more or less a wrapper of a MultiFab.
+In this example, a task of regionGraph computes the body code of the while loop to update the associated FAB.
+Each task of this graph receives data arrived at the runtime system and injects the data into the associated FAB.
+After updating FAB, it lets the runtime know about the change.
+The runtime system uses AMR domain knowledge to establish data dependencies among tasks, and thus it can answer which tasks are runnable and how to update neighbor FABs when a current FAB changes.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">regionGraph</span><span class="o">-&gt;</span><span class="n">isGraphEmpty</span><span class="p">())</span>
+<span class="p">{</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">regionGraph</span><span class="o">-&gt;</span><span class="n">getAnyFireableRegion</span><span class="p">();</span>
+    <span class="n">multifabCopyPull</span><span class="p">(...,</span> <span class="n">f</span><span class="p">,</span> <span class="p">...);</span> <span class="c1">//inject arrived dependent data into the fab, if any</span>
+    <span class="n">syncWorkerThreads</span><span class="p">();</span>
+    <span class="p">...</span><span class="c1">//compute on the fab f of multifab associated with coarseRegionGraph</span>
+    <span class="n">syncWorkerThreads</span><span class="p">();</span>
+    <span class="n">multifabCopyPush</span><span class="p">(...,</span> <span class="n">f</span><span class="p">,</span> <span class="p">...);</span> <span class="c1">//tell the runtime that data of Fab f changed</span>
+    <span class="n">regionGraph</span><span class="o">-&gt;</span><span class="n">finalizeRegion</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The process of learning the domain knowledge is as follows.
+At the beginning of the program, the runtime extracts the metadata needed for establishing data dependencies among tasks of the same graph or between two different graphs.
+Every time the AMR grid hierarchy changes (i.e. when a few or all AMR levels regrid), the runtime re-extracts the metadata to correct the task dependency graphs.
 Once the metadata extraction completes, the runtime system invokes the computation on AMR levels (e.g., timeStep, initTimeStep, and postTimeStep).
 Note that the runtime exposes multiple threads per process, so the programmer needs to place sufficient memory protection for shared data within the process, e.g. when updating the state data.
-This interface adds some programming cost, but is neccessary for mitigating the task scheduling overhead.
-To avoid programming details, the programmer can make use of builtin iterators, such as fillpatch iterator task graph iterator.</p>
-<p>Asynchronous fillpatch iterator
-<a href="#id5"><span class="problematic" id="id6">:cpp:`AsyncFillPatchIterator`</span></a></p>
-<p>Region Graph iterator
-<a href="#id7"><span class="problematic" id="id8">:cpp:`RGIter`</span></a></p>
+In the code example above, syncWorkerThreads() synchronizes all threads exposed to the program.
+This excludes internal threads that the runtime uses for handling communication.
+This multithreaded interface adds some programming cost, but is necessary for mitigating the task scheduling overhead.
+To avoid these programming details, the programmer can use of built-in iterators, such as fillpatch iterator and task graph iterator that we next discuss.</p>
 <div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="AsyncIter.html">FillPatch Iterator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AsyncIter.html#regiongraph-iterator">RegionGraph Iterator</a></li>
+</ul>
 </div>
 </div>
 
@@ -218,7 +243,7 @@ To avoid programming details, the programmer can make use of builtin iterators, 
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Chapter6a.html" class="btn btn-neutral float-right" title="I/O (Plotfile, Checkpoint)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="AsyncIter.html" class="btn btn-neutral float-right" title="FillPatch Iterator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="AmrLevel.html" class="btn btn-neutral" title="Amr Class" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
