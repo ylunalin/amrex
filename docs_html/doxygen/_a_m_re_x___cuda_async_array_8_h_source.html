@@ -113,62 +113,63 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classamrex_1_1_cuda_1_1_async_array.html#a2e87bfdc0127de2e6fa105f68632538a">   24</a></span>&#160;    <a class="code" href="classamrex_1_1_cuda_1_1_async_array.html#a2e87bfdc0127de2e6fa105f68632538a">AsyncArray</a> (T <span class="keyword">const</span>* h_p, <span class="keyword">const</span> std::size_t n)</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        h_data = <span class="keyword">static_cast&lt;</span>T*<span class="keyword">&gt;</span>(std::malloc(n*<span class="keyword">sizeof</span>(T)));</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        std::memcpy(h_data, h_p, n*<span class="keyword">sizeof</span>(T));</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#ifdef AMREX_USE_CUDA</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor"></span>        <span class="keywordflow">if</span> (inLaunchRegion())</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            d_data = <span class="keyword">static_cast&lt;</span>T*<span class="keyword">&gt;</span>(<a class="code" href="namespaceamrex.html#a97a60825e6e7886b3502c2f4ed1eb417">The_Device_Arena</a>()-&gt;<a class="code" href="classamrex_1_1_arena.html#a46ce2cd5cfc039cec64548b031fbde2e">alloc</a>(n*<span class="keyword">sizeof</span>(T)));</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <a class="code" href="_a_m_re_x___gpu_error_8_h.html#af0d8b69cc9585ca09e00607a8ead0f31">AMREX_GPU_SAFE_CALL</a>(cudaMemcpyAsync(d_data, h_data, n*<span class="keyword">sizeof</span>(T),</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                                                cudaMemcpyHostToDevice, Device::cudaStream()));</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        }</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor"></span>    }</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classamrex_1_1_cuda_1_1_async_array.html#a675ebf69ec03d7b340785c3be8d8f18b">   38</a></span>&#160;    <a class="code" href="classamrex_1_1_cuda_1_1_async_array.html#a675ebf69ec03d7b340785c3be8d8f18b">~AsyncArray</a> () { <a class="code" href="classamrex_1_1_cuda_1_1_async_array.html#a427880b29b0408afa5ac7192bf1bc549">clear</a>(); }</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classamrex_1_1_cuda_1_1_async_array.html#a6961b622e4009532ed2443002e43fae9">   40</a></span>&#160;    T <span class="keyword">const</span>* <a class="code" href="classamrex_1_1_cuda_1_1_async_array.html#a6961b622e4009532ed2443002e43fae9">data</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> (d_data != <span class="keyword">nullptr</span>) ? d_data : h_data; }</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="classamrex_1_1_cuda_1_1_async_array.html#a41c4c62f2506ce49aa39f74b2a555e5a">   41</a></span>&#160;    T* <a class="code" href="classamrex_1_1_cuda_1_1_async_array.html#a41c4c62f2506ce49aa39f74b2a555e5a">data</a> () { <span class="keywordflow">return</span> (d_data != <span class="keyword">nullptr</span>) ? d_data : h_data; }</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classamrex_1_1_cuda_1_1_async_array.html#a427880b29b0408afa5ac7192bf1bc549">   42</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classamrex_1_1_cuda_1_1_async_array.html#a427880b29b0408afa5ac7192bf1bc549">clear</a> ()</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#ifdef AMREX_USE_CUDA</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor"></span>        <span class="keywordflow">if</span> (inLaunchRegion())</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordflow">if</span> (d_data != <span class="keyword">nullptr</span>) {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                T** p = <span class="keyword">static_cast&lt;</span>T**<span class="keyword">&gt;</span>(std::malloc(2*<span class="keyword">sizeof</span>(T*)));</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                p[0] = d_data;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                p[1] = h_data;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                <a class="code" href="_a_m_re_x___gpu_error_8_h.html#af0d8b69cc9585ca09e00607a8ead0f31">AMREX_GPU_SAFE_CALL</a>(cudaStreamAddCallback(Device::cudaStream(),</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                                                          amrex_asyncarray_delete, p, 0));</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        }</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor"></span>        {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            std::free(h_data);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        }</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        d_data = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        h_data = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    }</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    T* d_data = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    T* h_data = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;};</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}}</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="classamrex_1_1_cuda_1_1_async_array_html_a41c4c62f2506ce49aa39f74b2a555e5a"><div class="ttname"><a href="classamrex_1_1_cuda_1_1_async_array.html#a41c4c62f2506ce49aa39f74b2a555e5a">amrex::Cuda::AsyncArray::data</a></div><div class="ttdeci">T * data()</div><div class="ttdef"><b>Definition:</b> AMReX_CudaAsyncArray.H:41</div></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordflow">if</span> (n == 0) <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        h_data = <span class="keyword">static_cast&lt;</span>T*<span class="keyword">&gt;</span>(std::malloc(n*<span class="keyword">sizeof</span>(T)));</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        std::memcpy(h_data, h_p, n*<span class="keyword">sizeof</span>(T));</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#ifdef AMREX_USE_CUDA</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor"></span>        <span class="keywordflow">if</span> (inLaunchRegion())</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            d_data = <span class="keyword">static_cast&lt;</span>T*<span class="keyword">&gt;</span>(<a class="code" href="namespaceamrex.html#a97a60825e6e7886b3502c2f4ed1eb417">The_Device_Arena</a>()-&gt;<a class="code" href="classamrex_1_1_arena.html#a46ce2cd5cfc039cec64548b031fbde2e">alloc</a>(n*<span class="keyword">sizeof</span>(T)));</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <a class="code" href="_a_m_re_x___gpu_error_8_h.html#af0d8b69cc9585ca09e00607a8ead0f31">AMREX_GPU_SAFE_CALL</a>(cudaMemcpyAsync(d_data, h_data, n*<span class="keyword">sizeof</span>(T),</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                                                cudaMemcpyHostToDevice, Device::cudaStream()));</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        }</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor"></span>    }</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classamrex_1_1_cuda_1_1_async_array.html#a675ebf69ec03d7b340785c3be8d8f18b">   39</a></span>&#160;    <a class="code" href="classamrex_1_1_cuda_1_1_async_array.html#a675ebf69ec03d7b340785c3be8d8f18b">~AsyncArray</a> () { <a class="code" href="classamrex_1_1_cuda_1_1_async_array.html#a427880b29b0408afa5ac7192bf1bc549">clear</a>(); }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="classamrex_1_1_cuda_1_1_async_array.html#a6961b622e4009532ed2443002e43fae9">   41</a></span>&#160;    T <span class="keyword">const</span>* <a class="code" href="classamrex_1_1_cuda_1_1_async_array.html#a6961b622e4009532ed2443002e43fae9">data</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> (d_data != <span class="keyword">nullptr</span>) ? d_data : h_data; }</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classamrex_1_1_cuda_1_1_async_array.html#a41c4c62f2506ce49aa39f74b2a555e5a">   42</a></span>&#160;    T* <a class="code" href="classamrex_1_1_cuda_1_1_async_array.html#a41c4c62f2506ce49aa39f74b2a555e5a">data</a> () { <span class="keywordflow">return</span> (d_data != <span class="keyword">nullptr</span>) ? d_data : h_data; }</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classamrex_1_1_cuda_1_1_async_array.html#a427880b29b0408afa5ac7192bf1bc549">   43</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classamrex_1_1_cuda_1_1_async_array.html#a427880b29b0408afa5ac7192bf1bc549">clear</a> ()</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#ifdef AMREX_USE_CUDA</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor"></span>        <span class="keywordflow">if</span> (inLaunchRegion())</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="keywordflow">if</span> (d_data != <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                T** p = <span class="keyword">static_cast&lt;</span>T**<span class="keyword">&gt;</span>(std::malloc(2*<span class="keyword">sizeof</span>(T*)));</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                p[0] = d_data;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                p[1] = h_data;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <a class="code" href="_a_m_re_x___gpu_error_8_h.html#af0d8b69cc9585ca09e00607a8ead0f31">AMREX_GPU_SAFE_CALL</a>(cudaStreamAddCallback(Device::cudaStream(),</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                                                          amrex_asyncarray_delete, p, 0));</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            }</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor"></span>        {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            std::free(h_data);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        d_data = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        h_data = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    T* d_data = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    T* h_data = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;};</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}}</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="classamrex_1_1_cuda_1_1_async_array_html_a41c4c62f2506ce49aa39f74b2a555e5a"><div class="ttname"><a href="classamrex_1_1_cuda_1_1_async_array.html#a41c4c62f2506ce49aa39f74b2a555e5a">amrex::Cuda::AsyncArray::data</a></div><div class="ttdeci">T * data()</div><div class="ttdef"><b>Definition:</b> AMReX_CudaAsyncArray.H:42</div></div>
 <div class="ttc" id="classamrex_1_1_cuda_1_1_async_array_html"><div class="ttname"><a href="classamrex_1_1_cuda_1_1_async_array.html">amrex::Cuda::AsyncArray</a></div><div class="ttdef"><b>Definition:</b> AMReX_CudaAsyncArray.H:21</div></div>
 <div class="ttc" id="_a_m_re_x___type_traits_8_h_html"><div class="ttname"><a href="_a_m_re_x___type_traits_8_h.html">AMReX_TypeTraits.H</a></div></div>
 <div class="ttc" id="_a_m_re_x___cuda_device_8_h_html"><div class="ttname"><a href="_a_m_re_x___cuda_device_8_h.html">AMReX_CudaDevice.H</a></div></div>
 <div class="ttc" id="namespaceamrex_html_a97a60825e6e7886b3502c2f4ed1eb417"><div class="ttname"><a href="namespaceamrex.html#a97a60825e6e7886b3502c2f4ed1eb417">amrex::The_Device_Arena</a></div><div class="ttdeci">Arena * The_Device_Arena()</div><div class="ttdef"><b>Definition:</b> AMReX_Arena.cpp:172</div></div>
 <div class="ttc" id="_a_m_re_x___gpu_error_8_h_html_af0d8b69cc9585ca09e00607a8ead0f31"><div class="ttname"><a href="_a_m_re_x___gpu_error_8_h.html#af0d8b69cc9585ca09e00607a8ead0f31">AMREX_GPU_SAFE_CALL</a></div><div class="ttdeci">#define AMREX_GPU_SAFE_CALL(call)</div><div class="ttdef"><b>Definition:</b> AMReX_GpuError.H:35</div></div>
 <div class="ttc" id="classamrex_1_1_arena_html_a46ce2cd5cfc039cec64548b031fbde2e"><div class="ttname"><a href="classamrex_1_1_arena.html#a46ce2cd5cfc039cec64548b031fbde2e">amrex::Arena::alloc</a></div><div class="ttdeci">virtual void * alloc(std::size_t sz)=0</div></div>
-<div class="ttc" id="classamrex_1_1_cuda_1_1_async_array_html_a6961b622e4009532ed2443002e43fae9"><div class="ttname"><a href="classamrex_1_1_cuda_1_1_async_array.html#a6961b622e4009532ed2443002e43fae9">amrex::Cuda::AsyncArray::data</a></div><div class="ttdeci">T const * data() const </div><div class="ttdef"><b>Definition:</b> AMReX_CudaAsyncArray.H:40</div></div>
-<div class="ttc" id="classamrex_1_1_cuda_1_1_async_array_html_a427880b29b0408afa5ac7192bf1bc549"><div class="ttname"><a href="classamrex_1_1_cuda_1_1_async_array.html#a427880b29b0408afa5ac7192bf1bc549">amrex::Cuda::AsyncArray::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdef"><b>Definition:</b> AMReX_CudaAsyncArray.H:42</div></div>
-<div class="ttc" id="classamrex_1_1_cuda_1_1_async_array_html_a675ebf69ec03d7b340785c3be8d8f18b"><div class="ttname"><a href="classamrex_1_1_cuda_1_1_async_array.html#a675ebf69ec03d7b340785c3be8d8f18b">amrex::Cuda::AsyncArray::~AsyncArray</a></div><div class="ttdeci">~AsyncArray()</div><div class="ttdef"><b>Definition:</b> AMReX_CudaAsyncArray.H:38</div></div>
+<div class="ttc" id="classamrex_1_1_cuda_1_1_async_array_html_a6961b622e4009532ed2443002e43fae9"><div class="ttname"><a href="classamrex_1_1_cuda_1_1_async_array.html#a6961b622e4009532ed2443002e43fae9">amrex::Cuda::AsyncArray::data</a></div><div class="ttdeci">T const * data() const </div><div class="ttdef"><b>Definition:</b> AMReX_CudaAsyncArray.H:41</div></div>
+<div class="ttc" id="classamrex_1_1_cuda_1_1_async_array_html_a427880b29b0408afa5ac7192bf1bc549"><div class="ttname"><a href="classamrex_1_1_cuda_1_1_async_array.html#a427880b29b0408afa5ac7192bf1bc549">amrex::Cuda::AsyncArray::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdef"><b>Definition:</b> AMReX_CudaAsyncArray.H:43</div></div>
+<div class="ttc" id="classamrex_1_1_cuda_1_1_async_array_html_a675ebf69ec03d7b340785c3be8d8f18b"><div class="ttname"><a href="classamrex_1_1_cuda_1_1_async_array.html#a675ebf69ec03d7b340785c3be8d8f18b">amrex::Cuda::AsyncArray::~AsyncArray</a></div><div class="ttdeci">~AsyncArray()</div><div class="ttdef"><b>Definition:</b> AMReX_CudaAsyncArray.H:39</div></div>
 <div class="ttc" id="classamrex_1_1_cuda_1_1_async_array_html_a2e87bfdc0127de2e6fa105f68632538a"><div class="ttname"><a href="classamrex_1_1_cuda_1_1_async_array.html#a2e87bfdc0127de2e6fa105f68632538a">amrex::Cuda::AsyncArray::AsyncArray</a></div><div class="ttdeci">AsyncArray(T const *h_p, const std::size_t n)</div><div class="ttdef"><b>Definition:</b> AMReX_CudaAsyncArray.H:24</div></div>
 <div class="ttc" id="_a_m_re_x___arena_8_h_html"><div class="ttname"><a href="_a_m_re_x___arena_8_h.html">AMReX_Arena.H</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

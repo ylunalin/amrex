@@ -1084,6 +1084,8 @@ Functions</h2></td></tr>
 <tr class="separator:ab3991c1600b4dee3ed881f334007323a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8acbac8cbb276629aac10eebf6bee947"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_arena.html">Arena</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a8acbac8cbb276629aac10eebf6bee947">The_MFIter_Arena</a> ()</td></tr>
 <tr class="separator:a8acbac8cbb276629aac10eebf6bee947"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace75305a25397036be723db66686dd01"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ace75305a25397036be723db66686dd01">FillBoundary</a> (<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> * &gt; const &amp;mf, const <a class="el" href="classamrex_1_1_periodicity.html">Periodicity</a> &amp;period)</td></tr>
+<tr class="separator:ace75305a25397036be723db66686dd01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad60aac176908ba51373d63ca49bef063"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ad60aac176908ba51373d63ca49bef063">GccPlacaterMF</a> ()</td></tr>
 <tr class="separator:ad60aac176908ba51373d63ca49bef063"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad64dcd62b16d9022d914f067d30d7918"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ad64dcd62b16d9022d914f067d30d7918">average_node_to_cellcenter</a> (<a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;cc, int dcomp, const <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;nd, int scomp, int ncomp, int ngrow=0)</td></tr>
@@ -7054,6 +7056,32 @@ template&lt;class Tto , class Tfrom &gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="ace75305a25397036be723db66686dd01"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void amrex::FillBoundary </td>
+          <td>(</td>
+          <td class="paramtype">Vector&lt; MultiFab * &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>mf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Periodicity &amp;&#160;</td>
+          <td class="paramname"><em>period</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a0b7407c69f5df5cb424eccddb336331b"></a>
 <div class="memitem">
 <div class="memproto">
@@ -10156,34 +10184,6 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a73fb53c873d555a7a3cc7b33e88a5f33"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::ostream &amp; amrex::operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>os</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const IndexType &amp;&#160;</td>
-          <td class="paramname"><em>it</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Write an <a class="el" href="classamrex_1_1_index_type.html" title="Cell-Based or Node-Based Indices. ">IndexType</a> to an ostream in ASCII. </p>
-
-</div>
-</div>
 <a class="anchor" id="ac38f92b345723f71defea15e208ee644"></a>
 <div class="memitem">
 <div class="memproto">
@@ -10209,6 +10209,34 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>Write to an ostream in ASCII format. </p>
+
+</div>
+</div>
+<a class="anchor" id="a73fb53c873d555a7a3cc7b33e88a5f33"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream &amp; amrex::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const IndexType &amp;&#160;</td>
+          <td class="paramname"><em>it</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Write an <a class="el" href="classamrex_1_1_index_type.html" title="Cell-Based or Node-Based Indices. ">IndexType</a> to an ostream in ASCII. </p>
 
 </div>
 </div>

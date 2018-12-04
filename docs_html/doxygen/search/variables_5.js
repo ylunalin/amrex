@@ -17,6 +17,7 @@ var searchData=
   ['fb_5frecv_5ffrom',['fb_recv_from',['../classamrex_1_1_fab_array.html#a14f26ce2e688e3763d25b924f284d1b1',1,'amrex::FabArray']]],
   ['fb_5frecv_5freqs',['fb_recv_reqs',['../classamrex_1_1_fab_array.html#acfd1258fa537d40e80cfca839e7ccdf4',1,'amrex::FabArray']]],
   ['fb_5frecv_5fsize',['fb_recv_size',['../classamrex_1_1_fab_array.html#a97511bbe3a9f63dab1bd28ea89187104',1,'amrex::FabArray']]],
+  ['fb_5frecv_5fstat',['fb_recv_stat',['../classamrex_1_1_fab_array.html#af6e56e81bf7479b5b8d8eeab80d8b183',1,'amrex::FabArray']]],
   ['fb_5fscomp',['fb_scomp',['../classamrex_1_1_fab_array.html#a37a4e076746125d6a27eeb42d2ec17c1',1,'amrex::FabArray']]],
   ['fb_5fsend_5fdata',['fb_send_data',['../classamrex_1_1_fab_array.html#aae6c8951a3cb93bc53c388aa03315fd6',1,'amrex::FabArray']]],
   ['fb_5fsend_5freqs',['fb_send_reqs',['../classamrex_1_1_fab_array.html#a72845685e831ab386c21552527885854',1,'amrex::FabArray']]],

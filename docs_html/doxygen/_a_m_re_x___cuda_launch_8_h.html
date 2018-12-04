@@ -137,8 +137,16 @@ Macros</h2></td></tr>
 <tr class="separator:a65e35e5a45d39e3ef750c66d85e2ae6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63b6307fc787b22847883e7e92b78f18"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_m_re_x___cuda_launch_8_h.html#a63b6307fc787b22847883e7e92b78f18">AMREX_CUDA_LAUNCH_HOST_DEVICE_LAMBDA_RANGE</a>(TN, TI, block)</td></tr>
 <tr class="separator:a63b6307fc787b22847883e7e92b78f18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ed1caca578db18bc2f0ab9cfcca4720"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_m_re_x___cuda_launch_8_h.html#a8ed1caca578db18bc2f0ab9cfcca4720">AMREX_CUDA_LAUNCH_HOST_DEVICE_LAMBDA_RANGE_2</a>(TN1, TI1, block1, TN2, TI2, block2)</td></tr>
+<tr class="separator:a8ed1caca578db18bc2f0ab9cfcca4720"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a005591e617bb87bf43a28e42f954dc7d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_m_re_x___cuda_launch_8_h.html#a005591e617bb87bf43a28e42f954dc7d">AMREX_CUDA_LAUNCH_HOST_DEVICE_LAMBDA_RANGE_3</a>(TN1, TI1, block1, TN2, TI2, block2, TN3, TI3, block3)</td></tr>
+<tr class="separator:a005591e617bb87bf43a28e42f954dc7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa326403c2a5d2ed4efcb7d7799b8e16"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_m_re_x___cuda_launch_8_h.html#afa326403c2a5d2ed4efcb7d7799b8e16">AMREX_CUDA_LAUNCH_DEVICE_LAMBDA_RANGE</a>(...)&#160;&#160;&#160;<a class="el" href="_a_m_re_x___cuda_launch_8_h.html#a63b6307fc787b22847883e7e92b78f18">AMREX_CUDA_LAUNCH_HOST_DEVICE_LAMBDA_RANGE</a>(__VA_ARGS__)</td></tr>
 <tr class="separator:afa326403c2a5d2ed4efcb7d7799b8e16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1db42d4c50254e1ee81df4836bf2a36"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_m_re_x___cuda_launch_8_h.html#ad1db42d4c50254e1ee81df4836bf2a36">AMREX_CUDA_LAUNCH_DEVICE_LAMBDA_RANGE_2</a>(...)&#160;&#160;&#160;<a class="el" href="_a_m_re_x___cuda_launch_8_h.html#a8ed1caca578db18bc2f0ab9cfcca4720">AMREX_CUDA_LAUNCH_HOST_DEVICE_LAMBDA_RANGE_2</a>(__VA_ARGS__)</td></tr>
+<tr class="separator:ad1db42d4c50254e1ee81df4836bf2a36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f44a39dcdffcb16bd0672c44d9d4511"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_m_re_x___cuda_launch_8_h.html#a6f44a39dcdffcb16bd0672c44d9d4511">AMREX_CUDA_LAUNCH_DEVICE_LAMBDA_RANGE_3</a>(...)&#160;&#160;&#160;<a class="el" href="_a_m_re_x___cuda_launch_8_h.html#a005591e617bb87bf43a28e42f954dc7d">AMREX_CUDA_LAUNCH_HOST_DEVICE_LAMBDA_RANGE_3</a>(__VA_ARGS__)</td></tr>
+<tr class="separator:a6f44a39dcdffcb16bd0672c44d9d4511"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad758a0aa0e589ff611167ff4f541ef84"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_m_re_x___cuda_launch_8_h.html#ad758a0aa0e589ff611167ff4f541ef84">AMREX_CUDA_LAUNCH_HOST_DEVICE_LAMBDA_BOX</a>(bbb, tbb, block)</td></tr>
 <tr class="separator:ad758a0aa0e589ff611167ff4f541ef84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8add31175a78f260a11e84267462f333"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_m_re_x___cuda_launch_8_h.html#a8add31175a78f260a11e84267462f333">AMREX_CUDA_LAUNCH_DEVICE_LAMBDA_BOX</a>(...)&#160;&#160;&#160;<a class="el" href="_a_m_re_x___cuda_launch_8_h.html#ad758a0aa0e589ff611167ff4f541ef84">AMREX_CUDA_LAUNCH_HOST_DEVICE_LAMBDA_BOX</a>(__VA_ARGS__)</td></tr>
@@ -254,6 +262,38 @@ Functions</h2></td></tr>
           <td class="paramtype">&#160;</td>
           <td class="paramname"><em>...</em></td><td>)</td>
           <td>&#160;&#160;&#160;<a class="el" href="_a_m_re_x___cuda_launch_8_h.html#a63b6307fc787b22847883e7e92b78f18">AMREX_CUDA_LAUNCH_HOST_DEVICE_LAMBDA_RANGE</a>(__VA_ARGS__)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad1db42d4c50254e1ee81df4836bf2a36"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AMREX_CUDA_LAUNCH_DEVICE_LAMBDA_RANGE_2</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em></td><td>)</td>
+          <td>&#160;&#160;&#160;<a class="el" href="_a_m_re_x___cuda_launch_8_h.html#a8ed1caca578db18bc2f0ab9cfcca4720">AMREX_CUDA_LAUNCH_HOST_DEVICE_LAMBDA_RANGE_2</a>(__VA_ARGS__)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a6f44a39dcdffcb16bd0672c44d9d4511"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AMREX_CUDA_LAUNCH_DEVICE_LAMBDA_RANGE_3</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em></td><td>)</td>
+          <td>&#160;&#160;&#160;<a class="el" href="_a_m_re_x___cuda_launch_8_h.html#a005591e617bb87bf43a28e42f954dc7d">AMREX_CUDA_LAUNCH_HOST_DEVICE_LAMBDA_RANGE_3</a>(__VA_ARGS__)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -470,6 +510,145 @@ Functions</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line">{ \</div>
 <div class="line">        for (<span class="keyword">auto</span> <span class="keyword">const</span> TI : <a class="code" href="namespaceamrex_1_1_cuda.html#ac68f37e6280919c47ff3432e6e7e0f14">amrex::Cuda::Range</a>(TN)) { \</div>
 <div class="line">            block \</div>
+<div class="line">        } \</div>
+<div class="line">    }</div>
+<div class="ttc" id="namespaceamrex_1_1_cuda_html_ac68f37e6280919c47ff3432e6e7e0f14"><div class="ttname"><a href="namespaceamrex_1_1_cuda.html#ac68f37e6280919c47ff3432e6e7e0f14">amrex::Cuda::Range</a></div><div class="ttdeci">AMREX_GPU_HOST_DEVICE range_detail::range_impl&lt; T &gt; Range(T const &amp;b)</div><div class="ttdef"><b>Definition:</b> AMReX_CudaRange.H:100</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a8ed1caca578db18bc2f0ab9cfcca4720"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AMREX_CUDA_LAUNCH_HOST_DEVICE_LAMBDA_RANGE_2</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">TN1, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">TI1, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">block1, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">TN2, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">TI2, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">block2&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">{ \</div>
+<div class="line">        for (<span class="keyword">auto</span> <span class="keyword">const</span> TI1 : <a class="code" href="namespaceamrex_1_1_cuda.html#ac68f37e6280919c47ff3432e6e7e0f14">amrex::Cuda::Range</a>(TN1)) { \</div>
+<div class="line">            block1 \</div>
+<div class="line">        } \</div>
+<div class="line">        for (<span class="keyword">auto</span> <span class="keyword">const</span> TI2 : <a class="code" href="namespaceamrex_1_1_cuda.html#ac68f37e6280919c47ff3432e6e7e0f14">amrex::Cuda::Range</a>(TN2)) { \</div>
+<div class="line">            block2 \</div>
+<div class="line">        } \</div>
+<div class="line">    }</div>
+<div class="ttc" id="namespaceamrex_1_1_cuda_html_ac68f37e6280919c47ff3432e6e7e0f14"><div class="ttname"><a href="namespaceamrex_1_1_cuda.html#ac68f37e6280919c47ff3432e6e7e0f14">amrex::Cuda::Range</a></div><div class="ttdeci">AMREX_GPU_HOST_DEVICE range_detail::range_impl&lt; T &gt; Range(T const &amp;b)</div><div class="ttdef"><b>Definition:</b> AMReX_CudaRange.H:100</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a005591e617bb87bf43a28e42f954dc7d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AMREX_CUDA_LAUNCH_HOST_DEVICE_LAMBDA_RANGE_3</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">TN1, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">TI1, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">block1, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">TN2, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">TI2, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">block2, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">TN3, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">TI3, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">block3&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">{ \</div>
+<div class="line">        for (<span class="keyword">auto</span> <span class="keyword">const</span> TI1 : <a class="code" href="namespaceamrex_1_1_cuda.html#ac68f37e6280919c47ff3432e6e7e0f14">amrex::Cuda::Range</a>(TN1)) { \</div>
+<div class="line">            block1 \</div>
+<div class="line">        } \</div>
+<div class="line">        for (<span class="keyword">auto</span> <span class="keyword">const</span> TI2 : <a class="code" href="namespaceamrex_1_1_cuda.html#ac68f37e6280919c47ff3432e6e7e0f14">amrex::Cuda::Range</a>(TN2)) { \</div>
+<div class="line">            block2 \</div>
+<div class="line">        } \</div>
+<div class="line">        for (<span class="keyword">auto</span> <span class="keyword">const</span> TI3 : <a class="code" href="namespaceamrex_1_1_cuda.html#ac68f37e6280919c47ff3432e6e7e0f14">amrex::Cuda::Range</a>(TN3)) { \</div>
+<div class="line">            block3 \</div>
 <div class="line">        } \</div>
 <div class="line">    }</div>
 <div class="ttc" id="namespaceamrex_1_1_cuda_html_ac68f37e6280919c47ff3432e6e7e0f14"><div class="ttname"><a href="namespaceamrex_1_1_cuda.html#ac68f37e6280919c47ff3432e6e7e0f14">amrex::Cuda::Range</a></div><div class="ttdeci">AMREX_GPU_HOST_DEVICE range_detail::range_impl&lt; T &gt; Range(T const &amp;b)</div><div class="ttdef"><b>Definition:</b> AMReX_CudaRange.H:100</div></div>

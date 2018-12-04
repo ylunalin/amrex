@@ -31,6 +31,7 @@ var searchData=
   ['vector_3c_20int_20_3e',['Vector&lt; int &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20long_20_3e',['Vector&lt; long &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20mpi_5frequest_20_3e',['Vector&lt; MPI_Request &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
+  ['vector_3c_20mpi_5fstatus_20_3e',['Vector&lt; MPI_Status &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20neighborcommtag_20_3e',['Vector&lt; NeighborCommTag &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20particlelevel_20_3e',['Vector&lt; ParticleLevel &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20particletileptr_20_3e',['Vector&lt; ParticleTilePtr &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
