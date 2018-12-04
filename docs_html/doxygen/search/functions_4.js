@@ -60,5 +60,6 @@ var searchData=
   ['dtoh_5fmemcpy_5fasync',['dtoh_memcpy_async',['../classamrex_1_1_cuda_1_1_device.html#ac898c35932d0b8532dff84b8e8bd12b4',1,'amrex::Cuda::Device']]],
   ['dumpnames',['dumpNames',['../classamrex_1_1_state_descriptor.html#a50c0aa090e4cf73ef8e8c57dda6b8929',1,'amrex::StateDescriptor']]],
   ['dumptable',['dumpTable',['../classamrex_1_1_parm_parse.html#ad5376a2e65027c356b38efbef3180c28',1,'amrex::ParmParse']]],
+  ['duplicate',['duplicate',['../namespaceamrex_1_1_m_f_util.html#a9b34553675e4bbe3e7e6108780d34975',1,'amrex::MFUtil::duplicate(const BoxArray &amp;ba, const DistributionMapping &amp;dm, const T &amp;mf_in)'],['../namespaceamrex_1_1_m_f_util.html#a69b29ecaacdc25da8869a005da585ef2',1,'amrex::MFUtil::duplicate(const BoxArray &amp;ba, const DistributionMapping &amp;dm, const T &amp;mf_in, const Periodicity &amp;periodicity)']]],
   ['dxbydt',['dxbydt',['../classamrex_1_1_spline_dist_fcn_element2d.html#afafcce62b8f105d73c3dcb97cbe828ee',1,'amrex::SplineDistFcnElement2d']]]
 ];
