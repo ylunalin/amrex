@@ -90,7 +90,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classamrex_1_1dist_fcn_element2d-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">amrex::distFcnElement2d Class Reference</div>  </div>
+<div class="title">amrex::distFcnElement2d Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -112,12 +112,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:abb965acbf00e4afd961cb7821d064387"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5e95033acd2f828714ef768ba90aaa9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1dist_fcn_element2d.html#ac5e95033acd2f828714ef768ba90aaa9">~distFcnElement2d</a> ()</td></tr>
 <tr class="separator:ac5e95033acd2f828714ef768ba90aaa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa7f29fc0aaffdbd84bc218bc9637b688"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classamrex_1_1dist_fcn_element2d.html">distFcnElement2d</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1dist_fcn_element2d.html#aa7f29fc0aaffdbd84bc218bc9637b688">newDistFcnElement2d</a> () const </td></tr>
-<tr class="separator:aa7f29fc0aaffdbd84bc218bc9637b688"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2ff55f334f17044c38bf946cab76e31"><td class="memItemLeft" align="right" valign="top">virtual amrex::Real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1dist_fcn_element2d.html#ae2ff55f334f17044c38bf946cab76e31">cpdist</a> (<a class="el" href="classamrex_1_1_real_vect.html">amrex::RealVect</a> pt, <a class="el" href="classamrex_1_1_real_vect.html">amrex::RealVect</a> &amp;cp) const </td></tr>
-<tr class="separator:ae2ff55f334f17044c38bf946cab76e31"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab4b09bc2409bac4d6ece92949ac5ed9d"><td class="memItemLeft" align="right" valign="top">virtual amrex::Real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1dist_fcn_element2d.html#ab4b09bc2409bac4d6ece92949ac5ed9d">cpside</a> (<a class="el" href="classamrex_1_1_real_vect.html">amrex::RealVect</a> pt, <a class="el" href="classamrex_1_1_real_vect.html">amrex::RealVect</a> &amp;cp) const </td></tr>
-<tr class="separator:ab4b09bc2409bac4d6ece92949ac5ed9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73a47ce03d2add3e6b72d53c2dbef76e"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classamrex_1_1dist_fcn_element2d.html">distFcnElement2d</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1dist_fcn_element2d.html#a73a47ce03d2add3e6b72d53c2dbef76e">newDistFcnElement2d</a> () const =0</td></tr>
+<tr class="separator:a73a47ce03d2add3e6b72d53c2dbef76e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fbd68fb1c6c9cde2d5a6cd8e050c438"><td class="memItemLeft" align="right" valign="top">virtual amrex::Real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1dist_fcn_element2d.html#a4fbd68fb1c6c9cde2d5a6cd8e050c438">cpdist</a> (<a class="el" href="classamrex_1_1_real_vect.html">amrex::RealVect</a> pt, <a class="el" href="classamrex_1_1_real_vect.html">amrex::RealVect</a> &amp;cp) const =0</td></tr>
+<tr class="separator:a4fbd68fb1c6c9cde2d5a6cd8e050c438"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf53d0ff573fc7bb5d59ede162b78efd"><td class="memItemLeft" align="right" valign="top">virtual amrex::Real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1dist_fcn_element2d.html#adf53d0ff573fc7bb5d59ede162b78efd">cpside</a> (<a class="el" href="classamrex_1_1_real_vect.html">amrex::RealVect</a> pt, <a class="el" href="classamrex_1_1_real_vect.html">amrex::RealVect</a> &amp;cp) const =0</td></tr>
+<tr class="separator:adf53d0ff573fc7bb5d59ede162b78efd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aacd4e98c4afd778e94043c2f60418264"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1dist_fcn_element2d.html#aacd4e98c4afd778e94043c2f60418264">solve_thomas</a> (std::vector&lt; amrex::Real &gt; diagminus, std::vector&lt; amrex::Real &gt; diag, std::vector&lt; amrex::Real &gt; diagplus, std::vector&lt; amrex::Real &gt; rhs, std::vector&lt; amrex::Real &gt; X)</td></tr>
 <tr class="separator:aacd4e98c4afd778e94043c2f60418264"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -169,7 +169,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ae2ff55f334f17044c38bf946cab76e31"></a>
+<a class="anchor" id="a4fbd68fb1c6c9cde2d5a6cd8e050c438"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -177,7 +177,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">amrex::Real amrex::distFcnElement2d::cpdist </td>
+          <td class="memname">virtual amrex::Real amrex::distFcnElement2d::cpdist </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classamrex_1_1_real_vect.html">amrex::RealVect</a>&#160;</td>
           <td class="paramname"><em>pt</em>, </td>
@@ -196,16 +196,16 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="classamrex_1_1_spline_dist_fcn_element2d.html#abc08ba4a32510e29747c70f1eae890b3">amrex::SplineDistFcnElement2d</a>, and <a class="el" href="classamrex_1_1_line_dist_fcn_element2d.html#a79e460afccca86ba0b30b78a79d026e8">amrex::LineDistFcnElement2d</a>.</p>
+<p>Implemented in <a class="el" href="classamrex_1_1_spline_dist_fcn_element2d.html#a50880c22f1474e901e3440b9a48e8e12">amrex::SplineDistFcnElement2d</a>, and <a class="el" href="classamrex_1_1_line_dist_fcn_element2d.html#ac9429e79b55e8f6b054280c924829a94">amrex::LineDistFcnElement2d</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ab4b09bc2409bac4d6ece92949ac5ed9d"></a>
+<a class="anchor" id="adf53d0ff573fc7bb5d59ede162b78efd"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -213,7 +213,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">amrex::Real amrex::distFcnElement2d::cpside </td>
+          <td class="memname">virtual amrex::Real amrex::distFcnElement2d::cpside </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classamrex_1_1_real_vect.html">amrex::RealVect</a>&#160;</td>
           <td class="paramname"><em>pt</em>, </td>
@@ -232,16 +232,16 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="classamrex_1_1_spline_dist_fcn_element2d.html#af5910b533fcceadde99a941e05f869e9">amrex::SplineDistFcnElement2d</a>, and <a class="el" href="classamrex_1_1_line_dist_fcn_element2d.html#a871934002a73b913654fe73725217a81">amrex::LineDistFcnElement2d</a>.</p>
+<p>Implemented in <a class="el" href="classamrex_1_1_spline_dist_fcn_element2d.html#a389169c4cebb80cc37e4684f8936931a">amrex::SplineDistFcnElement2d</a>, and <a class="el" href="classamrex_1_1_line_dist_fcn_element2d.html#a2f9b947ad192d901f99d0bdd392196bc">amrex::LineDistFcnElement2d</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aa7f29fc0aaffdbd84bc218bc9637b688"></a>
+<a class="anchor" id="a73a47ce03d2add3e6b72d53c2dbef76e"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -249,7 +249,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classamrex_1_1dist_fcn_element2d.html">distFcnElement2d</a> * amrex::distFcnElement2d::newDistFcnElement2d </td>
+          <td class="memname">virtual <a class="el" href="classamrex_1_1dist_fcn_element2d.html">distFcnElement2d</a>* amrex::distFcnElement2d::newDistFcnElement2d </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -257,12 +257,12 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="classamrex_1_1_spline_dist_fcn_element2d.html#a2eaf71fd6fafcd409b3d359ab51471c7">amrex::SplineDistFcnElement2d</a>, and <a class="el" href="classamrex_1_1_line_dist_fcn_element2d.html#a87f505b4bdb999a799787ae9ba578375">amrex::LineDistFcnElement2d</a>.</p>
+<p>Implemented in <a class="el" href="classamrex_1_1_spline_dist_fcn_element2d.html#a0f6b387cfd46f49845c6739bf394bd83">amrex::SplineDistFcnElement2d</a>, and <a class="el" href="classamrex_1_1_line_dist_fcn_element2d.html#a557c0955469be67746ebf22ad98ba341">amrex::LineDistFcnElement2d</a>.</p>
 
 </div>
 </div>
