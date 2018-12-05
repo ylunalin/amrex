@@ -26,7 +26,6 @@ var searchData=
   ['get_5finitval',['get_initval',['../classamrex_1_1_f_array_box.html#aab5bd155e6cda0d5f6b61d1820ae5a8f',1,'amrex::FArrayBox']]],
   ['get_5fitags',['get_itags',['../classamrex_1_1_tag_box.html#a7a8af95a1de330e56adf9419ef740ded',1,'amrex::TagBox']]],
   ['get_5flead_5fcomm',['get_lead_comm',['../structamrex_1_1_parallel_descriptor_1_1_process_team.html#af86a2e75eec11bc86a670af25198fe14',1,'amrex::ParallelDescriptor::ProcessTeam']]],
-  ['get_5floop_5fbounds',['get_loop_bounds',['../classamrex__fort__module.html#a09024169a5552c8da0768452f459172d',1,'amrex_fort_module']]],
   ['get_5fls_5fba',['get_ls_ba',['../classamrex_1_1_l_s_factory.html#a653226a5a158e5e103a901fa64d0408e',1,'amrex::LSFactory']]],
   ['get_5fls_5fgeom',['get_ls_geom',['../classamrex_1_1_l_s_factory.html#a4113c12ec1531bc8279fd9aeae0cd2b8',1,'amrex::LSFactory']]],
   ['get_5fls_5fpad',['get_ls_pad',['../classamrex_1_1_l_s_factory.html#a9eba38610d05f4932a4e5cbb181633c0',1,'amrex::LSFactory']]],
