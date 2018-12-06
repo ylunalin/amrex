@@ -441,14 +441,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;{</div>
 <div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;    std::allocator&lt;MultiFab*&gt; a1;</div>
 <div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;    std::allocator&lt;MultiFab const*&gt; a2;</div>
-<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;}</div>
-<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;</div>
-<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;<span class="comment">//  This is a special version of FillBoundary for warpx</span></div>
-<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespaceamrex.html#ace75305a25397036be723db66686dd01">FillBoundary</a> (Vector&lt;MultiFab*&gt; <span class="keyword">const</span>&amp; mf, <span class="keyword">const</span> Periodicity&amp; period);</div>
-<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;</div>
-<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;}</div>
+<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;    std::allocator&lt;FabArray&lt;FArrayBox&gt;*&gt; a3;</div>
+<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;    std::allocator&lt;FabArray&lt;FArrayBox&gt; <span class="keyword">const</span>*&gt; a4;</div>
+<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;}</div>
+<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;</div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;<span class="comment">//  This is a special version of FillBoundary for warpx</span></div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespaceamrex.html#ace75305a25397036be723db66686dd01">FillBoundary</a> (Vector&lt;MultiFab*&gt; <span class="keyword">const</span>&amp; mf, <span class="keyword">const</span> Periodicity&amp; period);</div>
 <div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;</div>
-<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/*BL_MULTIFAB_H*/</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;}</div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;</div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/*BL_MULTIFAB_H*/</span><span class="preprocessor"></span></div>
 <div class="ttc" id="classamrex_1_1_multi_fab_html_aa9158374809b83cfd40a8092d4e63bdd"><div class="ttname"><a href="classamrex_1_1_multi_fab.html#aa9158374809b83cfd40a8092d4e63bdd">amrex::MultiFab::mult</a></div><div class="ttdeci">void mult(Real val, int comp, int num_comp, int nghost=0)</div><div class="ttdoc">Scales the value of each cell in the specified subregion of the MultiFab by the scalar val (a[i] &lt;- a...</div><div class="ttdef"><b>Definition:</b> AMReX_MultiFab.cpp:1252</div></div>
 <div class="ttc" id="namespaceamrex_html_abda821661019fb0a77eb3a9706dc7330"><div class="ttname"><a href="namespaceamrex.html#abda821661019fb0a77eb3a9706dc7330">amrex::FArrayBoxFactory</a></div><div class="ttdeci">DefaultFabFactory&lt; FArrayBox &gt; FArrayBoxFactory</div><div class="ttdef"><b>Definition:</b> AMReX_FArrayBox.H:410</div></div>
 <div class="ttc" id="classamrex_1_1_periodicity_html_a38c75cba56d022201b4e1970534d5823"><div class="ttname"><a href="classamrex_1_1_periodicity.html#a38c75cba56d022201b4e1970534d5823">amrex::Periodicity::NonPeriodic</a></div><div class="ttdeci">static const Periodicity &amp; NonPeriodic()</div><div class="ttdef"><b>Definition:</b> AMReX_Periodicity.cpp:49</div></div>
