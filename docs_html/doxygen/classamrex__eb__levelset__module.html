@@ -100,6 +100,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a4ce3094e44f7378a03f37a74a639482c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32dc6d51e3c9086cc38f75b50d5f49d5"><td class="memItemLeft" align="right" valign="top">pure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex__eb__levelset__module.html#a32dc6d51e3c9086cc38f75b50d5f49d5">closest_dist</a> (min_dist, proj_valid, eb_data, l_eb, dx_eb, pos)</td></tr>
 <tr class="separator:a32dc6d51e3c9086cc38f75b50d5f49d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c875b67fc227b82c5f861a36f6f46b4"><td class="memItemLeft" align="right" valign="top">pure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex__eb__levelset__module.html#a1c875b67fc227b82c5f861a36f6f46b4">amrex_eb_threshold_levelset</a> (lo, hi, threshold, phi, phi_lo, phi_hi)</td></tr>
+<tr class="separator:a1c875b67fc227b82c5f861a36f6f46b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a467e32c29d3014fe63c552a79447303e"><td class="memItemLeft" align="right" valign="top">pure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex__eb__levelset__module.html#a467e32c29d3014fe63c552a79447303e">amrex_eb_validate_levelset</a> (lo, hi, n_pad, impf, imlo, imhi, valid, vlo, vhi, phi, phlo, phhi)</td></tr>
 <tr class="separator:a467e32c29d3014fe63c552a79447303e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9664cc193292d3d5dc3f25f8a48585d"><td class="memItemLeft" align="right" valign="top">pure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex__eb__levelset__module.html#ad9664cc193292d3d5dc3f25f8a48585d">amrex_eb_validate_levelset_bcs</a> (phi, phlo, phhi, valid, vlo, vhi, periodic, domlo, domhi, impf, imlo, imhi)</td></tr>
@@ -735,6 +737,56 @@ Public Member Functions</h2></td></tr>
           <td></td>
           <td class="paramtype">real(c_real), dimension(3), intent(out)&#160;</td>
           <td class="paramname"><em>normal</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a1c875b67fc227b82c5f861a36f6f46b4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pure subroutine amrex_eb_levelset_module::amrex_eb_threshold_levelset </td>
+          <td>(</td>
+          <td class="paramtype">integer, dimension(3), intent(in)&#160;</td>
+          <td class="paramname"><em>lo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(3), intent(in)&#160;</td>
+          <td class="paramname"><em>hi</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_real), intent(in)&#160;</td>
+          <td class="paramname"><em>threshold</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_real), dimension (phi_lo(1):phi_hi(1),                                                         phi_lo(2):phi_hi(2),                                                         phi_lo(3):phi_hi(3)), intent(inout)&#160;</td>
+          <td class="paramname"><em>phi</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(3), intent(in)&#160;</td>
+          <td class="paramname"><em>phi_lo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(3), intent(in)&#160;</td>
+          <td class="paramname"><em>phi_hi</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
