@@ -199,7 +199,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment">// Define macros for doing reductions.</span></div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="preprocessor">#if (defined(AMREX_USE_GPU) &amp;&amp; !defined(AMREX_NO_DEVICE_LAUNCH))</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="preprocessor">#ifdef AMREX_USE_GPU</span></div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_MFITER_REDUCE_SUM(var) mfi.add_reduce_value(var, amrex::MFIter::SUM)</span></div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_MFITER_REDUCE_MIN(var) mfi.add_reduce_value(var, amrex::MFIter::MIN)</span></div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_MFITER_REDUCE_MAX(var) mfi.add_reduce_value(var, amrex::MFIter::MAX)</span></div>

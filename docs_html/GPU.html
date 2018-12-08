@@ -1,0 +1,454 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Building GPU Support &mdash; amrex 18.01-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="AMReX-based Profiling Tools" href="Chapter12.html" />
+    <link rel="prev" title="GPU" href="ChapterGPU.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> amrex
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                18.01-dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">AMReX Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter2.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter3.html">Building AMReX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter4.html">Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter4a.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter5.html">AmrCore Source Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter6.html">Amr Source Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter6aa.html">Amr Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter6a.html">I/O (Plotfile, Checkpoint)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter7.html">Linear Solvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter8.html">Particles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter9.html">Fortran Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter10.html">Embedded Boundaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter11.html">Visualization</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="ChapterGPU.html">GPU</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Building GPU Support</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#building-with-gnu-make">Building with GNU Make</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#gpu-namespace-and-macros">Gpu Namespace and Macros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#memory-allocation">Memory Allocation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#kernel-launch">Kernel Launch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gpu-safe-classes">GPU Safe Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#assertion-and-error-check">Assertion and Error Check</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reduction">Reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#particle">Particle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cuda-aware-mpi">CUDA Aware MPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pitfalls-and-limitations">Pitfalls and Limitations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter12.html">AMReX-based Profiling Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter13.html">External Profiling Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter14.html">External Frameworks</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">amrex</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="ChapterGPU.html">GPU</a> &raquo;</li>
+        
+      <li>Building GPU Support</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/GPU.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="building-gpu-support">
+<span id="sec-gpu-build"></span><h1>Building GPU Support<a class="headerlink" href="#building-gpu-support" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="building-with-gnu-make">
+<h2>Building with GNU Make<a class="headerlink" href="#building-with-gnu-make" title="Permalink to this headline">¶</a></h2>
+<p>To build AMReX with GPU support, you add <code class="docutils literal notranslate"><span class="pre">USE_CUDA=TRUE</span></code> to your
+make file or as an command line argument.  AMReX itself does not
+require OpenACC and CUDA Fortran, but application codes can use them
+if they are supported by the compiler.  For OpenACC support, you add
+<code class="docutils literal notranslate"><span class="pre">USE_ACC=TRUE</span></code>.  Only IBM and PGI support CUDA Fortran.  Thus for
+CUDA Fortran, you must use <code class="docutils literal notranslate"><span class="pre">COMP=pgi</span></code> or <code class="docutils literal notranslate"><span class="pre">COMP=ibm</span></code>.  OpenMP is
+currently not supported when <code class="docutils literal notranslate"><span class="pre">USE_CUDA=TRUE</span></code>.  The default host
+compiler for NVCC is GCC even if <code class="docutils literal notranslate"><span class="pre">COMP</span></code> is set to a different
+compiler.  One can change this by setting <code class="docutils literal notranslate"><span class="pre">NVCC_HOST_COMP</span></code> to say
+<code class="docutils literal notranslate"><span class="pre">pgi</span></code>.  For example, <code class="docutils literal notranslate"><span class="pre">COMP=pgi</span></code> alone will compile C/C++ codes
+with NVCC/GCC and Fortran codes with PGI, and link with PGI.  Using
+<code class="docutils literal notranslate"><span class="pre">COMP=pgi</span></code> and <code class="docutils literal notranslate"><span class="pre">NVCC_HOST_COMP=pgi</span></code> will compile C/C++ codes with
+NVCC/PGI.</p>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">Tutorials/Basic/HelloWorld_C</span></code> to test your programming
+environment.  Typing</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">make COMP=gnu USE_CUDA=TRUE</span>
+</pre></div>
+</div>
+<p>should produce an executable named <code class="docutils literal notranslate"><span class="pre">main3d.gnu.DEBUG.CUDA.ex</span></code>.  You
+can run it and that will generate results like below</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> ./main3d.gnu.DEBUG.CUDA.ex
+<span class="go">CUDA initialized with 1 GPU</span>
+<span class="go">AMReX (18.12-95-gf265b537f479-dirty) initialized</span>
+<span class="go">Hello world from AMReX version 18.12-95-gf265b537f479-dirty</span>
+<span class="go">[The         Arena] space (kilobyte): 8192</span>
+<span class="go">[The  Device Arena] space (kilobyte): 8192</span>
+<span class="go">[The Managed Arena] space (kilobyte): 8192</span>
+<span class="go">[The  Pinned Arena] space (kilobyte): 8192</span>
+<span class="go">AMReX (18.12-95-gf265b537f479-dirty) finalized</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="gpu-namespace-and-macros">
+<span id="sec-gpu-namespace"></span><h1>Gpu Namespace and Macros<a class="headerlink" href="#gpu-namespace-and-macros" title="Permalink to this headline">¶</a></h1>
+<p>GPU related classes and functions are usually in <code class="docutils literal notranslate"><span class="pre">namespace</span> <span class="pre">Gpu</span></code>,
+which is inside <code class="docutils literal notranslate"><span class="pre">namespace</span> <span class="pre">amrex</span></code>.  For portability, AMReX defines
+some macros for CUDA function qualifiers and they should be preferred
+to hardwired <code class="docutils literal notranslate"><span class="pre">__*__</span></code>.  These include</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#define AMREX_GPU_HOST        __host__</span>
+<span class="cp">#define AMREX_GPU_DEVICE      __device__</span>
+<span class="cp">#define AMREX_GPU_GLOBAL      __global__</span>
+<span class="cp">#define AMREX_GPU_HOST_DEVICE __host__ __device__</span>
+</pre></div>
+</div>
+<p>Note that when AMReX is not built with CUDA, these macros expand to
+empty space.</p>
+<p>When AMReX is compiled with <code class="docutils literal notranslate"><span class="pre">USE_CUDA=TRUE</span></code>, we pass
+<code class="docutils literal notranslate"><span class="pre">-DAMREX_USE_CUDA</span></code> and <code class="docutils literal notranslate"><span class="pre">-DAMREX_USE_GPU</span></code> to the compiler so that
+these macros can be used for preprocessing.  For PGI and IBM
+compilers, we also pass <code class="docutils literal notranslate"><span class="pre">-DAMREX_USE_CUDA_FORTRAN</span></code>,
+<code class="docutils literal notranslate"><span class="pre">-DAMREX_CUDA_FORT_GLOBAL='attributes(global)'</span></code>,
+<code class="docutils literal notranslate"><span class="pre">-DAMREX_CUDA_FORT_DEVICE='attributes(device)'</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">-DAMREX_CUDA_FORT_HOST='attributes(host)'</span></code> so that CUDA Fortran
+functions can be properly declared.  When AMReX is compiled with
+<code class="docutils literal notranslate"><span class="pre">USE_ACC=TRUE</span></code>, we pass <code class="docutils literal notranslate"><span class="pre">-DAMREX_USE_ACC</span></code> to the compiler.</p>
+</div>
+<div class="section" id="memory-allocation">
+<span id="sec-gpu-memory"></span><h1>Memory Allocation<a class="headerlink" href="#memory-allocation" title="Permalink to this headline">¶</a></h1>
+<p>To provide portability and improve memory allocation performance,
+AMReX provides a number of memory pools.</p>
+<span id="tab-gpu-arena"></span><table border="1" class="docutils" id="id1">
+<caption><span class="caption-number">Table 11 </span><span class="caption-text">Memory Arenas</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="54%" />
+<col width="46%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Arena</th>
+<th class="head">Memory Type</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>The_Arena()</td>
+<td>unified memory</td>
+</tr>
+<tr class="row-odd"><td>The_Device_Arena()</td>
+<td>device memory</td>
+</tr>
+<tr class="row-even"><td>The_Managed_Arena()</td>
+<td>unified memory</td>
+</tr>
+<tr class="row-odd"><td>The_Pinned_Arena()</td>
+<td>pinned memory</td>
+</tr>
+</tbody>
+</table>
+<p><code class="docutils literal notranslate"><span class="pre">Arena</span></code> object returned by these arena functions provides</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="o">*</span> <span class="nf">alloc</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">sz</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">free</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">p</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">The_Arena()</span></code> is used for memory allocation of data in <code class="docutils literal notranslate"><span class="pre">BaseFab</span></code>.
+Therefore the data in a <code class="docutils literal notranslate"><span class="pre">MultiFab</span></code> are in unified memory and they
+are accessible from both CPU host and GPU device.  This allows
+application codes to develop their GPU capability gradually.
+<code class="docutils literal notranslate"><span class="pre">The_Managed_Arena()</span></code> is also a memory pool of unified memory, but
+it is separated from <code class="docutils literal notranslate"><span class="pre">The_Arena()</span></code> for performance reason.  If you
+want to print out the current memory usage by the arenas, you can call
+<code class="docutils literal notranslate"><span class="pre">amrex::Arena::PrintUsage()</span></code>.</p>
+</div>
+<div class="section" id="kernel-launch">
+<span id="sec-gpu-launch"></span><h1>Kernel Launch<a class="headerlink" href="#kernel-launch" title="Permalink to this headline">¶</a></h1>
+<p>AMReX uses <code class="docutils literal notranslate"><span class="pre">MFIter</span></code> to iterate over a <code class="docutils literal notranslate"><span class="pre">MultiFab</span></code>.  Inside the
+loop, we call functions to work on <code class="docutils literal notranslate"><span class="pre">FArrayBox</span></code> objects
+(see <a class="reference internal" href="Basics.html#sec-basics-mfiter"><span class="std std-ref">MFIter and Tiling</span></a>).  With GPU, we launch kernels inside
+<code class="docutils literal notranslate"><span class="pre">MFIter</span></code> loop.  A tutorial example can be found in
+<code class="docutils literal notranslate"><span class="pre">Tutorials/GPU/Launch</span></code>.  The part launching a CUDA C++ kernel is
+shown below.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="n">MFIter</span> <span class="n">mfi</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span><span class="n">TilingIfNotGPU</span><span class="p">());</span> <span class="n">mfi</span><span class="p">.</span><span class="n">isValid</span><span class="p">();</span> <span class="o">++</span><span class="n">mfi</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="n">Box</span><span class="o">&amp;</span> <span class="n">bx</span> <span class="o">=</span> <span class="n">mfi</span><span class="p">.</span><span class="n">tilebox</span><span class="p">();</span>
+    <span class="n">FArrayBox</span><span class="o">*</span> <span class="n">fab</span> <span class="o">=</span> <span class="n">mf</span><span class="p">.</span><span class="n">fabPtr</span><span class="p">(</span><span class="n">mfi</span><span class="p">);</span>
+    <span class="n">AMREX_LAUNCH_DEVICE_LAMBDA</span> <span class="p">(</span> <span class="n">bx</span><span class="p">,</span> <span class="n">tbx</span><span class="p">,</span>
+    <span class="p">{</span>
+        <span class="n">plusone_cudacpp</span><span class="p">(</span><span class="n">tbx</span><span class="p">,</span> <span class="o">*</span><span class="n">fab</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The code above works whether it is compiled for GPU or CPU.  We use
+<code class="docutils literal notranslate"><span class="pre">TilingIfNotGPU()</span></code> that returns <code class="docutils literal notranslate"><span class="pre">false</span></code> in the case of GPU to turn
+off tiling so that GPU kernels have more works.  When tiling is off,
+<code class="docutils literal notranslate"><span class="pre">tilebox()</span></code> returns the valid box of the <code class="docutils literal notranslate"><span class="pre">FArrayBox</span></code> for that
+iteration.  <code class="docutils literal notranslate"><span class="pre">MultiFab::fabPtr</span></code> function takes <code class="docutils literal notranslate"><span class="pre">MFIter</span></code> and returns
+a managed pointer that is subsequently captured by an extended C++
+lambda function produced by the <code class="docutils literal notranslate"><span class="pre">AMREX_LAUNCH_DEVICE_LAMBDA</span></code> macro.
+The launch macro usually takes three arguments.  In this example, the
+first argument is a <code class="docutils literal notranslate"><span class="pre">Box</span></code> specifying the whole region of the kernel.
+The second argument is a <code class="docutils literal notranslate"><span class="pre">Box</span></code> variable that specifies the region a
+thread works on.  Note that the second argument is the name of a local
+variable to the thread defined by the macro, not an existing variable.
+The third argument is a block of codes delimited by a pair of curly
+braces.  In that block, we call a GPU device function
+<code class="docutils literal notranslate"><span class="pre">plusone_cudacpp</span></code> with captured variable <code class="docutils literal notranslate"><span class="pre">fab</span></code>.  In CUDA, an
+extended lambda function can only capture by value, not reference.
+That’s why we capture a pointer to <code class="docutils literal notranslate"><span class="pre">FArrayBox</span></code>.</p>
+<p>We can also call CUDA Fortran device functions in the code block for
+the launch macro like below.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="n">MFIter</span> <span class="n">mfi</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span><span class="n">TilingIfNotGPU</span><span class="p">());</span> <span class="n">mfi</span><span class="p">.</span><span class="n">isValid</span><span class="p">();</span> <span class="o">++</span><span class="n">mfi</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="n">Box</span><span class="o">&amp;</span> <span class="n">bx</span> <span class="o">=</span> <span class="n">mfi</span><span class="p">.</span><span class="n">tilebox</span><span class="p">();</span>
+    <span class="n">FArrayBox</span><span class="o">*</span> <span class="n">fab</span> <span class="o">=</span> <span class="n">mf</span><span class="p">.</span><span class="n">fabPtr</span><span class="p">(</span><span class="n">mfi</span><span class="p">);</span>
+    <span class="n">AMREX_LAUNCH_DEVICE_LAMBDA</span> <span class="p">(</span> <span class="n">bx</span><span class="p">,</span> <span class="n">tbx</span><span class="p">,</span>
+    <span class="p">{</span>
+        <span class="n">plusone_cudafort</span><span class="p">(</span><span class="n">BL_TO_FORTRAN_BOX</span><span class="p">(</span><span class="n">tbx</span><span class="p">),</span>
+                         <span class="n">BL_TO_FORTRAN_ANYD</span><span class="p">(</span><span class="o">*</span><span class="n">fab</span><span class="p">));</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Because <code class="docutils literal notranslate"><span class="pre">Box</span></code> and <code class="docutils literal notranslate"><span class="pre">FArrayBox</span></code> are C++ classes not understood by
+Fortran, we use some helper macros to pass them as Fortran data types
+(see <a class="reference internal" href="Basics.html#sec-basics-fortran"><span class="std std-ref">Calling Fortran or C</span></a>).</p>
+<p>The tutorial at <code class="docutils literal notranslate"><span class="pre">Tutorials/GPU/Launch</span></code> also shows an example of
+using OpenACC in Fortran.  We call a Fortran function and in that
+function we use OpenACC to offload work to GPU.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="n">MFIter</span> <span class="n">mfi</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span><span class="n">TilingIfNotGPU</span><span class="p">());</span> <span class="n">mfi</span><span class="p">.</span><span class="n">isValid</span><span class="p">();</span> <span class="o">++</span><span class="n">mfi</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="n">Box</span><span class="o">&amp;</span> <span class="n">bx</span> <span class="o">=</span> <span class="n">mfi</span><span class="p">.</span><span class="n">tilebox</span><span class="p">();</span>
+    <span class="n">FArrayBox</span><span class="o">&amp;</span> <span class="n">fab</span> <span class="o">=</span> <span class="n">mf</span><span class="p">[</span><span class="n">mfi</span><span class="p">];</span>
+    <span class="n">plusone_acc</span><span class="p">(</span><span class="n">BL_TO_FORTRAN_BOX</span><span class="p">(</span><span class="n">tbx</span><span class="p">),</span>
+                <span class="n">BL_TO_FORTRAN_ANYD</span><span class="p">(</span><span class="n">fab</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Note that here we use <code class="docutils literal notranslate"><span class="pre">MultiFab::operator[]</span></code> to get a reference to
+<code class="docutils literal notranslate"><span class="pre">FArrayBox</span></code> as what we usually do for CPU codes, rather using
+<code class="docutils literal notranslate"><span class="pre">MultiFab::fabPtr</span></code> to get a pointer for the CUDA examples we just
+showed above.  The reason for this is performance.  Function
+<code class="docutils literal notranslate"><span class="pre">plusone_acc</span></code> is a CPU host function.  The reference we get from
+<code class="docutils literal notranslate"><span class="pre">operator[]</span></code> is a reference to a <code class="docutils literal notranslate"><span class="pre">FArrayBox</span></code> in host memory even
+though its data pointer inside the object points to unified memory,
+whereas the pointer we get from <code class="docutils literal notranslate"><span class="pre">fatPtr</span></code> is a manged memory pointer.
+Because <code class="docutils literal notranslate"><span class="pre">BL_TO_FORTRAN_ANYD</span></code> in this case expands to the CPU version
+of some <code class="docutils literal notranslate"><span class="pre">FArrayBox</span></code> member functions (unlike GPU functions in the
+CUDA Fortran example above), having the metadata (i.e., <code class="docutils literal notranslate"><span class="pre">Box</span></code>, the
+number of components and the data pointer itself) can minimize
+unnecessary data movement.  Since the data pointer passed to
+<code class="docutils literal notranslate"><span class="pre">plusone_acc</span></code> as Fortran array by the <code class="docutils literal notranslate"><span class="pre">BL_TO_FORTRAN_AND</span></code> macro
+points to unified memory, we can take advantage of that by declaring
+it as OpenACC <code class="docutils literal notranslate"><span class="pre">deviceptr</span></code>.</p>
+<p>See the source codes in <code class="docutils literal notranslate"><span class="pre">Tutorials/GPU/Launch/</span></code> for more details on
+the kernels.</p>
+</div>
+<div class="section" id="gpu-safe-classes">
+<span id="sec-gpu-safeclasses"></span><h1>GPU Safe Classes<a class="headerlink" href="#gpu-safe-classes" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="assertion-and-error-check">
+<span id="sec-gpu-assertion"></span><h1>Assertion and Error Check<a class="headerlink" href="#assertion-and-error-check" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="reduction">
+<span id="sec-gpu-reduction"></span><h1>Reduction<a class="headerlink" href="#reduction" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="particle">
+<span id="sec-gpu-particle"></span><h1>Particle<a class="headerlink" href="#particle" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="cuda-aware-mpi">
+<span id="sec-gpu-mpi"></span><h1>CUDA Aware MPI<a class="headerlink" href="#cuda-aware-mpi" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="pitfalls-and-limitations">
+<span id="sec-gpu-limits"></span><h1>Pitfalls and Limitations<a class="headerlink" href="#pitfalls-and-limitations" title="Permalink to this headline">¶</a></h1>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Chapter12.html" class="btn btn-neutral float-right" title="AMReX-based Profiling Tools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ChapterGPU.html" class="btn btn-neutral" title="GPU" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2018, AMReX Team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

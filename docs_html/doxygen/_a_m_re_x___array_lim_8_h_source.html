@@ -148,7 +148,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_ARLIM_3D(x) amrex::GpuArray&lt;int,3&gt;{(x)[0], 0, 0}.data()</span></div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_ARLIM_ANYD(x) amrex::GpuArray&lt;int,3&gt;{(x)[0], 0, 0}.data()</span></div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_ZFILL(x) amrex::GpuArray&lt;amrex::Real,3&gt;{(x)[0], 0., 0.}.data()</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#if (defined(AMREX_USE_GPU) &amp;&amp; !defined(AMREX_NO_DEVICE_LAUNCH))</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#ifdef AMREX_USE_GPU</span></div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_ARLIM_ARG(x) x[0], 0, 0</span></div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#else</span></div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_ARLIM_ARG(x) AMREX_ARLIM_3D(x)</span></div>
@@ -161,7 +161,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_ARLIM_3D(x) amrex::GpuArray&lt;int,3&gt;{(x)[0], (x)[1], 0}.data()</span></div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_ARLIM_ANYD(x) amrex::GpuArray&lt;int,3&gt;{(x)[0], (x)[1], 0}.data()</span></div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_ZFILL(x) amrex::GpuArray&lt;amrex::Real,3&gt;{(x)[0], (x)[1], 0.}.data()</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#if (defined(AMREX_USE_GPU) &amp;&amp; !defined(AMREX_NO_DEVICE_LAUNCH))</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#ifdef AMREX_USE_GPU</span></div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_ARLIM_ARG(x) x[0], x[1], 0</span></div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#else</span></div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_ARLIM_ARG(x) AMREX_ARLIM_3D(x)</span></div>
@@ -174,7 +174,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_ZFILL(x) x</span></div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_BCREC_3D(x) x</span></div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_BCREC_ANYD(x) x</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#if (defined(AMREX_USE_GPU) &amp;&amp; !defined(AMREX_NO_DEVICE_LAUNCH))</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#ifdef AMREX_USE_GPU</span></div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_ARLIM_ARG(x) x[0], x[1], x[2]</span></div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#else</span></div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_ARLIM_ARG(x) AMREX_ARLIM_3D(x)</span></div>
