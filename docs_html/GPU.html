@@ -29,7 +29,7 @@
   <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="AMReX-based Profiling Tools" href="Chapter12.html" />
+    <link rel="next" title="Visualization" href="Chapter11.html" />
     <link rel="prev" title="GPU" href="ChapterGPU.html" /> 
 
   
@@ -98,7 +98,6 @@
 <li class="toctree-l1"><a class="reference internal" href="Chapter8.html">Particles</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Chapter9.html">Fortran Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Chapter10.html">Embedded Boundaries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Chapter11.html">Visualization</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="ChapterGPU.html">GPU</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Building GPU Support</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#building-with-gnu-make">Building with GNU Make</a></li>
@@ -115,6 +114,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#pitfalls-and-limitations">Pitfalls and Limitations</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter11.html">Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Chapter12.html">AMReX-based Profiling Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Chapter13.html">External Profiling Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Chapter14.html">External Frameworks</a></li>
@@ -250,7 +250,7 @@ functions can be properly declared.  When AMReX is compiled with
 <p>To provide portability and improve memory allocation performance,
 AMReX provides a number of memory pools.</p>
 <span id="tab-gpu-arena"></span><table border="1" class="docutils" id="id1">
-<caption><span class="caption-number">Table 11 </span><span class="caption-text">Memory Arenas</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 9 </span><span class="caption-text">Memory Arenas</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="54%" />
 <col width="46%" />
@@ -275,26 +275,26 @@ AMReX provides a number of memory pools.</p>
 </tr>
 </tbody>
 </table>
-<p><code class="docutils literal notranslate"><span class="pre">Arena</span></code> object returned by these arena functions provides</p>
+<p><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Arena</span></span></code> object returned by these arena functions provides</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="o">*</span> <span class="nf">alloc</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">sz</span><span class="p">);</span>
 <span class="kt">void</span> <span class="nf">free</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">p</span><span class="p">);</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">The_Arena()</span></code> is used for memory allocation of data in <code class="docutils literal notranslate"><span class="pre">BaseFab</span></code>.
-Therefore the data in a <code class="docutils literal notranslate"><span class="pre">MultiFab</span></code> are in unified memory and they
-are accessible from both CPU host and GPU device.  This allows
-application codes to develop their GPU capability gradually.
-<code class="docutils literal notranslate"><span class="pre">The_Managed_Arena()</span></code> is also a memory pool of unified memory, but
-it is separated from <code class="docutils literal notranslate"><span class="pre">The_Arena()</span></code> for performance reason.  If you
-want to print out the current memory usage by the arenas, you can call
-<code class="docutils literal notranslate"><span class="pre">amrex::Arena::PrintUsage()</span></code>.</p>
+<p><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">The_Arena</span></span><span class="punctuation"><span class="pre">()</span></span></code> is used for memory allocation of data in
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BaseFab</span></span></code>.  Therefore the data in a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code> are in
+unified memory and they are accessible from both CPU host and GPU
+device.  This allows application codes to develop their GPU capability
+gradually.  <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">The_Managed_Arena</span></span><span class="punctuation"><span class="pre">()</span></span></code> is also a memory pool of
+unified memory, but it is separated from <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">The_Arena</span></span><span class="punctuation"><span class="pre">()</span></span></code> for
+performance reason.  If you want to print out the current memory usage
+by the arenas, you can call <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">Arena</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">PrintUsage</span></span><span class="punctuation"><span class="pre">()</span></span></code>.</p>
 </div>
 <div class="section" id="kernel-launch">
 <span id="sec-gpu-launch"></span><h1>Kernel Launch<a class="headerlink" href="#kernel-launch" title="Permalink to this headline">¶</a></h1>
-<p>AMReX uses <code class="docutils literal notranslate"><span class="pre">MFIter</span></code> to iterate over a <code class="docutils literal notranslate"><span class="pre">MultiFab</span></code>.  Inside the
-loop, we call functions to work on <code class="docutils literal notranslate"><span class="pre">FArrayBox</span></code> objects
-(see <a class="reference internal" href="Basics.html#sec-basics-mfiter"><span class="std std-ref">MFIter and Tiling</span></a>).  With GPU, we launch kernels inside
-<code class="docutils literal notranslate"><span class="pre">MFIter</span></code> loop.  A tutorial example can be found in
+<p>AMReX uses <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> to iterate over a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code>.  Inside
+the loop, we call functions to work on <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code> objects (see
+<a class="reference internal" href="Basics.html#sec-basics-mfiter"><span class="std std-ref">MFIter and Tiling</span></a>).  With GPU, we launch kernels inside
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> loop.  A tutorial example can be found in
 <code class="docutils literal notranslate"><span class="pre">Tutorials/GPU/Launch</span></code>.  The part launching a CUDA C++ kernel is
 shown below.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="n">MFIter</span> <span class="n">mfi</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span><span class="n">TilingIfNotGPU</span><span class="p">());</span> <span class="n">mfi</span><span class="p">.</span><span class="n">isValid</span><span class="p">();</span> <span class="o">++</span><span class="n">mfi</span><span class="p">)</span>
@@ -309,22 +309,23 @@ shown below.</p>
 </pre></div>
 </div>
 <p>The code above works whether it is compiled for GPU or CPU.  We use
-<code class="docutils literal notranslate"><span class="pre">TilingIfNotGPU()</span></code> that returns <code class="docutils literal notranslate"><span class="pre">false</span></code> in the case of GPU to turn
-off tiling so that GPU kernels have more works.  When tiling is off,
-<code class="docutils literal notranslate"><span class="pre">tilebox()</span></code> returns the valid box of the <code class="docutils literal notranslate"><span class="pre">FArrayBox</span></code> for that
-iteration.  <code class="docutils literal notranslate"><span class="pre">MultiFab::fabPtr</span></code> function takes <code class="docutils literal notranslate"><span class="pre">MFIter</span></code> and returns
-a managed pointer that is subsequently captured by an extended C++
-lambda function produced by the <code class="docutils literal notranslate"><span class="pre">AMREX_LAUNCH_DEVICE_LAMBDA</span></code> macro.
-The launch macro usually takes three arguments.  In this example, the
-first argument is a <code class="docutils literal notranslate"><span class="pre">Box</span></code> specifying the whole region of the kernel.
-The second argument is a <code class="docutils literal notranslate"><span class="pre">Box</span></code> variable that specifies the region a
-thread works on.  Note that the second argument is the name of a local
-variable to the thread defined by the macro, not an existing variable.
-The third argument is a block of codes delimited by a pair of curly
-braces.  In that block, we call a GPU device function
-<code class="docutils literal notranslate"><span class="pre">plusone_cudacpp</span></code> with captured variable <code class="docutils literal notranslate"><span class="pre">fab</span></code>.  In CUDA, an
-extended lambda function can only capture by value, not reference.
-That’s why we capture a pointer to <code class="docutils literal notranslate"><span class="pre">FArrayBox</span></code>.</p>
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">TilingIfNotGPU</span></span><span class="punctuation"><span class="pre">()</span></span></code> that returns <code class="docutils literal notranslate"><span class="pre">false</span></code> in the case of GPU to
+turn off tiling so that GPU kernels have more works.  When tiling is
+off, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">tilebox</span></span><span class="punctuation"><span class="pre">()</span></span></code> returns the valid box of the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code>
+for that iteration.  <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">fabPtr</span></span></code> function takes
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> and returns a managed pointer that is subsequently
+captured by an extended C++ lambda function produced by the
+<code class="docutils literal notranslate"><span class="pre">AMREX_LAUNCH_DEVICE_LAMBDA</span></code> macro.  The launch macro usually takes
+three arguments.  In this example, the first argument is a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code>
+specifying the whole region of the kernel.  The second argument is a
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code> variable that specifies the region a thread works on.  Note
+that the second argument is the name of a local variable to the thread
+defined by the macro, not an existing variable.  The third argument is
+a block of codes delimited by a pair of curly braces.  In that block,
+we call a GPU device function <code class="docutils literal notranslate"><span class="pre">plusone_cudacpp</span></code> with captured
+variable <code class="docutils literal notranslate"><span class="pre">fab</span></code>.  In CUDA, an extended lambda function can only
+capture by value, not reference.  That’s why we capture a pointer to
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code>.</p>
 <p>We can also call CUDA Fortran device functions in the code block for
 the launch macro like below.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="n">MFIter</span> <span class="n">mfi</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span><span class="n">TilingIfNotGPU</span><span class="p">());</span> <span class="n">mfi</span><span class="p">.</span><span class="n">isValid</span><span class="p">();</span> <span class="o">++</span><span class="n">mfi</span><span class="p">)</span>
@@ -339,9 +340,9 @@ the launch macro like below.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Because <code class="docutils literal notranslate"><span class="pre">Box</span></code> and <code class="docutils literal notranslate"><span class="pre">FArrayBox</span></code> are C++ classes not understood by
+<p>Because <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code> and <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code> are C++ classes not understood by
 Fortran, we use some helper macros to pass them as Fortran data types
-(see <a class="reference internal" href="Basics.html#sec-basics-fortran"><span class="std std-ref">Calling Fortran or C</span></a>).</p>
+(see <a class="reference internal" href="Basics.html#sec-basics-fortran"><span class="std std-ref">Fortran, C or C++ Kernels</span></a>).</p>
 <p>The tutorial at <code class="docutils literal notranslate"><span class="pre">Tutorials/GPU/Launch</span></code> also shows an example of
 using OpenACC in Fortran.  We call a Fortran function and in that
 function we use OpenACC to offload work to GPU.</p>
@@ -354,22 +355,22 @@ function we use OpenACC to offload work to GPU.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Note that here we use <code class="docutils literal notranslate"><span class="pre">MultiFab::operator[]</span></code> to get a reference to
-<code class="docutils literal notranslate"><span class="pre">FArrayBox</span></code> as what we usually do for CPU codes, rather using
-<code class="docutils literal notranslate"><span class="pre">MultiFab::fabPtr</span></code> to get a pointer for the CUDA examples we just
+<p>Note that here we use <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span><span class="operator"><span class="pre">::</span></span><span class="keyword"><span class="pre">operator</span></span><span class="punctuation"><span class="pre">[]</span></span></code> to get a reference
+to <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code> as what we usually do for CPU codes, rather using
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">fabPtr</span></span></code> to get a pointer for the CUDA examples we just
 showed above.  The reason for this is performance.  Function
 <code class="docutils literal notranslate"><span class="pre">plusone_acc</span></code> is a CPU host function.  The reference we get from
-<code class="docutils literal notranslate"><span class="pre">operator[]</span></code> is a reference to a <code class="docutils literal notranslate"><span class="pre">FArrayBox</span></code> in host memory even
-though its data pointer inside the object points to unified memory,
-whereas the pointer we get from <code class="docutils literal notranslate"><span class="pre">fatPtr</span></code> is a manged memory pointer.
-Because <code class="docutils literal notranslate"><span class="pre">BL_TO_FORTRAN_ANYD</span></code> in this case expands to the CPU version
-of some <code class="docutils literal notranslate"><span class="pre">FArrayBox</span></code> member functions (unlike GPU functions in the
-CUDA Fortran example above), having the metadata (i.e., <code class="docutils literal notranslate"><span class="pre">Box</span></code>, the
-number of components and the data pointer itself) can minimize
-unnecessary data movement.  Since the data pointer passed to
-<code class="docutils literal notranslate"><span class="pre">plusone_acc</span></code> as Fortran array by the <code class="docutils literal notranslate"><span class="pre">BL_TO_FORTRAN_AND</span></code> macro
-points to unified memory, we can take advantage of that by declaring
-it as OpenACC <code class="docutils literal notranslate"><span class="pre">deviceptr</span></code>.</p>
+<code class="code cpp c++ docutils literal notranslate"><span class="keyword"><span class="pre">operator</span></span><span class="punctuation"><span class="pre">[]</span></span></code> is a reference to a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code> in host memory
+even though its data pointer inside the object points to unified
+memory, whereas the pointer we get from <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">fatPtr</span></span></code> is a manged
+memory pointer.  Because <code class="docutils literal notranslate"><span class="pre">BL_TO_FORTRAN_ANYD</span></code> in this case expands
+to the CPU version of some <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code> member functions (unlike
+GPU functions in the CUDA Fortran example above), having the metadata
+(i.e., <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code>, the number of components and the data pointer
+itself) can minimize unnecessary data movement.  Since the data
+pointer passed to <code class="docutils literal notranslate"><span class="pre">plusone_acc</span></code> as Fortran array by the
+<code class="docutils literal notranslate"><span class="pre">BL_TO_FORTRAN_AND</span></code> macro points to unified memory, we can take
+advantage of that by declaring it as OpenACC <code class="docutils literal notranslate"><span class="pre">deviceptr</span></code>.</p>
 <p>See the source codes in <code class="docutils literal notranslate"><span class="pre">Tutorials/GPU/Launch/</span></code> for more details on
 the kernels.</p>
 </div>
@@ -400,7 +401,7 @@ the kernels.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Chapter12.html" class="btn btn-neutral float-right" title="AMReX-based Profiling Tools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Chapter11.html" class="btn btn-neutral float-right" title="Visualization" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="ChapterGPU.html" class="btn btn-neutral" title="GPU" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

@@ -113,7 +113,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#mfiter-with-tiling">MFIter with Tiling</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#calling-fortran-or-c">Calling Fortran or C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fortran-c-or-c-kernels">Fortran, C or C++ Kernels</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ghost-cells">Ghost Cells</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#memory-allocation">Memory Allocation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#abort-assertion-and-backtrace">Abort, Assertion and Backtrace</a></li>
@@ -131,8 +131,8 @@
 <li class="toctree-l1"><a class="reference internal" href="Chapter8.html">Particles</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Chapter9.html">Fortran Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Chapter10.html">Embedded Boundaries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Chapter11.html">Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ChapterGPU.html">GPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter11.html">Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Chapter12.html">AMReX-based Profiling Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Chapter13.html">External Profiling Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Chapter14.html">External Frameworks</a></li>
@@ -853,7 +853,7 @@ call</p>
 </div>
 <p>The typical usage of the returned pointer is then to pass it to a Fortran or C
 function that works on the array data (see the section&nbsp;on
-<a class="reference internal" href="#sec-basics-fortran"><span class="std std-ref">Calling Fortran or C</span></a>).  <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BaseFab</span></span></code> has several functions that set the
+<a class="reference internal" href="#sec-basics-fortran"><span class="std std-ref">Fortran, C or C++ Kernels</span></a>).  <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BaseFab</span></span></code> has several functions that set the
 array data to a constant value. Two examples are as follows.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">setVal</span><span class="p">(</span><span class="n">T</span> <span class="n">x</span><span class="p">);</span>        <span class="c1">// Set all data to x</span>
 <span class="c1">// Set the sub-region specified by bx to value x starting from component</span>
@@ -896,7 +896,7 @@ FArrayBox.</p>
 </pre></div>
 </div>
 <p>For more complicated expressions that are not supported, one can write Fortran or C
-functions for those (see the section on&nbsp;<a class="reference internal" href="#sec-basics-fortran"><span class="std std-ref">Calling Fortran or C</span></a>).  Note that
+functions for those (see the section on&nbsp;<a class="reference internal" href="#sec-basics-fortran"><span class="std std-ref">Fortran, C or C++ Kernels</span></a>).  Note that
 BaseFab does provide operators for accessing the data directly in C++. For
 example, the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">saxpy</span></span></code> example above can be done with</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Iterate over all components</span>
@@ -1204,7 +1204,7 @@ interface like below,</p>
 <code class="code fortran docutils literal notranslate"><span class="name"><span class="pre">amrex_real</span></span></code> is a Fortran kind parameter that matches
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">Real</span></span></code> in C++. In this example, we assumed the spatial dimension is
 3. In 2D, the function interface is different. In the section&nbsp;on
-<a class="reference internal" href="#sec-basics-fortran"><span class="std std-ref">Calling Fortran or C</span></a>, we will present a dimension-agnostic approach
+<a class="reference internal" href="#sec-basics-fortran"><span class="std std-ref">Fortran, C or C++ Kernels</span></a>, we will present a dimension-agnostic approach
 using macros provided by AMReX.</p>
 <p><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> only loops over grids owned by this process. For example, suppose
 there are 5 Boxes in total and processes 0 and 1 own 2 and 3 Boxes,
@@ -1509,8 +1509,8 @@ value. There are three ways of using these functions.</p>
 <p>But <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span><span class="operator"><span class="pre">&amp;</span></span> <span class="name"><span class="pre">bx</span></span> <span class="operator"><span class="pre">=</span></span> <span class="name"><span class="pre">mfi</span></span><span class="punctuation"><span class="pre">.</span></span><span class="name"><span class="pre">validbox</span></span><span class="punctuation"><span class="pre">()</span></span></code> is not legal and will not compile.</p>
 </div>
 </div>
-<div class="section" id="calling-fortran-or-c">
-<span id="sec-basics-fortran"></span><h1>Calling Fortran or C<a class="headerlink" href="#calling-fortran-or-c" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="fortran-c-or-c-kernels">
+<span id="sec-basics-fortran"></span><h1>Fortran, C or C++ Kernels<a class="headerlink" href="#fortran-c-or-c-kernels" title="Permalink to this headline">¶</a></h1>
 <p>In the section&nbsp;on <a class="reference internal" href="#sec-basics-mfiter"><span class="std std-ref">MFIter and Tiling</span></a>, we have shown that a typical
 pattern for working with MultiFabs is to use <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> to iterate over the
 data. In each iteration, a kernel function is called to work on the data and
@@ -1518,7 +1518,9 @@ the work region is specified by a <code class="code cpp c++ docutils literal not
 region is a tile. The tiling is logical in the sense that there is no data
 layout transformation. The kernel function still gets the whole arrays in
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBoxes</span></span></code>, even though it is supposed to work on a tile region of the
-arrays. To C++, these kernel functions are C functions, whose function
+arrays.  Fortran is often used for writing these kernels because of its
+native multi-dimensional array support.  To C++, these kernel
+functions are C functions, whose function
 signatures are typically declared in a header file named <code class="docutils literal notranslate"><span class="pre">*_f.H</span></code> or
 <code class="docutils literal notranslate"><span class="pre">*_F.H</span></code>. We recommend the users to follow this convention.  Examples of these
 function declarations are as follows.</p>
@@ -1683,6 +1685,41 @@ be hidden by <code class="code cpp c++ docutils literal notranslate"><span class
 details can be found at <code class="docutils literal notranslate"><span class="pre">amrex/Docs/Readme.typecheck</span></code>.  Despite
 these limitations, it is recommended to use the type check tool and
 report issues to us.</p>
+<p>Writing kernels in C++ is also an option.  AMReX provides
+multi-dimensional array type of syntax.  Below is an example.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">f</span> <span class="p">(</span><span class="n">Box</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">bx</span><span class="p">,</span> <span class="n">FArrayBox</span><span class="o">&amp;</span> <span class="n">fab1</span><span class="p">,</span> <span class="n">FArrayBox</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">fab2</span><span class="p">,</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="k">auto</span> <span class="n">len</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="n">bx</span><span class="p">);</span>
+    <span class="k">const</span> <span class="k">auto</span> <span class="n">lo</span>  <span class="o">=</span> <span class="n">lbound</span><span class="p">(</span><span class="n">bx</span><span class="p">);</span>
+    <span class="k">const</span> <span class="k">auto</span> <span class="n">dst</span> <span class="o">=</span> <span class="n">fab1</span><span class="p">.</span><span class="n">view</span><span class="p">(</span><span class="n">lo</span><span class="p">);</span>
+    <span class="k">const</span> <span class="k">auto</span> <span class="n">src</span> <span class="o">=</span> <span class="n">fab2</span><span class="p">.</span><span class="n">view</span><span class="p">(</span><span class="n">lo</span><span class="p">);</span>
+
+    <span class="k">for</span>         <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">len</span><span class="p">.</span><span class="n">z</span><span class="p">;</span> <span class="o">++</span><span class="n">k</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span>     <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">len</span><span class="p">.</span><span class="n">y</span><span class="p">;</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">AMREX_PRAGMA_SIMD</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">len</span><span class="p">.</span><span class="n">x</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">dst</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">src</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="o">+</span><span class="n">src</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">))</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="n">MFIter</span> <span class="n">mfi</span><span class="p">(</span><span class="n">mf1</span><span class="p">,</span><span class="nb">true</span><span class="p">);</span> <span class="n">mfi</span><span class="p">.</span><span class="n">isValid</span><span class="p">();</span> <span class="o">++</span><span class="n">mfi</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="n">Box</span><span class="o">&amp;</span> <span class="n">box</span> <span class="o">=</span> <span class="n">mfi</span><span class="p">.</span><span class="n">tilebox</span><span class="p">();</span>
+    <span class="n">f</span><span class="p">(</span><span class="n">box</span><span class="p">,</span> <span class="n">mf1</span><span class="p">[</span><span class="n">mfi</span><span class="p">],</span> <span class="n">mf2</span><span class="p">[</span><span class="n">mfi</span><span class="p">]);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Here, we pass a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code> and two <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBoxes</span></span></code> to a C++ kernel
+function.  In the function, we use function <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">length</span></span></code> to
+get the length of the loops and function <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">lbound</span></span></code> to get
+the lower end of the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code>.  Both functions’ return type is
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">Dim3</span></span></code>, a Plain Old Data type containing three integers.
+Function <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">view</span></span></code> returns <cite>FabView&lt;FArrayBox&gt;</cite> that can
+be used to access the data.  Note that the view is shifted such that
+index 0 points to the lower end of the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code>.  To obtain the
+global index, we can compute with say <code class="docutils literal notranslate"><span class="pre">i+lo.x</span></code>.</p>
 </div>
 <div class="section" id="ghost-cells">
 <h1>Ghost Cells<a class="headerlink" href="#ghost-cells" title="Permalink to this headline">¶</a></h1>
