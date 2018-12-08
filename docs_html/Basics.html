@@ -113,7 +113,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#mfiter-with-tiling">MFIter with Tiling</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#fortran-c-or-c-kernels">Fortran, C or C++ Kernels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fortran-c-and-c-kernels">Fortran, C and C++ Kernels</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ghost-cells">Ghost Cells</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#memory-allocation">Memory Allocation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#abort-assertion-and-backtrace">Abort, Assertion and Backtrace</a></li>
@@ -413,7 +413,7 @@ dimension-dependent class. It has lower and upper corners (represented by
 <div class="section" id="intvect">
 <h2>IntVect<a class="headerlink" href="#intvect" title="Permalink to this headline">¶</a></h2>
 <p><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">IntVec</span></span></code> is a dimension-dependent class representing an integer vector in
-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">AMREX</span></span> <span class="name"><span class="pre">SPACEDIM</span></span></code>-dimensional space. An <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">IntVect</span></span></code> can be constructed
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">AMREXSPACEDIM</span></span></code>-dimensional space. An <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">IntVect</span></span></code> can be constructed
 as follows,</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">IntVect</span> <span class="nf">iv</span><span class="p">(</span><span class="n">AMREX_D_DECL</span><span class="p">(</span><span class="mi">19</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">));</span>
 </pre></div>
@@ -853,7 +853,7 @@ call</p>
 </div>
 <p>The typical usage of the returned pointer is then to pass it to a Fortran or C
 function that works on the array data (see the section&nbsp;on
-<a class="reference internal" href="#sec-basics-fortran"><span class="std std-ref">Fortran, C or C++ Kernels</span></a>).  <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BaseFab</span></span></code> has several functions that set the
+<a class="reference internal" href="#sec-basics-fortran"><span class="std std-ref">Fortran, C and C++ Kernels</span></a>).  <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BaseFab</span></span></code> has several functions that set the
 array data to a constant value. Two examples are as follows.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">setVal</span><span class="p">(</span><span class="n">T</span> <span class="n">x</span><span class="p">);</span>        <span class="c1">// Set all data to x</span>
 <span class="c1">// Set the sub-region specified by bx to value x starting from component</span>
@@ -896,7 +896,7 @@ FArrayBox.</p>
 </pre></div>
 </div>
 <p>For more complicated expressions that are not supported, one can write Fortran or C
-functions for those (see the section on&nbsp;<a class="reference internal" href="#sec-basics-fortran"><span class="std std-ref">Fortran, C or C++ Kernels</span></a>).  Note that
+functions for those (see the section on&nbsp;<a class="reference internal" href="#sec-basics-fortran"><span class="std std-ref">Fortran, C and C++ Kernels</span></a>).  Note that
 BaseFab does provide operators for accessing the data directly in C++. For
 example, the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">saxpy</span></span></code> example above can be done with</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Iterate over all components</span>
@@ -1204,7 +1204,7 @@ interface like below,</p>
 <code class="code fortran docutils literal notranslate"><span class="name"><span class="pre">amrex_real</span></span></code> is a Fortran kind parameter that matches
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">Real</span></span></code> in C++. In this example, we assumed the spatial dimension is
 3. In 2D, the function interface is different. In the section&nbsp;on
-<a class="reference internal" href="#sec-basics-fortran"><span class="std std-ref">Fortran, C or C++ Kernels</span></a>, we will present a dimension-agnostic approach
+<a class="reference internal" href="#sec-basics-fortran"><span class="std std-ref">Fortran, C and C++ Kernels</span></a>, we will present a dimension-agnostic approach
 using macros provided by AMReX.</p>
 <p><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> only loops over grids owned by this process. For example, suppose
 there are 5 Boxes in total and processes 0 and 1 own 2 and 3 Boxes,
@@ -1509,8 +1509,8 @@ value. There are three ways of using these functions.</p>
 <p>But <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span><span class="operator"><span class="pre">&amp;</span></span> <span class="name"><span class="pre">bx</span></span> <span class="operator"><span class="pre">=</span></span> <span class="name"><span class="pre">mfi</span></span><span class="punctuation"><span class="pre">.</span></span><span class="name"><span class="pre">validbox</span></span><span class="punctuation"><span class="pre">()</span></span></code> is not legal and will not compile.</p>
 </div>
 </div>
-<div class="section" id="fortran-c-or-c-kernels">
-<span id="sec-basics-fortran"></span><h1>Fortran, C or C++ Kernels<a class="headerlink" href="#fortran-c-or-c-kernels" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="fortran-c-and-c-kernels">
+<span id="sec-basics-fortran"></span><h1>Fortran, C and C++ Kernels<a class="headerlink" href="#fortran-c-and-c-kernels" title="Permalink to this headline">¶</a></h1>
 <p>In the section&nbsp;on <a class="reference internal" href="#sec-basics-mfiter"><span class="std std-ref">MFIter and Tiling</span></a>, we have shown that a typical
 pattern for working with MultiFabs is to use <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> to iterate over the
 data. In each iteration, a kernel function is called to work on the data and
@@ -1716,10 +1716,16 @@ function.  In the function, we use function <code class="code cpp c++ docutils l
 get the length of the loops and function <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">lbound</span></span></code> to get
 the lower end of the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code>.  Both functions’ return type is
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">Dim3</span></span></code>, a Plain Old Data type containing three integers.
-Function <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">view</span></span></code> returns <cite>FabView&lt;FArrayBox&gt;</cite> that can
-be used to access the data.  Note that the view is shifted such that
-index 0 points to the lower end of the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code>.  To obtain the
-global index, we can compute with say <code class="docutils literal notranslate"><span class="pre">i+lo.x</span></code>.</p>
+Function <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">view</span></span></code> returns <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FabView</span></span><span class="operator"><span class="pre">&lt;</span></span><span class="name"><span class="pre">FArrayBox</span></span><span class="operator"><span class="pre">&gt;</span></span></code> that
+can be used to access the data.  Note that the view is shifted such
+that index 0 points to the lower end of the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code>.  To obtain the
+global index, we can compute with say <code class="docutils literal notranslate"><span class="pre">i+lo.x</span></code>.  We put
+<code class="docutils literal notranslate"><span class="pre">AMREX_PRAGMA_SIMD</span></code> macro above the innermost loop to notify the
+compiler that it is safe to vectorize the loop.  The macro generates
+compiler dependent pragma, and their exact effect on the compiler is
+also compiler dependent.  It should be emphasized that using the
+<code class="docutils literal notranslate"><span class="pre">AMREX_PRAGMA_SIMD</span></code> macro on loops that are not safe for
+vectorization is a mistake.</p>
 </div>
 <div class="section" id="ghost-cells">
 <h1>Ghost Cells<a class="headerlink" href="#ghost-cells" title="Permalink to this headline">¶</a></h1>

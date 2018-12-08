@@ -105,8 +105,9 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#gpu-namespace-and-macros">Gpu Namespace and Macros</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#memory-allocation">Memory Allocation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gpu-safe-classes-and-functions">GPU Safe Classes and Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#kernel-launch">Kernel Launch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#gpu-safe-classes">GPU Safe Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#asyncfab-and-asyncarray">AsyncFab and AsyncArray</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#assertion-and-error-check">Assertion and Error Check</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#reduction">Reduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#particle">Particle</a></li>
@@ -289,6 +290,47 @@ unified memory, but it is separated from <code class="code cpp c++ docutils lite
 performance reason.  If you want to print out the current memory usage
 by the arenas, you can call <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">Arena</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">PrintUsage</span></span><span class="punctuation"><span class="pre">()</span></span></code>.</p>
 </div>
+<div class="section" id="gpu-safe-classes-and-functions">
+<span id="sec-gpu-classes"></span><h1>GPU Safe Classes and Functions<a class="headerlink" href="#gpu-safe-classes-and-functions" title="Permalink to this headline">¶</a></h1>
+<p>Some AMReX classes and functions can be used in device functions, but
+most do not.  Note that this is about using them on GPU, not about
+whether they use GPU.  For example, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">Copy</span></span></code> function
+cannot be called from GPU, but calling it from CPU will use GPU if
+AMReX is compiled with GPU support.  In this section, we discuss a
+few classes and functions that are useful for programming GPU.</p>
+<p>In the basic AMReX classes, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code>, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">IntVect</span></span></code> and
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">IndexType</span></span></code> are classes for representing indices.  These classes
+and most of their member functions, including constructors and
+destructors, have both host and device versions.  They can be used in
+device code.  <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BaseFab</span></span><span class="operator"><span class="pre">&lt;</span></span><span class="name"><span class="pre">T</span></span><span class="operator"><span class="pre">&gt;</span></span></code>, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">IArrayBox</span></span></code> and <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code>
+have some GPU support.  They cannot be constructed in device code, but
+a pointer to them can be passed to GPU kernels from CPU code.  Many
+member functions of them (e.g., <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">view</span></span></code>, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">dataPtr</span></span></code>,
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">box</span></span></code>, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">nComp</span></span></code>, and <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">setVal</span></span></code>) can be used in device
+code, if the pointer points to unified memory.  All <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BaseFab</span></span><span class="operator"><span class="pre">&lt;</span></span><span class="name"><span class="pre">T</span></span><span class="operator"><span class="pre">&gt;</span></span></code>
+objects (including <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code> derived from <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BaseFab</span></span></code>) in
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FabArray</span></span><span class="operator"><span class="pre">&lt;</span></span><span class="name"><span class="pre">FAB</span></span><span class="operator"><span class="pre">&gt;</span></span></code> (including <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code>) are allocated in
+unified memory.  A <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BaseFab</span></span><span class="operator"><span class="pre">&lt;</span></span><span class="name"><span class="pre">T</span></span><span class="operator"><span class="pre">&gt;</span></span></code> object created on the stack in
+CPU code cannot be used in GPU device code, because the object is in
+CPU memory.  However, a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BaseFab</span></span></code> created with <code class="code cpp c++ docutils literal notranslate"><span class="keyword"><span class="pre">new</span></span></code> on the
+heap is GPU safe, because <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BaseFab</span></span></code> has its own overloaded
+<cite>:cpp:`operator new</cite> that allocates memory from <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">The_Arena</span></span><span class="punctuation"><span class="pre">()</span></span></code>, a
+managed memory arena.  For example,</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span> <span class="c1">// We are in CPU code</span>
+
+ <span class="n">FArrayBox</span> <span class="nf">cpu_fab</span><span class="p">(</span><span class="n">box</span><span class="p">,</span><span class="n">ncomp</span><span class="p">);</span>
+ <span class="c1">// FArrayBox* p_cpu_fab = &amp;(cpu_fab) cannot be used in GPU device code!</span>
+
+<span class="n">FArrayBox</span><span class="o">*</span> <span class="n">p_gpu_fab</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FArrayBox</span><span class="p">(</span><span class="n">box</span><span class="p">,</span><span class="n">ncomp</span><span class="p">);</span>
+<span class="c1">// FArrayBox* p_gpu_fab can be used in GPU device code.</span>
+</pre></div>
+</div>
+<p><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Geometry</span></span></code> class is not a GPU safe class.  However, we often need
+to use geometry information such as cell size and physical coordinates
+in GPU kernels.  What we can do is extract its data into a GPU safe
+class <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">GeometryData</span></span></code> with <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Geometry</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">data</span></span></code> function and pass
+it by value to GPU kernels.</p>
+</div>
 <div class="section" id="kernel-launch">
 <span id="sec-gpu-launch"></span><h1>Kernel Launch<a class="headerlink" href="#kernel-launch" title="Permalink to this headline">¶</a></h1>
 <p>AMReX uses <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> to iterate over a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code>.  Inside
@@ -342,7 +384,7 @@ the launch macro like below.</p>
 </div>
 <p>Because <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code> and <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code> are C++ classes not understood by
 Fortran, we use some helper macros to pass them as Fortran data types
-(see <a class="reference internal" href="Basics.html#sec-basics-fortran"><span class="std std-ref">Fortran, C or C++ Kernels</span></a>).</p>
+(see <a class="reference internal" href="Basics.html#sec-basics-fortran"><span class="std std-ref">Fortran, C and C++ Kernels</span></a>).</p>
 <p>The tutorial at <code class="docutils literal notranslate"><span class="pre">Tutorials/GPU/Launch</span></code> also shows an example of
 using OpenACC in Fortran.  We call a Fortran function and in that
 function we use OpenACC to offload work to GPU.</p>
@@ -374,8 +416,8 @@ advantage of that by declaring it as OpenACC <code class="docutils literal notra
 <p>See the source codes in <code class="docutils literal notranslate"><span class="pre">Tutorials/GPU/Launch/</span></code> for more details on
 the kernels.</p>
 </div>
-<div class="section" id="gpu-safe-classes">
-<span id="sec-gpu-safeclasses"></span><h1>GPU Safe Classes<a class="headerlink" href="#gpu-safe-classes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="asyncfab-and-asyncarray">
+<span id="sec-gpu-asyncfab"></span><h1>AsyncFab and AsyncArray<a class="headerlink" href="#asyncfab-and-asyncarray" title="Permalink to this headline">¶</a></h1>
 </div>
 <div class="section" id="assertion-and-error-check">
 <span id="sec-gpu-assertion"></span><h1>Assertion and Error Check<a class="headerlink" href="#assertion-and-error-check" title="Permalink to this headline">¶</a></h1>
