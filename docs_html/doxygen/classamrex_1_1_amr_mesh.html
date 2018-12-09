@@ -246,6 +246,10 @@ Static Public Member Functions</h2></td></tr>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a9274bfc294d53126644ed437ac83fe56"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_amr_mesh.html#a9274bfc294d53126644ed437ac83fe56">checkInput</a> ()</td></tr>
 <tr class="separator:a9274bfc294d53126644ed437ac83fe56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae30c9c8d31c0671c35e181b8d2057444"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_amr_mesh.html#ae30c9c8d31c0671c35e181b8d2057444">SetIterateToFalse</a> ()</td></tr>
+<tr class="separator:ae30c9c8d31c0671c35e181b8d2057444"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0560bc5909d40c4128ad6ff179ed7c5e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_amr_mesh.html#a0560bc5909d40c4128ad6ff179ed7c5e">SetUseNewChop</a> ()</td></tr>
+<tr class="separator:a0560bc5909d40c4128ad6ff179ed7c5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -275,6 +279,10 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a95059679c4b3343198edadf7d9d860e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d2f6e5a9f3f46c76d44215f83455475"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_amr_mesh.html#a8d2f6e5a9f3f46c76d44215f83455475">check_input</a></td></tr>
 <tr class="separator:a8d2f6e5a9f3f46c76d44215f83455475"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad47540768ade1598333374d48d3b9593"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_amr_mesh.html#ad47540768ade1598333374d48d3b9593">iterate_on_new_grids</a></td></tr>
+<tr class="separator:ad47540768ade1598333374d48d3b9593"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abaf8432668e3b350306a62e8662f4f96"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_amr_mesh.html#abaf8432668e3b350306a62e8662f4f96">use_new_chop</a></td></tr>
+<tr class="separator:abaf8432668e3b350306a62e8662f4f96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a239ef06043779ea301395ae14876d6cb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_amr_mesh.html#a239ef06043779ea301395ae14876d6cb">geom</a></td></tr>
 <tr class="separator:a239ef06043779ea301395ae14876d6cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7f8457c3e5a0dc0295247f005e5a107"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; <a class="el" href="classamrex_1_1_distribution_mapping.html">DistributionMapping</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_amr_mesh.html#ab7f8457c3e5a0dc0295247f005e5a107">dmap</a></td></tr>
@@ -1456,6 +1464,29 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ae30c9c8d31c0671c35e181b8d2057444"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void amrex::AmrMesh::SetIterateToFalse </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a830c3115a58fada88b7cfaf5bba9996c"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1570,6 +1601,29 @@ Protected Attributes</h2></td></tr>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a0560bc5909d40c4128ad6ff179ed7c5e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void amrex::AmrMesh::SetUseNewChop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1790,6 +1844,26 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ad47540768ade1598333374d48d3b9593"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool amrex::AmrMesh::iterate_on_new_grids</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a716b7e6169d4d0a537970445941e7391"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1939,6 +2013,26 @@ Protected Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">int amrex::AmrMesh::use_fixed_upto_level</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="abaf8432668e3b350306a62e8662f4f96"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool amrex::AmrMesh::use_new_chop</td>
         </tr>
       </table>
   </td>

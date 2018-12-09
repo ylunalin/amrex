@@ -32,5 +32,6 @@ var searchData=
   ['is_5fperiodic',['is_periodic',['../structamrex_1_1_geometry_data.html#a1c153da19d61edca41192dd82233071b',1,'amrex::GeometryData']]],
   ['isopen',['isOpen',['../structamrex_1_1_vis_m_f_1_1_persistent_i_f_stream.html#ac1ecab1d0722305f0a0257611aeb1bde',1,'amrex::VisMF::PersistentIFStream']]],
   ['isperiodic',['isPeriodic',['../classamrex_1_1_amr.html#a47527266245319befc8538d55dac8bc3',1,'amrex::Amr']]],
-  ['istr',['istr',['../_a_m_re_x_8cpp.html#aeb4d5a00f2dec5130d5810db7725dee7',1,'istr():&#160;AMReX.cpp'],['../namespaceamrex.html#af16cddc474435bd51df456e9cf7a2ba3',1,'amrex::istr()']]]
+  ['istr',['istr',['../_a_m_re_x_8cpp.html#aeb4d5a00f2dec5130d5810db7725dee7',1,'istr():&#160;AMReX.cpp'],['../namespaceamrex.html#af16cddc474435bd51df456e9cf7a2ba3',1,'amrex::istr()']]],
+  ['iterate_5fon_5fnew_5fgrids',['iterate_on_new_grids',['../classamrex_1_1_amr_mesh.html#ad47540768ade1598333374d48d3b9593',1,'amrex::AmrMesh']]]
 ];

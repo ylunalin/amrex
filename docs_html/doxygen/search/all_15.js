@@ -40,6 +40,7 @@ var searchData=
   ['use_5fefficient_5fregrid',['use_efficient_regrid',['../namespaceamrex.html#af1ff4a567f8d0cdc485062507aac9742',1,'amrex']]],
   ['use_5ffixed_5fcoarse_5fgrids',['use_fixed_coarse_grids',['../classamrex_1_1_amr_mesh.html#a3162b5c3697f4ce32d585ca434ac40a5',1,'amrex::AmrMesh']]],
   ['use_5ffixed_5fupto_5flevel',['use_fixed_upto_level',['../classamrex_1_1_amr_mesh.html#a15a5406d39363635d73cc1d986546fe7',1,'amrex::AmrMesh']]],
+  ['use_5fnew_5fchop',['use_new_chop',['../classamrex_1_1_amr_mesh.html#abaf8432668e3b350306a62e8662f4f96',1,'amrex::AmrMesh']]],
   ['use_5fphierr',['use_phierr',['../classamrex_1_1_l_s_core_base.html#af4ed8d84ded37119725a657db8b99d85',1,'amrex::LSCoreBase']]],
   ['useaverage',['UseAverage',['../classamrex_1_1_error_rec.html#adeca3cab9dffebf73c48525e5f94872da7907e45520d436a47eb139e8c055c203',1,'amrex::ErrorRec']]],
   ['useeb2',['useEB2',['../namespaceamrex_1_1_e_b2.html#ad7f55d0b557cb48b84323df22a77d9d0',1,'amrex::EB2']]],
