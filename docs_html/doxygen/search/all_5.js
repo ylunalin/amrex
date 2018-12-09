@@ -24,7 +24,7 @@ var searchData=
   ['ebfarrayboxfactory',['EBFArrayBoxFactory',['../classamrex_1_1_e_b_f_array_box_factory.html',1,'amrex']]],
   ['ebfluxregister',['EBFluxRegister',['../classamrex_1_1_e_b_flux_register.html#afed46de9d982663ff8bf4bdd752811a9',1,'amrex::EBFluxRegister::EBFluxRegister()=default'],['../classamrex_1_1_e_b_flux_register.html#a14da975b0621f49220efd195ac6688c8',1,'amrex::EBFluxRegister::EBFluxRegister(const BoxArray &amp;fba, const BoxArray &amp;cba, const DistributionMapping &amp;fdm, const DistributionMapping &amp;cdm, const Geometry &amp;fgeom, const Geometry &amp;cgeom, const IntVect &amp;ref_ratio, int fine_lev, int nvar)']]],
   ['ebfluxregister',['EBFluxRegister',['../classamrex_1_1_e_b_flux_register.html',1,'amrex']]],
-  ['ebsearchbox',['EBSearchBox',['../classamrex_1_1_l_s_core_base.html#a0217c267d299e57344a8dae61e6d0308',1,'amrex::LSCoreBase']]],
+  ['ebsearchbox',['EBSearchBox',['../classamrex_1_1_l_s_core_base.html#aa67c8e06f263b996a8f83a9e9e1ff47b',1,'amrex::LSCoreBase']]],
   ['ebsupport',['EBSupport',['../namespaceamrex.html#a7de82761ed632e5ee0b9f912c856aebc',1,'amrex']]],
   ['edge',['Edge',['../structamrex_1_1_e_b2_1_1_edge.html',1,'amrex::EB2']]],
   ['eff',['eff',['../classamrex_1_1_cluster.html#aa227564c0a2f99ac7c3607b7730c1a95',1,'amrex::Cluster']]],
