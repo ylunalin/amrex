@@ -107,12 +107,11 @@
 <li class="toctree-l2"><a class="reference internal" href="#memory-allocation">Memory Allocation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#gpu-safe-classes-and-functions">GPU Safe Classes and Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#kernel-launch">Kernel Launch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#asyncfab-and-asyncarray">AsyncFab and AsyncArray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#an-example-of-migrating-to-gpu">An Example of Migrating to GPU</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#assertion-and-error-check">Assertion and Error Check</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#reduction">Reduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#particle">Particle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#cuda-aware-mpi">CUDA Aware MPI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#pitfalls-and-limitations">Pitfalls and Limitations</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Chapter11.html">Visualization</a></li>
@@ -413,11 +412,89 @@ itself) can minimize unnecessary data movement.  Since the data
 pointer passed to <code class="docutils literal notranslate"><span class="pre">plusone_acc</span></code> as Fortran array by the
 <code class="docutils literal notranslate"><span class="pre">BL_TO_FORTRAN_AND</span></code> macro points to unified memory, we can take
 advantage of that by declaring it as OpenACC <code class="docutils literal notranslate"><span class="pre">deviceptr</span></code>.</p>
-<p>See the source codes in <code class="docutils literal notranslate"><span class="pre">Tutorials/GPU/Launch/</span></code> for more details on
-the kernels.</p>
+<p>In the three examples above, we have shown how to launch GPU kernels.
+In the CUDA C++ and Fortran cases, the kernel is launched with a C++
+template global function of AMReX (hidden in the launch macro),
+whereas for the OpenACC example, it is done with pragma in Fortran.
+More details on the examples can be found in the source codes at
+<code class="docutils literal notranslate"><span class="pre">Tutorials/GPU/Launch/</span></code>.  We also refer the readers to Chapter
+<a class="reference internal" href="Chapter4.html#chap-basics"><span class="std std-ref">Basics</span></a> for information about basic AMReX classes.</p>
+<p>CUDA supports multiple streams and kernels.  For each iteration of
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code>, AMReX uses a different stream (up to 16 streams in
+total) for the kernels in that iteration.  The kernels in the same
+stream are executed sequentially, but kernels from different streams
+may be run in parallel.  Note that, to CPU, CUDA kernel calls are
+asynchronous and they return before the kernel is finished on GPU.  So
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> finishes its iterations on CPU before GPU finishes its
+work.  To guarantee data coherence, there is an implicit CUDA device
+synchronization in the destructor of <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code>.</p>
 </div>
-<div class="section" id="asyncfab-and-asyncarray">
-<span id="sec-gpu-asyncfab"></span><h1>AsyncFab and AsyncArray<a class="headerlink" href="#asyncfab-and-asyncarray" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="an-example-of-migrating-to-gpu">
+<span id="sec-gpu-example"></span><h1>An Example of Migrating to GPU<a class="headerlink" href="#an-example-of-migrating-to-gpu" title="Permalink to this headline">¶</a></h1>
+<p>The nature of GPU programming poses difficulty for a common pattern
+like below.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Given MultiFab uin and uout</span>
+<span class="n">FArrayBox</span> <span class="n">q</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">MFIter</span> <span class="n">mfi</span><span class="p">(</span><span class="n">uin</span><span class="p">);</span> <span class="n">mfi</span><span class="p">.</span><span class="n">isValid</span><span class="p">();</span> <span class="o">++</span><span class="n">mfi</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="n">Box</span><span class="o">&amp;</span> <span class="n">vbx</span> <span class="o">=</span> <span class="n">mfi</span><span class="p">.</span><span class="n">validbox</span><span class="p">();</span>
+    <span class="k">const</span> <span class="n">Box</span><span class="o">&amp;</span> <span class="n">gbx</span> <span class="o">=</span> <span class="n">amrex</span><span class="o">::</span><span class="n">grow</span><span class="p">(</span><span class="n">vbx</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+    <span class="n">q</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">gbx</span><span class="p">);</span>
+
+    <span class="c1">// Do some work with uin[mfi] as input and q as output.</span>
+    <span class="c1">// The output region is gbx;</span>
+    <span class="n">f1</span><span class="p">(</span><span class="n">gbx</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">uin</span><span class="p">[</span><span class="n">mfi</span><span class="p">]);</span>
+
+    <span class="c1">// Then do more work with q as input and uout[mfi] as output.</span>
+    <span class="c1">// The output region is vbx.</span>
+    <span class="n">f2</span><span class="p">(</span><span class="n">vbx</span><span class="p">,</span> <span class="n">uout</span><span class="p">[</span><span class="n">mfi</span><span class="p">],</span> <span class="n">q</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>There are several issues of migrating the code above to GPU needed to
+been addressed.  Because functions <code class="docutils literal notranslate"><span class="pre">f1</span></code> and <code class="docutils literal notranslate"><span class="pre">f2</span></code> have different
+work regions and there are data dependency between the two, it is
+difficult to put them into a single GPU kernel.  So we will launch two
+separate kernels.</p>
+<p>As we have discussed in Section <a class="reference internal" href="#sec-gpu-classes"><span class="std std-ref">GPU Safe Classes and Functions</span></a>, all
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code>es in the two <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code>s are in unified
+memory.  But <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span> <span class="name"><span class="pre">q</span></span></code> is in host memory.  Changing it to</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">FArrayBox</span><span class="o">*</span> <span class="n">q</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FArrayBox</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>does not solve the problem completely because GPU kernel calls are
+asynchronous from CPU’s point of view.  Therefore there is a race
+condition that GPU kernels in different iterations of <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code>
+will compete the access to <code class="docutils literal notranslate"><span class="pre">q</span></code>.  Moving the line into the body of
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> loop will make <code class="docutils literal notranslate"><span class="pre">q</span></code> a variable local to each iteration,
+but it has a new issue.  When do we delete <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">q</span></span></code>?  To CPU, the
+resource of <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">q</span></span></code> should be freed at the end of the scope otherwise
+there will be a memory leak.  But at the end of the CPU scope, GPU
+kernels might still need it.</p>
+<p>One way to fix this is put the temporary <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code> objects in a
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code>.  Another way is to use <code class="code cpp c++ docutils literal notranslate"><span class="name label"><span class="pre">Gpu</span></span><span class="punctuation"><span class="pre">:</span></span><span class="name"><span class="pre">AsyncFab</span></span></code> designed
+for this kind of situation.  In the code below, we show how it is used
+and how kernels are launched.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="n">MFIter</span> <span class="n">mfi</span><span class="p">(</span><span class="n">uin</span><span class="p">);</span> <span class="n">mfi</span><span class="p">.</span><span class="n">isValid</span><span class="p">();</span> <span class="o">++</span><span class="n">mfi</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="n">Box</span><span class="o">&amp;</span> <span class="n">vbx</span> <span class="o">=</span> <span class="n">mfi</span><span class="p">.</span><span class="n">validbox</span><span class="p">();</span>
+    <span class="k">const</span> <span class="n">Box</span><span class="o">&amp;</span> <span class="n">gbx</span> <span class="o">=</span> <span class="n">amrex</span><span class="o">::</span><span class="n">grow</span><span class="p">(</span><span class="n">vbx</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+    <span class="n">Gpu</span><span class="o">::</span><span class="n">AsyncFab</span> <span class="n">q</span><span class="p">(</span><span class="n">gbx</span><span class="p">);</span>
+    <span class="n">FArrayBox</span> <span class="k">const</span><span class="o">*</span> <span class="n">uinfab</span>  <span class="o">=</span> <span class="n">uin</span><span class="p">.</span><span class="n">fabPtr</span><span class="p">();</span>
+    <span class="n">FArrayBox</span>      <span class="o">*</span> <span class="n">uoutfab</span> <span class="o">=</span> <span class="n">uout</span><span class="p">.</span><span class="n">fabPtr</span><span class="p">();</span>
+
+    <span class="n">AMREX_LAUNCH_DEVICE_LAMBDA</span> <span class="p">(</span> <span class="n">gbx</span><span class="p">,</span> <span class="n">tbx</span><span class="p">,</span>
+    <span class="p">{</span>
+        <span class="n">f1</span><span class="p">(</span><span class="n">tbx</span><span class="p">,</span> <span class="n">q</span><span class="p">.</span><span class="n">fab</span><span class="p">(),</span> <span class="o">*</span><span class="n">uinfab</span><span class="p">);</span>
+    <span class="p">};</span>
+
+    <span class="n">AMrEX_LAMBDA_DEVICE_LAMBDA</span> <span class="p">(</span> <span class="n">vbx</span><span class="p">,</span> <span class="n">tbx</span><span class="p">,</span>
+    <span class="p">{</span>
+        <span class="n">f2</span><span class="p">(</span><span class="n">tbx</span><span class="p">,</span> <span class="o">*</span><span class="n">uoutfab</span><span class="p">,</span> <span class="n">q</span><span class="p">.</span><span class="n">fab</span><span class="p">());</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="assertion-and-error-check">
 <span id="sec-gpu-assertion"></span><h1>Assertion and Error Check<a class="headerlink" href="#assertion-and-error-check" title="Permalink to this headline">¶</a></h1>
@@ -430,9 +507,6 @@ the kernels.</p>
 </div>
 <div class="section" id="cuda-aware-mpi">
 <span id="sec-gpu-mpi"></span><h1>CUDA Aware MPI<a class="headerlink" href="#cuda-aware-mpi" title="Permalink to this headline">¶</a></h1>
-</div>
-<div class="section" id="pitfalls-and-limitations">
-<span id="sec-gpu-limits"></span><h1>Pitfalls and Limitations<a class="headerlink" href="#pitfalls-and-limitations" title="Permalink to this headline">¶</a></h1>
 </div>
 
 
