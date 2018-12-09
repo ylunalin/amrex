@@ -110,8 +110,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#an-example-of-migrating-to-gpu">An Example of Migrating to GPU</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#assertion-and-error-check">Assertion and Error Check</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#reduction">Reduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#particle">Particle</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cuda-aware-mpi">CUDA Aware MPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#limitations">Limitations</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Chapter11.html">Visualization</a></li>
@@ -498,15 +497,41 @@ and how kernels are launched.</p>
 </div>
 <div class="section" id="assertion-and-error-check">
 <span id="sec-gpu-assertion"></span><h1>Assertion and Error Check<a class="headerlink" href="#assertion-and-error-check" title="Permalink to this headline">¶</a></h1>
+<p>To help debugging, we often use <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">Assert</span></span></code> and
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">Abort</span></span></code>.  These functions are GPU safe and can be used in
+GPU kernels.  In CPU code, we can also call
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">AMREX_GPU_ERROR_CHECK</span></span><span class="punctuation"><span class="pre">()</span></span></code> to check if there are any GPU errors at
+that point.  Because of asynchronicity, even if GPU kernels launched
+before that point contain a bug that will result in a CUDA error, the
+error may not be encountered when <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">AMREX_GPU_ERROR_CHECK</span></span><span class="punctuation"><span class="pre">()</span></span></code> is
+called.  We can use <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Gpu</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">Device</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">synchronize</span></span><span class="punctuation"><span class="pre">()</span></span></code> or
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Gpu</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">Device</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">streamSynchroniz</span></span><span class="punctuation"><span class="pre">()</span></span></code> to synchronize the device or
+the CUDA stream, respectively.</p>
 </div>
 <div class="section" id="reduction">
 <span id="sec-gpu-reduction"></span><h1>Reduction<a class="headerlink" href="#reduction" title="Permalink to this headline">¶</a></h1>
+<p>AMReX provides some functions for performing reduction with GPU (e.g.,
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">sum</span></span></code>, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span><span class="operator"><span class="pre">::</span></span><span class="error"><span class="pre">`</span></span><span class="name"><span class="pre">max</span></span></code>, etc.).   Function
+templates <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">ReduceSum</span></span></code>, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">ReduceMin</span></span></code> and
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">ReduceMax</span></span></code> can be used to implement your own reduction
+functions for <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FabArray</span></span></code>s.</p>
 </div>
-<div class="section" id="particle">
-<span id="sec-gpu-particle"></span><h1>Particle<a class="headerlink" href="#particle" title="Permalink to this headline">¶</a></h1>
-</div>
-<div class="section" id="cuda-aware-mpi">
-<span id="sec-gpu-mpi"></span><h1>CUDA Aware MPI<a class="headerlink" href="#cuda-aware-mpi" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="limitations">
+<span id="sec-gpu-limits"></span><h1>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h1>
+<p>GPU support in AMReX is still under development.  There are some know
+limitations.</p>
+<ul class="simple">
+<li>By default, AMReX assumes the MPI library used is GPU aware.  The
+communication buffers given to MPI functions are allocated in device
+memory.</li>
+<li>OpenMP is currently not compatible with building AMReX
+with <code class="docutils literal notranslate"><span class="pre">USE_CUDA=TRUE</span></code>.</li>
+<li>CMake is not yet supported for building AMReX GPU support.</li>
+<li>Many multi-level functions in AMReX have not been ported to GPU.</li>
+<li>Linear solvers have not been ported to GPU.</li>
+<li>Embedded boundary capability has not been ported to GPU.</li>
+<li>Fortran interface of AMReX does not currently have GPU support.</li>
+</ul>
 </div>
 
 
