@@ -497,7 +497,7 @@ the notion of indices <span class="math notranslate nohighlight">\(i\)</span> an
 <h2>Box<a class="headerlink" href="#box" title="Permalink to this headline">¶</a></h2>
 <p>A <code class="docutils literal notranslate"><span class="pre">Box</span></code> is an abstraction for defining discrete regions of
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">AMREX_SPACEDIM</span></span></code>-dimensional indexing space. Boxes have an
-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">IndexType</span></span></code> and two <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">IntVects</span></span></code> representing the lower and upper
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">IndexType</span></span></code> and two <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">IntVect</span></span></code>s representing the lower and upper
 corners. Boxes can exist in positive and negative indexing space. Typical ways
 of defining a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code> are</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">IntVect</span> <span class="nf">lo</span><span class="p">(</span><span class="n">AMREX_D_DECL</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span><span class="mi">64</span><span class="p">,</span><span class="mi">64</span><span class="p">));</span>
@@ -981,7 +981,7 @@ ways to define a MultiFab. For example,</p>
 </pre></div>
 </div>
 <p>Here we define a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code> with 4 components and 1 ghost cell. A MultiFab
-contains a number of <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBoxes</span></span></code> (see the section
+contains a number of <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code>es (see the section
 on&nbsp;<a class="reference internal" href="#sec-basics-fab"><span class="std std-ref">BaseFab, FArrayBox and IArrayBox</span></a>) defined on Boxes grown by the number of ghost cells
 (1 in this example). That is the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code> in the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code> is not
 exactly the same as in the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BoxArray</span></span></code>.  If the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BoxArray</span></span></code> has a
@@ -1048,7 +1048,7 @@ face averaged variables.</p>
 <span class="n">MultiFab</span> <span class="nf">zflux</span><span class="p">(</span><span class="n">amrex</span><span class="o">::</span><span class="n">convert</span><span class="p">(</span><span class="n">ba</span><span class="p">,</span> <span class="n">IntVect</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">}),</span> <span class="n">dm</span><span class="p">,</span> <span class="n">ncomp</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Here all <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFabs</span></span></code> use the same <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">DistributionMapping</span></span></code>, but their
+<p>Here all <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code>s  use the same <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">DistributionMapping</span></span></code>, but their
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BoxArrays</span></span></code> have different index types. The state is cell-based, whereas
 the fluxes are on the faces. Suppose the cell based <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BoxArray</span></span></code> contains a
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span><span class="punctuation"><span class="pre">{(</span></span><span class="literal number integer"><span class="pre">8</span></span><span class="punctuation"><span class="pre">,</span></span><span class="literal number integer"><span class="pre">8</span></span><span class="punctuation"><span class="pre">,</span></span><span class="literal number integer"><span class="pre">16</span></span><span class="punctuation"><span class="pre">),</span></span> <span class="punctuation"><span class="pre">(</span></span><span class="literal number integer"><span class="pre">15</span></span><span class="punctuation"><span class="pre">,</span></span><span class="literal number integer"><span class="pre">15</span></span><span class="punctuation"><span class="pre">,</span></span><span class="literal number integer"><span class="pre">31</span></span><span class="punctuation"><span class="pre">)}</span></span></code>. The state on that <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code> is conceptually
@@ -1058,7 +1058,7 @@ fluxes are arrays with slightly different indices. For example, the
 <code class="code fortran docutils literal notranslate"><span class="punctuation"><span class="pre">(</span></span><span class="literal number integer"><span class="pre">8</span></span><span class="punctuation"><span class="pre">:</span></span><span class="literal number integer"><span class="pre">16</span></span><span class="punctuation"><span class="pre">,</span></span><span class="literal number integer"><span class="pre">8</span></span><span class="punctuation"><span class="pre">:</span></span><span class="literal number integer"><span class="pre">15</span></span><span class="punctuation"><span class="pre">,</span></span><span class="literal number integer"><span class="pre">16</span></span><span class="punctuation"><span class="pre">:</span></span><span class="literal number integer"><span class="pre">31</span></span><span class="punctuation"><span class="pre">,</span></span><span class="literal number integer"><span class="pre">0</span></span><span class="punctuation"><span class="pre">:</span></span><span class="literal number integer"><span class="pre">2</span></span><span class="punctuation"><span class="pre">)</span></span></code>. Note there is an extra element in
 <span class="math notranslate nohighlight">\(x\)</span>-direction.</p>
 <p>The <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code> class provides many functions performing common arithmetic
-operations on a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code> or between <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFabs</span></span></code> built with the
+operations on a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code> or between <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code>s  built with the
 <em>same</em> <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BoxArray</span></span></code> and <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">DistributionMap</span></span></code>.  For example,</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">Real</span> <span class="n">dmin</span> <span class="o">=</span> <span class="n">mf</span><span class="p">.</span><span class="n">min</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>   <span class="c1">// Minimum value in component 3 of MultiFab mf</span>
                          <span class="c1">// no ghost cells included</span>
@@ -1079,7 +1079,7 @@ operations on a <code class="code cpp c++ docutils literal notranslate"><span cl
 </div>
 <p>We refer the reader to <code class="docutils literal notranslate"><span class="pre">amrex/Src/Base/AMReX_MultiFab.H</span></code> and
 <code class="docutils literal notranslate"><span class="pre">amrex/Src/Base/AMReX_FabArray.H</span></code> for more details. It should be noted again
-it is a runtime error if the two <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFabs</span></span></code> passed to functions like
+it is a runtime error if the two <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code>s  passed to functions like
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">Copy</span></span></code> are not built with the <em>same</em> <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BoxArray</span></span></code> (including
 index type) and <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">DistributionMapping</span></span></code>.</p>
 <p>It is usually the case that the Boxes in the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BoxArray</span></span></code> used for building
@@ -1517,7 +1517,7 @@ data. In each iteration, a kernel function is called to work on the data and
 the work region is specified by a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code>.  When tiling is used, the work
 region is a tile. The tiling is logical in the sense that there is no data
 layout transformation. The kernel function still gets the whole arrays in
-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBoxes</span></span></code>, even though it is supposed to work on a tile region of the
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code>es, even though it is supposed to work on a tile region of the
 arrays.  Fortran is often used for writing these kernels because of its
 native multi-dimensional array support.  To C++, these kernel
 functions are C functions, whose function
@@ -1615,7 +1615,7 @@ For example,</p>
 </pre></div>
 </div>
 <p>Here for simplicity we have omitted passing the tile Box.</p>
-<p>Usually <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFabs</span></span></code> have multiple components. Thus we often also need to
+<p>Usually <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code>s  have multiple components. Thus we often also need to
 pass the number of component into Fortran functions. We can obtain the number
 by calling the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">nComp</span></span><span class="punctuation"><span class="pre">()</span></span></code> function, and pass it to Fortran as we
 have seen in the section&nbsp;on <a class="reference internal" href="#sec-basics-mfiter"><span class="std std-ref">MFIter and Tiling</span></a>.  We can also use the
@@ -1711,7 +1711,7 @@ multi-dimensional array type of syntax.  Below is an example.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Here, we pass a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code> and two <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBoxes</span></span></code> to a C++ kernel
+<p>Here, we pass a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code> and two <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code>es to a C++ kernel
 function.  In the function, we use function <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">length</span></span></code> to
 get the length of the loops and function <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">lbound</span></span></code> to get
 the lower end of the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code>.  Both functions’ return type is
