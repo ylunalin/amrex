@@ -188,10 +188,10 @@
 <div class="section" id="building-with-gnu-make">
 <h2>Building with GNU Make<a class="headerlink" href="#building-with-gnu-make" title="Permalink to this headline">¶</a></h2>
 <p>To build AMReX with GPU support, you add <code class="docutils literal notranslate"><span class="pre">USE_CUDA=TRUE</span></code> to your
-make file or as an command line argument.  AMReX itself does not
-require OpenACC and CUDA Fortran, but application codes can use them
+makefile or as a command line argument.  AMReX itself does not
+require OpenACC or CUDA Fortran, but application codes can use them
 if they are supported by the compiler.  For OpenACC support, you add
-<code class="docutils literal notranslate"><span class="pre">USE_ACC=TRUE</span></code>.  Only IBM and PGI support CUDA Fortran.  Thus for
+<code class="docutils literal notranslate"><span class="pre">USE_ACC=TRUE</span></code>.  Only IBM and PGI support CUDA Fortran.  Thus, for
 CUDA Fortran, you must use <code class="docutils literal notranslate"><span class="pre">COMP=pgi</span></code> or <code class="docutils literal notranslate"><span class="pre">COMP=ibm</span></code>.  OpenMP is
 currently not supported when <code class="docutils literal notranslate"><span class="pre">USE_CUDA=TRUE</span></code>.  The default host
 compiler for NVCC is GCC even if <code class="docutils literal notranslate"><span class="pre">COMP</span></code> is set to a different
@@ -291,12 +291,12 @@ by the arenas, you can call <code class="code cpp c++ docutils literal notransla
 <div class="section" id="gpu-safe-classes-and-functions">
 <span id="sec-gpu-classes"></span><h1>GPU Safe Classes and Functions<a class="headerlink" href="#gpu-safe-classes-and-functions" title="Permalink to this headline">¶</a></h1>
 <p>Some AMReX classes and functions can be used in device functions, but
-most do not.  Note that this is about using them on GPU, not about
-whether they use GPU.  For example, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">Copy</span></span></code> function
-cannot be called from GPU, but calling it from CPU will use GPU if
+most can not.  Note that this is about using them in device code, not about
+whether they utilize the GPU internally.  For example, the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">Copy</span></span></code>
+function cannot be called from device code, but calling it from CPU will use GPU if
 AMReX is compiled with GPU support.  In this section, we discuss a
-few classes and functions that are useful for programming GPU.</p>
-<p>In the basic AMReX classes, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code>, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">IntVect</span></span></code> and
+few classes and functions that are useful for programming GPUs.</p>
+<p>In AMReX, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code>, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">IntVect</span></span></code> and
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">IndexType</span></span></code> are classes for representing indices.  These classes
 and most of their member functions, including constructors and
 destructors, have both host and device versions.  They can be used in
@@ -324,7 +324,7 @@ managed memory arena.  For example,</p>
 </pre></div>
 </div>
 <p><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Geometry</span></span></code> class is not a GPU safe class.  However, we often need
-to use geometry information such as cell size and physical coordinates
+to use geometric information such as cell size and physical coordinates
 in GPU kernels.  What we can do is extract its data into a GPU safe
 class <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">GeometryData</span></span></code> with <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Geometry</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">data</span></span></code> function and pass
 it by value to GPU kernels.</p>
@@ -333,8 +333,8 @@ it by value to GPU kernels.</p>
 <span id="sec-gpu-launch"></span><h1>Kernel Launch<a class="headerlink" href="#kernel-launch" title="Permalink to this headline">¶</a></h1>
 <p>AMReX uses <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> to iterate over a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code>.  Inside
 the loop, we call functions to work on <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code> objects (see
-<a class="reference internal" href="Basics.html#sec-basics-mfiter"><span class="std std-ref">MFIter and Tiling</span></a>).  With GPU, we launch kernels inside
-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> loop.  A tutorial example can be found in
+<a class="reference internal" href="Basics.html#sec-basics-mfiter"><span class="std std-ref">MFIter and Tiling</span></a>).  With GPU support enabled, we launch kernels inside
+the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> loop.  A tutorial example can be found in
 <code class="docutils literal notranslate"><span class="pre">Tutorials/GPU/Launch</span></code>.  The part launching a CUDA C++ kernel is
 shown below.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="n">MFIter</span> <span class="n">mfi</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span><span class="n">TilingIfNotGPU</span><span class="p">());</span> <span class="n">mfi</span><span class="p">.</span><span class="n">isValid</span><span class="p">();</span> <span class="o">++</span><span class="n">mfi</span><span class="p">)</span>
@@ -348,9 +348,9 @@ shown below.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>The code above works whether it is compiled for GPU or CPU.  We use
-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">TilingIfNotGPU</span></span><span class="punctuation"><span class="pre">()</span></span></code> that returns <code class="docutils literal notranslate"><span class="pre">false</span></code> in the case of GPU to
-turn off tiling so that GPU kernels have more works.  When tiling is
+<p>The code above works whether it is compiled for GPUs or CPUs.  We use
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">TilingIfNotGPU</span></span><span class="punctuation"><span class="pre">()</span></span></code> that returns <code class="docutils literal notranslate"><span class="pre">false</span></code> in the GPU case to
+turn off tiling so that GPU kernels have more compute work to do.  When tiling is
 off, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">tilebox</span></span><span class="punctuation"><span class="pre">()</span></span></code> returns the valid box of the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code>
 for that iteration.  <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">fabPtr</span></span></code> function takes
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> and returns a managed pointer that is subsequently
@@ -413,7 +413,7 @@ pointer passed to <code class="docutils literal notranslate"><span class="pre">p
 advantage of that by declaring it as OpenACC <code class="docutils literal notranslate"><span class="pre">deviceptr</span></code>.</p>
 <p>In the three examples above, we have shown how to launch GPU kernels.
 In the CUDA C++ and Fortran cases, the kernel is launched with a C++
-template global function of AMReX (hidden in the launch macro),
+template global function in AMReX (hidden in the launch macro),
 whereas for the OpenACC example, it is done with pragma in Fortran.
 More details on the examples can be found in the source codes at
 <code class="docutils literal notranslate"><span class="pre">Tutorials/GPU/Launch/</span></code>.  We also refer the readers to Chapter
@@ -422,14 +422,14 @@ More details on the examples can be found in the source codes at
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code>, AMReX uses a different stream (up to 16 streams in
 total) for the kernels in that iteration.  The kernels in the same
 stream are executed sequentially, but kernels from different streams
-may be run in parallel.  Note that, to CPU, CUDA kernel calls are
-asynchronous and they return before the kernel is finished on GPU.  So
-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> finishes its iterations on CPU before GPU finishes its
-work.  To guarantee data coherence, there is an implicit CUDA device
+may be run in parallel.  Note that, to the CPU, CUDA kernel calls are
+asynchronous and they return before the kernel is finished on the GPU.
+So <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> finishes its iterations on the CPU before the GPU finishes
+its work.  To guarantee data coherence, there is an implicit CUDA device
 synchronization in the destructor of <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code>.</p>
-<p>Launching kernels with the <code class="docutils literal notranslate"><span class="pre">AMREX_LAUNCH_DEVICE_LAMBDA</span></code> uses CUDA
-extended lamdba feature.  There are however some restrictions on
-extended lambdas we have to be aware.  For example, the enclosing
+<p>Launching kernels with the <code class="docutils literal notranslate"><span class="pre">AMREX_LAUNCH_DEVICE_LAMBDA</span></code> uses the CUDA
+extended lamdba feature.  There are, however, some restrictions on
+extended lambdas the use must be aware of.  For example, the enclosing
 function for the extended lamdba must not have private or protected
 access within its parent class, otherwise the code will not compile.
 In that case, we have to change the function to a public member of its
@@ -451,7 +451,7 @@ the code will not work as intended.  For example,</p>
 <span class="p">};</span>
 </pre></div>
 </div>
-<p>Function <code class="docutils literal notranslate"><span class="pre">f</span></code> in the code above will not work unless <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MyClass</span></span></code>
+<p>The function <code class="docutils literal notranslate"><span class="pre">f</span></code> in the code above will not work unless <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MyClass</span></span></code>
 object is in unified memory.  To fix it, we can change it to</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyClass</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
@@ -470,8 +470,8 @@ object is in unified memory.  To fix it, we can change it to</p>
 </div>
 <div class="section" id="an-example-of-migrating-to-gpu">
 <span id="sec-gpu-example"></span><h1>An Example of Migrating to GPU<a class="headerlink" href="#an-example-of-migrating-to-gpu" title="Permalink to this headline">¶</a></h1>
-<p>The nature of GPU programming poses difficulty for a common pattern
-like below.</p>
+<p>The nature of GPU programming poses difficulties for a common patterns
+like the one below.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Given MultiFab uin and uout</span>
 <span class="n">FArrayBox</span> <span class="n">q</span><span class="p">;</span>
 <span class="k">for</span> <span class="p">(</span><span class="n">MFIter</span> <span class="n">mfi</span><span class="p">(</span><span class="n">uin</span><span class="p">);</span> <span class="n">mfi</span><span class="p">.</span><span class="n">isValid</span><span class="p">();</span> <span class="o">++</span><span class="n">mfi</span><span class="p">)</span>
@@ -490,10 +490,10 @@ like below.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>There are several issues of migrating the code above to GPU needed to
-been addressed.  Because functions <code class="docutils literal notranslate"><span class="pre">f1</span></code> and <code class="docutils literal notranslate"><span class="pre">f2</span></code> have different
-work regions and there are data dependency between the two, it is
-difficult to put them into a single GPU kernel.  So we will launch two
+<p>There are several issues in migrating the code above to GPU that need to
+be addressed.  Because functions <code class="docutils literal notranslate"><span class="pre">f1</span></code> and <code class="docutils literal notranslate"><span class="pre">f2</span></code> have different
+work regions and there are data dependencies between the two, it is
+difficult to put them into a single GPU kernel.  So, we will launch two
 separate kernels.</p>
 <p>As we have discussed in Section <a class="reference internal" href="#sec-gpu-classes"><span class="std std-ref">GPU Safe Classes and Functions</span></a>, all
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code>es in the two <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code>s are in unified
@@ -504,10 +504,10 @@ memory.  But <code class="code cpp c++ docutils literal notranslate"><span class
 <p>does not solve the problem completely because GPU kernel calls are
 asynchronous from CPU’s point of view.  Therefore there is a race
 condition that GPU kernels in different iterations of <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code>
-will compete the access to <code class="docutils literal notranslate"><span class="pre">q</span></code>.  Moving the line into the body of
+will compete for access to <code class="docutils literal notranslate"><span class="pre">q</span></code>.  Moving the line into the body of
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> loop will make <code class="docutils literal notranslate"><span class="pre">q</span></code> a variable local to each iteration,
-but it has a new issue.  When do we delete <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">q</span></span></code>?  To CPU, the
-resource of <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">q</span></span></code> should be freed at the end of the scope otherwise
+but it has a new issue.  When do we delete <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">q</span></span></code>?  To the CPU, the
+resource of <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">q</span></span></code> should be freed at the end of the scope, otherwise
 there will be a memory leak.  But at the end of the CPU scope, GPU
 kernels might still need it.</p>
 <p>One way to fix this is put the temporary <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code> objects in a
@@ -550,8 +550,8 @@ the CUDA stream, respectively.</p>
 </div>
 <div class="section" id="reduction">
 <span id="sec-gpu-reduction"></span><h1>Reduction<a class="headerlink" href="#reduction" title="Permalink to this headline">¶</a></h1>
-<p>AMReX provides some functions for performing reduction with GPU (e.g.,
-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">sum</span></span></code>, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">max</span></span></code>, etc.).   Function
+<p>AMReX provides some functions for performing reduction operations with on the GPU (e.g.,
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">sum</span></span></code>, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">max</span></span></code>, etc.). Function
 templates <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">ReduceSum</span></span></code>, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">ReduceMin</span></span></code> and
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">ReduceMax</span></span></code> can be used to implement your own reduction
 functions for <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FabArray</span></span></code>s.</p>
@@ -567,10 +567,10 @@ memory.</li>
 <li>OpenMP is currently not compatible with building AMReX
 with <code class="docutils literal notranslate"><span class="pre">USE_CUDA=TRUE</span></code>.</li>
 <li>CMake is not yet supported for building AMReX GPU support.</li>
-<li>Many multi-level functions in AMReX have not been ported to GPU.</li>
-<li>Linear solvers have not been ported to GPU.</li>
-<li>Embedded boundary capability has not been ported to GPU.</li>
-<li>Fortran interface of AMReX does not currently have GPU support.</li>
+<li>Many multi-level functions in AMReX have not been ported to GPUs.</li>
+<li>Linear solvers have not been ported to GPUs.</li>
+<li>Embedded boundary capability has not been ported to GPUs.</li>
+<li>The Fortran interface of AMReX does not currently have GPU support.</li>
 </ul>
 </div>
 
