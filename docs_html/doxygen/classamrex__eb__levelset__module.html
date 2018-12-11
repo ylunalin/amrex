@@ -96,6 +96,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a3a8c734c165f6b98f45f4deb720764da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c10a6c42c5fa29ee1065812154ca161"><td class="memItemLeft" align="right" valign="top">pure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex__eb__levelset__module.html#a1c10a6c42c5fa29ee1065812154ca161">amrex_eb_fill_levelset</a> (lo, hi, eb_list, l_eb, valid, vlo, vhi, phi, phlo, phhi, dx, dx_eb)</td></tr>
 <tr class="separator:a1c10a6c42c5fa29ee1065812154ca161"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ba6037fd77f561d4f86d727b04e984a"><td class="memItemLeft" align="right" valign="top">pure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex__eb__levelset__module.html#a6ba6037fd77f561d4f86d727b04e984a">amrex_eb_fill_levelset_loc</a> (lo, hi, eb_list, l_eb, valid, v_lo, v_hi, phi, p_lo, p_hi, ls_guess, lsg_lo, lsg_hi, ls_thres, dx, dx_eb)</td></tr>
+<tr class="separator:a6ba6037fd77f561d4f86d727b04e984a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ce3094e44f7378a03f37a74a639482c"><td class="memItemLeft" align="right" valign="top">pure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex__eb__levelset__module.html#a4ce3094e44f7378a03f37a74a639482c">amrex_eb_fill_levelset_bcs</a> (phi, philo, phihi, valid, vlo, vhi, periodic, domlo, domhi, eb_list, l_eb, dx, dx_eb)</td></tr>
 <tr class="separator:a4ce3094e44f7378a03f37a74a639482c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32dc6d51e3c9086cc38f75b50d5f49d5"><td class="memItemLeft" align="right" valign="top">pure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex__eb__levelset__module.html#a32dc6d51e3c9086cc38f75b50d5f49d5">closest_dist</a> (min_dist, proj_valid, eb_data, l_eb, dx_eb, pos)</td></tr>
@@ -439,6 +441,116 @@ Public Member Functions</h2></td></tr>
           <td></td>
           <td class="paramtype">integer, intent(in)&#160;</td>
           <td class="paramname"><em>l_eb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_real), dimension(3), intent(in)&#160;</td>
+          <td class="paramname"><em>dx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_real), dimension(3), intent(in)&#160;</td>
+          <td class="paramname"><em>dx_eb</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a6ba6037fd77f561d4f86d727b04e984a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pure subroutine amrex_eb_levelset_module::amrex_eb_fill_levelset_loc </td>
+          <td>(</td>
+          <td class="paramtype">integer, dimension(3), intent(in)&#160;</td>
+          <td class="paramname"><em>lo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(3), intent(in)&#160;</td>
+          <td class="paramname"><em>hi</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_real), dimension(l_eb), intent(in)&#160;</td>
+          <td class="paramname"><em>eb_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>l_eb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension   (  v_lo(1):v_hi(1),     v_lo(2):v_hi(2),     v_lo(3):v_hi(3)  ), intent(out)&#160;</td>
+          <td class="paramname"><em>valid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(3), intent(in)&#160;</td>
+          <td class="paramname"><em>v_lo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(3), intent(in)&#160;</td>
+          <td class="paramname"><em>v_hi</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_real), dimension     (  p_lo(1):p_hi(1),     p_lo(2):p_hi(2),     p_lo(3):p_hi(3)  ), intent(out)&#160;</td>
+          <td class="paramname"><em>phi</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(3), intent(in)&#160;</td>
+          <td class="paramname"><em>p_lo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(3), intent(in)&#160;</td>
+          <td class="paramname"><em>p_hi</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_real), dimension(lsg_lo(1):lsg_hi(1), lsg_lo(2):lsg_hi(2), lsg_lo(3):lsg_hi(3)), intent(in)&#160;</td>
+          <td class="paramname"><em>ls_guess</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(3), intent(in)&#160;</td>
+          <td class="paramname"><em>lsg_lo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(3), intent(in)&#160;</td>
+          <td class="paramname"><em>lsg_hi</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_real), intent(in)&#160;</td>
+          <td class="paramname"><em>ls_thres</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
