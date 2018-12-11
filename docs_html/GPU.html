@@ -558,35 +558,34 @@ templates <code class="code cpp c++ docutils literal notranslate"><span class="n
 functions for <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FabArray</span></span></code>s.</p>
 </div>
 <div class="section" id="particle-support">
-<span id="sec-gpu-limits"></span><h1>Particle Support<a class="headerlink" href="#particle-support" title="Permalink to this headline">¶</a></h1>
-<p>AMReX’s GPU particle support relies on Thrust, a parallel algorithms library maintained by
+<h1>Particle Support<a class="headerlink" href="#particle-support" title="Permalink to this headline">¶</a></h1>
+<p id="sec-gpu-particle">AMReX’s GPU particle support relies on Thrust, a parallel algorithms library maintained by
 Nvidia. Thrust provides a GPU-capable vector container that is otherwise similar to the one
 in the C++ Standard Template Library, along with associated sorting, searching, and prefix
 summing operations. Along with Cuda’s unified memory, thrust forms the basis of our GPU support
 for particles.</p>
 <p>When compiled with <code class="docutils literal notranslate"><span class="pre">USE_CUDA=TRUE</span></code>, AMReX places all its particle data in instances of
 <code class="docutils literal notranslate"><span class="pre">thrust::device_vector</span></code> that have been configured using a custom memory allocator that
-wraps around <code class="docutils literal notranslate"><span class="pre">cudaMallocManaged</span></code>. This means that the <cite>dataPtr</cite> associated with particle
+wraps around <code class="docutils literal notranslate"><span class="pre">cudaMallocManaged</span></code>. This means that the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">dataPtr</span></span></code> associated with particle
 data can be passed in to GPU kernels, similar to way it would be passed in to a Fortran
 subroutine in typical AMReX CPU code. As with the mesh data, these kernels can be launched
 with a variety of approaches, including Cuda C / Fortran and OpenACC.</p>
 <p>For portability, we have provided a set of Vector classes that wrap around the Thrust and
-STL vectors. When <code class="docutils literal notranslate"><span class="pre">USE_CUDA</span> <span class="pre">=</span> <span class="pre">FALSE</span></code>, these classes reduce to the normal <cite>amrex::Vector</cite>.
-When <code class="docutils literal notranslate"><span class="pre">USE_CUDA</span> <span class="pre">=</span> <span class="pre">TRUE</span></code>, they have different meanings. <cite>Gpu::HostVector</cite> is a wrapper
-around <cite>thrust::host_vector</cite>. <cite>Gpu::DeviceVector</cite> is a wrapper around <cite>thrust::device_vector</cite>,
-while <cite>Gpu::ManagedDeviceVector</cite> is a <cite>thrust::device_vector</cite> that lives in managed memory.
-These classes are useful when you have certain stages of an algorithm that you know will always
+STL vectors. When <code class="docutils literal notranslate"><span class="pre">USE_CUDA</span> <span class="pre">=</span> <span class="pre">FALSE</span></code>, these classes reduce to the normal <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">Vector</span></span></code>.
+When <code class="docutils literal notranslate"><span class="pre">USE_CUDA</span> <span class="pre">=</span> <span class="pre">TRUE</span></code>, they have different meanings. <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Gpu</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">HostVector</span></span></code> is a wrapper
+around <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">thrust</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">host_vector</span></span></code>. <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Gpu</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">DeviceVector</span></span></code> is a wrapper around <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">thrust</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">device_vector</span></span></code>,
+while <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Gpu</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">ManagedDeviceVector</span></span></code> is a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">thrust</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">device_vector</span></span></code> that lives in managed memory. These classes are useful when you have certain stages of an algorithm that you know will always
 execute on either the host or the device.</p>
-<p>AMReX’s <cite>Redistribute()</cite>, which moves particles back to the proper grids after their positions
+<p>AMReX’s <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Redistribute</span></span><span class="punctuation"><span class="pre">()</span></span></code>, which moves particles back to the proper grids after their positions
 have changed, has been ported to work on the GPU as well. You can’t call it from device code,
 but you can call it on particles that reside on the device and it won’t trigger any unified
-memory traffic. As with <cite>MultiFab</cite> data, the MPI portion of the particle redistribute is set
+memory traffic. As with <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code> data, the MPI portion of the particle redistribute is set
 up to take advantange of the Cuda-aware MPI implementations available on platforms such as
 ORNL’s Summit and Summit-dev.</p>
 </div>
 <div class="section" id="limitations">
 <h1>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h1>
-<p>GPU support in AMReX is still under development.  There are some know
+<p id="sec-gpu-limits">GPU support in AMReX is still under development.  There are some know
 limitations.</p>
 <ul class="simple">
 <li>By default, AMReX assumes the MPI library used is GPU aware.  The
