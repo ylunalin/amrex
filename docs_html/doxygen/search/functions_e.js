@@ -55,6 +55,7 @@ var searchData=
   ['numdatalogs',['NumDataLogs',['../classamrex_1_1_amr.html#a83eb74ba9a4cd5a567729224d043e940',1,'amrex::Amr']]],
   ['numderive',['numDerive',['../classamrex_1_1_derive_rec.html#a6983369832ab41c88c48109ec9696192',1,'amrex::DeriveRec']]],
   ['numgrids',['numGrids',['../classamrex_1_1_amr.html#a491beb9efe091fdd65275940c2961bb5',1,'amrex::Amr::numGrids()'],['../classamrex_1_1_amr.html#afa60ea4bfaa0b3a3c4f517b0e5a4d048',1,'amrex::Amr::numGrids(int lev)'],['../classamrex_1_1_amr_level.html#a2cd4b72bfd25b2c90aaa5b2e0badbdfe',1,'amrex::AmrLevel::numGrids()']]],
+  ['numlevels',['numLevels',['../classamrex_1_1_particle_container.html#a2edf149588bf5390e8fc14ad2e64d7ba',1,'amrex::ParticleContainer']]],
   ['numlocaltiles',['numLocalTiles',['../classamrex_1_1_m_f_iter.html#af2fd15d47b733fec41ff3ed293b6ccb9',1,'amrex::MFIter']]],
   ['numlocaltilesatlevel',['numLocalTilesAtLevel',['../classamrex_1_1_particle_container.html#a2be183949c39b61d2d506c1199ac3cf7',1,'amrex::ParticleContainer']]],
   ['numparticles',['numParticles',['../classamrex_1_1_array_of_structs.html#a97fb96cfe3eae08a5eece375511c0cc7',1,'amrex::ArrayOfStructs::numParticles()'],['../classamrex_1_1_par_iter_base.html#a356c705a38c9d4d139c8573cb54a6b3b',1,'amrex::ParIterBase::numParticles()'],['../structamrex_1_1_particle_tile.html#a80b9e96e04c429ac908a7772478f3f29',1,'amrex::ParticleTile::numParticles()'],['../structamrex_1_1_struct_of_arrays.html#abbab1633479d755b6302a6e944b40d3c',1,'amrex::StructOfArrays::numParticles()']]],

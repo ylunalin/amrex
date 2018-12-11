@@ -38,6 +38,8 @@ var searchData=
   ['vector_3c_20real_20_3e',['Vector&lt; Real &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20realtuple_20_3e',['Vector&lt; RealTuple &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20setbuf_5fchar_5ftype_20_3e',['Vector&lt; Setbuf_Char_Type &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
+  ['vector_3c_20std_3a_3amap_3c_20pairindex_2c_20amrex_3a_3avector_3c_20amrex_3a_3avector_3c_20neighborcopytag_20_3e_20_3e_20_3e_20_3e',['Vector&lt; std::map&lt; PairIndex, amrex::Vector&lt; amrex::Vector&lt; NeighborCopyTag &gt; &gt; &gt; &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
+  ['vector_3c_20std_3a_3amap_3c_20pairindex_2c_20int_20_3e_20_3e',['Vector&lt; std::map&lt; PairIndex, int &gt; &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20std_3a_3amap_3c_20pairindex_2c_20intvector_20_3e_20_3e',['Vector&lt; std::map&lt; PairIndex, IntVector &gt; &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20std_3a_3amap_3c_20pairindex_2c_20particlevector_20_3e_20_3e',['Vector&lt; std::map&lt; PairIndex, ParticleVector &gt; &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],
   ['vector_3c_20std_3a_3apair_3c_20int_2c_20int_20_3e_20_3e',['Vector&lt; std::pair&lt; int, int &gt; &gt;',['../classamrex_1_1_vector.html',1,'amrex']]],

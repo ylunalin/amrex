@@ -12,7 +12,7 @@ var searchData=
   ['bndry',['bndry',['../classamrex_1_1_bndry_register.html#adb20e61942a04f1783a0e82598583bc9',1,'amrex::BndryRegister']]],
   ['box',['box',['../structamrex_1_1_cuda_1_1_component_box.html#ab697bb90be4dfffea7537e850d8d195e',1,'amrex::Cuda::ComponentBox::box()'],['../structamrex_1_1_fab_array_base_1_1_fab_com_tag.html#a88162269ca5cd1c4e7ffe7259f526b92',1,'amrex::FabArrayBase::FabComTag::box()'],['../structamrex_1_1_vis_m_f_1_1_fab_read_link.html#ad40376645132122ecd967a0473681454',1,'amrex::VisMF::FabReadLink::box()']]],
   ['boxarray',['boxarray',['../classamrex_1_1_fab_array_base.html#ae63b22ccabe6c5af01dd0779c60740c8',1,'amrex::FabArrayBase']]],
-  ['buffer_5ftag_5fcache',['buffer_tag_cache',['../classamrex_1_1_neighbor_particle_container.html#af6c277daa7d78b4a46afdcd2de0002fe',1,'amrex::NeighborParticleContainer']]],
+  ['buffer_5ftag_5fcache',['buffer_tag_cache',['../classamrex_1_1_neighbor_particle_container.html#aa6468cef6d3d4ebb86442a87c15a680c',1,'amrex::NeighborParticleContainer']]],
   ['buserstoprequest',['bUserStopRequest',['../classamrex_1_1_amr.html#a0275a70b67bcded29bdf03229bea8edb',1,'amrex::Amr']]],
   ['bytes',['bytes',['../structamrex_1_1_fab_array_base_1_1_cache_stats.html#ac3e292406516e42938e9542b7605eea6',1,'amrex::FabArrayBase::CacheStats']]],
   ['bytes_5fhwm',['bytes_hwm',['../structamrex_1_1_fab_array_base_1_1_cache_stats.html#a980e78201fb5e2da49f3f92b87bda68f',1,'amrex::FabArrayBase::CacheStats']]]

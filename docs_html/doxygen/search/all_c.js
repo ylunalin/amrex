@@ -60,7 +60,7 @@ var searchData=
   ['loadbalancelevel0',['LoadBalanceLevel0',['../classamrex_1_1_amr.html#ab35e0719d1321112010ff20228ad1acc',1,'amrex::Amr']]],
   ['loadtaglevels',['LoadTagLevels',['../classamrex_1_1_l_s_core_base.html#a46e21b1a3e14075db9b6959ecdb9f72b',1,'amrex::LSCoreBase']]],
   ['local_5findex_5fmap',['local_index_map',['../classamrex_1_1_m_f_iter.html#a8a8cdb1fbae0dace9fcc0dc622c3409d',1,'amrex::MFIter']]],
-  ['local_5fneighbor_5fsizes',['local_neighbor_sizes',['../classamrex_1_1_neighbor_particle_container.html#ae194c4492756dcb54d25fe60a11155fa',1,'amrex::NeighborParticleContainer']]],
+  ['local_5fneighbor_5fsizes',['local_neighbor_sizes',['../classamrex_1_1_neighbor_particle_container.html#ae9465de8bf67ebc19a253d4485de07d5',1,'amrex::NeighborParticleContainer']]],
   ['local_5fneighbors',['local_neighbors',['../classamrex_1_1_neighbor_particle_container.html#adfb06a7914ba86c456a40d81fbcbf464',1,'amrex::NeighborParticleContainer']]],
   ['local_5fsize',['local_size',['../classamrex_1_1_fab_array_base.html#a46a40783e85e254841240a0a909838b0',1,'amrex::FabArrayBase']]],
   ['local_5ftile_5findex_5fmap',['local_tile_index_map',['../classamrex_1_1_m_f_iter.html#a72828c9a333be0dfff3e89e350fd0e11',1,'amrex::MFIter']]],

@@ -92,6 +92,7 @@ var searchData=
   ['computeinitialdt',['computeInitialDt',['../classamrex_1_1_amr_level.html#a252f7123d2f0a98351bc7b39c32b3152',1,'amrex::AmrLevel']]],
   ['computenewdt',['computeNewDt',['../classamrex_1_1_amr_level.html#a2ca2263f59a50956ec37ce72a4a02767',1,'amrex::AmrLevel']]],
   ['computeoptimalsubcycling',['computeOptimalSubcycling',['../classamrex_1_1_amr.html#a094322102029f30480f512416d64bc04',1,'amrex::Amr']]],
+  ['computereffac',['computeRefFac',['../classamrex_1_1_neighbor_particle_container.html#a9ceb44fa50f3d21117cd9f180ca28eb0',1,'amrex::NeighborParticleContainer']]],
   ['concatenate',['Concatenate',['../namespaceamrex.html#a6e3a82e54e91d8c7543596b2c2476250',1,'amrex']]],
   ['const_5fiterator',['const_iterator',['../structamrex_1_1_base_umap_1_1const__iterator.html#aa494ba3d63a2911e17b5e83ad014c093',1,'amrex::BaseUmap::const_iterator']]],
   ['constructareanottotag',['constructAreaNotToTag',['../classamrex_1_1_amr_level.html#a7a6ce272412a601c03330e55de170ea8',1,'amrex::AmrLevel']]],

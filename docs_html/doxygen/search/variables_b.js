@@ -18,7 +18,7 @@ var searchData=
   ['loadbalance_5fmax_5ffac',['loadbalance_max_fac',['../classamrex_1_1_amr.html#ada948dc3a7c2301b9aab5f9b9f65507f',1,'amrex::Amr']]],
   ['loadbalance_5fwith_5fworkestimates',['loadbalance_with_workestimates',['../classamrex_1_1_amr.html#a6019d262d557fc37c9706c05a6cc5794',1,'amrex::Amr']]],
   ['local_5findex_5fmap',['local_index_map',['../classamrex_1_1_m_f_iter.html#a8a8cdb1fbae0dace9fcc0dc622c3409d',1,'amrex::MFIter']]],
-  ['local_5fneighbor_5fsizes',['local_neighbor_sizes',['../classamrex_1_1_neighbor_particle_container.html#ae194c4492756dcb54d25fe60a11155fa',1,'amrex::NeighborParticleContainer']]],
+  ['local_5fneighbor_5fsizes',['local_neighbor_sizes',['../classamrex_1_1_neighbor_particle_container.html#ae9465de8bf67ebc19a253d4485de07d5',1,'amrex::NeighborParticleContainer']]],
   ['local_5fneighbors',['local_neighbors',['../classamrex_1_1_neighbor_particle_container.html#adfb06a7914ba86c456a40d81fbcbf464',1,'amrex::NeighborParticleContainer']]],
   ['local_5ftile_5findex_5fmap',['local_tile_index_map',['../classamrex_1_1_m_f_iter.html#a72828c9a333be0dfff3e89e350fd0e11',1,'amrex::MFIter']]],
   ['localfabsource',['localFabSource',['../structamrex_1_1_fab_copy_descriptor.html#a49a660fc34d5de5bbd5d8fb8b49580e8',1,'amrex::FabCopyDescriptor']]],
