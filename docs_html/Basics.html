@@ -382,6 +382,12 @@ options, whereas the second version will build ParmParse database
 parameter is <code class="code cpp c++ docutils literal notranslate"><span class="name builtin"><span class="pre">false</span></span></code>.  In the second version, one can pass a
 function that adds ParmParse parameters to the database instead of
 reading from command line or input file.</p>
+<p>Because many AMReX classes and functions (including destructors
+inserted by the compiler) do not function properly after
+<code class="code cpp c++ docutils literal notranslate"><span class="name label"><span class="pre">amrex</span></span><span class="punctuation"><span class="pre">:</span></span><span class="name"><span class="pre">Finalize</span></span></code> is called, it’s best to put the codes between
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">Initialize</span></span></code> and <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">Finalize</span></span></code> into its scope
+(e.g., a pair of curly braces or a separate function) to make sure
+resources are properly freed.</p>
 </div>
 <div class="section" id="example-of-amr-grids">
 <span id="sec-basics-amrgrids"></span><h1>Example of AMR Grids<a class="headerlink" href="#example-of-amr-grids" title="Permalink to this headline">¶</a></h1>
