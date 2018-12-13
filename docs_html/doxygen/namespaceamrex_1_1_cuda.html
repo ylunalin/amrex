@@ -146,12 +146,6 @@ Functions</h2></td></tr>
 <tr class="memitem:ab4c79aa24eaa3c0661f182a819586f12"><td class="memTemplParams" colspan="2">template&lt;class InIter , class OutIter &gt; </td></tr>
 <tr class="memitem:ab4c79aa24eaa3c0661f182a819586f12"><td class="memTemplItemLeft" align="right" valign="top">OutIter&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_cuda.html#ab4c79aa24eaa3c0661f182a819586f12">thrust_copy</a> (InIter begin, InIter end, OutIter result)</td></tr>
 <tr class="separator:ab4c79aa24eaa3c0661f182a819586f12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d1b4235e5ad8c8007f97c93de1d9828"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_cuda.html#a8d1b4235e5ad8c8007f97c93de1d9828">getThreadBox</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;bx)</td></tr>
-<tr class="separator:a8d1b4235e5ad8c8007f97c93de1d9828"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa317e8512668c92fbc03c7c458e7c367"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <a class="el" href="structamrex_1_1_cuda_1_1_component_box.html">ComponentBox</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_cuda.html#aa317e8512668c92fbc03c7c458e7c367">getThreadComponentBox</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;bx, int ncomp)</td></tr>
-<tr class="separator:aa317e8512668c92fbc03c7c458e7c367"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e581701bbd14e29a4df47dd55db3e52"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_cuda.html#a1e581701bbd14e29a4df47dd55db3e52">getThreadIndex</a> (long &amp;index, long &amp;size, const long num_particles)</td></tr>
-<tr class="separator:a1e581701bbd14e29a4df47dd55db3e52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a473fa828b8130db28e98e03079650256"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_cuda.html#a473fa828b8130db28e98e03079650256">getGridSize</a> (<a class="el" href="classamrex_1_1_fab_array_base.html">FabArrayBase</a> const &amp;fa, int ngrow, <a class="el" href="classamrex_1_1_layout_data.html">LayoutData</a>&lt; <a class="el" href="structamrex_1_1_cuda_1_1_grid_size.html">GridSize</a> &gt; &amp;gs, int &amp;ntotblocks)</td></tr>
 <tr class="separator:a473fa828b8130db28e98e03079650256"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ec73ba43363b9168ca35f7bb6e53d02"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <a class="el" href="classamrex_1_1_box.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_cuda.html#a2ec73ba43363b9168ca35f7bb6e53d02">getThreadBox</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;bx, long offset)</td></tr>
@@ -273,22 +267,6 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a8d1b4235e5ad8c8007f97c93de1d9828"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <a class="el" href="classamrex_1_1_box.html">Box</a> amrex::Cuda::getThreadBox </td>
-          <td>(</td>
-          <td class="paramtype">const Box &amp;&#160;</td>
-          <td class="paramname"><em>bx</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="a2ec73ba43363b9168ca35f7bb6e53d02"></a>
 <div class="memitem">
 <div class="memproto">
@@ -319,64 +297,6 @@ template&lt;class T &gt; </div>
 <span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aa317e8512668c92fbc03c7c458e7c367"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <a class="el" href="structamrex_1_1_cuda_1_1_component_box.html">ComponentBox</a> amrex::Cuda::getThreadComponentBox </td>
-          <td>(</td>
-          <td class="paramtype">const Box &amp;&#160;</td>
-          <td class="paramname"><em>bx</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>ncomp</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a1e581701bbd14e29a4df47dd55db3e52"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> void amrex::Cuda::getThreadIndex </td>
-          <td>(</td>
-          <td class="paramtype">long &amp;&#160;</td>
-          <td class="paramname"><em>index</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long &amp;&#160;</td>
-          <td class="paramname"><em>size</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const long&#160;</td>
-          <td class="paramname"><em>num_particles</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
 </div><div class="memdoc">
 
 </div>

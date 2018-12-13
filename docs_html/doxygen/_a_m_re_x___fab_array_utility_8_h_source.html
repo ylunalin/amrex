@@ -131,7 +131,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                value_type* sdata = gsm.dataPtr();</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                value_type tsum = 0.0;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>&amp; tbx : <a class="code" href="namespaceamrex_1_1_cuda.html#ac68f37e6280919c47ff3432e6e7e0f14">Gpu::Range</a>(bx)) {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> tbx : <a class="code" href="namespaceamrex_1_1_cuda.html#ac68f37e6280919c47ff3432e6e7e0f14">Gpu::Range</a>(bx)) {</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                    tsum += f(tbx, *fab);</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                }</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                sdata[threadIdx.x] = tsum;</div>
@@ -195,7 +195,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                value_type* sdata = gsm.dataPtr();</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                value_type tsum = 0.0;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>&amp; tbx : <a class="code" href="namespaceamrex_1_1_cuda.html#ac68f37e6280919c47ff3432e6e7e0f14">Gpu::Range</a>(bx)) {</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> tbx : <a class="code" href="namespaceamrex_1_1_cuda.html#ac68f37e6280919c47ff3432e6e7e0f14">Gpu::Range</a>(bx)) {</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                    tsum += f(tbx, *fab1, *fab2);</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                }</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                sdata[threadIdx.x] = tsum;</div>
@@ -260,7 +260,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                value_type* sdata = gsm.dataPtr();</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                value_type tsum = 0.0;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>&amp; tbx : <a class="code" href="namespaceamrex_1_1_cuda.html#ac68f37e6280919c47ff3432e6e7e0f14">Gpu::Range</a>(bx)) {</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> tbx : <a class="code" href="namespaceamrex_1_1_cuda.html#ac68f37e6280919c47ff3432e6e7e0f14">Gpu::Range</a>(bx)) {</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                    tsum += f(tbx, *fab1, *fab2, *fab3);</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                }</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                sdata[threadIdx.x] = tsum;</div>
@@ -321,7 +321,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;                value_type* sdata = gsm.dataPtr();</div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;                value_type tmin = <a class="code" href="namespaceamrex_1_1detail.html#a05ef6e98eba987410d73df1617fa569da86cadfc48eb8f9dd4a2e4a3980a6b265">std::numeric_limits&lt;value_type&gt;::max</a>();</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>&amp; tbx : <a class="code" href="namespaceamrex_1_1_cuda.html#ac68f37e6280919c47ff3432e6e7e0f14">Gpu::Range</a>(bx)) {</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> tbx : <a class="code" href="namespaceamrex_1_1_cuda.html#ac68f37e6280919c47ff3432e6e7e0f14">Gpu::Range</a>(bx)) {</div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;                    value_type local_tmin = f(tbx, *fab);</div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;                    tmin = <a class="code" href="namespaceamrex.html#a0086fc5274c898ace87f66ffec34a77c">amrex::min</a>(tmin, local_tmin);</div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;                }</div>
@@ -384,7 +384,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;                value_type* sdata = gsm.dataPtr();</div>
 <div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;</div>
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;                value_type tmin = <a class="code" href="namespaceamrex_1_1detail.html#a05ef6e98eba987410d73df1617fa569da86cadfc48eb8f9dd4a2e4a3980a6b265">std::numeric_limits&lt;value_type&gt;::max</a>();</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>&amp; tbx : <a class="code" href="namespaceamrex_1_1_cuda.html#ac68f37e6280919c47ff3432e6e7e0f14">Gpu::Range</a>(bx)) {</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> tbx : <a class="code" href="namespaceamrex_1_1_cuda.html#ac68f37e6280919c47ff3432e6e7e0f14">Gpu::Range</a>(bx)) {</div>
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;                    value_type local_tmin = f(tbx, *fab1, *fab2);</div>
 <div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;                    tmin = <a class="code" href="namespaceamrex.html#a0086fc5274c898ace87f66ffec34a77c">amrex::min</a>(tmin, local_tmin);</div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;                }</div>
@@ -446,7 +446,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;                value_type* sdata = gsm.dataPtr();</div>
 <div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;</div>
 <div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;                value_type tmax = std::numeric_limits&lt;value_type&gt;::lowest();</div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>&amp; tbx : <a class="code" href="namespaceamrex_1_1_cuda.html#ac68f37e6280919c47ff3432e6e7e0f14">Gpu::Range</a>(bx)) {</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> tbx : <a class="code" href="namespaceamrex_1_1_cuda.html#ac68f37e6280919c47ff3432e6e7e0f14">Gpu::Range</a>(bx)) {</div>
 <div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;                    value_type local_tmax = f(tbx, *fab);</div>
 <div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;                    tmax = <a class="code" href="namespaceamrex.html#ad3a8c93b63c26053fc3ae8a2ad83887d">amrex::max</a>(tmax, local_tmax);</div>
 <div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;                }</div>
@@ -509,7 +509,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;                value_type* sdata = gsm.dataPtr();</div>
 <div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;</div>
 <div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;                value_type tmax = std::numeric_limits&lt;value_type&gt;::lowest();</div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>&amp; tbx : <a class="code" href="namespaceamrex_1_1_cuda.html#ac68f37e6280919c47ff3432e6e7e0f14">Gpu::Range</a>(bx)) {</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> tbx : <a class="code" href="namespaceamrex_1_1_cuda.html#ac68f37e6280919c47ff3432e6e7e0f14">Gpu::Range</a>(bx)) {</div>
 <div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;                    value_type local_tmax = f(tbx, *fab1, *fab2);</div>
 <div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;                    tmax = <a class="code" href="namespaceamrex.html#ad3a8c93b63c26053fc3ae8a2ad83887d">amrex::max</a>(tmax, local_tmax);</div>
 <div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;                }</div>
@@ -570,7 +570,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;                <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* sdata = gsm.dataPtr();</div>
 <div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;</div>
 <div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;                <span class="keywordtype">bool</span> tr = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>&amp; tbx : <a class="code" href="namespaceamrex_1_1_cuda.html#ac68f37e6280919c47ff3432e6e7e0f14">Gpu::Range</a>(bx)) {</div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> tbx : <a class="code" href="namespaceamrex_1_1_cuda.html#ac68f37e6280919c47ff3432e6e7e0f14">Gpu::Range</a>(bx)) {</div>
 <div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;                    tr = tr &amp;&amp; f(tbx, *fab);</div>
 <div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;                }</div>
 <div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;                sdata[threadIdx.x] = tr;</div>
@@ -632,7 +632,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;                <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* sdata = gsm.dataPtr();</div>
 <div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;</div>
 <div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;                <span class="keywordtype">bool</span> tr = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>&amp; tbx : <a class="code" href="namespaceamrex_1_1_cuda.html#ac68f37e6280919c47ff3432e6e7e0f14">Gpu::Range</a>(bx)) {</div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> tbx : <a class="code" href="namespaceamrex_1_1_cuda.html#ac68f37e6280919c47ff3432e6e7e0f14">Gpu::Range</a>(bx)) {</div>
 <div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;                    tr = tr &amp;&amp; f(tbx, *fab1, *fab2);</div>
 <div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;                }</div>
 <div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;                sdata[threadIdx.x] = tr;</div>
@@ -692,7 +692,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;                <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* sdata = gsm.dataPtr();</div>
 <div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;</div>
 <div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;                <span class="keywordtype">bool</span> tr = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>&amp; tbx : <a class="code" href="namespaceamrex_1_1_cuda.html#ac68f37e6280919c47ff3432e6e7e0f14">Gpu::Range</a>(bx)) {</div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> tbx : <a class="code" href="namespaceamrex_1_1_cuda.html#ac68f37e6280919c47ff3432e6e7e0f14">Gpu::Range</a>(bx)) {</div>
 <div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;                    tr = tr || f(tbx, *fab);</div>
 <div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;                }</div>
 <div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;                sdata[threadIdx.x] = tr;</div>
@@ -754,7 +754,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;                <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* sdata = gsm.dataPtr();</div>
 <div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;</div>
 <div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;                <span class="keywordtype">bool</span> tr = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>&amp; tbx : <a class="code" href="namespaceamrex_1_1_cuda.html#ac68f37e6280919c47ff3432e6e7e0f14">Gpu::Range</a>(bx)) {</div>
+<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> tbx : <a class="code" href="namespaceamrex_1_1_cuda.html#ac68f37e6280919c47ff3432e6e7e0f14">Gpu::Range</a>(bx)) {</div>
 <div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;                    tr = tr || f(tbx, *fab1, *fab2);</div>
 <div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;                }</div>
 <div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;                sdata[threadIdx.x] = tr;</div>
@@ -806,7 +806,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="_a_m_re_x___layout_data_8_h_html"><div class="ttname"><a href="_a_m_re_x___layout_data_8_h.html">AMReX_LayoutData.H</a></div></div>
 <div class="ttc" id="namespaceamrex_html_a3ecc8bd8b0ccf312a849b8b0362044d2"><div class="ttname"><a href="namespaceamrex.html#a3ecc8bd8b0ccf312a849b8b0362044d2">amrex::ReduceLogicalOr</a></div><div class="ttdeci">bool ReduceLogicalOr(FabArray&lt; FAB &gt; const &amp;fa, int nghost, F f)</div><div class="ttdef"><b>Definition:</b> AMReX_FabArrayUtility.H:576</div></div>
 <div class="ttc" id="namespaceamrex_html_a8690d4c6386d001b328b07257fe628a0"><div class="ttname"><a href="namespaceamrex.html#a8690d4c6386d001b328b07257fe628a0">amrex::EnableIf_t</a></div><div class="ttdeci">typename std::enable_if&lt; B, T &gt;::type EnableIf_t</div><div class="ttdef"><b>Definition:</b> AMReX_TypeTraits.H:36</div></div>
-<div class="ttc" id="namespaceamrex_html_a3ab74a1b499759c2a4418335e66aac00"><div class="ttname"><a href="namespaceamrex.html#a3ab74a1b499759c2a4418335e66aac00">amrex::grow</a></div><div class="ttdeci">AMREX_GPU_HOST_DEVICE Box grow(const Box &amp;b, int i)</div><div class="ttdoc">Grow Box in all directions by given amount. </div><div class="ttdef"><b>Definition:</b> AMReX_Box.H:952</div></div>
+<div class="ttc" id="namespaceamrex_html_a3ab74a1b499759c2a4418335e66aac00"><div class="ttname"><a href="namespaceamrex.html#a3ab74a1b499759c2a4418335e66aac00">amrex::grow</a></div><div class="ttdeci">AMREX_GPU_HOST_DEVICE Box grow(const Box &amp;b, int i)</div><div class="ttdoc">Grow Box in all directions by given amount. </div><div class="ttdef"><b>Definition:</b> AMReX_Box.H:1070</div></div>
 <div class="ttc" id="namespaceamrex_1_1detail_html_a05ef6e98eba987410d73df1617fa569da39de58104accdcd761fe01946da9a4a0"><div class="ttname"><a href="namespaceamrex_1_1detail.html#a05ef6e98eba987410d73df1617fa569da39de58104accdcd761fe01946da9a4a0">amrex::detail::min</a></div><div class="ttdef"><b>Definition:</b> AMReX_ParallelReduce.H:16</div></div>
 <div class="ttc" id="namespaceamrex_html_ab293beb22abf7411765563a0674c6060"><div class="ttname"><a href="namespaceamrex.html#ab293beb22abf7411765563a0674c6060">amrex::ReduceMin</a></div><div class="ttdeci">FAB::value_type ReduceMin(FabArray&lt; FAB &gt; const &amp;fa, int nghost, F f)</div><div class="ttdef"><b>Definition:</b> AMReX_FabArrayUtility.H:204</div></div>
 <div class="ttc" id="classamrex_1_1_fab_array_html"><div class="ttname"><a href="classamrex_1_1_fab_array.html">amrex::FabArray&lt; FAB &gt;</a></div></div>

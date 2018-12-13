@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>AMReX: /home/travis/build/AMReX-Codes/amrex/Src/Base/AMReX_MultiFabUtil_3D.cpp File Reference</title>
+<title>AMReX: /home/travis/build/AMReX-Codes/amrex/Src/Base/AMReX_MultiFabUtil_1D_C.H File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -88,11 +88,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">AMReX_MultiFabUtil_3D.cpp File Reference</div>  </div>
+<div class="title">AMReX_MultiFabUtil_1D_C.H File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;<a class="el" href="_a_m_re_x___multi_fab_util___c_8_h_source.html">AMReX_MultiFabUtil_C.H</a>&gt;</code><br/>
-</div><table class="memberdecls">
+<div class="textblock"><code>#include &lt;<a class="el" href="_a_m_re_x___gpu_8_h_source.html">AMReX_Gpu.H</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="_a_m_re_x___geometry_8_h_source.html">AMReX_Geometry.H</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="_a_m_re_x___f_array_box_8_h_source.html">AMReX_FArrayBox.H</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="_a_m_re_x___i_array_box_8_h_source.html">AMReX_IArrayBox.H</a>&gt;</code><br/>
+<code>#include &lt;cmath&gt;</code><br/>
+</div>
+<p><a href="_a_m_re_x___multi_fab_util__1_d___c_8_h_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespaceamrex"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html">amrex</a></td></tr>
@@ -103,12 +109,12 @@ Namespaces</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:a81905902a4760dcc003118f63c9a8cba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a81905902a4760dcc003118f63c9a8cba">amrex::amrex_avg_nd_to_cc</a> (Box const &amp;bx, FArrayBox &amp;ccfab, FArrayBox const &amp;ndfab, int cccomp, int ndcomp, int ncomp)</td></tr>
 <tr class="separator:a81905902a4760dcc003118f63c9a8cba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a388b93617c3080d326109d2711f2db"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a6a388b93617c3080d326109d2711f2db">amrex::amrex_avg_eg_to_cc</a> (Box const &amp;bx, FArrayBox &amp;ccfab, FArrayBox const &amp;exfab, FArrayBox const &amp;eyfab, FArrayBox const &amp;ezfab, int cccomp)</td></tr>
-<tr class="separator:a6a388b93617c3080d326109d2711f2db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af83fa001ea347a47ef045e3aa7c84ef1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#af83fa001ea347a47ef045e3aa7c84ef1">amrex::amrex_avg_fc_to_cc</a> (Box const &amp;bx, FArrayBox &amp;ccfab, FArrayBox const &amp;fxfab, FArrayBox const &amp;fyfab, FArrayBox const &amp;fzfab, int cccomp, GeometryData const &amp;gd)</td></tr>
-<tr class="separator:af83fa001ea347a47ef045e3aa7c84ef1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a792619504d0ae8a0ae86723869c370e2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a792619504d0ae8a0ae86723869c370e2">amrex::amrex_avg_cc_to_fc</a> (Box const &amp;ndbx, Box const &amp;xbx, Box const &amp;ybx, Box const &amp;zbx, FArrayBox &amp;fxfab, FArrayBox &amp;fyfab, FArrayBox &amp;fzfab, FArrayBox const &amp;ccfab, GeometryData const &amp;gd)</td></tr>
-<tr class="separator:a792619504d0ae8a0ae86723869c370e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5d905f058679a9ae81dc61395993d20"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ab5d905f058679a9ae81dc61395993d20">amrex::amrex_avg_eg_to_cc</a> (Box const &amp;bx, FArrayBox &amp;ccfab, FArrayBox const &amp;exfab, int cccomp)</td></tr>
+<tr class="separator:ab5d905f058679a9ae81dc61395993d20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada3b662f81a0f4ff661b1eb0190e50e9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ada3b662f81a0f4ff661b1eb0190e50e9">amrex::amrex_avg_fc_to_cc</a> (Box const &amp;bx, FArrayBox &amp;ccfab, FArrayBox const &amp;fxfab, int cccomp, GeometryData const &amp;gd)</td></tr>
+<tr class="separator:ada3b662f81a0f4ff661b1eb0190e50e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac59cc605513d65f57a2a057b8d914a55"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ac59cc605513d65f57a2a057b8d914a55">amrex::amrex_avg_cc_to_fc</a> (Box const &amp;ndbx, Box const &amp;xbx, FArrayBox &amp;fxfab, FArrayBox const &amp;ccfab, GeometryData const &amp;gd)</td></tr>
+<tr class="separator:ac59cc605513d65f57a2a057b8d914a55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8bc0ca02f27255323f876d9209b6da28"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a8bc0ca02f27255323f876d9209b6da28">amrex::amrex_avgdown_faces</a> (Box const &amp;bx, FArrayBox &amp;crsefab, FArrayBox const &amp;finefab, int ccomp, int fcomp, int ncomp, IntVect const &amp;ratio, int idir)</td></tr>
 <tr class="separator:a8bc0ca02f27255323f876d9209b6da28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a399f220510ef282ea0f7c875e3ed5ee3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a399f220510ef282ea0f7c875e3ed5ee3">amrex::amrex_avgdown_edges</a> (Box const &amp;bx, FArrayBox &amp;crsefab, FArrayBox const &amp;finefab, int ccomp, int fcomp, int ncomp, IntVect const &amp;ratio, int idir)</td></tr>
@@ -119,8 +125,8 @@ Functions</h2></td></tr>
 <tr class="separator:a81b9bc6fd63d3f0430c1c607cac08750"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85a27bbd87e135d2616ef4a74c8ef0d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a85a27bbd87e135d2616ef4a74c8ef0d3">amrex::amrex_avgdown_nodes</a> (Box const &amp;bx, FArrayBox &amp;crsefab, FArrayBox const &amp;finefab, int ccomp, int fcomp, int ncomp, IntVect const &amp;ratio)</td></tr>
 <tr class="separator:a85a27bbd87e135d2616ef4a74c8ef0d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50e99f1e774a169df9873e03f14816d8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a50e99f1e774a169df9873e03f14816d8">amrex::amrex_compute_divergence</a> (Box const &amp;bx, FArrayBox &amp;divufab, FArrayBox const &amp;ufab, FArrayBox const &amp;vfab, FArrayBox const &amp;wfab, GpuArray&lt; Real, AMREX_SPACEDIM &gt; const &amp;dxinv)</td></tr>
-<tr class="separator:a50e99f1e774a169df9873e03f14816d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a752933b495110f47b5adcf26fb78d817"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a752933b495110f47b5adcf26fb78d817">amrex::amrex_compute_divergence</a> (Box const &amp;bx, FArrayBox &amp;divufab, FArrayBox const &amp;ufab, GpuArray&lt; Real, AMREX_SPACEDIM &gt; const &amp;dxinv)</td></tr>
+<tr class="separator:a752933b495110f47b5adcf26fb78d817"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->

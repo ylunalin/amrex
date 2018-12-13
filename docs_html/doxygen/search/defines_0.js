@@ -29,6 +29,7 @@ var searchData=
   ['amrex_5fdevice_5flaunch',['AMREX_DEVICE_LAUNCH',['../_a_m_re_x___b_l_fort_8_h.html#a6b5509459bf56719ba68a6055511fd62',1,'AMReX_BLFort.H']]],
   ['amrex_5fdevice_5flaunchable',['AMREX_DEVICE_LAUNCHABLE',['../_a_m_re_x___b_l_fort_8_h.html#ab9b27d9b7f572d06d445893e88fa42d3',1,'AMReX_BLFort.H']]],
   ['amrex_5fdevice_5flaunchable_5fstrided',['AMREX_DEVICE_LAUNCHABLE_STRIDED',['../_a_m_re_x___b_l_fort_8_h.html#a084ade7de3577dda5d361184403fa036',1,'AMReX_BLFort.H']]],
+  ['amrex_5fforce_5finline',['AMREX_FORCE_INLINE',['../_a_m_re_x___extension_8_h.html#a90cf7b81cd61799c87306cad156cc317',1,'AMReX_Extension.H']]],
   ['amrex_5ffort_5flaunch',['AMREX_FORT_LAUNCH',['../_a_m_re_x___b_l_fort_8_h.html#acfc68d72bfb2c480dc1fcffefb751a42',1,'AMReX_BLFort.H']]],
   ['amrex_5ffort_5flaunchable',['AMREX_FORT_LAUNCHABLE',['../_a_m_re_x___b_l_fort_8_h.html#a6d79db1edf1129dd74b3a38a58e4e312',1,'AMReX_BLFort.H']]],
   ['amrex_5fget_5fmacro',['AMREX_GET_MACRO',['../_a_m_re_x___gpu_launch_8_h.html#ac8ec1cc313d4dad0d4c5bbe4bae0862a',1,'AMReX_GpuLaunch.H']]],

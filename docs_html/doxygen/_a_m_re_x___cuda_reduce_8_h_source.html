@@ -142,7 +142,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor"></span>}</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> blockSize, <span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<a class="code" href="_a_m_re_x___gpu_qualifiers_8_h.html#a4e626ebf06898d71a9e0790877f1694f">AMREX_GPU_DEVICE</a></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<a class="code" href="_a_m_re_x___gpu_qualifiers_8_h.html#a4e626ebf06898d71a9e0790877f1694f">AMREX_GPU_DEVICE</a> <a class="code" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keywordtype">void</span> blockReduceSum (T* data, T&amp; <a class="code" href="namespaceamrex_1_1detail.html#a05ef6e98eba987410d73df1617fa569dadb62579be9a4f3141fb640a655f49f52">sum</a>)</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;{</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">int</span> tid = threadIdx.x;</div>
@@ -203,7 +203,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="preprocessor"></span>}</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> blockSize, <span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<a class="code" href="_a_m_re_x___gpu_qualifiers_8_h.html#a4e626ebf06898d71a9e0790877f1694f">AMREX_GPU_DEVICE</a></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<a class="code" href="_a_m_re_x___gpu_qualifiers_8_h.html#a4e626ebf06898d71a9e0790877f1694f">AMREX_GPU_DEVICE</a> <a class="code" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a></div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="keywordtype">void</span> blockReduceMin (T* data, T&amp; dmin)</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;{</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordtype">int</span> tid = threadIdx.x;</div>
@@ -264,7 +264,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="preprocessor"></span>}</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> blockSize, <span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<a class="code" href="_a_m_re_x___gpu_qualifiers_8_h.html#a4e626ebf06898d71a9e0790877f1694f">AMREX_GPU_DEVICE</a></div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<a class="code" href="_a_m_re_x___gpu_qualifiers_8_h.html#a4e626ebf06898d71a9e0790877f1694f">AMREX_GPU_DEVICE</a> <a class="code" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a></div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="keywordtype">void</span> blockReduceMax (T* data, T&amp; dmax)</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;{</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="keywordtype">int</span> tid = threadIdx.x;</div>
@@ -325,7 +325,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;<span class="preprocessor"></span>}</div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;</div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> blockSize, <span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;<a class="code" href="_a_m_re_x___gpu_qualifiers_8_h.html#a4e626ebf06898d71a9e0790877f1694f">AMREX_GPU_DEVICE</a></div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;<a class="code" href="_a_m_re_x___gpu_qualifiers_8_h.html#a4e626ebf06898d71a9e0790877f1694f">AMREX_GPU_DEVICE</a> <a class="code" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a></div>
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="keywordtype">void</span> blockReduceAnd (T* data, T&amp; r)</div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;{</div>
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    <span class="keywordtype">int</span> tid = threadIdx.x;</div>
@@ -386,7 +386,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;<span class="preprocessor"></span>}</div>
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;</div>
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> blockSize, <span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;<a class="code" href="_a_m_re_x___gpu_qualifiers_8_h.html#a4e626ebf06898d71a9e0790877f1694f">AMREX_GPU_DEVICE</a></div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;<a class="code" href="_a_m_re_x___gpu_qualifiers_8_h.html#a4e626ebf06898d71a9e0790877f1694f">AMREX_GPU_DEVICE</a> <a class="code" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a></div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;<span class="keywordtype">void</span> blockReduceOr (T* data, T&amp; r)</div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;{</div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    <span class="keywordtype">int</span> tid = threadIdx.x;</div>
@@ -411,7 +411,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;</div>
 <div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="namespaceamrex_html_a0086fc5274c898ace87f66ffec34a77c"><div class="ttname"><a href="namespaceamrex.html#a0086fc5274c898ace87f66ffec34a77c">amrex::min</a></div><div class="ttdeci">AMREX_INLINE IntVect min(const IntVect &amp;p1, const IntVect &amp;p2)</div><div class="ttdoc">Returns the IntVect that is the component-wise minimum of two argument IntVects. </div><div class="ttdef"><b>Definition:</b> AMReX_IntVect.H:615</div></div>
-<div class="ttc" id="_a_m_re_x___extension_8_h_html_aeb09e10bb31cfaa6b8928520c9041df9"><div class="ttname"><a href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a></div><div class="ttdeci">#define AMREX_INLINE</div><div class="ttdef"><b>Definition:</b> AMReX_Extension.H:90</div></div>
+<div class="ttc" id="_a_m_re_x___extension_8_h_html_aeb09e10bb31cfaa6b8928520c9041df9"><div class="ttname"><a href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a></div><div class="ttdeci">#define AMREX_INLINE</div><div class="ttdef"><b>Definition:</b> AMReX_Extension.H:97</div></div>
 <div class="ttc" id="namespaceamrex_html_ad3a8c93b63c26053fc3ae8a2ad83887d"><div class="ttname"><a href="namespaceamrex.html#ad3a8c93b63c26053fc3ae8a2ad83887d">amrex::max</a></div><div class="ttdeci">AMREX_INLINE IntVect max(const IntVect &amp;p1, const IntVect &amp;p2)</div><div class="ttdoc">Returns the IntVect that is the component-wise maximum of two argument IntVects. </div><div class="ttdef"><b>Definition:</b> AMReX_IntVect.H:629</div></div>
 <div class="ttc" id="_a_m_re_x___utility_8_h_html"><div class="ttname"><a href="_a_m_re_x___utility_8_h.html">AMReX_Utility.H</a></div></div>
 <div class="ttc" id="_a_m_re_x___gpu_qualifiers_8_h_html"><div class="ttname"><a href="_a_m_re_x___gpu_qualifiers_8_h.html">AMReX_GpuQualifiers.H</a></div></div>

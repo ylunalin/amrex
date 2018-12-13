@@ -88,39 +88,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">AMReX_COORDSYS_C.H</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_a_m_re_x___c_o_o_r_d_s_y_s___c_8_h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef AMREX_COORDSYS_F_H_</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_COORDSYS_F_H_</span></div>
+<a href="_a_m_re_x___c_o_o_r_d_s_y_s___c_8_h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef AMREX_COORDSYS_C_H_</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_COORDSYS_C_H_</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_a_m_re_x___gpu_8_h.html">AMReX_Gpu.H</a>&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_a_m_re_x___array_8_h.html">AMReX_Array.H</a>&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_a_m_re_x___f_array_box_8_h.html">AMReX_FArrayBox.H</a>&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span>amrex {</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespaceamrex.html#a64d76cd76cd1c550646b05423c177c23">amrex_setvol</a> (Box <span class="keyword">const</span>&amp; bx, FArrayBox&amp; vol,</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;                       GpuArray&lt;Real,AMREX_SPACEDIM&gt; <span class="keyword">const</span>&amp; offset,</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;                       GpuArray&lt;Real,AMREX_SPACEDIM&gt; <span class="keyword">const</span>&amp; dx, <span class="keyword">const</span> <span class="keywordtype">int</span> coord);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespaceamrex.html#a99eb9a9bc9e34db13220d3a6b6e90f14">amrex_setarea</a> (Box <span class="keyword">const</span>&amp; bx, FArrayBox&amp; area,</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;                        GpuArray&lt;Real,AMREX_SPACEDIM&gt; <span class="keyword">const</span>&amp; offset,</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                        GpuArray&lt;Real,AMREX_SPACEDIM&gt; <span class="keyword">const</span>&amp; dx, <span class="keyword">const</span> <span class="keywordtype">int</span> dir, <span class="keyword">const</span> <span class="keywordtype">int</span> coord);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespaceamrex.html#a913bb1308c6aff9b4beb11745c8331da">amrex_setdloga</a> (Box <span class="keyword">const</span>&amp; bx, FArrayBox&amp; dloga,</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                         GpuArray&lt;Real,AMREX_SPACEDIM&gt; <span class="keyword">const</span>&amp; offset,</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                         GpuArray&lt;Real,AMREX_SPACEDIM&gt; <span class="keyword">const</span>&amp; dx, <span class="keyword">const</span> <span class="keywordtype">int</span> dir, <span class="keyword">const</span> <span class="keywordtype">int</span> coord);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="namespaceamrex_html_a913bb1308c6aff9b4beb11745c8331da"><div class="ttname"><a href="namespaceamrex.html#a913bb1308c6aff9b4beb11745c8331da">amrex::amrex_setdloga</a></div><div class="ttdeci">AMREX_GPU_HOST_DEVICE void amrex_setdloga(Box const &amp;bx, FArrayBox &amp;dloga, GpuArray&lt; Real, 1 &gt; const &amp;offset, GpuArray&lt; Real, 1 &gt; const &amp;dx, const int, const int coord)</div><div class="ttdef"><b>Definition:</b> AMReX_COORDSYS_1D.cpp:85</div></div>
-<div class="ttc" id="_a_m_re_x___array_8_h_html"><div class="ttname"><a href="_a_m_re_x___array_8_h.html">AMReX_Array.H</a></div></div>
-<div class="ttc" id="_a_m_re_x___gpu_8_h_html"><div class="ttname"><a href="_a_m_re_x___gpu_8_h.html">AMReX_Gpu.H</a></div></div>
-<div class="ttc" id="_a_m_re_x___gpu_qualifiers_8_h_html_aac52ee54727d35b2d0033b119a991618"><div class="ttname"><a href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a></div><div class="ttdeci">#define AMREX_GPU_HOST_DEVICE</div><div class="ttdef"><b>Definition:</b> AMReX_GpuQualifiers.H:15</div></div>
-<div class="ttc" id="namespaceamrex_html_a99eb9a9bc9e34db13220d3a6b6e90f14"><div class="ttname"><a href="namespaceamrex.html#a99eb9a9bc9e34db13220d3a6b6e90f14">amrex::amrex_setarea</a></div><div class="ttdeci">AMREX_GPU_HOST_DEVICE void amrex_setarea(Box const &amp;bx, FArrayBox &amp;area, GpuArray&lt; Real, 1 &gt; const &amp;offset, GpuArray&lt; Real, 1 &gt; const &amp;dx, const int, const int coord)</div><div class="ttdef"><b>Definition:</b> AMReX_COORDSYS_1D.cpp:48</div></div>
-<div class="ttc" id="_a_m_re_x___f_array_box_8_h_html"><div class="ttname"><a href="_a_m_re_x___f_array_box_8_h.html">AMReX_FArrayBox.H</a></div></div>
-<div class="ttc" id="namespaceamrex_html_a64d76cd76cd1c550646b05423c177c23"><div class="ttname"><a href="namespaceamrex.html#a64d76cd76cd1c550646b05423c177c23">amrex::amrex_setvol</a></div><div class="ttdeci">AMREX_GPU_HOST_DEVICE void amrex_setvol(Box const &amp;bx, FArrayBox &amp;vol, GpuArray&lt; Real, 1 &gt; const &amp;offset, GpuArray&lt; Real, 1 &gt; const &amp;dx, const int coord)</div><div class="ttdef"><b>Definition:</b> AMReX_COORDSYS_1D.cpp:8</div></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#if (AMREX_SPACEDIM == 1)</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;<a class="code" href="_a_m_re_x___c_o_o_r_d_s_y_s__1_d___c_8_h.html">AMReX_COORDSYS_1D_C.H</a>&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#elif (AMREX_SPACEDIM == 2)</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;<a class="code" href="_a_m_re_x___c_o_o_r_d_s_y_s__2_d___c_8_h.html">AMReX_COORDSYS_2D_C.H</a>&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;<a class="code" href="_a_m_re_x___c_o_o_r_d_s_y_s__3_d___c_8_h.html">AMReX_COORDSYS_3D_C.H</a>&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="_a_m_re_x___c_o_o_r_d_s_y_s__1_d___c_8_h_html"><div class="ttname"><a href="_a_m_re_x___c_o_o_r_d_s_y_s__1_d___c_8_h.html">AMReX_COORDSYS_1D_C.H</a></div></div>
+<div class="ttc" id="_a_m_re_x___c_o_o_r_d_s_y_s__3_d___c_8_h_html"><div class="ttname"><a href="_a_m_re_x___c_o_o_r_d_s_y_s__3_d___c_8_h.html">AMReX_COORDSYS_3D_C.H</a></div></div>
+<div class="ttc" id="_a_m_re_x___c_o_o_r_d_s_y_s__2_d___c_8_h_html"><div class="ttname"><a href="_a_m_re_x___c_o_o_r_d_s_y_s__2_d___c_8_h.html">AMReX_COORDSYS_2D_C.H</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

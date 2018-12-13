@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>AMReX: /home/travis/build/AMReX-Codes/amrex/Src/Base/AMReX_COORDSYS_1D.cpp File Reference</title>
+<title>AMReX: /home/travis/build/AMReX-Codes/amrex/Src/Base/AMReX_FilCC_1D_C.H File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -88,12 +88,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">AMReX_COORDSYS_1D.cpp File Reference</div>  </div>
+<div class="title">AMReX_FilCC_1D_C.H File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;<a class="el" href="_a_m_re_x___c_o_o_r_d_s_y_s___c_8_h_source.html">AMReX_COORDSYS_C.H</a>&gt;</code><br/>
-<code>#include &lt;cmath&gt;</code><br/>
-</div><table class="memberdecls">
+<div class="textblock"><code>#include &lt;<a class="el" href="_a_m_re_x___f_array_box_8_h_source.html">AMReX_FArrayBox.H</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="_a_m_re_x___b_c_rec_8_h_source.html">AMReX_BCRec.H</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="_a_m_re_x___geometry_8_h_source.html">AMReX_Geometry.H</a>&gt;</code><br/>
+</div>
+<p><a href="_a_m_re_x___fil_c_c__1_d___c_8_h_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespaceamrex"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html">amrex</a></td></tr>
@@ -102,12 +105,8 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a64d76cd76cd1c550646b05423c177c23"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a64d76cd76cd1c550646b05423c177c23">amrex::amrex_setvol</a> (Box const &amp;bx, FArrayBox &amp;vol, GpuArray&lt; Real, 1 &gt; const &amp;offset, GpuArray&lt; Real, 1 &gt; const &amp;dx, const int coord)</td></tr>
-<tr class="separator:a64d76cd76cd1c550646b05423c177c23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99eb9a9bc9e34db13220d3a6b6e90f14"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a99eb9a9bc9e34db13220d3a6b6e90f14">amrex::amrex_setarea</a> (Box const &amp;bx, FArrayBox &amp;area, GpuArray&lt; Real, 1 &gt; const &amp;offset, GpuArray&lt; Real, 1 &gt; const &amp;dx, const int, const int coord)</td></tr>
-<tr class="separator:a99eb9a9bc9e34db13220d3a6b6e90f14"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a913bb1308c6aff9b4beb11745c8331da"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a913bb1308c6aff9b4beb11745c8331da">amrex::amrex_setdloga</a> (Box const &amp;bx, FArrayBox &amp;dloga, GpuArray&lt; Real, 1 &gt; const &amp;offset, GpuArray&lt; Real, 1 &gt; const &amp;dx, const int, const int coord)</td></tr>
-<tr class="separator:a913bb1308c6aff9b4beb11745c8331da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2da263606d6e874fdce31e2521f1bced"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#a4e626ebf06898d71a9e0790877f1694f">AMREX_GPU_DEVICE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a2da263606d6e874fdce31e2521f1bced">amrex::filcc_cell</a> (const IntVect &amp;iv, FArrayBox &amp;dest_fab, const int dcomp, const int numcomp, GeometryData const &amp;geom, const Real time, const BCRec *bcr, const int bcomp, const int orig_comp)</td></tr>
+<tr class="separator:a2da263606d6e874fdce31e2521f1bced"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->
