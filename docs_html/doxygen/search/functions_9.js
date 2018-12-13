@@ -103,6 +103,7 @@ var searchData=
   ['isok',['isOK',['../classamrex_1_1_e_b2_1_1_level.html#a6abb6e42c27f0e6b1e7518f3ccfaad82',1,'amrex::EB2::Level']]],
   ['isowner',['isOwner',['../classamrex_1_1_fab_array_base.html#adaab2aa39653ad6be0ef6bb6d6565ef9',1,'amrex::FabArrayBase']]],
   ['isperiodic',['isPeriodic',['../structamrex_1_1_geometry_data.html#ac064db6cc07cc93e9693b4dfe390a037',1,'amrex::GeometryData::isPeriodic()'],['../classamrex_1_1_geometry.html#afa01c6e9ad7462682bef8e2dd95057d5',1,'amrex::Geometry::isPeriodic()'],['../classamrex_1_1_periodicity.html#af56d349ca01304568a7deb7bacdf3175',1,'amrex::Periodicity::isPeriodic()']]],
+  ['isperiodicarray',['isPeriodicArray',['../classamrex_1_1_geometry.html#addc0f8048aca2353026013655b08a274',1,'amrex::Geometry']]],
   ['isregular',['isRegular',['../classamrex_1_1_e_b_cell_flag.html#ac222bab67102c5690e586cd489dee5e5',1,'amrex::EBCellFlag']]],
   ['isrz',['IsRZ',['../classamrex_1_1_coord_sys.html#a22380ba22f76517b32feb45df56c22b9',1,'amrex::CoordSys']]],
   ['issinglevalued',['isSingleValued',['../classamrex_1_1_e_b_cell_flag.html#a9fb14c75b6d7580e376d4106a89f9287',1,'amrex::EBCellFlag']]],
