@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Amr Task &mdash; amrex 18.01-dev documentation</title>
+  <title>Asynchronous Iterators (AmrTask) &mdash; amrex 18.01-dev documentation</title>
   
 
   
@@ -90,7 +90,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Basics_Chapter.html">Basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="AmrCore_Chapter.html">AmrCore Source Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="AmrLevel_Chapter.html">Amr Source Code</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Amr Task</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Asynchronous Iterators (AmrTask)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="AsyncIter.html">FillPatch Iterator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="AsyncIter.html#regiongraph-iterator">RegionGraph Iterator</a></li>
 </ul>
@@ -150,7 +150,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Amr Task</li>
+      <li>Asynchronous Iterators (AmrTask)</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -169,8 +169,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="amr-task">
-<span id="chap-asynciter"></span><h1>Amr Task<a class="headerlink" href="#amr-task" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="asynchronous-iterators-amrtask">
+<span id="chap-asynciter"></span><h1>Asynchronous Iterators (AmrTask)<a class="headerlink" href="#asynchronous-iterators-amrtask" title="Permalink to this headline">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">amrex/Src/AmrTask</span></code> implements a runtime system that can execute the workload within each coarse time step in an asynchronous fashion, thereby overlapping communication with computation.
 The runtime is defined in class RTS, which is a black box to the application developer.
 Currently there are 3 implementations for RTS, located in <code class="docutils literal notranslate"><span class="pre">amrex/Src/AmrTask/rts_impls</span></code>: MPI+Omp, MPI+Pthreads, and UPCXX+Pthreads.
