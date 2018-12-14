@@ -101,7 +101,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    {</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        cudaError_t err = cudaGetLastError();</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keywordflow">if</span> (cudaSuccess != err) {</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;            std::string errStr(std::string(<span class="stringliteral">&quot;Cuda last error detected in file &quot;</span>) + file</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;            std::string errStr(std::string(<span class="stringliteral">&quot;CUDA last error detected in file &quot;</span>) + file</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;                               + <span class="stringliteral">&quot; line &quot;</span> + std::to_string(line)</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;                               + <span class="stringliteral">&quot;: &quot;</span> + std::string(cudaGetErrorString(err)));</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            <a class="code" href="namespaceamrex.html#aea69993eec3c9ca497cd0e47522b2ec6">amrex::Abort</a>(errStr);</div>
@@ -112,7 +112,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#define AMREX_GPU_SAFE_CALL(call) { \</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">    cudaError_t amrex_i_err = call; \</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">    if (cudaSuccess != amrex_i_err) { \</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">        std::string errStr(std::string(&quot;Cuda error in file &quot;) + __FILE__ \</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">        std::string errStr(std::string(&quot;CUDA error in file &quot;) + __FILE__ \</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">                           + &quot; line &quot; + std::to_string(__LINE__) \</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">                           + &quot; &quot; + cudaGetErrorString(amrex_i_err)); \</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">        amrex::Abort(errStr); \</span></div>
