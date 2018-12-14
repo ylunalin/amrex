@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['p',['p',['../structamrex_1_1_strided_ptr.html#a00b2b78ca4d7dec006560a1d0ce11c58',1,'amrex::StridedPtr::p()'],['../structamrex_1_1_fab_view.html#a0fd594f4eeb20cdca2b2d915590cd138',1,'amrex::FabView::p()'],['../struct_void_copy_tag.html#a654bfbbb8f0f4b2b5d6d53caa1ea41bb',1,'VoidCopyTag::p()'],['../structamrex__parmparse__module_1_1amrex__parmparse.html#add6764a664666a9bdb4065f20184514e',1,'amrex_parmparse_module::amrex_parmparse::p()']]],
+  ['p',['p',['../structamrex_1_1_fab_view.html#a0fd594f4eeb20cdca2b2d915590cd138',1,'amrex::FabView::p()'],['../struct_void_copy_tag.html#a654bfbbb8f0f4b2b5d6d53caa1ea41bb',1,'VoidCopyTag::p()'],['../structamrex__parmparse__module_1_1amrex__parmparse.html#add6764a664666a9bdb4065f20184514e',1,'amrex_parmparse_module::amrex_parmparse::p()']]],
   ['parent',['parent',['../classamrex_1_1_amr_level.html#aeb2c20016c60209d0bc5112f262957c2',1,'amrex::AmrLevel']]],
   ['particlerealdescriptor',['ParticleRealDescriptor',['../classamrex_1_1_particle_container.html#a3745cc53b964fc08052fe340d1fd42b2',1,'amrex::ParticleContainer']]],
   ['pc_5finterp',['pc_interp',['../namespaceamrex.html#add23b3df81e9353cea327552654d630b',1,'amrex']]],

@@ -12,7 +12,6 @@ var searchData=
   ['staterange',['StateRange',['../structamrex_1_1_derive_rec_1_1_state_range.html',1,'amrex::DeriveRec']]],
   ['streamiter',['StreamIter',['../classamrex_1_1_cuda_1_1_stream_iter.html',1,'amrex::Cuda']]],
   ['streamretry',['StreamRetry',['../classamrex_1_1_stream_retry.html',1,'amrex']]],
-  ['stridedptr',['StridedPtr',['../structamrex_1_1_strided_ptr.html',1,'amrex']]],
   ['structofarrays',['StructOfArrays',['../structamrex_1_1_struct_of_arrays.html',1,'amrex']]],
   ['structofarrays_3c_20narrayreal_2c_20narrayint_20_3e',['StructOfArrays&lt; NArrayReal, NArrayInt &gt;',['../structamrex_1_1_struct_of_arrays.html',1,'amrex']]],
   ['symmetricghost',['SymmetricGhost',['../structamrex_1_1_m_f_util_1_1_symmetric_ghost.html',1,'amrex::MFUtil']]]
