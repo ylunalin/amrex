@@ -277,6 +277,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6e75b71866d56450d04a1c243d4c3cfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca1ee98a4dce5d7301527e13dbd35eeb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_particle_container.html#a9c8d796e15d37e7dad6efb3e9fdb4fca">ParticleTileType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_particle_container.html#aca1ee98a4dce5d7301527e13dbd35eeb">ParticlesAt</a> (int lev, int grid, int tile)</td></tr>
 <tr class="separator:aca1ee98a4dce5d7301527e13dbd35eeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad24ca91ffbcdf3f474c0ce4e1c0f1c48"><td class="memTemplParams" colspan="2">template&lt;class Iterator &gt; </td></tr>
+<tr class="memitem:ad24ca91ffbcdf3f474c0ce4e1c0f1c48"><td class="memTemplItemLeft" align="right" valign="top">const <a class="el" href="classamrex_1_1_particle_container.html#a9c8d796e15d37e7dad6efb3e9fdb4fca">ParticleTileType</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classamrex_1_1_particle_container.html#ad24ca91ffbcdf3f474c0ce4e1c0f1c48">ParticlesAt</a> (int lev, const Iterator &amp;iter) const </td></tr>
+<tr class="separator:ad24ca91ffbcdf3f474c0ce4e1c0f1c48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd785eb9f6acd5c201473cf9e9c246a3"><td class="memTemplParams" colspan="2">template&lt;class Iterator &gt; </td></tr>
+<tr class="memitem:acd785eb9f6acd5c201473cf9e9c246a3"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_particle_container.html#a9c8d796e15d37e7dad6efb3e9fdb4fca">ParticleTileType</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classamrex_1_1_particle_container.html#acd785eb9f6acd5c201473cf9e9c246a3">ParticlesAt</a> (int lev, const Iterator &amp;iter)</td></tr>
+<tr class="separator:acd785eb9f6acd5c201473cf9e9c246a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad8c4881ee78ae85368b508e5387e52d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_particle_container.html#ad8c4881ee78ae85368b508e5387e52d8">AssignDensity</a> (int rho_index, <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::unique_ptr&lt; <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &gt; &gt; &amp;mf_to_be_filled, int lev_min, int ncomp, int finest_level, int ngrow=2) const </td></tr>
 <tr class="separator:ad8c4881ee78ae85368b508e5387e52d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae81487d8bc67dbfa4ab241a8f32d186a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_particle_container.html#ae81487d8bc67dbfa4ab241a8f32d186a">Interpolate</a> (<a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; std::unique_ptr&lt; <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &gt; &gt; &amp;mesh_data, int lev_min, int lev_max)</td></tr>
@@ -2502,6 +2508,82 @@ template&lt;int NStructReal, int NStructInt = 0, int NArrayReal = 0, int NArrayI
           <td></td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>tile</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad24ca91ffbcdf3f474c0ce4e1c0f1c48"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int NStructReal, int NStructInt = 0, int NArrayReal = 0, int NArrayInt = 0&gt; </div>
+<div class="memtemplate">
+template&lt;class Iterator &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classamrex_1_1_particle_container.html#a9c8d796e15d37e7dad6efb3e9fdb4fca">ParticleTileType</a>&amp; <a class="el" href="classamrex_1_1_particle_container.html">amrex::ParticleContainer</a>&lt; NStructReal, NStructInt, NArrayReal, NArrayInt &gt;::ParticlesAt </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lev</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Iterator &amp;&#160;</td>
+          <td class="paramname"><em>iter</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="acd785eb9f6acd5c201473cf9e9c246a3"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int NStructReal, int NStructInt = 0, int NArrayReal = 0, int NArrayInt = 0&gt; </div>
+<div class="memtemplate">
+template&lt;class Iterator &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classamrex_1_1_particle_container.html#a9c8d796e15d37e7dad6efb3e9fdb4fca">ParticleTileType</a>&amp; <a class="el" href="classamrex_1_1_particle_container.html">amrex::ParticleContainer</a>&lt; NStructReal, NStructInt, NArrayReal, NArrayInt &gt;::ParticlesAt </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lev</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Iterator &amp;&#160;</td>
+          <td class="paramname"><em>iter</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
