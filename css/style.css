@@ -1189,13 +1189,14 @@ body.landing #header nav a {
 #footer .ack {
     border-bottom: 1px solid rgba(144, 144, 144, 0.25);
     margin-bottom: 1em;
-    padding-bottom: 1em;
     color: #dddddd;
+    text-align: center;
 }
 
 #footer .copyright {
-    margin-top: 0.65em;
+    margin-top: 0em;
     padding: 0;
+    margin-bottom: 0em;
 }
 
 #footer .copyright li {
@@ -1204,6 +1205,7 @@ body.landing #header nav a {
     list-style: none;
     margin-left: 0.5em;
     padding-left: 0.5em;
+
 }
 
 #footer .copyright li:first-child {
