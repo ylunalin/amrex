@@ -1148,6 +1148,7 @@ body.landing #header nav a {
 .wrapper.style3 {
     background-color: #3cadd4;
     color: #ffffff;
+    padding: 1em 0em 0.5em;
 }
 
 .wrapper.style3 h2, .wrapper.style3 h3, .wrapper.style3 p {
@@ -1167,7 +1168,7 @@ body.landing #header nav a {
 
 #footer {
     background: #383b43;
-    padding: 3em 0em 4em;
+    padding: 1em 0em 1em;
 }
 
 #footer h2, #footer h3, #footer h4 {
