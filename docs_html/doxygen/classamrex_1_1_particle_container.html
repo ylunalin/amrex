@@ -120,6 +120,8 @@ Public Types</h2></td></tr>
 <tr class="separator:aec73ed00e2482cb245a8c6a2ac7bea8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa415f73a03aab24593ffe0d99075e329"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_particle_container.html#aa415f73a03aab24593ffe0d99075e329">RealType</a> = typename <a class="el" href="structamrex_1_1_particle.html">Particle</a>&lt; NStructReal, NStructInt &gt;::<a class="el" href="classamrex_1_1_particle_container.html#aa415f73a03aab24593ffe0d99075e329">RealType</a></td></tr>
 <tr class="separator:aa415f73a03aab24593ffe0d99075e329"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37ecb4d391a3355e67d6a4341c2a9bc4"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_particle_container.html#a37ecb4d391a3355e67d6a4341c2a9bc4">ParticleContainerType</a> = <a class="el" href="classamrex_1_1_particle_container.html">ParticleContainer</a>&lt; NStructReal, NStructInt, NArrayReal, NArrayInt &gt;</td></tr>
+<tr class="separator:a37ecb4d391a3355e67d6a4341c2a9bc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c8d796e15d37e7dad6efb3e9fdb4fca"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_particle_container.html#a9c8d796e15d37e7dad6efb3e9fdb4fca">ParticleTileType</a> = <a class="el" href="structamrex_1_1_particle_tile.html">ParticleTile</a>&lt; NStructReal, NStructInt, NArrayReal, NArrayInt &gt;</td></tr>
 <tr class="separator:a9c8d796e15d37e7dad6efb3e9fdb4fca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6edead171e873a9e37cfe2491511ba59"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_particle_container.html#a6edead171e873a9e37cfe2491511ba59">ParticleInitData</a> = <a class="el" href="structamrex_1_1_particle_init_type.html">ParticleInitType</a>&lt; NStructReal, NStructInt, NArrayReal, NArrayInt &gt;</td></tr>
@@ -239,6 +241,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a4a1c44fdf3e109f0ef2707a00810f0a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae81d42996a0794aaca5e198f7b1179f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_particle_container.html#ae81d42996a0794aaca5e198f7b1179f6">AddParticlesAtLevel</a> (<a class="el" href="classamrex_1_1_particle_container.html#a34292c05dc95e39064c392382af0f4cd">AoS</a> &amp;particles, int level, int nGrow=0)</td></tr>
 <tr class="separator:ae81d42996a0794aaca5e198f7b1179f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0090be98ea5068fd31672a06a7c74f5e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_particle_container.html#a0090be98ea5068fd31672a06a7c74f5e">clearParticles</a> ()</td></tr>
+<tr class="separator:a0090be98ea5068fd31672a06a7c74f5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66f4e6f6910f9c0140833d998a063b79"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_particle_container.html#a66f4e6f6910f9c0140833d998a063b79">copyParticles</a> (const <a class="el" href="classamrex_1_1_particle_container.html#a37ecb4d391a3355e67d6a4341c2a9bc4">ParticleContainerType</a> &amp;other)</td></tr>
+<tr class="separator:a66f4e6f6910f9c0140833d998a063b79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a812c8380cdc8d37bdb318c85fc88e04e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_particle_container.html#a812c8380cdc8d37bdb318c85fc88e04e">WriteParticleRealData</a> (void *data, size_t size, std::ostream &amp;os, const <a class="el" href="classamrex_1_1_real_descriptor.html">RealDescriptor</a> &amp;rd) const </td></tr>
 <tr class="separator:a812c8380cdc8d37bdb318c85fc88e04e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad556fa72e0f22533d5f90f641f4f2bce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_particle_container.html#ad556fa72e0f22533d5f90f641f4f2bce">ReadParticleRealData</a> (void *data, size_t size, std::istream &amp;is, const <a class="el" href="classamrex_1_1_real_descriptor.html">RealDescriptor</a> &amp;rd)</td></tr>
@@ -451,6 +457,20 @@ template&lt;int NStructReal, int NStructInt = 0, int NArrayReal = 0, int NArrayI
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="classamrex_1_1_particle_container.html">amrex::ParticleContainer</a>&lt; NStructReal, NStructInt, NArrayReal, NArrayInt &gt;::<a class="el" href="classamrex_1_1_particle_container.html#a6771cf4d68f77e662aa8ef3dc3e10230">IntVector</a> =  typename SoA::IntVector</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a37ecb4d391a3355e67d6a4341c2a9bc4"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int NStructReal, int NStructInt = 0, int NArrayReal = 0, int NArrayInt = 0&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classamrex_1_1_particle_container.html">amrex::ParticleContainer</a>&lt; NStructReal, NStructInt, NArrayReal, NArrayInt &gt;::<a class="el" href="classamrex_1_1_particle_container.html#a37ecb4d391a3355e67d6a4341c2a9bc4">ParticleContainerType</a> =  <a class="el" href="classamrex_1_1_particle_container.html">ParticleContainer</a>&lt;NStructReal, NStructInt, NArrayReal, NArrayInt&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1043,6 +1063,41 @@ template&lt;int NStructReal, int NStructInt, int NArrayReal, int NArrayInt&gt; <
           <td class="memname">void <a class="el" href="classamrex_1_1_particle_container.html">amrex::ParticleContainer</a>&lt; NStructReal, NStructInt, NArrayReal, NArrayInt &gt;::CheckpointPre </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a0090be98ea5068fd31672a06a7c74f5e"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int NStructReal, int NStructInt, int NArrayReal, int NArrayInt&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classamrex_1_1_particle_container.html">amrex::ParticleContainer</a>&lt; NStructReal, NStructInt, NArrayReal, NArrayInt &gt;::clearParticles </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a66f4e6f6910f9c0140833d998a063b79"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int NStructReal, int NStructInt, int NArrayReal, int NArrayInt&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classamrex_1_1_particle_container.html">amrex::ParticleContainer</a>&lt; NStructReal, NStructInt, NArrayReal, NArrayInt &gt;::copyParticles </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_particle_container.html#a37ecb4d391a3355e67d6a4341c2a9bc4">ParticleContainerType</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
