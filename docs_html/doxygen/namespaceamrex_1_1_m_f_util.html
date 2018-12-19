@@ -167,7 +167,7 @@ template&lt;typename T , template&lt; typename &gt; class Cpy&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Duplicate class T (which must be either of type <a class="el" href="classamrex_1_1_multi_fab.html" title="A collection (stored as an array) of FArrayBox objects. This class is useful for storing floating poi...">MultiFab</a> or <a class="el" href="classamrex_1_1i_multi_fab.html">iMultiFab</a>) using a new <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> and <a class="el" href="classamrex_1_1_distribution_mapping.html" title="Calculates the distribution of FABs to MPI processes. ">DistributionMapping</a>. Data from the source (mf_in) is copied using a ParallelCopy including ghost cells. </p>
+<p>Duplicate class T (which must be either of type <a class="el" href="classamrex_1_1_multi_fab.html" title="A collection (stored as an array) of FArrayBox objects. This class is useful for storing floating poi...">MultiFab</a> or <a class="el" href="classamrex_1_1i_multi_fab.html">iMultiFab</a>) using a new <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> and <a class="el" href="classamrex_1_1_distribution_mapping.html" title="Calculates the distribution of FABs to MPI processes. ">DistributionMapping</a>. Data from the source (mf_in) is copied using a ParallelCopy (ghost cells are treated based on the Cpy class (which is either <a class="el" href="structamrex_1_1_m_f_util_1_1_symmetric_ghost.html">SymmetricGhost</a> or <a class="el" href="structamrex_1_1_m_f_util_1_1_asymmetric_ghost.html">AsymmetricGhost</a>)). </p>
 
 </div>
 </div>
@@ -208,7 +208,7 @@ template&lt;typename T , template&lt; typename &gt; class Cpy&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Duplicate class T (which must be either of type <a class="el" href="classamrex_1_1_multi_fab.html" title="A collection (stored as an array) of FArrayBox objects. This class is useful for storing floating poi...">MultiFab</a> or <a class="el" href="classamrex_1_1i_multi_fab.html">iMultiFab</a>) using a new <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> and <a class="el" href="classamrex_1_1_distribution_mapping.html" title="Calculates the distribution of FABs to MPI processes. ">DistributionMapping</a>. Data from the source (mf_in) is copied using a ParallelCopy without the ghost cells. These are filled using a FillBoundary operation. </p>
+<p>Duplicate class T (which must be either of type <a class="el" href="classamrex_1_1_multi_fab.html" title="A collection (stored as an array) of FArrayBox objects. This class is useful for storing floating poi...">MultiFab</a> or <a class="el" href="classamrex_1_1i_multi_fab.html">iMultiFab</a>) using a new <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> and <a class="el" href="classamrex_1_1_distribution_mapping.html" title="Calculates the distribution of FABs to MPI processes. ">DistributionMapping</a>. Data from the source (mf_in) is copied using a ParallelCopy (ghost cells are treated based on the Cpy class (which is either <a class="el" href="structamrex_1_1_m_f_util_1_1_symmetric_ghost.html">SymmetricGhost</a> or <a class="el" href="structamrex_1_1_m_f_util_1_1_asymmetric_ghost.html">AsymmetricGhost</a>)). Following the copy operation, a FillBoundary operation is called. </p>
 
 </div>
 </div>
