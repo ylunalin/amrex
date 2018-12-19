@@ -36,7 +36,7 @@ var searchData=
   ['get_5fnew_5fdata',['get_new_data',['../classamrex_1_1_amr_level.html#ab280e7294f07d7b30a28351aaef63cb8',1,'amrex::AmrLevel::get_new_data(int state_indx)'],['../classamrex_1_1_amr_level.html#a9d73d0e950d7f442e047fabe4d93e217',1,'amrex::AmrLevel::get_new_data(int state_indx) const ']]],
   ['get_5fofs_5fptr',['get_ofs_ptr',['../classamrex_1_1_parallel_context_1_1_frame.html#abf278a69530b55db1c0156e40db89e0c',1,'amrex::ParallelContext::Frame']]],
   ['get_5fold_5fdata',['get_old_data',['../classamrex_1_1_amr_level.html#a024eee0459227e95a521789724a889c8',1,'amrex::AmrLevel::get_old_data(int state_indx)'],['../classamrex_1_1_amr_level.html#aa859d511ae880653d0d405b4484fdc37',1,'amrex::AmrLevel::get_old_data(int state_indx) const ']]],
-  ['get_5fslice_5fdata',['get_slice_data',['../namespaceamrex.html#a836bc84e72369e2bdfb7cfe4d1d38ed0',1,'amrex']]],
+  ['get_5fslice_5fdata',['get_slice_data',['../namespaceamrex.html#a3a431197f206b148529308a7796d5039',1,'amrex']]],
   ['get_5fstate_5fdata',['get_state_data',['../classamrex_1_1_amr_level.html#a5322ce60c983bb72e78414052d9331db',1,'amrex::AmrLevel']]],
   ['get_5fteam_5fcomm',['get_team_comm',['../structamrex_1_1_parallel_descriptor_1_1_process_team.html#aff6477b41ff7601f22b4eff065a88312',1,'amrex::ParallelDescriptor::ProcessTeam']]],
   ['get_5fvalid',['get_valid',['../classamrex_1_1_l_s_factory.html#a31bad106aa075551325226e56beb2325',1,'amrex::LSFactory']]],

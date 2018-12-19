@@ -91,6 +91,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">amrex::MFUtil Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>General collection of <a class="el" href="classamrex_1_1_multi_fab.html" title="A collection (stored as an array) of FArrayBox objects. This class is useful for storing floating poi...">MultiFab</a> utilities.  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -111,7 +114,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a47ebced535794ff0eeb79e799ca59761"><td class="memTemplItemLeft" align="right" valign="top">std::unique_ptr&lt; T_dest &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_m_f_util.html#a47ebced535794ff0eeb79e799ca59761">convert</a> (const T_src &amp;mf_in)</td></tr>
 <tr class="separator:a47ebced535794ff0eeb79e799ca59761"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>General collection of <a class="el" href="classamrex_1_1_multi_fab.html" title="A collection (stored as an array) of FArrayBox objects. This class is useful for storing floating poi...">MultiFab</a> utilities. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a class="anchor" id="a47ebced535794ff0eeb79e799ca59761"></a>
 <div class="memitem">
 <div class="memproto">
@@ -127,6 +132,7 @@ template&lt;typename T_src , typename T_dest &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Convert class T_src (which must either be of type <a class="el" href="classamrex_1_1_multi_fab.html" title="A collection (stored as an array) of FArrayBox objects. This class is useful for storing floating poi...">MultiFab</a> or <a class="el" href="classamrex_1_1i_multi_fab.html">iMultiFab</a>) to type T_dest (which must also be of type <a class="el" href="classamrex_1_1_multi_fab.html" title="A collection (stored as an array) of FArrayBox objects. This class is useful for storing floating poi...">MultiFab</a> or <a class="el" href="classamrex_1_1i_multi_fab.html">iMultiFab</a>). This function is useful for convering <a class="el" href="classamrex_1_1i_multi_fab.html">iMultiFab</a> <a class="el" href="classamrex_1_1_multi_fab.html" title="A collection (stored as an array) of FArrayBox objects. This class is useful for storing floating poi...">MultiFab</a> or vice-versa. </p>
 
 </div>
 </div>
@@ -161,6 +167,7 @@ template&lt;typename T , template&lt; typename &gt; class Cpy&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Duplicate class T (which must be either of type <a class="el" href="classamrex_1_1_multi_fab.html" title="A collection (stored as an array) of FArrayBox objects. This class is useful for storing floating poi...">MultiFab</a> or <a class="el" href="classamrex_1_1i_multi_fab.html">iMultiFab</a>) using a new <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> and <a class="el" href="classamrex_1_1_distribution_mapping.html" title="Calculates the distribution of FABs to MPI processes. ">DistributionMapping</a>. Data from the source (mf_in) is copied using a ParallelCopy including ghost cells. </p>
 
 </div>
 </div>
@@ -201,6 +208,7 @@ template&lt;typename T , template&lt; typename &gt; class Cpy&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Duplicate class T (which must be either of type <a class="el" href="classamrex_1_1_multi_fab.html" title="A collection (stored as an array) of FArrayBox objects. This class is useful for storing floating poi...">MultiFab</a> or <a class="el" href="classamrex_1_1i_multi_fab.html">iMultiFab</a>) using a new <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> and <a class="el" href="classamrex_1_1_distribution_mapping.html" title="Calculates the distribution of FABs to MPI processes. ">DistributionMapping</a>. Data from the source (mf_in) is copied using a ParallelCopy without the ghost cells. These are filled using a FillBoundary operation. </p>
 
 </div>
 </div>
