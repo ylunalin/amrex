@@ -153,7 +153,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor"></span>            <span class="keywordflow">for</span> (<a class="code" href="classamrex_1_1_m_f_iter.html">MFIter</a> mfi(*<span class="keyword">this</span>); mfi.<a class="code" href="classamrex_1_1_m_f_iter.html#ad1cb993a973d541776b06c959d1ae3cd">isValid</a>(); ++mfi)</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            {</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span>&amp; tags = loc_copy_tags[mfi];</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                FAB* dfab = Gpu::notInLaunchRegion() ? &amp;((*this)[mfi]) : this-&gt;fabPtr(mfi);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                FAB* dfab = this-&gt;fabPtr(mfi);</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp; tag : tags)</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                {</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                    <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">AMREX_LAUNCH_HOST_DEVICE_LAMBDA</a> (tag.dbox, dbx,</div>
@@ -354,7 +354,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>&amp; tag : cctc)</div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;                {</div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;                    <span class="keyword">const</span> Box&amp; bx = tag.sbox;</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;                    <span class="keyword">const</span> FAB* sfab = Gpu::notInLaunchRegion() ? &amp;(<span class="keyword">get</span>(tag.srcIndex)) : this-&gt;fabPtr(tag.srcIndex);</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;                    <span class="keyword">const</span> FAB* sfab = this-&gt;fabPtr(tag.srcIndex);</div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;</div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;                    <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">AMREX_LAUNCH_HOST_DEVICE_LAMBDA</a>(bx, tbx,</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;                    {</div>
@@ -456,8 +456,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;        <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(<a class="code" href="namespaceamrex_1_1_parallel_descriptor.html#abb6db8659bdc602f3a644244929523a2">ParallelDescriptor::sameTeam</a>(distributionMap[tag.dstIndex]));</div>
 <div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;        <a class="code" href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a>(<a class="code" href="namespaceamrex_1_1_parallel_descriptor.html#abb6db8659bdc602f3a644244929523a2">ParallelDescriptor::sameTeam</a>(distributionMap[tag.srcIndex]));</div>
 <div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;            <span class="keyword">const</span> FAB* sfab = Gpu::notInLaunchRegion() ? &amp;(<span class="keyword">get</span>(tag.srcIndex)) : this-&gt;fabPtr(tag.srcIndex);</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;                  FAB* dfab = Gpu::notInLaunchRegion() ? &amp;(<span class="keyword">get</span>(tag.dstIndex)) : this-&gt;fabPtr(tag.dstIndex);</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;            <span class="keyword">const</span> FAB* sfab = this-&gt;fabPtr(tag.srcIndex);</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;                  FAB* dfab = this-&gt;fabPtr(tag.dstIndex);</div>
 <div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;</div>
 <div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;            <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">AMREX_LAUNCH_HOST_DEVICE_LAMBDA</a>(tag.dbox, tbx,</div>
 <div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;            {</div>
@@ -686,7 +686,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;<span class="preprocessor"></span>            <span class="keywordflow">for</span> (<a class="code" href="classamrex_1_1_m_f_iter.html">MFIter</a> mfi(*<span class="keyword">this</span>); mfi.<a class="code" href="classamrex_1_1_m_f_iter.html#ad1cb993a973d541776b06c959d1ae3cd">isValid</a>(); ++mfi)</div>
 <div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;            {</div>
 <div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span>&amp; tags = recv_copy_tags[mfi];</div>
-<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;                FAB* dfab = Gpu::notInLaunchRegion() ? &amp;((*this)[mfi]) : this-&gt;fabPtr(mfi);</div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;                FAB* dfab = this-&gt;fabPtr(mfi);</div>
 <div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">int</span> scomp = fb_scomp;</div>
 <div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">int</span> ncomp = fb_ncomp;</div>
 <div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp; tag : tags)</div>
@@ -793,8 +793,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;            <span class="keyword">const</span> Box&amp; bx = fai.tilebox();</div>
 <div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;</div>
 <div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;        <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;src) {</div>
-<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;                <span class="keyword">const</span> FAB* sfab = Gpu::notInLaunchRegion() ? &amp;(src[fai]) : src.fabPtr(fai);</div>
-<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;                      FAB* dfab = Gpu::notInLaunchRegion() ? &amp;(<span class="keyword">get</span>(fai)) : this-&gt;fabPtr(fai);</div>
+<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;                <span class="keyword">const</span> FAB* sfab = src.fabPtr(fai);</div>
+<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;                      FAB* dfab = this-&gt;fabPtr(fai);</div>
 <div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;        <span class="comment">// avoid self copy or plus</span></div>
 <div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;        <span class="keywordflow">if</span> (op == FabArrayBase::COPY) {</div>
 <div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;                    <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">AMREX_LAUNCH_HOST_DEVICE_LAMBDA</a>(bx, tbx,</div>
@@ -839,7 +839,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;<span class="preprocessor"></span>            <span class="keywordflow">for</span> (MFIter mfi(*<span class="keyword">this</span>); mfi.isValid(); ++mfi)</div>
 <div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;            {</div>
 <div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span>&amp; tags = loc_copy_tags[mfi];</div>
-<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;                FAB* dfab = Gpu::notInLaunchRegion() ? &amp;((*this)[mfi]) : this-&gt;fabPtr(mfi);</div>
+<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;                FAB* dfab = this-&gt;fabPtr(mfi);</div>
 <div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;                <span class="keywordflow">if</span> (op == FabArrayBase::COPY)</div>
 <div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;                {</div>
 <div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;                    <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp; tag : tags)</div>
@@ -1073,7 +1073,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00983"></a><span class="lineno">  983</span>&#160;                    <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>&amp; tag : cctc)</div>
 <div class="line"><a name="l00984"></a><span class="lineno">  984</span>&#160;                    {</div>
 <div class="line"><a name="l00985"></a><span class="lineno">  985</span>&#160;                        <span class="keyword">const</span> Box&amp; bx = tag.sbox;</div>
-<div class="line"><a name="l00986"></a><span class="lineno">  986</span>&#160;                        <span class="keyword">const</span> FAB* sfab = Gpu::notInLaunchRegion() ? &amp;(src[tag.srcIndex]) : src.fabPtr(tag.srcIndex);</div>
+<div class="line"><a name="l00986"></a><span class="lineno">  986</span>&#160;                        <span class="keyword">const</span> FAB* sfab = src.fabPtr(tag.srcIndex);</div>
 <div class="line"><a name="l00987"></a><span class="lineno">  987</span>&#160;</div>
 <div class="line"><a name="l00988"></a><span class="lineno">  988</span>&#160;                        <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">AMREX_LAUNCH_HOST_DEVICE_LAMBDA</a>(bx, tbx,</div>
 <div class="line"><a name="l00989"></a><span class="lineno">  989</span>&#160;                        {</div>
@@ -1183,8 +1183,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01093"></a><span class="lineno"> 1093</span>&#160;        <span class="keyword">const</span> CopyComTag&amp; tag = (*thecpc.m_LocTags)[j];</div>
 <div class="line"><a name="l01094"></a><span class="lineno"> 1094</span>&#160;                <span class="comment">// avoid self copy or plus</span></div>
 <div class="line"><a name="l01095"></a><span class="lineno"> 1095</span>&#160;        <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;src || tag.dstIndex != tag.srcIndex || tag.sbox != tag.dbox) {</div>
-<div class="line"><a name="l01096"></a><span class="lineno"> 1096</span>&#160;                    <span class="keyword">const</span> FAB* sfab = Gpu::notInLaunchRegion() ? &amp;(src[tag.srcIndex]) : src.fabPtr(tag.srcIndex);</div>
-<div class="line"><a name="l01097"></a><span class="lineno"> 1097</span>&#160;                          FAB* dfab = Gpu::notInLaunchRegion() ? &amp;(<span class="keyword">get</span>(tag.dstIndex)) : this-&gt;fabPtr(tag.dstIndex);</div>
+<div class="line"><a name="l01096"></a><span class="lineno"> 1096</span>&#160;                    <span class="keyword">const</span> FAB* sfab = src.fabPtr(tag.srcIndex);</div>
+<div class="line"><a name="l01097"></a><span class="lineno"> 1097</span>&#160;                          FAB* dfab = this-&gt;fabPtr(tag.dstIndex);</div>
 <div class="line"><a name="l01098"></a><span class="lineno"> 1098</span>&#160;</div>
 <div class="line"><a name="l01099"></a><span class="lineno"> 1099</span>&#160;            <span class="keywordflow">if</span> (op == FabArrayBase::COPY) {</div>
 <div class="line"><a name="l01100"></a><span class="lineno"> 1100</span>&#160;                        <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">AMREX_LAUNCH_HOST_DEVICE_LAMBDA</a>(tag.sbox, tbx,</div>
@@ -1226,7 +1226,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01136"></a><span class="lineno"> 1136</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#pragma omp parallel if (Gpu::notInLaunchRegion())</span></div>
 <div class="line"><a name="l01137"></a><span class="lineno"> 1137</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l01138"></a><span class="lineno"> 1138</span>&#160;<span class="preprocessor"></span>                <span class="keywordflow">for</span> (MFIter mfi(*<span class="keyword">this</span>); mfi.isValid(); ++mfi) {</div>
-<div class="line"><a name="l01139"></a><span class="lineno"> 1139</span>&#160;                    FAB* dfab = Gpu::notInLaunchRegion() ? &amp;((*this)[mfi]) : this-&gt;fabPtr(mfi);</div>
+<div class="line"><a name="l01139"></a><span class="lineno"> 1139</span>&#160;                    FAB* dfab = this-&gt;fabPtr(mfi);</div>
 <div class="line"><a name="l01140"></a><span class="lineno"> 1140</span>&#160;                    <span class="keyword">const</span> <span class="keyword">auto</span>&amp; fab_copy_tags = copy_tags[mfi];</div>
 <div class="line"><a name="l01141"></a><span class="lineno"> 1141</span>&#160;                    <span class="keywordflow">if</span> (op == FabArrayBase::COPY) {</div>
 <div class="line"><a name="l01142"></a><span class="lineno"> 1142</span>&#160;                        <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>&amp; fab_tag : fab_copy_tags) {</div>
@@ -1333,7 +1333,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01243"></a><span class="lineno"> 1243</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#pragma omp parallel if (Gpu::notInLaunchRegion())</span></div>
 <div class="line"><a name="l01244"></a><span class="lineno"> 1244</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l01245"></a><span class="lineno"> 1245</span>&#160;<span class="preprocessor"></span>                <span class="keywordflow">for</span> (MFIter mfi(*<span class="keyword">this</span>); mfi.isValid(); ++mfi) {</div>
-<div class="line"><a name="l01246"></a><span class="lineno"> 1246</span>&#160;                    FAB* dfab = Gpu::notInLaunchRegion() ? &amp;((*this)[mfi]) : this-&gt;fabPtr(mfi);</div>
+<div class="line"><a name="l01246"></a><span class="lineno"> 1246</span>&#160;                    FAB* dfab = this-&gt;fabPtr(mfi);</div>
 <div class="line"><a name="l01247"></a><span class="lineno"> 1247</span>&#160;                    <span class="keyword">const</span> <span class="keyword">auto</span>&amp; void_copy_tags = recv_copy_tags[mfi];</div>
 <div class="line"><a name="l01248"></a><span class="lineno"> 1248</span>&#160;                    <span class="keywordflow">if</span> (op == FabArrayBase::COPY)</div>
 <div class="line"><a name="l01249"></a><span class="lineno"> 1249</span>&#160;                    {</div>
@@ -1472,8 +1472,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01382"></a><span class="lineno"> 1382</span>&#160;</div>
 <div class="line"><a name="l01383"></a><span class="lineno"> 1383</span>&#160;            <span class="comment">// avoid self copy or plus</span></div>
 <div class="line"><a name="l01384"></a><span class="lineno"> 1384</span>&#160;        <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;src) {</div>
-<div class="line"><a name="l01385"></a><span class="lineno"> 1385</span>&#160;                <span class="keyword">const</span> FAB* sfab = Gpu::notInLaunchRegion() ? &amp;(src[fai]) : src.<a class="code" href="classamrex_1_1_fab_array.html#a1accfa9f0ac52b9b171fbfa32ee139da">fabPtr</a>(fai);</div>
-<div class="line"><a name="l01386"></a><span class="lineno"> 1386</span>&#160;                      FAB* dfab = Gpu::notInLaunchRegion() ? &amp;(<span class="keyword">get</span>(fai)) : this-&gt;fabPtr(fai);</div>
+<div class="line"><a name="l01385"></a><span class="lineno"> 1385</span>&#160;                <span class="keyword">const</span> FAB* sfab = src.<a class="code" href="classamrex_1_1_fab_array.html#a1accfa9f0ac52b9b171fbfa32ee139da">fabPtr</a>(fai);</div>
+<div class="line"><a name="l01386"></a><span class="lineno"> 1386</span>&#160;                      FAB* dfab = this-&gt;fabPtr(fai);</div>
 <div class="line"><a name="l01387"></a><span class="lineno"> 1387</span>&#160;        <span class="keywordflow">if</span> (op == FabArrayBase::COPY) {</div>
 <div class="line"><a name="l01388"></a><span class="lineno"> 1388</span>&#160;                    <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">AMREX_LAUNCH_HOST_DEVICE_LAMBDA</a>(bx, tbx,</div>
 <div class="line"><a name="l01389"></a><span class="lineno"> 1389</span>&#160;                    {</div>
@@ -1517,7 +1517,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01427"></a><span class="lineno"> 1427</span>&#160;<span class="preprocessor"></span>            <span class="keywordflow">for</span> (<a class="code" href="classamrex_1_1_m_f_iter.html">MFIter</a> mfi(*<span class="keyword">this</span>); mfi.<a class="code" href="classamrex_1_1_m_f_iter.html#ad1cb993a973d541776b06c959d1ae3cd">isValid</a>(); ++mfi)</div>
 <div class="line"><a name="l01428"></a><span class="lineno"> 1428</span>&#160;            {</div>
 <div class="line"><a name="l01429"></a><span class="lineno"> 1429</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span>&amp; tags = loc_copy_tags[mfi];</div>
-<div class="line"><a name="l01430"></a><span class="lineno"> 1430</span>&#160;                FAB* dfab = Gpu::notInLaunchRegion() ? &amp;((*this)[mfi]) : this-&gt;fabPtr(mfi);</div>
+<div class="line"><a name="l01430"></a><span class="lineno"> 1430</span>&#160;                FAB* dfab = this-&gt;fabPtr(mfi);</div>
 <div class="line"><a name="l01431"></a><span class="lineno"> 1431</span>&#160;                <span class="keywordflow">if</span> (op == FabArrayBase::COPY)</div>
 <div class="line"><a name="l01432"></a><span class="lineno"> 1432</span>&#160;                {</div>
 <div class="line"><a name="l01433"></a><span class="lineno"> 1433</span>&#160;                    <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp; tag : tags)</div>
@@ -1718,7 +1718,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01628"></a><span class="lineno"> 1628</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>&amp; tag : cctc)</div>
 <div class="line"><a name="l01629"></a><span class="lineno"> 1629</span>&#160;                {</div>
 <div class="line"><a name="l01630"></a><span class="lineno"> 1630</span>&#160;                    <span class="keyword">const</span> Box&amp; bx = tag.sbox;</div>
-<div class="line"><a name="l01631"></a><span class="lineno"> 1631</span>&#160;                    <span class="keyword">const</span> FAB* sfab = Gpu::notInLaunchRegion() ? &amp;(src[tag.srcIndex]) : src.fabPtr(tag.srcIndex);</div>
+<div class="line"><a name="l01631"></a><span class="lineno"> 1631</span>&#160;                    <span class="keyword">const</span> FAB* sfab = src.fabPtr(tag.srcIndex);</div>
 <div class="line"><a name="l01632"></a><span class="lineno"> 1632</span>&#160;</div>
 <div class="line"><a name="l01633"></a><span class="lineno"> 1633</span>&#160;                    <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">AMREX_LAUNCH_HOST_DEVICE_LAMBDA</a>(bx, tbx,</div>
 <div class="line"><a name="l01634"></a><span class="lineno"> 1634</span>&#160;                    {</div>
@@ -1786,8 +1786,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01696"></a><span class="lineno"> 1696</span>&#160;        </div>
 <div class="line"><a name="l01697"></a><span class="lineno"> 1697</span>&#160;            <span class="comment">// avoid self copy or plus</span></div>
 <div class="line"><a name="l01698"></a><span class="lineno"> 1698</span>&#160;            <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;src || tag.dstIndex != tag.srcIndex || tag.sbox != tag.dbox) {</div>
-<div class="line"><a name="l01699"></a><span class="lineno"> 1699</span>&#160;                <span class="keyword">const</span> FAB* sfab = Gpu::notInLaunchRegion() ? &amp;(src[tag.srcIndex]) : src.fabPtr(tag.srcIndex);</div>
-<div class="line"><a name="l01700"></a><span class="lineno"> 1700</span>&#160;                      FAB* dfab = Gpu::notInLaunchRegion() ? &amp;(<span class="keyword">get</span>(tag.dstIndex)) : this-&gt;fabPtr(tag.dstIndex);</div>
+<div class="line"><a name="l01699"></a><span class="lineno"> 1699</span>&#160;                <span class="keyword">const</span> FAB* sfab = src.fabPtr(tag.srcIndex);</div>
+<div class="line"><a name="l01700"></a><span class="lineno"> 1700</span>&#160;                      FAB* dfab = this-&gt;fabPtr(tag.dstIndex);</div>
 <div class="line"><a name="l01701"></a><span class="lineno"> 1701</span>&#160;</div>
 <div class="line"><a name="l01702"></a><span class="lineno"> 1702</span>&#160;                <span class="keywordflow">if</span> (op == FabArrayBase::COPY) {</div>
 <div class="line"><a name="l01703"></a><span class="lineno"> 1703</span>&#160;                    <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">AMREX_LAUNCH_HOST_DEVICE_LAMBDA</a>(tag.sbox, tbx,</div>
@@ -1829,7 +1829,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01739"></a><span class="lineno"> 1739</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#pragma omp parallel if (Gpu::notInLaunchRegion())</span></div>
 <div class="line"><a name="l01740"></a><span class="lineno"> 1740</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l01741"></a><span class="lineno"> 1741</span>&#160;<span class="preprocessor"></span>            <span class="keywordflow">for</span> (MFIter mfi(*<span class="keyword">this</span>); mfi.isValid(); ++mfi) {</div>
-<div class="line"><a name="l01742"></a><span class="lineno"> 1742</span>&#160;                FAB* dfab = Gpu::notInLaunchRegion() ? &amp;((*this)[mfi]) : this-&gt;fabPtr(mfi);</div>
+<div class="line"><a name="l01742"></a><span class="lineno"> 1742</span>&#160;                FAB* dfab = this-&gt;fabPtr(mfi);</div>
 <div class="line"><a name="l01743"></a><span class="lineno"> 1743</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span>&amp; fab_copy_tags = copy_tags[mfi];</div>
 <div class="line"><a name="l01744"></a><span class="lineno"> 1744</span>&#160;                <span class="keywordflow">if</span> (op == FabArrayBase::COPY) {</div>
 <div class="line"><a name="l01745"></a><span class="lineno"> 1745</span>&#160;                    <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>&amp; fab_tag : fab_copy_tags) {</div>
@@ -1941,7 +1941,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01851"></a><span class="lineno"> 1851</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#pragma omp parallel if (Gpu::notInLaunchRegion())</span></div>
 <div class="line"><a name="l01852"></a><span class="lineno"> 1852</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l01853"></a><span class="lineno"> 1853</span>&#160;<span class="preprocessor"></span>            <span class="keywordflow">for</span> (MFIter mfi(dstfa); mfi.isValid(); ++mfi) {</div>
-<div class="line"><a name="l01854"></a><span class="lineno"> 1854</span>&#160;                FAB* dfab = Gpu::notInLaunchRegion() ? &amp;(dstfa[mfi]) : dstfa.fabPtr(mfi);</div>
+<div class="line"><a name="l01854"></a><span class="lineno"> 1854</span>&#160;                FAB* dfab = dstfa.fabPtr(mfi);</div>
 <div class="line"><a name="l01855"></a><span class="lineno"> 1855</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span>&amp; void_copy_tags = recv_copy_tags[mfi];</div>
 <div class="line"><a name="l01856"></a><span class="lineno"> 1856</span>&#160;                <span class="keywordflow">if</span> (op == FabArrayBase::COPY)</div>
 <div class="line"><a name="l01857"></a><span class="lineno"> 1857</span>&#160;                {</div>
@@ -2283,8 +2283,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l02193"></a><span class="lineno"> 2193</span>&#160;<span class="preprocessor"></span>        <span class="keywordflow">for</span> (<a class="code" href="classamrex_1_1_m_f_iter.html">MFIter</a> fai(*<span class="keyword">this</span>,<span class="keyword">true</span>); fai.<a class="code" href="classamrex_1_1_m_f_iter.html#ad1cb993a973d541776b06c959d1ae3cd">isValid</a>(); ++fai)</div>
 <div class="line"><a name="l02194"></a><span class="lineno"> 2194</span>&#160;        {</div>
 <div class="line"><a name="l02195"></a><span class="lineno"> 2195</span>&#160;            <span class="keyword">const</span> <a class="code" href="classamrex_1_1_box.html">Box</a>&amp; bx = fai.growntilebox(nghost);</div>
-<div class="line"><a name="l02196"></a><span class="lineno"> 2196</span>&#160;            <span class="keyword">const</span> FAB* sfab = Gpu::notInLaunchRegion() ? &amp;(src[fai]) : src.<a class="code" href="classamrex_1_1_fab_array.html#a1accfa9f0ac52b9b171fbfa32ee139da">fabPtr</a>(fai);</div>
-<div class="line"><a name="l02197"></a><span class="lineno"> 2197</span>&#160;                  FAB* dfab = Gpu::notInLaunchRegion() ? &amp;(<span class="keyword">get</span>(fai)) : this-&gt;fabPtr(fai);</div>
+<div class="line"><a name="l02196"></a><span class="lineno"> 2196</span>&#160;            <span class="keyword">const</span> FAB* sfab = src.<a class="code" href="classamrex_1_1_fab_array.html#a1accfa9f0ac52b9b171fbfa32ee139da">fabPtr</a>(fai);</div>
+<div class="line"><a name="l02197"></a><span class="lineno"> 2197</span>&#160;                  FAB* dfab = this-&gt;fabPtr(fai);</div>
 <div class="line"><a name="l02198"></a><span class="lineno"> 2198</span>&#160;            <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">AMREX_LAUNCH_HOST_DEVICE_LAMBDA</a>(bx, tbx,</div>
 <div class="line"><a name="l02199"></a><span class="lineno"> 2199</span>&#160;            {</div>
 <div class="line"><a name="l02200"></a><span class="lineno"> 2200</span>&#160;                dfab-&gt;copy(*sfab, tbx, scomp, tbx, dcomp, ncomp);</div>
@@ -2472,7 +2472,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l02382"></a><span class="lineno"> 2382</span>&#160;                    <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>&amp; tag : cctc)</div>
 <div class="line"><a name="l02383"></a><span class="lineno"> 2383</span>&#160;                    {</div>
 <div class="line"><a name="l02384"></a><span class="lineno"> 2384</span>&#160;                        <span class="keyword">const</span> Box&amp; bx = tag.sbox;</div>
-<div class="line"><a name="l02385"></a><span class="lineno"> 2385</span>&#160;                        <span class="keyword">const</span> FAB* sfab = Gpu::notInLaunchRegion() ? &amp;(fabarray[tag.srcIndex]) : fabarray.fabPtr(tag.srcIndex);</div>
+<div class="line"><a name="l02385"></a><span class="lineno"> 2385</span>&#160;                        <span class="keyword">const</span> FAB* sfab = fabarray.fabPtr(tag.srcIndex);</div>
 <div class="line"><a name="l02386"></a><span class="lineno"> 2386</span>&#160;</div>
 <div class="line"><a name="l02387"></a><span class="lineno"> 2387</span>&#160;                        <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">AMREX_LAUNCH_HOST_DEVICE_LAMBDA</a> ( bx, tbx,</div>
 <div class="line"><a name="l02388"></a><span class="lineno"> 2388</span>&#160;                        {</div>
@@ -2689,7 +2689,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l02599"></a><span class="lineno"> 2599</span>&#160;                    <span class="keywordflow">for</span> (MFIter mfi(fabarray); mfi.isValid(); ++mfi)</div>
 <div class="line"><a name="l02600"></a><span class="lineno"> 2600</span>&#160;                    {</div>
 <div class="line"><a name="l02601"></a><span class="lineno"> 2601</span>&#160;                        <span class="keyword">const</span> <span class="keyword">auto</span>&amp; tags = recv_copy_tags[mfi];</div>
-<div class="line"><a name="l02602"></a><span class="lineno"> 2602</span>&#160;                        FAB* dfab = Gpu::notInLaunchRegion() ? &amp;(fabarray[mfi]) : fabarray.fabPtr(mfi);</div>
+<div class="line"><a name="l02602"></a><span class="lineno"> 2602</span>&#160;                        FAB* dfab = fabarray.fabPtr(mfi);</div>
 <div class="line"><a name="l02603"></a><span class="lineno"> 2603</span>&#160;                        <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>&amp; tag : tags)</div>
 <div class="line"><a name="l02604"></a><span class="lineno"> 2604</span>&#160;                        {</div>
 <div class="line"><a name="l02605"></a><span class="lineno"> 2605</span>&#160;                            <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">AMREX_LAUNCH_HOST_DEVICE_LAMBDA</a> (tag.dbox, dbx,</div>
@@ -2765,7 +2765,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="_a_m_re_x___b_lassert_8_h_html_a53ebc8b227de416f458800faa44c619e"><div class="ttname"><a href="_a_m_re_x___b_lassert_8_h.html#a53ebc8b227de416f458800faa44c619e">BL_ASSERT</a></div><div class="ttdeci">#define BL_ASSERT(EX)</div><div class="ttdef"><b>Definition:</b> AMReX_BLassert.H:38</div></div>
 <div class="ttc" id="namespaceamrex_html_aea69993eec3c9ca497cd0e47522b2ec6"><div class="ttname"><a href="namespaceamrex.html#aea69993eec3c9ca497cd0e47522b2ec6">amrex::Abort</a></div><div class="ttdeci">AMREX_GPU_HOST_DEVICE void Abort(const char *msg=0)</div><div class="ttdoc">Print out message to cerr and exit via abort(). </div><div class="ttdef"><b>Definition:</b> AMReX.cpp:234</div></div>
 <div class="ttc" id="classamrex_1_1_index_type_html_aa7bab3c141ccbc4cc9956cb3ffd84268"><div class="ttname"><a href="classamrex_1_1_index_type.html#aa7bab3c141ccbc4cc9956cb3ffd84268">amrex::IndexType::cellCentered</a></div><div class="ttdeci">AMREX_GPU_HOST_DEVICE AMREX_INLINE bool cellCentered() const </div><div class="ttdoc">True if the IndexType is CELL based in all directions. </div><div class="ttdef"><b>Definition:</b> AMReX_IndexType.H:82</div></div>
-<div class="ttc" id="classamrex_1_1_fab_array_html_a1accfa9f0ac52b9b171fbfa32ee139da"><div class="ttname"><a href="classamrex_1_1_fab_array.html#a1accfa9f0ac52b9b171fbfa32ee139da">amrex::FabArray::fabPtr</a></div><div class="ttdeci">FAB * fabPtr(const MFIter &amp;mfi)</div><div class="ttdef"><b>Definition:</b> AMReX_FabArray.H:840</div></div>
+<div class="ttc" id="classamrex_1_1_fab_array_html_a1accfa9f0ac52b9b171fbfa32ee139da"><div class="ttname"><a href="classamrex_1_1_fab_array.html#a1accfa9f0ac52b9b171fbfa32ee139da">amrex::FabArray::fabPtr</a></div><div class="ttdeci">FAB * fabPtr(const MFIter &amp;mfi)</div><div class="ttdef"><b>Definition:</b> AMReX_FabArray.H:886</div></div>
 <div class="ttc" id="classamrex_1_1_int_vect_html_a5f44e021015f5558cff8d7c0d5f301a4"><div class="ttname"><a href="classamrex_1_1_int_vect.html#a5f44e021015f5558cff8d7c0d5f301a4">amrex::IntVect::allGE</a></div><div class="ttdeci">AMREX_GPU_HOST_DEVICE AMREX_INLINE bool allGE(const IntVect &amp;rhs) const </div><div class="ttdoc">Returns true if this is greater than or equal to argument for all components. NOTE: This is NOT a str...</div><div class="ttdef"><b>Definition:</b> AMReX_IntVect.H:267</div></div>
 <div class="ttc" id="classamrex_1_1_fab_array_base_html_aeadcc8b1b71512821a778b9c17ff92a5"><div class="ttname"><a href="classamrex_1_1_fab_array_base.html#aeadcc8b1b71512821a778b9c17ff92a5">amrex::FabArrayBase::size</a></div><div class="ttdeci">int size() const </div><div class="ttdoc">Return the number of FABs in the FabArray. </div><div class="ttdef"><b>Definition:</b> AMReX_FabArrayBase.H:96</div></div>
 <div class="ttc" id="struct_fab_copy_tag_html_aaac656d064476485e334474094eff3a3"><div class="ttname"><a href="struct_fab_copy_tag.html#aaac656d064476485e334474094eff3a3">FabCopyTag::dbox</a></div><div class="ttdeci">Box dbox</div><div class="ttdef"><b>Definition:</b> AMReX_FabArrayCommI.H:5</div></div>
@@ -2779,7 +2779,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="_a_m_re_x__ccse-mpi_8_h_html_a68c509d4adb3f4a1d6fe3a9b0b87c7b9"><div class="ttname"><a href="_a_m_re_x__ccse-mpi_8_h.html#a68c509d4adb3f4a1d6fe3a9b0b87c7b9">MPI_Comm</a></div><div class="ttdeci">int MPI_Comm</div><div class="ttdef"><b>Definition:</b> AMReX_ccse-mpi.H:43</div></div>
 <div class="ttc" id="classamrex_1_1_layout_data_html"><div class="ttname"><a href="classamrex_1_1_layout_data.html">amrex::LayoutData</a></div><div class="ttdoc">a one-thingy-per-box distributed object </div><div class="ttdef"><b>Definition:</b> AMReX_CudaLaunch.H:509</div></div>
 <div class="ttc" id="namespaceamrex_html_ac0bc81ab4fe0135fc65a2b5154ff25ab"><div class="ttname"><a href="namespaceamrex.html#ac0bc81ab4fe0135fc65a2b5154ff25ab">amrex::The_FA_Arena</a></div><div class="ttdeci">Arena * The_FA_Arena()</div><div class="ttdef"><b>Definition:</b> AMReX_FabArrayBase.cpp:156</div></div>
-<div class="ttc" id="classamrex_1_1_fab_array_html_a45f462e20c46d8744b16e5b02f8e5308"><div class="ttname"><a href="classamrex_1_1_fab_array.html#a45f462e20c46d8744b16e5b02f8e5308">amrex::FabArray&lt; FAB &gt;::ParallelCopy</a></div><div class="ttdeci">void ParallelCopy(const FabArray&lt; FAB &gt; &amp;fa, const Periodicity &amp;period=Periodicity::NonPeriodic(), CpOp op=FabArrayBase::COPY)</div><div class="ttdef"><b>Definition:</b> AMReX_FabArray.H:371</div></div>
+<div class="ttc" id="classamrex_1_1_fab_array_html_a45f462e20c46d8744b16e5b02f8e5308"><div class="ttname"><a href="classamrex_1_1_fab_array.html#a45f462e20c46d8744b16e5b02f8e5308">amrex::FabArray&lt; FAB &gt;::ParallelCopy</a></div><div class="ttdeci">void ParallelCopy(const FabArray&lt; FAB &gt; &amp;fa, const Periodicity &amp;period=Periodicity::NonPeriodic(), CpOp op=FabArrayBase::COPY)</div><div class="ttdef"><b>Definition:</b> AMReX_FabArray.H:381</div></div>
 <div class="ttc" id="structamrex_1_1_fab_array_base_1_1_f_b_html"><div class="ttname"><a href="structamrex_1_1_fab_array_base_1_1_f_b.html">amrex::FabArrayBase::FB</a></div><div class="ttdef"><b>Definition:</b> AMReX_FabArrayBase.H:451</div></div>
 <div class="ttc" id="classamrex_1_1_arena_html_a0c7e0730574c98febb6ddca2712cb515"><div class="ttname"><a href="classamrex_1_1_arena.html#a0c7e0730574c98febb6ddca2712cb515">amrex::Arena::free</a></div><div class="ttdeci">virtual void free(void *pt)=0</div><div class="ttdoc">A pure virtual function for deleting the arena pointed to by pt. </div></div>
 <div class="ttc" id="_a_m_re_x___b_lassert_8_h_html_a1defc2bb8023a3e2599bfb2fc637cb43"><div class="ttname"><a href="_a_m_re_x___b_lassert_8_h.html#a1defc2bb8023a3e2599bfb2fc637cb43">AMREX_ALWAYS_ASSERT_WITH_MESSAGE</a></div><div class="ttdeci">#define AMREX_ALWAYS_ASSERT_WITH_MESSAGE(EX, MSG)</div><div class="ttdef"><b>Definition:</b> AMReX_BLassert.H:54</div></div>
