@@ -30,7 +30,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Tutorials/LinearSolvers" href="LinearSolvers_Tutorial.html" />
-    <link rel="prev" title="Tutorials/EB" href="EB_Tutorial.html" /> 
+    <link rel="prev" title="Tutorials/Forkjoin" href="ForkJoin_Tutorial.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -90,7 +90,15 @@
 <li class="toctree-l1"><a class="reference internal" href="Blueprint_Tutorial.html">Tutorials/Blueprint</a></li>
 <li class="toctree-l1"><a class="reference internal" href="CVODE_Tutorial.html">Tutorials/CVODE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="EB_Tutorial.html">Tutorials/EB</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorials/GPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ForkJoin_Tutorial.html">Tutorials/Forkjoin</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorials/GPU</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#your-first-amrex-gpu-application"><strong>Your first AMReX GPU application</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#launch"><strong>Launch</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#heatequation-ex1-c"><strong>HeatEquation_EX1_C</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cns"><strong>CNS</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#amrcore"><strong>AmrCore</strong></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="LinearSolvers_Tutorial.html">Tutorials/LinearSolvers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MUI_Tutorial.html">Tutorials/MUI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Particles_Tutorial.html">Tutorials/Particles</a></li>
@@ -163,6 +171,46 @@
             
   <div class="section" id="tutorials-gpu">
 <h1>Tutorials/GPU<a class="headerlink" href="#tutorials-gpu" title="Permalink to this headline">¶</a></h1>
+<p>The tutorials in <code class="docutils literal notranslate"><span class="pre">amrex/Tutorials/GPU</span></code> demonstrate the implementation
+of AMReX’s GPU toolkit as well as provide GPU versions of other CPU
+tutorials for comparison to help applications convert to GPUs.</p>
+<div class="section" id="your-first-amrex-gpu-application">
+<h2><strong>Your first AMReX GPU application</strong><a class="headerlink" href="#your-first-amrex-gpu-application" title="Permalink to this headline">¶</a></h2>
+<p>This is a step-by-step guide to preparing, compiling and running your first
+AMReX GPU program.  This guide will use <code class="docutils literal notranslate"><span class="pre">Tutorials/GPU/HeatEquation_EX1_C</span></code>,
+and instructions will focus on ORNL’s Summit and Summitdev systems.</p>
+<p>Before compiling, the <code class="docutils literal notranslate"><span class="pre">pgi</span></code> and <code class="docutils literal notranslate"><span class="pre">cuda</span></code> software must be available.  On
+ORNL systems, this is done with <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">pgi</span> <span class="pre">cuda</span></code>.  However, Cuda
+versions 9.2.x are not compatible with AMReX.  So, it is important to check
+whether your system is using 9.2.x as its default. To check, type
+<code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">list</span></code>.  If Cuda is the wrong version, use <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">avail</span> <span class="pre">cuda</span></code>
+to find a compatible version and swap using
+<code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">swap</span> <span class="pre">cuda</span> <span class="pre">[good</span> <span class="pre">module</span> <span class="pre">name]</span></code>.</p>
+<p>Go to <code class="docutils literal notranslate"><span class="pre">Tutorials/GPU/HeatEquation_EX1_C/Exec/SingleVortex</span></code> to compile the
+executable.  Compile with <code class="docutils literal notranslate"><span class="pre">USE_CUDA=TRUE</span></code>, <code class="docutils literal notranslate"><span class="pre">COMP=pgi</span></code>, <code class="docutils literal notranslate"><span class="pre">USE_MPI=TRUE</span></code>
+and <code class="docutils literal notranslate"><span class="pre">USE_OMP=FALSE</span></code>.  This should result in an executable:
+<code class="docutils literal notranslate"><span class="pre">main3d.pgi.MPI.CUDA.ex</span></code>.</p>
+<p>On ORNL’s systems, this executable can be ran by using one of the run scripts
+found in <code class="docutils literal notranslate"><span class="pre">Tutorials/GPU</span></code>. <code class="docutils literal notranslate"><span class="pre">run.script</span></code> can be used to run on Summitdev,
+and <code class="docutils literal notranslate"><span class="pre">run.summit</span></code> can be used for Summit.  To change the number of ranks and
+GPUs used in the simulation, change the number of resource sets, <code class="docutils literal notranslate"><span class="pre">n</span></code> in the
+<code class="docutils literal notranslate"><span class="pre">jsrun</span></code> linei. Also, set the inputs line to take the appopriate input file
+based on the dimensionality of your build.</p>
+<p>When ready, submit the job (on ORNL: <code class="docutils literal notranslate"><span class="pre">bsub</span> <span class="pre">run.script</span></code>). Congratulations!
+You’ve accelerated AMReX using GPUs!</p>
+</div>
+<div class="section" id="launch">
+<h2><strong>Launch</strong><a class="headerlink" href="#launch" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="heatequation-ex1-c">
+<h2><strong>HeatEquation_EX1_C</strong><a class="headerlink" href="#heatequation-ex1-c" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="cns">
+<h2><strong>CNS</strong><a class="headerlink" href="#cns" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="amrcore">
+<h2><strong>AmrCore</strong><a class="headerlink" href="#amrcore" title="Permalink to this headline">¶</a></h2>
+</div>
 </div>
 
 
@@ -176,7 +224,7 @@
         <a href="LinearSolvers_Tutorial.html" class="btn btn-neutral float-right" title="Tutorials/LinearSolvers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="EB_Tutorial.html" class="btn btn-neutral" title="Tutorials/EB" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="ForkJoin_Tutorial.html" class="btn btn-neutral" title="Tutorials/Forkjoin" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

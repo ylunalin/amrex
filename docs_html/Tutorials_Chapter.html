@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Embedded Boundaries &mdash; amrex 18.01-dev documentation</title>
+  <title>Tutorials &mdash; amrex 18.01-dev documentation</title>
   
 
   
@@ -29,8 +29,8 @@
   <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Overview of Embedded Boundary Description" href="EB.html" />
-    <link rel="prev" title="Getting Started" href="Fortran.html" /> 
+    <link rel="next" title="AmrCore Source Code" href="AmrCore_Chapter.html" />
+    <link rel="prev" title="Dimensionality" href="Basics.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -89,7 +89,9 @@
 <li class="toctree-l1"><a class="reference internal" href="GettingStarted_Chapter.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="BuildingAMReX_Chapter.html">Building AMReX</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Basics_Chapter.html">Basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tutorials_Chapter.html">Tutorials</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorials</a><ul class="simple">
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="AmrCore_Chapter.html">AmrCore Source Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="AmrLevel_Chapter.html">Amr Source Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="AsyncIter_Chapter.html">Asynchronous Iterators (AmrTask)</a></li>
@@ -97,15 +99,7 @@
 <li class="toctree-l1"><a class="reference internal" href="LinearSolvers_Chapter.html">Linear Solvers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Particle_Chapter.html">Particles</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Fortran_Chapter.html">Fortran Interface</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Embedded Boundaries</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EB.html">Overview of Embedded Boundary Description</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EB.html#initializing-the-geometric-database">Initializing the Geometric Database</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EB.html#ebfarrayboxfactory">EBFArrayBoxFactory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EB.html#eb-data">EB Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EB.html#linear-solvers">Linear Solvers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EB.html#tutorials">Tutorials</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="EB_Chapter.html">Embedded Boundaries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="GPU_Chapter.html">GPU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Visualization_Chapter.html">Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="AMReX_Profiling_Tools_Chapter.html">AMReX-based Profiling Tools</a></li>
@@ -156,13 +150,13 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Embedded Boundaries</li>
+      <li>Tutorials</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/EB_Chapter.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/Tutorials_Chapter.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -175,17 +169,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="embedded-boundaries">
-<span id="chap-eb"></span><h1>Embedded Boundaries<a class="headerlink" href="#embedded-boundaries" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="tutorials">
+<span id="chap-tutorials"></span><h1>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this headline">¶</a></h1>
+<p>AMReX Tutorials are a set of small stand-alone example codes that demonstrate how to
+use different parts of the AMReX functionality.</p>
+<p>There is extensive documentation for the tutorial codes at <a class="reference external" href="https://amrex-codes.github.io/amrex/tutorials_html/">https://amrex-codes.github.io/amrex/tutorials_html/</a></p>
 <div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="EB.html">Overview of Embedded Boundary Description</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EB.html#initializing-the-geometric-database">Initializing the Geometric Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EB.html#ebfarrayboxfactory">EBFArrayBoxFactory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EB.html#eb-data">EB Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EB.html#linear-solvers">Linear Solvers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EB.html#tutorials">Tutorials</a></li>
-</ul>
 </div>
 </div>
 
@@ -197,10 +186,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="EB.html" class="btn btn-neutral float-right" title="Overview of Embedded Boundary Description" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="AmrCore_Chapter.html" class="btn btn-neutral float-right" title="AmrCore Source Code" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="Fortran.html" class="btn btn-neutral" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="Basics.html" class="btn btn-neutral" title="Dimensionality" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

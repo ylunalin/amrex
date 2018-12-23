@@ -90,6 +90,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Blueprint_Tutorial.html">Tutorials/Blueprint</a></li>
 <li class="toctree-l1"><a class="reference internal" href="CVODE_Tutorial.html">Tutorials/CVODE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="EB_Tutorial.html">Tutorials/EB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ForkJoin_Tutorial.html">Tutorials/Forkjoin</a></li>
 <li class="toctree-l1"><a class="reference internal" href="GPU_Tutorial.html">Tutorials/GPU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="LinearSolvers_Tutorial.html">Tutorials/LinearSolvers</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorials/MUI</a></li>
@@ -165,8 +166,8 @@
 <h1>Tutorials/MUI<a class="headerlink" href="#tutorials-mui" title="Permalink to this headline">¶</a></h1>
 <p>The goal of this tutorial is to incorporate the MxUI/MUI (Multiscale Universal Interface) framework into AMReX. This framework allows two separate executables to communicate with one another in parallel using MPI. In addition, this framework is adaptable for different geometries, in which the bounds of data one would like to send and/or receive can be specified using the <code class="docutils literal notranslate"><span class="pre">announce_send_span()</span></code> and <code class="docutils literal notranslate"><span class="pre">announce_recv_span()</span></code> commands.</p>
 <p>In this tutorial, two different C++ codes are built separately. Each has different spatial dimensions: one is built in 3D (<code class="docutils literal notranslate"><span class="pre">AMREX_SPACEDIM</span> <span class="pre">=</span> <span class="pre">3</span></code>), and the other in 2D (<code class="docutils literal notranslate"><span class="pre">AMREX_SPACEDIM</span> <span class="pre">=</span> <span class="pre">2</span></code>). Each code is compiled separately within their respective “exec” directories <code class="docutils literal notranslate"><span class="pre">Exec_01</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">Exec_02</span></code>}, after which the two executables are run together using the following command, specifying the number of MPI processes to designate to each executable:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>$ mpirun -np N1 ../Exec_01/main3d.gnu.MPI.ex inputs
-: -np n2 ../Exec_02/main2d.gnu.MPI.ex inputs
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> mpirun -np N1 ../Exec_01/main3d.gnu.MPI.ex inputs
+<span class="go">: -np n2 ../Exec_02/main2d.gnu.MPI.ex inputs</span>
 </pre></div>
 </div>
 <p>on a single line within the <code class="docutils literal notranslate"><span class="pre">Exec_coupled</span></code> directory. <code class="docutils literal notranslate"><span class="pre">N1</span></code> and <code class="docutils literal notranslate"><span class="pre">n2</span></code> are the number of MPI ranks designated for each executable, respectively. Each executable is given the same inputs file within <code class="docutils literal notranslate"><span class="pre">Exec_coupled</span></code>. Input variables <code class="docutils literal notranslate"><span class="pre">max_grid_size_3d</span></code> and <code class="docutils literal notranslate"><span class="pre">max_grid_size_2d</span></code> determine the respective grid sizes for 3D and 2D. As far as I am aware, the code works for any AMReX grid structure. Details of how to build and run the code are contained in the script <code class="docutils literal notranslate"><span class="pre">cmd_mpirun</span></code>.</p>

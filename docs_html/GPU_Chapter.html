@@ -85,9 +85,11 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">AMReX Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="GettingStarted_Chapter.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="BuildingAMReX_Chapter.html">Building AMReX</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Basics_Chapter.html">Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorials_Chapter.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="AmrCore_Chapter.html">AmrCore Source Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="AmrLevel_Chapter.html">Amr Source Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="AsyncIter_Chapter.html">Asynchronous Iterators (AmrTask)</a></li>
@@ -103,9 +105,9 @@
 <li class="toctree-l2"><a class="reference internal" href="GPU.html#gpu-safe-classes-and-functions">GPU Safe Classes and Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="GPU.html#kernel-launch">Kernel Launch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="GPU.html#an-example-of-migrating-to-gpu">An Example of Migrating to GPU</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GPU.html#assertion-and-error-check">Assertion and Error Check</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GPU.html#reduction">Reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GPU.html#assertions-error-checking-and-synchronization">Assertions, Error Checking and Synchronization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="GPU.html#particle-support">Particle Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GPU.html#performance-tips">Performance Tips</a></li>
 <li class="toctree-l2"><a class="reference internal" href="GPU.html#limitations">Limitations</a></li>
 </ul>
 </li>
@@ -184,6 +186,10 @@ AMReX only supports Nvidia GPUs.  Internally, it uses CUDA C++, but the
 users can use CUDA Fortran and/or OpenACC.  A recent version of CUDA
 (e.g., &gt;= 9) is required, and the device must have compute capability
 &gt;= 6.</p>
+<p>CUDA version 9.2.x is incompatible with AMReX’s GPU support due to issues
+with required compiler flags.</p>
+<p>For complete details of CUDA, CUDA Fortran and OpenACC languages, see their
+respective documentations.</p>
 <p>A number of tutorials can be found at <code class="docutils literal notranslate"><span class="pre">Tutorials/GPU/</span></code>.</p>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Contents:</span></p>
@@ -194,9 +200,9 @@ users can use CUDA Fortran and/or OpenACC.  A recent version of CUDA
 <li class="toctree-l1"><a class="reference internal" href="GPU.html#gpu-safe-classes-and-functions">GPU Safe Classes and Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="GPU.html#kernel-launch">Kernel Launch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="GPU.html#an-example-of-migrating-to-gpu">An Example of Migrating to GPU</a></li>
-<li class="toctree-l1"><a class="reference internal" href="GPU.html#assertion-and-error-check">Assertion and Error Check</a></li>
-<li class="toctree-l1"><a class="reference internal" href="GPU.html#reduction">Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GPU.html#assertions-error-checking-and-synchronization">Assertions, Error Checking and Synchronization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="GPU.html#particle-support">Particle Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GPU.html#performance-tips">Performance Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="GPU.html#limitations">Limitations</a></li>
 </ul>
 </div>

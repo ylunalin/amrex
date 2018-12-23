@@ -29,7 +29,7 @@
   <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="AmrCore Source Code" href="AmrCore_Chapter.html" />
+    <link rel="next" title="Tutorials" href="Tutorials_Chapter.html" />
     <link rel="prev" title="Basics" href="Basics_Chapter.html" /> 
 
   
@@ -85,6 +85,7 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">AMReX Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="GettingStarted_Chapter.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="BuildingAMReX_Chapter.html">Building AMReX</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="Basics_Chapter.html">Basics</a><ul class="current">
@@ -121,6 +122,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#example-heatequation-ex1-c">Example: HeatEquation_EX1_C</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorials_Chapter.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="AmrCore_Chapter.html">AmrCore Source Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="AmrLevel_Chapter.html">Amr Source Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="AsyncIter_Chapter.html">Asynchronous Iterators (AmrTask)</a></li>
@@ -213,7 +215,7 @@ preprocessing or do</p>
 <p>The coordinate directions are zero based.</p>
 </div>
 <div class="section" id="vector-and-array">
-<h1>Vector and Array<a class="headerlink" href="#vector-and-array" title="Permalink to this headline">¶</a></h1>
+<span id="sec-basics-vecandarr"></span><h1>Vector and Array<a class="headerlink" href="#vector-and-array" title="Permalink to this headline">¶</a></h1>
 <p><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Vector</span></span></code> class in <code class="docutils literal notranslate"><span class="pre">AMReX_Vector.H</span></code> is derived from <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">std</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">vector</span></span></code>. The
 main difference between <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Vector</span></span></code> and <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">std</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">vector</span></span></code> is that
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Vector</span></span><span class="operator"><span class="pre">::</span></span><span class="keyword"><span class="pre">operator</span></span><span class="punctuation"><span class="pre">[]</span></span></code> provides bound checking when compiled with
@@ -1515,7 +1517,7 @@ value. There are three ways of using these functions.</p>
 </div>
 <div class="section" id="fortran-c-and-c-kernels">
 <span id="sec-basics-fortran"></span><h1>Fortran, C and C++ Kernels<a class="headerlink" href="#fortran-c-and-c-kernels" title="Permalink to this headline">¶</a></h1>
-<p>In the section&nbsp;on <a class="reference internal" href="#sec-basics-mfiter"><span class="std std-ref">MFIter and Tiling</span></a>, we have shown that a typical
+<p>In the section on <a class="reference internal" href="#sec-basics-mfiter"><span class="std std-ref">MFIter and Tiling</span></a>, we have shown that a typical
 pattern for working with MultiFabs is to use <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> to iterate over the
 data. In each iteration, a kernel function is called to work on the data and
 the work region is specified by a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code>.  When tiling is used, the work
@@ -1523,11 +1525,10 @@ region is a tile. The tiling is logical in the sense that there is no data
 layout transformation. The kernel function still gets the whole arrays in
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code>es, even though it is supposed to work on a tile region of the
 arrays.  Fortran is often used for writing these kernels because of its
-native multi-dimensional array support.  To C++, these kernel
-functions are C functions, whose function
-signatures are typically declared in a header file named <code class="docutils literal notranslate"><span class="pre">*_f.H</span></code> or
-<code class="docutils literal notranslate"><span class="pre">*_F.H</span></code>. We recommend the users to follow this convention.  Examples of these
-function declarations are as follows.</p>
+native multi-dimensional array support.  To C++, these kernel functions are
+C functions, whose function signatures are typically declared in a header file
+named <code class="docutils literal notranslate"><span class="pre">*_f.H</span></code> or <code class="docutils literal notranslate"><span class="pre">*_F.H</span></code>. We recommend the users to follow this convention.
+Examples of these function declarations are as follows.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;AMReX_BLFort.H&gt;</span><span class="cp"></span>
 <span class="cp">#ifdef __cplusplus</span>
 <span class="k">extern</span> <span class="s">&quot;C&quot;</span>
@@ -1689,9 +1690,10 @@ be hidden by <code class="code cpp c++ docutils literal notranslate"><span class
 details can be found at <code class="docutils literal notranslate"><span class="pre">amrex/Docs/Readme.typecheck</span></code>.  Despite
 these limitations, it is recommended to use the type check tool and
 report issues to us.</p>
-<p>Writing kernels in C++ is also an option.  AMReX provides
-multi-dimensional array type of syntax.  Below is an example.</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">f</span> <span class="p">(</span><span class="n">Box</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">bx</span><span class="p">,</span> <span class="n">FArrayBox</span><span class="o">&amp;</span> <span class="n">fab1</span><span class="p">,</span> <span class="n">FArrayBox</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">fab2</span><span class="p">,</span>
+<p id="sec-basics-cppkernel">Writing kernels in C++ is also an option.  AMReX provides a
+multi-dimensional array type of syntax, similar to Fortran,
+that is readable and easy to implement. An example is given below:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">f</span> <span class="p">(</span><span class="n">Box</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">bx</span><span class="p">,</span> <span class="n">FArrayBox</span><span class="o">&amp;</span> <span class="n">fab1</span><span class="p">,</span> <span class="n">FArrayBox</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">fab2</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="k">const</span> <span class="k">auto</span> <span class="n">len</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="n">bx</span><span class="p">);</span>
     <span class="k">const</span> <span class="k">auto</span> <span class="n">lo</span>  <span class="o">=</span> <span class="n">lbound</span><span class="p">(</span><span class="n">bx</span><span class="p">);</span>
@@ -1715,21 +1717,36 @@ multi-dimensional array type of syntax.  Below is an example.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Here, we pass a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code> and two <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code>es to a C++ kernel
-function.  In the function, we use function <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">length</span></span></code> to
-get the length of the loops and function <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">lbound</span></span></code> to get
-the lower end of the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code>.  Both functions’ return type is
-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">Dim3</span></span></code>, a Plain Old Data type containing three integers.
-Function <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">view</span></span></code> returns <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FabView</span></span><span class="operator"><span class="pre">&lt;</span></span><span class="name"><span class="pre">FArrayBox</span></span><span class="operator"><span class="pre">&gt;</span></span></code> that
-can be used to access the data.  Note that the view is shifted such
-that index 0 points to the lower end of the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code>.  To obtain the
-global index, we can compute with say <code class="docutils literal notranslate"><span class="pre">i+lo.x</span></code>.  We put
-<code class="docutils literal notranslate"><span class="pre">AMREX_PRAGMA_SIMD</span></code> macro above the innermost loop to notify the
-compiler that it is safe to vectorize the loop.  The macro generates
-compiler dependent pragma, and their exact effect on the compiler is
+<p>A <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code> and two <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code>es are passed to a C++ kernel
+function.  In the function, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">length</span></span></code> is called to calculate
+and store the three-dimensional length of the loops based on the size
+of <code class="docutils literal notranslate"><span class="pre">bx</span></code>. <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">lbound</span></span></code> is called to get the lower bound of
+the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code>.  Both functions’ return type is <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">Dim3</span></span></code>, a
+Plain Old Data type containing three integers.  The result of
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">lbound</span></span></code> is then passed to <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">view</span></span></code> to
+create a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FabView</span></span><span class="operator"><span class="pre">&lt;</span></span><span class="name"><span class="pre">FArrayBox</span></span><span class="operator"><span class="pre">&gt;</span></span></code> that can be used to access the data.</p>
+<p><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FabView</span></span><span class="operator"><span class="pre">&lt;</span></span><span class="name"><span class="pre">FArrayBox</span></span><span class="operator"><span class="pre">&gt;</span></span></code> is an AMReX class that contains a pointer to the
+appropriate place in the global <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code> as well as an
+<code class="code cpp c++ docutils literal notranslate"><span class="keyword"><span class="pre">operator</span></span><span class="punctuation"><span class="pre">()</span></span></code> that translates the three dimensional coordinates to
+the appropriate location in the one-dimensional array.  It also translates
+between the global domain contained in the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code> and the local
+work space defined by the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">lo</span></span></code> array.</p>
+<p>We put <code class="docutils literal notranslate"><span class="pre">AMREX_PRAGMA_SIMD</span></code> macro above the innermost loop to notify
+the compiler that it is safe to vectorize the loop.  This should be done
+whenever possible to achieve the best performacne. The macro generates
+a compiler dependent pragma and their exact effect on the compiler is
 also compiler dependent.  It should be emphasized that using the
-<code class="docutils literal notranslate"><span class="pre">AMREX_PRAGMA_SIMD</span></code> macro on loops that are not safe for
-vectorization is a mistake.</p>
+<code class="docutils literal notranslate"><span class="pre">AMREX_PRAGMA_SIMD</span></code> macro on loops that are not safe for vectorization
+will lead to a variety of errors, so if unsure about the loop, test and
+verify before adding the macro.</p>
+<p>Note that the view is shifted such that index 0 points to the lower
+end of the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code>.  To obtain the global index, the values needs to
+shifted back using the appropriate <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">lo</span></span></code>. In the case of the example
+above, the global indices are: <code class="docutils literal notranslate"><span class="pre">(i+lo.x,</span> <span class="pre">j+lo.y,</span> <span class="pre">k+lo.z)</span></code>.</p>
+<p>Also: be careful to use the appropriate <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">lo</span></span></code> array for each
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FabView</span></span></code> object. If the loop works on two different global ranges,
+each <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FabView</span></span></code> object must be created with the corresponding
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">lo</span></span></code> to obtain the correct data pointers.</p>
 </div>
 <div class="section" id="ghost-cells">
 <h1>Ghost Cells<a class="headerlink" href="#ghost-cells" title="Permalink to this headline">¶</a></h1>
@@ -2167,7 +2184,7 @@ processor loops over grids it owns to access and/or modify data on that grid:</p
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="AmrCore_Chapter.html" class="btn btn-neutral float-right" title="AmrCore Source Code" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Tutorials_Chapter.html" class="btn btn-neutral float-right" title="Tutorials" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="Basics_Chapter.html" class="btn btn-neutral" title="Basics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
