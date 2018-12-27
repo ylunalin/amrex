@@ -634,11 +634,15 @@ incremented loop on a GPU, not just over a vector.  This macro
 can also work on any contiguous subsets of a data set by passing
 a pointer that points to the beginning of the subset and the size
 of the subset.</p>
-<p>Users must also be aware that there is no automatic device
-synchronize, as these launches do not have to occur inside of an
-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> loop.  Add <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Gpu</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">Device</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">synchronize</span></span><span class="punctuation"><span class="pre">()</span></span></code> where
-necessary to ensure GPU and CPU resources to do alter the same
-data simultaneously.</p>
+<p>Users must be aware that there is no automatic device synchronize,
+as these launches do not have to occur inside of an <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code>
+loop.  Add <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Gpu</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">Device</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">synchronize</span></span><span class="punctuation"><span class="pre">()</span></span></code> where necessary to
+ensure GPU and CPU resources do not alter the same data
+simultaneously.  Lack of automatic GPU stream incremenation is
+another consequence of being outside an <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> loop. Users
+must be aware that if this generic launch is inside a
+non-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> loop all launches will be placed in the default
+stream, leading to a synchronous implementation of the launches.</p>
 </div>
 <div class="section" id="kernel-launch-details">
 <h2>Kernel launch details<a class="headerlink" href="#kernel-launch-details" title="Permalink to this headline">¶</a></h2>
@@ -985,7 +989,8 @@ memory.</li>
         <script type="text/javascript" src="_static/jquery.js"></script>
         <script type="text/javascript" src="_static/underscore.js"></script>
         <script type="text/javascript" src="_static/doctools.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
 
   
