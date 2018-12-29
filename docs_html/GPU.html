@@ -330,13 +330,13 @@ of the Arenas, you can call <code class="code cpp c++ docutils literal notransla
 <p>AMReX GPU work takes place inside of MFIter and particle loops.
 Therefore, there are two ways classes and functions have been modified
 to interact with the GPU:</p>
-<p>#. A small number of functions used within these loops are labelled using
+<p>1. A small number of functions used within these loops are labelled using
 <code class="docutils literal notranslate"><span class="pre">AMREX_GPU_DEVICE</span></code> and can be called on the device. This includes member
 functions, such as <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">IntVect</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">type</span></span><span class="punctuation"><span class="pre">()</span></span></code>, as well as non-member functions,
 such as <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">min</span></span></code> and <cite>amrex::max</cite>. In specialized cases,
 classes are labeled such that the object can be constructed, destructed
 and its functions can be implemented on the device, including <code class="docutils literal notranslate"><span class="pre">IntVect</span></code>.</p>
-<p>#. Functions that contain MFIter or particle loops have been rewritten
+<p>2. Functions that contain MFIter or particle loops have been rewritten
 to contain device launches. For example, the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FillBoundary</span></span></code>
 function cannot be called from device code, but calling it from
 CPU will launch GPU kernels if AMReX is compiled with GPU support.</p>
