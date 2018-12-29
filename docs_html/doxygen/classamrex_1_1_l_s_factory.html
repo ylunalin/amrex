@@ -168,6 +168,9 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a759778d9d0f34a472bcd7d7d0de24a63"><td class="memItemLeft" align="right" valign="top">static std::unique_ptr&lt; <a class="el" href="classamrex_1_1_vector.html">Vector</a><br class="typebreak"/>
+&lt; Real &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_l_s_factory.html#a759778d9d0f34a472bcd7d7d0de24a63">eb_facets</a> (const <a class="el" href="classamrex_1_1_f_array_box.html">FArrayBox</a> &amp;norm_tile, const <a class="el" href="classamrex_1_1_cut_fab.html">CutFab</a> &amp;bcent_tile, const <a class="el" href="classamrex_1_1_e_b_cell_flag_fab.html">EBCellFlagFab</a> &amp;flag_tile, const <a class="el" href="classamrex_1_1_real_vect.html">RealVect</a> &amp;eb_dx, const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;eb_search)</td></tr>
+<tr class="separator:a759778d9d0f34a472bcd7d7d0de24a63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add1a152549cfa5f6ba7e960805aa0271"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_l_s_factory.html#add1a152549cfa5f6ba7e960805aa0271">fill_data_loc</a> (<a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;data, <a class="el" href="classamrex_1_1i_multi_fab.html">iMultiFab</a> &amp;valid, const <a class="el" href="classamrex_1_1_e_b_f_array_box_factory.html">EBFArrayBoxFactory</a> &amp;eb_factory, const <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;eb_impfunc, int ebt_size, int ls_ref, int eb_ref, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;geom, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;geom_eb)</td></tr>
 <tr class="separator:add1a152549cfa5f6ba7e960805aa0271"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19a673b239cf615dc65070ea21f5631a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_l_s_factory.html#a19a673b239cf615dc65070ea21f5631a">fill_data_loc</a> (<a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;data, <a class="el" href="classamrex_1_1i_multi_fab.html">iMultiFab</a> &amp;valid, const <a class="el" href="classamrex_1_1_e_b_f_array_box_factory.html">EBFArrayBoxFactory</a> &amp;eb_factory, const <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;eb_impfunc, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;ebt_size, int ls_ref, int eb_ref, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;geom, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;geom_eb)</td></tr>
@@ -318,6 +321,59 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a759778d9d0f34a472bcd7d7d0de24a63"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt; <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; Real &gt; &gt; amrex::LSFactory::eb_facets </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_f_array_box.html">FArrayBox</a> &amp;&#160;</td>
+          <td class="paramname"><em>norm_tile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_cut_fab.html">CutFab</a> &amp;&#160;</td>
+          <td class="paramname"><em>bcent_tile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_e_b_cell_flag_fab.html">EBCellFlagFab</a> &amp;&#160;</td>
+          <td class="paramname"><em>flag_tile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_real_vect.html">RealVect</a> &amp;&#160;</td>
+          <td class="paramname"><em>eb_dx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;&#160;</td>
+          <td class="paramname"><em>eb_search</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Construct eb_facets list from eb_factory. The facet list is a 1-D list of facet bcent positions, followed by normals =&gt; N facets would be stored in a <a class="el" href="classamrex_1_1_vector.html">Vector&lt;Real&gt;</a> of length 6*N. Only facets that fall within the <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> <code>eb_search</code> are included in the list. The <a class="el" href="classamrex_1_1_real_vect.html">RealVect</a> <code>eb_dx</code> provides the discretization of the EB data. NOTE: <code>be_search</code> must be contained in the <code>norm_tile</code>, <code>bcent_tile</code> and <code>flag_tile</code>. </p>
 
 </div>
 </div>
