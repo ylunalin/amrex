@@ -620,7 +620,7 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Fills (overwrites) level-set data locally. Also fills <a class="el" href="classamrex_1_1i_multi_fab.html">iMultiFab</a> tagging cells which are nearby to EB surface. Only EB facets in a box size of <code>ebt_size</code> are considered. Any EB facets that are outside this box are ignored =&gt; the min/max value of the level-set are +/- <code>min(ebt_size[:]*geom_eb.CellSize(:))</code>. </p>
+<p>Fills (overwrites) level-set data locally. Also fills <a class="el" href="classamrex_1_1i_multi_fab.html">iMultiFab</a> tagging cells which are nearby to EB surface. Only EB facets in a box size of <code>ebt_size</code> are considered. Any EB facets that are outside this box are ignored =&gt; the min/max value of the level-set are +/- <code>eb_pad * min(geom_eb.CellSize(:))</code>. </p>
 
 </div>
 </div>
