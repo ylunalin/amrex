@@ -103,7 +103,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3988960924e67f12e231f0406eae0708"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_g_shop_l_s_factory.html#a3988960924e67f12e231f0406eae0708">fill_impfunc</a> ()</td></tr>
 <tr class="separator:a3988960924e67f12e231f0406eae0708"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;class F&gt;<br/>
+class amrex::GShopLSFactory&lt; F &gt;</h3>
+
+<p>Template class that handles filling implicit functions from GeometryShop. The implicit function is filled into a <a class="el" href="classamrex_1_1_multi_fab.html" title="A collection (stored as an array) of FArrayBox objects. This class is useful for storing floating poi...">MultiFab</a> with the same CellSize, <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a>, <a class="el" href="classamrex_1_1_distribution_mapping.html" title="Calculates the distribution of FABs to MPI processes. ">DistributionMapping</a>, and number of ghost cells as the <a class="el" href="classamrex_1_1_l_s_factory.html">LSFactory</a>. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a8ad6e23c9b3c8fa1e3aed913ece7eaa8"></a>
 <div class="memitem">
 <div class="memproto">
@@ -163,6 +168,7 @@ template&lt;class F &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Fill <a class="el" href="classamrex_1_1_multi_fab.html" title="A collection (stored as an array) of FArrayBox objects. This class is useful for storing floating poi...">MultiFab</a> (with the same CellSize, <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a>, <a class="el" href="classamrex_1_1_distribution_mapping.html" title="Calculates the distribution of FABs to MPI processes. ">DistributionMapping</a>, and number of ghost cells as the <a class="el" href="classamrex_1_1_l_s_factory.html">LSFactory</a>) with the implicit function values. The filled <a class="el" href="classamrex_1_1_multi_fab.html" title="A collection (stored as an array) of FArrayBox objects. This class is useful for storing floating poi...">MultiFab</a> is returned as a std::unique_ptr&lt;MultiFab&gt;. </p>
 
 </div>
 </div>

@@ -103,9 +103,12 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a7b0810e6f378fd2da9e5502c523ffe3e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classamrex_1_1_geometry.html">Geometry</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_l_s_utility.html#a7b0810e6f378fd2da9e5502c523ffe3e">make_eb_geometry</a> (const <a class="el" href="classamrex_1_1_l_s_factory.html">LSFactory</a> &amp;level_set, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;geom)</td></tr>
 <tr class="separator:a7b0810e6f378fd2da9e5502c523ffe3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81f50a8be2ac2789da2e1f2d2d3a113c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_l_s_utility.html#a81f50a8be2ac2789da2e1f2d2d3a113c">PrintFlagType</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;tile_box, const <a class="el" href="classamrex_1_1_e_b_cell_flag_fab.html">EBCellFlagFab</a> &amp;flag)</td></tr>
+<tr class="memdesc:a81f50a8be2ac2789da2e1f2d2d3a113c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Debug utility to help interrogate runtime flag types.  <a href="#a81f50a8be2ac2789da2e1f2d2d3a113c">More...</a><br/></td></tr>
 <tr class="separator:a81f50a8be2ac2789da2e1f2d2d3a113c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Collection of static functions that help with the construction of <a class="el" href="classamrex_1_1_l_s_factory.html">LSFactory</a> objects. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a7b0810e6f378fd2da9e5502c523ffe3e"></a>
 <div class="memitem">
 <div class="memproto">
@@ -137,6 +140,7 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Construct geometry with the Domain (<a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a>) inherited from the <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> <code>geom</code>, and CellSize matching the <a class="el" href="classamrex_1_1_l_s_factory.html">LSFactory</a> <code>level_set</code> EB resolution. This is particularly useful for building <a class="el" href="classamrex_1_1_e_b_f_array_box_factory.html">EBFArrayBoxFactory</a> objects whose <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> is what's expected by the <a class="el" href="classamrex_1_1_l_s_factory.html">LSFactory</a>'s filling routines. </p>
 
 </div>
 </div>
@@ -171,6 +175,7 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Construct geometry with the Domain (<a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a>) inherited from the <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> <code>geom</code>, and CellSize matching the <a class="el" href="classamrex_1_1_l_s_factory.html">LSFactory</a> <code>level_set</code> resolution. </p>
 
 </div>
 </div>
@@ -205,6 +210,8 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Debug utility to help interrogate runtime flag types. </p>
 
 </div>
 </div>
