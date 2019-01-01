@@ -102,6 +102,8 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:abf52a50c13a4213202a1254029359f8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b0810e6f378fd2da9e5502c523ffe3e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classamrex_1_1_geometry.html">Geometry</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_l_s_utility.html#a7b0810e6f378fd2da9e5502c523ffe3e">make_eb_geometry</a> (const <a class="el" href="classamrex_1_1_l_s_factory.html">LSFactory</a> &amp;level_set, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;geom)</td></tr>
 <tr class="separator:a7b0810e6f378fd2da9e5502c523ffe3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeafa6ce27bc71756b783bd158065b99c"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_l_s_utility.html#aeafa6ce27bc71756b783bd158065b99c">min_eb_pad</a> (Real min_resolution, const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;geom_eb)</td></tr>
+<tr class="separator:aeafa6ce27bc71756b783bd158065b99c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81f50a8be2ac2789da2e1f2d2d3a113c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_l_s_utility.html#a81f50a8be2ac2789da2e1f2d2d3a113c">PrintFlagType</a> (const <a class="el" href="classamrex_1_1_box.html">Box</a> &amp;tile_box, const <a class="el" href="classamrex_1_1_e_b_cell_flag_fab.html">EBCellFlagFab</a> &amp;flag)</td></tr>
 <tr class="memdesc:a81f50a8be2ac2789da2e1f2d2d3a113c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Debug utility to help interrogate runtime flag types.  <a href="#a81f50a8be2ac2789da2e1f2d2d3a113c">More...</a><br/></td></tr>
 <tr class="separator:a81f50a8be2ac2789da2e1f2d2d3a113c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -176,6 +178,41 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Construct geometry with the Domain (<a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a>) inherited from the <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> <code>geom</code>, and CellSize matching the <a class="el" href="classamrex_1_1_l_s_factory.html">LSFactory</a> <code>level_set</code> resolution. </p>
+
+</div>
+</div>
+<a class="anchor" id="aeafa6ce27bc71756b783bd158065b99c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int amrex::LSUtility::min_eb_pad </td>
+          <td>(</td>
+          <td class="paramtype">Real&#160;</td>
+          <td class="paramname"><em>min_resolution</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_geometry.html">Geometry</a> &amp;&#160;</td>
+          <td class="paramname"><em>geom_eb</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the minimum eb_pad (EB ghost cells) to ensure that the level-set is able to resolve a length scale of at least <code>min_resolution</code>. </p>
 
 </div>
 </div>
