@@ -36,7 +36,6 @@ var searchData=
   ['amrex_5ffi_5fpd_5fwtime',['amrex_fi_pd_wtime',['../interfaceamrex__paralleldescriptor__module_1_1amrex__fi__pd__wtime.html',1,'amrex_paralleldescriptor_module']]],
   ['amrex_5ffilcc',['amrex_filcc',['../interfaceamrex__filcc__module_1_1amrex__filcc.html',1,'amrex_filcc_module']]],
   ['amrex_5ffilcc_5fmodule',['amrex_filcc_module',['../classamrex__filcc__module.html',1,'']]],
-  ['amrex_5ffluxreg_5fmodule',['amrex_fluxreg_module',['../classamrex__fluxreg__module.html',1,'']]],
   ['amrex_5ffluxreg_5fnd_5fmodule',['amrex_fluxreg_nd_module',['../classamrex__fluxreg__nd__module.html',1,'']]],
   ['amrex_5ffort_5fmodule',['amrex_fort_module',['../classamrex__fort__module.html',1,'']]],
   ['amrex_5ffree',['amrex_free',['../interfaceamrex__fort__module_1_1amrex__free.html',1,'amrex_fort_module']]],
