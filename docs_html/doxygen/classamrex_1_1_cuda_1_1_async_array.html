@@ -100,6 +100,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a2e87bfdc0127de2e6fa105f68632538a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_cuda_1_1_async_array.html#a2e87bfdc0127de2e6fa105f68632538a">AsyncArray</a> (T const *h_p, const std::size_t n)</td></tr>
 <tr class="separator:a2e87bfdc0127de2e6fa105f68632538a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a744eefc2288b6b34fbbc48fc53a02554"><td class="memTemplParams" colspan="2">template&lt;typename U  = T, typename  = amrex::EnableIf_t&lt;std::is_pod&lt;U&gt;::value&gt;&gt; </td></tr>
+<tr class="memitem:a744eefc2288b6b34fbbc48fc53a02554"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classamrex_1_1_cuda_1_1_async_array.html#a744eefc2288b6b34fbbc48fc53a02554">AsyncArray</a> (const std::size_t n)</td></tr>
+<tr class="separator:a744eefc2288b6b34fbbc48fc53a02554"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a675ebf69ec03d7b340785c3be8d8f18b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_cuda_1_1_async_array.html#a675ebf69ec03d7b340785c3be8d8f18b">~AsyncArray</a> ()</td></tr>
 <tr class="separator:a675ebf69ec03d7b340785c3be8d8f18b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6961b622e4009532ed2443002e43fae9"><td class="memItemLeft" align="right" valign="top">T const *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_cuda_1_1_async_array.html#a6961b622e4009532ed2443002e43fae9">data</a> () const </td></tr>
@@ -135,6 +138,34 @@ template&lt;typename T, typename  = amrex::EnableIf_t&lt;AMREX_IS_TRIVIALLY_COPY
           <td></td>
           <td>)</td>
           <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a744eefc2288b6b34fbbc48fc53a02554"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, typename  = amrex::EnableIf_t&lt;AMREX_IS_TRIVIALLY_COPYABLE(T)&gt;&gt; </div>
+<div class="memtemplate">
+template&lt;typename U  = T, typename  = amrex::EnableIf_t&lt;std::is_pod&lt;U&gt;::value&gt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classamrex_1_1_cuda_1_1_async_array.html">amrex::Cuda::AsyncArray</a>&lt; T, typename &gt;::<a class="el" href="classamrex_1_1_cuda_1_1_async_array.html">AsyncArray</a> </td>
+          <td>(</td>
+          <td class="paramtype">const std::size_t&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>

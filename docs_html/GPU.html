@@ -397,8 +397,8 @@ function requires separate code for the CPU and GPU implementations.</p>
 <span id="sec-gpu-memory"></span><h1>Memory Allocation<a class="headerlink" href="#memory-allocation" title="Permalink to this headline">¶</a></h1>
 <p>To provide portability and improve memory allocation performance,
 AMReX provides a number of memory pools.  When compiled without
-CUDA, all <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Arena</span></span></code> s implement standard <code class="code cpp c++ docutils literal notranslate"><span class="keyword"><span class="pre">new</span></span></code> and
-<code class="code cpp c++ docutils literal notranslate"><span class="keyword"><span class="pre">delete</span></span></code> operators. Without CUDA, the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Arena</span></span></code> s each
+CUDA, all <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Arena</span></span></code>s implement standard <code class="code cpp c++ docutils literal notranslate"><span class="keyword"><span class="pre">new</span></span></code> and
+<code class="code cpp c++ docutils literal notranslate"><span class="keyword"><span class="pre">delete</span></span></code> operators. Without CUDA, the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Arena</span></span></code>s each
 allocate with a specific type of GPU memory:</p>
 <span id="tab-gpu-arena"></span><table border="1" class="docutils" id="id3">
 <caption><span class="caption-number">Table 10 </span><span class="caption-text">Memory Arenas</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
@@ -446,10 +446,10 @@ of the Arenas, you can call <code class="code cpp c++ docutils literal notransla
 <p>AMReX GPU work takes place inside of MFIter and particle loops.
 Therefore, there are two ways classes and functions have been modified
 to interact with the GPU:</p>
-<p>1. A small number of functions used within these loops are labelled using
-<code class="docutils literal notranslate"><span class="pre">AMREX_GPU_DEVICE</span></code> and can be called on the device. This includes member
+<p>1. A number of functions used within these loops are labelled using
+<code class="docutils literal notranslate"><span class="pre">AMREX_GPU_HOST_DEVICE</span></code> and can be called on the device. This includes member
 functions, such as <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">IntVect</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">type</span></span><span class="punctuation"><span class="pre">()</span></span></code>, as well as non-member functions,
-such as <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">min</span></span></code> and <cite>amrex::max</cite>. In specialized cases,
+such as <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">min</span></span></code> and <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">max</span></span></code>. In specialized cases,
 classes are labeled such that the object can be constructed, destructed
 and its functions can be implemented on the device, including <code class="docutils literal notranslate"><span class="pre">IntVect</span></code>.</p>
 <p>2. Functions that contain MFIter or particle loops have been rewritten
@@ -467,9 +467,9 @@ that are important for programming GPUs.</p>
 in device code. GpuArray is AMReX’s built-in alternative. It uses a C array that
 can be passed to the device by value and has device functions for the <code class="code cpp c++ docutils literal notranslate"><span class="punctuation"><span class="pre">[]</span></span></code>
 operator, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">size</span></span><span class="punctuation"><span class="pre">()</span></span></code> and <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">data</span></span><span class="punctuation"><span class="pre">()</span></span></code> that returns a pointer to the C array.
-GpuArray can be used whenever a fixed array of data needs to be passed to the GPU.</p>
-<p>Additional functions have been created to return GpuArray instead of <cite>std::array</cite>,
-including <cite>Box::CellSizeArray()</cite>, <cite>Box::InvCellSizeArray()</cite> and <cite>Box::length3d()</cite>.</p>
+GpuArray can be used whenever a fixed size array of data needs to be passed to the GPU.</p>
+<p>Additional functions have been created to return GpuArray instead of <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">std</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">array</span></span></code>,
+including <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">GeometryData</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">CellSizeArray</span></span><span class="punctuation"><span class="pre">()</span></span></code>, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">GeometryData</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">InvCellSizeArray</span></span><span class="punctuation"><span class="pre">()</span></span></code> and <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">length3d</span></span><span class="punctuation"><span class="pre">()</span></span></code>.</p>
 </div>
 <div class="section" id="managedvector">
 <h2>ManagedVector<a class="headerlink" href="#managedvector" title="Permalink to this headline">¶</a></h2>
@@ -516,14 +516,14 @@ GPU safe implementations.</p>
 <div class="section" id="multifab-reductions">
 <h2>MultiFab Reductions<a class="headerlink" href="#multifab-reductions" title="Permalink to this headline">¶</a></h2>
 <p>AMReX provides functions for performing standard reduction operations on
-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Multifabs</span></span></code>, including <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">sum</span></span></code> and <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">max</span></span></code>.
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFabs</span></span></code>, including <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">sum</span></span></code> and <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">max</span></span></code>.
 When <code class="docutils literal notranslate"><span class="pre">USE_CUDA=TRUE</span></code>, these functions automatically implement the
 corresponding reductions on GPUs in a highly efficient manner.</p>
 <p>Function templates <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">ReduceSum</span></span></code>, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">ReduceMin</span></span></code> and
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">ReduceMax</span></span></code> can be used to implement user-defined reduction
 functions over <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code>s. These same templates are implemented
-in the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Multifab</span></span></code> functions, so they can be used as a reference to
-build a custom reduction. For example, the <code class="code cpp c++ docutils literal notranslate"><span class="name label"><span class="pre">Multifab</span></span><span class="punctuation"><span class="pre">:</span></span><span class="name"><span class="pre">dot</span></span></code>
+in the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code> functions, so they can be used as a reference to
+build a custom reduction. For example, the <code class="code cpp c++ docutils literal notranslate"><span class="name label"><span class="pre">MultiFab</span></span><span class="punctuation"><span class="pre">:</span></span><span class="name"><span class="pre">Dot</span></span></code>
 implementation is reproduced here:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">Real</span> <span class="n">sm</span> <span class="o">=</span> <span class="n">amrex</span><span class="o">::</span><span class="n">ReduceSum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">nghost</span><span class="p">,</span>
 <span class="p">[</span><span class="o">=</span><span class="p">]</span> <span class="n">AMREX_GPU_HOST_DEVICE</span> <span class="p">(</span><span class="n">Box</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">bx</span><span class="p">,</span> <span class="n">FArrayBox</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">xfab</span><span class="p">,</span> <span class="n">FArrayBox</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">yfab</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Real</span>
@@ -536,18 +536,19 @@ implementation is reproduced here:</p>
 <span class="k">return</span> <span class="n">sm</span><span class="p">;</span>
 </pre></div>
 </div>
-<p><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">ReduceSum</span></span></code> takes two <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFabs</span></span></code>, <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> and
+<p><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">ReduceSum</span></span></code> takes two <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code>s, <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> and
 returns the sum of the value returned from the given lambda function.
 In this case, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BaseFab</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">dot</span></span></code> is returned, yielding a sum of the
-dot product of each local pair of <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BaseFab</span></span></code> s. Finally,
+dot product of each local pair of <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BaseFab</span></span></code>s. Finally,
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">ParallelAllReduce</span></span></code> is used to sum the dot products across all
-MPI ranks and return the total dot product of the two <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFabs</span></span></code>.</p>
+MPI ranks and return the total dot product of the two
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code>s.</p>
 <p>To implement a different reduction, replace the code block inside the
 lambda function with the operation that should be applied, being sure
 to return the value to be summed, minimized, or maximized.  The reduction
 templates have a few different interfaces to accomodate a variety of
 reductions.  The <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">ReduceSum</span></span></code> reduction template has varieties
-that take either one, two or three :<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code> s.
+that take either one, two or three :<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code>s.
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">ReduceMin</span></span></code> and <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">ReduceMax</span></span></code> can take either one
 or two.</p>
 </div>
@@ -568,7 +569,7 @@ into a GPU safe class that can be passed by value to GPU kernels. This class
 is called <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">GeometryData</span></span></code>, which is created by calling
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Geometry</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">data</span></span><span class="punctuation"><span class="pre">()</span></span></code>. The accessor functions of <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">GeometryData</span></span></code> are
 identical to <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Geometry</span></span></code>.</p>
-<p>One limitation of this strategy is that <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Geometry</span></span></code> cannot not be changed
+<p>One limitation of this strategy is that <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Geometry</span></span></code> cannot be changed
 on the device. <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">GeometryData</span></span></code> holds a disposable copy of the data that
 does not synchronize with <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Geometry</span></span></code> after use. Therefore, only change
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Geometry</span></span></code> on the CPU and outside of MFIter loops with GPU kernels to
@@ -584,12 +585,12 @@ have been allocated in device memory. Some of the device member
 functions include <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">view</span></span></code>, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">dataPtr</span></span></code>, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">box</span></span></code>,
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">nComp</span></span></code>, and <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">setVal</span></span></code>.</p>
 <p>All <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BaseFab</span></span><span class="operator"><span class="pre">&lt;</span></span><span class="name"><span class="pre">T</span></span><span class="operator"><span class="pre">&gt;</span></span></code> objects in <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FabArray</span></span><span class="operator"><span class="pre">&lt;</span></span><span class="name"><span class="pre">FAB</span></span><span class="operator"><span class="pre">&gt;</span></span></code> are allocated in
-unifed memory, including <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code> and <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code> which are
+unified memory, including <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">IArrayBox</span></span></code> and <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code>, which are
 derived from <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BaseFab</span></span></code>. A <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BaseFab</span></span><span class="operator"><span class="pre">&lt;</span></span><span class="name"><span class="pre">T</span></span><span class="operator"><span class="pre">&gt;</span></span></code> object created
 on the stack in CPU code cannot be used in GPU device code, because
 the object is in CPU memory.  However, a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BaseFab</span></span></code> created with
 <code class="code cpp c++ docutils literal notranslate"><span class="keyword"><span class="pre">new</span></span></code> on the heap is GPU safe, because <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BaseFab</span></span></code> has its own
-overloaded <cite>:cpp:`operator new</cite> that allocates memory from
+overloaded <code class="code cpp c++ docutils literal notranslate"><span class="keyword"><span class="pre">operator</span></span> <span class="keyword"><span class="pre">new</span></span></code> that allocates memory from
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">The_Arena</span></span><span class="punctuation"><span class="pre">()</span></span></code>, a managed memory arena.  For example,</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// We are in CPU code</span>
 
@@ -684,7 +685,7 @@ function we use OpenACC to offload work to GPU.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Note that here:cpp:<cite>MultiFab::operator[]</cite> is used to get a reference
+<p>Note that here <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span><span class="operator"><span class="pre">::</span></span><span class="keyword"><span class="pre">operator</span></span><span class="punctuation"><span class="pre">[]</span></span></code> is used to get a reference
 to <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code> rather than <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">fabPtr</span></span></code> to get
 a pointer, as was done in the CUDA examples.  Using the reference is
 optimal for performance when passing pointers to kernels is not
@@ -866,7 +867,7 @@ dependencies between the two (<code class="docutils literal notranslate"><span c
 them into a single GPU kernel, so two separate kernels will be
 launched, one for each function.</p>
 <p>As we have discussed in Section <a class="reference internal" href="#sec-gpu-classes"><span class="std std-ref">GPU Safe Classes and Functions</span></a>, all
-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code>es in the two <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code>s, ::cpp::<cite>uin</cite>
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code>es in the two <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code>s, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">uin</span></span></code>
 and <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">uout</span></span></code> are in unified memory and avaiable on the GPUs.
 But <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span> <span class="name"><span class="pre">q</span></span></code> is in host memory.  Creating <code class="docutils literal notranslate"><span class="pre">q</span></code> as a
 managed object using the overloaded <code class="code cpp c++ docutils literal notranslate"><span class="keyword"><span class="pre">new</span></span></code> operator:</p>
@@ -897,7 +898,7 @@ is used and how this MFIter loop can be rewritten for GPUs.</p>
     <span class="k">const</span> <span class="n">Box</span><span class="o">&amp;</span> <span class="n">gbx</span> <span class="o">=</span> <span class="n">amrex</span><span class="o">::</span><span class="n">grow</span><span class="p">(</span><span class="n">vbx</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>          <span class="c1">// f1 work domain</span>
     <span class="n">Gpu</span><span class="o">::</span><span class="n">AsyncFab</span> <span class="n">q</span><span class="p">(</span><span class="n">gbx</span><span class="p">);</span>                         <span class="c1">// Local, GPU managed FArrayBox</span>
     <span class="n">FArrayBox</span> <span class="k">const</span><span class="o">*</span> <span class="n">uinfab</span>  <span class="o">=</span> <span class="n">uin</span><span class="p">.</span><span class="n">fabPtr</span><span class="p">();</span>      <span class="c1">// Managed GPU capturable</span>
-    <span class="n">FArrayBox</span>      <span class="o">*</span> <span class="n">uoutfab</span> <span class="o">=</span> <span class="n">uout</span><span class="p">.</span><span class="n">fabPtr</span><span class="p">();</span>     <span class="c1">//   pointers to Multifab&#39;s FABs.</span>
+    <span class="n">FArrayBox</span>      <span class="o">*</span> <span class="n">uoutfab</span> <span class="o">=</span> <span class="n">uout</span><span class="p">.</span><span class="n">fabPtr</span><span class="p">();</span>     <span class="c1">//   pointers to MultiFab&#39;s FABs.</span>
 
     <span class="n">AMREX_LAUNCH_DEVICE_LAMBDA</span> <span class="p">(</span> <span class="n">gbx</span><span class="p">,</span> <span class="n">tbx</span><span class="p">,</span>        <span class="c1">// f1 GPU launch</span>
     <span class="p">{</span>
@@ -926,7 +927,7 @@ to check the health of previous GPU launches.  This call
 looks up the return message from the most recently completed GPU
 launch and aborts if it was not successful. Many kernel
 launch macros as well as the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> destructor include a call
-to <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">AMREX_CPU_ERROR_CHECK</span></span><span class="punctuation"><span class="pre">()</span></span></code>. This prevents additional launches
+to <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">AMREX_GPU_ERROR_CHECK</span></span><span class="punctuation"><span class="pre">()</span></span></code>. This prevents additional launches
 from being called if a previous launch caused an error and ensures
 all GPU launches within an <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> loop completed successfully
 before continuing work.</p>
@@ -1037,7 +1038,7 @@ ORNL’s Summit and Summit-dev.</p>
 <h1>Profiling with GPUs<a class="headerlink" href="#profiling-with-gpus" title="Permalink to this headline">¶</a></h1>
 <p id="sec-gpu-profiling">When profiling for GPUs, AMReX recommends <code class="docutils literal notranslate"><span class="pre">nvprof</span></code>, NVIDIA’s visual
 profiler.  <code class="docutils literal notranslate"><span class="pre">nvprof</span></code> returns data on how long each kernel launch lasted on
-the GPU, ithe number of threads and registers used, the occupancy of the GPU
+the GPU, the number of threads and registers used, the occupancy of the GPU
 and recommendations for improving the code.  For more information on how to
 use <code class="docutils literal notranslate"><span class="pre">nvprof</span></code>, see NVIDIA’s User’s Guide as well as the help webpages of
 your favorite supercomputing facility that uses NVIDIA GPUs.</p>
