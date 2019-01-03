@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Building GPU Support &mdash; amrex 19.02-dev documentation</title>
+  <title>Overview of AMReX GPU Strategy &mdash; amrex 19.02-dev documentation</title>
   
 
   
@@ -99,7 +99,8 @@
 <li class="toctree-l1"><a class="reference internal" href="Fortran_Chapter.html">Fortran Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="EB_Chapter.html">Embedded Boundaries</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="GPU_Chapter.html">GPU</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Building GPU Support</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Overview of AMReX GPU Strategy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#building-gpu-support">Building GPU Support</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#building-with-gnu-make">Building with GNU Make</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#building-with-cmake">Building with CMake</a></li>
 </ul>
@@ -128,6 +129,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#an-example-of-migrating-to-gpu">An Example of Migrating to GPU</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#assertions-error-checking-and-synchronization">Assertions, Error Checking and Synchronization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#particle-support">Particle Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#profiling-with-gpus">Profiling with GPUs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#performance-tips">Performance Tips</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#limitations">Limitations</a></li>
 </ul>
@@ -183,7 +185,7 @@
         
           <li><a href="GPU_Chapter.html">GPU</a> &raquo;</li>
         
-      <li>Building GPU Support</li>
+      <li>Overview of AMReX GPU Strategy</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -202,7 +204,121 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="building-gpu-support">
+  <div class="section" id="overview-of-amrex-gpu-strategy">
+<span id="sec-gpu-overview"></span><h1>Overview of AMReX GPU Strategy<a class="headerlink" href="#overview-of-amrex-gpu-strategy" title="Permalink to this headline">¶</a></h1>
+<p>AMReX’s GPU strategy focuses on providing performant GPU support
+with minimal changes and maximum flexibility.  This allows
+application teams to get running on GPUs quickly while allowing
+long term perfomance tuning and programming model selection.  AMReX
+uses CUDA for GPUs, but application teams can use CUDA, CUDA
+Fortran, OpenACC or OpenMP in their individual codes.</p>
+<p>When running AMReX on a CPU system, the parallelization strategy is a
+combination of MPI and OpenMP using tiling, as detailed in
+<a class="reference internal" href="Basics.html#sec-basics-mfiter-tiling"><span class="std std-ref">MFIter with Tiling</span></a>. However, cache blocking and data
+locality are not the primary considerations when writing optimal code
+on GPUs.  Instead, efficient use of the GPU’s resources is the primary
+concern.  Improving resource efficiency allows a larger percentage of
+GPU threads to work simultaneously, increasing effective parallelism and
+decreasing the time to solution.</p>
+<p>The GPU strategy that has shown to best match AMReX’s mesh and particle
+implementations is <code class="docutils literal notranslate"><span class="pre">MPI+OpenMP</span></code> for CPUs and <code class="docutils literal notranslate"><span class="pre">MPI+CUDA</span></code> for GPUs:
+<code class="docutils literal notranslate"><span class="pre">(MPI+OpenMP)</span> <span class="pre">+</span> <span class="pre">(MPI+CUDA)</span></code>. Presented here is an overview of important
+features of AMReX’s GPU strategy. Additional information that is required
+for creating GPU applications is detailed throughout the rest of this
+chapter:</p>
+<ul class="simple">
+<li>To ensure data consistency, each MPI rank offloads its work to a single
+GPU.  This ensures each kernel works on a GPU where the associated data
+is consistently located and minimizes communication between GPUs.
+<code class="docutils literal notranslate"><span class="pre">(MPI</span> <span class="pre">ranks</span> <span class="pre">==</span> <span class="pre">Number</span> <span class="pre">of</span> <span class="pre">GPUs)</span></code></li>
+<li>Calculations that can be offloaded efficiently to GPUs use CUDA threads
+to parallelize over a valid box at a time.  This is done by using a lot
+of CUDA threads that only work on a few cells each. This work
+distribution is illustrated in <a class="reference internal" href="#fig-gpu-threads"><span class="std std-numref">Table 9</span></a>.
+(Note: OpenMP is currently incompatible with AMReX builds using CUDA.
+This feature is under development, although most applications will
+have no need for this feature when initially converting to GPUs.)</li>
+</ul>
+<span id="fig-gpu-threads"></span><table border="1" class="docutils" id="id1">
+<caption><span class="caption-number">Table 9 </span><span class="caption-text">Comparison of OpenMP and CUDA work distribution. Pictures provided by Mike Zingale and the CASTRO team.</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="_images/gpu_2.png"><img alt="a" src="_images/gpu_2.png" style="width: 100%;" /></a></td>
+<td><a class="reference internal" href="_images/gpu_3.png"><img alt="b" src="_images/gpu_3.png" style="width: 100%;" /></a></td>
+</tr>
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">OpenMP tiled box.</div>
+<div class="line">OpenMP threads break down the valid box
+into two large boxes (blue and orange).
+The lo and hi of one tiled box are marked.</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">CUDA threaded box.</div>
+<div class="line">Each CUDA thread works on a few cells of the
+valid box. This example uses one cell per
+thread, each thread using a box with lo = hi.</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p class="first">C++ macros and CUDA extended lambdas are used to provide performance
+portability while making the code as understandable as possible to
+science-focused code teams.</p>
+</li>
+<li><p class="first">AMReX’s data movement plan is to initialize mesh and particle data
+structures, move them to the GPU and leave them in GPU memory space
+as much as possible.  This strategy lends itself to AMReX
+applications readily; the mesh and particle data should be able
+to stay on the GPU except when performing redistribution and I/O
+operations.  Application teams should strive to this data
+management strategy as much as possible to achieve good GPU performance.</p>
+</li>
+<li><p class="first">AMReX utilizes CUDA managed memory to automatically handle memory
+movement for mesh and particle data.  Simple data structures, such
+as <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">IntVect</span></span></code>s can be passed by value and temporaries, such as
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code>es, have specialized AMReX classes to handle the
+data movement for the user.  Tests have shown CUDA managed memory
+to be efficient and reliable, especially when applications remove
+any unnecessary data accesses.</p>
+</li>
+<li><p class="first">AMReX’s GPU strategy is focused on launching GPU kernels inside
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> loops.  By performing GPU work within <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code>
+loops, GPU work is isolated to independent data sets on simple AMReX data
+objects, providing consistency and safety that matches AMReX’s coding
+methodology.</p>
+</li>
+<li><p class="first">AMReX further parallelizes GPU applications by utilizing CUDA streams.
+A CUDA stream is a list of GPU kernel launches that is ran on the GPU
+sequentially.  Kernel launches placed in different CUDA streams can be ran
+simultaneously on the GPU, given enough computing resources are available.
+AMReX places each iteration of <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> loops on separate streams,
+allowing each independent iteration to be ran simultaneously and maximize
+available GPU resources.</p>
+<p>The AMReX implementation of CUDA streams is illustrated in <a class="reference internal" href="#fig-gpu-streams"><span class="std std-numref">Fig. 12</span></a>.
+The CPU runs the first iteration of the MFIter loop (blue), which contains three
+GPU kernels.  The kernels begin immediately in GPU Stream 1 and run in the same
+order they were added. The second (red) and third (green) iterations are similarly
+launched in Streams 2 and 3. The fourth (orange) and fifth (purple) iterations
+require more GPU resources than remain, so they have to wait until resources are
+freed before beginning. Meanwhile, after all the loop iterations are launched, the
+CPU reaches a synchronize in the MFIter’s destructor and waits for all GPU launches
+to complete before continuing.</p>
+</li>
+</ul>
+<div class="figure" id="id2">
+<span id="fig-gpu-streams"></span><img alt="_images/Streams.png" src="_images/Streams.png" />
+<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">Timeline illustration of GPU streams. Illustrates the case of an
+MFIter loop of five iterations with three GPU kernels each being
+ran with three GPU streams.</span></p>
+</div>
+</div>
+<div class="section" id="building-gpu-support">
 <span id="sec-gpu-build"></span><h1>Building GPU Support<a class="headerlink" href="#building-gpu-support" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="building-with-gnu-make">
 <h2>Building with GNU Make<a class="headerlink" href="#building-with-gnu-make" title="Permalink to this headline">¶</a></h2>
@@ -284,8 +400,8 @@ AMReX provides a number of memory pools.  When compiled without
 CUDA, all <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Arena</span></span></code> s implement standard <code class="code cpp c++ docutils literal notranslate"><span class="keyword"><span class="pre">new</span></span></code> and
 <code class="code cpp c++ docutils literal notranslate"><span class="keyword"><span class="pre">delete</span></span></code> operators. Without CUDA, the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Arena</span></span></code> s each
 allocate with a specific type of GPU memory:</p>
-<span id="tab-gpu-arena"></span><table border="1" class="docutils" id="id1">
-<caption><span class="caption-number">Table 9 </span><span class="caption-text">Memory Arenas</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<span id="tab-gpu-arena"></span><table border="1" class="docutils" id="id3">
+<caption><span class="caption-number">Table 10 </span><span class="caption-text">Memory Arenas</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="54%" />
 <col width="46%" />
@@ -917,9 +1033,49 @@ memory traffic. As with <code class="code cpp c++ docutils literal notranslate">
 up to take advantange of the Cuda-aware MPI implementations available on platforms such as
 ORNL’s Summit and Summit-dev.</p>
 </div>
+<div class="section" id="profiling-with-gpus">
+<h1>Profiling with GPUs<a class="headerlink" href="#profiling-with-gpus" title="Permalink to this headline">¶</a></h1>
+<p id="sec-gpu-profiling">When profiling for GPUs, AMReX recommends <code class="docutils literal notranslate"><span class="pre">nvprof</span></code>, NVIDIA’s visual
+profiler.  <code class="docutils literal notranslate"><span class="pre">nvprof</span></code> returns data on how long each kernel launch lasted on
+the GPU, ithe number of threads and registers used, the occupancy of the GPU
+and recommendations for improving the code.  For more information on how to
+use <code class="docutils literal notranslate"><span class="pre">nvprof</span></code>, see NVIDIA’s User’s Guide as well as the help webpages of
+your favorite supercomputing facility that uses NVIDIA GPUs.</p>
+<p>AMReX’s internal profilers currently cannot hook into profiling information
+on the GPU and an efficient way to time and retrieve that information is
+being explored. In the meantime, AMReX’s timers can be used to report some
+generic timers that are useful in categorizing an application.</p>
+<p>Due to the asynchonous launching of GPU kernels, any AMReX timers inside of
+asynchronous regions or inside GPU kernels will not measure useful
+information.  However, since the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> synchronizes when being
+destroyed, any timer wrapped around an <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> loop will yield a
+consistent timing of the entire set of GPU launches contained within. For
+example:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">BL_PROFILE_VAR</span><span class="p">(</span><span class="s">&quot;MFIter: Init&quot;</span><span class="p">,</span> <span class="n">mfinit</span><span class="p">);</span>     <span class="c1">// Profiling start</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">MFIter</span> <span class="n">mfi</span><span class="p">(</span><span class="n">phi_new</span><span class="p">);</span> <span class="n">mfi</span><span class="p">.</span><span class="n">isValid</span><span class="p">();</span> <span class="o">++</span><span class="n">mfi</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="n">Box</span><span class="o">&amp;</span> <span class="n">vbx</span> <span class="o">=</span> <span class="n">mfi</span><span class="p">.</span><span class="n">validbox</span><span class="p">();</span>
+    <span class="k">const</span> <span class="n">GeometryData</span><span class="o">&amp;</span> <span class="n">geomdata</span> <span class="o">=</span> <span class="n">geom</span><span class="p">.</span><span class="n">data</span><span class="p">();</span>
+    <span class="n">FArrayBox</span><span class="o">*</span> <span class="n">phiNew</span> <span class="o">=</span> <span class="n">phi_new</span><span class="p">.</span><span class="n">fabPtr</span><span class="p">(</span><span class="n">mfi</span><span class="p">);</span>
+
+    <span class="n">AMREX_LAUNCH_DEVICE_LAMBDA</span><span class="p">(</span><span class="n">vbx</span><span class="p">,</span> <span class="n">tbx</span><span class="p">,</span>
+    <span class="p">{</span>
+        <span class="n">init_phi</span><span class="p">(</span><span class="n">BL_TO_FORTRAN_BOX</span><span class="p">(</span><span class="n">tbx</span><span class="p">),</span>
+                 <span class="n">BL_TO_FORTRAN_ANYD</span><span class="p">(</span><span class="o">*</span><span class="n">phiNew</span><span class="p">),</span>
+                 <span class="n">geomdata</span><span class="p">.</span><span class="n">CellSize</span><span class="p">(),</span> <span class="n">geomdata</span><span class="p">.</span><span class="n">ProbLo</span><span class="p">(),</span> <span class="n">geomdata</span><span class="p">.</span><span class="n">ProbHi</span><span class="p">());</span>
+    <span class="p">});</span>
+
+<span class="p">}</span>
+<span class="n">BL_PROFILE_STOP</span><span class="p">(</span><span class="n">mfinit</span><span class="p">);</span>                    <span class="c1">// Profiling sstop</span>
+</pre></div>
+</div>
+<p>For now, this is the best way to profile GPU codes using <code class="docutils literal notranslate"><span class="pre">TinyProfiler</span></code>.
+If you require further profiling detail, use <code class="docutils literal notranslate"><span class="pre">nvprof</span></code>.</p>
+</div>
 <div class="section" id="performance-tips">
 <h1>Performance Tips<a class="headerlink" href="#performance-tips" title="Permalink to this headline">¶</a></h1>
-<p id="sec-gpu-performance">Here are some helpful performance tips to keep in mind when working with AMReX for GPUs:</p>
+<p id="sec-gpu-performance">Here are some helpful performance tips to keep in mind when working with
+AMReX for GPUs:</p>
 <ul class="simple">
 <li></li>
 <li></li>
