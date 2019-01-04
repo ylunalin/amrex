@@ -1027,6 +1027,11 @@ to a Struct-of-Arrays representation, all without copying any particle data off 
 <span class="p">}</span>
 </pre></div>
 </div>
+<p>Note that the above code will cause problems if multiple streams are used to launch kernels inside the
+particle iterator loop. This is because the temporary variables <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">xp</span></span></code>, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">yp</span></span></code>, and <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">zp</span></span></code> are
+shared between different iterations. However, if all the kernel launches happen on the default stream,
+so that the kernels are guaranteed to complete in order, then the above approach will give the
+expected results.</p>
 <p>Finally, AMReX’s <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Redistribute</span></span><span class="punctuation"><span class="pre">()</span></span></code>, which moves particles back to the proper grids after their positions
 have changed, has been ported to work on the GPU as well. It cannot be called from device code,
 but it can be called on particles that reside on the device and it won’t trigger any unified
@@ -1067,7 +1072,7 @@ example:</p>
     <span class="p">});</span>
 
 <span class="p">}</span>
-<span class="n">BL_PROFILE_STOP</span><span class="p">(</span><span class="n">mfinit</span><span class="p">);</span>                    <span class="c1">// Profiling sstop</span>
+<span class="n">BL_PROFILE_STOP</span><span class="p">(</span><span class="n">mfinit</span><span class="p">);</span>                    <span class="c1">// Profiling stop</span>
 </pre></div>
 </div>
 <p>For now, this is the best way to profile GPU codes using <code class="docutils literal notranslate"><span class="pre">TinyProfiler</span></code>.
