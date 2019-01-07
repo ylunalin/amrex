@@ -140,10 +140,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a56a3c53cd24fb95f428b3d0fd497bbc3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_l_s_factory.html#a56a3c53cd24fb95f428b3d0fd497bbc3">update_union</a> (const <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;ls_in, const <a class="el" href="classamrex_1_1i_multi_fab.html">iMultiFab</a> &amp;valid_in)</td></tr>
 <tr class="separator:a56a3c53cd24fb95f428b3d0fd497bbc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b140ec1200d220b01566334c485b114"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_l_s_factory.html#a9b140ec1200d220b01566334c485b114">get_data</a> ()</td></tr>
+<tr class="memdesc:a9b140ec1200d220b01566334c485b114"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return mutable pointer to level-set data.  <a href="#a9b140ec1200d220b01566334c485b114">More...</a><br/></td></tr>
 <tr class="separator:a9b140ec1200d220b01566334c485b114"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a648e99521904e0c659048596643fe867"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_l_s_factory.html#a648e99521904e0c659048596643fe867">get_data</a> () const </td></tr>
+<tr class="memdesc:a648e99521904e0c659048596643fe867"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return constant pointer to level-set data.  <a href="#a648e99521904e0c659048596643fe867">More...</a><br/></td></tr>
 <tr class="separator:a648e99521904e0c659048596643fe867"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a31bad106aa075551325226e56beb2325"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classamrex_1_1i_multi_fab.html">iMultiFab</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_l_s_factory.html#a31bad106aa075551325226e56beb2325">get_valid</a> () const </td></tr>
+<tr class="memdesc:a31bad106aa075551325226e56beb2325"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return constant pointer to level-set data.  <a href="#a31bad106aa075551325226e56beb2325">More...</a><br/></td></tr>
 <tr class="separator:a31bad106aa075551325226e56beb2325"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6dee767855e2204e0a848f7bafcb5521"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_l_s_factory.html#a6dee767855e2204e0a848f7bafcb5521">copy_data</a> (const <a class="el" href="classamrex_1_1_distribution_mapping.html">DistributionMapping</a> &amp;dm) const </td></tr>
 <tr class="separator:a6dee767855e2204e0a848f7bafcb5521"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -152,12 +155,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6ca511b2f477b8094a39a991c49b67b8"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_l_s_factory.html#a6ca511b2f477b8094a39a991c49b67b8">coarsen_data</a> () const </td></tr>
 <tr class="separator:a6ca511b2f477b8094a39a991c49b67b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed4f792a64a7f8851ae7c751ac27b9f4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_l_s_factory.html#aed4f792a64a7f8851ae7c751ac27b9f4">get_ls_ref</a> () const </td></tr>
+<tr class="memdesc:aed4f792a64a7f8851ae7c751ac27b9f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return level-set refinement.  <a href="#aed4f792a64a7f8851ae7c751ac27b9f4">More...</a><br/></td></tr>
 <tr class="separator:aed4f792a64a7f8851ae7c751ac27b9f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9eba38610d05f4932a4e5cbb181633c0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_l_s_factory.html#a9eba38610d05f4932a4e5cbb181633c0">get_ls_pad</a> () const </td></tr>
+<tr class="memdesc:a9eba38610d05f4932a4e5cbb181633c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return level-set ghost cells (in units of the refined grid)  <a href="#a9eba38610d05f4932a4e5cbb181633c0">More...</a><br/></td></tr>
 <tr class="separator:a9eba38610d05f4932a4e5cbb181633c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0df5623470396bdf17f7258c03e2f73c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_l_s_factory.html#a0df5623470396bdf17f7258c03e2f73c">get_eb_ref</a> () const </td></tr>
+<tr class="memdesc:a0df5623470396bdf17f7258c03e2f73c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return EB grid refinement.  <a href="#a0df5623470396bdf17f7258c03e2f73c">More...</a><br/></td></tr>
 <tr class="separator:a0df5623470396bdf17f7258c03e2f73c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae87f21da6db57ac2c9419c6e09a53e61"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_l_s_factory.html#ae87f21da6db57ac2c9419c6e09a53e61">get_eb_pad</a> () const </td></tr>
+<tr class="memdesc:ae87f21da6db57ac2c9419c6e09a53e61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return EB-grid ghost cells (in units of the refined eb-grid)  <a href="#ae87f21da6db57ac2c9419c6e09a53e61">More...</a><br/></td></tr>
 <tr class="separator:ae87f21da6db57ac2c9419c6e09a53e61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90e9a39b2b27bd562fd966020dcda848"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_l_s_factory.html#a90e9a39b2b27bd562fd966020dcda848">get_amr_level</a> () const </td></tr>
 <tr class="separator:a90e9a39b2b27bd562fd966020dcda848"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -303,6 +310,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Coarsen level-set data by a coarsening ration of <code>ls_grid_ref</code>. The coarsened data is saved into a new <a class="el" href="classamrex_1_1_multi_fab.html" title="A collection (stored as an array) of FArrayBox objects. This class is useful for storing floating poi...">MultiFab</a> with coarsened version of the <a class="el" href="classamrex_1_1_l_s_factory.html">LSFactory</a> <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> <code>ls_ba</code>, and <a class="el" href="classamrex_1_1_distribution_mapping.html" title="Calculates the distribution of FABs to MPI processes. ">DistributionMapping</a> <code>dm_ls</code>. Returns a unique_ptr to the new <a class="el" href="classamrex_1_1_multi_fab.html" title="A collection (stored as an array) of FArrayBox objects. This class is useful for storing floating poi...">MultiFab</a>. </p>
 
 </div>
 </div>
@@ -319,6 +327,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Copy level-set data into a new <a class="el" href="classamrex_1_1_multi_fab.html" title="A collection (stored as an array) of FArrayBox objects. This class is useful for storing floating poi...">MultiFab</a> with <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> matching the <a class="el" href="classamrex_1_1_l_s_factory.html">LSFactory</a> <code>ls_ba</code>, and <a class="el" href="classamrex_1_1_distribution_mapping.html" title="Calculates the distribution of FABs to MPI processes. ">DistributionMapping</a> <code>dm</code>. Returns a unique_ptr to the new <a class="el" href="classamrex_1_1_multi_fab.html" title="A collection (stored as an array) of FArrayBox objects. This class is useful for storing floating poi...">MultiFab</a>. </p>
 
 </div>
 </div>
@@ -335,6 +344,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Copy level-set valid tags into a new <a class="el" href="classamrex_1_1i_multi_fab.html">iMultiFab</a> with <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> matching the <a class="el" href="classamrex_1_1_l_s_factory.html">LSFactory</a> <code>ls_ba</code>, and <a class="el" href="classamrex_1_1_distribution_mapping.html" title="Calculates the distribution of FABs to MPI processes. ">DistributionMapping</a> <code>dm</code>. Returns a unique_ptr to the new <a class="el" href="classamrex_1_1i_multi_fab.html">iMultiFab</a>. </p>
 
 </div>
 </div>
@@ -584,7 +594,7 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Fills level-set <a class="el" href="classamrex_1_1_multi_fab.html" title="A collection (stored as an array) of FArrayBox objects. This class is useful for storing floating poi...">MultiFab</a> <code>data</code> locally from <a class="el" href="classamrex_1_1_e_b_f_array_box_factory.html">EBFArrayBoxFactory</a> <code>eb_factory</code>. Same as <code>fill_data_loc</code> but with cubic EB search box. </p>
+<p>Fills level-set <a class="el" href="classamrex_1_1_multi_fab.html" title="A collection (stored as an array) of FArrayBox objects. This class is useful for storing floating poi...">MultiFab</a> <code>data</code> locally from <a class="el" href="classamrex_1_1_e_b_f_array_box_factory.html">EBFArrayBoxFactory</a> <code>eb_factory</code>. Same as <code>fill_data</code> but with cubic EB search box. </p>
 
 </div>
 </div>
@@ -808,6 +818,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Return mutable pointer to level-set data. </p>
+
 </div>
 </div>
 <a class="anchor" id="a648e99521904e0c659048596643fe867"></a>
@@ -830,6 +842,8 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Return constant pointer to level-set data. </p>
 
 </div>
 </div>
@@ -923,6 +937,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Return EB-grid ghost cells (in units of the refined eb-grid) </p>
+
 </div>
 </div>
 <a class="anchor" id="a0df5623470396bdf17f7258c03e2f73c"></a>
@@ -945,6 +961,8 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Return EB grid refinement. </p>
 
 </div>
 </div>
@@ -1038,6 +1056,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Return level-set ghost cells (in units of the refined grid) </p>
+
 </div>
 </div>
 <a class="anchor" id="aed4f792a64a7f8851ae7c751ac27b9f4"></a>
@@ -1061,6 +1081,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Return level-set refinement. </p>
+
 </div>
 </div>
 <a class="anchor" id="a31bad106aa075551325226e56beb2325"></a>
@@ -1083,6 +1105,8 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Return constant pointer to level-set data. </p>
 
 </div>
 </div>
@@ -1398,6 +1422,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Update internal <code>ls_grid</code><code>and</code>ls_valid<code>taking the min of </code>ls_grid<code>and</code>ls_in` </p>
 
 </div>
 </div>
@@ -1424,6 +1449,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Update internal <code>ls_grid</code><code>and</code>ls_valid<code>taking the max of </code>ls_grid<code>and</code>ls_in` </p>
 
 </div>
 </div>
