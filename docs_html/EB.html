@@ -114,6 +114,13 @@
 <li class="toctree-l3"><a class="reference internal" href="#ebcellflagfab"><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBCellFlagFab</span></span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#level-sets">Level Sets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#a-note-on-filling-level-sets-from-ebfarrayboxfactory">A Note on Filling Level-Sets from <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBFArrayBoxFactory</span></span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filling-level-sets-without-lsfactory">Filling Level-Sets without <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">LSFactory</span></span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-lsfactory">Using <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">LSFactory</span></span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-lscore">Using <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">LSCore</span></span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#linear-solvers">Linear Solvers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#tutorials">Tutorials</a></li>
 </ul>
@@ -619,6 +626,89 @@ and getting neighbor information.  For example</p>
 <span class="k">end do</span>
 </pre></div>
 </div>
+</div>
+</div>
+<div class="section" id="level-sets">
+<span id="sec-eb-levelset"></span><h1>Level Sets<a class="headerlink" href="#level-sets" title="Permalink to this headline">¶</a></h1>
+<p>In order to speed up direct interactions with embedded boundaries, AMReX also
+provides a way to construct level-sets representing the signed distance function
+from the closest EB surface. In our implementation, the level-set data is stored
+as a 1-component nodal <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code> (cf. <a class="reference internal" href="Basics.html#sec-basics-multifab"><span class="std std-ref">FabArray, MultiFab and iMultiFab</span></a>) where
+each node stores its closest distance to the EB. The subroutine
+<code class="code fortran docutils literal notranslate"><span class="name"><span class="pre">amrex_eb_interp_levelset</span></span></code> (in <cite>/Scr/EB/AMREX_EB_levelset_F.F90</cite>)
+interpolates the level-set <span class="math notranslate nohighlight">\(\phi(\mathbf{r})\)</span> to any position
+<span class="math notranslate nohighlight">\(\mathbf{r}\)</span> from the pre-computed level-set <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code>. Likewise the
+subroutine <code class="code fortran docutils literal notranslate"><span class="name"><span class="pre">amrex_eb_normal_levelset</span></span></code> interpolated the normal
+<span class="math notranslate nohighlight">\(\mathbf{\hat{n}}(\mathbf{r})\)</span> at any position from the derivative of the
+level-set function <span class="math notranslate nohighlight">\(\mathbf{\hat{n}}(\mathbf{r}) = \nabla
+\phi(\mathrm{r})\)</span>. <strong>Note</strong> that since the normal is computed by taking the
+derivative of the interpolation function, it is discontinuous at positions
+corresponding to the nodal points of the level-set <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code> (i.e.
+<span class="math notranslate nohighlight">\(\mathbf{r} = (i, j, k) \cdot h\)</span>).</p>
+<p>AMReX provides collection of functions and subroutines to fill single and
+multi-level level-set data. For convenience, the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">LSFactory</span></span></code> helps
+manage the level-set data for a single AMR level. And <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">LSCore</span></span></code>
+manages multi-level level-set data. These are described in further detail below.</p>
+<div class="section" id="a-note-on-filling-level-sets-from-ebfarrayboxfactory">
+<h2>A Note on Filling Level-Sets from <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBFArrayBoxFactory</span></span></code><a class="headerlink" href="#a-note-on-filling-level-sets-from-ebfarrayboxfactory" title="Permalink to this headline">¶</a></h2>
+<p>The data stored in a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBFArrayBoxFactory</span></span></code>, represents the embedded boundary
+as a discrete collection of volume fraction, and area fractions over a grid.
+Here this is further simplified by thinking of the EB as a collection of planar
+facets. This means that for any given node in a grid, the nearest EB facet might
+be in another grid. Hence if the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBFArrayBoxFactory</span></span></code> has <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">n_pad</span></span></code>
+ghost cells, then for any given grid, there could be EB facets that are
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">n_pad</span></span> <span class="operator"><span class="pre">+</span></span> <span class="literal number integer"><span class="pre">1</span></span></code> cells away, and we would <em>not</em> “see”. In other words, if the
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBFArrayBoxFactory</span></span></code> is defined on a grid with spacing <span class="math notranslate nohighlight">\(h\)</span>, then, and
+we do not have any EB facets in the current grid, then any node within that grid
+is <em>at least</em> <span class="math notranslate nohighlight">\((\mathrm{n_{pad}}+1)h\)</span> away from the nearest EB surface.</p>
+<p>Hence, when filling a level-set, it will “max-out” at
+<span class="math notranslate nohighlight">\(\pm(\mathrm{n_{pad}}+1)h\)</span>. Hence it is recommended to think of this kind
+of level-set function as the point being “at least” <span class="math notranslate nohighlight">\(\phi(\mathbf{r})\)</span>
+from the EB surface.</p>
+<div class="figure" id="id4">
+<span id="fig-local-levelset"></span><a class="reference internal image-reference" href="_images/loc_ls_ex.png"><img alt="_images/loc_ls_ex.png" src="_images/loc_ls_ex.png" style="width: 50.0%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">: Example of a “local” level-set representing a cylinder. The level-set
+function is a (linear) signed distance function near the EB-surface, and it
+plateaus further away from it.</span></p>
+</div>
+<p>Figure <a class="reference internal" href="#fig-local-levelset"><span class="std std-numref">Fig. 12</span></a> shows an example of such a local level-set
+description. Only cells that are within <span class="math notranslate nohighlight">\(\pm(\mathrm{n_{pad}}+1)h\)</span> of the
+EB surface are filled with a level-set. The rest is filled with lower (upper)
+bound. If the goal is capture interactions between the EB surface and a point
+somewhere else, this approach usually suffices as we only need to know if we are
+“far enough” from the EB in most applications.</p>
+<p>Since finding the closest distance between a point and an arbitrary surface is
+computationally expensive, we advice that <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">n_pad</span></span></code> is chosen as the smallest
+necessary number for the application.</p>
+</div>
+<div class="section" id="filling-level-sets-without-lsfactory">
+<h2>Filling Level-Sets without <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">LSFactory</span></span></code><a class="headerlink" href="#filling-level-sets-without-lsfactory" title="Permalink to this headline">¶</a></h2>
+<p>The static function <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">LSFactory</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">fill_data</span></span></code> fills a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code>
+with the nodal level-set values and another <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">iMultiFab</span></span></code> with integer tags
+that are 1 whenever a node is near the EB surface.</p>
+<p>AMReX defines its embedded surfaces using implicit functions (see above).
+Normally these implicit functions are usually <em>not</em> signed distance functions
+(i.e. their value at <span class="math notranslate nohighlight">\(\mathbf{r}\)</span> is not the minimal distance to the EB
+surface). However, in rare cases such as the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EB2</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">PlaneIF</span></span></code>, it is. In this
+case, the most straight-forward way to fill a level-set. If an signed-distance
+implicit function is know, and stored as a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span> <span class="name"><span class="pre">mf_impfunc</span></span></code>, then we
+can use</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="kt">void</span> <span class="nf">fill_data</span> <span class="p">(</span><span class="n">MultiFab</span> <span class="o">&amp;</span> <span class="n">data</span><span class="p">,</span> <span class="n">iMultiFab</span> <span class="o">&amp;</span> <span class="n">valid</span><span class="p">,</span>
+                       <span class="k">const</span> <span class="n">MultiFab</span> <span class="o">&amp;</span> <span class="n">mf_impfunc</span><span class="p">,</span>
+                       <span class="kt">int</span> <span class="n">eb_pad</span><span class="p">,</span> <span class="k">const</span> <span class="n">Geometry</span> <span class="o">&amp;</span> <span class="n">eb_geom</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>so then the function call</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">amrex</span><span class="o">::</span><span class="n">LSFactory</span><span class="o">::</span><span class="n">fill_data</span><span class="p">(</span><span class="o">*</span> <span class="n">ls_grid</span><span class="p">,</span> <span class="o">*</span> <span class="n">region_valid</span><span class="p">,</span> <span class="n">mf_impfunc</span><span class="p">,</span>
+                            <span class="mi">2</span><span class="p">,</span> <span class="n">geom_eb</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-lsfactory">
+<h2>Using <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">LSFactory</span></span></code><a class="headerlink" href="#using-lsfactory" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="using-lscore">
+<h2>Using <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">LSCore</span></span></code><a class="headerlink" href="#using-lscore" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 <div class="section" id="linear-solvers">
