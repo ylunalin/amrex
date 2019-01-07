@@ -29,6 +29,8 @@ var searchData=
   ['nitemsperbin',['NItemsPerBin',['../namespaceamrex.html#aaf97cdbc0db387b57d9641d57cce591e',1,'amrex']]],
   ['nodaltilebox',['nodaltilebox',['../classamrex_1_1_m_f_iter.html#a9c69e3a5196ec1466c349566cada2a2b',1,'amrex::MFIter']]],
   ['node',['Node',['../classamrex_1_1_c_arena_1_1_node.html#ab71463467a0a00d4a9dfe983e33f390e',1,'amrex::CArena::Node']]],
+  ['nodebilin_5finterp',['nodebilin_interp',['../namespaceamrex.html#a9d60a612b5aa9a3f8e782d65aab8ed87',1,'amrex']]],
+  ['nodebilin_5fslopes',['nodebilin_slopes',['../namespaceamrex.html#a2e494a9be5b8cf5220009925353803ac',1,'amrex']]],
   ['nodecentered',['nodeCentered',['../classamrex_1_1_index_type.html#a72ea91060d3675333fcbf346827ef387',1,'amrex::IndexType::nodeCentered() const '],['../classamrex_1_1_index_type.html#a78a920fcfae4f14f393ace915b8c8ca5',1,'amrex::IndexType::nodeCentered(int dir) const ']]],
   ['nofabheader',['NoFabHeader',['../classamrex_1_1_vis_m_f.html#af7f852d2d1e0656e85e58dcf5ba364b1',1,'amrex::VisMF']]],
   ['nonperiodic',['NonPeriodic',['../classamrex_1_1_periodicity.html#a38c75cba56d022201b4e1970534d5823',1,'amrex::Periodicity']]],
