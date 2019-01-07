@@ -119,6 +119,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#filling-level-sets-without-lsfactory">Filling Level-Sets without <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">LSFactory</span></span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#using-lsfactory">Using <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">LSFactory</span></span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#using-lscore">Using <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">LSCore</span></span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utility-functions">Utility Functions</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#linear-solvers">Linear Solvers</a></li>
@@ -683,9 +684,11 @@ necessary number for the application.</p>
 </div>
 <div class="section" id="filling-level-sets-without-lsfactory">
 <h2>Filling Level-Sets without <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">LSFactory</span></span></code><a class="headerlink" href="#filling-level-sets-without-lsfactory" title="Permalink to this headline">¶</a></h2>
-<p>The static function <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">LSFactory</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">fill_data</span></span></code> fills a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code>
-with the nodal level-set values and another <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">iMultiFab</span></span></code> with integer tags
-that are 1 whenever a node is near the EB surface.</p>
+<p>The static function <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">LSFactory</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">fill_data</span></span></code> (defined in
+<cite>Src/EB/AMReX_EB_levelset.cpp</cite>) fills a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code> with the nodal level-set
+values and another <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">iMultiFab</span></span></code> with integer tags that are 1 whenever a node
+is near the EB surface. It is then left up to the application to manage the
+level-set <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code>.</p>
 <p>AMReX defines its embedded surfaces using implicit functions (see above).
 Normally these implicit functions are usually <em>not</em> signed distance functions
 (i.e. their value at <span class="math notranslate nohighlight">\(\mathbf{r}\)</span> is not the minimal distance to the EB
@@ -699,16 +702,89 @@ can use</p>
 </pre></div>
 </div>
 <p>so then the function call</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">amrex</span><span class="o">::</span><span class="n">LSFactory</span><span class="o">::</span><span class="n">fill_data</span><span class="p">(</span><span class="o">*</span> <span class="n">ls_grid</span><span class="p">,</span> <span class="o">*</span> <span class="n">region_valid</span><span class="p">,</span> <span class="n">mf_impfunc</span><span class="p">,</span>
-                            <span class="mi">2</span><span class="p">,</span> <span class="n">geom_eb</span><span class="p">);</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Fill implicit function</span>
+<span class="n">GShopLSFactory</span><span class="o">&lt;</span><span class="n">EB2</span><span class="o">::</span><span class="n">CylinderIF</span><span class="o">&gt;</span> <span class="n">cylinder_lsgs</span><span class="p">(</span><span class="n">cylinder_ghsop</span><span class="p">,</span> <span class="n">geom</span><span class="p">,</span> <span class="n">ba</span><span class="p">,</span> <span class="n">dm</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">MultiFab</span><span class="o">&gt;</span> <span class="n">cylinder_mf_impfunc</span> <span class="o">=</span> <span class="n">cylinder_lsgs</span><span class="p">.</span><span class="n">fill_impfunc</span><span class="p">();</span>
+
+
+<span class="n">MultiFab</span> <span class="nf">ls_grid</span><span class="p">(</span><span class="n">ba</span><span class="p">,</span> <span class="n">dm</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n">iMultiFab</span> <span class="nf">ls_valid</span><span class="p">(</span><span class="n">ba</span><span class="p">,</span> <span class="n">dm</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n">amrex</span><span class="o">::</span><span class="n">LSFactory</span><span class="o">::</span><span class="n">fill_data</span><span class="p">(</span><span class="n">ls_grid</span><span class="p">,</span> <span class="n">ls_valid</span><span class="p">,</span> <span class="n">mf_impfunc</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">geom_eb</span><span class="p">);</span>
 </pre></div>
 </div>
+<p>fills a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span> <span class="name"><span class="pre">ls_grid</span></span></code> with level-set data given the implicit function
+stored in the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span> <span class="name"><span class="pre">mf_impfunc</span></span></code>, and a threshold of
+<code class="code cpp c++ docutils literal notranslate"><span class="literal number integer"><span class="pre">2</span></span><span class="operator"><span class="pre">*</span></span><span class="name"><span class="pre">geom_eb</span></span><span class="punctuation"><span class="pre">.</span></span><span class="name"><span class="pre">CellSize</span></span><span class="punctuation"><span class="pre">()</span></span></code>. The helper class <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">GShopLSFactory</span></span></code> converts EB2
+implicit functions to <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFabs</span></span></code> (defined in
+<cite>Src/EB/AMReX_EB_levelset.H</cite>).</p>
+<p>The much more interesting application of <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">LSFactory</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">fill_data</span></span></code> is filling a level-set given a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBFArrayBoxFactory</span></span></code>:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="kt">void</span> <span class="nf">fill_data</span> <span class="p">(</span><span class="n">MultiFab</span> <span class="o">&amp;</span> <span class="n">data</span><span class="p">,</span> <span class="n">iMultiFab</span> <span class="o">&amp;</span> <span class="n">valid</span><span class="p">,</span>
+                       <span class="k">const</span> <span class="n">EBFArrayBoxFactory</span> <span class="o">&amp;</span> <span class="n">eb_factory</span><span class="p">,</span>
+                       <span class="k">const</span> <span class="n">MultiFab</span> <span class="o">&amp;</span> <span class="n">eb_impfunc</span><span class="p">,</span>
+                       <span class="k">const</span> <span class="n">IntVect</span> <span class="o">&amp;</span> <span class="n">ebt_size</span><span class="p">,</span> <span class="kt">int</span> <span class="n">ls_ref</span><span class="p">,</span> <span class="kt">int</span> <span class="n">eb_ref</span><span class="p">,</span>
+                       <span class="k">const</span> <span class="n">Geometry</span> <span class="o">&amp;</span> <span class="n">geom</span><span class="p">,</span> <span class="k">const</span> <span class="n">Geometry</span> <span class="o">&amp;</span> <span class="n">geom_eb</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>which fills the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span> <span class="name"><span class="pre">data</span></span></code> with level-set data from the
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBFArrayBoxFactory</span></span> <span class="name"><span class="pre">eb_factory</span></span></code>. Here the user must still supply the EB
+implicit function using the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span> <span class="name"><span class="pre">eb_impfunc</span></span></code>, as this is used to
+determine the inside/outside when no EB facets can be found, or in special
+edge-cases. The user also needs to specify the tile size (<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">IntVect</span></span>
+<span class="name"><span class="pre">ebt_size</span></span></code>), the level-set and EB refinement (i.e. the grid over which <cite>data</cite> is
+defined is refined by a factor of <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">ls_ref</span></span><span class="operator"><span class="pre">/</span></span><span class="name"><span class="pre">eb_ref</span></span></code> compared to the
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">eb_factory</span></span></code> ‘s grid), and the Geometries <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">geom</span></span></code> and <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">geom_eb</span></span></code>
+corresponding to the grids of <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">data</span></span></code> and <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">eb_factory</span></span></code> respectively.</p>
+<p>When filling <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">data</span></span></code>, a tile-size of <cite>ebt_size</cite> is used. Only EB facets
+within a tile (plus the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">eb_factory</span></span></code> ‘s ghost cells) are considered. Hence,
+chosing an appropriately small <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">ebt_size</span></span></code> can significantly increase
+performance.</p>
+<p>Hence the following fills a level-set with a cylinder EB (like that shown in
+Fig. <a class="reference internal" href="#fig-local-levelset"><span class="std std-numref">Fig. 12</span></a>).</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Define nGrow of level-set and EB</span>
+<span class="kt">int</span> <span class="n">ls_pad</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">eb_pad</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+<span class="c1">// Define EB</span>
+<span class="n">EB2</span><span class="o">::</span><span class="n">CylinderIF</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span> <span class="n">centre</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
+<span class="n">EB2</span><span class="o">::</span><span class="n">GeometryShop</span><span class="o">&lt;</span><span class="n">EB2</span><span class="o">::</span><span class="n">CylinderIF</span><span class="o">&gt;</span> <span class="n">cylinder_gshop</span><span class="p">(</span><span class="n">cylinder</span><span class="p">);</span>
+
+<span class="c1">// Build EB</span>
+<span class="n">EB2</span><span class="o">::</span><span class="n">Build</span><span class="p">(</span><span class="n">cylinder_gshop</span><span class="p">,</span> <span class="n">eb_geom</span><span class="p">,</span> <span class="n">max_level</span><span class="p">,</span> <span class="n">max_level</span><span class="p">);</span>
+<span class="k">const</span> <span class="n">EB2</span><span class="o">::</span><span class="n">IndexSpace</span> <span class="o">&amp;</span> <span class="n">cylinder_ebis</span> <span class="o">=</span> <span class="n">EB2</span><span class="o">::</span><span class="n">IndexSpace</span><span class="o">::</span><span class="n">top</span><span class="p">();</span>
+<span class="k">const</span> <span class="n">EB2</span><span class="o">::</span><span class="n">Level</span> <span class="o">&amp;</span>      <span class="n">cylinder_lev</span>  <span class="o">=</span> <span class="n">cylinder_ebis</span><span class="p">.</span><span class="n">getLevel</span><span class="p">(</span><span class="n">geom</span><span class="p">);</span>
+
+<span class="c1">// Build EB factory</span>
+<span class="n">EBFArrayBoxFactory</span> <span class="nf">eb_factory</span><span class="p">(</span><span class="n">cylinder_lev</span><span class="p">,</span> <span class="n">geom</span><span class="p">,</span> <span class="n">ba</span><span class="p">,</span> <span class="n">dm</span><span class="p">,</span> <span class="p">{</span><span class="n">eb_pad</span><span class="p">,</span> <span class="n">eb_pad</span><span class="p">,</span> <span class="n">eb_pad</span><span class="p">});</span>
+
+<span class="c1">// Fill implicit function</span>
+<span class="n">GShopLSFactory</span><span class="o">&lt;</span><span class="n">EB2</span><span class="o">::</span><span class="n">CylinderIF</span><span class="o">&gt;</span> <span class="n">cylinder_lsgs</span><span class="p">(</span><span class="n">cylinder_ghsop</span><span class="p">,</span> <span class="n">geom</span><span class="p">,</span> <span class="n">ba</span><span class="p">,</span> <span class="n">dm</span><span class="p">,</span> <span class="n">ls_pad</span><span class="p">);</span>
+<span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">MultiFab</span><span class="o">&gt;</span> <span class="n">cylinder_mf_impfunc</span> <span class="o">=</span> <span class="n">cylinder_lsgs</span><span class="p">.</span><span class="n">fill_impfunc</span><span class="p">();</span>
+
+<span class="c1">// Fill level-set</span>
+<span class="n">MultiFab</span> <span class="nf">ls_grid</span><span class="p">(</span><span class="n">ba</span><span class="p">,</span> <span class="n">dm</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ls_pad</span><span class="p">);</span>
+<span class="n">iMultiFab</span> <span class="nf">ls_valid</span><span class="p">(</span><span class="n">ba</span><span class="p">,</span> <span class="n">dm</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ls_pad</span><span class="p">);</span>
+<span class="n">LSFactory</span><span class="o">::</span><span class="n">fill_data</span><span class="p">(</span><span class="n">ls_grid</span><span class="p">,</span> <span class="n">ls_valid</span><span class="p">,</span> <span class="n">eb_factory</span><span class="p">,</span> <span class="o">*</span> <span class="n">cylinder_mf_impfunc</span><span class="p">,</span>
+                     <span class="n">ebt_size</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">geom</span><span class="p">,</span> <span class="n">geom</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Note that in theory the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBFArrayBoxFactory</span></span> <span class="name"><span class="pre">eb_factory</span></span></code> could be defined on
+a different resolution as the the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BoxArray</span></span> <span class="name"><span class="pre">ba</span></span></code>. In this case, the
+appropriate refinements and geometries must be specified. Also note that the
+thresholding behaviour (due to <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">eb_pad</span></span></code>, is specified via the
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBFArrayBoxFactory</span></span></code> constructor. The implicit function MultiFab needs to
+have the same grids as <cite>data</cite>.</p>
+<p>Since this relies on the interplay of many different parameters, a number of
+utility functions and helper classes have been created. These are discussed in
+the subsequent section.</p>
 </div>
 <div class="section" id="using-lsfactory">
 <h2>Using <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">LSFactory</span></span></code><a class="headerlink" href="#using-lsfactory" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="using-lscore">
 <h2>Using <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">LSCore</span></span></code><a class="headerlink" href="#using-lscore" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="utility-functions">
+<h2>Utility Functions<a class="headerlink" href="#utility-functions" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 <div class="section" id="linear-solvers">
