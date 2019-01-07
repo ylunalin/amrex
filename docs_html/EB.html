@@ -118,8 +118,6 @@
 <li class="toctree-l3"><a class="reference internal" href="#a-note-on-filling-level-sets-from-ebfarrayboxfactory">A Note on Filling Level-Sets from <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">EBFArrayBoxFactory</span></span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#filling-level-sets-without-lsfactory">Filling Level-Sets without <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">LSFactory</span></span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#using-lsfactory">Using <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">LSFactory</span></span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#using-lscore">Using <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">LSCore</span></span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#utility-functions">Utility Functions</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#linear-solvers">Linear Solvers</a></li>
@@ -749,7 +747,7 @@ Fig. <a class="reference internal" href="#fig-local-levelset"><span class="std s
 <span class="n">EB2</span><span class="o">::</span><span class="n">GeometryShop</span><span class="o">&lt;</span><span class="n">EB2</span><span class="o">::</span><span class="n">CylinderIF</span><span class="o">&gt;</span> <span class="n">cylinder_gshop</span><span class="p">(</span><span class="n">cylinder</span><span class="p">);</span>
 
 <span class="c1">// Build EB</span>
-<span class="n">EB2</span><span class="o">::</span><span class="n">Build</span><span class="p">(</span><span class="n">cylinder_gshop</span><span class="p">,</span> <span class="n">eb_geom</span><span class="p">,</span> <span class="n">max_level</span><span class="p">,</span> <span class="n">max_level</span><span class="p">);</span>
+<span class="n">EB2</span><span class="o">::</span><span class="n">Build</span><span class="p">(</span><span class="n">cylinder_gshop</span><span class="p">,</span> <span class="n">geom</span><span class="p">,</span> <span class="n">max_level</span><span class="p">,</span> <span class="n">max_level</span><span class="p">);</span>
 <span class="k">const</span> <span class="n">EB2</span><span class="o">::</span><span class="n">IndexSpace</span> <span class="o">&amp;</span> <span class="n">cylinder_ebis</span> <span class="o">=</span> <span class="n">EB2</span><span class="o">::</span><span class="n">IndexSpace</span><span class="o">::</span><span class="n">top</span><span class="p">();</span>
 <span class="k">const</span> <span class="n">EB2</span><span class="o">::</span><span class="n">Level</span> <span class="o">&amp;</span>      <span class="n">cylinder_lev</span>  <span class="o">=</span> <span class="n">cylinder_ebis</span><span class="p">.</span><span class="n">getLevel</span><span class="p">(</span><span class="n">geom</span><span class="p">);</span>
 
@@ -779,12 +777,71 @@ the subsequent section.</p>
 </div>
 <div class="section" id="using-lsfactory">
 <h2>Using <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">LSFactory</span></span></code><a class="headerlink" href="#using-lsfactory" title="Permalink to this headline">¶</a></h2>
+<p>In the previous section, we’ve seen that the level-set and EB grids can exist on
+different levels of refinement. The practical reason behind this is that
+sometimes we want to capture interactions that are very sensitive close to EBs,
+but this can sometimes be difficult to keep track off. Hence the
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">LSFactory</span></span></code> can be helpful int taking care of all of these parameters.</p>
+<p>The basic principle of the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">LSFactory</span></span></code> (defined in
+<cite>Src/EB/AMReX_EB_levelset.H</cite>) is that it is created relative to some reference
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BoxArray</span></span> <span class="name"><span class="pre">ba</span></span></code>, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Geometry</span></span> <span class="name"><span class="pre">geom</span></span></code>, and <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">DistributionMapping</span></span> <span class="name"><span class="pre">dm</span></span></code>. The
+user then specifies refinement factors <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">ls_ref</span></span></code> of the level-set data and
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">eb_ref</span></span></code> of the EB grid. Calling the constructor:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">LSFactory</span><span class="p">(</span><span class="kt">int</span> <span class="n">lev</span><span class="p">,</span> <span class="kt">int</span> <span class="n">ls_ref</span><span class="p">,</span> <span class="kt">int</span> <span class="n">eb_ref</span><span class="p">,</span> <span class="kt">int</span> <span class="n">ls_pad</span><span class="p">,</span> <span class="kt">int</span> <span class="n">eb_pad</span><span class="p">,</span>
+          <span class="k">const</span> <span class="n">BoxArray</span> <span class="o">&amp;</span> <span class="n">ba</span><span class="p">,</span> <span class="k">const</span> <span class="n">Geometry</span> <span class="o">&amp;</span> <span class="n">geom</span><span class="p">,</span> <span class="k">const</span> <span class="n">DistributionMapping</span> <span class="o">&amp;</span> <span class="n">dm</span><span class="p">,</span>
+          <span class="kt">int</span> <span class="n">eb_tile_size</span> <span class="o">=</span> <span class="mi">32</span><span class="p">);</span>
+</pre></div>
 </div>
-<div class="section" id="using-lscore">
-<h2>Using <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">LSCore</span></span></code><a class="headerlink" href="#using-lscore" title="Permalink to this headline">¶</a></h2>
+<p>Then creates all appropriate grids and geometries. Note that we can also specify
+the tile size used in the <cite>LSFactory::fill_data</cite> function.</p>
+<p>When a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">LSFacotry</span></span></code> is first created, it is set to <code class="code fortran docutils literal notranslate"><span class="name builtin"><span class="pre">huge</span></span><span class="punctuation"><span class="pre">(</span></span><span class="name"><span class="pre">amrex_real</span></span><span class="punctuation"><span class="pre">)</span></span></code>. Ie. there are no surfaces, and so the level-set value is effectively infinite. It can then be filled just like in the previous section:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Define refinement of level-set and EB</span>
+<span class="kt">int</span> <span class="n">ls_ref</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">eb_ref</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="c1">// Define nGrow of level-set and EB</span>
+<span class="kt">int</span> <span class="n">ls_pad</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">eb_pad</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+<span class="c1">// Define EB</span>
+<span class="n">EB2</span><span class="o">::</span><span class="n">CylinderIF</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span> <span class="n">centre</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
+<span class="n">EB2</span><span class="o">::</span><span class="n">GeometryShop</span><span class="o">&lt;</span><span class="n">EB2</span><span class="o">::</span><span class="n">CylinderIF</span><span class="o">&gt;</span> <span class="n">cylinder_gshop</span><span class="p">(</span><span class="n">cylinder</span><span class="p">);</span>
+
+<span class="c1">// Build level-set factory</span>
+<span class="n">LSFactory</span> <span class="nf">level_set</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ls_ref</span><span class="p">,</span> <span class="n">eb_ref</span><span class="p">,</span> <span class="n">ls_pad</span><span class="p">,</span> <span class="n">eb_pad</span><span class="p">,</span> <span class="n">ba</span><span class="p">,</span> <span class="n">geom</span><span class="p">,</span> <span class="n">dm</span><span class="p">);</span>
+
+<span class="c1">// Build EB</span>
+<span class="k">const</span> <span class="n">Geometry</span> <span class="o">&amp;</span> <span class="n">eb_geom</span> <span class="o">=</span> <span class="n">level_set</span><span class="p">.</span><span class="n">get_eb_geom</span><span class="p">()</span>
+<span class="n">EB2</span><span class="o">::</span><span class="n">Build</span><span class="p">(</span><span class="n">cylinder_gshop</span><span class="p">,</span> <span class="n">eb_geom</span><span class="p">,</span> <span class="n">max_level</span><span class="p">,</span> <span class="n">max_level</span><span class="p">);</span>
+
+<span class="k">const</span> <span class="n">EB2</span><span class="o">::</span><span class="n">IndexSpace</span> <span class="o">&amp;</span> <span class="n">cylinder_ebis</span> <span class="o">=</span> <span class="n">EB2</span><span class="o">::</span><span class="n">IndexSpace</span><span class="o">::</span><span class="n">top</span><span class="p">();</span>
+<span class="k">const</span> <span class="n">EB2</span><span class="o">::</span><span class="n">Level</span> <span class="o">&amp;</span>      <span class="n">cylinder_lev</span>  <span class="o">=</span> <span class="n">cylinder_ebis</span><span class="p">.</span><span class="n">getLevel</span><span class="p">(</span><span class="n">eb_geom</span><span class="p">);</span>
+
+<span class="c1">// Build EB factory</span>
+<span class="n">EBFArrayBoxFactory</span> <span class="nf">eb_factory</span><span class="p">(</span><span class="n">cylinder_lev</span><span class="p">,</span> <span class="n">eb_geom</span><span class="p">,</span> <span class="n">level_set</span><span class="p">.</span><span class="n">get_eb_ba</span><span class="p">(),</span> <span class="n">dm</span><span class="p">,</span>
+                              <span class="p">{</span><span class="n">level_set</span><span class="p">.</span><span class="n">get_eb_pad</span><span class="p">(),</span> <span class="n">level_set</span><span class="p">.</span><span class="n">get_eb_pad</span><span class="p">(),</span>
+                               <span class="n">level_set</span><span class="p">.</span><span class="n">get_eb_pad</span><span class="p">()});</span>
+
+<span class="c1">// Fill level-set (factory)</span>
+<span class="n">GShopLSFactory</span><span class="o">&lt;</span><span class="n">EB2</span><span class="o">::</span><span class="n">CylinderIF</span><span class="o">&gt;</span> <span class="n">cylinder_lsgs</span><span class="p">(</span><span class="n">cylinder_ghsop</span><span class="p">,</span> <span class="n">level_set</span><span class="p">);</span>
+<span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">MultiFab</span><span class="o">&gt;</span> <span class="n">cylinder_mf_impfunc</span> <span class="o">=</span> <span class="n">cylinder_lsgs</span><span class="p">.</span><span class="n">fill_impfunc</span><span class="p">();</span>
+<span class="n">level_set</span><span class="p">.</span><span class="n">Fill</span><span class="p">(</span><span class="n">eb_factory</span><span class="p">,</span> <span class="o">*</span> <span class="n">cylinder_mf_impfunc</span><span class="p">);</span>
+</pre></div>
 </div>
-<div class="section" id="utility-functions">
-<h2>Utility Functions<a class="headerlink" href="#utility-functions" title="Permalink to this headline">¶</a></h2>
+<p>where the level-set data can now be accessed using:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">const</span> <span class="n">MultiFab</span> <span class="o">*</span> <span class="n">level_set_data</span> <span class="o">=</span> <span class="n">level_set</span><span class="p">.</span><span class="n">get_data</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>or alternatively a copy of the data can be generated using:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">MultiFab</span><span class="o">&gt;</span> <span class="n">level_set_data</span> <span class="o">=</span> <span class="n">level_set</span><span class="p">.</span><span class="n">copy_data</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Both of the data above are on grids what have been refined by <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">ls_ref</span></span></code>
+(with respect to the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BoxArray</span></span> <span class="name"><span class="pre">ba</span></span></code>). In order to get a copy of the
+level-set data at the coarseness of the original grids, use:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">MultiFab</span><span class="o">&gt;</span> <span class="n">level_set_data_crse</span> <span class="o">=</span> <span class="n">level_set</span><span class="p">.</span><span class="n">coarsen_data</span><span class="p">();</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="linear-solvers">
