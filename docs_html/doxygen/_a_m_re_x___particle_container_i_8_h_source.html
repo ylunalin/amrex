@@ -1132,7 +1132,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01042"></a><span class="lineno"> 1042</span>&#160;    <span class="keyword">const</span> <a class="code" href="classamrex_1_1_distribution_mapping.html">DistributionMapping</a>&amp; dmap = ParticleDistributionMap(lev);</div>
 <div class="line"><a name="l01043"></a><span class="lineno"> 1043</span>&#160;    <span class="keyword">auto</span>&amp; plev  = m_particles[lev];</div>
 <div class="line"><a name="l01044"></a><span class="lineno"> 1044</span>&#160;</div>
-<div class="line"><a name="l01045"></a><span class="lineno"> 1045</span>&#160;    <span class="keywordflow">if</span> (ba.<a class="code" href="classamrex_1_1_box_array.html#a8631008cf4785c0d4eb02da299ee2600">size</a>() == 1)</div>
+<div class="line"><a name="l01045"></a><span class="lineno"> 1045</span>&#160;    <span class="keywordflow">if</span> ( (ba.<a class="code" href="classamrex_1_1_box_array.html#a8631008cf4785c0d4eb02da299ee2600">size</a>() == 1) and geom.<a class="code" href="classamrex_1_1_geometry.html#a8d72d686324ede94e130f9676c2cfbfb">isAllPeriodic</a>() )</div>
 <div class="line"><a name="l01046"></a><span class="lineno"> 1046</span>&#160;    {</div>
 <div class="line"><a name="l01047"></a><span class="lineno"> 1047</span>&#160;        EnforcePeriodicGPU();</div>
 <div class="line"><a name="l01048"></a><span class="lineno"> 1048</span>&#160;        <a class="code" href="_a_m_re_x___b_lassert_8_h.html#aad6450907585a147153aef621fdc6007">AMREX_ASSERT</a>(OK());</div>
