@@ -6,5 +6,7 @@ var searchData=
   ['nfilesiter',['NFilesIter',['../classamrex_1_1_n_files_iter.html',1,'amrex']]],
   ['node',['Node',['../classamrex_1_1_c_arena_1_1_node.html',1,'amrex::CArena']]],
   ['nodebilinear',['NodeBilinear',['../classamrex_1_1_node_bilinear.html',1,'amrex']]],
-  ['nullinterphook',['NullInterpHook',['../classamrex_1_1_null_interp_hook.html',1,'amrex']]]
+  ['nullinterphook',['NullInterpHook',['../classamrex_1_1_null_interp_hook.html',1,'amrex']]],
+  ['numcomps',['NumComps',['../structamrex_1_1_num_comps.html',1,'amrex']]],
+  ['numghosts',['NumGhosts',['../structamrex_1_1_num_ghosts.html',1,'amrex']]]
 ];

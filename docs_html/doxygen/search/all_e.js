@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['n',['n',['../structamrex_1_1_num_comps.html#a51d8b50d57ee8a52833c414ae13a5381',1,'amrex::NumComps::n()'],['../structamrex_1_1_num_ghosts.html#a4246b1a6b778d06d83e2ccc9a7b03568',1,'amrex::NumGhosts::n()']]],
   ['n_5fcomp',['n_comp',['../classamrex_1_1_fab_array_base.html#a4ff6141edd1ba1d1940c45b98a619b04',1,'amrex::FabArrayBase']]],
   ['n_5fcycle',['n_cycle',['../classamrex_1_1_amr.html#a091b2e0b9cd006fd375a407f8ed98f80',1,'amrex::Amr']]],
   ['n_5ferror_5fbuf',['n_error_buf',['../classamrex_1_1_amr_mesh.html#ad8752d2dfe5714cdecef8fa9eddb1c7e',1,'amrex::AmrMesh']]],
@@ -107,9 +108,13 @@ var searchData=
   ['numberofparticlesingrid',['NumberOfParticlesInGrid',['../classamrex_1_1_particle_container.html#a71bc723a5da99ad7d6cc8ec96f7981b0',1,'amrex::ParticleContainer']]],
   ['numblocks',['numBlocks',['../structamrex_1_1_cuda_1_1_grid_size.html#a1eafc94db20f558c2dfdf22a355cf675',1,'amrex::Cuda::GridSize']]],
   ['numbytes',['numBytes',['../classamrex_1_1_int_descriptor.html#a1c1e96ec68c0fe88921cc8e5ed321e39',1,'amrex::IntDescriptor::numBytes()'],['../classamrex_1_1_real_descriptor.html#a1afcb82f317a052c3d0ed300328d938d',1,'amrex::RealDescriptor::numBytes()']]],
+  ['numcomps',['NumComps',['../structamrex_1_1_num_comps.html#a7a7aab028de1cb7ad51bf0a872a01a7f',1,'amrex::NumComps']]],
+  ['numcomps',['NumComps',['../structamrex_1_1_num_comps.html',1,'amrex']]],
   ['numdatalogs',['NumDataLogs',['../classamrex_1_1_amr.html#a83eb74ba9a4cd5a567729224d043e940',1,'amrex::Amr']]],
   ['numderiv',['NUMDERIV',['../_a_m_re_x___i_n_t_e_r_p_b_n_d_r_y_d_a_t_a__1_d_8_f90.html#ad8fdc184d6f1cef563d422c5bfa5d2e6',1,'NUMDERIV():&#160;AMReX_INTERPBNDRYDATA_1D.F90'],['../_a_m_re_x___i_n_t_e_r_p_b_n_d_r_y_d_a_t_a__2_d_8_f90.html#ad8fdc184d6f1cef563d422c5bfa5d2e6',1,'NUMDERIV():&#160;AMReX_INTERPBNDRYDATA_2D.F90'],['../_a_m_re_x___i_n_t_e_r_p_b_n_d_r_y_d_a_t_a__3_d_8_f90.html#ad8fdc184d6f1cef563d422c5bfa5d2e6',1,'NUMDERIV():&#160;AMReX_INTERPBNDRYDATA_3D.F90']]],
   ['numderive',['numDerive',['../classamrex_1_1_derive_rec.html#a6983369832ab41c88c48109ec9696192',1,'amrex::DeriveRec']]],
+  ['numghosts',['NumGhosts',['../structamrex_1_1_num_ghosts.html#ac28482b3933e5f6e5b562a3bd1614e8f',1,'amrex::NumGhosts']]],
+  ['numghosts',['NumGhosts',['../structamrex_1_1_num_ghosts.html',1,'amrex']]],
   ['numgrids',['numGrids',['../classamrex_1_1_amr.html#a491beb9efe091fdd65275940c2961bb5',1,'amrex::Amr::numGrids()'],['../classamrex_1_1_amr.html#afa60ea4bfaa0b3a3c4f517b0e5a4d048',1,'amrex::Amr::numGrids(int lev)'],['../classamrex_1_1_amr_level.html#a2cd4b72bfd25b2c90aaa5b2e0badbdfe',1,'amrex::AmrLevel::numGrids()']]],
   ['numlevels',['numLevels',['../classamrex_1_1_particle_container.html#a2edf149588bf5390e8fc14ad2e64d7ba',1,'amrex::ParticleContainer']]],
   ['numlocaltiles',['numLocalTiles',['../structamrex_1_1_fab_array_base_1_1_tile_array.html#a830d98c3be0b8b1f0eb88118f7a1f35c',1,'amrex::FabArrayBase::TileArray::numLocalTiles()'],['../classamrex_1_1_m_f_iter.html#af2fd15d47b733fec41ff3ed293b6ccb9',1,'amrex::MFIter::numLocalTiles()']]],
