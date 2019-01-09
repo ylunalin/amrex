@@ -99,7 +99,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_a_m_re_x___box_8_h.html">AMReX_Box.H</a>&gt;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;cstddef&gt;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="_a_m_re_x___cuda_launch_8_h.html#a50d3c1b5aefe758658ea98bb16b433c8">   12</a></span>&#160;<span class="preprocessor">#define AMREX_CUDA_NCELLS_PER_THREAD 2</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="_a_m_re_x___cuda_launch_8_h.html#a50d3c1b5aefe758658ea98bb16b433c8">   12</a></span>&#160;<span class="preprocessor">#define AMREX_CUDA_NCELLS_PER_THREAD 3</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="_a_m_re_x___cuda_launch_8_h.html#af9b9b6a3b6253b425fb57bafb812dff3">   13</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_CUDA_WARP_SIZE 32</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="_a_m_re_x___cuda_launch_8_h.html#a45a9c9b334efe017556083fcfff10dc9">   14</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_CUDA_Y_STRIDE 1</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="_a_m_re_x___cuda_launch_8_h.html#a4b268a171ec376f8713532502b934b46">   15</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AMREX_CUDA_Z_STRIDE 1</span></div>
@@ -647,7 +647,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;        }</div>
 <div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;        ExecutionConfig (<span class="keyword">const</span> Box&amp; box) {</div>
 <div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;            <span class="comment">// If we change this, we must make sure it doesn&#39;t break say getGridSize, which</span></div>
-<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;            <span class="comment">// assumes the decomposiiton is 1D.</span></div>
+<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;            <span class="comment">// assumes the decomposition is 1D.  FabArrayUtility Reduce* as well.</span></div>
 <div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;            Cuda::Device::n_threads_and_blocks( ((box.numPts()+<a class="code" href="_a_m_re_x___cuda_launch_8_h.html#a50d3c1b5aefe758658ea98bb16b433c8">AMREX_CUDA_NCELLS_PER_THREAD</a>-1)/<a class="code" href="_a_m_re_x___cuda_launch_8_h.html#a50d3c1b5aefe758658ea98bb16b433c8">AMREX_CUDA_NCELLS_PER_THREAD</a>), numBlocks, numThreads );</div>
 <div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;<span class="preprocessor">#if 0</span></div>
 <div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;<span class="preprocessor"></span>            Box b = <a class="code" href="namespaceamrex.html#ac580e8e50d0b0db148206dcf35c9df1a">amrex::surroundingNodes</a>(box);</div>
