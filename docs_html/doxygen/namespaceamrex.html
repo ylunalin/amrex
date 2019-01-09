@@ -109,6 +109,8 @@ Namespaces</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespaceamrex_1_1load_balance_k_d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1load_balance_k_d.html">loadBalanceKD</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespaceamrex_1_1machine"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1machine.html">machine</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespaceamrex_1_1_m_f_util"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex_1_1_m_f_util.html">MFUtil</a></td></tr>
 <tr class="memdesc:namespaceamrex_1_1_m_f_util"><td class="mdescLeft">&#160;</td><td class="mdescRight">General collection of <a class="el" href="classamrex_1_1_multi_fab.html" title="A collection (stored as an array) of FArrayBox objects. This class is useful for storing floating poi...">MultiFab</a> utilities. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1393,6 +1395,12 @@ Functions</h2></td></tr>
 <tr class="separator:af353083e449d736188c80257c096f518"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a264e86a5ee72c5d32bf8498067ff2d91"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a264e86a5ee72c5d32bf8498067ff2d91">second</a> ()</td></tr>
 <tr class="separator:a264e86a5ee72c5d32bf8498067ff2d91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02a312aa2265ef6d255d9e482f4f4ba4"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a02a312aa2265ef6d255d9e482f4f4ba4"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a02a312aa2265ef6d255d9e482f4f4ba4">hash_combine</a> (uint64_t &amp;seed, const T &amp;val)</td></tr>
+<tr class="separator:a02a312aa2265ef6d255d9e482f4f4ba4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab27dcf01fb1f9274d83e561a7509c005"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ab27dcf01fb1f9274d83e561a7509c005"><td class="memTemplItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ab27dcf01fb1f9274d83e561a7509c005">hash_vector</a> (const <a class="el" href="classamrex_1_1_vector.html">Vector</a>&lt; T &gt; &amp;vec, uint64_t seed=0xDEADBEEFDEADBEEF)</td></tr>
+<tr class="separator:ab27dcf01fb1f9274d83e561a7509c005"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b274b97d7cb074bb98afc24ff4ce40f"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr class="memitem:a9b274b97d7cb074bb98afc24ff4ce40f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> <br class="typebreak"/>
 <a class="el" href="_a_m_re_x___extension_8_h.html#aeb09e10bb31cfaa6b8928520c9041df9">AMREX_INLINE</a> const T &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a9b274b97d7cb074bb98afc24ff4ce40f">min</a> (const T &amp;a, const T &amp;b)</td></tr>
@@ -8690,6 +8698,62 @@ template&lt;class T &gt; </div>
 <span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a02a312aa2265ef6d255d9e482f4f4ba4"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void amrex::hash_combine </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t &amp;&#160;</td>
+          <td class="paramname"><em>seed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ab27dcf01fb1f9274d83e561a7509c005"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t amrex::hash_vector </td>
+          <td>(</td>
+          <td class="paramtype">const Vector&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>vec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>seed</em> = <code>0xDEADBEEFDEADBEEF</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
 </div><div class="memdoc">
 
 </div>

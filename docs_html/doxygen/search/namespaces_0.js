@@ -9,6 +9,7 @@ var searchData=
   ['iif_5fdetail',['IIF_detail',['../namespaceamrex_1_1_e_b2_1_1_i_i_f__detail.html',1,'amrex::EB2']]],
   ['lazy',['Lazy',['../namespaceamrex_1_1_lazy.html',1,'amrex']]],
   ['loadbalancekd',['loadBalanceKD',['../namespaceamrex_1_1load_balance_k_d.html',1,'amrex']]],
+  ['machine',['machine',['../namespaceamrex_1_1machine.html',1,'amrex']]],
   ['mfutil',['MFUtil',['../namespaceamrex_1_1_m_f_util.html',1,'amrex']]],
   ['parallelallgather',['ParallelAllGather',['../namespaceamrex_1_1_parallel_all_gather.html',1,'amrex']]],
   ['parallelallreduce',['ParallelAllReduce',['../namespaceamrex_1_1_parallel_all_reduce.html',1,'amrex']]],

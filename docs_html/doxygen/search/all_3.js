@@ -219,7 +219,7 @@ var searchData=
   ['crselevel',['crseLevel',['../classamrex_1_1_flux_register.html#a36313cc23756585731a310c02fa98289',1,'amrex::FluxRegister']]],
   ['crseratio',['crseRatio',['../classamrex_1_1_box_array.html#ac597211790515c194b4caefb748cfcd9',1,'amrex::BoxArray']]],
   ['cudamanagedallocator',['CudaManagedAllocator',['../namespaceamrex.html#abd282e9563d85643f4469e82aaea4d5c',1,'amrex']]],
-  ['cumtime',['cumtime',['../classamrex_1_1_amr.html#a9b46db71980158bc8f12c2f7eebede4a',1,'amrex::Amr::cumtime()'],['../classamrex_1_1_amr.html#a0d4ebc23ce89a8404bd2034986b7f9d7',1,'amrex::Amr::cumTime() const ']]],
+  ['cumtime',['cumTime',['../classamrex_1_1_amr.html#a0d4ebc23ce89a8404bd2034986b7f9d7',1,'amrex::Amr::cumTime() const '],['../classamrex_1_1_amr.html#a9b46db71980158bc8f12c2f7eebede4a',1,'amrex::Amr::cumtime()']]],
   ['current_5fbuilds',['current_builds',['../structamrex_1_1_mem_profiler_1_1_n_builds_info.html#a1af174d3541b8cb0ffddf9902562db08',1,'amrex::MemProfiler::NBuildsInfo']]],
   ['current_5fbytes',['current_bytes',['../structamrex_1_1_mem_profiler_1_1_mem_info.html#a334add2acca04ed49223180ab7991e19',1,'amrex::MemProfiler::MemInfo']]],
   ['currentindex',['currentIndex',['../classamrex_1_1_m_f_iter.html#abfba09b9f27138141e9758d1a8ea2e4b',1,'amrex::MFIter']]],

@@ -219,9 +219,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a70511fca0600a56369ce74f28cbc9d99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa07e2c79e1100575a40bdb8c2b3efe03"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classamrex_1_1_distribution_mapping.html">DistributionMapping</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_distribution_mapping.html#aa07e2c79e1100575a40bdb8c2b3efe03">makeSFC</a> (const <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;weight, bool sort=true)</td></tr>
 <tr class="separator:aa07e2c79e1100575a40bdb8c2b3efe03"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a7d37803ec6d3baeb7922ba6ce49a34"><td class="memItemLeft" align="right" valign="top">static std::vector<br class="typebreak"/>
-&lt; std::vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_distribution_mapping.html#a8a7d37803ec6d3baeb7922ba6ce49a34">makeSFC</a> (const <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> &amp;ba)</td></tr>
-<tr class="separator:a8a7d37803ec6d3baeb7922ba6ce49a34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bb54d936d3034fd9524e2065a1ab6cd"><td class="memItemLeft" align="right" valign="top">static std::vector<br class="typebreak"/>
+&lt; std::vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_distribution_mapping.html#a4bb54d936d3034fd9524e2065a1ab6cd">makeSFC</a> (const <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> &amp;ba, bool use_box_vol=true)</td></tr>
+<tr class="separator:a4bb54d936d3034fd9524e2065a1ab6cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -831,7 +831,7 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a8a7d37803ec6d3baeb7922ba6ce49a34"></a>
+<a class="anchor" id="a4bb54d936d3034fd9524e2065a1ab6cd"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -842,8 +842,18 @@ Friends</h2></td></tr>
           <td class="memname">std::vector&lt; std::vector&lt; int &gt; &gt; amrex::DistributionMapping::makeSFC </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classamrex_1_1_box_array.html">BoxArray</a> &amp;&#160;</td>
-          <td class="paramname"><em>ba</em></td><td>)</td>
+          <td class="paramname"><em>ba</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>use_box_vol</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>

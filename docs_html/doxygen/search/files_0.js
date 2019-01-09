@@ -281,6 +281,8 @@ var searchData=
   ['amrex_5floadbalancekd_2eh',['AMReX_LoadBalanceKD.H',['../_a_m_re_x___load_balance_k_d_8_h.html',1,'']]],
   ['amrex_5fmacbndry_2ecpp',['AMReX_MacBndry.cpp',['../_a_m_re_x___mac_bndry_8cpp.html',1,'']]],
   ['amrex_5fmacbndry_2eh',['AMReX_MacBndry.H',['../_a_m_re_x___mac_bndry_8_h.html',1,'']]],
+  ['amrex_5fmachine_2ecpp',['AMReX_Machine.cpp',['../_a_m_re_x___machine_8cpp.html',1,'']]],
+  ['amrex_5fmachine_2eh',['AMReX_Machine.H',['../_a_m_re_x___machine_8_h.html',1,'']]],
   ['amrex_5fmaketype_2eh',['AMReX_MakeType.H',['../_a_m_re_x___make_type_8_h.html',1,'']]],
   ['amrex_5fmask_2ecpp',['AMReX_Mask.cpp',['../_a_m_re_x___mask_8cpp.html',1,'']]],
   ['amrex_5fmask_2eh',['AMReX_Mask.H',['../_a_m_re_x___mask_8_h.html',1,'']]],
