@@ -26,7 +26,6 @@ var searchData=
   ['amrex_5fbasefab_2ecpp',['AMReX_BaseFab.cpp',['../_a_m_re_x___base_fab_8cpp.html',1,'']]],
   ['amrex_5fbasefab_2eh',['AMReX_BaseFab.H',['../_a_m_re_x___base_fab_8_h.html',1,'']]],
   ['amrex_5fbasefabutility_2eh',['AMReX_BaseFabUtility.H',['../_a_m_re_x___base_fab_utility_8_h.html',1,'']]],
-  ['amrex_5fbaseindex_2eh',['AMReX_BaseIndex.H',['../_a_m_re_x___base_index_8_h.html',1,'']]],
   ['amrex_5fbaseumap_2eh',['AMReX_BaseUmap.H',['../_a_m_re_x___base_umap_8_h.html',1,'']]],
   ['amrex_5fbaseumap_5ff_2eh',['AMReX_BaseUmap_f.H',['../_a_m_re_x___base_umap__f_8_h.html',1,'']]],
   ['amrex_5fbaseumap_5fnd_2ef90',['AMReX_BaseUmap_nd.f90',['../_a_m_re_x___base_umap__nd_8f90.html',1,'']]],

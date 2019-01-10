@@ -12,7 +12,6 @@ var searchData=
   ['_7easyncfab',['~AsyncFab',['../classamrex_1_1_cuda_1_1_async_fab.html#a33522be42ebac0c474d74fe4264160bb',1,'amrex::Cuda::AsyncFab']]],
   ['_7easyncfabimpl',['~AsyncFabImpl',['../classamrex_1_1_cuda_1_1_async_fab_impl.html#a1d6f0f69d10492cd715cbe21b8f5cab2',1,'amrex::Cuda::AsyncFabImpl']]],
   ['_7ebasefab',['~BaseFab',['../classamrex_1_1_base_fab.html#a442cc6eaf0d47323491f0922e2266a6a',1,'amrex::BaseFab']]],
-  ['_7ebaseindex',['~BaseIndex',['../classamrex_1_1_base_index.html#a66503e8ecebfb3d52c0a543061af0e1e',1,'amrex::BaseIndex']]],
   ['_7ebaseumap',['~BaseUmap',['../classamrex_1_1_base_umap.html#a66dce96b470d563ad6f46b9054733106',1,'amrex::BaseUmap']]],
   ['_7ebndrydata',['~BndryData',['../classamrex_1_1_bndry_data.html#ad6ebc5a788a82c41a8b1bffc8e589440',1,'amrex::BndryData']]],
   ['_7ebndryfunc',['~BndryFunc',['../classamrex_1_1_state_descriptor_1_1_bndry_func.html#ac734cc2b9fe8ae9330f8a4d389eea388',1,'amrex::StateDescriptor::BndryFunc']]],

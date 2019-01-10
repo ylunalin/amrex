@@ -7,7 +7,6 @@ var searchData=
   ['basefab_5ffinalize',['BaseFab_Finalize',['../namespaceamrex.html#a67b24cef9df62e8cced041445b239e86',1,'amrex']]],
   ['basefab_5finitialize',['BaseFab_Initialize',['../namespaceamrex.html#a652bd22fb8cfcdfeaa4ac62e81a41fe6',1,'amrex']]],
   ['basefabdata',['BaseFabData',['../structamrex_1_1_base_fab_data.html#a648cb18483dc59f711618ccde553635f',1,'amrex::BaseFabData::BaseFabData(Box const &amp;a_domain, IntVect const &amp;a_dlen, int a_nvar, long a_numpts, long a_truesize, T *a_dptr, bool a_ptr_owner, bool a_shared_memory)'],['../structamrex_1_1_base_fab_data.html#a2c734fc3f402e0749da3a52dba9f1077',1,'amrex::BaseFabData::BaseFabData()=default']]],
-  ['baseindex',['BaseIndex',['../classamrex_1_1_base_index.html#af2becb790267272192633db38db2888f',1,'amrex::BaseIndex']]],
   ['baseumap',['BaseUmap',['../classamrex_1_1_base_umap.html#a7139c2c6f64902632db8a27b3c7ccd0a',1,'amrex::BaseUmap']]],
   ['basisrealv',['BASISREALV',['../namespaceamrex.html#abf4c933fca6a96ef914e6cd861d94bf0',1,'amrex']]],
   ['basisv',['BASISV',['../namespaceamrex.html#ab5985bb80e3f71d5a2791b1a2cd502c2',1,'amrex']]],
