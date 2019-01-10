@@ -401,19 +401,20 @@ CMake build is a two-step process. First <code class="docutils literal notransla
 configuration files and makefiles in a chosen directory (<code class="docutils literal notranslate"><span class="pre">builddir</span></code>).  This
 is roughly equivalent to running <code class="docutils literal notranslate"><span class="pre">./configure</span></code> (see the section on
 <a class="reference internal" href="#sec-build-lib"><span class="std std-ref">Building libamrex</span></a>). Next, the actual build and installation are performed by
-invoking <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code> from within builddir. This installs the library files
+invoking <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code> from within <code class="docutils literal notranslate"><span class="pre">builddir</span></code>. This installs the library files
 in a chosen installation directory (<code class="docutils literal notranslate"><span class="pre">installdir</span></code>).  If no installation path
 is provided by the user, AMReX will be installed in /path/to/amrex/installdir.
 The CMake build process is summarized as follows:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mkdir /path/to/builddir</span>
 <span class="go">cd    /path/to/builddir</span>
-<span class="go">cmake [options] -DCMAKE_INSTALL_PREFIX:PATH=/path/to/installdir  /path/to/amrex</span>
+<span class="go">cmake [options] -DCMAKE_BUILD_TYPE=[Debug|Release|RelWithDebInfo|MinSizeRel] -DCMAKE_INSTALL_PREFIX=/path/to/installdir  /path/to/amrex</span>
 <span class="go">make  install</span>
 </pre></div>
 </div>
 <p>In the above snippet, <code class="docutils literal notranslate"><span class="pre">[options]</span></code> indicates one or more options for the
 customization of the build, as described in the subsection&nbsp;on
-<a class="reference internal" href="#sec-build-cmake-options"><span class="std std-ref">Customization options</span></a>.  Although the AMReX&nbsp;source could be used as
+<a class="reference internal" href="#sec-build-cmake-options"><span class="std std-ref">Customization options</span></a>. If the option <code class="docutils literal notranslate"><span class="pre">CMAKE_BUILD_TYPE</span></code> is omitted,
+<code class="docutils literal notranslate"><span class="pre">CMAKE_BUILD_TYPE=Release</span></code> is assumed. Although the AMReX&nbsp;source could be used as
 build directory, we advise against doing so.  After the installation is
 complete, builddir can be removed.</p>
 <div class="section" id="cmake-and-macos">
@@ -431,7 +432,7 @@ we recommend telling cmake to use gcc for c/c++ also.</p>
 <span id="sec-build-cmake-options"></span><h2>Customization options<a class="headerlink" href="#customization-options" title="Permalink to this headline">¶</a></h2>
 <p>AMReX&nbsp;configuration settings may be specified on the command line with the
 <code class="docutils literal notranslate"><span class="pre">-D</span></code> option.  For example, one can enable OpenMP support as follows:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cmake -DENABLE_OMP=1 -DCMAKE_INSTALL_PREFIX:PATH=/path/to/installdir  /path/to/amrex</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cmake -DENABLE_OMP=1 -DCMAKE_INSTALL_PREFIX=/path/to/installdir  /path/to/amrex</span>
 </pre></div>
 </div>
 <p>The list of available option is reported in the table on&nbsp;<a class="reference internal" href="#tab-cmakevar"><span class="std std-ref">AMReX build options</span></a>
@@ -452,148 +453,129 @@ below.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>DEBUG</td>
-<td>Build AMReX in debug mode</td>
-<td>OFF</td>
-<td>ONE, OFF</td>
-</tr>
-<tr class="row-odd"><td>DIM</td>
+<tr class="row-even"><td>DIM</td>
 <td>Dimension of AMReX build</td>
 <td>3</td>
 <td>2, 3</td>
 </tr>
-<tr class="row-even"><td>ENABLE_DP</td>
+<tr class="row-odd"><td>ENABLE_DP</td>
 <td>Build with double-precision reals</td>
 <td>ON</td>
 <td>ON, OFF</td>
 </tr>
-<tr class="row-odd"><td>ENABLE_PIC</td>
+<tr class="row-even"><td>ENABLE_PIC</td>
 <td>Build Position Independent Code</td>
 <td>OFF</td>
 <td>ON, OFF</td>
 </tr>
-<tr class="row-even"><td>ENABLE_MPI</td>
+<tr class="row-odd"><td>ENABLE_MPI</td>
 <td>Build with MPI support</td>
 <td>ON</td>
 <td>ON OFF</td>
 </tr>
-<tr class="row-odd"><td>ENABLE_OMP</td>
+<tr class="row-even"><td>ENABLE_OMP</td>
 <td>Build with OpenMP support</td>
 <td>OFF</td>
 <td>ON, OFF</td>
 </tr>
-<tr class="row-even"><td>ENABLE_FORTRAN_INTERFACES</td>
+<tr class="row-odd"><td>ENABLE_FORTRAN_INTERFACES</td>
 <td>Build Fortran API</td>
 <td>ON</td>
 <td>ON, OFF</td>
 </tr>
-<tr class="row-odd"><td>ENABLE_LINEAR_SOLVERS</td>
+<tr class="row-even"><td>ENABLE_LINEAR_SOLVERS</td>
 <td>Build AMReX linear solvers</td>
 <td>ON</td>
 <td>ON, OFF</td>
 </tr>
-<tr class="row-even"><td>ENABLE_LINEAR_SOLVERS_LEGACY</td>
-<td>Build AMReX linear solvers (legacy components)</td>
-<td>ON</td>
-<td>ON, OFF</td>
-</tr>
-<tr class="row-odd"><td>ENABLE_FBASELIB</td>
-<td>Build (deprecated) Fortran kernel</td>
-<td>ON</td>
-<td>ON, OFF</td>
-</tr>
-<tr class="row-even"><td>ENABLE_AMRDATA</td>
+<tr class="row-odd"><td>ENABLE_AMRDATA</td>
 <td>Build data services</td>
 <td>OFF</td>
 <td>ON, OFF</td>
 </tr>
-<tr class="row-odd"><td>ENABLE_PARTICLES</td>
+<tr class="row-even"><td>ENABLE_PARTICLES</td>
 <td>Build particle classes</td>
 <td>OFF</td>
 <td>ON OFF</td>
 </tr>
-<tr class="row-even"><td>ENABLE_DP_PARTICLES</td>
+<tr class="row-odd"><td>ENABLE_DP_PARTICLES</td>
 <td>Use double-precision reals in particle classes</td>
 <td>ON</td>
 <td>ON, OFF</td>
 </tr>
-<tr class="row-odd"><td>ENABLE_BASE_PROFILE</td>
+<tr class="row-even"><td>ENABLE_BASE_PROFILE</td>
 <td>Build with basic profiling support</td>
 <td>OFF</td>
 <td>ON, OFF</td>
 </tr>
-<tr class="row-even"><td>ENABLE_TINY_PROFILE</td>
+<tr class="row-odd"><td>ENABLE_TINY_PROFILE</td>
 <td>Build with tiny profiling support</td>
 <td>OFF</td>
 <td>ON, OFF</td>
 </tr>
-<tr class="row-odd"><td>ENABLE_TRACE_PROFILE</td>
+<tr class="row-even"><td>ENABLE_TRACE_PROFILE</td>
 <td>Build with trace-profiling support</td>
 <td>OFF</td>
 <td>ON, OFF</td>
 </tr>
-<tr class="row-even"><td>ENABLE_COMM_PROFILE</td>
+<tr class="row-odd"><td>ENABLE_COMM_PROFILE</td>
 <td>Build with comm-profiling support</td>
 <td>OFF</td>
 <td>ON, OFF</td>
 </tr>
-<tr class="row-odd"><td>ENABLE_MEM_PROFILE</td>
+<tr class="row-even"><td>ENABLE_MEM_PROFILE</td>
 <td>Build with memory-profiling support</td>
 <td>OFF</td>
 <td>ON, OFF</td>
 </tr>
-<tr class="row-even"><td>ENABLE_PROFPARSER</td>
+<tr class="row-odd"><td>ENABLE_PROFPARSER</td>
 <td>Build with profile parser support</td>
 <td>OFF</td>
 <td>ON, OFF</td>
 </tr>
-<tr class="row-odd"><td>ENABLE_BACKTRACE</td>
+<tr class="row-even"><td>ENABLE_BACKTRACE</td>
 <td>Build with backtrace support</td>
 <td>OFF</td>
 <td>ON, OFF</td>
 </tr>
-<tr class="row-even"><td>ENABLE_FPE</td>
+<tr class="row-odd"><td>ENABLE_FPE</td>
 <td>Build with Floating Point Exceptions checks</td>
 <td>OFF</td>
 <td>ON,OFF</td>
 </tr>
-<tr class="row-odd"><td>ENABLE_ASSERTIONS</td>
+<tr class="row-even"><td>ENABLE_ASSERTIONS</td>
 <td>Build with assertions turned on</td>
 <td>OFF</td>
 <td>ON,OFF</td>
 </tr>
-<tr class="row-even"><td>CMAKE_Fortran_FLAGS</td>
+<tr class="row-odd"><td>CMAKE_Fortran_FLAGS</td>
 <td>User-defined Fortran flags</td>
 <td>&#160;</td>
 <td>user-defined</td>
 </tr>
-<tr class="row-odd"><td>CMAKE_CXX_FLAGS</td>
+<tr class="row-even"><td>CMAKE_CXX_FLAGS</td>
 <td>User-defined C++ flags</td>
 <td>&#160;</td>
 <td>user-defined</td>
 </tr>
-<tr class="row-even"><td>ENABLE_3D_NODAL_MGML</td>
+<tr class="row-odd"><td>ENABLE_3D_NODAL_MGML</td>
 <td>Enable 3D nodal projection</td>
 <td>OFF</td>
 <td>ON,OFF</td>
 </tr>
-<tr class="row-odd"><td>ALGOIM_INSTALL_DIR</td>
+<tr class="row-even"><td>ALGOIM_INSTALL_DIR</td>
 <td>Path to Algoim installation directory</td>
 <td>&#160;</td>
 <td>user-defined</td>
 </tr>
-<tr class="row-even"><td>BLITZ_INSTALL_DIR</td>
+<tr class="row-odd"><td>BLITZ_INSTALL_DIR</td>
 <td>Path to Blitz installation directory</td>
 <td>&#160;</td>
 <td>user-defined</td>
 </tr>
 </tbody>
 </table>
-<p>The option <code class="docutils literal notranslate"><span class="pre">ENABLE_LINEAR_SOLVERS=ON</span></code> triggers the inclusion of C++-based
-linear solvers in the build. Fortran-based linear solvers can be included as
-well by providing the option <code class="docutils literal notranslate"><span class="pre">ENABLE_FBASELIB=ON</span></code> in addition to
-<code class="docutils literal notranslate"><span class="pre">ENABLE_LINEAR_SOLVERS=ON</span></code>.</p>
-<p>The option <code class="docutils literal notranslate"><span class="pre">DEBUG=ON</span></code> implies <code class="docutils literal notranslate"><span class="pre">ENABLE_ASSERTION=ON</span></code>. In order to turn off
+<p>The option <code class="docutils literal notranslate"><span class="pre">CMAKE_BUILD_TYPE=Debug</span></code> implies <code class="docutils literal notranslate"><span class="pre">ENABLE_ASSERTION=ON</span></code>. In order to turn off
 assertions in debug mode, <code class="docutils literal notranslate"><span class="pre">ENABLE_ASSERTION=OFF</span></code> must be set explicitly while
 invoking CMake.</p>
 <p>The options <code class="docutils literal notranslate"><span class="pre">CMAKE_Fortran_FLAGS</span></code> and <code class="docutils literal notranslate"><span class="pre">CMAKE_CXX_FLAGS</span></code> allow the user to
