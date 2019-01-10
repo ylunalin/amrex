@@ -103,11 +103,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a40c700ed97002ff6a85bf8bc93feab46"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_box.html#a40c700ed97002ff6a85bf8bc93feab46">Box</a> ()</td></tr>
-<tr class="separator:a40c700ed97002ff6a85bf8bc93feab46"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5301d64a323f83b9053c115de466612e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_box.html#a5301d64a323f83b9053c115de466612e">Box</a> (const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;small, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;big)</td></tr>
-<tr class="memdesc:a5301d64a323f83b9053c115de466612e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct cell-centered type <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a>.  <a href="#a5301d64a323f83b9053c115de466612e">More...</a><br/></td></tr>
-<tr class="separator:a5301d64a323f83b9053c115de466612e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a515c76451d7eb3ee77da1844bb1e5fe1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_box.html#a515c76451d7eb3ee77da1844bb1e5fe1">Box</a> ()</td></tr>
+<tr class="separator:a515c76451d7eb3ee77da1844bb1e5fe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4cf9c26294a5679b949f466f6b96ede"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_box.html#ad4cf9c26294a5679b949f466f6b96ede">Box</a> (const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;small, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;big)</td></tr>
+<tr class="memdesc:ad4cf9c26294a5679b949f466f6b96ede"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct cell-centered type <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a>.  <a href="#ad4cf9c26294a5679b949f466f6b96ede">More...</a><br/></td></tr>
+<tr class="separator:ad4cf9c26294a5679b949f466f6b96ede"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a995302db3fa3910f2456c803bffe4a69"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classamrex_1_1_box.html#a995302db3fa3910f2456c803bffe4a69">Box</a> (const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;small, const int *vec_len)</td></tr>
 <tr class="memdesc:a995302db3fa3910f2456c803bffe4a69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct box with specified lengths.  <a href="#a995302db3fa3910f2456c803bffe4a69">More...</a><br/></td></tr>
 <tr class="separator:a995302db3fa3910f2456c803bffe4a69"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -396,7 +396,7 @@ Friends</h2></td></tr>
 <p>A <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> is an abstraction for defining discrete regions of SPACEDIM indexing space. Boxes have an <a class="el" href="classamrex_1_1_index_type.html" title="Cell-Based or Node-Based Indices. ">IndexType</a>, which defines <a class="el" href="classamrex_1_1_index_type.html#a4bbe4fdc07aa019c3a4a6839cdafcccea287ace89f7ffd266daab1798b3d48aa1">IndexType::CELL</a> or <a class="el" href="classamrex_1_1_index_type.html#a4bbe4fdc07aa019c3a4a6839cdafcccea410f04417a9413c9d3d862e84300eb05">IndexType::NODE</a> based points for each direction and a low and high INTVECT which defines the lower and upper corners of the <a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a>. Boxes can exist in positive and negative indexing space.</p>
 <p><a class="el" href="classamrex_1_1_box.html" title="A Rectangular Domain on an Integer Lattice. ">Box</a> is a dimension dependent class, so SPACEDIM must be defined as either 1, 2, or 3 when compiling. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a40c700ed97002ff6a85bf8bc93feab46"></a>
+<a class="anchor" id="a515c76451d7eb3ee77da1844bb1e5fe1"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -404,7 +404,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> amrex::Box::Box </td>
+          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> constexpr amrex::Box::Box </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -419,7 +419,7 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a5301d64a323f83b9053c115de466612e"></a>
+<a class="anchor" id="ad4cf9c26294a5679b949f466f6b96ede"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -427,7 +427,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> amrex::Box::Box </td>
+          <td class="memname"><a class="el" href="_a_m_re_x___gpu_qualifiers_8_h.html#aac52ee54727d35b2d0033b119a991618">AMREX_GPU_HOST_DEVICE</a> constexpr amrex::Box::Box </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;&#160;</td>
           <td class="paramname"><em>small</em>, </td>
