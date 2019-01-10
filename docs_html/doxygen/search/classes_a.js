@@ -1,6 +1,7 @@
 var searchData=
 [
   ['latheif',['LatheIF',['../classamrex_1_1_e_b2_1_1_lathe_i_f.html',1,'amrex::EB2']]],
+  ['launchsafeguard',['LaunchSafeGuard',['../structamrex_1_1_cuda_1_1_launch_safe_guard.html',1,'amrex::Cuda']]],
   ['layoutdata',['LayoutData',['../classamrex_1_1_layout_data.html',1,'amrex']]],
   ['layoutdata_3c_20amrex_3a_3avector_3c_20amrex_3a_3avector_3c_20amrex_3a_3aboundcond_20_3e_20_3e_20_3e',['LayoutData&lt; amrex::Vector&lt; amrex::Vector&lt; amrex::BoundCond &gt; &gt; &gt;',['../classamrex_1_1_layout_data.html',1,'amrex']]],
   ['layoutdata_3c_20gfab_20_3e',['LayoutData&lt; GFab &gt;',['../classamrex_1_1_layout_data.html',1,'amrex']]],

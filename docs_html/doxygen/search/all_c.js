@@ -12,8 +12,10 @@ var searchData=
   ['latheif',['LatheIF',['../classamrex_1_1_e_b2_1_1_lathe_i_f.html',1,'amrex::EB2']]],
   ['launch_5fglobal',['launch_global',['../namespaceamrex.html#a8fd1cb48ab79898f1f480c55c433113a',1,'amrex::launch_global(L f0)'],['../namespaceamrex.html#ab00122e9945b91351e217899154404ab',1,'amrex::launch_global(L f0, Lambdas...fs)']]],
   ['launch_5fhost',['launch_host',['../namespaceamrex.html#aa6c1133cc79fff18d355ad738c64f6e8',1,'amrex::launch_host(L f0)'],['../namespaceamrex.html#a76002fa0280f6229a56078b437a9620d',1,'amrex::launch_host(L f0, Lambdas...fs)']]],
-  ['layoutdata',['LayoutData',['../classamrex_1_1_layout_data.html',1,'amrex']]],
+  ['launchsafeguard',['LaunchSafeGuard',['../structamrex_1_1_cuda_1_1_launch_safe_guard.html',1,'amrex::Cuda']]],
+  ['launchsafeguard',['LaunchSafeGuard',['../structamrex_1_1_cuda_1_1_launch_safe_guard.html#a0561f6c6173aca7619b2ec6a8be1c518',1,'amrex::Cuda::LaunchSafeGuard']]],
   ['layoutdata',['LayoutData',['../classamrex_1_1_layout_data.html#a447a15fede8b1a8a998dfcae0aac1507',1,'amrex::LayoutData::LayoutData()=default'],['../classamrex_1_1_layout_data.html#ae420ab81a062d2cfcd209c08a1f7dab3',1,'amrex::LayoutData::LayoutData(const BoxArray &amp;a_grids, const DistributionMapping &amp;a_dm)'],['../classamrex_1_1_layout_data.html#a9f32a3b5b38c4c245fa07f4af9f818bf',1,'amrex::LayoutData::LayoutData(const LayoutData &amp;rhs) noexcept'],['../classamrex_1_1_layout_data.html#a1fa987ab9141d88d6b23063c4bfdd38d',1,'amrex::LayoutData::LayoutData(LayoutData &amp;&amp;rhs) noexcept']]],
+  ['layoutdata',['LayoutData',['../classamrex_1_1_layout_data.html',1,'amrex']]],
   ['layoutdata_3c_20amrex_3a_3avector_3c_20amrex_3a_3avector_3c_20amrex_3a_3aboundcond_20_3e_20_3e_20_3e',['LayoutData&lt; amrex::Vector&lt; amrex::Vector&lt; amrex::BoundCond &gt; &gt; &gt;',['../classamrex_1_1_layout_data.html',1,'amrex']]],
   ['layoutdata_3c_20gfab_20_3e',['LayoutData&lt; GFab &gt;',['../classamrex_1_1_layout_data.html',1,'amrex']]],
   ['layoutdata_3c_20realtuple_20_3e',['LayoutData&lt; RealTuple &gt;',['../classamrex_1_1_layout_data.html',1,'amrex']]],
@@ -84,7 +86,7 @@ var searchData=
   ['lscore',['LSCore',['../classamrex_1_1_l_s_core.html#aca5d00daf9c5c2258765ab50f8c12da4',1,'amrex::LSCore::LSCore(EB2::GeometryShop&lt; F &gt; gshop)'],['../classamrex_1_1_l_s_core.html#a7db20b5b0b1b653997ed74c2d5fc806e',1,'amrex::LSCore::LSCore(EB2::GeometryShop&lt; F &gt; a_gshop, const RealBox *rb, int max_level_in, const Vector&lt; int &gt; &amp;n_cell_in, int coord=-1)']]],
   ['lscorebase',['LSCoreBase',['../classamrex_1_1_l_s_core_base.html#a0c1af368aa2e2d6c9796c76935a26abf',1,'amrex::LSCoreBase::LSCoreBase()'],['../classamrex_1_1_l_s_core_base.html#a60418dd08d5d8a8229db489e3ecbf663',1,'amrex::LSCoreBase::LSCoreBase(const RealBox *rb, int max_level_in, const Vector&lt; int &gt; &amp;n_cell_in, int coord=-1)']]],
   ['lscorebase',['LSCoreBase',['../classamrex_1_1_l_s_core_base.html',1,'amrex']]],
-  ['lsfactory',['LSFactory',['../classamrex_1_1_l_s_factory.html#abdd30fe9dc57e254aebe61ee6fc2c0f5',1,'amrex::LSFactory::LSFactory(int lev, int ls_ref, int eb_ref, int ls_pad, int eb_pad, const BoxArray &amp;ba, const Geometry &amp;geom, const DistributionMapping &amp;dm, int eb_tile_size=32)'],['../classamrex_1_1_l_s_factory.html#ad9ad3dc591ddac2f290c4d86a906edd2',1,'amrex::LSFactory::LSFactory(const LSFactory &amp;other)']]],
   ['lsfactory',['LSFactory',['../classamrex_1_1_l_s_factory.html',1,'amrex']]],
+  ['lsfactory',['LSFactory',['../classamrex_1_1_l_s_factory.html#abdd30fe9dc57e254aebe61ee6fc2c0f5',1,'amrex::LSFactory::LSFactory(int lev, int ls_ref, int eb_ref, int ls_pad, int eb_pad, const BoxArray &amp;ba, const Geometry &amp;geom, const DistributionMapping &amp;dm, int eb_tile_size=32)'],['../classamrex_1_1_l_s_factory.html#ad9ad3dc591ddac2f290c4d86a906edd2',1,'amrex::LSFactory::LSFactory(const LSFactory &amp;other)']]],
   ['lsutility',['LSUtility',['../classamrex_1_1_l_s_utility.html',1,'amrex']]]
 ];

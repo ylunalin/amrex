@@ -1361,7 +1361,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01380"></a><span class="lineno"> 1380</span>&#160;                    <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a224e4236496017e5f5cbcec29e94c379">AMREX_LAUNCH_DEVICE_LAMBDA</a> ( ncells, icell,</div>
 <div class="line"><a name="l01381"></a><span class="lineno"> 1381</span>&#160;                    {</div>
 <div class="line"><a name="l01382"></a><span class="lineno"> 1382</span>&#160;                        <span class="keyword">const</span> <a class="code" href="classamrex_1_1_int_vect.html">IntVect</a> iv = <a class="code" href="namespaceamrex.html#ac7b9e14eb26298da3af516e7f2d588ab">amrex::getCell</a>(pboxes, nboxes, icell);</div>
-<div class="line"><a name="l01383"></a><span class="lineno"> 1383</span>&#160;                        fab-&gt;setVal(val, <a class="code" href="classamrex_1_1_box.html">Box</a>(iv,iv,fab-&gt;box().ixType()), strt_comp, ncomp);</div>
+<div class="line"><a name="l01383"></a><span class="lineno"> 1383</span>&#160;                        fab-&gt;setVal(val, <a class="code" href="classamrex_1_1_box.html">Box</a>(iv,iv,fab-&gt;box().ixType()), <a class="code" href="structamrex_1_1_dest_comp.html">DestComp</a>{strt_comp}, <a class="code" href="structamrex_1_1_num_comps.html">NumComps</a>{ncomp});</div>
 <div class="line"><a name="l01384"></a><span class="lineno"> 1384</span>&#160;                    });</div>
 <div class="line"><a name="l01385"></a><span class="lineno"> 1385</span>&#160;                }</div>
 <div class="line"><a name="l01386"></a><span class="lineno"> 1386</span>&#160;            }</div>
@@ -1424,7 +1424,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01443"></a><span class="lineno"> 1443</span>&#160;                <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a224e4236496017e5f5cbcec29e94c379">AMREX_LAUNCH_DEVICE_LAMBDA</a> ( ncells, icell,</div>
 <div class="line"><a name="l01444"></a><span class="lineno"> 1444</span>&#160;                {</div>
 <div class="line"><a name="l01445"></a><span class="lineno"> 1445</span>&#160;                    <span class="keyword">const</span> <a class="code" href="classamrex_1_1_int_vect.html">IntVect</a> iv = <a class="code" href="namespaceamrex.html#ac7b9e14eb26298da3af516e7f2d588ab">amrex::getCell</a>(pboxes, nboxes, icell);</div>
-<div class="line"><a name="l01446"></a><span class="lineno"> 1446</span>&#160;                    fab-&gt;setVal(val, <a class="code" href="classamrex_1_1_box.html">Box</a>(iv,iv,fab-&gt;box().ixType()), strt_comp, ncomp);</div>
+<div class="line"><a name="l01446"></a><span class="lineno"> 1446</span>&#160;                    fab-&gt;setVal(val, <a class="code" href="classamrex_1_1_box.html">Box</a>(iv,iv,fab-&gt;box().ixType()), <a class="code" href="structamrex_1_1_dest_comp.html">DestComp</a>{strt_comp}, <a class="code" href="structamrex_1_1_num_comps.html">NumComps</a>{ncomp});</div>
 <div class="line"><a name="l01447"></a><span class="lineno"> 1447</span>&#160;                });</div>
 <div class="line"><a name="l01448"></a><span class="lineno"> 1448</span>&#160;            }</div>
 <div class="line"><a name="l01449"></a><span class="lineno"> 1449</span>&#160;        }</div>
@@ -1566,7 +1566,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01585"></a><span class="lineno"> 1585</span>&#160;</div>
 <div class="line"><a name="l01586"></a><span class="lineno"> 1586</span>&#160;            <a class="code" href="_a_m_re_x___gpu_launch_8_h.html#a20fce791cf3cebcb24e689bb5da837c0">AMREX_LAUNCH_HOST_DEVICE_LAMBDA</a>(b, tbx,</div>
 <div class="line"><a name="l01587"></a><span class="lineno"> 1587</span>&#160;            {</div>
-<div class="line"><a name="l01588"></a><span class="lineno"> 1588</span>&#160;                fab-&gt;setVal(val, tbx, comp, ncomp);</div>
+<div class="line"><a name="l01588"></a><span class="lineno"> 1588</span>&#160;                fab-&gt;setVal(val, tbx, <a class="code" href="structamrex_1_1_dest_comp.html">DestComp</a>{comp}, <a class="code" href="structamrex_1_1_num_comps.html">NumComps</a>{ncomp});</div>
 <div class="line"><a name="l01589"></a><span class="lineno"> 1589</span>&#160;            });</div>
 <div class="line"><a name="l01590"></a><span class="lineno"> 1590</span>&#160;        }</div>
 <div class="line"><a name="l01591"></a><span class="lineno"> 1591</span>&#160;    }</div>
