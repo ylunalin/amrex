@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['n',['n',['../structamrex_1_1_num_comps.html#a51d8b50d57ee8a52833c414ae13a5381',1,'amrex::NumComps::n()'],['../structamrex_1_1_num_ghosts.html#a4246b1a6b778d06d83e2ccc9a7b03568',1,'amrex::NumGhosts::n()']]],
+  ['n',['n',['../structamrex_1_1_num_comps.html#a51d8b50d57ee8a52833c414ae13a5381',1,'amrex::NumComps']]],
   ['n_5fcomp',['n_comp',['../classamrex_1_1_fab_array_base.html#a4ff6141edd1ba1d1940c45b98a619b04',1,'amrex::FabArrayBase']]],
   ['n_5fcycle',['n_cycle',['../classamrex_1_1_amr.html#a091b2e0b9cd006fd375a407f8ed98f80',1,'amrex::Amr']]],
   ['n_5ferror_5fbuf',['n_error_buf',['../classamrex_1_1_amr_mesh.html#ad8752d2dfe5714cdecef8fa9eddb1c7e',1,'amrex::AmrMesh']]],
