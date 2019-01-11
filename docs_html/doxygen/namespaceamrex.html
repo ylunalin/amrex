@@ -968,6 +968,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a0c2b498e70292eed35ae41e1bdd88e80"><td class="memTemplParams" colspan="2">template&lt;class FAB1 , class FAB2 , class F , class bar  = amrex::EnableIf_t&lt;IsBaseFab&lt;FAB1&gt;::value&gt;&gt; </td></tr>
 <tr class="memitem:a0c2b498e70292eed35ae41e1bdd88e80"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a0c2b498e70292eed35ae41e1bdd88e80">ReduceLogicalOr</a> (<a class="el" href="classamrex_1_1_fab_array.html">FabArray</a>&lt; FAB1 &gt; const &amp;fa1, <a class="el" href="classamrex_1_1_fab_array.html">FabArray</a>&lt; FAB2 &gt; const &amp;fa2, int nghost, F f)</td></tr>
 <tr class="separator:a0c2b498e70292eed35ae41e1bdd88e80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a376ff66b5e6a76d195cace00df41d05e"><td class="memTemplParams" colspan="2">template&lt;class FAB , class bar  = amrex::EnableIf_t&lt;IsBaseFab&lt;FAB&gt;::value&gt;&gt; </td></tr>
+<tr class="memitem:a376ff66b5e6a76d195cace00df41d05e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a376ff66b5e6a76d195cace00df41d05e">printCell</a> (<a class="el" href="classamrex_1_1_fab_array.html">FabArray</a>&lt; FAB &gt; const &amp;mf, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;cell, int comp=-1, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;ng=<a class="el" href="classamrex_1_1_int_vect.html#acfa290124ab75f4a94ce37ef98870174">IntVect::TheZeroVector</a>())</td></tr>
+<tr class="separator:a376ff66b5e6a76d195cace00df41d05e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac185c39750011cc24fb8c1a0b872a34d"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#ac185c39750011cc24fb8c1a0b872a34d">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="classamrex_1_1_int_descriptor.html">IntDescriptor</a> &amp;id)</td></tr>
 <tr class="separator:ac185c39750011cc24fb8c1a0b872a34d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ed9b6ea967b3a6cebc43973e1440e06"><td class="memItemLeft" align="right" valign="top">std::istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a0ed9b6ea967b3a6cebc43973e1440e06">operator&gt;&gt;</a> (std::istream &amp;is, <a class="el" href="classamrex_1_1_int_descriptor.html">IntDescriptor</a> &amp;id)</td></tr>
@@ -1140,9 +1143,9 @@ Functions</h2></td></tr>
 <tr class="separator:aef18b07b3544ac6a7a4ee4fc819526cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7722774dfdfaa46249b9c4180d95009f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a7722774dfdfaa46249b9c4180d95009f">average_down_nodal</a> (const <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;fine, <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;crse, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;ratio, int ngcrse)</td></tr>
 <tr class="separator:a7722774dfdfaa46249b9c4180d95009f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86aba9204be4411428f3b3a75623bfe7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a86aba9204be4411428f3b3a75623bfe7">print_state</a> (const <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;mf, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;cell, const int n=-1)</td></tr>
-<tr class="memdesc:a86aba9204be4411428f3b3a75623bfe7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output state data for a single zone.  <a href="#a86aba9204be4411428f3b3a75623bfe7">More...</a><br/></td></tr>
-<tr class="separator:a86aba9204be4411428f3b3a75623bfe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9853b376b9431740468fdf9e549553d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#af9853b376b9431740468fdf9e549553d">print_state</a> (const <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;mf, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;cell, const int n=-1, const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;ng=<a class="el" href="classamrex_1_1_int_vect.html#acfa290124ab75f4a94ce37ef98870174">IntVect::TheZeroVector</a>())</td></tr>
+<tr class="memdesc:af9853b376b9431740468fdf9e549553d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output state data for a single zone.  <a href="#af9853b376b9431740468fdf9e549553d">More...</a><br/></td></tr>
+<tr class="separator:af9853b376b9431740468fdf9e549553d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78ee47545ca66e809f4f680e7513cbd5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamrex.html#a78ee47545ca66e809f4f680e7513cbd5">writeFabs</a> (const <a class="el" href="classamrex_1_1_multi_fab.html">MultiFab</a> &amp;mf, const std::string &amp;name)</td></tr>
 <tr class="memdesc:a78ee47545ca66e809f4f680e7513cbd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write each fab individually.  <a href="#a78ee47545ca66e809f4f680e7513cbd5">More...</a><br/></td></tr>
 <tr class="separator:a78ee47545ca66e809f4f680e7513cbd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -11092,6 +11095,32 @@ template&lt;class T , class... Ts&gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="aa5072512d923dfa8035766d4a2127415"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream &amp; amrex::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const RealBox &amp;&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a255f1f8c5e709392a949283da47211f5"></a>
 <div class="memitem">
 <div class="memproto">
@@ -11185,32 +11214,6 @@ template&lt;class T , class... Ts&gt; </div>
           <td></td>
           <td class="paramtype">const IntDescriptor &amp;&#160;</td>
           <td class="paramname"><em>id</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aa5072512d923dfa8035766d4a2127415"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::ostream &amp; amrex::operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>os</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const RealBox &amp;&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -11869,6 +11872,32 @@ template&lt;int NReal, int NInt&gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="a5be2b3636df3824fad783380598d4004"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::istream &amp; amrex::operator&gt;&gt; </td>
+          <td>(</td>
+          <td class="paramtype">std::istream &amp;&#160;</td>
+          <td class="paramname"><em>is</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">RealBox &amp;&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="aeddafb7300c5464e3bf385c510ddb5e0"></a>
 <div class="memitem">
 <div class="memproto">
@@ -11910,32 +11939,6 @@ template&lt;int NReal, int NInt&gt; </div>
           <td></td>
           <td class="paramtype">IntDescriptor &amp;&#160;</td>
           <td class="paramname"><em>id</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a5be2b3636df3824fad783380598d4004"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::istream &amp; amrex::operator&gt;&gt; </td>
-          <td>(</td>
-          <td class="paramtype">std::istream &amp;&#160;</td>
-          <td class="paramname"><em>is</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">RealBox &amp;&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -12460,7 +12463,7 @@ template&lt;int NReal, int NInt&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a86aba9204be4411428f3b3a75623bfe7"></a>
+<a class="anchor" id="af9853b376b9431740468fdf9e549553d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -12480,7 +12483,13 @@ template&lt;int NReal, int NInt&gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>n</em>&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classamrex_1_1_int_vect.html">IntVect</a> &amp;&#160;</td>
+          <td class="paramname"><em>ng</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -12491,6 +12500,46 @@ template&lt;int NReal, int NInt&gt; </div>
 </div><div class="memdoc">
 
 <p>Output state data for a single zone. </p>
+
+</div>
+</div>
+<a class="anchor" id="a376ff66b5e6a76d195cace00df41d05e"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class FAB , class bar  = amrex::EnableIf_t&lt;IsBaseFab&lt;FAB&gt;::value&gt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void amrex::printCell </td>
+          <td>(</td>
+          <td class="paramtype">FabArray&lt; FAB &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>mf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const IntVect &amp;&#160;</td>
+          <td class="paramname"><em>cell</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>comp</em> = <code>-1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const IntVect &amp;&#160;</td>
+          <td class="paramname"><em>ng</em> = <code>IntVect::TheZeroVector()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
