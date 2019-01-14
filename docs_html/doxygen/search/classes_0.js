@@ -70,6 +70,7 @@ var searchData=
   ['amrparticlecontainer',['AmrParticleContainer',['../classamrex_1_1_amr_particle_container.html',1,'amrex']]],
   ['amrtracerparticlecontainer',['AmrTracerParticleContainer',['../classamrex_1_1_amr_tracer_particle_container.html',1,'amrex']]],
   ['arena',['Arena',['../classamrex_1_1_arena.html',1,'amrex']]],
+  ['array4',['Array4',['../structamrex_1_1_array4.html',1,'amrex']]],
   ['arrayofstructs',['ArrayOfStructs',['../classamrex_1_1_array_of_structs.html',1,'amrex']]],
   ['arrayofstructs_3c_20nstructreal_2c_20nstructint_20_3e',['ArrayOfStructs&lt; NStructReal, NStructInt &gt;',['../classamrex_1_1_array_of_structs.html',1,'amrex']]],
   ['asymmetricghost',['AsymmetricGhost',['../structamrex_1_1_m_f_util_1_1_asymmetric_ghost.html',1,'amrex::MFUtil']]],
