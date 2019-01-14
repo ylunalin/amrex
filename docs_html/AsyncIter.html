@@ -95,6 +95,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">FillPatch Iterator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#regiongraph-iterator">RegionGraph Iterator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#generated-task-graph-code">Generated Task Graph Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#known-limitations">Known Limitations</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="IO_Chapter.html">I/O (Plotfile, Checkpoint)</a></li>
@@ -243,6 +244,13 @@ The runtime system uses AMR domain knowledge to establish data dependencies amon
 At the beginning of the program, the runtime extracts the metadata needed for establishing data dependencies among tasks of the same graph or between two different graphs.
 Every time the AMR grid hierarchy changes (i.e. when a few or all AMR levels regrid), the runtime re-extracts the metadata to correct the task dependency graphs.
 Once the metadata extraction completes, the runtime system invokes the computation on AMR levels (e.g., timeStep, initTimeStep, and postTimeStep).</p>
+</div>
+<div class="section" id="known-limitations">
+<h1>Known Limitations<a class="headerlink" href="#known-limitations" title="Permalink to this headline">¶</a></h1>
+<p>To realize enough task parallelism, the runtime system constructs the task dependency graph for the whole coarse time step and executes it asynchronously to the completion of the step.
+As a result, any request to regrid an AMR level must be forseen before the execution of a coarse time step.
+We may relax this constraint in the future.
+However, such a support would come at a significant performance cost due to the required checkpointing and rollback activities.</p>
 </div>
 
 
