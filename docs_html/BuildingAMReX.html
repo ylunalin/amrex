@@ -249,6 +249,8 @@ example in bash, one can set</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>setenv AMREX_HOME /path/to/amrex
 </pre></div>
 </div>
+<p>Note: when setting <code class="docutils literal notranslate"><span class="pre">AMREX_HOME</span></code> in the <code class="docutils literal notranslate"><span class="pre">GNUmakefile</span></code>, be aware that <code class="docutils literal notranslate"><span class="pre">~</span></code> does
+not expand, so <code class="docutils literal notranslate"><span class="pre">AMREX_HOME=~/amrex/</span></code> will yield an error.</p>
 <p>One must set the <code class="docutils literal notranslate"><span class="pre">COMP</span></code> variable to choose a compiler. Currently the list of
 supported compilers includes gnu, cray, ibm, intel, llvm, and pgi. One must
 also set the <code class="docutils literal notranslate"><span class="pre">DIM</span></code> variable to either 1, 2, or 3, depending on the dimensionality

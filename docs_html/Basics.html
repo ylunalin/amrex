@@ -1394,13 +1394,15 @@ a tile. (Note that when tiling is disabled, <code class="code cpp c++ docutils l
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code> as <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">validbox</span></span></code>.) The number of loop iteration is 2 in the
 non-tiling version, whereas in the tiling version the kernel function is called
 8 times.</p>
+<p>It is important to use the correct <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code> when implementing tiling, especially
+if the box is used to define a work region inside of the loop. For example:</p>
 <p>The tile size can be explicitly set when defining <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code>.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// No tiling in x-direction. Tile size is 16 for y and 32 for z.</span>
 <span class="k">for</span> <span class="p">(</span><span class="n">MFIter</span> <span class="n">mfi</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span><span class="n">IntVect</span><span class="p">(</span><span class="mi">1024000</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">32</span><span class="p">));</span> <span class="n">mfi</span><span class="p">.</span><span class="n">isValid</span><span class="p">();</span> <span class="o">++</span><span class="n">mfi</span><span class="p">)</span> <span class="p">{...}</span>
 </pre></div>
 </div>
 <p>An <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">IntVect</span></span></code> is used to specify the tile size for every dimension.  A tile
-size larger than the grid size simply means tiling is disable in that
+size larger than the grid size simply means tiling is disabled in that
 direction. AMReX&nbsp;has a default tile size <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">IntVect</span></span><span class="punctuation"><span class="pre">{</span></span><span class="literal number integer"><span class="pre">1024000</span></span><span class="punctuation"><span class="pre">,</span></span><span class="literal number integer"><span class="pre">8</span></span><span class="punctuation"><span class="pre">,</span></span><span class="literal number integer"><span class="pre">8</span></span><span class="punctuation"><span class="pre">}</span></span></code> in 3D and
 no tiling in 2D. This is used when tile size is not explicitly set but the
 tiling flag is on. One can change the default size using <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">ParmParse</span></span></code>
@@ -1439,6 +1441,37 @@ tiling flag is on. One can change the default size using <code class="code cpp c
 </tr>
 </tbody>
 </table>
+<p>Dynamic tiling, which runs one box per OpenMP thread, is also available.
+This is useful when the underlying work cannot benefit from thread
+parallelization.  Dynamic tiling is implemented using the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFItInfo</span></span></code>
+object and requires the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> loop to be defined in an OpenMP
+parallel region:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Dynamic tiling, one box per OpenMP thread.</span>
+<span class="c1">// No further tiling details,</span>
+<span class="c1">//   so each thread works on a single tilebox.</span>
+<span class="cp">#ifdef _OPENMP</span>
+<span class="cp">#pragma omp parallel</span>
+<span class="cp">#endif</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">MFIter</span> <span class="n">mfi</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span><span class="n">MFItInfo</span><span class="p">().</span><span class="n">SetDynamic</span><span class="p">(</span><span class="nb">true</span><span class="p">));</span> <span class="n">mfi</span><span class="p">.</span><span class="n">isValid</span><span class="p">();</span> <span class="o">++</span><span class="n">mfi</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">const</span> <span class="n">Box</span><span class="o">&amp;</span> <span class="n">bx</span> <span class="o">=</span> <span class="n">mfi</span><span class="p">.</span><span class="n">validbox</span><span class="p">();</span>
+        <span class="p">...</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>Dynamic tiling also allows explicit definition of a tile size:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Dynamic tiling, one box per OpenMP thread.</span>
+<span class="c1">// No tiling in x-direction. Tile size is 16 for y and 32 for z.</span>
+<span class="cp">#ifdef _OPENMP</span>
+<span class="cp">#pragma omp parallel</span>
+<span class="cp">#endif</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">MFIter</span> <span class="n">mfi</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span><span class="n">MFItInfo</span><span class="p">().</span><span class="n">SetDynamic</span><span class="p">(</span><span class="nb">true</span><span class="p">).</span><span class="n">EnableTiling</span><span class="p">(</span><span class="mi">1024000</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">32</span><span class="p">));</span> <span class="n">mfi</span><span class="p">.</span><span class="n">isValid</span><span class="p">();</span> <span class="o">++</span><span class="n">mfi</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">const</span> <span class="n">Box</span><span class="o">&amp;</span> <span class="n">bx</span> <span class="o">=</span> <span class="n">mfi</span><span class="p">.</span><span class="n">tilebox</span><span class="p">();</span>
+        <span class="p">...</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
 <p>Usually <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> is used for accessing multiple MultiFabs like the second
 example, in which two MultiFabs, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">U</span></span></code> and <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">F</span></span></code>, use <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> via
 <code class="code cpp c++ docutils literal notranslate"><span class="keyword"><span class="pre">operator</span></span><span class="punctuation"><span class="pre">[]</span></span></code>. These different MultiFabs may have different BoxArrays. For
