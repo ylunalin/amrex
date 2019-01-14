@@ -30,8 +30,6 @@ var searchData=
   ['_7eclusterlist',['~ClusterList',['../classamrex_1_1_cluster_list.html#a85b6b93eeb622db0290b7b1a9fcb8fc6',1,'amrex::ClusterList']]],
   ['_7ecomplementif',['~ComplementIF',['../classamrex_1_1_e_b2_1_1_complement_i_f.html#a1590a85fc0c93b8fb30e3520cc2e8d6f',1,'amrex::EB2::ComplementIF']]],
   ['_7ecoordsys',['~CoordSys',['../classamrex_1_1_coord_sys.html#a1d7e80f93fece05cfe429c16f36f9e9f',1,'amrex::CoordSys']]],
-  ['_7ecopierhandle',['~CopierHandle',['../structamrex_1_1_fab_array_1_1_copier_handle.html#a1011916d364e0fe1be6c813b64fb3b08',1,'amrex::FabArray::CopierHandle']]],
-  ['_7ecopierhandleimpl',['~CopierHandleImpl',['../structamrex_1_1_fab_array_1_1_copier_handle_impl.html#acaf565fa110542d02b07ecf054b8b5e2',1,'amrex::FabArray::CopierHandleImpl']]],
   ['_7ecpc',['~CPC',['../structamrex_1_1_fab_array_base_1_1_c_p_c.html#a97655cd5ccd143f3ab9c2a154d4d4f2f',1,'amrex::FabArrayBase::CPC']]],
   ['_7ecutfab',['~CutFab',['../classamrex_1_1_cut_fab.html#a2fed6fb2629c43fc12d1facb2c6045d9',1,'amrex::CutFab']]],
   ['_7ecylinderif',['~CylinderIF',['../classamrex_1_1_e_b2_1_1_cylinder_i_f.html#a139eafd595dac0dfe04c197a9562c65c',1,'amrex::EB2::CylinderIF']]],

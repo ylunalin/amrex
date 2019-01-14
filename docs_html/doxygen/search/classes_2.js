@@ -16,8 +16,6 @@ var searchData=
   ['componentset',['ComponentSet',['../structamrex_1_1_fork_join_1_1_component_set.html',1,'amrex::ForkJoin']]],
   ['const_5fiterator',['const_iterator',['../structamrex_1_1_base_umap_1_1const__iterator.html',1,'amrex::BaseUmap']]],
   ['coordsys',['CoordSys',['../classamrex_1_1_coord_sys.html',1,'amrex']]],
-  ['copierhandle',['CopierHandle',['../structamrex_1_1_fab_array_1_1_copier_handle.html',1,'amrex::FabArray']]],
-  ['copierhandleimpl',['CopierHandleImpl',['../structamrex_1_1_fab_array_1_1_copier_handle_impl.html',1,'amrex::FabArray']]],
   ['copycomtag',['CopyComTag',['../structamrex_1_1_fab_array_base_1_1_copy_com_tag.html',1,'amrex::FabArrayBase']]],
   ['cpc',['CPC',['../structamrex_1_1_fab_array_base_1_1_c_p_c.html',1,'amrex::FabArrayBase']]],
   ['cpubndryfuncfab',['CpuBndryFuncFab',['../classamrex_1_1_cpu_bndry_func_fab.html',1,'amrex']]],

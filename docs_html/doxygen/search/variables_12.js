@@ -2,9 +2,7 @@ var searchData=
 [
   ['sbox',['sbox',['../structamrex_1_1_fab_array_base_1_1_copy_com_tag.html#a1c8df51daf5ac3a9d20522cfdb6ab004',1,'amrex::FabArrayBase::CopyComTag']]],
   ['sc',['sc',['../structamrex_1_1_derive_rec_1_1_state_range.html#ae011fd687383f2ecfa3e40ad6fdf7501',1,'amrex::DeriveRec::StateRange']]],
-  ['send_5fdata',['send_data',['../structamrex_1_1_fab_array_1_1_copier_handle_impl.html#a0992523e7ad0ffac2d4ff2ee93d7efeb',1,'amrex::FabArray::CopierHandleImpl::send_data()'],['../classamrex_1_1_neighbor_particle_container.html#a3b830160ca11e0f7cdead7ae3f6aa19f',1,'amrex::NeighborParticleContainer::send_data()']]],
-  ['send_5freqs',['send_reqs',['../structamrex_1_1_fab_array_1_1_copier_handle_impl.html#a7a0aca3da437ca6973cade030c5283d7',1,'amrex::FabArray::CopierHandleImpl']]],
-  ['seqnum',['SeqNum',['../structamrex_1_1_fab_array_1_1_copier_handle_impl.html#af79caf83a98af96748047eb9ca6f93e5',1,'amrex::FabArray::CopierHandleImpl']]],
+  ['send_5fdata',['send_data',['../classamrex_1_1_neighbor_particle_container.html#a3b830160ca11e0f7cdead7ae3f6aa19f',1,'amrex::NeighborParticleContainer']]],
   ['seven',['seven',['../classamrex__constants__module.html#adcf19334126a0c0621bb1a5d277f513e',1,'amrex_constants_module']]],
   ['seven12th',['seven12th',['../classamrex__constants__module.html#a9da77625a7b0670eb8278879579f82f4',1,'amrex_constants_module']]],
   ['seventh',['seventh',['../classamrex__constants__module.html#a0b5112227b87f2cc4d60b17991780f73',1,'amrex_constants_module']]],
