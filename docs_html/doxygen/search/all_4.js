@@ -57,6 +57,7 @@ var searchData=
   ['differenceif',['DifferenceIF',['../classamrex_1_1_e_b2_1_1_difference_i_f.html',1,'amrex::EB2']]],
   ['differenceif',['DifferenceIF',['../classamrex_1_1_e_b2_1_1_difference_i_f.html#ae287196d92d12f93665e324a9d0bdc43',1,'amrex::EB2::DifferenceIF::DifferenceIF(F &amp;&amp;a_f, G &amp;&amp;a_g)'],['../classamrex_1_1_e_b2_1_1_difference_i_f.html#aae9bcb91f13c4347a0b097eb7b09f3d7',1,'amrex::EB2::DifferenceIF::DifferenceIF(F const &amp;a_f, G const &amp;a_g)'],['../classamrex_1_1_e_b2_1_1_difference_i_f.html#aeffcadc6fa14d7acfdb3d46aaead9e0e',1,'amrex::EB2::DifferenceIF::DifferenceIF(const DifferenceIF &amp;rhs)=default'],['../classamrex_1_1_e_b2_1_1_difference_i_f.html#a93fcf2215b2786b50fd05f9a03325154',1,'amrex::EB2::DifferenceIF::DifferenceIF(DifferenceIF &amp;&amp;rhs)=default']]],
   ['dim3',['Dim3',['../structamrex_1_1_dim3.html',1,'amrex']]],
+  ['dim3',['dim3',['../classamrex_1_1_int_vect.html#ae7973d3ec09cb18354a5e5a17ed466be',1,'amrex::IntVect']]],
   ['direction',['Direction',['../namespaceamrex.html#a8de829410ed15dbc56e4dafc9bc6ea69',1,'amrex']]],
   ['dist',['dist',['../classamrex_1_1_spline_dist_fcn_element2d.html#aabac101641af5d48dfee0c599f0b88c9',1,'amrex::SplineDistFcnElement2d']]],
   ['distfcnelement2d',['distFcnElement2d',['../classamrex_1_1dist_fcn_element2d.html',1,'amrex']]],
