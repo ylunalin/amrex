@@ -108,20 +108,22 @@
 <li class="toctree-l2"><a class="reference internal" href="#memory-allocation">Memory Allocation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#gpu-safe-classes-and-functions">GPU Safe Classes and Functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#gpuarray">GpuArray</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#asyncarray">AsyncArray</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#managedvector">ManagedVector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#cuda-s-thrust-vectors">CUDA’s Thrust Vectors</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#amrex-min-and-amrex-max">amrex::min and amrex::max</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#multifab-reductions">MultiFab Reductions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#box-intvect-and-indextype">Box, IntVect and IndexType</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#geometry">Geometry</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#basefab-farraybox-and-iarraybox">BaseFab, FArrayBox and IArrayBox</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#basefab-farraybox-iarraybox-and-asyncfab">BaseFab, FArrayBox, IArrayBox and AsyncFab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multifabs-and-accessing-farrayboxes">MultiFabs and Accessing FArrayBoxes</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#kernel-launch">Kernel Launch</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#launching-a-c-function">Launching a C++ function</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#launching-a-fortran-function">Launching a FORTRAN function</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#offloading-work-using-openacc-pragmas">Offloading work using OpenACC pragmas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#launching-an-generic-loop">Launching an generic loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#launching-a-generic-loop">Launching a generic loop</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#kernel-launch-details">Kernel launch details</a></li>
 </ul>
 </li>
@@ -213,23 +215,25 @@ uses CUDA for GPUs, but application teams can use CUDA, CUDA
 Fortran, OpenACC or OpenMP in their individual codes.</p>
 <p>When running AMReX on a CPU system, the parallelization strategy is a
 combination of MPI and OpenMP using tiling, as detailed in
-<a class="reference internal" href="Basics.html#sec-basics-mfiter-tiling"><span class="std std-ref">MFIter with Tiling</span></a>. However, cache blocking and data
-locality are not the primary considerations when writing optimal code
-on GPUs.  Instead, efficient use of the GPU’s resources is the primary
-concern.  Improving resource efficiency allows a larger percentage of
-GPU threads to work simultaneously, increasing effective parallelism and
-decreasing the time to solution.</p>
-<p>The GPU strategy that has shown to best match AMReX’s mesh and particle
-implementations is <code class="docutils literal notranslate"><span class="pre">MPI+OpenMP</span></code> for CPUs and <code class="docutils literal notranslate"><span class="pre">MPI+CUDA</span></code> for GPUs:
-<code class="docutils literal notranslate"><span class="pre">(MPI+OpenMP)</span> <span class="pre">+</span> <span class="pre">(MPI+CUDA)</span></code>. Presented here is an overview of important
-features of AMReX’s GPU strategy. Additional information that is required
-for creating GPU applications is detailed throughout the rest of this
-chapter:</p>
+<a class="reference internal" href="Basics.html#sec-basics-mfiter-tiling"><span class="std std-ref">MFIter with Tiling</span></a>. However, tiling is ineffective on GPUs
+due to the overhead associated with kernel launching.  Instead,
+efficient use of the GPU’s resources is the primary concern.  Improving
+resource efficiency allows a larger percentage of GPU threads to work
+simultaneously, increasing effective parallelism and decrease the time
+to solution.</p>
+<p>When running on CPUs, AMReX uses an <code class="docutils literal notranslate"><span class="pre">MPI+X</span></code> strategy where the <code class="docutils literal notranslate"><span class="pre">X</span></code>
+threads are used to perform parallelization techniques like tiling.
+The most common <code class="docutils literal notranslate"><span class="pre">X</span></code> is <code class="docutils literal notranslate"><span class="pre">OpenMP</span></code>.  On GPUs, AMReX requires CUDA and
+can be further combined with other parallel GPU languages, including
+<code class="docutils literal notranslate"><span class="pre">OpenACC</span></code> and <code class="docutils literal notranslate"><span class="pre">OpenMP</span></code>, to control the offloading of subroutines
+to the GPU.  This <code class="docutils literal notranslate"><span class="pre">MPI+CUDA+X</span></code> GPU strategy has been developed
+to give users the maximum flexibility to find the best combination of
+portability, readability and performance for their applications.</p>
+<p>Presented here is an overview of important features of AMReX’s GPU strategy.
+Additional information that is required for creating GPU applications is
+detailed throughout the rest of this chapter:</p>
 <ul class="simple">
-<li>To ensure data consistency, each MPI rank offloads its work to a single
-GPU.  This ensures each kernel works on a GPU where the associated data
-is consistently located and minimizes communication between GPUs.
-<code class="docutils literal notranslate"><span class="pre">(MPI</span> <span class="pre">ranks</span> <span class="pre">==</span> <span class="pre">Number</span> <span class="pre">of</span> <span class="pre">GPUs)</span></code></li>
+<li>Each MPI rank offloads its work to a single GPU. <code class="docutils literal notranslate"><span class="pre">(MPI</span> <span class="pre">ranks</span> <span class="pre">==</span> <span class="pre">Number</span> <span class="pre">of</span> <span class="pre">GPUs)</span></code></li>
 <li>Calculations that can be offloaded efficiently to GPUs use CUDA threads
 to parallelize over a valid box at a time.  This is done by using a lot
 of CUDA threads that only work on a few cells each. This work
@@ -270,14 +274,6 @@ thread, each thread using a box with lo = hi.</div>
 portability while making the code as understandable as possible to
 science-focused code teams.</p>
 </li>
-<li><p class="first">AMReX’s data movement plan is to initialize mesh and particle data
-structures, move them to the GPU and leave them in GPU memory space
-as much as possible.  This strategy lends itself to AMReX
-applications readily; the mesh and particle data should be able
-to stay on the GPU except when performing redistribution and I/O
-operations.  Application teams should strive to this data
-management strategy as much as possible to achieve good GPU performance.</p>
-</li>
 <li><p class="first">AMReX utilizes CUDA managed memory to automatically handle memory
 movement for mesh and particle data.  Simple data structures, such
 as <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">IntVect</span></span></code>s can be passed by value and temporaries, such as
@@ -286,6 +282,12 @@ data movement for the user.  Tests have shown CUDA managed memory
 to be efficient and reliable, especially when applications remove
 any unnecessary data accesses.</p>
 </li>
+<li><p class="first">Application teams should strive to keep mesh and particle data structures
+on the GPU for as long as possible, minimizing movement back to the CPU.
+This strategy lends itself to AMReX applications readily; the mesh and
+particle data can stay on the GPU for most subroutines with the exception
+of redistribution and I/O operations.</p>
+</li>
 <li><p class="first">AMReX’s GPU strategy is focused on launching GPU kernels inside
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> loops.  By performing GPU work within <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code>
 loops, GPU work is isolated to independent data sets on simple AMReX data
@@ -293,12 +295,10 @@ objects, providing consistency and safety that matches AMReX’s coding
 methodology.</p>
 </li>
 <li><p class="first">AMReX further parallelizes GPU applications by utilizing CUDA streams.
-A CUDA stream is a list of GPU kernel launches that is ran on the GPU
-sequentially.  Kernel launches placed in different CUDA streams can be run
-simultaneously on the GPU, given enough computing resources are available.
-AMReX places each iteration of <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> loops on separate streams,
-allowing each independent iteration to be run simultaneously and maximize
-available GPU resources.</p>
+CUDA guarantees execution order of kernels within the same stream, while
+allowing different streams to run simultaneously. AMReX places each iteration
+of <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> loops on separate streams, allowing each independent
+iterations to be run simultaneously and maximize available GPU resources.</p>
 <p>The AMReX implementation of CUDA streams is illustrated in <a class="reference internal" href="#fig-gpu-streams"><span class="std std-numref">Fig. 13</span></a>.
 The CPU runs the first iteration of the MFIter loop (blue), which contains three
 GPU kernels.  The kernels begin immediately in GPU Stream 1 and run in the same
@@ -396,9 +396,9 @@ function requires separate code for the CPU and GPU implementations.</p>
 <span id="sec-gpu-memory"></span><h1>Memory Allocation<a class="headerlink" href="#memory-allocation" title="Permalink to this headline">¶</a></h1>
 <p>To provide portability and improve memory allocation performance,
 AMReX provides a number of memory pools.  When compiled without
-CUDA, all <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Arena</span></span></code>s implement standard <code class="code cpp c++ docutils literal notranslate"><span class="keyword"><span class="pre">new</span></span></code> and
-<code class="code cpp c++ docutils literal notranslate"><span class="keyword"><span class="pre">delete</span></span></code> operators. Without CUDA, the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Arena</span></span></code>s each
-allocate with a specific type of GPU memory:</p>
+CUDA, all <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Arena</span></span></code>s use standard <code class="code cpp c++ docutils literal notranslate"><span class="keyword"><span class="pre">new</span></span></code> and <code class="code cpp c++ docutils literal notranslate"><span class="keyword"><span class="pre">delete</span></span></code>
+operators. With CUDA, the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Arena</span></span></code>s each allocate with a
+specific type of GPU memory:</p>
 <span id="tab-gpu-arena"></span><table border="1" class="docutils" id="id3">
 <caption><span class="caption-number">Table 10 </span><span class="caption-text">Memory Arenas</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -455,20 +455,47 @@ and its functions can be implemented on the device, including <code class="docut
 to contain device launches. For example, the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FillBoundary</span></span></code>
 function cannot be called from device code, but calling it from
 CPU will launch GPU kernels if AMReX is compiled with GPU support.</p>
-<p>Most functions and objects have not been given a device version due to
-CUDA restrictions and to ensure applications maintain an internally consistent
-GPU strategy.</p>
+<p>Necessary and convenient AMReX functions and objects have been given a device
+version and/or device access.</p>
 <p>In this section, we discuss some examples of AMReX device classes and functions
 that are important for programming GPUs.</p>
 <div class="section" id="gpuarray">
 <h2>GpuArray<a class="headerlink" href="#gpuarray" title="Permalink to this headline">¶</a></h2>
 <p><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">std</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">array</span></span></code> is used throughout AMReX, however its functions are not defined
-in device code. GpuArray is AMReX’s built-in alternative. It uses a C array that
-can be passed to the device by value and has device functions for the <code class="code cpp c++ docutils literal notranslate"><span class="punctuation"><span class="pre">[]</span></span></code>
-operator, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">size</span></span><span class="punctuation"><span class="pre">()</span></span></code> and <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">data</span></span><span class="punctuation"><span class="pre">()</span></span></code> that returns a pointer to the C array.
-GpuArray can be used whenever a fixed size array of data needs to be passed to the GPU.</p>
-<p>Additional functions have been created to return GpuArray instead of <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">std</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">array</span></span></code>,
-including <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">GeometryData</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">CellSizeArray</span></span><span class="punctuation"><span class="pre">()</span></span></code>, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">GeometryData</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">InvCellSizeArray</span></span><span class="punctuation"><span class="pre">()</span></span></code> and <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">length3d</span></span><span class="punctuation"><span class="pre">()</span></span></code>.</p>
+in device code. <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">GpuArray</span></span></code> is AMReX’s built-in alternative. It is a POD (plain old
+data structure) that can be passed to the device by value and has device functions
+for the <code class="code cpp c++ docutils literal notranslate"><span class="punctuation"><span class="pre">[]</span></span></code> operator, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">size</span></span><span class="punctuation"><span class="pre">()</span></span></code> and a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">data</span></span><span class="punctuation"><span class="pre">()</span></span></code> function that returns a
+pointer to the underlying data. <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">GpuArray</span></span></code> can be used whenever a fixed size array
+needs to be passed to the GPU.  <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">GpuArray</span></span></code> is also portable; when compiled without
+CUDA, it is simply aliased to a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">std</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">array</span></span></code>.</p>
+<p>A variety of functions have been created to return <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">GpuArray</span></span></code> instead of <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">std</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">array</span></span></code>,
+and allow direct access to GPU-ready data structures from common AMReX classes. For example,
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">GeometryData</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">CellSizeArray</span></span><span class="punctuation"><span class="pre">()</span></span></code>, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">GeometryData</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">InvCellSizeArray</span></span><span class="punctuation"><span class="pre">()</span></span></code>
+and <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">length3d</span></span><span class="punctuation"><span class="pre">()</span></span></code> all return <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">GpuArray</span></span></code>s.</p>
+</div>
+<div class="section" id="asyncarray">
+<span id="sec-gpu-classes-asyncarray"></span><h2>AsyncArray<a class="headerlink" href="#asyncarray" title="Permalink to this headline">¶</a></h2>
+<p>Where the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">GpuArray</span></span></code> is a statically-sized array designed to be passed
+by value onto the device, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">AsyncArray</span></span></code> is a dynamically-sized array
+container designed to work between the CPU and GPU. <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">AsyncArray</span></span></code>
+stores a CPU pointer and a GPU pointer and coordinates the movement of an
+array of objects between the two.  It is a one-time container, designed to
+take an initial value for the objects, move it to the GPU, work in a manner that
+allows full asynchronously between the CPU and GPU, and return a final value
+back to the device.  If the data needs to be returned to the GPU again, it will
+be necessary to build a new <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">AsyncArray</span></span></code>.</p>
+<p>The call to the destructor of <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">AsyncArray</span></span></code> is added to the GPU stream as
+a callback function. This guarantees the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">AsyncArray</span></span></code> built in each loop
+iteration continues to exist until after all GPU kernels are completed without
+forcing the code to become serialized. The resulting <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">AsyncArray</span></span></code> class
+is “Async-safe”, meaning it can be safely used in asynchronous code regions
+that contain both CPU work and GPU launches, including <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> loops.</p>
+<p><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">AsyncArray</span></span></code> is also portable. When built without <code class="docutils literal notranslate"><span class="pre">USE_CUDA</span></code>, the
+object only stores and handles the CPU version of the data.</p>
+<p>A <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">AsyncArray</span></span></code> is used by constructing it from a reference to a host
+object containing an initial value, retrieving the associated device pointer
+that is passed into an AMReX lambda function and copying the final value back
+to the CPU. An example is given below:</p>
 </div>
 <div class="section" id="managedvector">
 <h2>ManagedVector<a class="headerlink" href="#managedvector" title="Permalink to this headline">¶</a></h2>
@@ -484,6 +511,10 @@ pointer can be accessed using the <code class="code cpp c++ docutils literal not
 <p>Be aware: resizing of dynamically allocated memory on the GPU is unsupported.
 All resizing of the vector should be done on the CPU, in a manner that avoids
 race conditions with concurrent GPU kernels.</p>
+<p>Also note: <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Gpu</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">ManagedVector</span></span></code> is not Async-safe.  It cannot be safely
+constructed inside of an MFIter loop with GPU kernels and great care should
+be used when accessing <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Gpu</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">ManagedVector</span></span></code> data on GPUs to avoid race
+conditions.</p>
 </div>
 <div class="section" id="cuda-s-thrust-vectors">
 <h2>CUDA’s Thrust Vectors<a class="headerlink" href="#cuda-s-thrust-vectors" title="Permalink to this headline">¶</a></h2>
@@ -510,14 +541,15 @@ implemented portably using <code class="code cpp c++ docutils literal notranslat
 So, AMReX provides a templated <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">min</span></span></code> and <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">max</span></span></code> with host and
 device versions to allow functionality on GPUs. Invoke the explicitly
 namespaced <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">min</span></span><span class="punctuation"><span class="pre">(</span></span><span class="name"><span class="pre">A</span></span><span class="punctuation"><span class="pre">,</span></span> <span class="name"><span class="pre">B</span></span><span class="punctuation"><span class="pre">)</span></span></code> or <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">max</span></span><span class="punctuation"><span class="pre">(</span></span><span class="name"><span class="pre">x</span></span><span class="punctuation"><span class="pre">,</span></span> <span class="name"><span class="pre">y</span></span><span class="punctuation"><span class="pre">)</span></span></code> to use the
-GPU safe implementations.</p>
+GPU safe implementations. These functions are variadic, so they can take
+any number of arguments and can be invoked with any standard data type.</p>
 </div>
 <div class="section" id="multifab-reductions">
 <h2>MultiFab Reductions<a class="headerlink" href="#multifab-reductions" title="Permalink to this headline">¶</a></h2>
 <p>AMReX provides functions for performing standard reduction operations on
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFabs</span></span></code>, including <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">sum</span></span></code> and <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">max</span></span></code>.
 When <code class="docutils literal notranslate"><span class="pre">USE_CUDA=TRUE</span></code>, these functions automatically implement the
-corresponding reductions on GPUs in a highly efficient manner.</p>
+corresponding reductions on GPUs in an efficient manner.</p>
 <p>Function templates <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">ReduceSum</span></span></code>, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">ReduceMin</span></span></code> and
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">amrex</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">ReduceMax</span></span></code> can be used to implement user-defined reduction
 functions over <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code>s. These same templates are implemented
@@ -556,8 +588,8 @@ or two.</p>
 <p>In AMReX, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code>, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">IntVect</span></span></code> and <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">IndexType</span></span></code>
 are classes for representing indices.  These classes and most of
 their member functions, including constructors and destructors,
-have both host and device versions.  They can be used in
-device code.</p>
+have both host and device versions.  They can be used freely
+in device code.</p>
 </div>
 <div class="section" id="geometry">
 <h2>Geometry<a class="headerlink" href="#geometry" title="Permalink to this headline">¶</a></h2>
@@ -568,14 +600,9 @@ into a GPU safe class that can be passed by value to GPU kernels. This class
 is called <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">GeometryData</span></span></code>, which is created by calling
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Geometry</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">data</span></span><span class="punctuation"><span class="pre">()</span></span></code>. The accessor functions of <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">GeometryData</span></span></code> are
 identical to <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Geometry</span></span></code>.</p>
-<p>One limitation of this strategy is that <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Geometry</span></span></code> cannot be changed
-on the device. <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">GeometryData</span></span></code> holds a disposable copy of the data that
-does not synchronize with <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Geometry</span></span></code> after use. Therefore, only change
-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Geometry</span></span></code> on the CPU and outside of MFIter loops with GPU kernels to
-avoid race conditions.</p>
 </div>
-<div class="section" id="basefab-farraybox-and-iarraybox">
-<h2>BaseFab, FArrayBox and IArrayBox<a class="headerlink" href="#basefab-farraybox-and-iarraybox" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="basefab-farraybox-iarraybox-and-asyncfab">
+<span id="sec-gpu-classes-basefab"></span><h2>BaseFab, FArrayBox, IArrayBox and AsyncFab<a class="headerlink" href="#basefab-farraybox-iarraybox-and-asyncfab" title="Permalink to this headline">¶</a></h2>
 <p><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">BaseFab</span></span><span class="operator"><span class="pre">&lt;</span></span><span class="name"><span class="pre">T</span></span><span class="operator"><span class="pre">&gt;</span></span></code>, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">IArrayBox</span></span></code> and <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code>
 have some GPU support.  They cannot be constructed in device code, but
 a pointer to them can be passed to GPU kernels from CPU code.  Many
@@ -598,6 +625,37 @@ overloaded <code class="code cpp c++ docutils literal notranslate"><span class="
 
 <span class="n">FArrayBox</span><span class="o">*</span> <span class="n">p_gpu_fab</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FArrayBox</span><span class="p">(</span><span class="n">box</span><span class="p">,</span><span class="n">ncomp</span><span class="p">);</span>
 <span class="c1">// FArrayBox* p_gpu_fab can be used in GPU device code.</span>
+</pre></div>
+</div>
+<p>Temporary <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code>es are also available for GPU work through the
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">AsyncFab</span></span></code> class.  <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">AsyncFab</span></span></code>s are async-safe and should be used
+whenever a temporary <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code> is needed for intermediate calculations
+on the GPU.</p>
+<p>It behaves similarly to the <a class="reference internal" href="#sec-gpu-classes-asyncarray"><span class="std std-ref">AsyncArray</span></a>.  It contains
+pointers for the CPU and GPU <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code> and storage for the associated
+metadata to minimize data movement.  The <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">AsyncFab</span></span></code> is async-safe and can
+be used inside of an <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> loop without reducing CPU-GPU asynchronicity.
+It is portable, reducing to a simple <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code> pointer when ran without
+CUDA.</p>
+</div>
+<div class="section" id="multifabs-and-accessing-farrayboxes">
+<h2>MultiFabs and Accessing FArrayBoxes<a class="headerlink" href="#multifabs-and-accessing-farrayboxes" title="Permalink to this headline">¶</a></h2>
+<p><code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFabs</span></span></code> CANNOT be constructed or moved onto the GPU.  However,
+the underlying <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code>es are automatically managed during the
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code>’s construction.  The associated metadata has two copies,
+one on the CPU and one managed copy designed to live on the GPU, each
+accessed with a different <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code> member function. Users should
+always use the appropriate accessor to minimize data movement and
+optimize performance.</p>
+<p>To access the CPU <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code> reference, use <code class="code cpp c++ docutils literal notranslate"><span class="keyword"><span class="pre">operator</span></span><span class="punctuation"><span class="pre">[]</span></span></code>.</p>
+<p>To access the GPU <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code> managed pointer, use <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">fabPtr</span></span><span class="punctuation"><span class="pre">()</span></span></code>.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Multifab mf( .... );</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="n">MFIter</span> <span class="n">mfi</span><span class="p">(</span><span class="n">mf</span><span class="p">);</span> <span class="n">mfi</span><span class="p">.</span><span class="n">isValid</span><span class="p">();</span> <span class="o">++</span><span class="n">mfi</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">FArrayBox</span><span class="o">&amp;</span> <span class="n">fab</span> <span class="o">=</span> <span class="n">mf</span><span class="p">[</span><span class="n">mfi</span><span class="p">];</span>                <span class="c1">// CPU version.</span>
+    <span class="n">FArrayBox</span><span class="o">*</span> <span class="n">d_fab_ptr</span> <span class="o">=</span> <span class="n">mf</span><span class="p">.</span><span class="n">fabPtr</span><span class="p">(</span><span class="n">mfi</span><span class="p">);</span>   <span class="c1">// GPU version.</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -692,8 +750,7 @@ required, which includes CPU code sections and OpenACC implementations.</p>
 <p>Function <code class="docutils literal notranslate"><span class="pre">plusone_acc</span></code> is a CPU host function.  The reference from
 <code class="code cpp c++ docutils literal notranslate"><span class="keyword"><span class="pre">operator</span></span><span class="punctuation"><span class="pre">[]</span></span></code> is a reference to a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code> in host
 memory even though the data pointer inside the object points to
-unified memory.  This managed data pointer is retrieved with
-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">fabPtr</span></span></code>.  <code class="docutils literal notranslate"><span class="pre">BL_TO_FORTRAN_ANYD</span></code> expands to the individual
+unified memory.  <code class="docutils literal notranslate"><span class="pre">BL_TO_FORTRAN_ANYD</span></code> expands to the individual
 components of the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code>, including the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code> defining
 its indicies, the number of components and the data pointer itself.
 By passing the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code> via its required components,
@@ -716,59 +773,57 @@ unnecessary data movement is minimized.</p>
 unified memory, OpenACC is told the data is available on the device
 by using the <code class="docutils literal notranslate"><span class="pre">deviceptr</span></code> construct.</p>
 </div>
-<div class="section" id="launching-an-generic-loop">
-<h2>Launching an generic loop<a class="headerlink" href="#launching-an-generic-loop" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="launching-a-generic-loop">
+<h2>Launching a generic loop<a class="headerlink" href="#launching-a-generic-loop" title="Permalink to this headline">¶</a></h2>
 <p>The previous examples showed how the <code class="docutils literal notranslate"><span class="pre">AMREX_LAUNCH_DEVICE_LAMBDA</span></code>
 macro can be used to launch threads that work across cells in a
-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code> inside of an <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> loop. However, the macro
-is also capable of launching for a specified number of iterations
-that will be split across GPU threads. For example, launching over
-the number of elements in a vector is an example given in
-<code class="docutils literal notranslate"><span class="pre">Tutorials/GPU/Launch</span></code> and is reproduced here:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-    <span class="n">amrex</span><span class="o">::</span><span class="n">Gpu</span><span class="o">::</span><span class="n">ManagedVector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">ones</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-    <span class="k">const</span> <span class="k">auto</span> <span class="n">data</span> <span class="o">=</span> <span class="n">ones</span><span class="p">.</span><span class="n">dataPtr</span><span class="p">();</span>
-    <span class="n">AMREX_LAUNCH_DEVICE_LAMBDA</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">iter</span><span class="p">,</span>
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code> defined by a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Box</span></span></code>. However, the macro
+is also capable of launching for a specified number of elements
+that will be split across GPU threads. For example,
+<code class="docutils literal notranslate"><span class="pre">Tutorials/GPU/Launch</span></code> also shows how the box launch can be</p>
+<blockquote>
+<div>rewritten as a launch over the number of points in the box:</div></blockquote>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// launch CUDA C++ kernel to add 1</span>
+<span class="c1">// This example shows how to launch kernels over a 1D iteration space.</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">MFIter</span> <span class="n">mfi</span><span class="p">(</span><span class="n">mf</span><span class="p">);</span> <span class="n">mfi</span><span class="p">.</span><span class="n">isValid</span><span class="p">();</span> <span class="o">++</span><span class="n">mfi</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">FArrayBox</span><span class="o">&amp;</span> <span class="n">fab</span> <span class="o">=</span> <span class="n">mf</span><span class="p">[</span><span class="n">mfi</span><span class="p">];</span>
+    <span class="n">Real</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">fab</span><span class="p">.</span><span class="n">dataPtr</span><span class="p">();</span>
+    <span class="k">const</span> <span class="kt">long</span> <span class="n">nitems</span> <span class="o">=</span> <span class="n">fab</span><span class="p">.</span><span class="n">box</span><span class="p">().</span><span class="n">numPts</span><span class="p">()</span> <span class="o">*</span> <span class="n">mf</span><span class="p">.</span><span class="n">nComp</span><span class="p">();</span>
+    <span class="c1">// Enough threads are launched to work over nitems, and idx is item index for each thread.</span>
+    <span class="c1">// This only works on a contiguous chunk of memory.</span>
+    <span class="n">AMREX_LAUNCH_DEVICE_LAMBDA</span> <span class="p">(</span> <span class="n">nitems</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span>
     <span class="p">{</span>
-        <span class="n">data</span><span class="p">[</span><span class="n">iter</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">iter</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="n">p</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
     <span class="p">});</span>
-
-    <span class="n">Gpu</span><span class="o">::</span><span class="n">Device</span><span class="o">::</span><span class="n">synchronize</span><span class="p">();</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>A <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">ManagedVector</span></span></code> is created that can be worked on from
-both the CPU and GPU.  A copy of the underlying data pointer is
-created, so it can be captured and passed into the lambda function.
-The <code class="docutils literal notranslate"><span class="pre">AMREX_LAUNCH_DEVICE_LAMBDA</span></code> launch macro is used and again
-it takes three arguments: the size of the vector as a <code class="code cpp c++ docutils literal notranslate"><span class="keyword type"><span class="pre">long</span></span></code>,
-a name for the loop iterator and a lambda function to perform on
-each iteration.</p>
+<p>Instead of obtaining a device-friendly pointer from <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">fabPtr</span></span></code>,
+the host version of the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code> is obtained using
+<code class="code cpp c++ docutils literal notranslate"><span class="keyword"><span class="pre">operator</span></span><span class="punctuation"><span class="pre">[]</span></span></code> to access the <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Real</span></span></code> managed data pointer
+on the CPU.  The <code class="docutils literal notranslate"><span class="pre">AMREX_LAUNCH_DEVICE_LAMBDA</span></code> launch macro is
+used and again it takes three arguments: the number of independent
+elements , <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">nitems</span></span></code> a name for the index for each thread and
+a  lambda function to perform on each element.  In this case, the
+lambda function directly calls the desired code, rather than a
+separate device function.</p>
 <p>This form of the macro can be used to create any standard, singly
-incremented loop on a GPU, not just over a vector.  This macro
-can also work on any contiguous subsets of a data set by passing
-a pointer that points to the beginning of the subset and the size
-of the subset.</p>
-<p>Users must be aware that there is no automatic device synchronize,
-as these launches do not have to occur inside of an <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code>
-loop.  Add <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Gpu</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">Device</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">synchronize</span></span><span class="punctuation"><span class="pre">()</span></span></code> where necessary to
-ensure GPU and CPU resources do not alter the same data
-simultaneously.  Lack of automatic GPU stream incremenation is
-another consequence of being outside an <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> loop. Users
-must be aware that if this generic launch is inside a
-non-<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> loop all launches will be placed in the default
-stream, leading to a synchronous implementation of the launches.</p>
+incremented loop on a GPU.  This macro can also work on any
+contiguous subsets of a memory chunk by passing a pointer that
+points to the beginning of the subset and the size of the subset.</p>
 </div>
 <div class="section" id="kernel-launch-details">
 <h2>Kernel launch details<a class="headerlink" href="#kernel-launch-details" title="Permalink to this headline">¶</a></h2>
 <p>CUDA kernel calls are asynchronous and they return before the kernel
 is finished on the GPU. So <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> finishes its iterations on
 the CPU before the GPU finishes its work.  To guarantee consistency,
-there is an implicit CUDA device synchronization (a CUDA barrier) in
+there is an implicit device synchronization (a GPU barrier) in
 the destructor of <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code>.  This ensures that all GPU work
 inside of an <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> loop will complete before code outside of
-the loop is executed.</p>
+the loop is executed. Any CUDA kernel launches made outside of an
+<code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> loop must ensure appropriate device synchronization
+occurs. This can be done by calling <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">Gpu</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">Device</span></span><span class="operator"><span class="pre">::</span></span><span class="name"><span class="pre">synchronize</span></span><span class="punctuation"><span class="pre">()</span></span></code>.</p>
 <p>CUDA supports multiple streams and kernels. Kernels launched in the
 same stream are executed sequentially, but different streams of kernel
 launches may be run in parallel.  For each iteration of <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code>,
@@ -776,13 +831,18 @@ AMReX uses a different CUDA stream (up to 16 streams in total) for the
 kernels in that iteration.  This allows each iteration of an <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code>
 loop to run indepenently and maximize the use of GPU resources while
 writting clean, readable <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> loops.</p>
+<p>It is important to note that outside of <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> loops, AMReX uses
+the default CUDA stream. This stream implements implicit synchronization:
+it behaves as though a device synchronization was called before and after
+each launch.  So, any launches placed outside of an <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> loop
+will be fully synchronous across both the CPU and the GPU.</p>
 <p>Launching kernels with the <code class="docutils literal notranslate"><span class="pre">AMREX_LAUNCH_DEVICE_LAMBDA</span></code> uses the CUDA
 extended lamdba feature.  Extended lambdas have some restrictions the user
 must understand.  For example, the function enclosing the extended
 lamdba must not have private or protected access within its parent class,
 otherwise the code will not compile.  This can be fixed by changing the
 access of the enclosing function to public.</p>
-<p>Another pitfall that <em>must</em> be considered: if the
+<p>Another pitfall that must be considered: if the
 extended lambda accesses a member of the enclosing class, the lambda
 function actually captures <code class="code cpp c++ docutils literal notranslate"><span class="keyword"><span class="pre">this</span></span></code> pointer by value and accesses
 variable via <code class="code cpp c++ docutils literal notranslate"><span class="keyword"><span class="pre">this</span></span><span class="operator"><span class="pre">-&gt;</span></span></code>.  If the object is not accessible on GPU,
@@ -825,7 +885,7 @@ offloaded efficiently, while using CUDA independently in GPU regions:
 when <code class="docutils literal notranslate"><span class="pre">USE_CUDA=FALSE</span></code> and turned off in locations CUDA is implemented
 when <code class="docutils literal notranslate"><span class="pre">USE_CUDA=TRUE</span></code>.</p>
 <p>This can currently be implemented in preparation for an OpenMP strategy and
-users are highly encouraged to do so now. This prevents having to track
+users are highly encouraged to do so now.  This prevents having to track
 down and label the appropriate OpenMP regions in the future and
 clearly labels for readers that OpenMP and GPUs are not being used at the
 same time.  OpenMP pragmas can be turned off using the conditional pragma
@@ -835,6 +895,7 @@ and <code class="code cpp c++ docutils literal notranslate"><span class="name"><
 <span class="cp">#endif</span>
 </pre></div>
 </div>
+<p>This should be added only to MFIter loops that contain GPU work.</p>
 </div>
 </div>
 <div class="section" id="an-example-of-migrating-to-gpu">
@@ -865,9 +926,9 @@ work regions (<code class="docutils literal notranslate"><span class="pre">vbx</
 dependencies between the two (<code class="docutils literal notranslate"><span class="pre">q</span></code>). This makes it difficult to put
 them into a single GPU kernel, so two separate kernels will be
 launched, one for each function.</p>
-<p>As we have discussed in Section <a class="reference internal" href="#sec-gpu-classes"><span class="std std-ref">GPU Safe Classes and Functions</span></a>, all
+<p>As we have discussed in Section <a class="reference internal" href="#sec-gpu-classes-basefab"><span class="std std-ref">BaseFab, FArrayBox, IArrayBox and AsyncFab</span></a>,
 <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code>es in the two <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MultiFab</span></span></code>s, <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">uin</span></span></code>
-and <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">uout</span></span></code> are in unified memory and avaiable on the GPUs.
+and <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">uout</span></span></code>, are available on GPUs through unified memory.
 But <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span> <span class="name"><span class="pre">q</span></span></code> is in host memory.  Creating <code class="docutils literal notranslate"><span class="pre">q</span></code> as a
 managed object using the overloaded <code class="code cpp c++ docutils literal notranslate"><span class="keyword"><span class="pre">new</span></span></code> operator:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">FArrayBox</span><span class="o">*</span> <span class="n">q</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FArrayBox</span><span class="p">;</span>
@@ -881,7 +942,7 @@ segfault when <code class="code cpp c++ docutils literal notranslate"><span clas
 when the previous iteration of the loop is still using an old size.</p>
 <p>Moving the line into the body of <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">MFIter</span></span></code> loop will make <code class="docutils literal notranslate"><span class="pre">q</span></code>
 a variable local to each iteration, but it has a new issue.  When
-do we delete <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">q</span></span></code>?  To the CPU, the resource of <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">q</span></span></code>
+is <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">q</span></span></code> deleted?  To the CPU, the resource of <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">q</span></span></code>
 should be freed at the end of the scope, otherwise there will be
 a memory leak.  But at the end of the CPU scope, GPU kernels might
 still need it.</p>
@@ -1081,11 +1142,43 @@ If you require further profiling detail, use <code class="docutils literal notra
 <h1>Performance Tips<a class="headerlink" href="#performance-tips" title="Permalink to this headline">¶</a></h1>
 <p id="sec-gpu-performance">Here are some helpful performance tips to keep in mind when working with
 AMReX for GPUs:</p>
-<ul class="simple">
-<li></li>
-<li></li>
-<li></li>
+<ul>
+<li><p class="first">It is important to use <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">fabPtr</span></span></code> and <code class="code cpp c++ docutils literal notranslate"><span class="keyword"><span class="pre">operator</span></span><span class="punctuation"><span class="pre">[]</span></span></code> in the
+appropriate places to minimize unnecessary data movement.
+If a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span></code> functions are called from a <code class="code cpp c++ docutils literal notranslate"><span class="name"><span class="pre">FArrayBox</span></span><span class="operator"><span class="pre">*</span></span></code>
+created by on the device, the associated meta-data will be transferred
+back to the CPU, causing substantial slow-downs.</p>
+</li>
+<li><p class="first">To obtain the best performance when using CUDA kernel launches, all
+device functions called within the launch region should be inlined.
+Inlined functions use substantially fewer registers, freeing up GPU
+resources to perform other tasks. This increases parallel performance
+and greatly reduces runtime.</p>
+<p>Functions are written inline by including their declarations in the
+<code class="docutils literal notranslate"><span class="pre">.H</span></code> file and using the <code class="docutils literal notranslate"><span class="pre">AMREX_INLINE</span></code> AMReX macro.  Examples can
+be found in <code class="docutils literal notranslate"><span class="pre">Tutorials\GPU\Launch</span></code>. For example:</p>
+</li>
 </ul>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">AMREX_GPU_DEVICE</span>
+<span class="n">AMREX_INLINE</span>
+<span class="kt">void</span> <span class="nf">plusone_cudacpp</span> <span class="p">(</span><span class="n">amrex</span><span class="o">::</span><span class="n">Box</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">bx</span><span class="p">,</span> <span class="n">amrex</span><span class="o">::</span><span class="n">FArrayBox</span><span class="o">&amp;</span> <span class="n">fab</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="k">auto</span> <span class="n">len</span> <span class="o">=</span> <span class="n">amrex</span><span class="o">::</span><span class="n">length</span><span class="p">(</span><span class="n">bx</span><span class="p">);</span>  <span class="c1">// length of box</span>
+    <span class="k">const</span> <span class="k">auto</span> <span class="n">lo</span>  <span class="o">=</span> <span class="n">amrex</span><span class="o">::</span><span class="n">lbound</span><span class="p">(</span><span class="n">bx</span><span class="p">);</span>  <span class="c1">// lower bound of box</span>
+    <span class="k">const</span> <span class="k">auto</span> <span class="n">data</span> <span class="o">=</span> <span class="n">fab</span><span class="p">.</span><span class="n">view</span><span class="p">(</span><span class="n">lo</span><span class="p">);</span>  <span class="c1">// a view starting from lo</span>
+
+    <span class="k">for</span>         <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">len</span><span class="p">.</span><span class="n">z</span><span class="p">;</span> <span class="o">++</span><span class="n">k</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span>     <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">len</span><span class="p">.</span><span class="n">y</span><span class="p">;</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// We know this is safe for simd on cpu.  So let&#39;s give compiler some help.</span>
+            <span class="n">AMREX_PRAGMA_SIMD</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">len</span><span class="p">.</span><span class="n">x</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">data</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span> <span class="o">+=</span> <span class="mf">1.0</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="limitations">
 <h1>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h1>
