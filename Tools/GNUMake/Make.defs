@@ -124,6 +124,8 @@ ifeq ($(USE_PMI), TRUE)
 endif
 
 ifeq ($(USE_OMP_OFFLOAD), TRUE)
+  USE_GPU := TRUE
+  OMPOLSuffix := .OMPOL
   DEFINES += -DAMREX_OMP_OFFLOAD
 endif
 
@@ -605,7 +607,7 @@ libraries	= $(LIBRARIES) $(XTRALIBS)
 
 LDFLAGS		+= -L. $(addprefix -L, $(LIBRARY_LOCATIONS))
 
-machineSuffix	= $(lowercase_comp)$(archSuffix)$(PrecisionSuffix)$(DebugSuffix)$(ProfSuffix)$(MProfSuffix)$(BTSuffix)$(MPISuffix)$(UPCXXSuffix)$(OMPSuffix)$(ACCSuffix)$(CUDASuffix)$(USERSuffix)
+machineSuffix	= $(lowercase_comp)$(archSuffix)$(PrecisionSuffix)$(DebugSuffix)$(ProfSuffix)$(MProfSuffix)$(BTSuffix)$(MPISuffix)$(UPCXXSuffix)$(OMPSuffix)$(ACCSuffix)$(OMPOLSuffix)$(CUDASuffix)$(USERSuffix)
 
 optionsSuffix	= $(DIM)d.$(machineSuffix)
 
